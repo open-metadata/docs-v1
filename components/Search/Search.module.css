@@ -1,0 +1,20 @@
+.SearchContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background-color: #eff2f6;
+  max-width: 632px;
+  height: 36px;
+  border: 1px solid #eff2f6;
+  border-radius: 4px;
+  width: 40%;
+  padding: 8px 16px;
+}
+
+.SearchIcon {
+  width: 16px;
+  height: 16px;
+  margin-right: 16px;
+  rotate: 90deg;
+}

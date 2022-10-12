@@ -8,6 +8,8 @@
   "dependencies": {
     "@markdoc/markdoc": "latest",
     "@markdoc/next.js": "latest",
+    "@svgr/webpack": "^6.2.1",
+    "file-loader": "^6.2.0",
     "next": "latest",
     "prismjs": "latest",
     "react": "latest",

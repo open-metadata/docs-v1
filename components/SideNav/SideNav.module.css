@@ -1,0 +1,42 @@
+.NavLink > a {
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  color: #76746f;
+}
+
+.LinkContainer {
+  margin-left: 12px;
+}
+
+.Active > a {
+  color: #8d6af1;
+}
+
+.NavLink {
+  height: 40px;
+  padding: 8px;
+}
+
+.NavLink:hover {
+  background-color: rgb(229, 227, 238);
+}
+
+.SideNav {
+  background-color: rgb(249 248 253);
+  padding: 16px;
+}
+
+.Category {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  margin-top: 4px;
+  margin-bottom: 8px;
+}
+
+.Category > a {
+  margin-left: 4px;
+  text-decoration: none;
+  color: #803df5;
+}

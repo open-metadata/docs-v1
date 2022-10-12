@@ -1,31 +1,31 @@
-import React from 'react';
-import Head from 'next/head';
-import Link from 'next/link';
+import React from "react";
+import Head from "next/head";
 
-import { SideNav, TableOfContents, TopNav } from '../components';
+import { SideNav, TableOfContents, TopNav } from "../components";
 
-import 'prismjs';
+import "prismjs";
 // Import other Prism themes here
-import 'prismjs/components/prism-bash.min';
-import 'prismjs/themes/prism.css';
+import "prismjs/components/prism-bash.min";
+import "prismjs/themes/prism.css";
+import "../public/globals.css";
 
-import '../public/globals.css'
+import type { AppProps } from "next/app";
+import type { MarkdocNextJsPageProps } from "@markdoc/next.js";
+import PageLayout from "../components/Layout/PageLayout";
+import Breadcrumb from "../components/Breadcrumb/Breadcrumb";
 
-import type { AppProps } from 'next/app'
-import type { MarkdocNextJsPageProps } from '@markdoc/next.js'
-
-const TITLE = 'Markdoc';
-const DESCRIPTION = 'A powerful, flexible, Markdown-based authoring framework';
+const TITLE = "Markdoc";
+const DESCRIPTION = "A powerful, flexible, Markdown-based authoring framework";
 
 function collectHeadings(node, sections = []) {
   if (node) {
-    if (node.name === 'Heading') {
+    if (node.name === "Heading") {
       const title = node.children[0];
 
-      if (typeof title === 'string') {
+      if (typeof title === "string") {
         sections.push({
           ...node.attributes,
-          title
+          title,
         });
       }
     }
@@ -40,9 +40,10 @@ function collectHeadings(node, sections = []) {
   return sections;
 }
 
-export type MyAppProps = MarkdocNextJsPageProps
+export type MyAppProps = MarkdocNextJsPageProps;
 
 export default function MyApp({ Component, pageProps }: AppProps<MyAppProps>) {
+  console.log(pageProps);
   const { markdoc } = pageProps;
 
   let title = TITLE;
@@ -71,34 +72,16 @@ export default function MyApp({ Component, pageProps }: AppProps<MyAppProps>) {
         <link rel="shortcut icon" href="/favicon.ico" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <TopNav>
-        <Link href="/docs">Docs</Link>
-      </TopNav>
-      <div className="page">
+      <TopNav />
+      <PageLayout>
         <SideNav />
-        <main className="flex column">
+        <main className="flex column content">
+          <Breadcrumb slug={pageProps.markdoc?.frontmatter?.slug} />
           <Component {...pageProps} />
         </main>
         <TableOfContents toc={toc} />
-      </div>
-      <style jsx>
-        {`
-          .page {
-            position: fixed; 
-            top: var(--top-nav-height);
-            display: flex;
-            width: 100vw;
-            flex-grow: 1;
-          }
-          main {
-            overflow: auto;
-            height: calc(100vh - var(--top-nav-height));
-            flex-grow: 1;
-            font-size: 16px;
-            padding: 0 2rem 2rem;
-          }
-        `}
-      </style>
+        <div className="footer"> This is Footer</div>
+      </PageLayout>
     </>
   );
 }

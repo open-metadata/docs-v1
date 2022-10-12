@@ -1,0 +1,15 @@
+.Container {
+  display: grid;
+  position: absolute;
+  margin-top: 75px;
+  width: 100%;
+  grid-template-columns:
+    var(--side-nav-width) calc(
+      100vw - var(--side-nav-width) - var(--content-div-width)
+    )
+    var(--content-div-width);
+  grid-template-areas:
+    "mainNav mainNav mainNav"
+    "leftNav content rightNav"
+    "leftNav footer footer";
+}
