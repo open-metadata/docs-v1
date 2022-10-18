@@ -1,10 +1,13 @@
 .Note {
-  /* @apply bg-blue bg-opacity-[calc(60/1000)] border border-blue; */
-  background-color: #2eaadc;
-  opacity: 0.06;
-  border: 1px solid #2eaadc;
+  background: #dde3ea66;
+  border-radius: 4px;
+  border-left: 4px solid #2eaadc;
+  display: flex;
 }
 
-:global(.dark) .Note {
-  background-color: #062633;
+.Icon {
+  width: 26px;
+  height: 16px;
+  margin-right: 16px;
+  margin-top: 4px;
 }

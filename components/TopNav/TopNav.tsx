@@ -9,7 +9,7 @@ import { ReactComponent as Cloud } from "../../images/icons/cloud.svg";
 import { ReactComponent as API } from "../../images/icons/api.svg";
 import Search from "../Search/Search";
 
-export function TopNav() {
+export default function TopNav() {
   return (
     <nav className={styles.NavBar}>
       <div className="flex justify-between align-center">
@@ -24,15 +24,15 @@ export function TopNav() {
             name="version-selector"
             id="version-selector"
           >
-            <option value="0.10.0">0.10.0</option>
-            <option value="0.10.1">0.10.1</option>
-            <option value="0.11.0">0.11.0</option>
-            <option value="0.11.1">0.11.1</option>
-            <option value="0.11.2">0.11.2</option>
-            <option value="0.11.3">0.11.3</option>
-            <option value="0.11.4">0.11.4</option>
-            <option value="0.12.0">0.12.0</option>
-            <option value="0.12.1">0.12.1</option>
+            <option value="0.10.0">V 0.10.0</option>
+            <option value="0.10.1">V 0.10.1</option>
+            <option value="0.11.0">V 0.11.0</option>
+            <option value="0.11.1">V 0.11.1</option>
+            <option value="0.11.2">V 0.11.2</option>
+            <option value="0.11.3">V 0.11.3</option>
+            <option value="0.11.4">V 0.11.4</option>
+            <option value="0.12.0">V 0.12.0</option>
+            <option value="0.12.1">V 0.12.1</option>
           </select>
         </div>
       </div>

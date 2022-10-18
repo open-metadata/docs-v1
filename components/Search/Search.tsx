@@ -20,7 +20,7 @@ export default function Search() {
     <div className={styles.SearchContainer}>
       <div className="flex align-center">
         <SearchIcon className={styles.SearchIcon} />
-        <p>Search</p>
+        <p className={styles.SearchText}>Search</p>
       </div>
       <p>{hotKey}</p>
     </div>

@@ -1,0 +1,30 @@
+.Container {
+  padding: 140px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 80px;
+}
+
+.Heading {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 58px;
+  line-height: 70px;
+  color: #2b2a36;
+}
+
+.Divider {
+  width: 200px;
+  height: 8px;
+  background-color: #ffc143;
+  margin: 12px 0px 24px 0px;
+}
+
+.Content {
+  width: calc(100vw / 2 - 150px);
+}
+
+.Video {
+  width: calc(100vw / 2 - 150px);
+}

@@ -12,7 +12,12 @@
   padding: 8px 16px;
 }
 
+.SearchText {
+  @apply m-0;
+}
+
 .SearchIcon {
+  margin-top: 4px;
   width: 16px;
   height: 16px;
   margin-right: 16px;

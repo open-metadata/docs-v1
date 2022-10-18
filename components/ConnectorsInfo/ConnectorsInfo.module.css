@@ -1,0 +1,16 @@
+.Container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  gap: 30px;
+}
+
+.ConnectorItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ConnectorImg {
+  height: 42px;
+  width: 42px;
+}

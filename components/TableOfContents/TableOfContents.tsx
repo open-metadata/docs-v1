@@ -1,39 +1,35 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Link from "next/link";
 import styles from "./TableOfContents.module.css";
+import classNames from "classnames";
 
-export function TableOfContents({ toc }) {
-  console.log(toc);
-  const items = toc.filter(
-    (item) => item.id && (item.level === 2 || item.level === 3)
-  );
+interface TocItem {
+  id: string;
+  level: number;
+  title: string;
+}
 
-  if (items.length <= 1) {
+export default function TableOfContents({ toc }: { toc: TocItem[] }) {
+  if (toc.length <= 1) {
     return null;
   }
 
   return (
     <nav className={`${styles.Container} right-nav`}>
-      <h3 className={styles.ContentHeading}>Content</h3>
+      <div className={styles.ContentHeading}>Content</div>
       <ul className={styles.ContentList}>
-        {items.map((item) => {
+        {toc.map((item) => {
           const href = `#${item.id}`;
           const active =
             typeof window !== "undefined" && window.location.hash === href;
+
           return (
             <li
               key={item.title}
-              className={[
-                active ? "active" : undefined,
-                item.level === 3 ? "padded" : undefined,
-              ]
-                .filter(Boolean)
-                .join(" ")}
-              style={{
-                whiteSpace: "nowrap",
-                overflow: "hidden",
-                textOverflow: "ellipsis",
-              }}
+              className={classNames(
+                styles[`Level${item.level}`],
+                styles.ListItem
+              )}
             >
               <Link href={href} passHref>
                 <a className={styles.ContentLink}>{item.title}</a>

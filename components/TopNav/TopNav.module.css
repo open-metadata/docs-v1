@@ -1,7 +1,7 @@
 .NavBar {
   box-sizing: border-box;
 
-  position: absolute;
+  position: fixed;
   width: 100%;
   height: var(--top-nav-height);
   padding: 10px 32px;
@@ -13,6 +13,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  z-index: 100;
 }
 
 .IconContainer {
@@ -34,6 +35,7 @@
 
 .VersionSelector {
   margin-left: 32px;
+  margin-top: 8px;
   height: 36px;
   width: 212px;
 

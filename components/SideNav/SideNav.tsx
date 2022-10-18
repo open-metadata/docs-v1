@@ -1,71 +1,95 @@
-import React, { ReactNode } from "react";
+import React, { ReactNode, useEffect, useMemo } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
-import { ReactComponent as QuckStart } from "../../images/icons/Quickstart.svg";
+import { ReactComponent as OverviewIcon } from "../../images/icons/overview-icon.svg";
+import { ReactComponent as ArrowDown } from "../../images/icons/drop-arrow-down.svg";
+import { ReactComponent as ArrowRight } from "../../images/icons/drop-arrow-right.svg";
 import styles from "./SideNav.module.css";
-
-const items = [
-  {
-    title: "Quckstart",
-    href: "/docs/quick-start",
-    type: "category",
-    icon: <QuckStart />,
-    children: [
-      {
-        title: "Try OpenMetadata in Docker",
-        href: "/docs/quick-start/local-deployment",
-      },
-      {
-        title: "Try OpenMetadata in Sandbox",
-        href: "/docs/quick-start/sandbox",
-      },
-    ],
-  },
-];
+import { getMenuItems } from "./SideNav.constants";
+import classNames from "classnames";
 
 interface NavItemType {
-  title: string;
+  name: string;
   href: string;
-  type?: string;
-  icon?: ReactNode;
-  children: NavItemType[];
+  children?: NavItemType[];
 }
 
-export function SideNav() {
+export default function SideNav() {
   const router = useRouter();
+  const category = router.pathname.split("/")[1];
 
-  const getNavBar = (items: NavItemType[]) => {
+  const items = useMemo(() => getMenuItems(category), [router]);
+
+  useEffect(() => {
+    const toggler = document.getElementsByClassName("caret");
+    for (let i = 0; i < toggler.length; i++) {
+      toggler[i].addEventListener("click", function () {
+        this.parentElement.querySelector(".nested").classList.toggle("active");
+        this.classList.toggle("caret-down");
+      });
+    }
+  });
+
+  const getNavBar = (items: NavItemType[], id?: string) => {
     return (
-      <div className={styles.LinkContainer}>
-        {items.map((item) => {
-          const active = router.pathname === item.href;
-          return (
-            <div key={item.href}>
-              <div
-                className={
-                  item.type === "category"
-                    ? styles.Category
-                    : `${styles.NavLink} ${active ? styles.Active : ""}`
-                }
-              >
-                {item.icon}
-                <Link title={item.title} href={item.href}>
-                  <a href={item.href}>{item.title}</a>
-                </Link>
-              </div>
-              {item.children &&
-                item.children.length > 0 &&
-                getNavBar(item.children)}
-            </div>
-          );
-        })}
-      </div>
+      <ul
+        id={id}
+        className={classNames(styles.LinkContainer, id ? "" : "nested")}
+      >
+        {items &&
+          items.map((item) => {
+            const isDropdown = item.children && item.children.length;
+            const isActive = item.href === router.pathname;
+            return (
+              <>
+                <li className={styles.ListItem} key={item.href}>
+                  {isDropdown ? (
+                    <span className={classNames("caret", styles.ListItem)}>
+                      <ArrowDown className="DownArrow" />
+                      <ArrowRight className="RightArrow" />
+                      <Link href={item.href}>
+                        <a
+                          className={classNames(
+                            styles.Link,
+                            isActive ? styles.ActiveLink : ""
+                          )}
+                          href={item.href}
+                        >
+                          {item.name}
+                        </a>
+                      </Link>
+                    </span>
+                  ) : (
+                    <Link href={item.href}>
+                      <a
+                        className={classNames(
+                          styles.Link,
+                          isActive ? styles.ActiveLink : ""
+                        )}
+                        href={item.href}
+                      >
+                        {item.name}
+                      </a>
+                    </Link>
+                  )}
+                  {isDropdown && getNavBar(item.children)}
+                </li>
+              </>
+            );
+          })}
+      </ul>
     );
   };
 
   return (
     <nav className={`${styles.SideNav} left-nav`}>
-      {getNavBar(items as NavItemType[])}
+      <div className="flex items-center gap-4 px-4">
+        <OverviewIcon />
+        <p className="text-md">
+          {category.charAt(0).toUpperCase() + category.slice(1)}
+        </p>
+      </div>
+      {getNavBar(items as NavItemType[], "myUL")}
     </nav>
   );
 }

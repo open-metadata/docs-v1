@@ -13,7 +13,7 @@ export default function Breadcrumb({ slug }: { slug: string }) {
   const breadcrumb: Crumb[] = [
     {
       title: "",
-      path: "/docs/",
+      path: "/",
       icon: <HomeIcon className={styles.HomeIcon} />,
     },
   ];
@@ -25,7 +25,7 @@ export default function Breadcrumb({ slug }: { slug: string }) {
       .forEach((element) => {
         breadcrumb.push({
           title: element,
-          path: `/docs${slug.slice(0, slug.indexOf(element) + element.length)}`,
+          path: `${slug.slice(0, slug.indexOf(element) + element.length)}`,
         });
       });
 
@@ -36,7 +36,12 @@ export default function Breadcrumb({ slug }: { slug: string }) {
           <Link className="flex align-center" href={crumb.path}>
             <span className={styles.BreadcumbLink}>
               <span>{crumb.icon}</span>
-              <span>{crumb.title}</span>
+              <span>
+                {crumb.title
+                  .split("-")
+                  .map((i) => i.charAt(0).toUpperCase() + i.slice(1))
+                  .join(" ")}
+              </span>
             </span>
           </Link>
           {idx < breadcrumb.length - 1 && (
