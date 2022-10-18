@@ -1,0 +1,29 @@
+.SideNav {
+  padding: 16px;
+  height: calc(100vh - var(--top-nav-height) - var(--main-nav-height));
+  border-right: 1px solid var(--default-border-color);
+  position: fixed;
+  width: 288px;
+  top: calc(var(--main-nav-height) + var(--top-nav-height));
+}
+
+.LinkContainer {
+  padding-left: 24px;
+  list-style: none;
+}
+
+.Link {
+  color: inherit;
+}
+
+.ListItem {
+  padding-bottom: 16px;
+  color: #76746f;
+  font-size: 14px;
+  font-weight: 400;
+  margin: 0px;
+}
+
+.ActiveLink {
+  color: var(--primary-color);
+}

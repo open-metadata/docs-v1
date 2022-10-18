@@ -1,0 +1,19 @@
+.HeaderLink {
+  @apply flex items-center;
+}
+
+.CopiedText {
+  @apply text-xs ml-4;
+}
+
+.Icon {
+  @apply ml-4 opacity-0;
+}
+
+.HeaderLink:hover .Icon {
+  @apply opacity-90;
+}
+
+.HashLink {
+  @apply no-underline block h-0 w-0 overflow-hidden invisible pointer-events-none;
+}

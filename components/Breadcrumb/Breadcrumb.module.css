@@ -1,0 +1,20 @@
+.Container {
+  display: flex;
+  align-items: center;
+}
+
+.Divider {
+  margin: 0px 8px;
+}
+
+.HomeIcon {
+  margin-top: 2px;
+}
+
+.BreadcumbLink {
+  cursor: pointer;
+}
+
+.BreadcumbLink:hover {
+  text-decoration: underline;
+}

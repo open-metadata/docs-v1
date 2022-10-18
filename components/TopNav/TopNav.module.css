@@ -1,0 +1,49 @@
+.NavBar {
+  box-sizing: border-box;
+
+  position: fixed;
+  width: 100%;
+  height: var(--top-nav-height);
+  padding: 10px 32px;
+
+  background: #ffffff;
+  border-bottom: 1px solid #dde3ea;
+  box-shadow: 0px 4px 18px rgba(141, 141, 141, 0.1);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+}
+
+.IconContainer {
+  display: flex;
+  flex: auto;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 200px;
+}
+
+.CloudBtn {
+  background-color: #7147e8;
+  padding: 0px 16px;
+  border: 1px solid #7147e8;
+  border-radius: 24px;
+  width: 55px;
+  height: 44px;
+}
+
+.VersionSelector {
+  margin-left: 32px;
+  margin-top: 8px;
+  height: 36px;
+  width: 212px;
+
+  background-color: #eeeaf8;
+  border: 1px solid #eeeaf8;
+  border-radius: 6px;
+  padding: 8px 16px;
+  color: #7147e8;
+  font-weight: 500;
+  outline: none;
+}
