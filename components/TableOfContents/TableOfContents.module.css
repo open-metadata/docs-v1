@@ -6,6 +6,13 @@
   width: var(--content-div-width);
   right: 0px;
   top: calc(var(--top-nav-height) + var(--main-nav-height));
+  overflow-y: scroll;
+  max-height: calc(100vh - var(--top-nav-height) - var(--main-nav-height));
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.Container::-webkit-scrollbar {
+  display: none;
 }
 
 .ContentHeading {
@@ -20,6 +27,8 @@
 .ContentLink {
   text-decoration: none;
   color: inherit;
+  font-size: 14px;
+  font-weight: 400;
 }
 
 .ContentLink:hover {
@@ -33,7 +42,7 @@
 }
 
 .ContentList > li {
-  margin: 0px;
+  margin: 0px 0px 8px 0px;
 }
 
 .ListItem {

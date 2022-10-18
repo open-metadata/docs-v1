@@ -22,9 +22,9 @@ export function Heading({ id = "", level = 1, children, className }) {
       <Head className={classNames(className, styles.HeaderLink)} id={id}>
         {children}
         {copied ? (
-          <div className={styles.CopiedText}>Copied</div>
+          <span className={styles.CopiedText}>Copied</span>
         ) : (
-          <div className={styles.Icon} onClick={copyLinkUnbound}>
+          <span className={styles.Icon} onClick={copyLinkUnbound}>
             <svg
               width="14"
               height="17"
@@ -39,7 +39,7 @@ export function Heading({ id = "", level = 1, children, className }) {
                 fill="#808495"
               />
             </svg>
-          </div>
+          </span>
         )}
       </Head>
     </>

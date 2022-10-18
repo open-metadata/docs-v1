@@ -24,15 +24,15 @@ export default function TopNav() {
             name="version-selector"
             id="version-selector"
           >
-            <option value="0.10.0">V 0.10.0</option>
-            <option value="0.10.1">V 0.10.1</option>
-            <option value="0.11.0">V 0.11.0</option>
-            <option value="0.11.1">V 0.11.1</option>
-            <option value="0.11.2">V 0.11.2</option>
-            <option value="0.11.3">V 0.11.3</option>
-            <option value="0.11.4">V 0.11.4</option>
-            <option value="0.12.0">V 0.12.0</option>
-            <option value="0.12.1">V 0.12.1</option>
+            <option value="0.10.0">v 0.10.0</option>
+            <option value="0.10.1">v 0.10.1</option>
+            <option value="0.11.0">v 0.11.0</option>
+            <option value="0.11.1">v 0.11.1</option>
+            <option value="0.11.2">v 0.11.2</option>
+            <option value="0.11.3">v 0.11.3</option>
+            <option value="0.11.4">v 0.11.4</option>
+            <option value="0.12.0">v 0.12.0</option>
+            <option value="0.12.1">v 0.12.1</option>
           </select>
         </div>
       </div>

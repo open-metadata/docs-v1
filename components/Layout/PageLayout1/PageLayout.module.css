@@ -3,7 +3,7 @@
   position: absolute;
   margin-top: 75px;
   width: 100%;
-  background-color: #fcfdff;
+  background-color: #ffffff;
   grid-template-columns:
     var(--side-nav-width) calc(
       100vw - var(--side-nav-width) - var(--content-div-width)

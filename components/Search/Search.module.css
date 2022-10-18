@@ -3,11 +3,11 @@
   justify-content: space-between;
   align-items: center;
 
-  background-color: #eff2f6;
+  background-color: #ffffff;
   max-width: 632px;
   height: 36px;
-  border: 1px solid #eff2f6;
-  border-radius: 4px;
+  border: 1px solid #eaecee;
+  border-radius: 6px;
   width: 40%;
   padding: 8px 16px;
 }

@@ -1,0 +1,40 @@
+.Container {
+  /* @apply flex flex-col flex-initial items-center my-4 pb-4 border-b border-b-gray-30; */
+  position: relative;
+  width: 344px;
+  background: #ffffff;
+  border: 1px solid rgba(221, 227, 234, 0.6);
+  box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.Title {
+  @apply my-0 font-bold text-lg;
+  @apply text-gray-90 !important;
+}
+
+.Text {
+  @apply text-[14px] tracking-tight leading-normal table-row mt-1.5;
+  @apply text-[#37352f] !important;
+}
+
+.blogContent {
+  @apply flex flex-col justify-between p-4 pb-8;
+}
+
+.Link {
+  position: absolute;
+  bottom: 10px;
+  font-size: 14px;
+}
+
+.blogImage {
+  @apply h-[164px];
+  box-shadow: 0px 0px 2px rgb(0 0 0 / 30%);
+  border-top: 1px solid #ffffff;
+  border-radius: 10px;
+  width: 344px;
+  height: 164px;
+}

@@ -1,16 +1,17 @@
 .Container {
-  padding: 140px 0px;
+  padding: 80px 0px;
+  margin-top: 46px;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 80px;
+  gap: 40px;
 }
 
 .Heading {
   font-style: normal;
   font-weight: 700;
-  font-size: 58px;
-  line-height: 70px;
+  font-size: 32px;
+  line-height: 54px;
   color: #2b2a36;
 }
 
@@ -18,13 +19,17 @@
   width: 200px;
   height: 8px;
   background-color: #ffc143;
-  margin: 12px 0px 24px 0px;
+  margin: 6px 0px 16px 0px;
 }
 
 .Content {
-  width: calc(100vw / 2 - 150px);
+  width: calc(
+    (100vw - (var(--homepage-container-px) * 2) - 40px) / 2
+  ); /* 40px gap between fro .Container */
 }
 
 .Video {
-  width: calc(100vw / 2 - 150px);
+  width: calc(
+    (100vw - (var(--homepage-container-px) * 2) - 40px) / 2
+  ); /* 40px gap between fro .Container */
 }
