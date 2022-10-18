@@ -1,4 +1,4 @@
-import InlineCallout from "../../components/common/InlineCallout/inlineCallout";
+import InlineCallout from "../../components/common/InlineCallout/InlineCallout";
 
 export const inlineCallout = {
   render: InlineCallout,
