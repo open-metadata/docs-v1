@@ -6,7 +6,7 @@ import { getMenuItems } from "./SideNav.constants";
 import ListItem from "./ListItem";
 import classNames from "classnames";
 import { ReactComponent as CollapseLeftIcon } from "../../images/icons/collapse-left.svg";
-import { ReactComponent as CollapseRightIcon } from "../../images/icons/collapse-Right.svg";
+import { ReactComponent as CollapseRightIcon } from "../../images/icons/collapse-right.svg";
 
 interface Props {
   collapsedNav: boolean;
