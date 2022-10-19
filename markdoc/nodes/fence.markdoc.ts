@@ -1,4 +1,4 @@
-import Code from "../../components/common/Code/Code.js";
+import Code from "../../components/common/Code/Code";
 
 export const fence = {
   render: Code,

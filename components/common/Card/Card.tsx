@@ -15,7 +15,7 @@ export default function Card({ heading, content, url }: Props) {
     <div className={styles.Container}>
       <Puzzle />
       <div className={styles.Heading}>{heading}</div>
-      <p>{content}</p>
+      <p className="m-0">{content}</p>
       <Link href={url}>
         <ArrowRight className={styles.ArrowIcon} />
       </Link>

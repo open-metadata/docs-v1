@@ -2,7 +2,7 @@ import React from "react";
 
 import styles from "./Youtube.module.css";
 
-const YouTube = ({ caption, videoId, start, end }) => {
+const YouTube = ({ caption = "", videoId, start = "", end = "" }) => {
   let YouTubeBlock;
 
   if (caption) {

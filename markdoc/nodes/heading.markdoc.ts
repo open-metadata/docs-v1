@@ -1,5 +1,4 @@
 import { Tag } from "@markdoc/markdoc";
-
 import { Heading } from "../../components/Heading/Heading";
 
 function generateID(children, attributes) {

@@ -1,21 +1,46 @@
 import React from "react";
-import Banner from "../components/common/Banner/Banner";
 import Card from "../components/common/Card/Card";
 import InfoCards from "../components/common/InfoCards/InfoCards";
 import ConnectorsInfo from "../components/ConnectorsInfo/ConnectorsInfo";
+import bannerStyles from "../components/common/Banner/Banner.module.css";
+import YouTube from "../components/common/Youtube/Youtube";
+import NewsEntry from "../components/NewsEntry/NewsEntry";
 
 export default function index() {
   return (
     <>
-      <Banner
-        heading="OpenMetadata Documentation"
-        content="Unlock the value of data assets with an end-to-end metadata management solution that includes data discovery, governance, data quality, observability, and people collaboration."
-        videoId="ld43_jafL9w"
-        bgColor="white"
-      />
+      <div className={bannerStyles.Container}>
+        <div className={bannerStyles.Content}>
+          <div className="mb-8">
+            <div className={bannerStyles.Heading}>
+              OpenMetadata Documentation
+            </div>
+            <section className={bannerStyles.Divider} />
+            <p>
+              Unlock the value of data assets with an end-to-end metadata
+              management solution that includes data discovery, governance, data
+              quality, observability, and people collaboration.
+            </p>
+          </div>
+          <>
+            <div className={bannerStyles.Heading}>
+              OpenMetadata Documentation
+            </div>
+            <section className={bannerStyles.Divider} />
+            <p>
+              Unlock the value of data assets with an end-to-end metadata
+              management solution that includes data discovery, governance, data
+              quality, observability, and people collaboration.
+            </p>
+          </>
+        </div>
+        <div className={bannerStyles.Video}>
+          <YouTube videoId="ld43_jafL9w" />
+        </div>
+      </div>
       <div className="overview-container">
         <div className="overview-heading">Overview</div>
-        <p>
+        <p className="m-0">
           OpenMetadata enables metadata management end-to-end, giving you the
           ability to unlock the value of data assets in the common use cases of
           data discovery and governance, but also in emerging use cases related
@@ -65,6 +90,29 @@ export default function index() {
       <div className="homepage-containers">
         <div className="container-heading">Connectors</div>
         <ConnectorsInfo />
+      </div>
+      <div className="homepage-containers">
+        <div className="container-heading">Blogs</div>
+        <div className="flex justify-between">
+          <NewsEntry
+            title="OpenMetadata 0.11.0 release"
+            text="Data Collaboration, Column-level Lineage, ML Models, Data Profiler, Advanced Search, Data Lake Connectors, and more."
+            link="https://blog.open-metadata.org/openmetadata-0-11-release-8b82c85636a"
+            image={<img src="/blog1.png" />}
+          />
+          <NewsEntry
+            title="OpenMetadata 0.10.0 release"
+            text="Backend APIs, Support for database schema objects, Hard deletion of entities, Refactor service connectors, DBT changes, Security updates, and more."
+            link="https://blog.open-metadata.org/openmetadata-0-10-0-release-82c4f5533c3f"
+            image={<img src="/blog2.png" />}
+          />
+          <NewsEntry
+            title="Why OpenMetadata is the Right Choice for you"
+            text="OpenMetadata is a fresh start on how to do Metadata right from first principles."
+            link="https://blog.open-metadata.org/why-openmetadata-is-the-right-choice-for-you-59e329163cac"
+            image={<img src="/blog3.png" />}
+          />
+        </div>
       </div>
     </>
   );

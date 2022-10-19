@@ -1,11 +1,10 @@
 import classNames from "classnames";
 import * as React from "react";
 import styles from "./Heading.module.css";
+import HeadingElement from "./HeadingElement";
 
 export function Heading({ id = "", level = 1, children, className }) {
   const [copied, setCopied] = React.useState(false);
-
-  const Head = `h${level}`;
 
   const copyLinkUnbound = async () => {
     const link = `${window.location.host}${window.location.pathname}#${id}`;
@@ -18,13 +17,17 @@ export function Heading({ id = "", level = 1, children, className }) {
 
   return (
     <>
-      <a name={id} className={styles.HashLink} />
-      <Head className={classNames(className, styles.HeaderLink)} id={id}>
+      <a id={id} className={styles.HashLink} />
+      <HeadingElement
+        className={classNames(className, styles.HeaderLink)}
+        id={id}
+        level={level}
+      >
         {children}
         {copied ? (
-          <div className={styles.CopiedText}>Copied</div>
+          <span className={styles.CopiedText}>Copied</span>
         ) : (
-          <div className={styles.Icon} onClick={copyLinkUnbound}>
+          <span className={styles.Icon} onClick={copyLinkUnbound}>
             <svg
               width="14"
               height="17"
@@ -39,9 +42,9 @@ export function Heading({ id = "", level = 1, children, className }) {
                 fill="#808495"
               />
             </svg>
-          </div>
+          </span>
         )}
-      </Head>
+      </HeadingElement>
     </>
   );
 }

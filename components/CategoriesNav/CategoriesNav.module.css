@@ -1,11 +1,11 @@
 .Container {
   position: fixed;
   width: 100vw;
-  padding: 16px 24px 0px 24px;
+  padding: 10px 24px 0px 24px;
   display: flex;
-  gap: 50px;
+  gap: 24px;
   border-bottom: 1px solid #dde3ea;
-  background-color: #ffffff;
+  background-color: #f7fafc;
   box-shadow: 0px 4px 4px rgba(141, 141, 141, 0.06);
   z-index: 100;
 }
@@ -13,6 +13,7 @@
 .NavItem {
   padding-bottom: 4px;
   color: inherit;
+  font-size: 14px;
 }
 
 .Active {
