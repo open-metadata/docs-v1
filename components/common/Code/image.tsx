@@ -3,7 +3,19 @@ import classNames from "classnames";
 
 import styles from "./image.module.css";
 
-const Image = ({ caption, pure, src, alt, clean }) => {
+const Image = ({
+  caption,
+  pure,
+  src,
+  alt,
+  clean,
+}: {
+  caption?: string;
+  pure?: string;
+  src: string;
+  alt?: string;
+  clean?: boolean;
+}) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const openModal = () => {

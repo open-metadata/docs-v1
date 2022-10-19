@@ -14,9 +14,8 @@ import "prismjs/plugins/toolbar/prism-toolbar";
 import "prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard";
 import "prismjs/plugins/normalize-whitespace/prism-normalize-whitespace";
 
-import Image from "./image";
-
 import styles from "./Code.module.css";
+import Image from "./image";
 
 export default function Code({ code, children, language, img, lines }) {
   useEffect(() => {

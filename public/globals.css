@@ -4,7 +4,7 @@
 
 :root {
   --top-nav-height: 75px;
-  --main-nav-height: 46px;
+  --main-nav-height: 37px;
   --side-nav-width: min(20%, 300px);
   --content-div-width: min(17%, 250px);
   --default-border-color: #dce3ec;
@@ -125,10 +125,6 @@ ul {
 
 .left-nav {
   grid-area: leftNav;
-}
-
-.right-nav {
-  grid-area: rightNav;
 }
 
 .content {
