@@ -4,7 +4,7 @@ import InfoCards from "../components/common/InfoCards/InfoCards";
 import ConnectorsInfo from "../components/ConnectorsInfo/ConnectorsInfo";
 import bannerStyles from "../components/common/Banner/Banner.module.css";
 import YouTube from "../components/common/Youtube/Youtube";
-import NewsEntry from "../components/NewsEntry/newsEntry";
+import NewsEntry from "../components/NewsEntry/NewsEntry";
 
 export default function index() {
   return (
