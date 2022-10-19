@@ -1,0 +1,13 @@
+.Container {
+  display: grid;
+  position: absolute;
+  margin-top: 75px;
+  width: 100%;
+  background-color: #ffffff;
+  grid-template-columns: 42px calc(100vw - 42px);
+  grid-template-areas:
+    "mainNav mainNav "
+    "homePage homePage "
+    "leftNav content "
+    "leftNav footer ";
+}

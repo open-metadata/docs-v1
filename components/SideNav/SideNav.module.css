@@ -3,8 +3,19 @@
   height: calc(100vh - var(--top-nav-height) - var(--main-nav-height));
   border-right: 1px solid var(--default-border-color);
   position: fixed;
-  width: 288px;
   top: calc(var(--main-nav-height) + var(--top-nav-height));
+  display: flex;
+  justify-content: space-between;
+}
+
+.CollapsedSideNav {
+  width: 42px;
+  transition: widdth 2s ease-in-out;
+}
+
+.NonCollapsedSideNav {
+  width: 288px;
+  transition: widdth 2s ease-in-out;
 }
 
 .LinkContainer {
@@ -26,4 +37,10 @@
 
 .ActiveLink {
   color: var(--primary-color);
+}
+
+.CollapseIcon {
+  height: 18px;
+  width: 16px;
+  opacity: 50%;
 }
