@@ -81,4 +81,4 @@ Code for third codeInfo tag
 
 {% /codePreview %}
 
-![How above code looks](codePreview.png)
+<img width="2032" alt="image" src="./public/codePreview.png">
