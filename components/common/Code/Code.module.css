@@ -22,7 +22,8 @@
 }
 
 .Container button {
-  @apply absolute top-0 right-2 cursor-pointer h-6 w-6 mb-0 flex items-center hidden;
+  @apply absolute right-2 cursor-pointer h-6 w-6 mb-0 flex items-center hidden;
+  top: -4px;
 }
 
 .Container:hover button {
