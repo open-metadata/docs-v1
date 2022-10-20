@@ -1,0 +1,13 @@
+.Container {
+  overflow-x: auto;
+  background-color: #212d63;
+  border-radius: 8px;
+  height: fit-content;
+  position: sticky;
+  max-height: 80vh;
+  padding: 20px 0px 8px 0px;
+  top: calc(var(--top-nav-height) + var(--main-nav-height) + 40px);
+  overflow-y: scroll;
+  overscroll-behavior: contain;
+  width: 50%;
+}

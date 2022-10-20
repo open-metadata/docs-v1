@@ -8,7 +8,7 @@
   --side-nav-width: min(20%, 300px);
   --content-div-width: min(17%, 250px);
   --default-border-color: #dce3ec;
-  --primary-color: #7147e8;
+  --primary-color: #1890ff;
   --homepage-container-px: 130px;
 }
 
@@ -211,4 +211,12 @@ ul {
 
 .caret-down > .RightArrow {
   display: none;
+}
+
+.highlitedCode pre {
+  background-color: #1a2652;
+}
+
+pre {
+  background-color: #212d63;
 }
