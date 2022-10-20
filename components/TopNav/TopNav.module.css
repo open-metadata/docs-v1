@@ -39,11 +39,11 @@
   height: 28px;
   width: 160px;
 
-  background-color: #eeeaf8;
-  border: 1px solid #eeeaf8;
+  background-color: #ebf6ff;
+  border: 1px solid #dff0ff;
   border-radius: 6px;
   padding: 0px 16px;
-  color: #7147e8;
+  color: var(--primary-color);
   font-weight: 500;
   font-size: 14px;
   outline: none;
