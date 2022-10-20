@@ -3,7 +3,7 @@ import React, { HTMLAttributes } from "react";
 import styles from "./Button.module.css";
 
 interface Props extends HTMLAttributes<HTMLButtonElement> {
-  href: "string";
+  href: string;
   type: "link" | "button";
 }
 
