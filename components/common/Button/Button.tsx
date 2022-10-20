@@ -1,13 +1,9 @@
 import classNames from "classnames";
-import React, { MouseEventHandler, ReactNode } from "react";
+import React, { HTMLAttributes } from "react";
 import styles from "./Button.module.css";
 
-interface Props {
-  children: ReactNode;
-  className?: string;
-  href?: string;
-  id?: string;
-  onClick?: MouseEventHandler<HTMLButtonElement>;
+interface Props extends HTMLAttributes<HTMLButtonElement> {
+  href: "string";
   type: "link" | "button";
 }
 
