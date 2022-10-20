@@ -3,7 +3,7 @@
   margin-top: 46px;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: end;
   gap: 40px;
 }
 
@@ -15,9 +15,14 @@
   color: #2b2a36;
 }
 
+.SubHeading {
+  font-size: 24px;
+  font-weight: 700;
+}
+
 .Divider {
   width: 200px;
-  height: 8px;
+  height: 6px;
   background-color: #ffc143;
   margin: 6px 0px 16px 0px;
 }

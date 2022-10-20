@@ -5,6 +5,8 @@ import ConnectorsInfo from "../components/ConnectorsInfo/ConnectorsInfo";
 import bannerStyles from "../components/common/Banner/Banner.module.css";
 import YouTube from "../components/common/Youtube/Youtube";
 import NewsEntry from "../components/NewsEntry/NewsEntry";
+import Button from "../components/common/Button/Button";
+import { ReactComponent as ArrowRight } from "../images/icons/arrow-right.svg";
 
 export default function index() {
   return (
@@ -16,22 +18,24 @@ export default function index() {
               OpenMetadata Documentation
             </div>
             <section className={bannerStyles.Divider} />
-            <p>
+            <p className="text-xl">
               Unlock the value of data assets with an end-to-end metadata
               management solution that includes data discovery, governance, data
               quality, observability, and people collaboration.
             </p>
           </div>
           <>
-            <div className={bannerStyles.Heading}>
-              OpenMetadata Documentation
-            </div>
-            <section className={bannerStyles.Divider} />
-            <p>
-              Unlock the value of data assets with an end-to-end metadata
-              management solution that includes data discovery, governance, data
-              quality, observability, and people collaboration.
+            <div className={bannerStyles.SubHeading}>Quick Start</div>
+            <p className="tw-lg">
+              Get to know OpenMetadata in few minutes. Watch the data discovery,
+              data profiler, and lineage features in action
             </p>
+            <Button href="/quick-start" type="link">
+              Get Started
+              <span className="ml-2">
+                <ArrowRight />
+              </span>
+            </Button>
           </>
         </div>
         <div className={bannerStyles.Video}>
