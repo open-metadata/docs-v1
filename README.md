@@ -1,39 +1,86 @@
-# Full Next.js example
+# Docs with Markdoc
 
-This is a full-featured boilerplate for a creating a documentation website using Markdoc and Next.js.
+To add content to the docs use markdown files. Some custom markdoc tags are listed below for adding content with predefined styling.
 
-<img width="2032" alt="image" src="https://user-images.githubusercontent.com/62121649/174916143-16f18270-0463-402c-8b48-33c627ea7a7e.png">
+### How to use markdoc tags ?
 
-## Setup
+Similar to the normal react components custom tags can be used as follow
+Example: Here's how to use tag named 'exampleTag' with some arguments
 
-First, clone this repo and install the dependencies required:
-
-```bash
-npm install
-# or
-yarn install
+```
+{% exampleTag argumentName='value' %}   <!-- starting tag with arguments -->
+This is content inside tag.
+{% /exampleTag %}   <!-- closing tag -->
 ```
 
-Then, run the development server:
+## Custom Tags
+
+For showing code or commands with the explainations by side use following tags:-
+
+- codePreview
+- codeInfoContainer
+- codeInfo
+- codeBlock
+
+### 1. codePreview
+
+Its as container which will have two tags as child 'codeInfoContainer' and 'codeBlock'
+
+### 2. codeInfoContainer
+
+Container tag for all the 'codeInfo' tags
+
+### 3. codeInfo
+
+It's a tag for which will contain explaination or information about a chuck of code. Use as many tags as many steps you want inside the 'codeInfoContainer' tag.
+
+#### Arguments -
+
+1. srNumber (type - Number)
+   It is the step number and the code chunk number you want to highlight for the given information.
+
+### 4. codeBlock -
+
+A container tag to enclose all the code chunks you will write for each steps given with 'codeInfo' tag. Make sure to maintain the same order you want 'codeInfo' tags to be associated with it.
+
+Example:
+
+{% codePreview %}
+
+{% codeInfoContainer %}
+
+{% codeInfo srNumber=1 %}
+Information about 1st code chunk.
+{% /codeInfo %}
+
+{% codeInfo srNumber=2 %}
+Information about 2nd code chunk
+{% /codeInfo %}
+
+{% codeInfo srNumber=3 %}
+Information about 3rd code chunk
+{% /codeInfo %}
+
+{% /codeInfoContainer %}
+
+{% codeBlock %}
 
 ```bash
-npm run dev
-# or
-yarn dev
+Code for first codeInfo tag
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+```bash
+Code for second codeInfo tag
+with 3 lines
+print('Hello world!')
+```
 
-You can start editing the page by modifying `index.md`. The page auto-updates as you edit the file.
+```bash
+Code for third codeInfo tag
+```
 
-## Deploy
+{% /codeBlock %}
 
-The quickest way to deploy your own version of this boilerplate is by deploying it with [Vercel](https://vercel.com) or [Netlify](https://www.netlify.com/) by clicking one of the buttons below.
+{% /codePreview %}
 
-### Deploy with Vercel
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/markdoc/next.js-starter)
-
-### Deploy to Netlify
-
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/markdoc/next.js-starter)
+<img width="2032" alt="image" src="./public/codePreview.png">

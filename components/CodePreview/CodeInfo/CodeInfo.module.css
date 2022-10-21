@@ -1,0 +1,18 @@
+.Container {
+  padding-left: 8px;
+  border-left: 4px solid transparent;
+  border-radius: 4px;
+}
+.Container:hover {
+  border-left: 4px solid #dde3ea;
+}
+
+.HighlitedCode {
+  border-left: 4px solid var(--primary-color);
+  background-color: #f7fafc;
+}
+
+.HighlitedCode:hover {
+  border-left: 4px solid var(--primary-color);
+  background-color: #f7fafc;
+}

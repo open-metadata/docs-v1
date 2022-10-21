@@ -5,3 +5,7 @@ export * from "./divider.markdoc";
 export * from "./inlineCallout.markdoc";
 export * from "./youtube.markdoc";
 export * from "./note.markdoc";
+export * from "./codePreview/codeBlock.markdoc";
+export * from "./codePreview/codeInfo.markdoc";
+export * from "./codePreview/codePreview.markdoc";
+export * from "./codePreview/codeInfoContainer.markdoc";
