@@ -6,9 +6,17 @@ export default function CodeBlock({ children }) {
   const { selectedPreviewNumber } = usePreviewContext();
   const [prevSelectedCode, setPrevSelectedCode] = useState<number>(1);
 
-  useEffect(() => {
+  const getElements = (): {
+    codeBlock: HTMLElement;
+    codesArray: NodeListOf<Element>;
+  } => {
     const codeBlock = document.getElementById("code-block");
     const codesArray = codeBlock.querySelectorAll('[class^="Code_Container_"]');
+    return { codeBlock, codesArray };
+  };
+
+  const highlightCodeBlock = () => {
+    const { codeBlock, codesArray } = getElements();
     codesArray.forEach((element: HTMLElement, id) => {
       if (id + 1 === prevSelectedCode || id + 1 === selectedPreviewNumber) {
         element.classList.toggle("highlitedCode");
@@ -19,18 +27,15 @@ export default function CodeBlock({ children }) {
       }
     });
     setPrevSelectedCode(selectedPreviewNumber);
+  };
+
+  useEffect(() => {
+    highlightCodeBlock();
   }, [selectedPreviewNumber]);
 
   useEffect(() => {
-    const codeBlock = document.getElementById("code-block");
-    const codesArray = codeBlock.querySelectorAll('[class^="Code_Container_"]');
+    const { codesArray } = getElements();
     codesArray[0].classList.add("highlitedCode");
-
-    codesArray.forEach((element) => {
-      element.addEventListener("scroll", (e) => {
-        e.stopPropagation();
-      });
-    });
   }, []);
 
   return (

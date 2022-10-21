@@ -5,11 +5,13 @@ To add content to the docs use markdown files. Some custom markdoc tags are list
 ### How to use markdoc tags ?
 
 Similar to the normal react components custom tags can be used as follow
-Ex. Here's how to use tag named 'exampleTag' with some arguments
+Example: Here's how to use tag named 'exampleTag' with some arguments
 
-{% exampleTag argumentName='value' %} <!-- starting tag with arguments -->
+```
+{% exampleTag argumentName='value' %}   <!-- starting tag with arguments -->
 This is content inside tag.
-{% /exampleTag %}<!-- closing tag -->
+{% /exampleTag %}   <!-- closing tag -->
+```
 
 ## Custom Tags
 
@@ -41,7 +43,7 @@ It's a tag for which will contain explaination or information about a chuck of c
 
 A container tag to enclose all the code chunks you will write for each steps given with 'codeInfo' tag. Make sure to maintain the same order you want 'codeInfo' tags to be associated with it.
 
-Ex.
+Example:
 
 {% codePreview %}
 
