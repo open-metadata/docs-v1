@@ -1,7 +1,5 @@
-import Banner from "../../components/common/Banner/Banner";
-
 export const banner = {
-  render: Banner,
+  render: "Banner",
   attributes: {
     heading: {
       type: String,

@@ -79,3 +79,10 @@ export function getPreviousNextFromMenu(menu, slugStr, parent) {
 
   return { current, prev, next };
 }
+
+export const checkDropdownStatus = (
+  routerPath: string,
+  menuKey: string
+): boolean => {
+  return routerPath.split("/").slice(0, -1).indexOf(menuKey) !== -1;
+};

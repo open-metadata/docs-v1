@@ -35,7 +35,7 @@ export default function CodeBlock({ children }) {
 
   useEffect(() => {
     const { codesArray } = getElements();
-    codesArray[0].classList.add("highlitedCode");
+    codesArray[0] && codesArray[0].classList.add("highlitedCode");
   }, []);
 
   return (

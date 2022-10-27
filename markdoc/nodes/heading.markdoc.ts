@@ -1,5 +1,4 @@
 import { Tag } from "@markdoc/markdoc";
-import { Heading } from "../../components/Heading/Heading";
 
 function generateID(children, attributes) {
   if (attributes.id && typeof attributes.id === "string") {
@@ -14,7 +13,7 @@ function generateID(children, attributes) {
 }
 
 export const heading = {
-  render: Heading,
+  render: "Heading",
   children: ["inline"],
   attributes: {
     id: { type: String },

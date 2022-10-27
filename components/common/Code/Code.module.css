@@ -10,11 +10,11 @@
 }
 
 .Container pre {
-  @apply text-white font-medium rounded-md relative py-0.5 px-8 leading-relaxed;
+  @apply text-white font-medium rounded-md relative py-3 px-8 leading-relaxed;
 }
 
 .Container pre code {
-  @apply z-10 relative;
+  @apply my-2 z-10 relative;
 }
 
 .LineHighlight {
