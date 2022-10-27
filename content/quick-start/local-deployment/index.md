@@ -1,5 +1,5 @@
 ---
-title: Try OpenMetadata in Docker
+title: Local Deployment
 slug: /quick-start/local-deployment
 ---
 
