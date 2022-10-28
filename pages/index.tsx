@@ -11,15 +11,7 @@ import TopNav from "../components/TopNav/TopNav";
 import LayoutSelector from "../components/LayoutSelector/LayoutSelector";
 import CategoriesNav from "../components/CategoriesNav/CategoriesNav";
 import { getMenu } from "../lib/api";
-
-const homeMenuItem = {
-  category: "Home",
-  children: [],
-  depth: 0,
-  menu_key: "home",
-  name: "Home",
-  url: "/",
-};
+import { homeMenuItem } from "../constants/common.constants";
 
 export default function index({ menu }) {
   return (

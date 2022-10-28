@@ -13,38 +13,28 @@ import Footer from "../components/Footer/Footer";
 import LayoutSelector from "../components/LayoutSelector/LayoutSelector";
 import { components, configs } from "../lib/markdoc";
 import Breadcrumb from "../components/Breadcrumb/Breadcrumb";
+import { homeMenuItem } from "../constants/common.constants";
+import { MenuItem } from "../interface/common.interface";
+import { getCategoryByIndex } from "../lib/utils";
 
-export interface MenuItem {
-  category: string;
-  children: MenuItem[];
-  depth: string;
-  icon?: string;
-  menu_key: string;
-  name: string;
-  url: string;
+interface Props {
+  menu: MenuItem[];
+  content: string;
 }
 
-const homeMenuItem = {
-  category: "Home",
-  children: [],
-  depth: 0,
-  menu_key: "home",
-  name: "Home",
-  url: "/",
-};
-
-export default function Article({ menu, data, filename, slug, content }) {
+export default function Article({ menu, content }: Props) {
   const router = useRouter();
   const [collapsedNav, setCollapsedNav] = useState(false);
   const handleCollapsedNav = (value: boolean) => {
     setCollapsedNav(value);
   };
+  const category = getCategoryByIndex(router.asPath, 1);
 
   const ast = Markdoc.parse(content);
   const ParsedContent = Markdoc.transform(ast, configs);
 
   const item = (menu as MenuItem[]).find(
-    (item) => item.url.split("/")[1] === router.asPath.split("/")[1]
+    (item) => getCategoryByIndex(item.url, 1) === category
   );
 
   return (
@@ -54,9 +44,9 @@ export default function Article({ menu, data, filename, slug, content }) {
         <CategoriesNav menu={[homeMenuItem, ...menu]} />
 
         <SideNav
-          category={item.category.split("/")[0]}
+          category={item ? getCategoryByIndex(item.category, 0) : category}
           collapsedNav={collapsedNav}
-          items={item.children}
+          items={item && item.children}
           handleCollapsedNav={handleCollapsedNav}
         />
         <main className={classNames("flex flex-col content")}>
@@ -89,13 +79,10 @@ export async function getStaticProps(context) {
 
     // Get the last element of the array to find the MD file
     const fileContents = fs.readFileSync(filename, "utf8");
-    const { data, content } = matter(fileContents);
+    const { content } = matter(fileContents);
 
     props["menu"] = menu;
-    props["data"] = data;
     props["content"] = content;
-    props["filename"] = filename;
-    props["slug"] = context.params.slug;
   }
 
   return {

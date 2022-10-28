@@ -5,7 +5,7 @@ import React, { useEffect, useState } from "react";
 import { ReactComponent as ArrowDown } from "../../images/icons/drop-arrow-down.svg";
 import { ReactComponent as ArrowRight } from "../../images/icons/drop-arrow-right.svg";
 import { checkDropdownStatus } from "../../lib/utils";
-import { MenuItem } from "../../pages/[...slug]";
+import { MenuItem } from "../../interface/common.interface";
 import styles from "./SideNav.module.css";
 
 export default function ListItem({ item }: { item: MenuItem }) {

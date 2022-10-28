@@ -5,11 +5,12 @@ import ListItem from "./ListItem";
 import classNames from "classnames";
 import { ReactComponent as CollapseLeftIcon } from "../../images/icons/collapse-left.svg";
 import { ReactComponent as CollapseRightIcon } from "../../images/icons/collapse-right.svg";
+import { MenuItem } from "../../interface/common.interface";
 
 interface Props {
   category: string;
   collapsedNav: boolean;
-  items: any;
+  items: MenuItem[];
   handleCollapsedNav: (value: boolean) => void;
 }
 

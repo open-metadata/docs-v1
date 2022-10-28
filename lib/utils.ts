@@ -86,3 +86,7 @@ export const checkDropdownStatus = (
 ): boolean => {
   return routerPath.split("/").slice(0, -1).indexOf(menuKey) !== -1;
 };
+
+export const getCategoryByIndex = (item: string, index: number) => {
+  return item.split("/")[index];
+};
