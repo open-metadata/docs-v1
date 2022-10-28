@@ -50,7 +50,7 @@ export default function Article({ menu, content }: Props) {
           handleCollapsedNav={handleCollapsedNav}
         />
         <main className={classNames("flex flex-col content")}>
-          <Breadcrumb slug={item.url} />
+          <Breadcrumb slug={item ? item.url : ""} />
           {Markdoc.renderers.react(ParsedContent, React, {
             components,
           })}
