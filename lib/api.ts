@@ -60,7 +60,7 @@ export function getAllArticles(fields = []) {
 
 export async function getMenu() {
   const menu = [];
-  const fullPath = join(articleDirectory, `menu.md`);
+  const fullPath = join(articleDirectory, 'menu.md');
   const fileContents = fs.readFileSync(fullPath, 'utf8');
   const data = matter(fileContents);
 
@@ -91,6 +91,8 @@ export async function getMenu() {
     Object.assign(objRoot, item);
     menuRoot = menu;
   }
+
+  console.log(menu);
 
   return menu;
 }
