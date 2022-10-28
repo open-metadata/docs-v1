@@ -1,21 +1,21 @@
-import React, { useState } from "react";
-import { getArticleSlugFromString, getArticleSlugs, getMenu } from "../lib/api";
-import fs from "fs";
-import matter from "gray-matter";
-import { basename } from "path";
-import { useRouter } from "next/router";
-import Markdoc, { Schema } from "@markdoc/markdoc";
-import SideNav from "../components/SideNav/SideNav";
-import TopNav from "../components/TopNav/TopNav";
-import CategoriesNav from "../components/CategoriesNav/CategoriesNav";
-import classNames from "classnames";
-import Footer from "../components/Footer/Footer";
-import LayoutSelector from "../components/LayoutSelector/LayoutSelector";
-import { components, configs } from "../lib/markdoc";
-import Breadcrumb from "../components/Breadcrumb/Breadcrumb";
-import { homeMenuItem } from "../constants/common.constants";
-import { MenuItem } from "../interface/common.interface";
-import { getCategoryByIndex } from "../lib/utils";
+import React, { useState } from 'react';
+import { getArticleSlugFromString, getArticleSlugs, getMenu } from '../lib/api';
+import fs from 'fs';
+import matter from 'gray-matter';
+import { basename } from 'path';
+import { useRouter } from 'next/router';
+import Markdoc, { Schema } from '@markdoc/markdoc';
+import SideNav from '../components/SideNav/SideNav';
+import TopNav from '../components/TopNav/TopNav';
+import CategoriesNav from '../components/CategoriesNav/CategoriesNav';
+import classNames from 'classnames';
+import Footer from '../components/Footer/Footer';
+import LayoutSelector from '../components/LayoutSelector/LayoutSelector';
+import { components, configs } from '../lib/markdoc';
+import Breadcrumb from '../components/Breadcrumb/Breadcrumb';
+import { homeMenuItem } from '../constants/common.constants';
+import { MenuItem } from '../interface/common.interface';
+import { getCategoryByIndex } from '../lib/utils';
 
 interface Props {
   menu: MenuItem[];
@@ -49,8 +49,8 @@ export default function Article({ menu, content }: Props) {
           items={item && item.children}
           handleCollapsedNav={handleCollapsedNav}
         />
-        <main className={classNames("flex flex-col content")}>
-          <Breadcrumb slug={item ? item.url : ""} />
+        <main className={classNames('flex flex-col content')}>
+          <Breadcrumb slug={item ? item.url : ''} />
           {Markdoc.renderers.react(ParsedContent, React, {
             components,
           })}
@@ -64,12 +64,12 @@ export default function Article({ menu, content }: Props) {
 export async function getStaticProps(context) {
   const paths = await getStaticPaths();
   const props = {};
-  let location = `/${context.params.slug.join("/")}`;
+  let location = `/${context.params.slug.join('/')}`;
 
-  const menu = getMenu();
+  const menu = await getMenu();
 
-  if ("slug" in context.params) {
-    let filename = "";
+  if ('slug' in context.params) {
+    let filename = '';
 
     paths.paths.forEach((obj) => {
       if (obj.params.location == location) {
@@ -78,11 +78,11 @@ export async function getStaticProps(context) {
     });
 
     // Get the last element of the array to find the MD file
-    const fileContents = fs.readFileSync(filename, "utf8");
+    const fileContents = fs.readFileSync(filename, 'utf8');
     const { content } = matter(fileContents);
 
-    props["menu"] = menu;
-    props["content"] = content;
+    props['menu'] = menu;
+    props['content'] = content;
   }
 
   return {
@@ -99,16 +99,16 @@ export async function getStaticPaths() {
   // Load each file and map a path
 
   for (const index in articles) {
-    let slug = basename(articles[index]).replace(/\.md$/, "");
+    let slug = basename(articles[index]).replace(/\.md$/, '');
     let realSlug = [slug];
     slug = `/${slug}`;
-    const fileContents = fs.readFileSync(articles[index], "utf8");
+    const fileContents = fs.readFileSync(articles[index], 'utf8');
     const { data, content } = matter(fileContents);
 
     // Use slug instead of Category if it's present
-    if ("slug" in data) {
+    if ('slug' in data) {
       slug = data.slug;
-      realSlug = data.slug.split("/").map(getArticleSlugFromString);
+      realSlug = data.slug.split('/').map(getArticleSlugFromString);
       realSlug.shift();
     }
 
@@ -117,8 +117,8 @@ export async function getStaticPaths() {
         slug: realSlug,
         location: slug,
         fileName: articles[index],
-        title: data.title ? data.title : "Untitled",
-        description: data.description ? data.description : "",
+        title: data.title ? data.title : 'Untitled',
+        description: data.description ? data.description : '',
       },
     };
 

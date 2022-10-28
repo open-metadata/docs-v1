@@ -1,8 +1,8 @@
-import React from "react";
-import CategoriesNav from "../components/CategoriesNav/CategoriesNav";
-import LayoutSelector from "../components/LayoutSelector/LayoutSelector";
-import TopNav from "../components/TopNav/TopNav";
-import { getMenu } from "../lib/api";
+import React from 'react';
+import CategoriesNav from '../components/CategoriesNav/CategoriesNav';
+import LayoutSelector from '../components/LayoutSelector/LayoutSelector';
+import TopNav from '../components/TopNav/TopNav';
+import { getMenu } from '../lib/api';
 
 export default function Home({ menu }) {
   return (
@@ -19,7 +19,7 @@ export default function Home({ menu }) {
 export async function getStaticProps() {
   return {
     props: {
-      menu: getMenu(),
+      menu: await getMenu(),
     },
     revalidate: 60,
   };

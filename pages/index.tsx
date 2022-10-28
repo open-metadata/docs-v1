@@ -1,17 +1,17 @@
-import React from "react";
-import Card from "../components/common/Card/Card";
-import InfoCards from "../components/common/InfoCards/InfoCards";
-import ConnectorsInfo from "../components/ConnectorsInfo/ConnectorsInfo";
-import bannerStyles from "../components/common/Banner/Banner.module.css";
-import YouTube from "../components/common/Youtube/Youtube";
-import NewsEntry from "../components/NewsEntry/NewsEntry";
-import Button from "../components/common/Button/Button";
-import { ReactComponent as ArrowRight } from "../images/icons/arrow-right.svg";
-import TopNav from "../components/TopNav/TopNav";
-import LayoutSelector from "../components/LayoutSelector/LayoutSelector";
-import CategoriesNav from "../components/CategoriesNav/CategoriesNav";
-import { getMenu } from "../lib/api";
-import { homeMenuItem } from "../constants/common.constants";
+import React from 'react';
+import Card from '../components/common/Card/Card';
+import InfoCards from '../components/common/InfoCards/InfoCards';
+import ConnectorsInfo from '../components/ConnectorsInfo/ConnectorsInfo';
+import bannerStyles from '../components/common/Banner/Banner.module.css';
+import YouTube from '../components/common/Youtube/Youtube';
+import NewsEntry from '../components/NewsEntry/NewsEntry';
+import Button from '../components/common/Button/Button';
+import { ReactComponent as ArrowRight } from '../images/icons/arrow-right.svg';
+import TopNav from '../components/TopNav/TopNav';
+import LayoutSelector from '../components/LayoutSelector/LayoutSelector';
+import CategoriesNav from '../components/CategoriesNav/CategoriesNav';
+import { getMenu } from '../lib/api';
+import { homeMenuItem } from '../constants/common.constants';
 
 export default function index({ menu }) {
   return (
@@ -137,7 +137,7 @@ export default function index({ menu }) {
 export async function getStaticProps() {
   return {
     props: {
-      menu: getMenu(),
+      menu: await getMenu(),
     },
     revalidate: 60,
   };

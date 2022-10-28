@@ -1,11 +1,11 @@
-import fs from "fs";
-import { join, basename } from "path";
-import findIndex from "lodash/findIndex";
-import matter from "gray-matter";
-import slugify from "slugify";
-import { serialize } from "next-mdx-remote/serialize";
+import fs from 'fs';
+import { join, basename } from 'path';
+import findIndex from 'lodash/findIndex';
+import matter from 'gray-matter';
+import slugify from 'slugify';
+import { serialize } from 'next-mdx-remote/serialize';
 
-export const articleDirectory = join(process.cwd(), "content/");
+export const articleDirectory = join(process.cwd(), 'content/');
 
 export function getAllFilesInDirectory(articleDirectory, files = []) {
   fs.readdirSync(articleDirectory).forEach(function (file) {
@@ -29,19 +29,19 @@ export function getArticleSlugFromString(pathname) {
 }
 
 export function getArticleBySlug(slug, fields = []) {
-  const realSlug = basename(slug).replace(/\.md$/, "");
+  const realSlug = basename(slug).replace(/\.md$/, '');
   const fullPath = slug;
-  const fileContents = fs.readFileSync(fullPath, "utf8");
+  const fileContents = fs.readFileSync(fullPath, 'utf8');
   const { data, content } = matter(fileContents);
 
   const items = {};
 
   // Ensure only the minimal needed data is exposed
   fields.forEach((field) => {
-    if (field === "slug") {
+    if (field === 'slug') {
       items[field] = realSlug;
     }
-    if (field === "content") {
+    if (field === 'content') {
       items[field] = content;
     }
     if (data[field]) {
@@ -58,20 +58,20 @@ export function getAllArticles(fields = []) {
   return posts;
 }
 
-export function getMenu() {
+export async function getMenu() {
   const menu = [];
   const fullPath = join(articleDirectory, `menu.md`);
-  const fileContents = fs.readFileSync(fullPath, "utf8");
+  const fileContents = fs.readFileSync(fullPath, 'utf8');
   const data = matter(fileContents);
 
   let menuRoot = menu;
   let objRoot = menu;
 
-  const flatMenu = data.data["site_menu"];
+  const flatMenu = data.data['site_menu'];
 
   for (const index in flatMenu) {
     const item = flatMenu[index];
-    const category = item["category"].split("/");
+    const category = item['category'].split('/');
     // Move to the depth we need
     for (const depth in category) {
       const menu_key = slugify(category[depth].trim().toLowerCase());
@@ -86,7 +86,7 @@ export function getMenu() {
         exist = findIndex(menuRoot, { menu_key: menu_key });
       }
       objRoot = menuRoot[exist];
-      menuRoot = menuRoot[exist]["children"];
+      menuRoot = menuRoot[exist]['children'];
     }
     Object.assign(objRoot, item);
     menuRoot = menu;
@@ -97,7 +97,7 @@ export function getMenu() {
 
 export async function getGDPRBanner() {
   const fullPath = join(articleDirectory, `gdpr-banner.md`);
-  const fileContents = fs.readFileSync(fullPath, "utf8");
+  const fileContents = fs.readFileSync(fullPath, 'utf8');
   const data = matter(fileContents);
   const markup = await serialize(data.content);
   return { data: data.data, content: markup, title: data.data.title };
