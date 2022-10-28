@@ -1,7 +1,5 @@
-import { Callout } from "../../components/Callout";
-
 export const callout = {
-  render: Callout,
+  render: "Callout",
   description: "Display the enclosed content in a callout box",
   children: ["paragraph", "tag", "list"],
   attributes: {

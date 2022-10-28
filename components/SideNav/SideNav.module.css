@@ -6,6 +6,13 @@
   top: calc(var(--main-nav-height) + var(--top-nav-height));
   display: flex;
   justify-content: space-between;
+  overflow-y: scroll;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.SideNav::-webkit-scrollbar {
+  display: none;
 }
 
 .CollapsedSideNav {

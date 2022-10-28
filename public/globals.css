@@ -78,6 +78,10 @@ ul {
   list-style-position: inside;
 }
 
+pre {
+  background-color: #212d63;
+}
+
 .divider {
   color: var(--default-border-color);
 }
@@ -220,6 +224,9 @@ ul {
   background-color: #1a2652;
 }
 
-pre {
-  background-color: #212d63;
+.page-404 {
+  height: calc(100vh - var(--top-nav-height) - var(--main-nav-height));
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

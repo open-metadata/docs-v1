@@ -1,7 +1,5 @@
-import CodeInfo from "../../../components/CodePreview/CodeInfo/CodeInfo";
-
 export const codeInfo = {
-  render: CodeInfo,
+  render: "CodeInfo",
   attributes: {
     srNumber: {
       type: Number,

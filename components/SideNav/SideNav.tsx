@@ -1,24 +1,25 @@
-import React, { useMemo } from "react";
-import { useRouter } from "next/router";
+import React from "react";
 import { ReactComponent as OverviewIcon } from "../../images/icons/overview-icon.svg";
 import styles from "./SideNav.module.css";
-import { getMenuItems } from "./SideNav.constants";
 import ListItem from "./ListItem";
 import classNames from "classnames";
 import { ReactComponent as CollapseLeftIcon } from "../../images/icons/collapse-left.svg";
 import { ReactComponent as CollapseRightIcon } from "../../images/icons/collapse-right.svg";
+import { MenuItem } from "../../interface/common.interface";
 
 interface Props {
+  category: string;
   collapsedNav: boolean;
+  items: MenuItem[];
   handleCollapsedNav: (value: boolean) => void;
 }
 
-export default function SideNav({ collapsedNav, handleCollapsedNav }: Props) {
-  const router = useRouter();
-  const category = router.pathname.split("/")[1];
-
-  const items = useMemo(() => getMenuItems(category), [router]);
-
+export default function SideNav({
+  category,
+  collapsedNav,
+  items,
+  handleCollapsedNav,
+}: Props) {
   const toggleCollapse = () => {
     handleCollapsedNav(!collapsedNav);
   };
@@ -37,12 +38,11 @@ export default function SideNav({ collapsedNav, handleCollapsedNav }: Props) {
       >
         <div className="flex items-center gap-3 px-4 mb-3">
           <OverviewIcon />
-          <p className="text-sm my-0">
-            {category.charAt(0).toUpperCase() + category.slice(1)}
-          </p>
+          <p className="text-sm my-0">{category}</p>
         </div>
         <div className={classNames(styles.LinkContainer)}>
-          {items && items.map((item) => <ListItem item={item} />)}
+          {items &&
+            items.map((item) => <ListItem item={item} key={item.name} />)}
         </div>
       </div>
       {collapsedNav ? (

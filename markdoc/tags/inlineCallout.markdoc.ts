@@ -1,7 +1,5 @@
-import InlineCallout from "../../components/common/InlineCallout/InlineCallout";
-
 export const inlineCallout = {
-  render: InlineCallout,
+  render: "InlineCallout",
   attributes: {
     color: { type: String },
     icon: { type: String },

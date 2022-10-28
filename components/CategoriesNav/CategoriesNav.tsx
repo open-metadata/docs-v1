@@ -2,52 +2,31 @@ import classNames from "classnames";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React from "react";
+import { MenuItem } from "../../interface/common.interface";
+import { getCategoryByIndex } from "../../lib/utils";
 import styles from "./CategoriesNav.module.css";
 
-const menu = [
-  {
-    title: "Home",
-    href: "/",
-  },
-  {
-    title: "Quickstart",
-    href: "/quick-start",
-  },
-  {
-    title: "Overview",
-    href: "/overview",
-  },
-  {
-    title: "Deployment",
-    href: "/deployment",
-  },
-  {
-    title: "Connectors",
-    href: "/connectors",
-  },
-  {
-    title: "Open Metadata",
-    href: "/open-metadata",
-  },
-];
+interface Props {
+  menu: MenuItem[];
+}
 
-export default function CategoriesNav() {
+export default function CategoriesNav({ menu }: Props) {
   const router = useRouter();
-  const category = router.pathname.split("/")[1];
+  const category = getCategoryByIndex(router.asPath, 1);
   return (
     <div className={classNames("main-nav", styles.Container)}>
       {menu.map((item) => {
-        const active = category === item.href.split("/")[1];
+        const active = category === getCategoryByIndex(item.url, 1);
         return (
-          <Link href={item.href} key={item.href}>
+          <Link href={item.url} key={item.url}>
             <a
               className={classNames(
                 styles.NavItem,
                 active ? styles.Active : ""
               )}
-              href={item.href}
+              href={item.url}
             >
-              {item.title}
+              {item.name}
             </a>
           </Link>
         );

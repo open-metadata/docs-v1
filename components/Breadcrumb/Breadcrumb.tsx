@@ -32,7 +32,7 @@ export default function Breadcrumb({ slug }: { slug: string }) {
   return slug ? (
     <div className={styles.Container}>
       {breadcrumb.map((crumb, idx) => (
-        <>
+        <React.Fragment key={crumb.path}>
           <Link className="flex align-center" href={crumb.path}>
             <span className={styles.BreadcumbLink}>
               <span>{crumb.icon}</span>
@@ -47,7 +47,7 @@ export default function Breadcrumb({ slug }: { slug: string }) {
           {idx < breadcrumb.length - 1 && (
             <span className={styles.Divider}>/</span>
           )}
-        </>
+        </React.Fragment>
       ))}
     </div>
   ) : null;

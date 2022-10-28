@@ -1,7 +1,5 @@
-import YouTube from "../../components/common/Youtube/Youtube";
-
 export const youtube = {
-  render: YouTube,
+  render: "YouTube",
   description: "Display youtube videos",
   attributes: {
     caption: {
