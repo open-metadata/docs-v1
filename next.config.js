@@ -18,4 +18,9 @@ module.exports =
       return configuration;
     },
     pageExtensions: ["js", "jsx", "ts", "tsx", "md", "mdoc"],
+    async exportPathMap(defaultPathMap) {
+      return {
+        ...defaultPathMap,
+      };
+    },
   });
