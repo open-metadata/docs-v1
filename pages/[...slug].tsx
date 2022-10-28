@@ -16,6 +16,7 @@ import Breadcrumb from "../components/Breadcrumb/Breadcrumb";
 import { homeMenuItem } from "../constants/common.constants";
 import { MenuItem, PathObj } from "../interface/common.interface";
 import { getCategoryByIndex } from "../lib/utils";
+import ErrorBoundary from "../components/ErrorBoundary";
 
 interface Props {
   menu: MenuItem[];
@@ -38,7 +39,7 @@ export default function Article({ menu, content }: Props) {
   );
 
   return (
-    <>
+    <ErrorBoundary>
       <TopNav />
       <LayoutSelector collapsedNav={collapsedNav}>
         <CategoriesNav menu={[homeMenuItem, ...menu]} />
@@ -57,7 +58,7 @@ export default function Article({ menu, content }: Props) {
         </main>
         <Footer />
       </LayoutSelector>
-    </>
+    </ErrorBoundary>
   );
 }
 
