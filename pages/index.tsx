@@ -9,16 +9,16 @@ import Button from "../components/common/Button/Button";
 import { ReactComponent as ArrowRight } from "../images/icons/arrow-right.svg";
 import TopNav from "../components/TopNav/TopNav";
 import LayoutSelector from "../components/LayoutSelector/LayoutSelector";
-import CategoriesNav from "../components/CategoriesNav/CategoriesNav";
+// import CategoriesNav from "../components/CategoriesNav/CategoriesNav";
 import { getMenu } from "../lib/api";
-import { homeMenuItem } from "../constants/common.constants";
+// import { homeMenuItem } from "../constants/common.constants";
 
-export default function index({ menu }) {
+export default function index() {
   return (
     <>
       <TopNav />
       <LayoutSelector collapsedNav={true}>
-        <CategoriesNav menu={[homeMenuItem, ...menu]} />
+        {/* <CategoriesNav menu={[homeMenuItem, ...menu]} /> */}
         <div className="home-page">
           <div className={bannerStyles.Container}>
             <div className={bannerStyles.Content}>
