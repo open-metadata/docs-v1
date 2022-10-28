@@ -14,7 +14,7 @@ import LayoutSelector from "../components/LayoutSelector/LayoutSelector";
 import { components, configs } from "../lib/markdoc";
 import Breadcrumb from "../components/Breadcrumb/Breadcrumb";
 import { homeMenuItem } from "../constants/common.constants";
-import { MenuItem } from "../interface/common.interface";
+import { MenuItem, PathObj } from "../interface/common.interface";
 import { getCategoryByIndex } from "../lib/utils";
 
 interface Props {
@@ -46,7 +46,7 @@ export default function Article({ menu, content }: Props) {
         <SideNav
           category={item ? getCategoryByIndex(item.category, 0) : category}
           collapsedNav={collapsedNav}
-          items={item && item.children}
+          items={item ? item.children : []}
           handleCollapsedNav={handleCollapsedNav}
         />
         <main className={classNames("flex flex-col content")}>
@@ -94,7 +94,7 @@ export async function getStaticProps(context) {
 export async function getStaticPaths() {
   // Build up paths based on slugified categories for all docs
   const articles = getArticleSlugs();
-  const paths = [];
+  const paths: PathObj[] = [];
 
   // Load each file and map a path
 
@@ -117,8 +117,8 @@ export async function getStaticPaths() {
         slug: realSlug,
         location: slug,
         fileName: articles[index],
-        title: data.title ? data.title : "Untitled",
-        description: data.description ? data.description : "",
+        title: data.title ? (data.title as string) : "Untitled",
+        description: data.description ? (data.description as string) : "",
       },
     };
 
