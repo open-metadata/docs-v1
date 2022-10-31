@@ -2,6 +2,7 @@ import Banner from "../components/common/Banner/Banner";
 import { Callout } from "../components/Callout";
 import Divider from "../components/common/Divider/Divider";
 import InlineCallout from "../components/common/InlineCallout/InlineCallout";
+import InlineCalloutContainer from "../components/common/InlineCallout/InlineCalloutContainer";
 import Note from "../components/common/Note/Note";
 import YouTube from "../components/common/Youtube/Youtube";
 import CodeBlock from "../components/CodePreview/CodeBlock/CodeBlock";
@@ -25,6 +26,7 @@ export const components = {
   Callout,
   Divider,
   InlineCallout,
+  InlineCalloutContainer,
   Note,
   YouTube,
   CodeBlock,

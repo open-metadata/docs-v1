@@ -12,6 +12,8 @@ In this section we are going to guide you through the installation and first ste
 
 We have two approaches to start exploring:
 
+{% inlineCalloutContainer %}
+
 {% inlineCallout color="violet-70"
     icon="celebration"
     bold="Try OpenMetadata in Docker"
@@ -25,3 +27,5 @@ Get OpenMetadata up and running locally in under 5 minutes!
     href="/quick-start/sandbox" %}
 Interact with a sample installation with 0 setup.
 {% /inlineCallout %}
+
+{% /inlineCalloutContainer %}
