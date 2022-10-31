@@ -14,10 +14,11 @@
 
 body {
   font-family: -apple-system, system-ui, sans-serif, BlinkMacSystemFont,
-    "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans",
-    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    "Segoe UI", "Roboto", "Helvetica Neue", "Ubuntu";
   color: #3c4257;
   margin: 0;
+  font-size: 16px;
+  font-weight: 400;
 }
 
 h1,
@@ -25,35 +26,38 @@ h2,
 h3,
 h4,
 h5,
-h6,
-p {
-  margin: 16px 0px 4px 0px;
+h6 {
+  margin: 32px 0px 0px 0px;
+  font-weight: 700;
 }
 
 p {
   line-height: 1.5em;
+  margin: 12px 0px 0px 0px;
 }
 
 h1 {
-  font-size: 36px;
+  font-size: 32px;
   padding-bottom: 16px;
   border-bottom: 1px solid var(--default-border-color);
+  margin-top: 8px;
+  line-height: 38px;
 }
 
 h2 {
-  font-size: 28px;
+  font-size: 26px;
 }
 
 h3 {
-  font-size: 24px;
-}
-
-h4 {
   font-size: 20px;
 }
 
+h4 {
+  font-size: 14px;
+}
+
 h5 {
-  font-size: 16px;
+  font-size: 10px;
 }
 
 h6 {
@@ -61,16 +65,15 @@ h6 {
 }
 
 a {
-  color: #1890ff;
+  color: var(--primary-color);
 }
 
 li {
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 8px;
 }
 
 li::marker {
-  color: #1890ff;
+  color: var(--primary-color);
 }
 
 ul {
@@ -80,6 +83,17 @@ ul {
 
 pre {
   background-color: #212d63;
+}
+
+pre,
+code {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+pre::-webkit-scrollbar,
+code::-webkit-scrollbar {
+  display: none;
 }
 
 .divider {
@@ -136,7 +150,7 @@ pre {
 
 .content {
   grid-area: content;
-  padding: 32px 48px;
+  padding: 24px 48px;
   margin-top: var(--main-nav-height);
 }
 
@@ -184,17 +198,6 @@ pre {
   padding: 0;
 }
 
-.caret {
-  cursor: pointer;
-  -webkit-user-select: none; /* Safari 3.1+ */
-  -moz-user-select: none; /* Firefox 2+ */
-  -ms-user-select: none; /* IE 10+ */
-  user-select: none;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
 .nested {
   display: none;
 }
@@ -210,14 +213,6 @@ pre {
 
 .RightArrow {
   display: block;
-}
-
-.caret-down > .DownArrow {
-  display: block;
-}
-
-.caret-down > .RightArrow {
-  display: none;
 }
 
 .highlitedCode pre {

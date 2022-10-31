@@ -1,6 +1,8 @@
 .Container {
   display: flex;
   align-items: center;
+  font-size: 14px;
+  color: #697386;
 }
 
 .Divider {
@@ -16,5 +18,5 @@
 }
 
 .BreadcumbLink:hover {
-  text-decoration: underline;
+  color: black;
 }

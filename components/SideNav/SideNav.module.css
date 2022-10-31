@@ -1,5 +1,5 @@
 .SideNav {
-  padding: 12px;
+  padding: 24px 20px 0px 12px;
   height: calc(100vh - var(--top-nav-height) - var(--main-nav-height));
   border-right: 1px solid var(--default-border-color);
   position: fixed;
@@ -26,28 +26,57 @@
 }
 
 .LinkContainer {
-  padding-left: 24px;
+  padding: 0px 0px 0px 14px;
   list-style: none;
+  display: flex;
+  flex-direction: column;
 }
 
 .Link {
+  margin-bottom: 8px;
   color: inherit;
+  font-weight: 300;
+  margin-left: 16px;
+  line-height: 20px;
+  font-size: 14px;
 }
 
 .ListItem {
-  padding-bottom: 12px;
-  color: #76746f;
   font-size: 14px;
   font-weight: 400;
   margin: 0px;
+  margin-bottom: 8px;
+  position: relative;
+}
+
+.TextGray {
+  color: #76746f;
 }
 
 .ActiveLink {
   color: var(--primary-color);
+  font-weight: 400;
 }
 
 .CollapseIcon {
   height: 18px;
   width: 16px;
   opacity: 50%;
+}
+
+.ArrowDown {
+  position: absolute;
+  top: 7px;
+}
+
+.ArrowRight {
+  position: absolute;
+  top: 7px;
+  left: 1px;
+}
+
+.Heading {
+  margin: 0px;
+  font-size: 14px;
+  line-height: 20px;
 }

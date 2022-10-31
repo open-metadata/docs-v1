@@ -36,26 +36,31 @@ export default function SideNav({
           display: collapsedNav ? "none" : "block",
         }}
       >
-        <div className="flex items-center gap-3 px-4 mb-3">
+        <div className="flex items-center gap-2 px-1 mb-3">
           <OverviewIcon />
-          <p className="text-sm my-0">{category}</p>
+          <p className={styles.Heading}>{category}</p>
         </div>
-        <div className={classNames(styles.LinkContainer)}>
-          {items &&
-            items.map((item) => <ListItem item={item} key={item.name} />)}
-        </div>
+        {items && (
+          <div className={classNames(styles.LinkContainer)}>
+            {items.map((item) => (
+              <ListItem item={item} key={item.name} fontWeight={400} />
+            ))}
+          </div>
+        )}
       </div>
-      {collapsedNav ? (
-        <CollapseRightIcon
-          className={styles.CollapseIcon}
-          onClick={toggleCollapse}
-        />
-      ) : (
-        <CollapseLeftIcon
-          className={styles.CollapseIcon}
-          onClick={toggleCollapse}
-        />
-      )}
+      <span className={styles.IconContainer}>
+        {collapsedNav ? (
+          <CollapseRightIcon
+            className={styles.CollapseIcon}
+            onClick={toggleCollapse}
+          />
+        ) : (
+          <CollapseLeftIcon
+            className={styles.CollapseIcon}
+            onClick={toggleCollapse}
+          />
+        )}
+      </span>
     </nav>
   );
 }

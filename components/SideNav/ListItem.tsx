@@ -1,14 +1,20 @@
 import classNames from "classnames";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { ReactComponent as ArrowDown } from "../../images/icons/drop-arrow-down.svg";
 import { ReactComponent as ArrowRight } from "../../images/icons/drop-arrow-right.svg";
 import { checkDropdownStatus } from "../../lib/utils";
 import { MenuItem } from "../../interface/common.interface";
 import styles from "./SideNav.module.css";
 
-export default function ListItem({ item }: { item: MenuItem }) {
+export default function ListItem({
+  item,
+  fontWeight,
+}: {
+  item: MenuItem;
+  fontWeight?: number;
+}) {
   const router = useRouter();
   const isDropdown = item.children && item.children.length > 0;
   const isActive = item.url === router.asPath;
@@ -18,6 +24,29 @@ export default function ListItem({ item }: { item: MenuItem }) {
     setIsOpen((open) => !open);
   };
 
+  const linkItem = useMemo(
+    () => (
+      <>
+        <Link href={item.url}>
+          <a
+            className={classNames(
+              styles.Link,
+              Number(item.depth) >= 3 ? styles.TextGray : "",
+              isActive ? styles.ActiveLink : ""
+            )}
+            href={item.url}
+            style={{
+              fontWeight: `${6 - Math.min(Number(item.depth), 4)}00`,
+            }}
+          >
+            {item.name}
+          </a>
+        </Link>
+      </>
+    ),
+    [item]
+  );
+
   useEffect(() => {
     // Check if category name is present in pathname
     setIsOpen(
@@ -26,46 +55,27 @@ export default function ListItem({ item }: { item: MenuItem }) {
   }, [router.asPath, item]);
 
   return (
-    <div className={styles.ListItem} key={item.url}>
-      <>
-        {isDropdown ? (
-          <span className={classNames("caret", styles.ListItem)}>
-            <span onClick={() => toggleOpen()}>
-              {isOpen ? <ArrowDown /> : <ArrowRight />}
-            </span>
-            <Link href={item.url}>
-              <a
-                className={classNames(
-                  styles.Link,
-                  isActive ? styles.ActiveLink : ""
-                )}
-                href={item.url}
-              >
-                {item.name}
-              </a>
-            </Link>
+    <>
+      {isDropdown ? (
+        <span className={classNames(styles.ListItem)}>
+          <span
+            className={isOpen ? styles.ArrowDown : styles.ArrowRight}
+            onClick={() => toggleOpen()}
+          >
+            {isOpen ? <ArrowDown /> : <ArrowRight />}
           </span>
-        ) : (
-          <Link href={item.url}>
-            <a
-              className={classNames(
-                styles.Link,
-                isActive ? styles.ActiveLink : ""
-              )}
-              href={item.url}
-            >
-              {item.name}
-            </a>
-          </Link>
-        )}
+          {linkItem}
+        </span>
+      ) : (
+        linkItem
+      )}
+      {isDropdown && isOpen && (
         <div className={classNames(styles.LinkContainer)}>
-          {isDropdown &&
-            isOpen &&
-            item.children.map((item) => (
-              <ListItem item={item} key={item.name} />
-            ))}
+          {item.children.map((childItem) => (
+            <ListItem item={childItem} key={childItem.name} />
+          ))}
         </div>
-      </>
-    </div>
+      )}
+    </>
   );
 }
