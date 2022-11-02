@@ -3,7 +3,6 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "postbuild": "next-on-netlify",
     "start": "next start"
   },
   "dependencies": {
@@ -12,6 +11,7 @@
     "@svgr/webpack": "^6.2.1",
     "classnames": "^2.3.2",
     "file-loader": "^6.2.0",
+    "netlify-plugin-cache-nextjs": "^1.6.1",
     "frontmatter-markdown-loader": "^3.7.0",
     "fs": "^0.0.1-security",
     "gray-matter": "^4.0.3",
