@@ -3,7 +3,6 @@ const fs = require("fs");
 
 module.exports =
   withMarkdoc(/* config: https://markdoc.io/docs/nextjs#options */)({
-    target: "serverless",
     webpack: (configuration) => {
       configuration.module.rules.push(
         {
