@@ -16,6 +16,8 @@ import Breadcrumb from "../components/Breadcrumb/Breadcrumb";
 import { homeMenuItem } from "../constants/common.constants";
 import { MenuItem } from "../interface/common.interface";
 import { getCategoryByIndex } from "../lib/utils";
+import { serialize } from "next-mdx-remote/serialize";
+import remarkUnwrapImages from "remark-unwrap-images";
 
 interface Props {
   menu: MenuItem[];
@@ -79,10 +81,24 @@ export async function getStaticProps(context) {
 
     // Get the last element of the array to find the MD file
     const fileContents = fs.readFileSync(filename, "utf8");
-    const { content } = matter(fileContents);
+    const { data, content } = matter(fileContents);
+
+    // const source = await serialize(content, {
+    //   scope: data,
+    //   // mdxOptions: {
+    //   //   rehypePlugins: [
+    //   //     require("rehype-slug"),
+    //   //     // require("rehype-autolink-headings"),
+    //   //   ],
+    //   //   remarkPlugins: [remarkUnwrapImages],
+    //   // },
+    // });
 
     props["menu"] = menu;
     props["content"] = content;
+    props["data"] = data;
+    props["filename"] = filename;
+    props["slug"] = context.params.slug;
   }
 
   return {
