@@ -17,8 +17,6 @@ import { homeMenuItem } from "../constants/common.constants";
 import { MenuItem, PathObj } from "../interface/common.interface";
 import { getCategoryByIndex } from "../lib/utils";
 import ErrorBoundary from "../components/ErrorBoundary";
-import { serialize } from "next-mdx-remote/serialize";
-import remarkUnwrapImages from "remark-unwrap-images";
 
 interface Props {
   menu: MenuItem[];
