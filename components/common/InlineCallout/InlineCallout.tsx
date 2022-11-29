@@ -59,14 +59,14 @@ const InlineCallout = ({ children, icon, color, bold, href }) => {
         </a>
       </Link>
       <article>
-        <p className={styles.Text}>
+        <div className={styles.Text}>
           <Link href={href}>
             <a className={classNames("not-link", styles.Link, textColor)}>
               {bold}
             </a>
           </Link>{" "}
           {children}
-        </p>
+        </div>
       </article>
     </section>
   );

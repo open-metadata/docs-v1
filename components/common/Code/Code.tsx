@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import classNames from "classnames";
 import Prism from "prismjs";
 import "prismjs/components/prism-jsx";
@@ -18,6 +18,8 @@ import styles from "./Code.module.css";
 import Image from "./image";
 
 export default function Code({ code, children, language, img, lines }) {
+  const [codeElement, setCodeElement] = useState<JSX.Element>();
+
   useEffect(() => {
     if (window) {
       window.initial = { prism: true };
@@ -29,41 +31,42 @@ export default function Code({ code, children, language, img, lines }) {
     };
   }, []);
 
-  let ConditionalRendering;
-  let customCode = code !== undefined ? code : children;
-  let languageClass = `language-${language}`;
+  useEffect(() => {
+    let customCode = code !== undefined ? code : children;
+    let languageClass = `language-${language}`;
 
-  if (children !== undefined && children.props !== undefined) {
-    customCode = children.props.children;
-    languageClass = children.props.className;
-  }
+    if (children !== undefined && children.props !== undefined) {
+      customCode = children.props.children;
+      languageClass = children.props.className;
+    }
 
-  if (img) {
-    ConditionalRendering = (
-      <div className={styles.Container}>
-        <Image src={img} clean={true} />
-        <pre>
-          <code className={languageClass}>{customCode}</code>
-        </pre>
-      </div>
-    );
-  } else if (lines) {
-    ConditionalRendering = (
-      <div className={classNames(styles.Container, styles.LineHighlight)}>
-        <pre data-line={lines}>
-          <code className={languageClass}>{customCode}</code>
-        </pre>
-      </div>
-    );
-  } else {
-    ConditionalRendering = (
-      <div className={styles.Container}>
-        <pre>
-          <code className={languageClass}>{customCode}</code>
-        </pre>
-      </div>
-    );
-  }
+    if (img) {
+      setCodeElement(
+        <div className={styles.Container}>
+          <Image src={img} clean={true} />
+          <pre>
+            <code className={languageClass}>{customCode}</code>
+          </pre>
+        </div>
+      );
+    } else if (lines) {
+      setCodeElement(
+        <div className={classNames(styles.Container, styles.LineHighlight)}>
+          <pre data-line={lines}>
+            <code className={languageClass}>{customCode}</code>
+          </pre>
+        </div>
+      );
+    } else {
+      setCodeElement(
+        <div className={styles.Container}>
+          <pre>
+            <code className={languageClass}>{customCode}</code>
+          </pre>
+        </div>
+      );
+    }
+  }, [img, code, children, language, lines]);
 
-  return ConditionalRendering;
+  return codeElement;
 }

@@ -7,7 +7,10 @@ import { serialize } from "next-mdx-remote/serialize";
 
 export const articleDirectory = join(process.cwd(), "content/");
 
-export function getAllFilesInDirectory(articleDirectory, files = []) {
+export function getAllFilesInDirectory(
+  articleDirectory: string,
+  files: string[] = []
+) {
   fs.readdirSync(articleDirectory).forEach(function (file) {
     const subpath = join(articleDirectory, file);
     if (fs.lstatSync(subpath).isDirectory()) {
