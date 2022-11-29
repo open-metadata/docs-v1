@@ -1,6 +1,13 @@
 .Container {
-  @apply w-full mx-auto overflow-x-auto;
+  @apply w-full mx-auto overflow-x-auto mt-3;
   @apply relative !important;
+  overflow-y: hidden;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.Container::-webkit-scrollbar {
+  display: none;
 }
 
 .Container pre,

@@ -1,7 +1,6 @@
 import Link from "next/link";
 import React, { ReactNode } from "react";
 import styles from "./Breadcrumb.module.css";
-import { ReactComponent as HomeIcon } from "../../images/icons/home.svg";
 
 interface Crumb {
   title: string;
@@ -12,9 +11,8 @@ interface Crumb {
 export default function Breadcrumb({ slug }: { slug: string }) {
   const breadcrumb: Crumb[] = [
     {
-      title: "",
+      title: "Home",
       path: "/",
-      icon: <HomeIcon className={styles.HomeIcon} />,
     },
   ];
 

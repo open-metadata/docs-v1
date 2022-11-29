@@ -1,9 +1,9 @@
 .Container {
-  @apply p-4 rounded-md my-6;
+  @apply p-4 rounded-md mt-6;
 }
 
 .Container p {
-  @apply text-[14px] leading-relaxed tracking-tight m-0;
+  @apply text-[14px] tracking-tight m-0;
   @apply text-gray-90 !important;
 }
 

@@ -7,3 +7,13 @@ export interface MenuItem {
   name: string;
   url: string;
 }
+
+export interface PathObj {
+  params: {
+    slug: string[];
+    location: string;
+    fileName: string;
+    title: string;
+    description: string;
+  };
+}

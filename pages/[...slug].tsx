@@ -14,10 +14,9 @@ import LayoutSelector from "../components/LayoutSelector/LayoutSelector";
 import { components, configs } from "../lib/markdoc";
 import Breadcrumb from "../components/Breadcrumb/Breadcrumb";
 import { homeMenuItem } from "../constants/common.constants";
-import { MenuItem } from "../interface/common.interface";
+import { MenuItem, PathObj } from "../interface/common.interface";
 import { getCategoryByIndex } from "../lib/utils";
-import { serialize } from "next-mdx-remote/serialize";
-import remarkUnwrapImages from "remark-unwrap-images";
+import ErrorBoundary from "../components/ErrorBoundary";
 
 interface Props {
   menu: MenuItem[];
@@ -40,7 +39,7 @@ export default function Article({ menu, content }: Props) {
   );
 
   return (
-    <>
+    <ErrorBoundary>
       <TopNav />
       <LayoutSelector collapsedNav={collapsedNav}>
         <CategoriesNav menu={[homeMenuItem, ...menu]} />
@@ -48,7 +47,7 @@ export default function Article({ menu, content }: Props) {
         <SideNav
           category={item ? getCategoryByIndex(item.category, 0) : category}
           collapsedNav={collapsedNav}
-          items={item && item.children}
+          items={item ? item.children : []}
           handleCollapsedNav={handleCollapsedNav}
         />
         <main className={classNames("flex flex-col content")}>
@@ -59,7 +58,7 @@ export default function Article({ menu, content }: Props) {
         </main>
         <Footer />
       </LayoutSelector>
-    </>
+    </ErrorBoundary>
   );
 }
 
@@ -81,24 +80,10 @@ export async function getStaticProps(context) {
 
     // Get the last element of the array to find the MD file
     const fileContents = fs.readFileSync(filename, "utf8");
-    const { data, content } = matter(fileContents);
-
-    // const source = await serialize(content, {
-    //   scope: data,
-    //   // mdxOptions: {
-    //   //   rehypePlugins: [
-    //   //     require("rehype-slug"),
-    //   //     // require("rehype-autolink-headings"),
-    //   //   ],
-    //   //   remarkPlugins: [remarkUnwrapImages],
-    //   // },
-    // });
+    const { content } = matter(fileContents);
 
     props["menu"] = menu;
     props["content"] = content;
-    props["data"] = data;
-    props["filename"] = filename;
-    props["slug"] = context.params.slug;
   }
 
   return {
@@ -110,7 +95,7 @@ export async function getStaticProps(context) {
 export async function getStaticPaths() {
   // Build up paths based on slugified categories for all docs
   const articles = getArticleSlugs();
-  const paths = [];
+  const paths: PathObj[] = [];
 
   // Load each file and map a path
 
@@ -133,8 +118,8 @@ export async function getStaticPaths() {
         slug: realSlug,
         location: slug,
         fileName: articles[index],
-        title: data.title ? data.title : "Untitled",
-        description: data.description ? data.description : "",
+        title: data.title ? (data.title as string) : "Untitled",
+        description: data.description ? (data.description as string) : "",
       },
     };
 

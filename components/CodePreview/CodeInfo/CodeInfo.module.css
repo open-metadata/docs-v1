@@ -1,10 +1,23 @@
 .Container {
-  padding-left: 8px;
+  padding: 16px 20px;
   border-left: 4px solid transparent;
   border-radius: 4px;
 }
+
 .Container:hover {
   border-left: 4px solid #dde3ea;
+}
+
+.Container h2,
+.Container h3,
+.Container h4,
+.Container h5,
+.Container h6 {
+  margin: 0px;
+}
+
+.Container p {
+  margin: 8px 0px 0px 0px;
 }
 
 .HighlitedCode {

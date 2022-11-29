@@ -8,6 +8,7 @@ import "../public/globals.css";
 import type { AppProps } from "next/app";
 import type { MarkdocNextJsPageProps } from "@markdoc/next.js";
 import { useRouter } from "next/router";
+import ErrorBoundary from "../components/ErrorBoundary";
 
 const TITLE = "Markdoc";
 const DESCRIPTION = "A powerful, flexible, Markdown-based authoring framework";
@@ -40,7 +41,9 @@ export default function MyApp({ Component, pageProps }: AppProps<MyAppProps>) {
         <link rel="shortcut icon" href="/favicon.ico" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Component {...pageProps} key={router.asPath} />
+      <ErrorBoundary>
+        <Component {...pageProps} key={router.asPath} />
+      </ErrorBoundary>
     </>
   );
 }
