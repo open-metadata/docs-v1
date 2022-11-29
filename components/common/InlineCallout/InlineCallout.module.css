@@ -1,5 +1,6 @@
 .Container {
   @apply flex flex-col items-start mt-3 gap-4;
+  background-color: white;
 }
 
 .IconContainer {
@@ -49,16 +50,4 @@
   font-size: 16px;
   font-weight: 700;
   color: var(--primary-color);
-}
-
-.YellowBackground {
-  background-color: white;
-}
-
-.VioletBackground {
-  background-color: white;
-}
-
-.BlueBackground {
-  background-color: white;
 }
