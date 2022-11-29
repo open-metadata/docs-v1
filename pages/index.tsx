@@ -39,7 +39,7 @@ export default function index({ menu }) {
                   Get to know OpenMetadata in few minutes. Watch the data
                   discovery, data profiler, and lineage features in action
                 </p>
-                <Button href="/quick-start" type="link">
+                <Button className="mt-4" href="/quick-start" type="link">
                   Get Started
                   <span className="ml-2">
                     <ArrowRight />
