@@ -15,9 +15,9 @@ export default function TopNav() {
     <nav className={styles.NavBar}>
       <div className="flex justify-between align-center">
         <Link href="/">
-          <a>
-            <SvgLogo />
-          </a>
+
+          <SvgLogo />
+
         </Link>
         <div className={styles.VersionSelectorDiv}>
           <select

@@ -18,17 +18,17 @@ export default function CategoriesNav({ menu }: Props) {
       {menu.map((item) => {
         const active = category === getCategoryByIndex(item.url, 1);
         return (
-          <Link href={item.url} key={item.url}>
-            <a
-              className={classNames(
-                styles.NavItem,
-                active ? styles.Active : ""
-              )}
-              href={item.url}
-            >
-              {item.name}
-            </a>
-          </Link>
+          (<Link
+            href={item.url}
+            key={item.url}
+            className={classNames(
+              styles.NavItem,
+              active ? styles.Active : ""
+            )}>
+
+            {item.name}
+
+          </Link>)
         );
       })}
     </div>

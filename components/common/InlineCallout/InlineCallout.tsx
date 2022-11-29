@@ -47,15 +47,15 @@ const InlineCallout = ({ children, icon, color, bold, href }) => {
 
   return (
     <section className={classNames(styles.Container, bordercolor)}>
-      <Link href={href}>
-        <a className={classNames(styles.IconContainer, backgroundColor)}>
-          <i className={styles.Icon}>{icon}</i>
-        </a>
+      <Link href={href} className={classNames(styles.IconContainer, backgroundColor)}>
+
+        <i className={styles.Icon}>{icon}</i>
+
       </Link>
       <article>
         <p className={styles.Text}>
-          <Link href={href}>
-            <a className={classNames(styles.Link, textColor)}>{bold}</a>
+          <Link href={href} className={classNames(styles.Link, textColor)}>
+            {bold}
           </Link>{" "}
           {children}
         </p>

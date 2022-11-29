@@ -33,30 +33,28 @@ export default function ListItem({ item }: { item: MenuItem }) {
             <span onClick={() => toggleOpen()}>
               {isOpen ? <ArrowDown /> : <ArrowRight />}
             </span>
-            <Link href={item.url}>
-              <a
-                className={classNames(
-                  styles.Link,
-                  isActive ? styles.ActiveLink : ""
-                )}
-                href={item.url}
-              >
-                {item.name}
-              </a>
-            </Link>
-          </span>
-        ) : (
-          <Link href={item.url}>
-            <a
+            <Link
+              href={item.url}
               className={classNames(
                 styles.Link,
                 isActive ? styles.ActiveLink : ""
-              )}
-              href={item.url}
-            >
+              )}>
+
               {item.name}
-            </a>
-          </Link>
+
+            </Link>
+          </span>
+        ) : (
+          (<Link
+            href={item.url}
+            className={classNames(
+              styles.Link,
+              isActive ? styles.ActiveLink : ""
+            )}>
+
+            {item.name}
+
+          </Link>)
         )}
         <div className={classNames(styles.LinkContainer)}>
           {isDropdown &&

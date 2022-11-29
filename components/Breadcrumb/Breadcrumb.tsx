@@ -33,7 +33,7 @@ export default function Breadcrumb({ slug }: { slug: string }) {
     <div className={styles.Container}>
       {breadcrumb.map((crumb, idx) => (
         <React.Fragment key={crumb.path}>
-          <Link className="flex align-center" href={crumb.path}>
+          <Link className="flex align-center" href={crumb.path} legacyBehavior>
             <span className={styles.BreadcumbLink}>
               <span>{crumb.icon}</span>
               <span>
