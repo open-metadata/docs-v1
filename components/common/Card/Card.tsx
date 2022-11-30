@@ -16,7 +16,7 @@ export default function Card({ heading, content, url }: Props) {
       <Puzzle />
       <div className={styles.Heading}>{heading}</div>
       <p className="m-0">{content}</p>
-      <Link href={url}>
+      <Link href={url} legacyBehavior>
         <ArrowRight className={styles.ArrowIcon} />
       </Link>
     </div>

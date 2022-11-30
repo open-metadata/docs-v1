@@ -27,7 +27,7 @@ export default function ListItem({
   const linkItem = useMemo(
     () => (
       <>
-        <Link href={item.url}>
+        <Link legacyBehavior href={item.url}>
           <a
             className={classNames(
               styles.Link,

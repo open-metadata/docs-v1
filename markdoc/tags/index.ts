@@ -3,6 +3,7 @@ export * from "./callout.markdoc";
 export * from "./banner.markdoc";
 export * from "./divider.markdoc";
 export * from "./inlineCallout.markdoc";
+export * from "./inlineCalloutContainer.markdoc";
 export * from "./youtube.markdoc";
 export * from "./note.markdoc";
 export * from "./codePreview/codeBlock.markdoc";

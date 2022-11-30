@@ -1,5 +1,6 @@
 .Container {
-  @apply flex items-start  my-8  border-b border-b-gray-30 px-3 py-4 rounded-[10px];
+  @apply flex flex-col items-start mt-3 gap-4;
+  background-color: white;
 }
 
 .IconContainer {
@@ -17,6 +18,7 @@
 
 .Text > p {
   @apply m-0;
+  font-size: 16px;
 }
 
 :global(.dark) .Text {
@@ -33,7 +35,7 @@
 
 /* Colors for each category */
 .LibraryBackground {
-  @apply bg-color_violet bg-opacity-10;
+  background-color: #f1f7fd;
 }
 
 .CloudBackground {
@@ -45,17 +47,7 @@
 }
 
 .LibraryText {
-  @apply text-lg text-[#3B454E] !important;
-}
-
-.YellowBackground {
-  @apply border border-[#EAA623] rounded-[10px] !important;
-}
-
-.VioletBackground {
-  @apply border border-color_violet;
-}
-
-.BlueBackground {
-  @apply border border-[#1890FF]  rounded-[10px];
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--primary-color);
 }

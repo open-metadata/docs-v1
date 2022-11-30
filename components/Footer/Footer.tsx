@@ -9,25 +9,25 @@ export default function Footer() {
       <section className={styles.InnerContainer}>
         <hr className={styles.Separator} />
         <nav className={styles.Navigation}>
-          <Link href="/">
-            <a
-              className={`
-                    not-link
-                    ${styles.Link}
-                  `}
-            >
+          <Link
+            href="/"
+            className={`
+                  not-link
+                  ${styles.Link}
+                `}>
+            
               Home
-            </a>
+            
           </Link>
-          <Link href="mailto:hello@getcollate.io?subject=Contact%20from%20documentation%20">
-            <a
-              className={`
-                    not-link
-                    ${styles.Link}
-                  `}
-            >
+          <Link
+            href="mailto:hello@getcollate.io?subject=Contact%20from%20documentation%20"
+            className={`
+                  not-link
+                  ${styles.Link}
+                `}>
+            
               Contact Us
-            </a>
+            
           </Link>
           <a
             className={`
