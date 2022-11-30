@@ -11,14 +11,13 @@ import TopNav from "../components/TopNav/TopNav";
 import LayoutSelector from "../components/LayoutSelector/LayoutSelector";
 import CategoriesNav from "../components/CategoriesNav/CategoriesNav";
 import { getMenu } from "../lib/api";
-import { homeMenuItem } from "../constants/common.constants";
 
 export default function index({ menu }) {
   return (
     <>
       <TopNav />
       <LayoutSelector collapsedNav={true}>
-        <CategoriesNav menu={[homeMenuItem, ...menu]} />
+        <CategoriesNav menu={menu} />
         <div className="home-page">
           <div className={bannerStyles.Container}>
             <div className={bannerStyles.Content}>
