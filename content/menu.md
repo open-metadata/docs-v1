@@ -1,5 +1,8 @@
 ---
 site_menu:
+  - category: Home
+    url: /
+
   - category: Quickstart
     url: /quick-start/local-deployment
     icon: quickstart

@@ -13,7 +13,6 @@ import Footer from "../components/Footer/Footer";
 import LayoutSelector from "../components/LayoutSelector/LayoutSelector";
 import { components, configs } from "../lib/markdoc";
 import Breadcrumb from "../components/Breadcrumb/Breadcrumb";
-import { homeMenuItem } from "../constants/common.constants";
 import { MenuItem, PathObj } from "../interface/common.interface";
 import { getCategoryByIndex } from "../lib/utils";
 import ErrorBoundary from "../components/ErrorBoundary";
@@ -42,7 +41,7 @@ export default function Article({ menu, content }: Props) {
     <ErrorBoundary>
       <TopNav />
       <LayoutSelector collapsedNav={collapsedNav}>
-        <CategoriesNav menu={[homeMenuItem, ...menu]} />
+        <CategoriesNav menu={menu} />
 
         <SideNav
           category={item ? getCategoryByIndex(item.category, 0) : category}
