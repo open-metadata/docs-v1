@@ -84,3 +84,7 @@ Code for third codeInfo tag
 {% /codePreview %}
 
 <img width="2032" alt="image" src="./public/codePreview.png">
+
+##### Here's the preview of the commponent
+
+<img width="2032" alt="code-preview-component-gif" src="./public/code-preview-component.gif">
