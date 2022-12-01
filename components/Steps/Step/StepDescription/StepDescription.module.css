@@ -1,0 +1,18 @@
+.Heading {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.Heading > h4 {
+  margin: 0px;
+  font-weight: 500;
+}
+
+.Description {
+  margin-left: 48px; /* step-icon width = 32px + left margin of heading = 16px */
+}
+
+.HighlitedStepHeading {
+  color: var(--primary-color);
+}

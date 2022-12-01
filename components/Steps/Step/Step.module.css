@@ -1,0 +1,12 @@
+.Container {
+  display: grid;
+  grid-template-columns: auto 50%;
+  align-items: center;
+  margin-top: 40px;
+  cursor: pointer;
+}
+
+.HighlitedStep img {
+  border: 1px solid var(--primary-color);
+  border-radius: 8px;
+}
