@@ -11,6 +11,11 @@ import CodeInfoContainer from "../components/CodePreview/CodeInfoContainer/CodeI
 import CodePreview from "../components/CodePreview/CodePreview";
 import Code from "../components/common/Code/Code";
 import { Heading } from "../components/Heading/Heading";
+import Image from "../components/common/Image/Image";
+import StepsContainer from "../components/Steps/StepsContainer/StepsContainer";
+import Step from "../components/Steps/Step/Step";
+import StepDescription from "../components/Steps/Step/StepDescription/StepDescription";
+import StepVisualInfo from "../components/Steps/Step/StepVisualInfo/StepVisualInfo";
 
 import * as allTags from "../markdoc/tags";
 import * as allNodes from "../markdoc/nodes";
@@ -35,6 +40,11 @@ export const components = {
   CodePreview,
   Code,
   Heading,
+  Image,
+  Step,
+  StepsContainer,
+  StepDescription,
+  StepVisualInfo,
 };
 
 export const configs: Config = {
