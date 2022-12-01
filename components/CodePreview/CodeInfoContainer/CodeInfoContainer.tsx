@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { usePreviewContext } from "../../../context/CodePreviewContext";
-import { getCodeDivIndexFromId } from "../../../utils/codePreview";
+import { getDivIndexFromId } from "../../../utils/CommonUtils";
 import styles from "./CodeInfoContainer.module.css";
 
 export default function CodeInfoContainer({ children }) {
@@ -18,7 +18,7 @@ export default function CodeInfoContainer({ children }) {
       const [codeInfoInView] = arr;
       if (codeInfoInView.isIntersecting) {
         changeSelectedPreviewNumber(
-          Number(getCodeDivIndexFromId(codeInfoInView.target.id))
+          Number(getDivIndexFromId(codeInfoInView.target.id))
         );
       }
     };

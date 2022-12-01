@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import React, { useEffect } from "react";
 import { usePreviewContext } from "../../../context/CodePreviewContext";
-import { getCodeDivIndexFromId } from "../../../utils/codePreview";
+import { getDivIndexFromId } from "../../../utils/CommonUtils";
 import styles from "./CodeInfo.module.css";
 
 export default function CodeInfo({ children, srNumber }) {
@@ -12,7 +12,7 @@ export default function CodeInfo({ children, srNumber }) {
 
   function handleClick() {
     const id = this.id;
-    changeSelectedPreviewNumber(Number(getCodeDivIndexFromId(id)));
+    changeSelectedPreviewNumber(Number(getDivIndexFromId(id)));
   }
 
   useEffect(() => {
