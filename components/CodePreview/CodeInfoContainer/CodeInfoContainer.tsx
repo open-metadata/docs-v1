@@ -26,7 +26,7 @@ export default function CodeInfoContainer({ children }) {
     // Create an intersection observer, to track when the links enter/leave.
     const observer = new IntersectionObserver(callback, {
       threshold: 0,
-      rootMargin: "-40% 0px -50% 0px",
+      rootMargin: "-40% 0px -55% 0px",
     });
 
     // Attatching the observer to all the Info divs
