@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { ReactNode, useState } from "react";
 import classNames from "classnames";
 
-import styles from "./image.module.css";
+import styles from "./Image.module.css";
 
 const Image = ({
   caption,
@@ -26,9 +26,9 @@ const Image = ({
     setIsOpen(false);
   };
 
-  let block;
-  let customCaption;
-  let captionClass;
+  let block: ReactNode;
+  let customCaption: ReactNode;
+  let captionClass: string;
 
   if (caption) {
     captionClass = "has-caption";
