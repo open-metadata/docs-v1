@@ -4,7 +4,7 @@ slug: /quick-start
 description: The easiest way to deploy and use OpenMetadata
 ---
 
-# Quickstart
+# Quick Start
 
 Just getting started? This is the right place 🚀
 
@@ -14,14 +14,14 @@ We have two approaches to start exploring:
 
 {% inlineCalloutContainer %}
 
-{% inlineCallout color="violet-70"
+{% inlineCallout
     icon="celebration"
     bold="Try OpenMetadata in Docker"
     href="/quick-start/local-deployment" %}
 Get OpenMetadata up and running locally in under 5 minutes!
 {% /inlineCallout %}
 
-{% inlineCallout color="violet-70"
+{% inlineCallout
     icon="open_in_new"
     bold="Try the OpenMetadata Sandbox"
     href="/quick-start/sandbox" %}
