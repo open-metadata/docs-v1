@@ -1,13 +1,15 @@
-.Note {
+.Container {
+  margin-top: 24px;
+  padding: 16px;
   background: #dde3ea66;
   border-radius: 4px;
   border-left: 4px solid #2eaadc;
   display: flex;
+  gap: 8px;
 }
 
 .Icon {
   width: 26px;
   height: 16px;
-  margin-right: 4px;
-  margin-top: 4px;
+  margin-top: 12px;
 }
