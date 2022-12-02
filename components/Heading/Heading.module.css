@@ -1,19 +1,30 @@
 .HeaderLink {
-  @apply flex items-center;
+  display: flex;
+  align-items: center;
 }
 
 .CopiedText {
-  @apply text-xs ml-4;
+  margin-left: 16px;
+  font-size: 12px;
 }
 
 .Icon {
-  @apply ml-4 opacity-0;
+  margin-left: 16px;
+  opacity: 0;
+  cursor: pointer;
 }
 
 .HeaderLink:hover .Icon {
-  @apply opacity-90;
+  opacity: 0.9;
 }
 
 .HashLink {
-  @apply no-underline block h-0 w-0 overflow-hidden invisible pointer-events-none;
+  overflow: hidden;
+  width: 0px;
+  height: 0px;
+  display: block;
+  visibility: hidden;
+  text-decoration: none;
+  margin-top: 32px;
+  pointer-events: none;
 }
