@@ -15,3 +15,4 @@ export * from "./Steps/StepsContainer/stepsContainer.markdoc";
 export * from "./Steps/Step/step.markdoc";
 export * from "./Steps/Step/StepDescription/stepDescription.markdoc";
 export * from "./Steps/Step/StepVisualInfo/stepVisualInfo.markdoc";
+export * from "./Steps/ExtraContent/extraContent.markdoc";

@@ -1,15 +1,14 @@
 import classNames from "classnames";
-import * as React from "react";
+import React, { useState } from "react";
 import styles from "./Heading.module.css";
 import HeadingElement from "./HeadingElement";
 
 export function Heading({ id = "", level = 1, children, className }) {
-  const [copied, setCopied] = React.useState(false);
+  const [copied, setCopied] = useState(false);
 
   const copyLinkUnbound = async () => {
     const link = `${window.location.host}${window.location.pathname}#${id}`;
     await navigator.clipboard.writeText(link);
-    window.location.hash = id;
 
     setCopied(true);
     window.setTimeout(() => setCopied(false), 2000);
@@ -20,7 +19,6 @@ export function Heading({ id = "", level = 1, children, className }) {
       <a id={id} className={styles.HashLink} />
       <HeadingElement
         className={classNames(className, styles.HeaderLink)}
-        id={id}
         level={level}
       >
         {children}

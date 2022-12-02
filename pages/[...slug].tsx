@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { getArticleSlugFromString, getArticleSlugs, getMenu } from "../lib/api";
 import fs from "fs";
 import matter from "gray-matter";
@@ -23,6 +23,9 @@ interface Props {
   content: string;
 }
 
+// Offset of 152px = 112px top nav-bar height + 40px top margin to show the link properly
+const SCROLLING_OFFSET = 152;
+
 export default function Article({ menu, content }: Props) {
   const router = useRouter();
   const [collapsedNav, setCollapsedNav] = useState(false);
@@ -37,6 +40,29 @@ export default function Article({ menu, content }: Props) {
   const item = (menu as MenuItem[]).find(
     (item) => getCategoryByIndex(item.url, 1) === category
   );
+
+  // Function to scroll element into view with some offset margin
+  // For scrolling to the hash element on page after load
+  const scrollToElementWithOffsetMargin = () => {
+    const hashElementId = window.location.hash.slice(1);
+    const element = document.getElementById(hashElementId);
+    const elementPosition = element?.getBoundingClientRect().top;
+    const offsetPosition =
+      elementPosition + window.pageYOffset - SCROLLING_OFFSET;
+
+    setTimeout(
+      () =>
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "auto",
+        }),
+      0
+    );
+  };
+
+  useEffect(() => {
+    scrollToElementWithOffsetMargin();
+  }, []);
 
   return (
     <ErrorBoundary>

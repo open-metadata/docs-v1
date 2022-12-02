@@ -1,4 +1,3 @@
-import classNames from "classnames";
 import React, { ReactNode } from "react";
 import styles from "./StepVisualInfo.module.css";
 
@@ -7,11 +6,7 @@ interface StepVisualInfoProps {
 }
 
 function StepVisualInfo({ children }: StepVisualInfoProps) {
-  return (
-    <div className={classNames(styles.Container, "step-visual-info")}>
-      {children}
-    </div>
-  );
+  return <div className={styles.Container}>{children}</div>;
 }
 
 export default StepVisualInfo;

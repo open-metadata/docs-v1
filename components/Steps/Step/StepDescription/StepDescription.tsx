@@ -3,7 +3,12 @@ import { ReactComponent as StepIcon } from "../../../../images/icons/step-icon.s
 import { ReactComponent as SelectedStepIcon } from "../../../../images/icons/selected-step-icon.svg";
 import styles from "./StepDescription.module.css";
 import { useStepContext } from "../../../../context/StepsContext";
-import { getDivIndexFromId } from "../../../../utils/CommonUtils";
+import {
+  generateIdFromHeading,
+  getDivIndexFromId,
+} from "../../../../utils/CommonUtils";
+import { Heading } from "../../../Heading/Heading";
+import classNames from "classnames";
 
 interface StepDescriptionProp {
   children: ReactNode;
@@ -33,9 +38,15 @@ function StepDescription({ children, title }: StepDescriptionProp) {
     <div className={styles.Container} ref={stepDescriptionContainer}>
       <span className={styles.Heading}>
         {isStepSelected ? <SelectedStepIcon /> : <StepIcon />}
-        <h4 className={isStepSelected ? styles.HighlightedStepHeading : ""}>
+        <Heading
+          className={classNames(
+            isStepSelected ? styles.HighlightedStepHeading : ""
+          )}
+          id={generateIdFromHeading(title)}
+          level={4}
+        >
           {title}
-        </h4>
+        </Heading>
       </span>
       <div className={styles.Description}>{children}</div>
     </div>

@@ -196,7 +196,7 @@ the changes.
 
 {% /step %}
 
-{% /stepsContainer %}
+{% extraContent %}
 
 #### Connection Options
 
@@ -213,7 +213,7 @@ the changes.
   - In case you are using Single-Sign-On (SSO) for authentication, add the `authenticator` details in the Connection Arguments as a Key-Value pair as follows: `"authenticator" : "sso_login_url"`
   - In case you authenticate with SSO using an external browser popup, then add the `authenticator` details in the Connection Arguments as a Key-Value pair as follows: `"authenticator" : "externalbrowser"`
 
-{% stepsContainer %}
+{% /extraContent %}
 
 {% step srNumber=7 %}
 
@@ -236,7 +236,7 @@ caption="Configure Metadata Ingestion Page"
 
 {% /step %}
 
-{% /stepsContainer %}
+{% extraContent %}
 
 #### Metadata Ingestion Options
 
@@ -256,7 +256,7 @@ caption="Configure Metadata Ingestion Page"
 - **Mark Deleted Tables (toggle)**: Set the Mark Deleted Tables toggle to flag tables as soft-deleted if they are not present anymore in the source system.
 - **Mark Deleted Tables from Filter Only (toggle)**: Set the Mark Deleted Tables from Filter Only toggle to flag tables as soft-deleted if they are not present anymore within the filtered schema or database only. This flag is useful when you have more than one ingestion pipelines. For example if you have a schema
 
-{% stepsContainer %}
+{% /extraContent %}
 
 {% step srNumber=8 %}
 

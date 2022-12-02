@@ -9,4 +9,5 @@
 .HighlightedStep img {
   border: 1px solid var(--primary-color);
   border-radius: 8px;
+  box-shadow: 4px 4px 4px var(--default-border-color);
 }
