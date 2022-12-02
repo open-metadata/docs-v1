@@ -16,6 +16,7 @@ import Breadcrumb from "../components/Breadcrumb/Breadcrumb";
 import { MenuItem, PathObj } from "../interface/common.interface";
 import { getCategoryByIndex } from "../lib/utils";
 import ErrorBoundary from "../components/ErrorBoundary";
+import { StepsContextProvider } from "../context/StepsContext";
 
 interface Props {
   menu: MenuItem[];
@@ -39,24 +40,26 @@ export default function Article({ menu, content }: Props) {
 
   return (
     <ErrorBoundary>
-      <TopNav />
-      <LayoutSelector collapsedNav={collapsedNav}>
-        <CategoriesNav menu={menu} />
+      <StepsContextProvider>
+        <TopNav />
+        <LayoutSelector collapsedNav={collapsedNav}>
+          <CategoriesNav menu={menu} />
 
-        <SideNav
-          category={item ? getCategoryByIndex(item.category, 0) : category}
-          collapsedNav={collapsedNav}
-          items={item ? item.children : []}
-          handleCollapsedNav={handleCollapsedNav}
-        />
-        <main className={classNames("flex flex-col content")}>
-          <Breadcrumb slug={item ? item.url : ""} />
-          {Markdoc.renderers.react(ParsedContent, React, {
-            components,
-          })}
-        </main>
-        <Footer />
-      </LayoutSelector>
+          <SideNav
+            category={item ? getCategoryByIndex(item.category, 0) : category}
+            collapsedNav={collapsedNav}
+            items={item ? item.children : []}
+            handleCollapsedNav={handleCollapsedNav}
+          />
+          <main className={classNames("flex flex-col content")}>
+            <Breadcrumb slug={item ? item.url : ""} />
+            {Markdoc.renderers.react(ParsedContent, React, {
+              components,
+            })}
+          </main>
+          <Footer />
+        </LayoutSelector>
+      </StepsContextProvider>
     </ErrorBoundary>
   );
 }

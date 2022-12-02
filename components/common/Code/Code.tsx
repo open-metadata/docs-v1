@@ -15,7 +15,7 @@ import "prismjs/plugins/copy-to-clipboard/prism-copy-to-clipboard";
 import "prismjs/plugins/normalize-whitespace/prism-normalize-whitespace";
 
 import styles from "./Code.module.css";
-import Image from "./image";
+import Image from "../Image/Image";
 
 export default function Code({ code, children, language, img, lines }) {
   const [codeElement, setCodeElement] = useState<JSX.Element>();

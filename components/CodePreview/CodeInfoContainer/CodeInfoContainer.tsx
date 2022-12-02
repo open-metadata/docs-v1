@@ -1,14 +1,14 @@
 import React, { useEffect } from "react";
 import { usePreviewContext } from "../../../context/CodePreviewContext";
-import { getCodeDivIndexFromId } from "../../../utils/codePreview";
+import { getDivIndexFromId } from "../../../utils/CommonUtils";
 import styles from "./CodeInfoContainer.module.css";
 
 export default function CodeInfoContainer({ children }) {
-  const { changeSelectedPreviewNumber } = usePreviewContext();
+  const { onChangeSelectedPreviewNumber } = usePreviewContext();
   useEffect(() => {
-    // Code to select the visible conde info div element with scroll
+    // Code to select the visible code info div element with scroll
 
-    // Getting all the code info divs
+    // Getting all the code info div elements
     const codeInfoDivsArray = Array.from(
       document.querySelectorAll("[id^='code-info-']")
     );
@@ -17,8 +17,8 @@ export default function CodeInfoContainer({ children }) {
     const callback = (arr) => {
       const [codeInfoInView] = arr;
       if (codeInfoInView.isIntersecting) {
-        changeSelectedPreviewNumber(
-          Number(getCodeDivIndexFromId(codeInfoInView.target.id))
+        onChangeSelectedPreviewNumber(
+          getDivIndexFromId(codeInfoInView.target.id)
         );
       }
     };
@@ -26,10 +26,10 @@ export default function CodeInfoContainer({ children }) {
     // Create an intersection observer, to track when the links enter/leave.
     const observer = new IntersectionObserver(callback, {
       threshold: 0,
-      rootMargin: "-40% 0px -50% 0px",
+      rootMargin: "-40% 0px -55% 0px",
     });
 
-    // Attatching the observer to all the Info divs
+    // Attaching the observer to all the Info div elements
     codeInfoDivsArray.forEach((element) => observer.observe(element));
 
     return () => observer.disconnect();
