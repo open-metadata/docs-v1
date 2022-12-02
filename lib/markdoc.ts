@@ -19,6 +19,7 @@ import StepVisualInfo from "../components/Steps/Step/StepVisualInfo/StepVisualIn
 import ExtraContent from "../components/Steps/ExtraContent/ExtraContent";
 import Tile from "../components/common/Tiles/Tile/Tile";
 import TilesContainer from "../components/common/Tiles/TilesContainer/TilesContainer";
+import InlineCode from "../components/common/Code/InlineCode";
 
 import * as allTags from "../markdoc/tags";
 import * as allNodes from "../markdoc/nodes";
@@ -51,6 +52,7 @@ export const components = {
   ExtraContent,
   Tile,
   TilesContainer,
+  InlineCode,
 };
 
 export const configs: Config = {
