@@ -4,7 +4,7 @@ To add content to the docs use markdown files. Some custom markdoc tags are list
 
 ### How to use markdoc tags ?
 
-Similar to the normal react components custom tags can be used as follow
+Similar to the normal react components, custom tags can be used as follows
 Example: Here's how to use tag named 'exampleTag' with some attributes
 
 ```
@@ -128,6 +128,10 @@ For defining title use 'title' attribute. Add other information between opening 
 Use this tag to show images, videos, GIFs or CodeBlocks to provide additional information for the step.
 Add the tags for images, videos, GIFs or CodeBlocks between opening and closing tags.
 
+### 5. extraContent
+
+Tag to add some extra information in between two steps. Add it in between two `step` tags.
+
 Example:
 
 {% stepsContainer %}
@@ -150,6 +154,12 @@ caption="step1 caption" /%}
 {% /stepVisualInfo %}
 
 {% /step %}
+
+{% extraContent %}
+
+Additional information between two steps
+
+{% /extraContent %}
 
 {% step srNumber=2 %}
 
