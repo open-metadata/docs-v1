@@ -20,12 +20,12 @@
   margin: 8px 0px 0px 0px;
 }
 
-.HighlitedCode {
+.HighlightedCode {
   border-left: 4px solid var(--primary-color);
   background-color: #f7fafc;
 }
 
-.HighlitedCode:hover {
+.HighlightedCode:hover {
   border-left: 4px solid var(--primary-color);
   background-color: #f7fafc;
 }

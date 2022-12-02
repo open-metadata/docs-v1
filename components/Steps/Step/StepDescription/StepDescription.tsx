@@ -14,15 +14,15 @@ function StepDescription({ children, title }: StepDescriptionProp) {
   const stepDescriptionContainer = useRef<HTMLDivElement>();
   const { selectedStepNumber } = useStepContext();
 
-  const parentId = useMemo(() => {
-    return Number(
+  const parentId = useMemo(
+    () =>
       getDivIndexFromId(
         stepDescriptionContainer.current
           ? stepDescriptionContainer.current.parentElement.id
           : ""
-      )
-    );
-  }, [stepDescriptionContainer.current]);
+      ),
+    [stepDescriptionContainer.current]
+  );
 
   const isStepSelected = useMemo(
     () => selectedStepNumber === parentId,
@@ -33,7 +33,7 @@ function StepDescription({ children, title }: StepDescriptionProp) {
     <div className={styles.Container} ref={stepDescriptionContainer}>
       <span className={styles.Heading}>
         {isStepSelected ? <SelectedStepIcon /> : <StepIcon />}
-        <h4 className={isStepSelected ? styles.HighlitedStepHeading : ""}>
+        <h4 className={isStepSelected ? styles.HighlightedStepHeading : ""}>
           {title}
         </h4>
       </span>

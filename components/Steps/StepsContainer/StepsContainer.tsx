@@ -8,12 +8,12 @@ interface StepsContainerProps {
 }
 
 function StepsContainer({ children }: StepsContainerProps) {
-  const { changeSelectedStepNumber } = useStepContext();
+  const { onChangeSelectedStepNumber } = useStepContext();
 
   useEffect(() => {
     // Code to select the visible Step div element with scroll
 
-    // Getting all the Step divs
+    // Getting all the Step div elements
     const stepDivsArray = Array.from(
       document.querySelectorAll("[id^='step-']")
     );
@@ -22,9 +22,7 @@ function StepsContainer({ children }: StepsContainerProps) {
     const callback = (arr) => {
       const [stepInView] = arr;
       if (stepInView.isIntersecting) {
-        changeSelectedStepNumber(
-          Number(getDivIndexFromId(stepInView.target.id))
-        );
+        onChangeSelectedStepNumber(getDivIndexFromId(stepInView.target.id));
       }
     };
 
@@ -34,7 +32,7 @@ function StepsContainer({ children }: StepsContainerProps) {
       rootMargin: "-40% 0px -50% 0px",
     });
 
-    // Attatching the observer to all the Step divs
+    // Attaching the observer to all the Step div elements
     stepDivsArray.forEach((element) => observer.observe(element));
 
     return () => observer.disconnect();

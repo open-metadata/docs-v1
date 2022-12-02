@@ -1,3 +1,3 @@
 export const getDivIndexFromId = (id: string) => {
-  return id.split("-").reverse()[0];
+  return Number(id.split("-").reverse()[0]);
 };

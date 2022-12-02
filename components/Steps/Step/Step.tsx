@@ -11,7 +11,7 @@ interface StepsProps {
 
 function Step({ children, srNumber }: StepsProps) {
   const stepContainer = useRef<HTMLDivElement>();
-  const { selectedStepNumber, changeSelectedStepNumber } = useStepContext();
+  const { selectedStepNumber, onChangeSelectedStepNumber } = useStepContext();
 
   const isSelected = useMemo(
     () => selectedStepNumber === srNumber,
@@ -20,14 +20,14 @@ function Step({ children, srNumber }: StepsProps) {
 
   const handleClick = () => {
     const id = stepContainer.current.id;
-    changeSelectedStepNumber(Number(getDivIndexFromId(id)));
+    onChangeSelectedStepNumber(getDivIndexFromId(id));
   };
 
   return (
     <div
       className={classNames(
         styles.Container,
-        isSelected ? styles.HighlitedStep : ""
+        isSelected ? styles.HighlightedStep : ""
       )}
       id={`step-${srNumber}`}
       ref={stepContainer}

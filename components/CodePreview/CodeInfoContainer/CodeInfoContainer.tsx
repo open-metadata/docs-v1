@@ -4,11 +4,11 @@ import { getDivIndexFromId } from "../../../utils/CommonUtils";
 import styles from "./CodeInfoContainer.module.css";
 
 export default function CodeInfoContainer({ children }) {
-  const { changeSelectedPreviewNumber } = usePreviewContext();
+  const { onChangeSelectedPreviewNumber } = usePreviewContext();
   useEffect(() => {
-    // Code to select the visible conde info div element with scroll
+    // Code to select the visible code info div element with scroll
 
-    // Getting all the code info divs
+    // Getting all the code info div elements
     const codeInfoDivsArray = Array.from(
       document.querySelectorAll("[id^='code-info-']")
     );
@@ -17,8 +17,8 @@ export default function CodeInfoContainer({ children }) {
     const callback = (arr) => {
       const [codeInfoInView] = arr;
       if (codeInfoInView.isIntersecting) {
-        changeSelectedPreviewNumber(
-          Number(getDivIndexFromId(codeInfoInView.target.id))
+        onChangeSelectedPreviewNumber(
+          getDivIndexFromId(codeInfoInView.target.id)
         );
       }
     };
@@ -29,7 +29,7 @@ export default function CodeInfoContainer({ children }) {
       rootMargin: "-40% 0px -55% 0px",
     });
 
-    // Attatching the observer to all the Info divs
+    // Attaching the observer to all the Info div elements
     codeInfoDivsArray.forEach((element) => observer.observe(element));
 
     return () => observer.disconnect();

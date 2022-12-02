@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 
 export const CodePreviewContext = React.createContext({
   selectedPreviewNumber: 0,
-  changeSelectedPreviewNumber: (number: number) => null,
+  onChangeSelectedPreviewNumber: (number: number) => null,
 });
 
 export const usePreviewContext = () => useContext(CodePreviewContext);
@@ -10,13 +10,13 @@ export const usePreviewContext = () => useContext(CodePreviewContext);
 export const CodePreviewContextProvider = ({ children }) => {
   const [selectedPreviewNumber, setSelectedPreviewNumber] = useState(0);
 
-  const changeSelectedPreviewNumber = (number: number) => {
+  const onChangeSelectedPreviewNumber = (number: number) => {
     setSelectedPreviewNumber(number);
   };
 
   return (
     <CodePreviewContext.Provider
-      value={{ selectedPreviewNumber, changeSelectedPreviewNumber }}
+      value={{ selectedPreviewNumber, onChangeSelectedPreviewNumber }}
     >
       {children}
     </CodePreviewContext.Provider>
