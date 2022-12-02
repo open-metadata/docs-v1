@@ -1,53 +1,42 @@
 .Container {
-  @apply flex flex-col items-start mt-3 gap-4;
-  background-color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: flex-start;
+  margin: 16px 0px;
+  padding: 8px;
+  width: fit-content;
+  border: 1px solid transparent;
+  border-radius: 8px;
 }
 
 .IconContainer {
-  @apply flex items-center p-4 mr-4 mb-0 rounded-md;
-}
-
-.Icon {
-  @apply text-3xl leading-none;
-  @apply text-color_violet !important;
+  margin-bottom: 0;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  background-color: #f1f7fd;
+  border-radius: 8px;
 }
 
 .Text {
-  @apply text-[16px] leading-normal tracking-tight m-0;
+  margin: 0px;
+  color: var(--default-text-color);
 }
 
 .Text > p {
-  @apply m-0;
+  margin: 0px;
   font-size: 16px;
-}
-
-:global(.dark) .Text {
-  @apply text-white !important;
-}
-
-:global(.dark) .Container {
-  @apply border-b-gray-90 !important;
 }
 
 .Link {
-  @apply flex font-bold border-none hover:border-none hover:opacity-70;
-}
-
-/* Colors for each category */
-.LibraryBackground {
-  background-color: #f1f7fd;
-}
-
-.CloudBackground {
-  @apply bg-[#1890FF] bg-opacity-10;
-}
-
-.KBBackground {
-  @apply bg-[#FFC34E] bg-opacity-10;
-}
-
-.LibraryText {
+  border: none;
   font-size: 16px;
   font-weight: 700;
   color: var(--primary-color);
+}
+
+.Container:hover .Link,
+.Container:hover .Text {
+  opacity: 0.9;
 }
