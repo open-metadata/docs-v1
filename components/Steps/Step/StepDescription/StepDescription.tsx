@@ -8,6 +8,7 @@ import {
   getDivIndexFromId,
 } from "../../../../utils/CommonUtils";
 import { Heading } from "../../../Heading/Heading";
+import classNames from "classnames";
 
 interface StepDescriptionProp {
   children: ReactNode;
@@ -38,7 +39,9 @@ function StepDescription({ children, title }: StepDescriptionProp) {
       <span className={styles.Heading}>
         {isStepSelected ? <SelectedStepIcon /> : <StepIcon />}
         <Heading
-          className={isStepSelected ? styles.HighlightedStepHeading : ""}
+          className={classNames(
+            isStepSelected ? styles.HighlightedStepHeading : ""
+          )}
           id={generateIdFromHeading(title)}
           level={4}
         >
