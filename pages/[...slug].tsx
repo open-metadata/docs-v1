@@ -23,6 +23,9 @@ interface Props {
   content: string;
 }
 
+// Offset of 152px = 112px top nav-bar height + 40px top margin to show the link properly
+const SCROLLING_OFFSET = 152;
+
 export default function Article({ menu, content }: Props) {
   const router = useRouter();
   const [collapsedNav, setCollapsedNav] = useState(false);
@@ -44,8 +47,8 @@ export default function Article({ menu, content }: Props) {
     const hashElementId = window.location.hash.slice(1);
     const element = document.getElementById(hashElementId);
     const elementPosition = element?.getBoundingClientRect().top;
-    // Offset of 152px = 112px top nav-bar height + 40px top margin to show the link properly
-    const offsetPosition = elementPosition + window.pageYOffset - 152;
+    const offsetPosition =
+      elementPosition + window.pageYOffset - SCROLLING_OFFSET;
 
     setTimeout(
       () =>
