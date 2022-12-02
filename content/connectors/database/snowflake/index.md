@@ -18,22 +18,18 @@ Configure and schedule Snowflake metadata and profiler workflows from the OpenMe
 If you don't want to use the OpenMetadata Ingestion container to configure the workflows via the UI, then you can check
 the following docs to connect using Airflow SDK or with the CLI.
 
-<TileContainer>
-  <Tile
-    icon="air"
-    title="Ingest with Airflow"
-    text="Configure the ingestion using Airflow SDK"
+{% tilesContainer %}
+{% tile
+    description="Configure the ingestion using Airflow SDK"
     link="/connectors/database/snowflake/airflow"
-    size="half"
-  />
-  <Tile
-    icon="account_tree"
-    title="Ingest with the CLI"
-    text="Run a one-time ingestion using the metadata CLI"
+    title="Ingest with Airflow"
+  /%}
+{% tile
+    description="Run a one-time ingestion using the metadata CLI"
     link="/connectors/database/snowflake/cli"
-    size="half"
-  />
-</TileContainer>
+    title="Ingest with the CLI"
+  /%}
+{% /tilesContainer %}
 
 ## Requirements
 
@@ -338,38 +334,30 @@ caption="Edit and Deploy the Ingestion Pipeline"
 
 From the Connection tab, you can also Edit the Service if needed.
 
-## Query Usage and Lineage Ingestion
+## Ingestion Workflows
 
-<Tile
-icon="manage_accounts"
-title="Usage Workflow"
-text="Learn more about how to configure the Usage Workflow to ingest Query and Lineage information from the UI."
+{% tilesContainer %}
+{% tile
+description="Learn more about how to configure the Usage Workflow to ingest Query and Lineage information from the UI."
 link="/connectors/ingestion/workflows/usage"
-/>
+title="Usage Workflow"
+/%}
 
-## Data Profiler
-
-<Tile
-icon="schema"
-title="Profiler Workflow"
-text="Learn more about how to configure the Data Profiler from the UI."
+{% tile
+description="Learn more about how to configure the Data Profiler from the UI."
 link="/connectors/ingestion/workflows/profiler"
-/>
+title="Profiler Workflow"
+/%}
 
-## Data Quality
-
-<Tile
-icon="air"
-title="Data Quality Workflow"
-text="Learn more about how to configure the Data Quality tests from the UI."
+{% tile
+description="Learn more about how to configure the Data Quality tests from the UI."
 link="/connectors/ingestion/workflows/data-quality"
-/>
+title="Data Quality Workflow"
+/%}
 
-## DBT Integration
-
-<Tile
-icon="mediation"
-title="DBT Integration"
-text="Learn more about how to ingest DBT models' definitions and their lineage."
+{% tile
+description="Learn more about how to ingest DBT models' definitions and their lineage."
 link="/connectors/ingestion/workflows/metadata/dbt"
-/>
+title="DBT Integration"
+/%}
+{% /tilesContainer %}
