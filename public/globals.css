@@ -10,7 +10,7 @@
   --default-border-color: #dce3ec;
   --primary-color: rgb(24, 144, 255);
   --homepage-container-px: 130px;
-  --default-text-color: rgb(60, 66, 87);
+  --default-text-color: rgb(53, 58, 76);
 }
 
 body {
@@ -19,7 +19,7 @@ body {
   color: var(--default-text-color);
   margin: 0;
   font-size: 16px;
-  font-weight: 400;
+  font-weight: 300;
 }
 
 h1,
@@ -28,12 +28,12 @@ h3,
 h4,
 h5,
 h6 {
-  font-weight: 500;
+  font-weight: 400;
 }
 
 b,
 strong {
-  font-weight: 500;
+  font-weight: 400;
 }
 
 p {
@@ -45,7 +45,6 @@ h1 {
   font-size: 32px;
   padding-bottom: 16px;
   border-bottom: 1px solid var(--default-border-color);
-  margin-top: 8px;
   line-height: 38px;
 }
 
@@ -71,6 +70,7 @@ h6 {
 
 a {
   color: var(--primary-color);
+  font-weight: 400;
 }
 
 li {
@@ -84,6 +84,11 @@ li::marker {
 ul {
   list-style: disc;
   list-style-position: inside;
+  margin-top: 16px;
+}
+
+ul li:first-child {
+  margin-top: 0;
 }
 
 pre {
