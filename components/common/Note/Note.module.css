@@ -8,8 +8,13 @@
   gap: 8px;
 }
 
+.Container ul,
+.Container p {
+  margin-top: 0px !important;
+}
+
 .Icon {
   width: 26px;
   height: 16px;
-  margin-top: 12px;
+  margin-top: 4px;
 }

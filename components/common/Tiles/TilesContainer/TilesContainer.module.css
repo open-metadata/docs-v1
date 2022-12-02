@@ -1,0 +1,6 @@
+.Container {
+  margin: 32px 0px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+}
