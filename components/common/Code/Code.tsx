@@ -29,7 +29,7 @@ export default function Code({ code, children, language, img, lines }) {
     return () => {
       window.initial.prism = false;
     };
-  }, []);
+  }, [codeElement]);
 
   useEffect(() => {
     let customCode = code !== undefined ? code : children;
