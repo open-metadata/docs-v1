@@ -37,14 +37,14 @@ the following docs to connect using Airflow SDK or with the CLI.
 
 ## Requirements
 
-<InlineCallout color="violet-70" icon="description" bold="OpenMetadata 0.12 or later" href="/deployment">
-To deploy OpenMetadata, check the <a href="/deployment">Deployment</a> guides.
-</InlineCallout>
+{% inlineCallout icon="description" bold="OpenMetadata 0.12 or later" href="/deployment"%}
+To deploy OpenMetadata, check the Deployment guides.
+{% /inlineCallout %}
 
 To run the Ingestion via the UI you'll need to use the OpenMetadata Ingestion Container, which comes shipped with
 custom Airflow plugins to handle the workflow deployment.
 
-<Note>
+{% note %}
 
 - While running the usage workflow, Openmetadata fetches the query logs by querying `snowflake.account_usage.query_history` table.
   For this the snowflake user should be granted the `ACCOUNTADMIN` role (or a role granted IMPORTED PRIVILEGES on the database).
@@ -54,7 +54,7 @@ custom Airflow plugins to handle the workflow deployment.
 
 You can find more information about the Account Usage [here](https://docs.snowflake.com/en/sql-reference/account-usage.html).
 
-</Note>
+{% /note%}
 
 ## Metadata Ingestion
 

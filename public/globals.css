@@ -8,14 +8,15 @@
   --side-nav-width: min(20%, 300px);
   --content-div-width: min(17%, 250px);
   --default-border-color: #dce3ec;
-  --primary-color: #1890ff;
+  --primary-color: rgb(24, 144, 255);
   --homepage-container-px: 130px;
+  --default-text-color: rgb(60, 66, 87);
 }
 
 body {
   font-family: -apple-system, system-ui, sans-serif, BlinkMacSystemFont,
     "Segoe UI", "Roboto", "Helvetica Neue", "Ubuntu";
-  color: #3c4257;
+  color: var(--default-text-color);
   margin: 0;
   font-size: 16px;
   font-weight: 400;
@@ -27,7 +28,6 @@ h3,
 h4,
 h5,
 h6 {
-  margin: 32px 0px 0px 0px;
   font-weight: 500;
 }
 

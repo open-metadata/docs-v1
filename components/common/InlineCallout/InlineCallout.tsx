@@ -6,31 +6,7 @@ import { ReactComponent as SvgKubernetes } from "../../../images/icons/kubernete
 
 import styles from "./InlineCallout.module.css";
 
-const InlineCallout = ({ children, icon, color, bold, href }) => {
-  let bordercolor = "";
-  let backgroundColor = "";
-  let textColor = "";
-
-  switch (color) {
-    case "violet-70":
-      bordercolor = styles.VioletBackground;
-      backgroundColor = styles.LibraryBackground;
-      textColor = styles.LibraryText;
-      break;
-    case "l-blue-70":
-      bordercolor = styles.BlueBackground;
-      backgroundColor = styles.CloudBackground;
-      textColor = styles.LibraryText;
-      break;
-    case "yellow-70":
-      bordercolor = styles.YellowBackground;
-      backgroundColor = styles.KBBackground;
-      textColor = styles.LibraryText;
-      break;
-    default:
-      bordercolor = styles.TransparentBackground;
-  }
-
+const InlineCallout = ({ children, icon, bold, href }) => {
   switch (icon) {
     case "celebration":
       icon = <SvgDocker />;
@@ -46,22 +22,16 @@ const InlineCallout = ({ children, icon, color, bold, href }) => {
   }
 
   return (
-    <section className={classNames(styles.Container, bordercolor)}>
-      <Link
-        href={href}
-        className={classNames(styles.IconContainer, backgroundColor)}
-      >
-        <i className={styles.Icon}>{icon}</i>
-      </Link>
-      <article>
-        <p className={styles.Text}>
-          <Link href={href} className={classNames(styles.Link, textColor)}>
-            {bold}
-          </Link>{" "}
-          {children}
-        </p>
-      </article>
-    </section>
+    <Link href={href}>
+      <section className={classNames(styles.Container)}>
+        <span className={classNames(styles.IconContainer)}>
+          <span>{icon}</span>
+        </span>
+        <span className={styles.Text}>
+          <span className={classNames(styles.Link)}>{bold}</span> {children}
+        </span>
+      </section>
+    </Link>
   );
 };
 
