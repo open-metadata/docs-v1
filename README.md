@@ -5,7 +5,7 @@ To add content to the docs use markdown files. Some custom markdoc tags are list
 ### How to use markdoc tags ?
 
 Similar to the normal react components custom tags can be used as follow
-Example: Here's how to use tag named 'exampleTag' with some attribute
+Example: Here's how to use tag named 'exampleTag' with some attributes
 
 ```
 {% exampleTag attributeName='value' %}   <!-- starting tag with attributes -->
