@@ -1,0 +1,23 @@
+.Input {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background-color: #ffffff;
+  max-width: 632px;
+  height: 36px;
+  border: 1px solid #eaecee;
+  border-radius: 6px;
+  width: 100%;
+  padding: 8px 16px;
+  padding-left: 38px;
+  font-size: 14px;
+}
+
+.input:hover {
+  border: 1px solid var(--primary-color);
+}
+.Input:focus {
+  outline: none;
+  border: 1px solid var(--primary-color);
+}

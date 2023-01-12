@@ -10,7 +10,7 @@
     "@markdoc/markdoc": "latest",
     "@markdoc/next.js": "latest",
     "@svgr/webpack": "^6.2.1",
-    
+    "algoliasearch": "^4.14.3",
     "classnames": "^2.3.2",
     "file-loader": "^6.2.0",
     "frontmatter-markdown-loader": "^3.7.0",
@@ -22,15 +22,17 @@
     "prismjs": "latest",
     "react": "latest",
     "react-dom": "latest",
+    "react-instantsearch-hooks-web": "^6.38.2",
     "rehype-slug": "^5.0.1",
     "remark-unwrap-images": "^3.0.1",
     "slugify": "^1.6.5"
   },
   "devDependencies": {
+    "@types/lodash": "^4.14.191",
     "@types/node": "latest",
+    "@types/prismjs": "^1.26.0",
     "@types/react": "latest",
     "@types/react-dom": "latest",
-    "@types/prismjs": "^1.26.0",
     "autoprefixer": "^10.4.12",
     "postcss": "^8.4.18",
     "tailwindcss": "^3.1.8",

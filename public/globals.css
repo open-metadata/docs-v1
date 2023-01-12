@@ -11,11 +11,14 @@
   --primary-color: rgb(24, 144, 255);
   --homepage-container-px: 130px;
   --default-text-color: rgb(53, 58, 76);
+  --gray-text-color: rgba(53, 58, 76, 0.5);
+  --white-color: #fff;
+  --top-nav-color: #f7fafc;
 }
 
 body {
-  font-family: -apple-system, system-ui, sans-serif, BlinkMacSystemFont,
-    "Segoe UI", "Roboto", "Helvetica Neue", "Ubuntu";
+  font-family: -apple-system, "system-ui", "Segoe UI", "Roboto",
+    "Helvetica Neue", "Ubuntu";
   color: var(--default-text-color);
   margin: 0;
   font-size: 16px;
