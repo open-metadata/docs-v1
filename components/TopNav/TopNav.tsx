@@ -9,15 +9,21 @@ import { ReactComponent as Cloud } from "../../images/icons/cloud.svg";
 import { ReactComponent as API } from "../../images/icons/api.svg";
 import Search from "../Search/Search";
 import { OMVersions } from "../../constants/topNav.constants";
+import { SearchContextProvider } from "../../context/SearchContext";
+import { InstantSearch } from "react-instantsearch-hooks-web";
+import algoliasearch from "algoliasearch/lite";
+
+const searchClient = algoliasearch(
+  process.env.NEXT_PUBLIC_ALGOLIA_APP_ID,
+  process.env.NEXT_PUBLIC_ALGOLIA_API_KEY
+);
 
 export default function TopNav() {
   return (
     <nav className={styles.NavBar}>
       <div className="flex justify-between align-center">
         <Link href="/">
-
           <SvgLogo />
-
         </Link>
         <div className={styles.VersionSelectorDiv}>
           <select
@@ -33,7 +39,11 @@ export default function TopNav() {
           </select>
         </div>
       </div>
-      <Search />
+      <SearchContextProvider>
+        <InstantSearch indexName="openmetadata" searchClient={searchClient}>
+          <Search />
+        </InstantSearch>
+      </SearchContextProvider>
       <div className={styles.IconContainer}>
         <a href="https://slack.open-metadata.org" target="_blank" title="Slack">
           <Slack />
