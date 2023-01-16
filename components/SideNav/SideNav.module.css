@@ -80,3 +80,9 @@
   font-size: 14px;
   line-height: 20px;
 }
+
+.NoDataPlaceholder {
+  margin-left: 24px;
+  font-size: 14px;
+  color: var(--gray-text-color);
+}
