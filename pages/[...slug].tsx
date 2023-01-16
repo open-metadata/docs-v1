@@ -17,16 +17,18 @@ import { MenuItem, PathObj } from "../interface/common.interface";
 import { getCategoryByIndex } from "../lib/utils";
 import ErrorBoundary from "../components/ErrorBoundary";
 import { StepsContextProvider } from "../context/StepsContext";
+import { isEmpty, startCase } from "lodash";
 
 interface Props {
   menu: MenuItem[];
   content: string;
+  slug: string[];
 }
 
 // Offset of 152px = 112px top nav-bar height + 40px top margin to show the link properly
 const SCROLLING_OFFSET = 152;
 
-export default function Article({ menu, content }: Props) {
+export default function Article({ menu, content, slug }: Props) {
   const router = useRouter();
   const [collapsedNav, setCollapsedNav] = useState(false);
   const handleCollapsedNav = (value: boolean) => {
@@ -64,6 +66,10 @@ export default function Article({ menu, content }: Props) {
     scrollToElementWithOffsetMargin();
   }, []);
 
+  useEffect(() => {
+    setCollapsedNav(isEmpty(item.children));
+  }, [item]);
+
   return (
     <ErrorBoundary>
       <StepsContextProvider>
@@ -72,13 +78,15 @@ export default function Article({ menu, content }: Props) {
           <CategoriesNav menu={menu} />
 
           <SideNav
-            category={item ? getCategoryByIndex(item.category, 0) : category}
+            category={
+              item ? getCategoryByIndex(item.category, 0) : startCase(category)
+            }
             collapsedNav={collapsedNav}
             items={item ? item.children : []}
             handleCollapsedNav={handleCollapsedNav}
           />
           <main className={classNames("flex flex-col content")}>
-            <Breadcrumb slug={item ? item.url : ""} />
+            <Breadcrumb slug={slug} />
             {Markdoc.renderers.react(ParsedContent, React, {
               components,
             })}
@@ -112,6 +120,7 @@ export async function getStaticProps(context) {
 
     props["menu"] = menu;
     props["content"] = content;
+    props["slug"] = context.params.slug;
   }
 
   return {

@@ -1,3 +1,4 @@
+import { startCase } from "lodash";
 import Link from "next/link";
 import React, { ReactNode } from "react";
 import styles from "./Breadcrumb.module.css";
@@ -8,7 +9,7 @@ interface Crumb {
   icon?: ReactNode;
 }
 
-export default function Breadcrumb({ slug }: { slug: string }) {
+export default function Breadcrumb({ slug }: { slug: string[] }) {
   const breadcrumb: Crumb[] = [
     {
       title: "Home",
@@ -17,15 +18,12 @@ export default function Breadcrumb({ slug }: { slug: string }) {
   ];
 
   slug &&
-    slug
-      .slice(1)
-      .split("/")
-      .forEach((element) => {
-        breadcrumb.push({
-          title: element,
-          path: `${slug.slice(0, slug.indexOf(element) + element.length)}`,
-        });
+    slug.forEach((element, idx) => {
+      breadcrumb.push({
+        title: element,
+        path: slug.slice(0, idx + 1).join("/"),
       });
+    });
 
   return slug ? (
     <div className={styles.Container}>
@@ -34,12 +32,7 @@ export default function Breadcrumb({ slug }: { slug: string }) {
           <Link className="flex align-center" href={crumb.path} legacyBehavior>
             <span className={styles.BreadcumbLink}>
               <span>{crumb.icon}</span>
-              <span>
-                {crumb.title
-                  .split("-")
-                  .map((i) => i.charAt(0).toUpperCase() + i.slice(1))
-                  .join(" ")}
-              </span>
+              <span>{startCase(crumb.title.replace("-", " "))}</span>
             </span>
           </Link>
           {idx < breadcrumb.length - 1 && (
