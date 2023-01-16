@@ -33,7 +33,7 @@ export default function TopNav() {
           >
             {OMVersions.map((version, id) => (
               <option key={`${version} ${id}`} value={version}>
-                v {version}
+                v{version}
               </option>
             ))}
           </select>
