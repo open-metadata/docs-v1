@@ -6,28 +6,26 @@ import styles from "./Footer.module.css";
 export default function Footer() {
   return (
     <footer className={classNames(styles.Container, "footer")}>
+      <hr className={styles.Separator} />
       <section className={styles.InnerContainer}>
-        <hr className={styles.Separator} />
         <nav className={styles.Navigation}>
           <Link
             href="/"
             className={`
                   not-link
                   ${styles.Link}
-                `}>
-            
-              Home
-            
+                `}
+          >
+            Home
           </Link>
           <Link
             href="mailto:hello@getcollate.io?subject=Contact%20from%20documentation%20"
             className={`
                   not-link
                   ${styles.Link}
-                `}>
-            
-              Contact Us
-            
+                `}
+          >
+            Contact Us
           </Link>
           <a
             className={`

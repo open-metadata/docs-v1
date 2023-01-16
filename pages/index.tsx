@@ -11,6 +11,7 @@ import TopNav from "../components/TopNav/TopNav";
 import LayoutSelector from "../components/LayoutSelector/LayoutSelector";
 import CategoriesNav from "../components/CategoriesNav/CategoriesNav";
 import { getMenu } from "../lib/api";
+import Footer from "../components/Footer/Footer";
 
 export default function index({ menu }) {
   return (
@@ -127,6 +128,8 @@ export default function index({ menu }) {
               />
             </div>
           </div>
+          <div className="mt-20" />
+          <Footer />
         </div>
       </LayoutSelector>
     </>
