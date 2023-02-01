@@ -8,6 +8,7 @@ import Footer from "../components/Footer/Footer";
 import LayoutSelector from "../components/LayoutSelector/LayoutSelector";
 import SideNav from "../components/SideNav/SideNav";
 import TopNav from "../components/TopNav/TopNav";
+import { tilesInfoArray } from "../constants/404Page.constants";
 import { getMenu } from "../lib/api";
 import { getCategoryByIndex } from "../lib/utils";
 
@@ -33,34 +34,13 @@ export default function Home({ menu }) {
         <div className="content page-404 ">
           <h2>Page not found :(</h2>
           <TilesContainer>
-            <Tile
-              description="Deploy OpenMetadata and connect to your sources in minutes!"
-              link="/quick-start"
-              title="Quickstart"
-            />
-
-            <Tile
-              description="Enjoy 100% of OpenMetadata with 0% of the hassle."
-              link="https://share.hsforms.com/1fstvMCeZRZKTYA4nG1VTPgcq0j9"
-              title="SaaS"
-            />
-
-            <Tile
-              description="Check out some frequent questions and answers"
-              link="https://github.com/open-metadata/OpenMetadata/discussions/categories/q-a"
-              title="Knowledge Base"
-            />
-
-            <Tile
-              description="Deploy in Bare Metal, Docker or Kubernetes."
-              link="/quick-start"
-              title="Deployment"
-            />
-            <Tile
-              description="Connect to database, dashboard, messaging, pipeline and ML services."
-              link="/connectors"
-              title="Connectors"
-            />
+            {tilesInfoArray.map((tileInfo) => (
+              <Tile
+                description={tileInfo.description}
+                link={tileInfo.link}
+                title={tileInfo.title}
+              />
+            ))}
           </TilesContainer>
         </div>
         <Footer />
