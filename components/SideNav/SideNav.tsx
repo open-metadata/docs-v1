@@ -6,6 +6,7 @@ import classNames from "classnames";
 import { ReactComponent as CollapseLeftIcon } from "../../images/icons/collapse-left.svg";
 import { ReactComponent as CollapseRightIcon } from "../../images/icons/collapse-right.svg";
 import { MenuItem } from "../../interface/common.interface";
+import { isEmpty } from "lodash";
 
 interface Props {
   category: string;
@@ -40,7 +41,11 @@ export default function SideNav({
           <OverviewIcon />
           <p className={styles.Heading}>{category}</p>
         </div>
-        {items && (
+        {isEmpty(items) ? (
+          <div className={styles.NoDataPlaceholder}>
+            No menu items for this category
+          </div>
+        ) : (
           <div className={classNames(styles.LinkContainer)}>
             {items.map((item) => (
               <ListItem item={item} key={item.name} fontWeight={400} />

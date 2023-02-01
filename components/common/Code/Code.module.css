@@ -21,7 +21,7 @@
 }
 
 .Container pre code {
-  @apply my-2 z-10 relative;
+  @apply my-2 relative;
 }
 
 .LineHighlight {

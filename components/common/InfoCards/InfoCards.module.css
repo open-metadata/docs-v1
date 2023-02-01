@@ -6,6 +6,10 @@
   flex-direction: column;
 }
 
+.Container p {
+  margin: 0px;
+}
+
 .Heading {
   font-weight: 600;
   font-size: 20px;

@@ -3,7 +3,8 @@
 }
 
 .InnerContainer {
-  @apply flex flex-col items-center justify-between py-6;
+  @apply flex items-center justify-between;
+  padding: 16px 100px;
 }
 
 .Separator {
@@ -15,7 +16,7 @@
 }
 
 .Navigation {
-  @apply flex gap-8 mt-4 mb-2;
+  @apply flex gap-10 mt-4 mb-2;
 }
 
 .Link {
@@ -27,7 +28,7 @@
 }
 
 .SocialNetworks {
-  @apply flex items-center gap-4;
+  @apply flex items-center gap-8;
 }
 
 .IconLink {
