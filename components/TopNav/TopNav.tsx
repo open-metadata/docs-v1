@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import styles from "./TopNav.module.css";
 
@@ -8,10 +8,12 @@ import { ReactComponent as Slack } from "../../images/icons/slack.svg";
 import { ReactComponent as Cloud } from "../../images/icons/cloud.svg";
 import { ReactComponent as API } from "../../images/icons/api.svg";
 import Search from "../Search/Search";
-import { OMVersions } from "../../constants/topNav.constants";
 import { SearchContextProvider } from "../../context/SearchContext";
 import { InstantSearch } from "react-instantsearch-hooks-web";
 import algoliasearch from "algoliasearch/lite";
+import { useRouter } from "next/router";
+import { isEmpty, isString, isUndefined } from "lodash";
+import { useDocVersionContext } from "../../context/DocVersionContext";
 
 const searchClient = algoliasearch(
   process.env.NEXT_PUBLIC_ALGOLIA_APP_ID,
@@ -19,25 +21,64 @@ const searchClient = algoliasearch(
 );
 
 export default function TopNav() {
+  const router = useRouter();
+  const { docVersion, onChangeDocVersion } = useDocVersionContext();
+  const [versions, setVersions] = useState<Array<string>>();
+
+  const handleVersionChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const regexToMatchVersionString =
+      isUndefined(router.query.slug) && router.pathname !== "/_error"
+        ? /(\/v(\d*\.*)*)/g
+        : /(\/v(\d*\.*)*\/)/g;
+
+    const path = router.asPath.replace(
+      regexToMatchVersionString,
+      `/${e.target.value}/`
+    );
+    const newPath = path;
+    router.push(newPath);
+  };
+
+  const fetchVersionsList = async () => {
+    const res = await fetch("/api/getVersionsList");
+
+    const versionsArray = await res.json();
+    setVersions(versionsArray);
+  };
+
+  useEffect(() => {
+    fetchVersionsList();
+  }, []);
+
+  useEffect(() => {
+    if (isString(router.query.version)) {
+      onChangeDocVersion(router.query.version);
+    }
+  }, [router]);
+
   return (
     <nav className={styles.NavBar}>
       <div className="flex justify-between align-center">
         <Link href="/">
           <SvgLogo />
         </Link>
-        <div className={styles.VersionSelectorDiv}>
-          <select
-            className={styles.VersionSelector}
-            name="version-selector"
-            id="version-selector"
-          >
-            {OMVersions.map((version, id) => (
-              <option key={`${version} ${id}`} value={version}>
-                v{version}
-              </option>
-            ))}
-          </select>
-        </div>
+        {!isEmpty(versions) && (
+          <div className={styles.VersionSelectorDiv}>
+            <select
+              className={styles.VersionSelector}
+              name="version-selector"
+              id="version-selector"
+              value={docVersion}
+              onChange={handleVersionChange}
+            >
+              {versions.map((version, id) => (
+                <option key={`${version} ${id}`} value={version}>
+                  {version}
+                </option>
+              ))}
+            </select>
+          </div>
+        )}
       </div>
       <SearchContextProvider>
         <InstantSearch indexName="openmetadata" searchClient={searchClient}>

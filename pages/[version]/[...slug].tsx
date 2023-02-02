@@ -1,23 +1,28 @@
 import React, { useEffect, useState } from "react";
-import { getArticleSlugFromString, getArticleSlugs, getMenu } from "../lib/api";
+import {
+  getArticleSlugFromString,
+  getArticleSlugs,
+  getMenu,
+} from "../../lib/api";
 import fs from "fs";
 import matter from "gray-matter";
 import { basename } from "path";
 import { useRouter } from "next/router";
-import Markdoc, { Schema } from "@markdoc/markdoc";
-import SideNav from "../components/SideNav/SideNav";
-import TopNav from "../components/TopNav/TopNav";
-import CategoriesNav from "../components/CategoriesNav/CategoriesNav";
+import Markdoc from "@markdoc/markdoc";
+import SideNav from "../../components/SideNav/SideNav";
+import TopNav from "../../components/TopNav/TopNav";
+import CategoriesNav from "../../components/CategoriesNav/CategoriesNav";
 import classNames from "classnames";
-import Footer from "../components/Footer/Footer";
-import LayoutSelector from "../components/LayoutSelector/LayoutSelector";
-import { components, configs } from "../lib/markdoc";
-import Breadcrumb from "../components/Breadcrumb/Breadcrumb";
-import { MenuItem, PathObj } from "../interface/common.interface";
-import { getCategoryByIndex } from "../lib/utils";
-import ErrorBoundary from "../components/ErrorBoundary";
-import { StepsContextProvider } from "../context/StepsContext";
+import Footer from "../../components/Footer/Footer";
+import LayoutSelector from "../../components/LayoutSelector/LayoutSelector";
+import { components, configs } from "../../lib/markdoc";
+import Breadcrumb from "../../components/Breadcrumb/Breadcrumb";
+import { MenuItem, PathObj } from "../../interface/common.interface";
+import { getCategoryByIndex } from "../../lib/utils";
+import ErrorBoundary from "../../components/ErrorBoundary";
+import { StepsContextProvider } from "../../context/StepsContext";
 import { isEmpty, startCase } from "lodash";
+import { useDocVersionContext } from "../../context/DocVersionContext";
 
 interface Props {
   menu: MenuItem[];
@@ -34,7 +39,8 @@ export default function Article({ menu, content, slug }: Props) {
   const handleCollapsedNav = (value: boolean) => {
     setCollapsedNav(value);
   };
-  const category = getCategoryByIndex(router.asPath, 1);
+  const { docVersion, onChangeDocVersion } = useDocVersionContext();
+  const category = getCategoryByIndex(router.asPath, 2);
 
   const ast = Markdoc.parse(content);
   const ParsedContent = Markdoc.transform(ast, configs);
@@ -67,7 +73,7 @@ export default function Article({ menu, content, slug }: Props) {
   }, []);
 
   useEffect(() => {
-    setCollapsedNav(isEmpty(item.children));
+    setCollapsedNav(isEmpty(item?.children));
   }, [item]);
 
   return (
@@ -78,9 +84,7 @@ export default function Article({ menu, content, slug }: Props) {
           <CategoriesNav menu={menu} />
 
           <SideNav
-            category={
-              item ? getCategoryByIndex(item.category, 0) : startCase(category)
-            }
+            category={item ? item.category : startCase(category)}
             collapsedNav={collapsedNav}
             items={item ? item.children : []}
             handleCollapsedNav={handleCollapsedNav}
@@ -101,15 +105,15 @@ export default function Article({ menu, content, slug }: Props) {
 export async function getStaticProps(context) {
   const paths = await getStaticPaths();
   const props = {};
-  let location = `/${context.params.slug.join("/")}`;
+  let location = `/${context.params.version}/${context.params.slug.join("/")}`;
 
-  const menu = getMenu();
+  const menu = getMenu(context.params.version);
 
   if ("slug" in context.params) {
     let filename = "";
 
     paths.paths.forEach((obj) => {
-      if (obj.params.location == location) {
+      if (`/${obj.params.version}${obj.params.location}` === location) {
         filename = obj.params.fileName;
       }
     });
@@ -150,10 +154,18 @@ export async function getStaticPaths() {
       realSlug.shift();
     }
 
+    const slugsArray = articles[index].split("/");
+
+    const versionIndex =
+      slugsArray.findIndex((slugString) => slugString === "content") + 1;
+
+    const version = slugsArray[versionIndex];
+
     let path = {
       params: {
         slug: realSlug,
         location: slug,
+        version: version,
         fileName: articles[index],
         title: data.title ? (data.title as string) : "Untitled",
         description: data.description ? (data.description as string) : "",

@@ -10,7 +10,7 @@ interface TileProps {
 
 function Tile({ description, link, title }: TileProps) {
   return (
-    <Link legacyBehavior href={link}>
+    <Link href={link}>
       <div className={styles.Container}>
         <h4>{title}</h4>
         <span>{description}</span>

@@ -7,6 +7,7 @@ import { ReactComponent as ArrowRight } from "../../images/icons/drop-arrow-righ
 import { checkDropdownStatus } from "../../lib/utils";
 import { MenuItem } from "../../interface/common.interface";
 import styles from "./SideNav.module.css";
+import { getUrlWithVersion } from "../../utils/CommonUtils";
 
 export default function ListItem({
   item,
@@ -16,8 +17,9 @@ export default function ListItem({
   fontWeight?: number;
 }) {
   const router = useRouter();
+
   const isDropdown = item.children && item.children.length > 0;
-  const isActive = item.url === router.asPath;
+  const isActive = `/${router.query.version}${item.url}` === router.asPath;
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleOpen = () => {
@@ -27,14 +29,13 @@ export default function ListItem({
   const linkItem = useMemo(
     () => (
       <>
-        <Link legacyBehavior href={item.url}>
+        <Link legacyBehavior href={getUrlWithVersion(item.url)}>
           <a
             className={classNames(
               styles.Link,
               Number(item.depth) >= 3 ? styles.TextGray : "",
               isActive ? styles.ActiveLink : ""
             )}
-            href={item.url}
             style={{
               fontWeight: `${6 - Math.min(Number(item.depth), 4)}00`,
             }}
