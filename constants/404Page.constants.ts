@@ -2,6 +2,7 @@ export const tilesInfoArray = [
   {
     description: "Deploy OpenMetadata and connect to your sources in minutes!",
     link: "/quick-start",
+    isDocsLink: true,
     title: "Quickstart",
   },
   {
@@ -16,13 +17,15 @@ export const tilesInfoArray = [
   },
   {
     description: "Deploy in Bare Metal, Docker or Kubernetes.",
-    link: "/quick-start",
+    link: "/deployment",
+    isDocsLink: true,
     title: "Deployment",
   },
   {
     description:
       "Connect to database, dashboard, messaging, pipeline and ML services.",
     link: "/connectors",
+    isDocsLink: true,
     title: "Connectors",
   },
 ];
