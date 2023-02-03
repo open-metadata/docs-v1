@@ -1,4 +1,4 @@
-import { startCase } from "lodash";
+import { isEmpty, startCase } from "lodash";
 import { NextPageContext } from "next";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
@@ -14,21 +14,43 @@ import { DEFAULT_VERSION } from "../constants/version.constants";
 import { useDocVersionContext } from "../context/DocVersionContext";
 import { MenuItem } from "../interface/common.interface";
 import { getCategoryByIndex } from "../lib/utils";
-import { getUrlWithVersion } from "../utils/CommonUtils";
+import { getUrlWithVersion, getVersionFromUrl } from "../utils/CommonUtils";
 
-function Error({ menu }: { menu: MenuItem[] }) {
+function Error({ version }) {
   const router = useRouter();
-  const [collapsedNav, setCollapsedNav] = useState(true);
   const { docVersion, onChangeDocVersion } = useDocVersionContext();
+  const [collapsedNav, setCollapsedNav] = useState(true);
+  const [menu, setMenu] = useState<MenuItem[]>([]);
   const handleCollapsedNav = (value: boolean) => {
     setCollapsedNav(value);
   };
 
   const category = getCategoryByIndex(router.asPath, 2);
 
+  const fetchMenuItems = async () => {
+    try {
+      const response = await fetch(`/api/getMenu?version=${version}`, {
+        method: "GET",
+      });
+
+      const parsedResponse = await response.json();
+
+      if (response.status === 200) {
+        setMenu(parsedResponse);
+      } else {
+        setMenu([]);
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   useEffect(() => {
-    const versionString = router.asPath.match(/(\/v(\d*\.*)*\/)/g)[0];
-    const version = versionString.split("/")[1];
+    fetchMenuItems();
+  }, []);
+
+  useEffect(() => {
+    const version = getVersionFromUrl(router.asPath);
     if (docVersion !== version) {
       onChangeDocVersion(version);
     }
@@ -38,7 +60,7 @@ function Error({ menu }: { menu: MenuItem[] }) {
     <>
       <TopNav />
       <LayoutSelector collapsedNav={collapsedNav}>
-        <CategoriesNav menu={menu} />
+        {!isEmpty(menu) && <CategoriesNav menu={menu} />}
         <SideNav
           category={startCase(category)}
           collapsedNav={collapsedNav}
@@ -70,30 +92,13 @@ function Error({ menu }: { menu: MenuItem[] }) {
 
 Error.getInitialProps = async ({ res, err }: NextPageContext) => {
   const statusCode = res ? res.statusCode : err ? err.statusCode : 404;
-  const domainString = res?.req
-    ? res.req.rawHeaders.find((element) => element.includes("http"))
-    : undefined;
-  const domain = domainString ? domainString : "/";
 
-  const versionStringArray = res.req
-    ? res.req.url.match(/(\/v(\d*\.*)*\/)/g)
-    : undefined;
-  const versionString = versionStringArray ? versionStringArray[0] : undefined;
-  const version = versionString ? versionString.split("/")[1] : DEFAULT_VERSION;
-  let menu;
-
-  try {
-    const response = await fetch(`${domain}api/getMenu?version=${version}`, {
-      method: "GET",
-    });
-
-    menu = await response.json();
-  } catch {
-    menu = [];
-  }
+  // The version in the context is reset after page is changed to error page.
+  // Below is the logic to get the version from url if already present in the request object
+  const version = getVersionFromUrl(res?.req ? res.req.url : "");
 
   return {
-    menu,
+    version,
     statusCode,
   };
 };

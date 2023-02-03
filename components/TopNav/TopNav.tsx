@@ -26,6 +26,7 @@ export default function TopNav() {
   const [versions, setVersions] = useState<Array<string>>();
 
   const handleVersionChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    // Logic to handle case if router.asPath coming from page is '/v0.23.3' instead of '/v0.23.3/'
     const regexToMatchVersionString =
       isUndefined(router.query.slug) && router.pathname !== "/_error"
         ? /(\/v(\d*\.*)*)/g
@@ -40,10 +41,19 @@ export default function TopNav() {
   };
 
   const fetchVersionsList = async () => {
-    const res = await fetch("/api/getVersionsList");
+    try {
+      const res = await fetch("/api/getVersionsList");
 
-    const versionsArray = await res.json();
-    setVersions(versionsArray);
+      const versionsArray = await res.json();
+
+      if (res.status === 200) {
+        setVersions(versionsArray);
+      } else {
+        setVersions([]);
+      }
+    } catch (error) {
+      setVersions([]);
+    }
   };
 
   useEffect(() => {
