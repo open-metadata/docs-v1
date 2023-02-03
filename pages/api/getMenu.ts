@@ -5,6 +5,9 @@ import { join } from "path";
 import slugify from "slugify";
 import { ARTICLES_DIRECTORY } from "../../constants/common.constants";
 
+// API to get menu list from the version directory
+// query : version eg. v0.13.2
+
 export default function handler(req, res) {
   try {
     const menu = [];

@@ -8,11 +8,11 @@ import { serialize } from "next-mdx-remote/serialize";
 import { ARTICLES_DIRECTORY } from "../constants/common.constants";
 
 export function getAllFilesInDirectory(
-  ARTICLES_DIRECTORY: string,
+  articleDirectory: string,
   files: string[] = []
 ) {
-  fs.readdirSync(ARTICLES_DIRECTORY).forEach(function (file) {
-    const subpath = join(ARTICLES_DIRECTORY, file);
+  fs.readdirSync(articleDirectory).forEach(function (file) {
+    const subpath = join(articleDirectory, file);
     if (fs.lstatSync(subpath).isDirectory()) {
       getAllFilesInDirectory(subpath, files);
     } else {
@@ -100,12 +100,4 @@ export function getMenu(version?: string) {
   }
 
   return menu;
-}
-
-export async function getGDPRBanner() {
-  const fullPath = join(ARTICLES_DIRECTORY, `gdpr-banner.md`);
-  const fileContents = fs.readFileSync(fullPath, "utf8");
-  const data = matter(fileContents);
-  const markup = await serialize(data.content);
-  return { data: data.data, content: markup, title: data.data.title };
 }
