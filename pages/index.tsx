@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Card from "../components/common/Card/Card";
 import InfoCards from "../components/common/InfoCards/InfoCards";
 import ConnectorsInfo from "../components/ConnectorsInfo/ConnectorsInfo";
@@ -10,10 +10,29 @@ import { ReactComponent as ArrowRight } from "../images/icons/arrow-right.svg";
 import TopNav from "../components/TopNav/TopNav";
 import LayoutSelector from "../components/LayoutSelector/LayoutSelector";
 import CategoriesNav from "../components/CategoriesNav/CategoriesNav";
-import { getMenu } from "../lib/api";
 import Footer from "../components/Footer/Footer";
+import { fetchMenuList, getUrlWithVersion } from "../utils/CommonUtils";
+import {
+  NEWS_ENTRY_INFO,
+  QUICK_LINK_CARDS,
+  TITLE_INFO_CARDS,
+} from "../constants/homePage.constants";
+import { useDocVersionContext } from "../context/DocVersionContext";
+import { MenuItem } from "../interface/common.interface";
 
-export default function index({ menu }) {
+export default function index() {
+  const { docVersion } = useDocVersionContext();
+  const [menu, setMenu] = useState<MenuItem[]>([]);
+
+  const fetchMenuItems = async (docVersion: string) => {
+    const res = await fetchMenuList(docVersion);
+    setMenu(res);
+  };
+
+  useEffect(() => {
+    fetchMenuItems(docVersion);
+  }, [docVersion]);
+
   return (
     <>
       <TopNav />
@@ -39,7 +58,11 @@ export default function index({ menu }) {
                   Get to know OpenMetadata in few minutes. Watch the data
                   discovery, data profiler, and lineage features in action
                 </p>
-                <Button className="mt-4" href="/quick-start" type="link">
+                <Button
+                  className="mt-4"
+                  href={getUrlWithVersion("/quick-start")}
+                  type="link"
+                >
                   Get Started
                   <span className="ml-2">
                     <ArrowRight />
@@ -64,41 +87,27 @@ export default function index({ menu }) {
           <div className="homepage-containers">
             <div className="container-heading">Quick Links</div>
             <div className="cards-container">
-              <Card
-                heading="Features"
-                content="OpenMetadata includes a rapidly growing set of features to address common needs in data discovery, quality, observability, and collaboration."
-                url="/features"
-              />
-              <Card
-                heading="Docker Deployment"
-                content="Deploying OpenMetadata in Docker is a great start! Take a look at our Quickstart guide to learn how to get OpenMetadata up and running locally in less than 7 minutes!"
-                url="/deployment"
-              />
-              <Card
-                heading="Metadata Ingestion"
-                content="OM serves as a centralised platform where users can gather and collaborate around data and deploy and schedule to connect to the data sources to extract metadata."
-                url="/ingestion"
-              />
+              {QUICK_LINK_CARDS.map((cardInfo) => (
+                <Card
+                  content={cardInfo.content}
+                  key={`${cardInfo.heading}${cardInfo.url}`}
+                  heading={cardInfo.heading}
+                  url={getUrlWithVersion(cardInfo.url)}
+                />
+              ))}
             </div>
           </div>
           <div className="homepage-containers">
             <div className="container-heading">Title</div>
             <div className="cards-container">
-              <InfoCards
-                heading="OpenMetadata Sandbox"
-                content="Sandbox set-up allow users to get the experience of OM with least efforts that mimics a real production setup."
-                color="#1890FF"
-              />
-              <InfoCards
-                heading="Latest Release 0.12.0"
-                content="Roles & Policies, Teams Hierarchy, Slack & MS Teams Webhooks, Custom Attributes, and more…"
-                color="#B02AAC"
-              />
-              <InfoCards
-                heading="Discovery & Collaboration"
-                content="OpenMetadata supports a rich set of features to enable Data Discovery & Collaboration."
-                color="#008376"
-              />
+              {TITLE_INFO_CARDS.map((cardInfo) => (
+                <InfoCards
+                  content={cardInfo.content}
+                  key={`${cardInfo.heading}${cardInfo.content}`}
+                  heading={cardInfo.heading}
+                  color={cardInfo.color}
+                />
+              ))}
             </div>
           </div>
           <div className="homepage-containers">
@@ -108,24 +117,15 @@ export default function index({ menu }) {
           <div className="homepage-containers">
             <div className="container-heading">Blogs</div>
             <div className="flex justify-between">
-              <NewsEntry
-                title="OpenMetadata 0.11.0 release"
-                text="Data Collaboration, Column-level Lineage, ML Models, Data Profiler, Advanced Search, Data Lake Connectors, and more."
-                link="https://blog.open-metadata.org/openmetadata-0-11-release-8b82c85636a"
-                image={<img src="/blog1.png" />}
-              />
-              <NewsEntry
-                title="OpenMetadata 0.10.0 release"
-                text="Backend APIs, Support for database schema objects, Hard deletion of entities, Refactor service connectors, DBT changes, Security updates, and more."
-                link="https://blog.open-metadata.org/openmetadata-0-10-0-release-82c4f5533c3f"
-                image={<img src="/blog2.png" />}
-              />
-              <NewsEntry
-                title="Why OpenMetadata is the Right Choice for you"
-                text="OpenMetadata is a fresh start on how to do Metadata right from first principles."
-                link="https://blog.open-metadata.org/why-openmetadata-is-the-right-choice-for-you-59e329163cac"
-                image={<img src="/blog3.png" />}
-              />
+              {NEWS_ENTRY_INFO.map((cardInfo) => (
+                <NewsEntry
+                  image={cardInfo.image}
+                  key={`${cardInfo.title}${cardInfo.link}`}
+                  link={cardInfo.link}
+                  title={cardInfo.title}
+                  text={cardInfo.text}
+                />
+              ))}
             </div>
           </div>
           <div className="mt-20" />
@@ -134,13 +134,4 @@ export default function index({ menu }) {
       </LayoutSelector>
     </>
   );
-}
-
-export async function getStaticProps() {
-  return {
-    props: {
-      menu: getMenu(),
-    },
-    revalidate: 60,
-  };
 }
