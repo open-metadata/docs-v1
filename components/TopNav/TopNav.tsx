@@ -32,12 +32,15 @@ export default function TopNav() {
         ? /(\/v(\d*\.*)*)/g
         : /(\/v(\d*\.*)*\/)/g;
 
-    const path = router.asPath.replace(
-      regexToMatchVersionString,
-      `/${e.target.value}/`
-    );
-    const newPath = path;
-    router.push(newPath);
+    const path =
+      router.asPath === "/"
+        ? `/${e.target.value}`
+        : router.asPath.replace(
+            regexToMatchVersionString,
+            `/${e.target.value}/`
+          );
+
+    router.push(path);
   };
 
   const fetchVersionsList = async () => {

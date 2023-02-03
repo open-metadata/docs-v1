@@ -102,38 +102,51 @@ export default function Article({ menu, content, slug }: Props) {
   );
 }
 
-export async function getStaticProps(context) {
-  const paths = await getStaticPaths();
-  const props = {};
-  let location = `/${context.params.version}/${context.params.slug.join("/")}`;
+export async function getServerSideProps(context) {
+  const paths = await getPaths();
+  const props = { menu: [], content: "", slug: [] };
 
-  const menu = getMenu(context.params.version);
+  // Check if the version field passed in context params is proper version format
+  const versionFormat = /(v\d\.*\d*)/g;
+  const isVersionPresent = versionFormat.test(context.params.version);
 
-  if ("slug" in context.params) {
-    let filename = "";
+  if (isVersionPresent) {
+    let location = `/${context.params.version}/${context.params.slug.join(
+      "/"
+    )}`;
 
-    paths.paths.forEach((obj) => {
-      if (`/${obj.params.version}${obj.params.location}` === location) {
-        filename = obj.params.fileName;
+    const menu = getMenu(context.params.version);
+
+    if ("slug" in context.params) {
+      let filename = "";
+      let notFound = true;
+
+      for (const obj of paths) {
+        if (`/${obj.params.version}${obj.params.location}` === location) {
+          filename = obj.params.fileName;
+          notFound = false;
+          break;
+        }
       }
-    });
 
-    // Get the last element of the array to find the MD file
-    const fileContents = fs.readFileSync(filename, "utf8");
-    const { content } = matter(fileContents);
+      if (notFound) {
+        return { notFound };
+      }
 
-    props["menu"] = menu;
-    props["content"] = content;
-    props["slug"] = context.params.slug;
+      // Get the last element of the array to find the MD file
+      const fileContents = fs.readFileSync(filename, "utf8");
+      const { content } = matter(fileContents);
+
+      props["menu"] = menu;
+      props["content"] = content;
+      props["slug"] = context.params.slug;
+    }
   }
 
-  return {
-    props: props,
-    revalidate: 60,
-  };
+  return { props };
 }
 
-export async function getStaticPaths() {
+async function getPaths() {
   // Build up paths based on slugified categories for all docs
   const articles = getArticleSlugs();
   const paths: PathObj[] = [];
@@ -175,8 +188,5 @@ export async function getStaticPaths() {
     paths.push(path);
   }
 
-  return {
-    paths: paths,
-    fallback: false,
-  };
+  return paths;
 }
