@@ -44,12 +44,16 @@ export default function TopNav() {
     try {
       const res = await fetch("/api/getVersionsList");
 
-      const versionsArray = await res.json();
+      const parsedResponse = await res.json();
 
       if (res.status === 200) {
-        setVersions(versionsArray);
+        setVersions(parsedResponse);
       } else {
         setVersions([]);
+        console.error(
+          "An error occurred while fetching versions list:",
+          parsedResponse
+        );
       }
     } catch (error) {
       setVersions([]);

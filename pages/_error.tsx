@@ -39,6 +39,10 @@ function Error({ version }) {
         setMenu(parsedResponse);
       } else {
         setMenu([]);
+        console.error(
+          "An error occurred while fetching menu items list:",
+          parsedResponse
+        );
       }
     } catch (error) {
       console.error(error);
