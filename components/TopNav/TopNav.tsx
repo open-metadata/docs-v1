@@ -14,6 +14,7 @@ import algoliasearch from "algoliasearch/lite";
 import { useRouter } from "next/router";
 import { isEmpty, isString, isUndefined } from "lodash";
 import { useDocVersionContext } from "../../context/DocVersionContext";
+import { DEFAULT_VERSION } from "../../constants/version.constants";
 
 const searchClient = algoliasearch(
   process.env.NEXT_PUBLIC_ALGOLIA_APP_ID,
@@ -23,7 +24,7 @@ const searchClient = algoliasearch(
 export default function TopNav() {
   const router = useRouter();
   const { docVersion, onChangeDocVersion } = useDocVersionContext();
-  const [versions, setVersions] = useState<Array<string>>();
+  const [versions, setVersions] = useState<Array<string>>([DEFAULT_VERSION]);
 
   const handleVersionChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     // Logic to handle case if router.asPath coming from page is '/v0.23.3' instead of '/v0.23.3/'
@@ -52,14 +53,14 @@ export default function TopNav() {
       if (res.status === 200) {
         setVersions(parsedResponse);
       } else {
-        setVersions([]);
+        setVersions([DEFAULT_VERSION]);
         console.error(
           "An error occurred while fetching versions list:",
           parsedResponse
         );
       }
     } catch (error) {
-      setVersions([]);
+      setVersions([DEFAULT_VERSION]);
     }
   };
 
