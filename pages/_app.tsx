@@ -9,6 +9,7 @@ import type { AppProps } from "next/app";
 import type { MarkdocNextJsPageProps } from "@markdoc/next.js";
 import { useRouter } from "next/router";
 import ErrorBoundary from "../components/ErrorBoundary";
+import { DocVersionContextProvider } from "../context/DocVersionContext";
 
 const TITLE = "Markdoc";
 const DESCRIPTION = "A powerful, flexible, Markdown-based authoring framework";
@@ -42,7 +43,9 @@ export default function MyApp({ Component, pageProps }: AppProps<MyAppProps>) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <ErrorBoundary>
-        <Component {...pageProps} key={router.asPath} />
+        <DocVersionContextProvider>
+          <Component {...pageProps} key={router.asPath} />
+        </DocVersionContextProvider>
       </ErrorBoundary>
     </>
   );

@@ -4,7 +4,7 @@ site_menu:
     url: /
 
   - category: Quickstart
-    url: /quick-start/local-deployment
+    url: /quick-start/
     icon: quickstart
   - category: Quickstart / Local Docker Deployement
     url: /quick-start/local-deployment

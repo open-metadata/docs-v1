@@ -1,6 +1,6 @@
-import { startCase } from "lodash";
+import { isEmpty, startCase } from "lodash";
 import { useRouter } from "next/router";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import CategoriesNav from "../components/CategoriesNav/CategoriesNav";
 import Tile from "../components/common/Tiles/Tile/Tile";
 import TilesContainer from "../components/common/Tiles/TilesContainer/TilesContainer";
@@ -9,22 +9,47 @@ import LayoutSelector from "../components/LayoutSelector/LayoutSelector";
 import SideNav from "../components/SideNav/SideNav";
 import TopNav from "../components/TopNav/TopNav";
 import { tilesInfoArray } from "../constants/404Page.constants";
-import { getMenu } from "../lib/api";
+import { useDocVersionContext } from "../context/DocVersionContext";
+import { MenuItem } from "../interface/common.interface";
 import { getCategoryByIndex } from "../lib/utils";
+import {
+  fetchMenuList,
+  getUrlWithVersion,
+  getVersionFromUrl,
+} from "../utils/CommonUtils";
 
-export default function Home({ menu }) {
+function Error() {
   const router = useRouter();
+  const { docVersion, onChangeDocVersion } = useDocVersionContext();
   const [collapsedNav, setCollapsedNav] = useState(true);
+  const [menu, setMenu] = useState<MenuItem[]>([]);
   const handleCollapsedNav = (value: boolean) => {
     setCollapsedNav(value);
   };
-  const category = getCategoryByIndex(router.asPath, 1);
+
+  const category = getCategoryByIndex(router.asPath, 2);
+
+  const fetchMenuItems = async (docVersion: string) => {
+    const res = await fetchMenuList(docVersion);
+    setMenu(res);
+  };
+
+  useEffect(() => {
+    fetchMenuItems(docVersion);
+  }, [docVersion]);
+
+  useEffect(() => {
+    const version = getVersionFromUrl(router.asPath);
+    if (docVersion !== version) {
+      onChangeDocVersion(version);
+    }
+  }, [router]);
 
   return (
     <>
       <TopNav />
       <LayoutSelector collapsedNav={collapsedNav}>
-        <CategoriesNav menu={menu} />
+        {!isEmpty(menu) && <CategoriesNav menu={menu} />}
         <SideNav
           category={startCase(category)}
           collapsedNav={collapsedNav}
@@ -37,7 +62,12 @@ export default function Home({ menu }) {
             {tilesInfoArray.map((tileInfo) => (
               <Tile
                 description={tileInfo.description}
-                link={tileInfo.link}
+                key={`${tileInfo.link}${tileInfo.title}`}
+                link={
+                  tileInfo.isDocsLink
+                    ? getUrlWithVersion(tileInfo.link)
+                    : tileInfo.link
+                }
                 title={tileInfo.title}
               />
             ))}
@@ -49,11 +79,4 @@ export default function Home({ menu }) {
   );
 }
 
-export async function getStaticProps() {
-  return {
-    props: {
-      menu: getMenu(),
-    },
-    revalidate: 60,
-  };
-}
+export default Error;

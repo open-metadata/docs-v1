@@ -1,38 +1,25 @@
-import React, { useEffect, useState } from "react";
-import Card from "../components/common/Card/Card";
-import InfoCards from "../components/common/InfoCards/InfoCards";
-import ConnectorsInfo from "../components/ConnectorsInfo/ConnectorsInfo";
-import bannerStyles from "../components/common/Banner/Banner.module.css";
-import YouTube from "../components/common/Youtube/Youtube";
-import NewsEntry from "../components/NewsEntry/NewsEntry";
-import Button from "../components/common/Button/Button";
-import { ReactComponent as ArrowRight } from "../images/icons/arrow-right.svg";
-import TopNav from "../components/TopNav/TopNav";
-import LayoutSelector from "../components/LayoutSelector/LayoutSelector";
-import CategoriesNav from "../components/CategoriesNav/CategoriesNav";
-import Footer from "../components/Footer/Footer";
-import { fetchMenuList, getUrlWithVersion } from "../utils/CommonUtils";
+import React from "react";
+import Card from "../../components/common/Card/Card";
+import InfoCards from "../../components/common/InfoCards/InfoCards";
+import ConnectorsInfo from "../../components/ConnectorsInfo/ConnectorsInfo";
+import bannerStyles from "../../components/common/Banner/Banner.module.css";
+import YouTube from "../../components/common/Youtube/Youtube";
+import NewsEntry from "../../components/NewsEntry/NewsEntry";
+import Button from "../../components/common/Button/Button";
+import { ReactComponent as ArrowRight } from "../../images/icons/arrow-right.svg";
+import TopNav from "../../components/TopNav/TopNav";
+import LayoutSelector from "../../components/LayoutSelector/LayoutSelector";
+import CategoriesNav from "../../components/CategoriesNav/CategoriesNav";
+import { getMenu } from "../../lib/api";
+import Footer from "../../components/Footer/Footer";
+import { getUrlWithVersion } from "../../utils/CommonUtils";
 import {
   NEWS_ENTRY_INFO,
   QUICK_LINK_CARDS,
   TITLE_INFO_CARDS,
-} from "../constants/homePage.constants";
-import { useDocVersionContext } from "../context/DocVersionContext";
-import { MenuItem } from "../interface/common.interface";
+} from "../../constants/homePage.constants";
 
-export default function index() {
-  const { docVersion } = useDocVersionContext();
-  const [menu, setMenu] = useState<MenuItem[]>([]);
-
-  const fetchMenuItems = async (docVersion: string) => {
-    const res = await fetchMenuList(docVersion);
-    setMenu(res);
-  };
-
-  useEffect(() => {
-    fetchMenuItems(docVersion);
-  }, [docVersion]);
-
+export default function index({ menu }) {
   return (
     <>
       <TopNav />
@@ -134,4 +121,18 @@ export default function index() {
       </LayoutSelector>
     </>
   );
+}
+
+export async function getServerSideProps(context) {
+  // Check if the version field passed in context params is proper version format
+  const versionFormat = /(v\d\.*\d*)/g;
+  const isVersionPresent = versionFormat.test(context.params.version);
+  let menu = [];
+
+  if (isVersionPresent) {
+    menu = getMenu(context.params.version);
+  }
+  return {
+    props: { menu },
+  };
 }

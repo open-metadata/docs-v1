@@ -1,11 +1,11 @@
+import { DEFAULT_VERSION } from "./../constants/version.constants";
 import fs from "fs";
 import { join, basename } from "path";
 import findIndex from "lodash/findIndex";
 import matter from "gray-matter";
 import slugify from "slugify";
 import { serialize } from "next-mdx-remote/serialize";
-
-export const articleDirectory = join(process.cwd(), "content/");
+import { ARTICLES_DIRECTORY } from "../constants/common.constants";
 
 export function getAllFilesInDirectory(
   articleDirectory: string,
@@ -23,7 +23,7 @@ export function getAllFilesInDirectory(
 }
 
 export function getArticleSlugs() {
-  const files = getAllFilesInDirectory(articleDirectory);
+  const files = getAllFilesInDirectory(ARTICLES_DIRECTORY);
   return files;
 }
 
@@ -61,9 +61,13 @@ export function getAllArticles(fields = []) {
   return posts;
 }
 
-export function getMenu() {
+export function getMenu(version?: string) {
   const menu = [];
-  const fullPath = join(articleDirectory, `menu.md`);
+  const fullPath = join(
+    ARTICLES_DIRECTORY,
+    version ? version : DEFAULT_VERSION,
+    `menu.md`
+  );
   const fileContents = fs.readFileSync(fullPath, "utf8");
   const data = matter(fileContents);
 
@@ -96,12 +100,4 @@ export function getMenu() {
   }
 
   return menu;
-}
-
-export async function getGDPRBanner() {
-  const fullPath = join(articleDirectory, `gdpr-banner.md`);
-  const fileContents = fs.readFileSync(fullPath, "utf8");
-  const data = matter(fileContents);
-  const markup = await serialize(data.content);
-  return { data: data.data, content: markup, title: data.data.title };
 }

@@ -12,6 +12,7 @@ export interface PathObj {
   params: {
     slug: string[];
     location: string;
+    version: string;
     fileName: string;
     title: string;
     description: string;
