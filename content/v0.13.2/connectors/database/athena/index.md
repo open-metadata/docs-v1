@@ -7,23 +7,24 @@ slug: /connectors/database/athena
 
 <Table>
 
-| Stage | Metadata |Query Usage | Data Profiler | Data Quality | Lineage | DBT | Supported Versions |
-|:------:|:------:|:-----------:|:-------------:|:------------:|:-------:|:---:|:------------------:|
-|  PROD  |   ✅   |      ❌      |       ✅       |       ✅      |    Partially via Views    |  ✅  |  --  |
+| Stage | Metadata | Query Usage | Data Profiler | Data Quality |       Lineage       | DBT | Supported Versions |
+| :---: | :------: | :---------: | :-----------: | :----------: | :-----------------: | :-: | :----------------: |
+| PROD  |    ✅    |     ❌      |      ✅       |      ✅      | Partially via Views | ✅  |         --         |
 
 </Table>
 
 <Table>
 
-| Lineage | Table-level | Column-level |
-|:------:|:-----------:|:-------------:|
-| Partially via Views | ✅ | ✅ |
+|       Lineage       | Table-level | Column-level |
+| :-----------------: | :---------: | :----------: |
+| Partially via Views |     ✅      |      ✅      |
 
 </Table>
 
 In this section, we provide guides and references to use the Athena connector.
 
 Configure and schedule Athena metadata and profiler workflows from the OpenMetadata UI:
+
 - [Requirements](#requirements)
 - [Metadata Ingestion](#metadata-ingestion)
 - [Data Profiler](#data-profiler)
@@ -51,9 +52,9 @@ the following docs to connect using Airflow SDK or with the CLI.
 
 ## Requirements
 
-<InlineCallout color="violet-70" icon="description" bold="OpenMetadata 0.12 or later" href="/deployment">
-To deploy OpenMetadata, check the <a href="/deployment">Deployment</a> guides.
-</InlineCallout>
+{%inlineCallout icon="description" bold="OpenMetadata 0.12 or later" href="/deployment"%}
+To deploy OpenMetadata, check the Deployment guides.
+{%/inlineCallout%}
 
 To run the Ingestion via the UI you'll need to use the OpenMetadata Ingestion Container, which comes shipped with
 custom Airflow plugins to handle the workflow deployment.
@@ -108,7 +109,6 @@ a name that distinguishes your deployment from other services, including
 the other {connector} services that you might be ingesting metadata
 from.
 
-
 <div className="w-100 flex justify-center">
 <Image
   src="/images/openmetadata/connectors/athena/add-new-service.png"
@@ -116,7 +116,6 @@ from.
   caption="Provide a Name and description for your Service"
 />
 </div>
-
 
 ### 5. Configure the Service Connection
 
@@ -132,7 +131,6 @@ desired.
   caption="Configure the service connection by filling the form"
 />
 </div>
-
 
 Once the credentials have been added, click on `Test Connection` and Save
 the changes.

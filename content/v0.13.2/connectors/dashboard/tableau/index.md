@@ -8,6 +8,7 @@ slug: /connectors/dashboard/tableau
 In this section, we provide guides and references to use the Tableau connector.
 
 Configure and schedule Tableau metadata and profiler workflows from the OpenMetadata UI:
+
 - [Requirements](#requirements)
 - [Metadata Ingestion](#metadata-ingestion)
 
@@ -35,9 +36,9 @@ the following docs to connect using Airflow SDK or with the CLI.
 
 To ingest tableau metadata, minimum `Site Role: Viewer` is requried for the tableau user.
 
-<InlineCallout color="violet-70" icon="description" bold="OpenMetadata 0.12 or later" href="/deployment">
-To deploy OpenMetadata, check the <a href="/deployment">Deployment</a> guides.
-</InlineCallout>
+{%inlineCallout icon="description" bold="OpenMetadata 0.12 or later" href="/deployment"%}
+To deploy OpenMetadata, check the Deployment guides.
+{%/inlineCallout%}
 
 To run the Ingestion via the UI you'll need to use the OpenMetadata Ingestion Container, which comes shipped with
 custom Airflow plugins to handle the workflow deployment.
@@ -92,7 +93,6 @@ a name that distinguishes your deployment from other services, including
 the other {connector} services that you might be ingesting metadata
 from.
 
-
 <div className="w-100 flex justify-center">
 <Image
   src="/images/openmetadata/connectors/tableau/add-new-service.png"
@@ -100,7 +100,6 @@ from.
   caption="Provide a Name and description for your Service"
 />
 </div>
-
 
 ### 5. Configure the Service Connection
 
@@ -114,7 +113,9 @@ desired.
 If you're connecting to a cloud Tableau instance, add the `Site Name` and `Site Url` with your site name.
 
 #### 2. Service Connection for a default tableau site
-For a default tableau site `Site Name` and `Site Url` fields should be kept empty as shown in the below image 
+
+For a default tableau site `Site Name` and `Site Url` fields should be kept empty as shown in the below image
+
 <div className="w-100 flex justify-center">
 <Image
   src="/images/openmetadata/connectors/tableau/service-connection-default-site.png"
@@ -124,6 +125,7 @@ For a default tableau site `Site Name` and `Site Url` fields should be kept empt
 </div>
 
 #### 3. Service Connection for a non-default tableau site
+
 For a non-default tableau site `Site Name` and `Site Url` fields are required.
 
 <Note>
@@ -139,7 +141,6 @@ If `https://xxx.tableau.com/#/site/sitename/home` represents the homepage url fo
   caption="Configure the service connection for a non-default site by filling the form"
 />
 </div>
-
 
 Once the credentials have been added, click on `Test Connection` and Save
 the changes.
@@ -157,7 +158,7 @@ the changes.
 - **Host and Port**: URL to the Tableau instance.
 - **Username**: Specify the User to connect to Tableau. It should have enough privileges to read all the metadata.
 - **Password**: Password for Tableau.
-- **API Version**: Tableau API version. 
+- **API Version**: Tableau API version.
 - **Site Name**: Tableau Site Name. To be kept empty if you are using the default Tableau site
 - **Site Url**: Tableau Site Url. To be kept empty if you are using the default Tableau site
 - **Personal Access Token**: Access token. To be used if not logging in with user/password.
@@ -179,11 +180,11 @@ caption="Configure Metadata Ingestion Page"
 
 - **Name**: This field refers to the name of ingestion pipeline, you can customize the name or use the generated name.
 - **Dashboard Filter Pattern (Optional)**: Use to dashboard filter patterns to control whether or not to include dashboard as part of metadata ingestion.
-    - **Include**: Explicitly include dashboards by adding a list of comma-separated regular expressions to the Include field. OpenMetadata will include all dashboards with names matching one or more of the supplied regular expressions. All other dashboards will be excluded.
-    - **Exclude**: Explicitly exclude dashboards by adding a list of comma-separated regular expressions to the Exclude field. OpenMetadata will exclude all dashboards with names matching one or more of the supplied regular expressions. All other dashboards will be included.
+  - **Include**: Explicitly include dashboards by adding a list of comma-separated regular expressions to the Include field. OpenMetadata will include all dashboards with names matching one or more of the supplied regular expressions. All other dashboards will be excluded.
+  - **Exclude**: Explicitly exclude dashboards by adding a list of comma-separated regular expressions to the Exclude field. OpenMetadata will exclude all dashboards with names matching one or more of the supplied regular expressions. All other dashboards will be included.
 - **Chart Pattern (Optional)**: Use to chart filter patterns to control whether or not to include charts as part of metadata ingestion.
-    - **Include**: Explicitly include charts by adding a list of comma-separated regular expressions to the Include field. OpenMetadata will include all charts with names matching one or more of the supplied regular expressions. All other charts will be excluded.
-    - **Exclude**: Explicitly exclude charts by adding a list of comma-separated regular expressions to the Exclude field. OpenMetadata will exclude all charts with names matching one or more of the supplied regular expressions. All other charts will be included.
+  - **Include**: Explicitly include charts by adding a list of comma-separated regular expressions to the Include field. OpenMetadata will include all charts with names matching one or more of the supplied regular expressions. All other charts will be excluded.
+  - **Exclude**: Explicitly exclude charts by adding a list of comma-separated regular expressions to the Exclude field. OpenMetadata will exclude all charts with names matching one or more of the supplied regular expressions. All other charts will be included.
 - **Database Service Name (Optional)**: Enter the name of Database Service which is already ingested in OpenMetadata to create lineage between dashboards and database tables.
 - **Enable Debug Log (toggle)**: Set the Enable Debug Log toggle to set the default log level to debug, these logs can be viewed later in Airflow.
 
