@@ -12,5 +12,10 @@ export const tile = {
     title: {
       type: String,
     },
+    isExternalLink: {
+      type: Boolean,
+      description:
+        "Pass true if the provided link points to an external web page",
+    },
   },
 };
