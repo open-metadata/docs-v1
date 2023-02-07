@@ -7,21 +7,20 @@ slug: /sdk/python/ingestion
 
 Snippets and knowledge specific to ingesting metadata using Python.
 
-<InlineCalloutContainer>
-  <InlineCallout
-    color="violet-70"
+{%inlineCalloutContainer%}
+
+{%inlineCallout
     icon="source"
     bold="dbt"
-    href="/sdk/python/ingestion/dbt"
-  >
-    Example of the integration of dbt with the Python SDK.
-  </InlineCallout>
-  <InlineCallout
-    color="violet-70"
+    href="/sdk/python/ingestion/dbt" %}
+Example of the integration of dbt with the Python SDK.
+{%/inlineCallout %}
+
+{%inlineCallout
     icon="source"
     bold="Add Lineage Request"
-    href="/sdk/python/ingestion/lineage"
-  >
-    Learn how to use the Python client to interact with the Lineage.
-  </InlineCallout>
-</InlineCalloutContainer>
+    href="/sdk/python/ingestion/lineage" %}
+Learn how to use the Python client to interact with the Lineage.
+{%/inlineCallout%}
+
+{%/inlineCalloutContainer%}

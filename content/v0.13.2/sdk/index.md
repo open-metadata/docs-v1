@@ -7,21 +7,20 @@ slug: /sdk
 
 Here are the articles in this section:
 
-<InlineCalloutContainer>
-  <InlineCallout
-    color="violet-70"
+{% inlineCalloutContainer %}
+
+{% inlineCallout
     icon="play_arrow"
     bold="Python SDK"
-    href="sdk/python"
-  >
-    Presentation of a high-level Python API as a type-safe and gentle wrapper for the OpenMetadata backend.
-  </InlineCallout>
-  <InlineCallout
-    color="violet-70"
+    href="/sdk/python" %}
+Presentation of a high-level Python API as a type-safe and gentle wrapper for the OpenMetadata backend.
+{% /inlineCallout%}
+
+{% inlineCallout
     icon="play_arrow"
     bold="Java SDK"
-    href="sdk/java"
-  >
-    Cooming soon.
-  </InlineCallout>
-</InlineCalloutContainer>
+    href="/sdk/java" %}
+Cooming soon.
+{% /inlineCallout%}
+
+{% /inlineCalloutContainer %}
