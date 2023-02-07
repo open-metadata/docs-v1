@@ -7,24 +7,24 @@ slug: /connectors/database/bigquery
 
 <Table>
 
-| Stage | Metadata |Query Usage | Data Profiler | Data Quality | Lineage | DBT | Supported Versions |
-|:------:|:------:|:-----------:|:-------------:|:------------:|:-------:|:---:|:------------------:|
-|  PROD  |   ✅   |      ✅      |       ✅       |       ✅      |    ✅    |  ✅  |  --  |
+| Stage | Metadata | Query Usage | Data Profiler | Data Quality | Lineage | DBT | Supported Versions |
+| :---: | :------: | :---------: | :-----------: | :----------: | :-----: | :-: | :----------------: |
+| PROD  |    ✅    |     ✅      |      ✅       |      ✅      |   ✅    | ✅  |         --         |
 
 </Table>
 
 <Table>
 
 | Lineage | Table-level | Column-level |
-|:------:|:-----------:|:-------------:|
-| ✅ | ✅ | ✅ |
+| :-----: | :---------: | :----------: |
+|   ✅    |     ✅      |      ✅      |
 
 </Table>
-
 
 In this section, we provide guides and references to use the BigQuery connector.
 
 Configure and schedule BigQuery metadata and profiler workflows from the OpenMetadata UI:
+
 - [Requirements](#requirements)
 - [Metadata Ingestion](#metadata-ingestion)
 - [Query Usage](#query-usage)
@@ -55,9 +55,9 @@ the following docs to connect using Airflow SDK or with the CLI.
 
 ## Requirements
 
-<InlineCallout color="violet-70" icon="description" bold="OpenMetadata 0.12 or later" href="/deployment">
-To deploy OpenMetadata, check the <a href="/deployment">Deployment</a> guides.
-</InlineCallout>
+{%inlineCallout icon="description" bold="OpenMetadata 0.12 or later" href="/deployment"%}
+To deploy OpenMetadata, check the Deployment guides.
+{%/inlineCallout%}
 
 To run the Ingestion via the UI you'll need to use the OpenMetadata Ingestion Container, which comes shipped with
 custom Airflow plugins to handle the workflow deployment.
@@ -74,19 +74,19 @@ custom Airflow plugins to handle the workflow deployment.
 
 <Table>
 
-| #    | GCP Permission                | GCP Role              | Required For            |
-| :--- | :---------------------------- | :-------------------- | :---------------------- |
-| 1    | bigquery.datasets.get         | BigQuery Data Viewer  | Metadata Ingestion      |
-| 2    | bigquery.tables.get           | BigQuery Data Viewer  | Metadata Ingestion      |
-| 3    | bigquery.tables.getData       | BigQuery Data Viewer  | Metadata Ingestion      |
-| 4    | bigquery.tables.list          | BigQuery Data Viewer  | Metadata Ingestion      |
-| 5    | resourcemanager.projects.get  | BigQuery Data Viewer  | Metadata Ingestion      |
-| 6    | bigquery.jobs.create          | BigQuery Job User     | Metadata Ingestion      |
-| 7    | bigquery.jobs.listAll         | BigQuery Job User     | Metadata Ingestion      |
-| 8    | datacatalog.taxonomies.get    | BigQuery Policy Admin | Fetch Policy Tags       |
-| 9    | datacatalog.taxonomies.list   | BigQuery Policy Admin | Fetch Policy Tags       |
-| 10   | bigquery.readsessions.create  | BigQuery Admin        | Bigquery Usage Workflow |
-| 11   | bigquery.readsessions.getData | BigQuery Admin        | Bigquery Usage Workflow |
+| #   | GCP Permission                | GCP Role              | Required For            |
+| :-- | :---------------------------- | :-------------------- | :---------------------- |
+| 1   | bigquery.datasets.get         | BigQuery Data Viewer  | Metadata Ingestion      |
+| 2   | bigquery.tables.get           | BigQuery Data Viewer  | Metadata Ingestion      |
+| 3   | bigquery.tables.getData       | BigQuery Data Viewer  | Metadata Ingestion      |
+| 4   | bigquery.tables.list          | BigQuery Data Viewer  | Metadata Ingestion      |
+| 5   | resourcemanager.projects.get  | BigQuery Data Viewer  | Metadata Ingestion      |
+| 6   | bigquery.jobs.create          | BigQuery Job User     | Metadata Ingestion      |
+| 7   | bigquery.jobs.listAll         | BigQuery Job User     | Metadata Ingestion      |
+| 8   | datacatalog.taxonomies.get    | BigQuery Policy Admin | Fetch Policy Tags       |
+| 9   | datacatalog.taxonomies.list   | BigQuery Policy Admin | Fetch Policy Tags       |
+| 10  | bigquery.readsessions.create  | BigQuery Admin        | Bigquery Usage Workflow |
+| 11  | bigquery.readsessions.getData | BigQuery Admin        | Bigquery Usage Workflow |
 
 </Table>
 
@@ -140,7 +140,6 @@ a name that distinguishes your deployment from other services, including
 the other {connector} services that you might be ingesting metadata
 from.
 
-
 <div className="w-100 flex justify-center">
 <Image
   src="/images/openmetadata/connectors/bigquery/add-new-service.png"
@@ -148,7 +147,6 @@ from.
   caption="Provide a Name and description for your Service"
 />
 </div>
-
 
 ### 5. Configure the Service Connection
 
@@ -165,7 +163,6 @@ desired.
 />
 </div>
 
-
 Once the credentials have been added, click on `Test Connection` and Save
 the changes.
 
@@ -181,29 +178,29 @@ the changes.
 
 - **Host and Port**: This is the BigQuery APIs URL.
 - **Username (Optional)**: Specify the User to connect to BigQuery. It should have enough privileges to read all the metadata.
-- **Project ID(Optional)**: The BigQuery Project ID is required only if the credentials path is being used instead of values. 
-To add multiple Project ID, select `Multiple Project ID` under `Project ID` option.
+- **Project ID(Optional)**: The BigQuery Project ID is required only if the credentials path is being used instead of values.
+  To add multiple Project ID, select `Multiple Project ID` under `Project ID` option.
 - **GCS Credentials**: We support two ways of authenticating to BigQuery:
-    1. Passing the raw credential values provided by BigQuery. This requires us to provide the following information, all provided by BigQuery:
-       - Credentials type, e.g., `service_account`
-       - Project ID
-          - Single Project ID: To add single ProjectID
-          - Multiple Project ID: To add multiple ProjectID
-       - Private Key ID
-       - Private Key
-       - Client Email
-       - Client ID
-       - Auth URI, https://accounts.google.com/o/oauth2/auth by defaul
-       - Token URI, https://oauth2.googleapis.com/token by default
-       - Authentication Provider X509 Certificate URL, https://www.googleapis.com/oauth2/v1/certs by default
-       - Client X509 Certificate U
-    2. Passing a local file path that contains the credentials:
-       - GCS Credentials Path
+  1. Passing the raw credential values provided by BigQuery. This requires us to provide the following information, all provided by BigQuery:
+     - Credentials type, e.g., `service_account`
+     - Project ID
+       - Single Project ID: To add single ProjectID
+       - Multiple Project ID: To add multiple ProjectID
+     - Private Key ID
+     - Private Key
+     - Client Email
+     - Client ID
+     - Auth URI, https://accounts.google.com/o/oauth2/auth by defaul
+     - Token URI, https://oauth2.googleapis.com/token by default
+     - Authentication Provider X509 Certificate URL, https://www.googleapis.com/oauth2/v1/certs by default
+     - Client X509 Certificate U
+  2. Passing a local file path that contains the credentials:
+     - GCS Credentials Path
 - **Enable Policy Tag Import (Optional)**: Mark as 'True' to enable importing policy tags from BigQuery to OpenMetadata.
 - **Classification Name (Optional)**: If the Tag import is enabled, the name of the Classification will be created at OpenMetadata.
 - **Database (Optional)**: The database of the data source is an optional parameter, if you would like to restrict the metadata reading to a single database. If left blank, OpenMetadata ingestion attempts to scan all the databases.
 - **Connection Options (Optional)**: Enter the details for any additional connection options that can be sent to BigQuery during the connection. These details must be added as Key-Value pairs.
-- **Connection Arguments (Optional)**: Enter the details for any additional connection arguments such as security or protocol configs that can be sent to BigQuery during the connection. These details must be added as Key-Value pairs. 
+- **Connection Arguments (Optional)**: Enter the details for any additional connection arguments such as security or protocol configs that can be sent to BigQuery during the connection. These details must be added as Key-Value pairs.
   - In case you are using Single-Sign-On (SSO) for authentication, add the `authenticator` details in the Connection Arguments as a Key-Value pair as follows: `"authenticator" : "sso_login_url"`
   - In case you authenticate with SSO using an external browser popup, then add the `authenticator` details in the Connection Arguments as a Key-Value pair as follows: `"authenticator" : "externalbrowser"`
 
@@ -225,14 +222,14 @@ caption="Configure Metadata Ingestion Page"
 
 - **Name**: This field refers to the name of ingestion pipeline, you can customize the name or use the generated name.
 - **Database Filter Pattern (Optional)**: Use to database filter patterns to control whether or not to include database as part of metadata ingestion.
-    - **Include**: Explicitly include databases by adding a list of comma-separated regular expressions to the Include field. OpenMetadata will include all databases with names matching one or more of the supplied regular expressions. All other databases will be excluded.
-    - **Exclude**: Explicitly exclude databases by adding a list of comma-separated regular expressions to the Exclude field. OpenMetadata will exclude all databases with names matching one or more of the supplied regular expressions. All other databases will be included.
+  - **Include**: Explicitly include databases by adding a list of comma-separated regular expressions to the Include field. OpenMetadata will include all databases with names matching one or more of the supplied regular expressions. All other databases will be excluded.
+  - **Exclude**: Explicitly exclude databases by adding a list of comma-separated regular expressions to the Exclude field. OpenMetadata will exclude all databases with names matching one or more of the supplied regular expressions. All other databases will be included.
 - **Schema Filter Pattern (Optional)**: Use to schema filter patterns to control whether or not to include schemas as part of metadata ingestion.
-    - **Include**: Explicitly include schemas by adding a list of comma-separated regular expressions to the Include field. OpenMetadata will include all schemas with names matching one or more of the supplied regular expressions. All other schemas will be excluded.
-    - **Exclude**: Explicitly exclude schemas by adding a list of comma-separated regular expressions to the Exclude field. OpenMetadata will exclude all schemas with names matching one or more of the supplied regular expressions. All other schemas will be included.
+  - **Include**: Explicitly include schemas by adding a list of comma-separated regular expressions to the Include field. OpenMetadata will include all schemas with names matching one or more of the supplied regular expressions. All other schemas will be excluded.
+  - **Exclude**: Explicitly exclude schemas by adding a list of comma-separated regular expressions to the Exclude field. OpenMetadata will exclude all schemas with names matching one or more of the supplied regular expressions. All other schemas will be included.
 - **Table Filter Pattern (Optional)**: Use to table filter patterns to control whether or not to include tables as part of metadata ingestion.
-    - **Include**: Explicitly include tables by adding a list of comma-separated regular expressions to the Include field. OpenMetadata will include all tables with names matching one or more of the supplied regular expressions. All other tables will be excluded.
-    - **Exclude**: Explicitly exclude tables by adding a list of comma-separated regular expressions to the Exclude field. OpenMetadata will exclude all tables with names matching one or more of the supplied regular expressions. All other tables will be included.
+  - **Include**: Explicitly include tables by adding a list of comma-separated regular expressions to the Include field. OpenMetadata will include all tables with names matching one or more of the supplied regular expressions. All other tables will be excluded.
+  - **Exclude**: Explicitly exclude tables by adding a list of comma-separated regular expressions to the Exclude field. OpenMetadata will exclude all tables with names matching one or more of the supplied regular expressions. All other tables will be included.
 - **Include views (toggle)**: Set the Include views toggle to control whether or not to include views as part of metadata ingestion.
 - **Include tags (toggle)**: Set the Include tags toggle to control whether or not to include tags as part of metadata ingestion.
 - **Enable Debug Log (toggle)**: Set the Enable Debug Log toggle to set the default log level to debug, these logs can be viewed later in Airflow.
