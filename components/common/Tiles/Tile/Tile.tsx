@@ -7,7 +7,7 @@ interface TileProps {
   description: string;
   link: string;
   title: string;
-  isExternalLink: boolean;
+  isExternalLink?: boolean;
 }
 
 function Tile({ description, link, title, isExternalLink = false }: TileProps) {
