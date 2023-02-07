@@ -4,25 +4,27 @@ slug: /connectors/database/druid
 ---
 
 # Druid
+
 <Table>
 
-| Stage | Metadata |Query Usage | Data Profiler | Data Quality | Lineage | DBT | Supported Versions |
-|:------:|:------:|:-----------:|:-------------:|:------------:|:-------:|:---:|:------------------:|
-|  PROD  |   ✅   |      ❌      |       ✅       |       ✅      |    Partially via Views    |  ✅  |  --  |
+| Stage | Metadata | Query Usage | Data Profiler | Data Quality |       Lineage       | DBT | Supported Versions |
+| :---: | :------: | :---------: | :-----------: | :----------: | :-----------------: | :-: | :----------------: |
+| PROD  |    ✅    |     ❌      |      ✅       |      ✅      | Partially via Views | ✅  |         --         |
 
 </Table>
 
 <Table>
 
-| Lineage | Table-level | Column-level |
-|:------:|:-----------:|:-------------:|
-| Partially via Views | ✅ | ✅ |
+|       Lineage       | Table-level | Column-level |
+| :-----------------: | :---------: | :----------: |
+| Partially via Views |     ✅      |      ✅      |
 
 </Table>
 
 In this section, we provide guides and references to use the Druid connector.
 
 Configure and schedule Druid metadata and profiler workflows from the OpenMetadata UI:
+
 - [Requirements](#requirements)
 - [Metadata Ingestion](#metadata-ingestion)
 - [Data Profiler](#data-profiler)
@@ -51,9 +53,9 @@ the following docs to connect using Airflow SDK or with the CLI.
 
 ## Requirements
 
-<InlineCallout color="violet-70" icon="description" bold="OpenMetadata 0.12 or later" href="/deployment">
-To deploy OpenMetadata, check the <a href="/deployment">Deployment</a> guides.
-</InlineCallout>
+{%inlineCallout icon="description" bold="OpenMetadata 0.12 or later" href="/deployment"%}
+To deploy OpenMetadata, check the Deployment guides.
+{%/inlineCallout%}
 
 To run the Ingestion via the UI you'll need to use the OpenMetadata Ingestion Container, which comes shipped with
 custom Airflow plugins to handle the workflow deployment.
@@ -108,7 +110,6 @@ a name that distinguishes your deployment from other services, including
 the other {connector} services that you might be ingesting metadata
 from.
 
-
 <div className="w-100 flex justify-center">
 <Image
   src="/images/openmetadata/connectors/druid/add-new-service.png"
@@ -116,7 +117,6 @@ from.
   caption="Provide a Name and description for your Service"
 />
 </div>
-
 
 ### 5. Configure the Service Connection
 
@@ -132,7 +132,6 @@ desired.
   caption="Configure the service connection by filling the form"
 />
 </div>
-
 
 Once the credentials have been added, click on `Test Connection` and Save
 the changes.
@@ -150,7 +149,7 @@ the changes.
 - **Host and Port**: Enter the fully qualified hostname and port number for your Druid deployment in the Host and Port field.
 - **Database**: The database of the data source is an optional parameter, if you would like to restrict the metadata reading to a single database. If left blank, OpenMetadata ingestion attempts to scan all the databases.
 - **Connection Options (Optional)**: Enter the details for any additional connection options that can be sent to Druid during the connection. These details must be added as Key-Value pairs.
-- **Connection Arguments (Optional)**: Enter the details for any additional connection arguments such as security or protocol configs that can be sent to Druid during the connection. These details must be added as Key-Value pairs. 
+- **Connection Arguments (Optional)**: Enter the details for any additional connection arguments such as security or protocol configs that can be sent to Druid during the connection. These details must be added as Key-Value pairs.
   - In case you are using Single-Sign-On (SSO) for authentication, add the `authenticator` details in the Connection Arguments as a Key-Value pair as follows: `"authenticator" : "sso_login_url"`
   - In case you authenticate with SSO using an external browser popup, then add the `authenticator` details in the Connection Arguments as a Key-Value pair as follows: `"authenticator" : "externalbrowser"`
 
@@ -257,4 +256,3 @@ title="dbt Integration"
 text="Learn more about how to ingest dbt models' definitions and their lineage."
 link="/connectors/ingestion/workflows/dbt"
 />
-

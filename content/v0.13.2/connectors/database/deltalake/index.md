@@ -4,26 +4,27 @@ slug: /connectors/database/deltalake
 ---
 
 # Deltalake
+
 <Table>
 
-| Stage | Metadata |Query Usage | Data Profiler | Data Quality | Lineage | DBT | Supported Versions |
-|:------:|:------:|:------:|:-----------:|:-------------:|:------------:|:-------:|:---:|:------------------:|
-|  PROD  |   ✅   |      ❌      |       ❌       |       ❌      |    Partially via Views    |  ❌  |  --  |
+| Stage | Metadata | Query Usage | Data Profiler | Data Quality |       Lineage       | DBT | Supported Versions |
+| :---: | :------: | :---------: | :-----------: | :----------: | :-----------------: | :-: | :----------------: |
+| PROD  |    ✅    |     ❌      |      ❌       |      ❌      | Partially via Views | ❌  |         --         |
 
 </Table>
 
 <Table>
 
-| Lineage | Table-level | Column-level |
-|:------:|:-----------:|:-------------:|
-| Partially via Views | ✅ | ✅ |
+|       Lineage       | Table-level | Column-level |
+| :-----------------: | :---------: | :----------: |
+| Partially via Views |     ✅      |      ✅      |
 
 </Table>
-
 
 In this section, we provide guides and references to use the Deltalake connector.
 
 Configure and schedule Deltalake metadata and profiler workflows from the OpenMetadata UI:
+
 - [Requirements](#requirements)
 - [Metadata Ingestion](#metadata-ingestion)
 - [dbt Integration](#dbt-integration)
@@ -50,9 +51,9 @@ the following docs to connect using Airflow SDK or with the CLI.
 
 ## Requirements
 
-<InlineCallout color="violet-70" icon="description" bold="OpenMetadata 0.12.1 or later" href="/deployment">
-To deploy OpenMetadata, check the <a href="/deployment">Deployment</a> guides.
-</InlineCallout>
+{%inlineCallout icon="description" bold="OpenMetadata 0.12.1 or later" href="/deployment"%}
+To deploy OpenMetadata, check the Deployment guides.
+{%/inlineCallout%}
 
 To run the Ingestion via the UI you'll need to use the OpenMetadata Ingestion Container, which comes shipped with
 custom Airflow plugins to handle the workflow deployment.
@@ -107,7 +108,6 @@ a name that distinguishes your deployment from other services, including
 the other {connector} services that you might be ingesting metadata
 from.
 
-
 <div className="w-100 flex justify-center">
 <Image
   src="/images/openmetadata/connectors/deltalake/add-new-service.png"
@@ -115,7 +115,6 @@ from.
   caption="Provide a Name and description for your Service"
 />
 </div>
-
 
 ### 5. Configure the Service Connection
 
@@ -131,7 +130,6 @@ desired.
   caption="Configure the service connection by filling the form"
 />
 </div>
-
 
 Once the credentials have been added, click on `Test Connection` and Save
 the changes.
@@ -162,7 +160,7 @@ We are internally running with `pyspark` 3.X and `delta-lake` 2.0.0. This means 
 When connecting to an External Metastore passing the parameter `Metastore Host Port`, we will be preparing a Spark Session with the configuration
 
 ```
-.config("hive.metastore.uris", "thrift://{connection.metastoreHostPort}") 
+.config("hive.metastore.uris", "thrift://{connection.metastoreHostPort}")
 ```
 
 Then, we will be using the `catalog` functions from the Spark Session to pick up the metadata exposed by the Hive Metastore.
@@ -172,7 +170,7 @@ Then, we will be using the `catalog` functions from the Spark Session to pick up
 If instead we use a local file path that contains the metastore information (e.g., for local testing with the default `metastore_db` directory), we will set
 
 ```
-.config("spark.driver.extraJavaOptions", "-Dderby.system.home={connection.metastoreFilePath}") 
+.config("spark.driver.extraJavaOptions", "-Dderby.system.home={connection.metastoreFilePath}")
 ```
 
 To update the `Derby` information. More information about this in a great [SO thread](https://stackoverflow.com/questions/38377188/how-to-get-rid-of-derby-log-metastore-db-from-spark-shell).
@@ -266,4 +264,3 @@ title="dbt Integration"
 text="Learn more about how to ingest dbt models' definitions and their lineage."
 link="/connectors/ingestion/workflows/dbt"
 />
-

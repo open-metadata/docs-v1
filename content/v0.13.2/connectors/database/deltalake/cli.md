@@ -4,34 +4,36 @@ slug: /connectors/database/deltalake/cli
 ---
 
 # Run Deltalake using the metadata CLI
+
 <Table>
 
-| Stage | Metadata |Query Usage | Data Profiler | Data Quality | Lineage | DBT | Supported Versions |
-|:------:|:------:|:-----------:|:-------------:|:------------:|:-------:|:---:|:------------------:|
-|  PROD  |   ✅   |      ❌      |       ❌       |       ❌      |    Partially via Views    |  ❌  |  --  |
+| Stage | Metadata | Query Usage | Data Profiler | Data Quality |       Lineage       | DBT | Supported Versions |
+| :---: | :------: | :---------: | :-----------: | :----------: | :-----------------: | :-: | :----------------: |
+| PROD  |    ✅    |     ❌      |      ❌       |      ❌      | Partially via Views | ❌  |         --         |
 
 </Table>
 
 <Table>
 
-| Lineage | Table-level | Column-level |
-|:------:|:-----------:|:-------------:|
-| Partially via Views | ✅ | ✅ |
+|       Lineage       | Table-level | Column-level |
+| :-----------------: | :---------: | :----------: |
+| Partially via Views |     ✅      |      ✅      |
 
 </Table>
 
 In this section, we provide guides and references to use the Deltalake connector.
 
 Configure and schedule Deltalake metadata and profiler workflows from the OpenMetadata UI:
+
 - [Requirements](#requirements)
 - [Metadata Ingestion](#metadata-ingestion)
 - [dbt Integration](#dbt-integration)
 
 ## Requirements
 
-<InlineCallout color="violet-70" icon="description" bold="OpenMetadata 0.12.1 or later" href="/deployment">
-To deploy OpenMetadata, check the <a href="/deployment">Deployment</a> guides.
-</InlineCallout>
+{%inlineCallout icon="description" bold="OpenMetadata 0.12.1 or later" href="/deployment"%}
+To deploy OpenMetadata, check the Deployment guides.
+{%/inlineCallout%}
 
 To run the Ingestion via the UI you'll need to use the OpenMetadata Ingestion Container, which comes shipped with
 custom Airflow plugins to handle the workflow deployment.
@@ -110,7 +112,6 @@ workflowConfig:
   openMetadataServerConfig:
     hostPort: "<OpenMetadata host and port>"
     authProvider: "<OpenMetadata auth provider>"
-
 ```
 
 #### Source Configuration - Service Connection
@@ -133,7 +134,7 @@ configuration options for 3.X.
 When connecting to an External Metastore passing the parameter `Metastore Host Port`, we will be preparing a Spark Session with the configuration
 
 ```
-.config("hive.metastore.uris", "thrift://{connection.metastoreHostPort}") 
+.config("hive.metastore.uris", "thrift://{connection.metastoreHostPort}")
 ```
 
 Then, we will be using the `catalog` functions from the Spark Session to pick up the metadata exposed by the Hive Metastore.
@@ -143,7 +144,7 @@ Then, we will be using the `catalog` functions from the Spark Session to pick up
 If instead we use a local file path that contains the metastore information (e.g., for local testing with the default `metastore_db` directory), we will set
 
 ```
-.config("spark.driver.extraJavaOptions", "-Dderby.system.home={connection.metastoreFilePath}") 
+.config("spark.driver.extraJavaOptions", "-Dderby.system.home={connection.metastoreFilePath}")
 ```
 
 To update the `Derby` information. More information about this in a great [SO thread](https://stackoverflow.com/questions/38377188/how-to-get-rid-of-derby-log-metastore-db-from-spark-shell).
@@ -182,10 +183,10 @@ For a simple, local installation using our docker containers, this looks like:
 ```yaml
 workflowConfig:
   openMetadataServerConfig:
-    hostPort: 'http://localhost:8585/api'
+    hostPort: "http://localhost:8585/api"
     authProvider: openmetadata
     securityConfig:
-      jwtToken: '{bot_jwt_token}'
+      jwtToken: "{bot_jwt_token}"
 ```
 
 We support different security providers. You can find their definitions [here](https://github.com/open-metadata/OpenMetadata/tree/main/openmetadata-spec/src/main/resources/json/schema/security/client).
@@ -198,10 +199,10 @@ You can find the different implementation of the ingestion below.
 ```yaml
 workflowConfig:
   openMetadataServerConfig:
-    hostPort: 'http://localhost:8585/api'
+    hostPort: "http://localhost:8585/api"
     authProvider: openmetadata
     securityConfig:
-      jwtToken: '{bot_jwt_token}'
+      jwtToken: "{bot_jwt_token}"
 ```
 
 ### Auth0 SSO
@@ -209,12 +210,12 @@ workflowConfig:
 ```yaml
 workflowConfig:
   openMetadataServerConfig:
-    hostPort: 'http://localhost:8585/api'
+    hostPort: "http://localhost:8585/api"
     authProvider: auth0
     securityConfig:
-      clientId: '{your_client_id}'
-      secretKey: '{your_client_secret}'
-      domain: '{your_domain}'
+      clientId: "{your_client_id}"
+      secretKey: "{your_client_secret}"
+      domain: "{your_domain}"
 ```
 
 ### Azure SSO
@@ -222,12 +223,12 @@ workflowConfig:
 ```yaml
 workflowConfig:
   openMetadataServerConfig:
-    hostPort: 'http://localhost:8585/api'
+    hostPort: "http://localhost:8585/api"
     authProvider: azure
     securityConfig:
-      clientSecret: '{your_client_secret}'
-      authority: '{your_authority_url}'
-      clientId: '{your_client_id}'
+      clientSecret: "{your_client_secret}"
+      authority: "{your_authority_url}"
+      clientId: "{your_client_id}"
       scopes:
         - your_scopes
 ```
@@ -237,12 +238,12 @@ workflowConfig:
 ```yaml
 workflowConfig:
   openMetadataServerConfig:
-    hostPort: 'http://localhost:8585/api'
+    hostPort: "http://localhost:8585/api"
     authProvider: custom-oidc
     securityConfig:
-      clientId: '{your_client_id}'
-      secretKey: '{your_client_secret}'
-      domain: '{your_domain}'
+      clientId: "{your_client_id}"
+      secretKey: "{your_client_secret}"
+      domain: "{your_domain}"
 ```
 
 ### Google SSO
@@ -250,10 +251,10 @@ workflowConfig:
 ```yaml
 workflowConfig:
   openMetadataServerConfig:
-    hostPort: 'http://localhost:8585/api'
+    hostPort: "http://localhost:8585/api"
     authProvider: google
     securityConfig:
-      secretKey: '{path-to-json-creds}'
+      secretKey: "{path-to-json-creds}"
 ```
 
 ### Okta SSO
@@ -279,12 +280,12 @@ The ingestion can be configured by [Enabling JWT Tokens](https://docs.open-metad
 ```yaml
 workflowConfig:
   openMetadataServerConfig:
-    hostPort: 'http://localhost:8585/api'
+    hostPort: "http://localhost:8585/api"
     authProvider: auth0
     securityConfig:
-      clientId: '{your_client_id}'
-      secretKey: '{your_client_secret}'
-      domain: '{your_domain}'
+      clientId: "{your_client_id}"
+      secretKey: "{your_client_secret}"
+      domain: "{your_domain}"
 ```
 
 ### OneLogin SSO
@@ -294,12 +295,12 @@ Which uses Custom OIDC for the ingestion
 ```yaml
 workflowConfig:
   openMetadataServerConfig:
-    hostPort: 'http://localhost:8585/api'
+    hostPort: "http://localhost:8585/api"
     authProvider: custom-oidc
     securityConfig:
-      clientId: '{your_client_id}'
-      secretKey: '{your_client_secret}'
-      domain: '{your_domain}'
+      clientId: "{your_client_id}"
+      secretKey: "{your_client_secret}"
+      domain: "{your_domain}"
 ```
 
 ### KeyCloak SSO
@@ -309,12 +310,12 @@ Which uses Custom OIDC for the ingestion
 ```yaml
 workflowConfig:
   openMetadataServerConfig:
-    hostPort: 'http://localhost:8585/api'
+    hostPort: "http://localhost:8585/api"
     authProvider: custom-oidc
     securityConfig:
-      clientId: '{your_client_id}'
-      secretKey: '{your_client_secret}'
-      domain: '{your_domain}'
+      clientId: "{your_client_id}"
+      secretKey: "{your_client_secret}"
+      domain: "{your_domain}"
 ```
 
 </Collapse>
