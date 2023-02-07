@@ -10,6 +10,7 @@ Follow the sections in this guide to set up Auth0 SSO.
 <Important>
 
 Security requirements for your **production** environment:
+
 - **DELETE** the admin default account shipped by OM in case you had [Basic Authentication](/deployment/security/basic-auth)
   enabled before configuring the authentication with Auth0 SSO.
 - **UPDATE** the Private / Public keys used for the [JWT Tokens](/deployment/security/enable-jwt-tokens). The keys we provide
@@ -52,7 +53,7 @@ Security requirements for your **production** environment:
 
 ### Step 3: Where to Find the Credentials
 
-- Navigate to the Settings tab. 
+- Navigate to the Settings tab.
 - You will find your `Client ID`, `Client Secret` and `Domain`.
 
 <Image src="/images/deployment/security/auth0/credentials.png" alt="credentials"/>
@@ -120,36 +121,34 @@ the JWT Token, you can follow the documentation of [Enable JWT Tokens](/deployme
 
 After the applying these steps, you can update the configuration of your deployment:
 
-<InlineCalloutContainer>
-  <InlineCallout
-    color="violet-70"
+{%inlineCalloutContainer%}
+
+{%inlineCallout
     icon="celebration"
     bold="Docker Security"
-    href="/deployment/security/auth0/docker"
-  >
-    Configure Auth0 SSO for your Docker Deployment.
-  </InlineCallout>
-  <InlineCallout
-    color="violet-70"
+    href="/deployment/security/auth0/docker" %}
+Configure Auth0 SSO for your Docker Deployment.
+{%/inlineCallout%}
+
+{%inlineCallout
     icon="storage"
     bold="Bare Metal Security"
-    href="/deployment/security/auth0/bare-metal"
-  >
-    Configure Auth0 SSO for your Bare Metal Deployment.
-  </InlineCallout>
-  <InlineCallout
-    color="violet-70"
+    href="/deployment/security/auth0/bare-metal" %}
+Configure Auth0 SSO for your Bare Metal Deployment.
+{%/inlineCallout%}
+
+{%inlineCallout
     icon="fit_screen"
     bold="Kubernetes Security"
-    href="/deployment/security/auth0/kubernetes"
-  >
-    Configure Auth0 SSO for your Kubernetes Deployment.
-  </InlineCallout>
-</InlineCalloutContainer>
+    href="/deployment/security/auth0/kubernetes" %}
+Configure Auth0 SSO for your Kubernetes Deployment.
+{%/inlineCallout%}
+
+{%/inlineCalloutContainer%}
 
 ## Configure Ingestion
 
-After everything has been set up, you will need to configure your workflows if you are running them via the 
+After everything has been set up, you will need to configure your workflows if you are running them via the
 `metadata` CLI or with any custom scheduler.
 
 When setting up the YAML config for the connector, update the `workflowConfig` as follows:
@@ -157,10 +156,10 @@ When setting up the YAML config for the connector, update the `workflowConfig` a
 ```yaml
 workflowConfig:
   openMetadataServerConfig:
-    hostPort: 'http://localhost:8585/api'
+    hostPort: "http://localhost:8585/api"
     authProvider: auth0
     securityConfig:
-      clientId: '{your_client_id}'
-      secretKey: '{your_client_secret}'
-      domain: '{your_domain}'
+      clientId: "{your_client_id}"
+      secretKey: "{your_client_secret}"
+      domain: "{your_domain}"
 ```

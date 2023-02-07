@@ -10,6 +10,7 @@ Follow the sections in this guide to set up OneLogin SSO.
 <Important>
 
 Security requirements for your **production** environment:
+
 - **DELETE** the admin default account shipped by OM in case you had [Basic Authentication](/deployment/security/basic-auth)
   enabled before configuring the authentication with OneLogin SSO.
 - **UPDATE** the Private / Public keys used for the [JWT Tokens](/deployment/security/enable-jwt-tokens). The keys we provide
@@ -48,7 +49,7 @@ Security requirements for your **production** environment:
 
 ### Step 2: Where to find the Credentials
 
-- Go to "SSO" and copy the Client ID 
+- Go to "SSO" and copy the Client ID
 
 <Image src="/images/deployment/security/one-login/create-server-credentials-7.png" alt="create-account"/>
 
@@ -56,7 +57,7 @@ Security requirements for your **production** environment:
 
 ## Create Service Account (optional)
 
-This step is optional if you configure the ingestion-bot with the JWT Token, you can follow the documentation of 
+This step is optional if you configure the ingestion-bot with the JWT Token, you can follow the documentation of
 [Enable JWT Tokens](/deployment/security/enable-jwt-tokens).
 
 ### Create Secret Key
@@ -67,32 +68,30 @@ This step is optional if you configure the ingestion-bot with the JWT Token, you
 
 After the applying these steps, you can update the configuration of your deployment:
 
-<InlineCalloutContainer>
-  <InlineCallout
-    color="violet-70"
+{%inlineCalloutContainer%}
+
+{%inlineCallout
     icon="celebration"
     bold="Docker Security"
-    href="/deployment/security/one-login/docker"
-  >
-    Configure OneLogin SSO for your Docker Deployment.
-  </InlineCallout>
-  <InlineCallout
-    color="violet-70"
+    href="/deployment/security/one-login/docker" %}
+Configure OneLogin SSO for your Docker Deployment.
+{%/inlineCallout%}
+
+{%inlineCallout
     icon="storage"
     bold="Bare Metal Security"
-    href="/deployment/security/one-login/bare-metal"
-  >
-    Configure OneLogin SSO for your Bare Metal Deployment.
-  </InlineCallout>
-  <InlineCallout
-    color="violet-70"
+    href="/deployment/security/one-login/bare-metal" %}
+Configure OneLogin SSO for your Bare Metal Deployment.
+{%/inlineCallout%}
+
+{%inlineCallout
     icon="fit_screen"
     bold="Kubernetes Security"
-    href="/deployment/security/one-login/kubernetes"
-  >
-    Configure OneLogin SSO for your Kubernetes Deployment.
-  </InlineCallout>
-</InlineCalloutContainer>
+    href="/deployment/security/one-login/kubernetes" %}
+Configure OneLogin SSO for your Kubernetes Deployment.
+{%/inlineCallout%}
+
+{%/inlineCalloutContainer%}
 
 ## Configure Ingestion
 
@@ -106,10 +105,10 @@ When setting up the YAML config for the connector, update the `workflowConfig` a
 ```yaml
 workflowConfig:
   openMetadataServerConfig:
-    hostPort: 'http://localhost:8585/api'
+    hostPort: "http://localhost:8585/api"
     authProvider: custom-oidc
     securityConfig:
-      clientId: '{your_client_id}'
-      secretKey: '{your_client_secret}'
-      domain: '{your_domain}'
+      clientId: "{your_client_id}"
+      secretKey: "{your_client_secret}"
+      domain: "{your_domain}"
 ```
