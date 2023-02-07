@@ -10,6 +10,7 @@ Follow the sections in this guide to set up Keycloak SSO.
 <Important>
 
 Security requirements for your **production** environment:
+
 - **DELETE** the admin default account shipped by OM in case you had [Basic Authentication](/deployment/security/basic-auth)
   enabled before configuring the authentication with Keycloak SSO.
 - **UPDATE** the Private / Public keys used for the [JWT Tokens](/deployment/security/enable-jwt-tokens). The keys we provide
@@ -29,12 +30,14 @@ Security requirements for your **production** environment:
 - Enter the username and password you created.
 
 ### Step 2: Change Realm selected
+
 - The Keycloak use Realms as the primary form of organization, we can't use the realm "master" for new clients (apps), only for administration, so change for your specific realm or create a new.
 - In this example we are used an existing one called "Data-sec".
 
 <Image src="/images/deployment/security/keycloak/2-change-realm.png" alt="change-realm"/>
 
 ### Step 3: Create OpenMetadata as a new Client
+
 - Click on `Clients` in the menu.
 - Click on `Create` button.
 - Enter the Client ID and Protocol as the image.
@@ -43,6 +46,7 @@ Security requirements for your **production** environment:
 <Image src="/images/deployment/security/keycloak/3-add-client.png" alt="add-client"/>
 
 ### Step 4: Edit settings of the client
+
 - Change "Acess Type" value from "public" to "confidential".
 - Change "implicit flow" and "service accounts" to enabled.
 
@@ -54,7 +58,6 @@ Security requirements for your **production** environment:
 <Image src="/images/deployment/security/keycloak/5-edit-settings-url.png" alt="edit-settings-url.png"/>
 
 - Click on `Save` button.
-
 
 <Note>
 
@@ -77,32 +80,30 @@ the JWT Token, you can follow the documentation of [Enable JWT Tokens](/deployme
 
 After the applying these steps, the users in your realm are able to login in the openmetadata, as a suggestion create a user called "admin-user". Now you can update the configuration of your deployment:
 
-<InlineCalloutContainer>
-  <InlineCallout
-    color="violet-70"
+{%inlineCalloutContainer%}
+
+{%inlineCallout
     icon="celebration"
     bold="Docker Security"
-    href="/deployment/security/keycloak/docker"
-  >
-    Configure Keycloak SSO for your Docker Deployment.
-  </InlineCallout>
-  <InlineCallout
-    color="violet-70"
+    href="/deployment/security/keycloak/docker" %}
+Configure Keycloak SSO for your Docker Deployment.
+{%/inlineCallout%}
+
+{%inlineCallout
     icon="storage"
     bold="Bare Metal Security"
-    href="/deployment/security/keycloak/bare-metal"
-  >
-    Configure Keycloak SSO for your Bare Metal Deployment.
-  </InlineCallout>
-  <InlineCallout
-    color="violet-70"
+    href="/deployment/security/keycloak/bare-metal" %}
+Configure Keycloak SSO for your Bare Metal Deployment.
+{%/inlineCallout%}
+
+{%inlineCallout
     icon="fit_screen"
     bold="Kubernetes Security"
-    href="/deployment/security/keycloak/kubernetes"
-  >
-    Configure Keycloak SSO for your Kubernetes Deployment.
-  </InlineCallout>
-</InlineCalloutContainer>
+    href="/deployment/security/keycloak/kubernetes" %}
+Configure Keycloak SSO for your Kubernetes Deployment.
+{%/inlineCallout%}
+
+{%/inlineCalloutContainer%}
 
 ## Configure Ingestion
 
@@ -116,12 +117,12 @@ When setting up the YAML config for the connector, update the `workflowConfig` a
 ```yaml
 workflowConfig:
   openMetadataServerConfig:
-    hostPort: 'http://localhost:8585/api'
+    hostPort: "http://localhost:8585/api"
     authProvider: custom-oidc
     securityConfig:
-      clientId: '{your_client_id}'
-      secretKey: '{your_client_secret}'
-      tokenEndpoint: '{your_token_endpoint}' # e.g. http://localhost:8081/realms/data-sec/protocol/openid-connect/token
+      clientId: "{your_client_id}"
+      secretKey: "{your_client_secret}"
+      tokenEndpoint: "{your_token_endpoint}" # e.g. http://localhost:8081/realms/data-sec/protocol/openid-connect/token
 ```
 
 <Note>

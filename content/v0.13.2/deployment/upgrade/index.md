@@ -7,10 +7,10 @@ slug: /deployment/upgrade
 
 ## Releases
 
-OpenMetadata community will be doing feature releases and stable releases. 
+OpenMetadata community will be doing feature releases and stable releases.
 
- - Feature releases are to upgrade your sandbox or POCs to give feedback to the community and any potential bugs that the community needs to fix.
- - Stable releases are to upgrade your production environments and share it with your users.
+- Feature releases are to upgrade your sandbox or POCs to give feedback to the community and any potential bugs that the community needs to fix.
+- Stable releases are to upgrade your production environments and share it with your users.
 
 ## 0.13.2 - Stable Release
 
@@ -21,15 +21,18 @@ If you are upgrading production this is the recommended version to upgrade.
 ## Breaking Changes for 0.13.2 Stable Release
 
 ### EntityName
+
 To better manage and harmonize `entityName` value and allow users to form better expectations around these values the team introduced an enforcement of the `entityName` format using regex pattern.
 
 All the OpenMetadata entities `entityName` fields will enforce by the default the following regex pattern:
+
 - `^[\w'\- .&]+$`: match any word characters (equivalent to `[a-zA-Z0-9_]`) or the characters `'- .&`. For example when creating a pipeline service the following name will not be allowed `MyPipelineIngestion?!` while the following will be `My-Pipeline `.
 
 Some entities are enforcing specific patterns:
+
 - Users: `([\w\-.]|[^@])+$` match any word characters (equivalent to `[a-zA-Z0-9_]`) or the characters `-.` and don't match the character `@`
-- Webhook: `^[\w'\-.]+$` match any word characters (equivalent to `[a-zA-Z0-9_]`) or the characters `-.` 
-- Table: `^[\w'\- ./]+$` match any word characters (equivalent to `[a-zA-Z0-9_]`) or the characters `'-. /` 
+- Webhook: `^[\w'\-.]+$` match any word characters (equivalent to `[a-zA-Z0-9_]`) or the characters `-.`
+- Table: `^[\w'\- ./]+$` match any word characters (equivalent to `[a-zA-Z0-9_]`) or the characters `'-. /`
 - Location: `^[\w'\-./]+$` match any word characters (equivalent to `[a-zA-Z0-9_]`) or the characters `-.'/`
 - Type: `^[a-z][\w]+$` match any word characters (equivalent to `[a-zA-Z0-9_]`) starting with a lowercase letter (e.g. `tHisChar` will match, `ThisChar` will not)
 
@@ -38,9 +41,11 @@ If an entity name does not follow the pattern an error will be returned by the O
 **The change should be transparent for the end user and no action should be required.**
 
 ## EntityLink
+
 Similar to the implementation done for `entityName`, `entityLink` will now enforce a specific pattern. The structure of `entityLink` is in the form `<#E::{entities}::{entityType}::{field}::{fieldName}::{fieldValue}>`
 
 All the OpenMetadata entities `entityLink` fields will enforce by the default the following regex pattern:
+
 - `^<#E::\w+::[\w'\- .&/\:+\"\\]+>$`: this means that `{entities}` value needs to match any word characters (equivalent to `[a-zA-Z0-9_]`) and the part after `{entities}` can match any word characters (equivalent to `[a-zA-Z0-9_]`) or the characters `'- .&/\:+\"\`
 
 If an entity name does not follow the pattern an error will be returned by the OpenMetadata platform.
@@ -49,7 +54,7 @@ If an entity name does not follow the pattern an error will be returned by the O
 
 ### Tags API
 
-Tags APIs were coded long before other entities' APIs were added. Due to this, tag API does not follow the API convention 
+Tags APIs were coded long before other entities' APIs were added. Due to this, tag API does not follow the API convention
 that all the other entities are following. This issue makes backward incompatible changes to follow the same convention as glossaries.
 
 You can find the full list of API paths changes in the following [issue](https://github.com/open-metadata/OpenMetadata/issues/9259).
@@ -73,10 +78,9 @@ This has helped us reorganise functionalities and easily focus on each connector
 If you're extending any of the sources, you'll need to update your imports. You can take a look at the new
 structure [here](https://github.com/open-metadata/OpenMetadata/tree/main/ingestion/src/metadata/ingestion/source).
 
-
 ## 0.13.1 - Stable Release
 
-OpenMetadata 0.13.1 is a stable release. Please check the [release notes](https://github.com/open-metadata/OpenMetadata/releases/tag/0.13.1-release) 
+OpenMetadata 0.13.1 is a stable release. Please check the [release notes](https://github.com/open-metadata/OpenMetadata/releases/tag/0.13.1-release)
 
 ## Breaking Changes for 0.13.1 Stable Release
 
@@ -90,7 +94,6 @@ Before upgrading to 0.13.1 it is recommended to save the existing Webhook config
 
 We have added Alerts/Notifications , which can be configured to receive customised alerts on updates in OM using Triggers, Filtering Information to different destinations like Slack, MsTeams or even Emails.
 Please use the same webhook config that you had saved from previous version to configure the Alerts Destination after upgrading.
-
 
 OpenMetadata Release 0.13.x introduces below breaking changes:
 
@@ -122,9 +125,9 @@ After upgrading you will have to create the dbt workflow for the dbt ingestion t
 
 ## 0.13.0 - Feature Release
 
-OpenMetadata 0.13.0 is a **feature release**. 
+OpenMetadata 0.13.0 is a **feature release**.
 
-**Don't upgrade your production with 0.13.0 feature release** 
+**Don't upgrade your production with 0.13.0 feature release**
 
 Explore 0.13.0 by following up [Deployment guides](https://docs.open-metadata.org/deployment) and please give us any feedback on our [community slack](https://slack.open-metadata.org)
 
@@ -135,46 +138,42 @@ Before upgrading your OpenMetadata version we recommend backing up the metadata.
 The source of truth is stored in the underlying database (MySQL and Postgres supported). You can refer
 to the following guide for our backup utility:
 
-<InlineCalloutContainer>
-  <InlineCallout
-    color="violet-70"
+{%inlineCalloutContainer%}
+
+{%inlineCallout
     icon="luggage"
     bold="Backup Metadata"
-    href="/deployment/backup-restore-metadata"
-  >
-    Learn how to back up MySQL data.
-  </InlineCallout>
-</InlineCalloutContainer>
+    href="/deployment/backup-restore-metadata" %}
+Learn how to back up MySQL data.
+{%/inlineCallout%}
+
+{%/inlineCalloutContainer%}
 
 ## Upgrade your installation
 
 Once your metadata is safe, follow the required upgrade instructions:
 
-<InlineCalloutContainer>
-  <InlineCallout
-    color="violet-70"
+{%inlineCalloutContainer%}
+
+{%inlineCallout
     icon="fit_screen"
     bold="Upgrade a Kubernetes Deployment"
-    href="/deployment/upgrade/kubernetes"
-  >
-    Upgrade your Kubernetes installation
-  </InlineCallout>
+    href="/deployment/upgrade/kubernetes" %}
+Upgrade your Kubernetes installation
+{%/inlineCallout%}
 
-  <InlineCallout
-    color="violet-70"
+{%inlineCallout
     icon="celebration"
     bold="Upgrade a Docker Deployment"
-    href="/deployment/upgrade/docker"
-  >
-    Upgrade your Docker installation
-  </InlineCallout>
-  <InlineCallout
-    color="violet-70"
+    href="/deployment/upgrade/docker" %}
+Upgrade your Docker installation
+{%/inlineCallout%}
+
+{%inlineCallout
     icon="storage"
     bold="Upgrade a Bare Metal Deployment"
-    href="/deployment/upgrade/bare-metal"
-  >
-    Upgrade your Bare Metal installation
-  </InlineCallout>
-</InlineCalloutContainer>
+    href="/deployment/upgrade/bare-metal" %}
+Upgrade your Bare Metal installation
+{%/inlineCallout%}
 
+{%/inlineCalloutContainer%}

@@ -7,21 +7,20 @@ slug: /deployment/secrets-manager/supported-implementations
 
 This is our list of supported Secrets Manager implementations:
 
-<InlineCalloutContainer>
-  <InlineCallout
-    color="violet-70"
+{%inlineCalloutContainer%}
+
+{%inlineCallout
     bold="AWS Secrets Manager"
     icon="vpn_key"
-    href="/deployment/secrets-manager/supported-implementations/aws-secrets-manager"
-  >
-    AWS Secrets Manager
-  </InlineCallout>
-  <InlineCallout
-    color="violet-70"
+    href="/deployment/secrets-manager/supported-implementations/aws-secrets-manager" %}
+AWS Secrets Manager
+{%/inlineCallout%}
+
+{%inlineCallout
     bold="AWS Systems Manager Parameter Store"
     icon="vpn_key"
-    href="/deployment/secrets-manager/supported-implementations/aws-ssm-parameter-store"
-  >
-    AWS Systems Manager Parameter Store
-  </InlineCallout>
-</InlineCalloutContainer>
+    href="/deployment/secrets-manager/supported-implementations/aws-ssm-parameter-store" %}
+AWS Systems Manager Parameter Store
+{%/inlineCallout%}
+
+{%/inlineCalloutContainer%}
