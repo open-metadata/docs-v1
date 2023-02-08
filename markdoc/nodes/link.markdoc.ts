@@ -1,8 +1,6 @@
-export const inlineCallout = {
-  render: "InlineCallout",
+export const link = {
+  render: "CustomAnchorNode",
   attributes: {
-    icon: { type: String },
-    bold: { type: String },
     href: { type: String },
     isExternalLink: {
       type: Boolean,

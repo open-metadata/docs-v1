@@ -55,15 +55,19 @@ export default function SideNav({
       </div>
       <span className={styles.IconContainer}>
         {collapsedNav ? (
-          <CollapseRightIcon
-            className={styles.CollapseIcon}
-            onClick={toggleCollapse}
-          />
+          <span title="Expand Menu">
+            <CollapseRightIcon
+              className={styles.CollapseIcon}
+              onClick={toggleCollapse}
+            />
+          </span>
         ) : (
-          <CollapseLeftIcon
-            className={styles.CollapseIcon}
-            onClick={toggleCollapse}
-          />
+          <span title="Collapse Menu">
+            <CollapseLeftIcon
+              className={styles.CollapseIcon}
+              onClick={toggleCollapse}
+            />
+          </span>
         )}
       </span>
     </nav>

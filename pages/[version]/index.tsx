@@ -79,7 +79,7 @@ export default function index({ menu }) {
                   content={cardInfo.content}
                   key={`${cardInfo.heading}${cardInfo.url}`}
                   heading={cardInfo.heading}
-                  url={getUrlWithVersion(cardInfo.url)}
+                  url={cardInfo.url}
                 />
               ))}
             </div>

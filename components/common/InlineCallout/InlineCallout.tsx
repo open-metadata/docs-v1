@@ -5,8 +5,15 @@ import { ReactComponent as SvgSecurity } from "../../../images/icons/bare_metal.
 import { ReactComponent as SvgKubernetes } from "../../../images/icons/kubernetes.svg";
 
 import styles from "./InlineCallout.module.css";
+import { getUrlWithVersion } from "../../../utils/CommonUtils";
 
-const InlineCallout = ({ children, icon, bold, href }) => {
+const InlineCallout = ({
+  children,
+  icon,
+  bold,
+  href,
+  isExternalLink = false,
+}) => {
   switch (icon) {
     case "celebration":
       icon = <SvgDocker />;
@@ -22,7 +29,7 @@ const InlineCallout = ({ children, icon, bold, href }) => {
   }
 
   return (
-    <Link href={href}>
+    <Link href={isExternalLink ? href : getUrlWithVersion(href)}>
       <section className={classNames(styles.Container)}>
         <span className={classNames(styles.IconContainer)}>
           <span>{icon}</span>
