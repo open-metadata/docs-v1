@@ -1,5 +1,5 @@
 export const link = {
-  render: "Link",
+  render: "CustomAnchorNode",
   attributes: {
     href: { type: String },
     isExternalLink: {

@@ -18,7 +18,7 @@ import StepDescription from "../components/Steps/Step/StepDescription/StepDescri
 import StepVisualInfo from "../components/Steps/Step/StepVisualInfo/StepVisualInfo";
 import ExtraContent from "../components/Steps/ExtraContent/ExtraContent";
 import Tile from "../components/common/Tiles/Tile/Tile";
-import Link from "../components/common/Link/Link";
+import CustomAnchorNode from "../components/common/Link/CustomAnchorNode";
 import TilesContainer from "../components/common/Tiles/TilesContainer/TilesContainer";
 import InlineCode from "../components/common/Code/InlineCode";
 
@@ -54,7 +54,7 @@ export const components = {
   Tile,
   TilesContainer,
   InlineCode,
-  Link,
+  CustomAnchorNode,
 };
 
 export const configs: Config = {

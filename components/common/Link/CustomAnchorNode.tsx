@@ -7,10 +7,10 @@ interface Props {
   isExternalLink: boolean;
 }
 
-function Link({ href, children, isExternalLink = false }: Props) {
+function CustomAnchorNode({ href, children, isExternalLink = false }: Props) {
   return (
     <a href={isExternalLink ? href : getUrlWithVersion(href)}>{children}</a>
   );
 }
 
-export default Link;
+export default CustomAnchorNode;
