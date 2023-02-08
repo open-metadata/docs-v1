@@ -7,18 +7,16 @@ slug: /how-to-guides/cli-ingestion-with-basic-auth
 
 Out of the box, OpenMetadata comes with a Username & Password Login Mechanism.
 
-<InlineCalloutContainer>
-  <InlineCallout
-    color="violet-70"
+{%inlineCalloutContainer%}
+
+{%inlineCallout
     icon="10k"
     bold="Basic Authentication"
-    href="/deployment/security/basic-auth"
-  >
-    Basic Authentication
-  </InlineCallout>
-</InlineCalloutContainer>
+    href="/deployment/security/basic-auth" %}
+Basic Authentication
+{%/inlineCallout%}
 
-<br/>
+{%/inlineCalloutContainer%}
 
 From `0.12.1` OpenMetadata has changed the default `no-auth` to `Basic` auth, So to run any ingestion pipeline from CLI you will have to pass the `jwtToken` and `authProvider` in the `securityConfig`.
 <br/>
@@ -50,7 +48,7 @@ workflowConfig:
     hostPort: http://localhost:8585/api
     authProvider: openmetadata
     securityConfig:
-      jwtToken: 'eyJraWQiO...'
+      jwtToken: "eyJraWQiO..."
 ```
 
 Now you can run the pipeline by running.
