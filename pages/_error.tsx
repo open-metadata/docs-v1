@@ -12,11 +12,7 @@ import { tilesInfoArray } from "../constants/404Page.constants";
 import { useDocVersionContext } from "../context/DocVersionContext";
 import { MenuItem } from "../interface/common.interface";
 import { getCategoryByIndex } from "../lib/utils";
-import {
-  fetchMenuList,
-  getUrlWithVersion,
-  getVersionFromUrl,
-} from "../utils/CommonUtils";
+import { fetchMenuList, getVersionFromUrl } from "../utils/CommonUtils";
 
 function Error() {
   const router = useRouter();
@@ -63,11 +59,8 @@ function Error() {
               <Tile
                 description={tileInfo.description}
                 key={`${tileInfo.link}${tileInfo.title}`}
-                link={
-                  tileInfo.isDocsLink
-                    ? getUrlWithVersion(tileInfo.link)
-                    : tileInfo.link
-                }
+                link={tileInfo.link}
+                isExternalLink={tileInfo.isExternalLink}
                 title={tileInfo.title}
               />
             ))}
