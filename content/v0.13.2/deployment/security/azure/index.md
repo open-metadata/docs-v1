@@ -10,6 +10,7 @@ Follow the sections in this guide to set up Azure SSO.
 <Important>
 
 Security requirements for your **production** environment:
+
 - **DELETE** the admin default account shipped by OM in case you had [Basic Authentication](/deployment/security/basic-auth)
   enabled before configuring the authentication with Azure SSO.
 - **UPDATE** the Private / Public keys used for the [JWT Tokens](/deployment/security/enable-jwt-tokens). The keys we provide
@@ -61,7 +62,7 @@ Admin permissions are required to register the application on the Azure portal.
 
 ## Create Service Application (optional)
 
-This is a guide to create ingestion bot service account. This step is optional if you configure the ingestion-bot with 
+This is a guide to create ingestion bot service account. This step is optional if you configure the ingestion-bot with
 the JWT Token, you can follow the documentation of [Enable JWT Tokens](/deployment/security/enable-jwt-tokens).
 
 ### Step 1: Access Tokens and ID Tokens
@@ -121,10 +122,10 @@ Another Azure Application must be registered for Service ingestion.
 
 ### Step 6: Grant Admin Consent for Default Directory
 
-Open Metadata Ingestion authenticates and authorizes workflow connectivity with OpenMetadata API using OAuth2 
-Client Credentials grant. In the Client Credentials flow, there is no GUI to consent application permissions 
-since it’s a machine to machine communication. So OpenMetadata Ingestion Azure Application will need to be 
-pre-consented by Azure Active Directory to use the scope request to connect to OpenMetadata Azure Application via 
+Open Metadata Ingestion authenticates and authorizes workflow connectivity with OpenMetadata API using OAuth2
+Client Credentials grant. In the Client Credentials flow, there is no GUI to consent application permissions
+since it’s a machine to machine communication. So OpenMetadata Ingestion Azure Application will need to be
+pre-consented by Azure Active Directory to use the scope request to connect to OpenMetadata Azure Application via
 the application access scope.
 
 - Navigate to the Azure Active Directory >> Enterprise Application.
@@ -162,7 +163,7 @@ the application access scope.
 
 - `clientID`: The Application (Client) ID is displayed in the Overview section of the registered applications (Azure Application for UI and Azure Service Application if any).
 - `authority`: When passing the details for authority, the Tenant ID is added to the URL as shown
-below. `https://login.microsoftonline.com/TenantID`
+  below. `https://login.microsoftonline.com/TenantID`
 - `clientSecret`: The clientSecret can be accessed from the Certificates & secret section of the application.
 - `scopes`: The scopes for running the ingestion to get token using Client Credentials Flow. This will be in the format of `<application-id-uri>/.default` (Application Id URI will be available from [Step 7](/deployment/security/azure#step-7-set-the-app-id-uri))
 - `object-id`: You can fetch the `object id` of Azure Application created for OpenMetadata Service Application as provided in the below image. This is required for setting the OpenMetadata with YAML configurations as well as Updating Ingestion-Bot from UI. You can find `object id` in Azure `Active Directory >> Enterprise Applications`.
@@ -173,32 +174,30 @@ This information is required to configure ingestion-bot from OpenMetadata UI fro
 
 After the applying these steps, you can update the configuration of your deployment:
 
-<InlineCalloutContainer>
-  <InlineCallout
-    color="violet-70"
+{%inlineCalloutContainer%}
+
+{%inlineCallout
     icon="celebration"
     bold="Docker Security"
-    href="/deployment/security/azure/docker"
-  >
-    Configure Azure SSO for your Docker Deployment.
-  </InlineCallout>
-  <InlineCallout
-    color="violet-70"
+    href="/deployment/security/azure/docker" %}
+Configure Azure SSO for your Docker Deployment.
+{%/inlineCallout%}
+
+{%inlineCallout
     icon="storage"
     bold="Bare Metal Security"
-    href="/deployment/security/azure/bare-metal"
-  >
-    Configure Azure SSO for your Bare Metal Deployment.
-  </InlineCallout>
-  <InlineCallout
-    color="violet-70"
+    href="/deployment/security/azure/bare-metal" %}
+Configure Azure SSO for your Bare Metal Deployment.
+{%/inlineCallout%}
+
+{%inlineCallout
     icon="fit_screen"
     bold="Kubernetes Security"
-    href="/deployment/security/azure/kubernetes"
-  >
-    Configure Azure SSO for your Kubernetes Deployment.
-  </InlineCallout>
-</InlineCalloutContainer>
+    href="/deployment/security/azure/kubernetes" %}
+Configure Azure SSO for your Kubernetes Deployment.
+{%/inlineCallout%}
+
+{%/inlineCalloutContainer%}
 
 ### Step 10: Update Ingestion Bot with Azure SSO Service Application
 
@@ -226,13 +225,12 @@ When setting up the YAML config for the connector, update the `workflowConfig` a
 ```yaml
 workflowConfig:
   openMetadataServerConfig:
-    hostPort: 'http://localhost:8585/api'
+    hostPort: "http://localhost:8585/api"
     authProvider: azure
     securityConfig:
-      clientSecret: '{your_client_secret}'
-      authority: '{your_authority_url}'
-      clientId: '{your_client_id}'
+      clientSecret: "{your_client_secret}"
+      authority: "{your_authority_url}"
+      clientId: "{your_client_id}"
       scopes:
         - <azure-service-application-id-uri>/.default
-
 ```

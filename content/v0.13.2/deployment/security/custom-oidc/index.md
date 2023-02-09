@@ -10,6 +10,7 @@ Follow the sections in this guide to set up Custom OIDC SSO.
 <Important>
 
 Security requirements for your **production** environment:
+
 - **DELETE** the admin default account shipped by OM in case you had [Basic Authentication](/deployment/security/basic-auth)
   enabled before configuring the authentication with Custom OIDC SSO.
 - **UPDATE** the Private / Public keys used for the [JWT Tokens](/deployment/security/enable-jwt-tokens). The keys we provide
@@ -29,32 +30,30 @@ Security requirements for your **production** environment:
 
 After the applying these steps, you can update the configuration of your deployment:
 
-<InlineCalloutContainer>
-  <InlineCallout
-    color="violet-70"
+{%inlineCalloutContainer%}
+
+{%inlineCallout
     icon="celebration"
     bold="Docker Security"
-    href="/deployment/security/custom-oidc/docker"
-  >
-    Configure Custom OIDC SSO for your Docker Deployment.
-  </InlineCallout>
-  <InlineCallout
-    color="violet-70"
+    href="/deployment/security/custom-oidc/docker" %}
+Configure Custom OIDC SSO for your Docker Deployment.
+{%/inlineCallout%}
+
+{%inlineCallout
     icon="storage"
     bold="Bare Metal Security"
-    href="/deployment/security/custom-oidc/bare-metal"
-  >
-    Configure Custom OIDC SSO for your Bare Metal Deployment.
-  </InlineCallout>
-  <InlineCallout
-    color="violet-70"
+    href="/deployment/security/custom-oidc/bare-metal" %}
+Configure Custom OIDC SSO for your Bare Metal Deployment.
+{%/inlineCallout%}
+
+{%inlineCallout
     icon="fit_screen"
     bold="Kubernetes Security"
-    href="/deployment/security/custom-oidc/kubernetes"
-  >
-    Configure Custom OIDC SSO for your Kubernetes Deployment.
-  </InlineCallout>
-</InlineCalloutContainer>
+    href="/deployment/security/custom-oidc/kubernetes" %}
+Configure Custom OIDC SSO for your Kubernetes Deployment.
+{%/inlineCallout%}
+
+{%/inlineCalloutContainer%}
 
 ## Configure Ingestion
 
@@ -66,10 +65,10 @@ When setting up the YAML config for the connector, update the `workflowConfig` a
 ```yaml
 workflowConfig:
   openMetadataServerConfig:
-    hostPort: 'http://localhost:8585/api'
+    hostPort: "http://localhost:8585/api"
     authProvider: custom-oidc
     securityConfig:
-      clientId: '{your_client_id}'
-      secretKey: '{your_client_secret}'
-      domain: '{your_domain}'
+      clientId: "{your_client_id}"
+      secretKey: "{your_client_secret}"
+      domain: "{your_domain}"
 ```

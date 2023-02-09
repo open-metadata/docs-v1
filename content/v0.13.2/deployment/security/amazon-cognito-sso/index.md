@@ -10,6 +10,7 @@ Follow the sections in this guide to set up Amazon Cognito SSO.
 <Important>
 
 Security requirements for your **production** environment:
+
 - **DELETE** the admin default account shipped by OM in case you had [Basic Authentication](/deployment/security/basic-auth)
   enabled before configuring the authentication with Amazon Cognito SSO.
 - **UPDATE** the Private / Public keys used for the [JWT Tokens](/deployment/security/enable-jwt-tokens) in case it is
@@ -28,12 +29,12 @@ Security requirements for your **production** environment:
 
 ### Step 2: Setup User Pool
 
-- Click on the "Create user pool" button if you do not have any user pools configured yet. Skip this step if you already have a user pool available. 
+- Click on the "Create user pool" button if you do not have any user pools configured yet. Skip this step if you already have a user pool available.
 - Select the type of ID providers you want to configure for your users and click "Next"
 
 <Image src="/images/deployment/security/amazon-cognito-sso/create-server-credentials-2.png" alt="create-account" caption="Setup User Pool"/>
 
-- Configure the security requirements in Step 2 as per your organizational needs and proceed to Step 3 
+- Configure the security requirements in Step 2 as per your organizational needs and proceed to Step 3
 - Configure the Sign-up experience in Step 3. Make sure to add email as a required attribute before proceeding to step 4
 
 <Image src="/images/deployment/security/amazon-cognito-sso/create-server-credentials-3.png" alt="create-account" caption="Configure Sign up Experience"/>
@@ -66,32 +67,30 @@ Security requirements for your **production** environment:
 
 After the applying these steps, you can update the configuration of your deployment:
 
-<InlineCalloutContainer>
-  <InlineCallout
-    color="violet-70"
+{%inlineCalloutContainer%}
+
+{%inlineCallout
     icon="celebration"
     bold="Docker Security"
-    href="/deployment/security/amazon-cognito/docker"
-  >
-    Configure Amazon Cognito SSO for your Docker Deployment.
-  </InlineCallout>
-  <InlineCallout
-    color="violet-70"
+    href="/deployment/security/amazon-cognito/docker" %}
+Configure Amazon Cognito SSO for your Docker Deployment.
+{%/inlineCallout%}
+
+{%inlineCallout
     icon="storage"
     bold="Bare Metal Security"
-    href="/deployment/security/amazon-cognito/bare-metal"
-  >
-    Configure Amazon Cognito SSO for your Bare Metal Deployment.
-  </InlineCallout>
-  <InlineCallout
-    color="violet-70"
+    href="/deployment/security/amazon-cognito/bare-metal" %}
+Configure Amazon Cognito SSO for your Bare Metal Deployment.
+{%/inlineCallout%}
+
+{%inlineCallout
     icon="fit_screen"
     bold="Kubernetes Security"
-    href="/deployment/security/amazon-cognito/kubernetes"
-  >
-    Configure Amazon Cognito SSO for your Kubernetes Deployment.
-  </InlineCallout>
-</InlineCalloutContainer>
+    href="/deployment/security/amazon-cognito/kubernetes" %}
+Configure Amazon Cognito SSO for your Kubernetes Deployment.
+{%/inlineCallout%}
+
+{%/inlineCalloutContainer%}
 
 ## Configure Ingestion
 
