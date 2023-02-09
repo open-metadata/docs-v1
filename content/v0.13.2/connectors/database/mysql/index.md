@@ -4,25 +4,27 @@ slug: /connectors/database/mysql
 ---
 
 # MySQL
+
 <Table>
 
-| Stage | Metadata |Query Usage | Data Profiler | Data Quality | Lineage | DBT | Supported Versions |
-|:------:|:------:|:-----------:|:-------------:|:------------:|:-------:|:---:|:------------------:|
-|  PROD  |   ✅   |      ❌      |       ✅       |       ✅      |    Partially via Views    |  ❌  |  MySQL >= 8.0.0  |
+| Stage | Metadata | Query Usage | Data Profiler | Data Quality |       Lineage       | DBT | Supported Versions |
+| :---: | :------: | :---------: | :-----------: | :----------: | :-----------------: | :-: | :----------------: |
+| PROD  |    ✅    |     ❌      |      ✅       |      ✅      | Partially via Views | ❌  |   MySQL >= 8.0.0   |
 
 </Table>
 
 <Table>
 
-| Lineage | Table-level | Column-level |
-|:------:|:-----------:|:-------------:|
-| Partially via Views | ✅ | ✅ |
+|       Lineage       | Table-level | Column-level |
+| :-----------------: | :---------: | :----------: |
+| Partially via Views |     ✅      |      ✅      |
 
 </Table>
 
 In this section, we provide guides and references to use the MySQL connector.
 
 Configure and schedule MySQL metadata and profiler workflows from the OpenMetadata UI:
+
 - [Requirements](#requirements)
 - [Metadata Ingestion](#metadata-ingestion)
 - [Data Profiler](#data-profiler)
@@ -51,9 +53,9 @@ the following docs to connect using Airflow SDK or with the CLI.
 
 ## Requirements
 
-<InlineCallout color="violet-70" icon="description" bold="OpenMetadata 0.12 or later" href="/deployment">
-To deploy OpenMetadata, check the <a href="/deployment">Deployment</a> guides.
-</InlineCallout>
+{%inlineCallout icon="description" bold="OpenMetadata 0.12 or later" href="/deployment"%}
+To deploy OpenMetadata, check the Deployment guides.
+{%/inlineCallout%}
 
 To run the Ingestion via the UI you'll need to use the OpenMetadata Ingestion Container, which comes shipped with
 custom Airflow plugins to handle the workflow deployment.
@@ -110,7 +112,6 @@ a name that distinguishes your deployment from other services, including
 the other {connector} services that you might be ingesting metadata
 from.
 
-
 <div className="w-100 flex justify-center">
 <Image
   src="/images/openmetadata/connectors/mysql/add-new-service.png"
@@ -118,7 +119,6 @@ from.
   caption="Provide a Name and description for your Service"
 />
 </div>
-
 
 ### 5. Configure the Service Connection
 
@@ -134,7 +134,6 @@ desired.
   caption="Configure the service connection by filling the form"
 />
 </div>
-
 
 Once the credentials have been added, click on `Test Connection` and Save
 the changes.
@@ -153,7 +152,7 @@ the changes.
 - **Password**: Password to connect to MySQL.
 - **Host and Port**: Enter the fully qualified hostname and port number for your MySQL deployment in the Host and Port field.
 - **Connection Options (Optional)**: Enter the details for any additional connection options that can be sent to MySQL during the connection. These details must be added as Key-Value pairs.
-- **Connection Arguments (Optional)**: Enter the details for any additional connection arguments such as security or protocol configs that can be sent to MySQL during the connection. These details must be added as Key-Value pairs. 
+- **Connection Arguments (Optional)**: Enter the details for any additional connection arguments such as security or protocol configs that can be sent to MySQL during the connection. These details must be added as Key-Value pairs.
   - In case you are using Single-Sign-On (SSO) for authentication, add the `authenticator` details in the Connection Arguments as a Key-Value pair as follows: `"authenticator" : "sso_login_url"`
   - In case you authenticate with SSO using an external browser popup, then add the `authenticator` details in the Connection Arguments as a Key-Value pair as follows: `"authenticator" : "externalbrowser"`
 
@@ -191,12 +190,12 @@ caption="Configure Metadata Ingestion Page"
 In order to integrate SSL in the Metadata Ingestion Config, the user will have to add the SSL config under connectionArguments which is placed in the source.
 
 - **ssl**: A dict of arguments which contains:
-    - **ssl_ca**: Path to the file that contains a PEM-formatted CA certificate.
-    - **ssl_cert**: Path to the file that contains a PEM-formatted client certificate.
-    - **ssl_disabled**: A boolean value that disables usage of TLS.
-    - **ssl_key**: Path to the file that contains a PEM-formatted private key for the client certificate.
-    - **ssl_verify_cert**: Set to true to check the server certificate's validity.
-    - **ssl_verify_identity**: Set to true to check the server's identity.
+  - **ssl_ca**: Path to the file that contains a PEM-formatted CA certificate.
+  - **ssl_cert**: Path to the file that contains a PEM-formatted client certificate.
+  - **ssl_disabled**: A boolean value that disables usage of TLS.
+  - **ssl_key**: Path to the file that contains a PEM-formatted private key for the client certificate.
+  - **ssl_verify_cert**: Set to true to check the server certificate's validity.
+  - **ssl_verify_identity**: Set to true to check the server's identity.
 
 ### 7. Schedule the Ingestion and Deploy
 
