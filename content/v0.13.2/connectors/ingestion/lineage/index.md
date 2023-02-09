@@ -5,7 +5,7 @@ slug: /connectors/ingestion/lineage
 
 # Lineage Ingestion
 
-A large subset of connectors distributed with OpenMetadata include support for lineage ingestion. Lineage ingestion processes 
+A large subset of connectors distributed with OpenMetadata include support for lineage ingestion. Lineage ingestion processes
 queries to determine upstream and downstream entities for data assets. Lineage is published to the OpenMetadata catalog when metadata is ingested.
 
 Using the OpenMetadata user interface and API, you may trace the path of data across Tables, Pipelines, and Dashboards.
@@ -13,7 +13,7 @@ Using the OpenMetadata user interface and API, you may trace the path of data ac
 ![gif](/images/openmetadata/ingestion/lineage/lineage-ingestion.gif)
 
 Lineage ingestion is specific to the type of the Entity that we are processing. We are going to explain
-the ingestion process for the supported services. 
+the ingestion process for the supported services.
 
 The team is continuously working to increase the lineage coverage of the available services. Do not hesitate
 to [reach out](https://slack.open-metadata.org/) if you have any questions, issues or requests!
@@ -27,7 +27,7 @@ Here we have 3 lineage sources, divided in different workflows, but mostly built
 During the Metadata Ingestion workflow we differentiate if a Table is a View. For those sources where we can
 obtain the query that generates the View (e.g., Snowflake allows us to pick up the View query from the DDL).
 
-After all Tables have been ingested in the workflow, it's time to [parse](https://sqllineage.readthedocs.io/en/latest/) 
+After all Tables have been ingested in the workflow, it's time to [parse](https://sqllineage.readthedocs.io/en/latest/)
 all the queries generating Views. During the query parsing, we will obtain the source and target tables, search if the
 Tables exist in OpenMetadata, and finally create the lineage relationship between the involved Entities.
 
@@ -39,6 +39,7 @@ AS SELECT ... FROM schema.table_a JOIN another_schema.table_b;
 ```
 
 From this query we will extract the following information:
+
 1. There are two `source` tables, represented by the string `schema.table_a` as `another_schema.table_b`
 2. There is a `target` table `schema.my_view`.
 
@@ -127,21 +128,20 @@ You can check the queries being used here:
 By default, we apply a result limit of 1000 records. You might also need to increase that for databases with big volumes
 of queries.
 
-
 ## Dashboard Services
 
 When configuring the Ingestion Workflow for Dashboard Services you can select which Database Services are hosting
 the data feeding the Dashboards and Charts.
 
-When ingesting the Dashboards metadata, the workflow will pick up the origin tables (or database, in the case of 
+When ingesting the Dashboards metadata, the workflow will pick up the origin tables (or database, in the case of
 PowerBI), and prepare the lineage information.
 
 <Image src="/images/openmetadata/ingestion/lineage/dashboard-ingestion-lineage.png" alt="Dashboard Lineage"/>
 
 ## Pipeline Services
 
-The supported services here are [Airflow](/connectors/pipeline/airflow), 
-[Fivetran](/connectors/pipeline/fivetran), [Dagster](/connectors/pipeline/dagster) 
+The supported services here are [Airflow](/connectors/pipeline/airflow),
+[Fivetran](/connectors/pipeline/fivetran), [Dagster](/connectors/pipeline/dagster)
 and [Airbyte](/connectors/pipeline/airbyte).
 
 All of them ingest the lineage information out of the box. The only special case is Airflow, where one needs to
@@ -153,13 +153,13 @@ setup `inlets` and `outlets`. You can find more information about it
 Sometimes there is information that is shared among people but not present in the sources. To enable capturing all
 the possible knowledge, you can also add lineage manually with our UI editor.
 
-<InlineCalloutContainer>
-  <InlineCallout
-    color="violet-70"
-    icon="celebration"
-    bold="Manual Lineage"
-    href="/connectors/ingestion/lineage/edit-lineage-manually"
-  >
-    Capture Lineage knowledge with the UI editor.
-  </InlineCallout>
-</InlineCalloutContainer>
+{%inlineCalloutContainer%}
+
+{%inlineCallout
+  icon="celebration"
+  bold="Manual Lineage"
+  href="/connectors/ingestion/lineage/edit-lineage-manually"%}
+Capture Lineage knowledge with the UI editor.
+{%/inlineCallout%}
+
+{%/inlineCalloutContainer%}
