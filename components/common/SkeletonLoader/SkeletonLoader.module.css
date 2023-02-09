@@ -1,0 +1,57 @@
+.Container {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  gap: 16px;
+  margin: 16px 0px;
+}
+
+.OutsideDiv {
+  overflow-x: hidden;
+  background-color: #f6f7f8;
+  background: linear-gradient(
+    to right,
+    rgb(243, 243, 243) 8%,
+    rgb(236, 236, 236) 18%,
+    rgb(243, 243, 243) 33%
+  );
+  animation: skeleton-loading 10s linear infinite forwards;
+  border: 0px solid transparent;
+  border-radius: 4px;
+}
+
+.InsideDiv {
+  background-color: #fff;
+  position: absolute;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-position: -3000px 0;
+  }
+  100% {
+    background-position: 3000px 0;
+  }
+}
+
+.Heading {
+  height: 28px;
+  margin-bottom: 16px;
+}
+
+.Paragraph {
+  height: 16px;
+  margin-bottom: 8px;
+}
+
+.Small {
+  width: 30%;
+}
+
+.Default {
+  width: 60%;
+}
+
+.Large {
+  width: 90%;
+}

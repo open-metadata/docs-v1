@@ -7,7 +7,7 @@ import {
 import fs from "fs";
 import matter from "gray-matter";
 import { basename } from "path";
-import { useRouter } from "next/router";
+import { Router, useRouter } from "next/router";
 import Markdoc from "@markdoc/markdoc";
 import SideNav from "../../components/SideNav/SideNav";
 import TopNav from "../../components/TopNav/TopNav";
@@ -23,6 +23,9 @@ import ErrorBoundary from "../../components/ErrorBoundary";
 import { StepsContextProvider } from "../../context/StepsContext";
 import { isEmpty, startCase } from "lodash";
 import { useDocVersionContext } from "../../context/DocVersionContext";
+import SkeletonLoader from "../../components/common/SkeletonLoader/SkeletonLoader";
+import { SkeletonWidth } from "../../enums/SkeletonLoder.enum";
+import { SKELETON_PARAGRAPH_WIDTHS } from "../../constants/SkeletonLoader.constants";
 
 interface Props {
   menu: MenuItem[];
@@ -36,10 +39,10 @@ const SCROLLING_OFFSET = 152;
 export default function Article({ menu, content, slug }: Props) {
   const router = useRouter();
   const [collapsedNav, setCollapsedNav] = useState(false);
+  const [loading, setLoading] = useState(false);
   const handleCollapsedNav = (value: boolean) => {
     setCollapsedNav(value);
   };
-  const { docVersion, onChangeDocVersion } = useDocVersionContext();
   const category = getCategoryByIndex(router.asPath, 2);
 
   const ast = Markdoc.parse(content);
@@ -73,6 +76,23 @@ export default function Article({ menu, content, slug }: Props) {
   }, []);
 
   useEffect(() => {
+    const onStart = () => {
+      setLoading(true);
+    };
+    const onEnd = () => {
+      setLoading(false);
+    };
+    Router.events.on("routeChangeStart", onStart);
+    Router.events.on("routeChangeComplete", onEnd);
+    Router.events.on("routeChangeError", onEnd);
+    return () => {
+      Router.events.off("routeChangeStart", onStart);
+      Router.events.off("routeChangeComplete", onEnd);
+      Router.events.off("routeChangeError", onEnd);
+    };
+  }, [Router]);
+
+  useEffect(() => {
     setCollapsedNav(isEmpty(item?.children));
   }, [item]);
 
@@ -87,13 +107,25 @@ export default function Article({ menu, content, slug }: Props) {
             category={item ? item.category : startCase(category)}
             collapsedNav={collapsedNav}
             items={item ? item.children : []}
+            loading={loading}
             handleCollapsedNav={handleCollapsedNav}
           />
           <main className={classNames("flex flex-col content")}>
-            <Breadcrumb slug={slug} />
-            {Markdoc.renderers.react(ParsedContent, React, {
-              components,
-            })}
+            {loading ? (
+              <SkeletonLoader
+                paragraph={{
+                  rows: SKELETON_PARAGRAPH_WIDTHS.length,
+                  width: SKELETON_PARAGRAPH_WIDTHS,
+                }}
+              />
+            ) : (
+              <>
+                <Breadcrumb slug={slug} />
+                {Markdoc.renderers.react(ParsedContent, React, {
+                  components,
+                })}
+              </>
+            )}
           </main>
           <Footer />
         </LayoutSelector>
