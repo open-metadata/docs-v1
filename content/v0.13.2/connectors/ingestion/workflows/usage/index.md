@@ -4,9 +4,11 @@ slug: /connectors/ingestion/workflows/usage
 ---
 
 # Usage Workflow
+
 Learn how to configure the Usage workflow from the UI to ingest Query history data from your data sources.
 
 This workflow is available ONLY for the following connectors:
+
 - [BigQuery](/connectors/database/bigquery)
 - [Snowflake](/connectors/database/snowflake)
 - [MSSQL](/connectors/database/mssql)
@@ -19,16 +21,16 @@ If your database service is not yet supported, you can use this same workflow by
 
 Learn how to do so 👇
 
-<InlineCalloutContainer>
-  <InlineCallout
-    color="violet-70"
-    bold="Usage Workflow through Query Logs"
-    icon="add_moderator"
-    href="/connectors/ingestion/workflows/usage/usage-workflow-query-logs"
-  >
-    Configure the usage workflow by providing a Query Log file.
-  </InlineCallout>
-</InlineCalloutContainer>
+{%inlineCalloutContainer%}
+
+{%inlineCallout
+  bold="Usage Workflow through Query Logs"
+  icon="add_moderator"
+  href="/connectors/ingestion/workflows/usage/usage-workflow-query-logs"%}
+Configure the usage workflow by providing a Query Log file.
+{%/inlineCallout%}
+
+{%/inlineCalloutContainer%}
 
 ## UI Configuration
 
@@ -68,6 +70,7 @@ Set the limit for the query log results to be run at a time.
 </Collapse>
 
 ### 3. Schedule and Deploy
+
 After clicking Next, you will be redirected to the Scheduling form. This will be the same as the Metadata Ingestion. Select your desired schedule and click on Deploy to find the usage pipeline being added to the Service Ingestions.
 
 <Image src="/images/openmetadata/ingestion/workflows/usage/scheule-and-deploy.png" alt="schedule-and-deploy" caption="View Service Ingestion pipelines"/>

@@ -33,12 +33,11 @@ extract metadata directly from your Airflow instance or via the CLI:
 />
 </TileContainer>
 
-
 ## Requirements
 
-<InlineCallout color="violet-70" icon="description" bold="OpenMetadata 0.12 or later" href="/deployment">
-To deploy OpenMetadata, check the <a href="/deployment">Deployment</a> guides.
-</InlineCallout>
+{%inlineCallout icon="description" bold="OpenMetadata 0.12 or later" href="/deployment"%}
+To deploy OpenMetadata, check the Deployment guides.
+{%/inlineCallout%}
 
 To run the Ingestion via the UI you'll need to use the OpenMetadata Ingestion Container, which comes shipped with
 custom Airflow plugins to handle the workflow deployment.
@@ -93,7 +92,6 @@ a name that distinguishes your deployment from other services, including
 the other {connector} services that you might be ingesting metadata
 from.
 
-
 <div className="w-100 flex justify-center">
 <Image
   src="/images/openmetadata/connectors/airflow/add-new-service.png"
@@ -101,7 +99,6 @@ from.
   caption="Provide a Name and description for your Service"
 />
 </div>
-
 
 ### 5. Configure the Service Connection
 
@@ -117,7 +114,6 @@ desired.
   caption="Configure the service connection by filling the form"
 />
 </div>
-
 
 Once the credentials have been added, click on `Test Connection` and Save
 the changes.
@@ -140,9 +136,9 @@ the changes.
 In terms of `connection` we support the following selections:
 
 - `backend`: Should not be used from the UI. This is only applicable when ingesting Airflow metadata locally
-    by running the ingestion from a DAG. It will use the current Airflow SQLAlchemy connection to extract the data.
+  by running the ingestion from a DAG. It will use the current Airflow SQLAlchemy connection to extract the data.
 - `MySQL`, `Postgres`, `MSSQL` and `SQLite`: Pass the required credentials to reach out each of these services. We
-    will create a connection to the pointed database and read Airflow data from there.
+  will create a connection to the pointed database and read Airflow data from there.
 
 ### 6. Configure Metadata Ingestion
 
@@ -159,8 +155,8 @@ caption="Configure Metadata Ingestion Page"
 
 - **Name**: This field refers to the name of ingestion pipeline, you can customize the name or use the generated name.
 - **Pipeline Filter Pattern (Optional)**: Use to pipeline filter patterns to control whether or not to include pipeline as part of metadata ingestion.
-    - **Include**: Explicitly include pipeline by adding a list of comma-separated regular expressions to the Include field. OpenMetadata will include all pipeline with names matching one or more of the supplied regular expressions. All other schemas will be excluded.
-    - **Exclude**: Explicitly exclude pipeline by adding a list of comma-separated regular expressions to the Exclude field. OpenMetadata will exclude all pipeline with names matching one or more of the supplied regular expressions. All other schemas will be included.
+  - **Include**: Explicitly include pipeline by adding a list of comma-separated regular expressions to the Include field. OpenMetadata will include all pipeline with names matching one or more of the supplied regular expressions. All other schemas will be excluded.
+  - **Exclude**: Explicitly exclude pipeline by adding a list of comma-separated regular expressions to the Exclude field. OpenMetadata will exclude all pipeline with names matching one or more of the supplied regular expressions. All other schemas will be included.
 - **Include lineage (toggle)**: Set the Include lineage toggle to control whether or not to include lineage between pipelines and data sources as part of metadata ingestion.
 - **Enable Debug Log (toggle)**: Set the Enable Debug Log toggle to set the default log level to debug, these logs can be viewed later in Airflow.
 
