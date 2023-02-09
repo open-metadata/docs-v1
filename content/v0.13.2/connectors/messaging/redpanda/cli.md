@@ -8,14 +8,15 @@ slug: /connectors/messaging/redpanda/cli
 In this section, we provide guides and references to use the Redpanda connector.
 
 Configure and schedule Redpanda metadata and profiler workflows from the OpenMetadata UI:
+
 - [Requirements](#requirements)
 - [Metadata Ingestion](#metadata-ingestion)
 
 ## Requirements
 
-<InlineCallout color="violet-70" icon="description" bold="OpenMetadata 0.12 or later" href="/deployment">
-To deploy OpenMetadata, check the <a href="/deployment">Deployment</a> guides.
-</InlineCallout>
+{%inlineCallout icon="description" bold="OpenMetadata 0.12 or later" href="/deployment"%}
+To deploy OpenMetadata, check the Deployment guides.
+{%/inlineCallout%}
 
 To run the Ingestion via the UI you'll need to use the OpenMetadata Ingestion Container, which comes shipped with
 custom Airflow plugins to handle the workflow deployment.
@@ -53,7 +54,7 @@ source:
     config:
       type: Redpanda
       bootstrapServers: localhost:9092
-      schemaRegistryURL: http://localhost:8081  # Needs to be a URI
+      schemaRegistryURL: http://localhost:8081 # Needs to be a URI
       consumerConfig: {}
       schemaRegistryConfig: {}
   sourceConfig:
@@ -73,7 +74,6 @@ workflowConfig:
   openMetadataServerConfig:
     hostPort: <OpenMetadata host and port>
     authProvider: <OpenMetadata auth provider>
-
 ```
 
 #### Source Configuration - Service Connection
@@ -110,10 +110,10 @@ For a simple, local installation using our docker containers, this looks like:
 ```yaml
 workflowConfig:
   openMetadataServerConfig:
-    hostPort: 'http://localhost:8585/api'
+    hostPort: "http://localhost:8585/api"
     authProvider: openmetadata
     securityConfig:
-      jwtToken: '{bot_jwt_token}'
+      jwtToken: "{bot_jwt_token}"
 ```
 
 We support different security providers. You can find their definitions [here](https://github.com/open-metadata/OpenMetadata/tree/main/openmetadata-spec/src/main/resources/json/schema/security/client).
@@ -126,10 +126,10 @@ You can find the different implementation of the ingestion below.
 ```yaml
 workflowConfig:
   openMetadataServerConfig:
-    hostPort: 'http://localhost:8585/api'
+    hostPort: "http://localhost:8585/api"
     authProvider: openmetadata
     securityConfig:
-      jwtToken: '{bot_jwt_token}'
+      jwtToken: "{bot_jwt_token}"
 ```
 
 ### Auth0 SSO
@@ -137,12 +137,12 @@ workflowConfig:
 ```yaml
 workflowConfig:
   openMetadataServerConfig:
-    hostPort: 'http://localhost:8585/api'
+    hostPort: "http://localhost:8585/api"
     authProvider: auth0
     securityConfig:
-      clientId: '{your_client_id}'
-      secretKey: '{your_client_secret}'
-      domain: '{your_domain}'
+      clientId: "{your_client_id}"
+      secretKey: "{your_client_secret}"
+      domain: "{your_domain}"
 ```
 
 ### Azure SSO
@@ -150,12 +150,12 @@ workflowConfig:
 ```yaml
 workflowConfig:
   openMetadataServerConfig:
-    hostPort: 'http://localhost:8585/api'
+    hostPort: "http://localhost:8585/api"
     authProvider: azure
     securityConfig:
-      clientSecret: '{your_client_secret}'
-      authority: '{your_authority_url}'
-      clientId: '{your_client_id}'
+      clientSecret: "{your_client_secret}"
+      authority: "{your_authority_url}"
+      clientId: "{your_client_id}"
       scopes:
         - your_scopes
 ```
@@ -165,12 +165,12 @@ workflowConfig:
 ```yaml
 workflowConfig:
   openMetadataServerConfig:
-    hostPort: 'http://localhost:8585/api'
+    hostPort: "http://localhost:8585/api"
     authProvider: custom-oidc
     securityConfig:
-      clientId: '{your_client_id}'
-      secretKey: '{your_client_secret}'
-      domain: '{your_domain}'
+      clientId: "{your_client_id}"
+      secretKey: "{your_client_secret}"
+      domain: "{your_domain}"
 ```
 
 ### Google SSO
@@ -178,10 +178,10 @@ workflowConfig:
 ```yaml
 workflowConfig:
   openMetadataServerConfig:
-    hostPort: 'http://localhost:8585/api'
+    hostPort: "http://localhost:8585/api"
     authProvider: google
     securityConfig:
-      secretKey: '{path-to-json-creds}'
+      secretKey: "{path-to-json-creds}"
 ```
 
 ### Okta SSO
@@ -207,12 +207,12 @@ The ingestion can be configured by [Enabling JWT Tokens](https://docs.open-metad
 ```yaml
 workflowConfig:
   openMetadataServerConfig:
-    hostPort: 'http://localhost:8585/api'
+    hostPort: "http://localhost:8585/api"
     authProvider: auth0
     securityConfig:
-      clientId: '{your_client_id}'
-      secretKey: '{your_client_secret}'
-      domain: '{your_domain}'
+      clientId: "{your_client_id}"
+      secretKey: "{your_client_secret}"
+      domain: "{your_domain}"
 ```
 
 ### OneLogin SSO
@@ -222,12 +222,12 @@ Which uses Custom OIDC for the ingestion
 ```yaml
 workflowConfig:
   openMetadataServerConfig:
-    hostPort: 'http://localhost:8585/api'
+    hostPort: "http://localhost:8585/api"
     authProvider: custom-oidc
     securityConfig:
-      clientId: '{your_client_id}'
-      secretKey: '{your_client_secret}'
-      domain: '{your_domain}'
+      clientId: "{your_client_id}"
+      secretKey: "{your_client_secret}"
+      domain: "{your_domain}"
 ```
 
 ### KeyCloak SSO
@@ -237,12 +237,12 @@ Which uses Custom OIDC for the ingestion
 ```yaml
 workflowConfig:
   openMetadataServerConfig:
-    hostPort: 'http://localhost:8585/api'
+    hostPort: "http://localhost:8585/api"
     authProvider: custom-oidc
     securityConfig:
-      clientId: '{your_client_id}'
-      secretKey: '{your_client_secret}'
-      domain: '{your_domain}'
+      clientId: "{your_client_id}"
+      secretKey: "{your_client_secret}"
+      domain: "{your_domain}"
 ```
 
 </Collapse>

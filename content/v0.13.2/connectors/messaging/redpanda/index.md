@@ -8,6 +8,7 @@ slug: /connectors/messaging/redpanda
 In this section, we provide guides and references to use the Redpanda connector.
 
 Configure and schedule Redpanda metadata and profiler workflows from the OpenMetadata UI:
+
 - [Requirements](#requirements)
 - [Metadata Ingestion](#metadata-ingestion)
 
@@ -33,9 +34,9 @@ the following docs to connect using Airflow SDK or with the CLI.
 
 ## Requirements
 
-<InlineCallout color="violet-70" icon="description" bold="OpenMetadata 0.12 or later" href="/deployment">
-To deploy OpenMetadata, check the <a href="/deployment">Deployment</a> guides.
-</InlineCallout>
+{%inlineCallout icon="description" bold="OpenMetadata 0.12 or later" href="/deployment"%}
+To deploy OpenMetadata, check the Deployment guides.
+{%/inlineCallout%}
 
 To run the Ingestion via the UI you'll need to use the OpenMetadata Ingestion Container, which comes shipped with
 custom Airflow plugins to handle the workflow deployment.
@@ -90,7 +91,6 @@ a name that distinguishes your deployment from other services, including
 the other {connector} services that you might be ingesting metadata
 from.
 
-
 <div className="w-100 flex justify-center">
 <Image
   src="/images/openmetadata/connectors/redpanda/add-new-service.png"
@@ -98,7 +98,6 @@ from.
   caption="Provide a Name and description for your Service"
 />
 </div>
-
 
 ### 5. Configure the Service Connection
 
@@ -114,7 +113,6 @@ desired.
   caption="Configure the service connection by filling the form"
 />
 </div>
-
 
 Once the credentials have been added, click on `Test Connection` and Save
 the changes.
@@ -149,8 +147,8 @@ caption="Configure Metadata Ingestion Page"
 
 - **Name**: This field refers to the name of ingestion pipeline, you can customize the name or use the generated name.
 - **Topic Filter Pattern (Optional)**: Use to pipeline filter patterns to control whether or not to include topics as part of metadata ingestion.
-    - **Include**: Explicitly include topics by adding a list of comma-separated regular expressions to the Include field. OpenMetadata will include all topics with names matching one or more of the supplied regular expressions. All other topics will be excluded.
-    - **Exclude**: Explicitly exclude topics by adding a list of comma-separated regular expressions to the Exclude field. OpenMetadata will exclude all topics with names matching one or more of the supplied regular expressions. All other topics will be included.
+  - **Include**: Explicitly include topics by adding a list of comma-separated regular expressions to the Include field. OpenMetadata will include all topics with names matching one or more of the supplied regular expressions. All other topics will be excluded.
+  - **Exclude**: Explicitly exclude topics by adding a list of comma-separated regular expressions to the Exclude field. OpenMetadata will exclude all topics with names matching one or more of the supplied regular expressions. All other topics will be included.
 - **Ingest Sample Data (toggle)**: To ingest sample data from the topics.
 - **Enable Debug Log (toggle)**: Set the 'Enable Debug Log' toggle to set the default log level to debug, these logs can be viewed later in Airflow.
 
