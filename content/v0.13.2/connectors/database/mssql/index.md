@@ -4,26 +4,28 @@ slug: /connectors/database/mssql
 ---
 
 # MSSQL
+
 <Table>
 
-| Stage | Metadata |Query Usage | Data Profiler | Data Quality | Lineage | DBT | Supported Versions |
-|:------:|:------:|:-----------:|:-------------:|:------------:|:-------:|:---:|:------------------:|
-|  PROD  |   ✅   |      ✅      |       ✅       |       ✅      |    ✅    |  ✅  |  --  |
+| Stage | Metadata | Query Usage | Data Profiler | Data Quality | Lineage | DBT | Supported Versions |
+| :---: | :------: | :---------: | :-----------: | :----------: | :-----: | :-: | :----------------: |
+| PROD  |    ✅    |     ✅      |      ✅       |      ✅      |   ✅    | ✅  |         --         |
 
 </Table>
 
 <Table>
 
 | Lineage | Table-level | Column-level |
-|:------:|:-----------:|:-------------:|
-| ✅ | ✅ | ✅ |
+| :-----: | :---------: | :----------: |
+|   ✅    |     ✅      |      ✅      |
 
 </Table>
 
 In this section, we provide guides and references to use the MSSQL connector.
 
 Configure and schedule MSSQL metadata and profiler workflows from the OpenMetadata UI:
-- [Remote-Connection]() 
+
+- [Remote-Connection]()
 - [Requirements](#requirements)
 - [Metadata Ingestion](#metadata-ingestion)
 - [Query Usage](#query-usage)
@@ -54,9 +56,9 @@ the following docs to connect using Airflow SDK or with the CLI.
 
 ## Requirements
 
-<InlineCallout color="violet-70" icon="description" bold="OpenMetadata 0.12 or later" href="/deployment">
-To deploy OpenMetadata, check the <a href="/deployment">Deployment</a> guides.
-</InlineCallout>
+{%inlineCallout icon="description" bold="OpenMetadata 0.12 or later" href="/deployment"%}
+To deploy OpenMetadata, check the Deployment guides.
+{%/inlineCallout%}
 
 To run the Ingestion via the UI you'll need to use the OpenMetadata Ingestion Container, which comes shipped with
 custom Airflow plugins to handle the workflow deployment.
@@ -77,7 +79,7 @@ alt="Remote Connection"
 caption="Rm"
 />
 
-#### 3. Configure Windows Firewall 
+#### 3. Configure Windows Firewall
 
 If you are using SQL server on windows, you must configure the firewall on the computer running SQL Server to allow access.
 
@@ -147,7 +149,6 @@ a name that distinguishes your deployment from other services, including
 the other {connector} services that you might be ingesting metadata
 from.
 
-
 <div className="w-100 flex justify-center">
 <Image
   src="/images/openmetadata/connectors/mssql/add-new-service.png"
@@ -155,7 +156,6 @@ from.
   caption="Provide a Name and description for your Service"
 />
 </div>
-
 
 ### 5. Configure the Service Connection
 
@@ -171,7 +171,6 @@ desired.
   caption="Configure the service connection by filling the form"
 />
 </div>
-
 
 Once the credentials have been added, click on `Test Connection` and Save
 the changes.
@@ -193,7 +192,7 @@ the changes.
 - **URI String**: In case of a `pyodbc` connection.
 - **Database (Optional)**: The database of the data source is an optional parameter, if you would like to restrict the metadata reading to a single database. If left blank, OpenMetadata ingestion attempts to scan all the databases.
 - **Connection Options (Optional)**: Enter the details for any additional connection options that can be sent to MSSQL during the connection. These details must be added as Key-Value pairs.
-- **Connection Arguments (Optional)**: Enter the details for any additional connection arguments such as security or protocol configs that can be sent to MSSQL during the connection. These details must be added as Key-Value pairs. 
+- **Connection Arguments (Optional)**: Enter the details for any additional connection arguments such as security or protocol configs that can be sent to MSSQL during the connection. These details must be added as Key-Value pairs.
   - In case you are using Single-Sign-On (SSO) for authentication, add the `authenticator` details in the Connection Arguments as a Key-Value pair as follows: `"authenticator" : "sso_login_url"`
   - In case you authenticate with SSO using an external browser popup, then add the `authenticator` details in the Connection Arguments as a Key-Value pair as follows: `"authenticator" : "externalbrowser"`
 
@@ -309,7 +308,6 @@ title="Lineage Workflow"
 text="Learn more about how to configure the Lineage from the UI."
 link="/connectors/ingestion/workflows/lineage"
 />
-
 
 ## dbt Integration
 

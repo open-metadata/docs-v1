@@ -4,19 +4,20 @@ slug: /connectors/database/databricks
 ---
 
 # Databricks
+
 <Table>
 
-| Stage | Metadata |Query Usage | Data Profiler | Data Quality | Lineage | DBT | Supported Versions |
-|:------:|:------:|:-----------:|:-------------:|:------------:|:-------:|:---:|:------------------:|
-|  PROD  |   ✅   |      ✅      |       ✅       |       ✅      |    ✅    |  ✅  |  --  |
+| Stage | Metadata | Query Usage | Data Profiler | Data Quality | Lineage | DBT | Supported Versions |
+| :---: | :------: | :---------: | :-----------: | :----------: | :-----: | :-: | :----------------: |
+| PROD  |    ✅    |     ✅      |      ✅       |      ✅      |   ✅    | ✅  |         --         |
 
 </Table>
 
 <Table>
 
 | Lineage | Table-level | Column-level |
-|:------:|:-----------:|:-------------:|
-| ✅ | ✅ | ✅ |
+| :-----: | :---------: | :----------: |
+|   ✅    |     ✅      |      ✅      |
 
 </Table>
 
@@ -54,9 +55,9 @@ the following docs to connect using Airflow SDK or with the CLI.
 
 ## Requirements
 
-<InlineCallout color="violet-70" icon="description" bold="OpenMetadata 0.12 or later" href="/deployment">
-To deploy OpenMetadata, check the <a href="/deployment">Deployment</a> guides.
-</InlineCallout>
+{%inlineCallout icon="description" bold="OpenMetadata 0.12 or later" href="/deployment"%}
+To deploy OpenMetadata, check the Deployment guides.
+{%/inlineCallout%}
 
 To run the Ingestion via the UI you'll need to use the OpenMetadata Ingestion Container, which comes shipped with
 custom Airflow plugins to handle the workflow deployment.
@@ -278,4 +279,3 @@ title="dbt Integration"
 text="Learn more about how to ingest dbt models' definitions and their lineage."
 link="/connectors/ingestion/workflows/dbt"
 />
-
