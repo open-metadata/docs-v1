@@ -45,14 +45,15 @@ export const getSkeletonHeading = (title: SkeletonWidth | boolean | number) => {
 };
 
 export const getParagraphs = (paragraph: SkeletonLoaderParagraphProp) => {
-  const paragraphNodes: ReactNode[] = [];
-  // const width: SkeletonLoaderParagraphProp['width'] = isString(paragraph.width) ? [paragraph.width]
+  let widthArray: Array<SkeletonWidth | number>;
 
-  for (let i = 0; i < paragraph.rows; i++) {
-    const width: SkeletonWidth | number = isString(paragraph.width)
-      ? paragraph.width
-      : paragraph.width[i];
+  if (isString(paragraph.width)) {
+    widthArray = Array(paragraph.rows).fill(paragraph.width);
+  } else {
+    widthArray = paragraph.width;
+  }
 
+  const paragraphNodes: ReactNode[] = widthArray.map((width) => {
     const widthClass = isNumber(width)
       ? ""
       : isString(width)
@@ -60,7 +61,7 @@ export const getParagraphs = (paragraph: SkeletonLoaderParagraphProp) => {
       : styles.Default;
 
     if (widthClass) {
-      paragraphNodes.push(
+      return (
         <div
           className={classNames(
             styles.OutsideDiv,
@@ -72,7 +73,7 @@ export const getParagraphs = (paragraph: SkeletonLoaderParagraphProp) => {
         </div>
       );
     } else {
-      paragraphNodes.push(
+      return (
         <div
           className={classNames(styles.OutsideDiv, styles.Paragraph)}
           style={{ width: `${width}px` }}
@@ -81,7 +82,8 @@ export const getParagraphs = (paragraph: SkeletonLoaderParagraphProp) => {
         </div>
       );
     }
-  }
+  });
+
   return paragraphNodes;
 };
 
