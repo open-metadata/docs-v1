@@ -1,5 +1,5 @@
-import { isEmpty, startCase } from "lodash";
-import { Router, useRouter } from "next/router";
+import { startCase } from "lodash";
+import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import CategoriesNav from "../components/CategoriesNav/CategoriesNav";
 import SkeletonLoader from "../components/common/SkeletonLoader/SkeletonLoader";
@@ -12,6 +12,7 @@ import TopNav from "../components/TopNav/TopNav";
 import { tilesInfoArray } from "../constants/404Page.constants";
 import { SKELETON_PARAGRAPH_WIDTHS } from "../constants/SkeletonLoader.constants";
 import { useDocVersionContext } from "../context/DocVersionContext";
+import { useRouteChangingContext } from "../context/RouteChangingContext";
 import { MenuItem } from "../interface/common.interface";
 import { getCategoryByIndex } from "../lib/utils";
 import { fetchMenuList, getVersionFromUrl } from "../utils/CommonUtils";
@@ -19,9 +20,9 @@ import { fetchMenuList, getVersionFromUrl } from "../utils/CommonUtils";
 function Error() {
   const router = useRouter();
   const { docVersion, onChangeDocVersion } = useDocVersionContext();
+  const { isRouteChanging } = useRouteChangingContext();
   const [collapsedNav, setCollapsedNav] = useState(true);
   const [menu, setMenu] = useState<MenuItem[]>([]);
-  const [loading, setLoading] = useState(false);
   const handleCollapsedNav = (value: boolean) => {
     setCollapsedNav(value);
   };
@@ -42,21 +43,6 @@ function Error() {
     if (docVersion !== version) {
       onChangeDocVersion(version);
     }
-    const onStart = () => {
-      setLoading(true);
-      setCollapsedNav(false);
-    };
-    const onEnd = () => {
-      setLoading(false);
-    };
-    Router.events.on("routeChangeStart", onStart);
-    Router.events.on("routeChangeComplete", onEnd);
-    Router.events.on("routeChangeError", onEnd);
-    return () => {
-      Router.events.off("routeChangeStart", onStart);
-      Router.events.off("routeChangeComplete", onEnd);
-      Router.events.off("routeChangeError", onEnd);
-    };
   }, [router]);
 
   return (
@@ -68,11 +54,11 @@ function Error() {
           category={startCase(category)}
           collapsedNav={collapsedNav}
           items={[]}
-          loading={loading}
+          loading={isRouteChanging}
           handleCollapsedNav={handleCollapsedNav}
         />
         <div className="content page-404 ">
-          {loading ? (
+          {isRouteChanging ? (
             <SkeletonLoader
               paragraph={{
                 rows: SKELETON_PARAGRAPH_WIDTHS.length,
