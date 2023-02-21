@@ -1,7 +1,9 @@
 import classNames from "classnames";
+import Link from "next/link";
 import React, { useEffect, useRef } from "react";
 import { Highlight, Snippet } from "react-instantsearch-hooks-web";
 import { useSearchContext } from "../../../context/SearchContext";
+import { getUrlWithVersion } from "../../../utils/CommonUtils";
 import styles from "../Search.module.css";
 
 function HitComponent(props) {
@@ -40,7 +42,10 @@ function HitComponent(props) {
       id={`list-item-${props.hit.__position}`}
       ref={articleItemRef}
     >
-      <a className={classNames(styles.HitLink)} href={props.hit.objectID}>
+      <Link
+        className={classNames(styles.HitLink)}
+        href={getUrlWithVersion(props.hit.objectID)}
+      >
         <p className={styles.HitTitle}>
           <Highlight
             classNames={{
@@ -66,7 +71,7 @@ function HitComponent(props) {
           )}
 
         <p className={styles.HitCategory}>{category}</p>
-      </a>
+      </Link>
     </article>
   );
 }
