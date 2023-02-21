@@ -22,7 +22,9 @@ import { getCategoryByIndex } from "../../lib/utils";
 import ErrorBoundary from "../../components/ErrorBoundary";
 import { StepsContextProvider } from "../../context/StepsContext";
 import { isEmpty, startCase } from "lodash";
-import { useDocVersionContext } from "../../context/DocVersionContext";
+import SkeletonLoader from "../../components/common/SkeletonLoader/SkeletonLoader";
+import { SKELETON_PARAGRAPH_WIDTHS } from "../../constants/SkeletonLoader.constants";
+import { useRouteChangingContext } from "../../context/RouteChangingContext";
 
 interface Props {
   menu: MenuItem[];
@@ -35,11 +37,11 @@ const SCROLLING_OFFSET = 152;
 
 export default function Article({ menu, content, slug }: Props) {
   const router = useRouter();
+  const { isRouteChanging } = useRouteChangingContext();
   const [collapsedNav, setCollapsedNav] = useState(false);
   const handleCollapsedNav = (value: boolean) => {
     setCollapsedNav(value);
   };
-  const { docVersion, onChangeDocVersion } = useDocVersionContext();
   const category = getCategoryByIndex(router.asPath, 2);
 
   const ast = Markdoc.parse(content);
@@ -87,13 +89,25 @@ export default function Article({ menu, content, slug }: Props) {
             category={item ? item.category : startCase(category)}
             collapsedNav={collapsedNav}
             items={item ? item.children : []}
+            loading={isRouteChanging}
             handleCollapsedNav={handleCollapsedNav}
           />
           <main className={classNames("flex flex-col content")}>
-            <Breadcrumb slug={slug} />
-            {Markdoc.renderers.react(ParsedContent, React, {
-              components,
-            })}
+            {isRouteChanging ? (
+              <SkeletonLoader
+                paragraph={{
+                  rows: SKELETON_PARAGRAPH_WIDTHS.length,
+                  width: SKELETON_PARAGRAPH_WIDTHS,
+                }}
+              />
+            ) : (
+              <>
+                <Breadcrumb slug={slug} />
+                {Markdoc.renderers.react(ParsedContent, React, {
+                  components,
+                })}
+              </>
+            )}
           </main>
           <Footer />
         </LayoutSelector>
