@@ -31,9 +31,9 @@ the following docs to connect using Airflow SDK or with the CLI.
 
 <PythonMod connector="Atlas" module="atlas" />
 
-<InlineCallout color="violet-70" icon="description" bold="OpenMetadata 0.13.1 or later" href="/deployment">
-To deploy OpenMetadata, check the <a href="/deployment">Deployment</a> guides.
-</InlineCallout>
+{%inlineCallout icon="description" bold="OpenMetadata 0.13.1 or later" href="/deployment"%}
+To deploy OpenMetadata, check the Deployment guides.
+{%/inlineCallout%}
 
 ## Create Database Service
 
@@ -74,12 +74,12 @@ caption="service name"
 Pass the `service name` in your config like given below
 
 ```yaml
-  hostPort: http://localhost:10000
-  username: username
-  password: password
-  databaseServiceName: ["local_hive"] # pass database service here
-  messagingServiceName: [] # pass messaging service here
-  entity_type: Table # this entity must be present on atlas
+hostPort: http://localhost:10000
+username: username
+password: password
+databaseServiceName: ["local_hive"] # pass database service here
+messagingServiceName: [] # pass messaging service here
+entity_type: Table # this entity must be present on atlas
 ```
 
 ## Metadata Ingestion
@@ -139,7 +139,6 @@ a name that distinguishes your deployment from other services, including
 the other {connector} services that you might be ingesting metadata
 from.
 
-
 <div className="w-100 flex justify-center">
 <Image
   src="/images/openmetadata/connectors/atlas/service-name.png"
@@ -177,8 +176,8 @@ the changes.
 #### Connection Options
 
 - **Host and Port**: Host and port of the Atlas service.
-- **Username**: username to connect  to the Atlas. This user should have privileges to read all the metadata in Atlas.
-- **Password**: password to connect  to the Atlas.
+- **Username**: username to connect to the Atlas. This user should have privileges to read all the metadata in Atlas.
+- **Password**: password to connect to the Atlas.
 - **databaseServiceName**: source database of the data source(Database service that you created from UI. example- local_hive)
 - **messagingServiceName**: messaging service source of the data source.
 - **Entity_Type**: Name of the entity type in Atlas.
@@ -251,7 +250,7 @@ source:
   sourceConfig:
     config:
       type: DatabaseMetadata
-sink: 
+sink:
   type: metadata-rest
   config: {}
 workflowConfig:
