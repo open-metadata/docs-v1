@@ -4,25 +4,27 @@ slug: /connectors/database/redshift/cli
 ---
 
 # Run Redshift using the metadata CLI
+
 <Table>
 
-| Stage | Metadata |Query Usage | Data Profiler | Data Quality | Lineage | DBT | Supported Versions |
-|:------:|:------:|:-----------:|:-------------:|:------------:|:-------:|:---:|:------------------:|
-|  PROD  |   ✅   |      ✅      |       ✅       |       ✅      |    ✅    |  ✅  |  --  |
+| Stage | Metadata | Query Usage | Data Profiler | Data Quality | Lineage | DBT | Supported Versions |
+| :---: | :------: | :---------: | :-----------: | :----------: | :-----: | :-: | :----------------: |
+| PROD  |    ✅    |     ✅      |      ✅       |      ✅      |   ✅    | ✅  |         --         |
 
 </Table>
 
 <Table>
 
 | Lineage | Table-level | Column-level |
-|:------:|:-----------:|:-------------:|
-| ✅ | ✅ | ✅ |
+| :-----: | :---------: | :----------: |
+|   ✅    |     ✅      |      ✅      |
 
 </Table>
 
 In this section, we provide guides and references to use the Redshift connector.
 
 Configure and schedule Redshift metadata and profiler workflows from the OpenMetadata UI:
+
 - [Requirements](#requirements)
 - [Metadata Ingestion](#metadata-ingestion)
 - [Query Usage](#query-usage)
@@ -32,9 +34,9 @@ Configure and schedule Redshift metadata and profiler workflows from the OpenMet
 
 ## Requirements
 
-<InlineCallout color="violet-70" icon="description" bold="OpenMetadata 0.12 or later" href="/deployment">
-To deploy OpenMetadata, check the <a href="/deployment">Deployment</a> guides.
-</InlineCallout>
+{%inlineCallout icon="description" bold="OpenMetadata 0.12 or later" href="/deployment"%}
+To deploy OpenMetadata, check the Deployment guides.
+{%/inlineCallout%}
 
 To run the Ingestion via the UI you'll need to use the OpenMetadata Ingestion Container, which comes shipped with
 custom Airflow plugins to handle the workflow deployment.
@@ -77,8 +79,8 @@ The workflow is modeled around the following
 
 <Note>
 
- During the metadata ingestion for redshift, the tables in which the distribution style i.e `DISTSTYLE` is not `AUTO` will be marked as partitioned tables
- 
+During the metadata ingestion for redshift, the tables in which the distribution style i.e `DISTSTYLE` is not `AUTO` will be marked as partitioned tables
+
 </Note>
 
 ### 1. Define the YAML Config
@@ -145,8 +147,8 @@ workflowConfig:
 - **database**: The database of the data source is an optional parameter, if you would like to restrict the metadata reading to a single database. If left blank, OpenMetadata ingestion attempts to scan all the databases.
 - **Connection Options (Optional)**: Enter the details for any additional connection options that can be sent to Redshift during the connection. These details must be added as Key-Value pairs.
 - **Connection Arguments (Optional)**: Enter the details for any additional connection arguments such as security or protocol configs that can be sent to Redshift during the connection. These details must be added as Key-Value pairs.
-    - In case you are using Single-Sign-On (SSO) for authentication, add the `authenticator` details in the Connection Arguments as a Key-Value pair as follows: `"authenticator" : "sso_login_url"`
-    - In case you authenticate with SSO using an external browser popup, then add the `authenticator` details in the Connection Arguments as a Key-Value pair as follows: `"authenticator" : "externalbrowser"`
+  - In case you are using Single-Sign-On (SSO) for authentication, add the `authenticator` details in the Connection Arguments as a Key-Value pair as follows: `"authenticator" : "sso_login_url"`
+  - In case you authenticate with SSO using an external browser popup, then add the `authenticator` details in the Connection Arguments as a Key-Value pair as follows: `"authenticator" : "externalbrowser"`
 
 #### Source Configuration - Source Config
 
@@ -177,10 +179,10 @@ For a simple, local installation using our docker containers, this looks like:
 ```yaml
 workflowConfig:
   openMetadataServerConfig:
-    hostPort: 'http://localhost:8585/api'
+    hostPort: "http://localhost:8585/api"
     authProvider: openmetadata
     securityConfig:
-      jwtToken: '{bot_jwt_token}'
+      jwtToken: "{bot_jwt_token}"
 ```
 
 We support different security providers. You can find their definitions [here](https://github.com/open-metadata/OpenMetadata/tree/main/openmetadata-spec/src/main/resources/json/schema/security/client).
@@ -193,10 +195,10 @@ You can find the different implementation of the ingestion below.
 ```yaml
 workflowConfig:
   openMetadataServerConfig:
-    hostPort: 'http://localhost:8585/api'
+    hostPort: "http://localhost:8585/api"
     authProvider: openmetadata
     securityConfig:
-      jwtToken: '{bot_jwt_token}'
+      jwtToken: "{bot_jwt_token}"
 ```
 
 ### Auth0 SSO
@@ -204,12 +206,12 @@ workflowConfig:
 ```yaml
 workflowConfig:
   openMetadataServerConfig:
-    hostPort: 'http://localhost:8585/api'
+    hostPort: "http://localhost:8585/api"
     authProvider: auth0
     securityConfig:
-      clientId: '{your_client_id}'
-      secretKey: '{your_client_secret}'
-      domain: '{your_domain}'
+      clientId: "{your_client_id}"
+      secretKey: "{your_client_secret}"
+      domain: "{your_domain}"
 ```
 
 ### Azure SSO
@@ -217,12 +219,12 @@ workflowConfig:
 ```yaml
 workflowConfig:
   openMetadataServerConfig:
-    hostPort: 'http://localhost:8585/api'
+    hostPort: "http://localhost:8585/api"
     authProvider: azure
     securityConfig:
-      clientSecret: '{your_client_secret}'
-      authority: '{your_authority_url}'
-      clientId: '{your_client_id}'
+      clientSecret: "{your_client_secret}"
+      authority: "{your_authority_url}"
+      clientId: "{your_client_id}"
       scopes:
         - your_scopes
 ```
@@ -232,12 +234,12 @@ workflowConfig:
 ```yaml
 workflowConfig:
   openMetadataServerConfig:
-    hostPort: 'http://localhost:8585/api'
+    hostPort: "http://localhost:8585/api"
     authProvider: custom-oidc
     securityConfig:
-      clientId: '{your_client_id}'
-      secretKey: '{your_client_secret}'
-      domain: '{your_domain}'
+      clientId: "{your_client_id}"
+      secretKey: "{your_client_secret}"
+      domain: "{your_domain}"
 ```
 
 ### Google SSO
@@ -245,10 +247,10 @@ workflowConfig:
 ```yaml
 workflowConfig:
   openMetadataServerConfig:
-    hostPort: 'http://localhost:8585/api'
+    hostPort: "http://localhost:8585/api"
     authProvider: google
     securityConfig:
-      secretKey: '{path-to-json-creds}'
+      secretKey: "{path-to-json-creds}"
 ```
 
 ### Okta SSO
@@ -274,12 +276,12 @@ The ingestion can be configured by [Enabling JWT Tokens](https://docs.open-metad
 ```yaml
 workflowConfig:
   openMetadataServerConfig:
-    hostPort: 'http://localhost:8585/api'
+    hostPort: "http://localhost:8585/api"
     authProvider: auth0
     securityConfig:
-      clientId: '{your_client_id}'
-      secretKey: '{your_client_secret}'
-      domain: '{your_domain}'
+      clientId: "{your_client_id}"
+      secretKey: "{your_client_secret}"
+      domain: "{your_domain}"
 ```
 
 ### OneLogin SSO
@@ -289,12 +291,12 @@ Which uses Custom OIDC for the ingestion
 ```yaml
 workflowConfig:
   openMetadataServerConfig:
-    hostPort: 'http://localhost:8585/api'
+    hostPort: "http://localhost:8585/api"
     authProvider: custom-oidc
     securityConfig:
-      clientId: '{your_client_id}'
-      secretKey: '{your_client_secret}'
-      domain: '{your_domain}'
+      clientId: "{your_client_id}"
+      secretKey: "{your_client_secret}"
+      domain: "{your_domain}"
 ```
 
 ### KeyCloak SSO
@@ -304,12 +306,12 @@ Which uses Custom OIDC for the ingestion
 ```yaml
 workflowConfig:
   openMetadataServerConfig:
-    hostPort: 'http://localhost:8585/api'
+    hostPort: "http://localhost:8585/api"
     authProvider: custom-oidc
     securityConfig:
-      clientId: '{your_client_id}'
-      secretKey: '{your_client_secret}'
-      domain: '{your_domain}'
+      clientId: "{your_client_id}"
+      secretKey: "{your_client_secret}"
+      domain: "{your_domain}"
 ```
 
 </Collapse>
@@ -460,7 +462,7 @@ source:
       #     - table4
 processor:
   type: orm-profiler
-  config: {}  # Remove braces if adding properties
+  config: {} # Remove braces if adding properties
   # tableConfig:
   #   - fullyQualifiedName: <table fqn>
   #     profileSample: <number between 0 and 99> # default will be 100 if omitted
@@ -566,10 +568,10 @@ source:
         sslmode: <ssl-mode>
 ```
 
-
 ### SSL Modes
 
 There are couple of types of SSL modes that Redshift supports which can be added to ConnectionArguments, they are as follows:
+
 - **disable**: SSL is disabled and the connection is not encrypted.
 
 - **allow**: SSL is used if the server requires it.
