@@ -6,26 +6,26 @@ export default function CodeBlock({ children }) {
   const { selectedPreviewNumber } = usePreviewContext();
   const [prevSelectedCode, setPrevSelectedCode] = useState<number>(1);
 
-  const getElements = (): {
-    codeBlock: HTMLElement;
-    codesArray: NodeListOf<Element>;
-  } => {
-    const codeBlock = document.getElementById("code-block");
-    const codesArray = codeBlock.querySelectorAll('[class^="Code_Container_"]');
-    return { codeBlock, codesArray };
-  };
-
   const highlightCodeBlock = () => {
-    const { codeBlock, codesArray } = getElements();
-    codesArray.forEach((element: HTMLElement, id) => {
-      if (id + 1 === prevSelectedCode || id + 1 === selectedPreviewNumber) {
-        element.classList.toggle("highlitedCode");
-        if (id + 1 === selectedPreviewNumber) {
-          const positionFromTopOfCodeBlock = element.offsetTop - 180;
-          codeBlock.scrollTop = positionFromTopOfCodeBlock;
-        }
-      }
-    });
+    const codeBlock = document.getElementById("code-block");
+    const previousCodeBlock = document.getElementById(
+      `code-block-${prevSelectedCode}`
+    );
+    const currentCodeBlock = document.getElementById(
+      `code-block-${selectedPreviewNumber}`
+    );
+
+    if (previousCodeBlock) {
+      previousCodeBlock.classList.remove("highlightedCode");
+    }
+
+    if (currentCodeBlock) {
+      currentCodeBlock.classList.add("highlightedCode");
+
+      const positionFromTopOfCodeBlock = currentCodeBlock.offsetTop - 180;
+      codeBlock.scrollTop = positionFromTopOfCodeBlock;
+    }
+
     setPrevSelectedCode(selectedPreviewNumber);
   };
 
@@ -34,8 +34,13 @@ export default function CodeBlock({ children }) {
   }, [selectedPreviewNumber]);
 
   useEffect(() => {
-    const { codesArray } = getElements();
-    codesArray[0] && codesArray[0].classList.add("highlitedCode");
+    const initialSelectedCodeBlock = document.getElementById(
+      `code-block-${selectedPreviewNumber}`
+    );
+
+    if (initialSelectedCodeBlock) {
+      initialSelectedCodeBlock.classList.add("highlightedCode");
+    }
   }, []);
 
   return (

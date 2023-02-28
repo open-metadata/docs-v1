@@ -17,6 +17,15 @@ This is content inside tag.
 
 Here are the custom markdoc tags to use for desired functionalities.
 
+### extraContent
+
+Tag to add some extra information in between two steps. This tag can be used inside either the `codePreview` tag or the `stepsContainer` tag. To use it inside above tags, add it in between two `codeInfo` or `step` tags respectively. More detailed examples to use `extraContent` are given below, in the above mentioned tags sections.
+
+#### Attributes
+
+1. parentTagName (type - String)
+   The name of the tag you are using it in. For example 'codePreview' or 'stepsContainer'
+
 ## Tags for Code Preview Functionality
 
 For showing code or commands with the explanations by side use following tags:-
@@ -47,6 +56,15 @@ It's a tag for which will contain explanation or information about a chuck of co
 
 A container tag to enclose all the code chunks you will write for each steps given with 'codeInfo' tag. Make sure to maintain the same order you want 'codeInfo' tags to be associated with it.
 
+#### code/fence node (```)
+
+Please make sure to pass an argument **srNumber** to the code node to link with the respective codeInfo section. This will determine which code block to highlight for which codeInfo section.
+Here is how you can pass the argument:
+
+\`\`\`bash {% srNumber=1 %}
+print('hello!')
+\`\`\`
+
 Example:
 
 {% codePreview %}
@@ -56,6 +74,10 @@ Example:
 {% codeInfo srNumber=1 %}
 Information about 1st code chunk.
 {% /codeInfo %}
+
+{% extraContent parentTagName="codePreview" %}
+Some extra information
+{% /extraContent %}
 
 {% codeInfo srNumber=2 %}
 Information about 2nd code chunk
@@ -69,19 +91,26 @@ Information about 3rd code chunk
 
 {% codeBlock %}
 
-```bash
+\`\`\`bash {% srNumber=1 %}
 Code for first codeInfo tag
-```
+\`\`\`
 
-```bash
+\`\`\`bash
+Code without reference
+\`\`\`
+
+\`\`\`bash {% srNumber=2 %}
 Code for second codeInfo tag
 with 3 lines
 print('Hello world!')
-```
+\`\`\`
 
-```bash
+\`\`\`bash {% srNumber=3 %}
 Code for third codeInfo tag
-```
+with 4 lines
+print('Hello There')
+print('This is block 3')
+\`\`\`
 
 {% /codeBlock %}
 
@@ -128,10 +157,6 @@ For defining title use 'title' attribute. Add other information between opening 
 Use this tag to show images, videos, GIFs or CodeBlocks to provide additional information for the step.
 Add the tags for images, videos, GIFs or CodeBlocks between opening and closing tags.
 
-### 5. extraContent
-
-Tag to add some extra information in between two steps. Add it in between two `step` tags.
-
 Example:
 
 {% stepsContainer %}
@@ -155,7 +180,7 @@ caption="step1 caption" /%}
 
 {% /step %}
 
-{% extraContent %}
+{% extraContent parentTagName="stepsContainer" %}
 
 Additional information between two steps
 

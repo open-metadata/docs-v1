@@ -17,7 +17,7 @@ import "prismjs/plugins/normalize-whitespace/prism-normalize-whitespace";
 import styles from "./Code.module.css";
 import Image from "../Image/Image";
 
-export default function Code({ code, children, language, img, lines }) {
+export default function Code({ code, children, language, img, srNumber }) {
   const [codeElement, setCodeElement] = useState<JSX.Element>();
 
   useEffect(() => {
@@ -49,24 +49,19 @@ export default function Code({ code, children, language, img, lines }) {
           </pre>
         </div>
       );
-    } else if (lines) {
-      setCodeElement(
-        <div className={classNames(styles.Container, styles.LineHighlight)}>
-          <pre data-line={lines}>
-            <code className={languageClass}>{customCode}</code>
-          </pre>
-        </div>
-      );
     } else {
       setCodeElement(
-        <div className={styles.Container}>
+        <div
+          id={srNumber ? `code-block-${srNumber}` : null}
+          className={styles.Container}
+        >
           <pre>
             <code className={languageClass}>{customCode}</code>
           </pre>
         </div>
       );
     }
-  }, [img, code, children, language, lines]);
+  }, [img, code, children, language]);
 
   return codeElement;
 }
