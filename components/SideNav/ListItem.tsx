@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import { ReactComponent as ArrowDown } from "../../images/icons/drop-arrow-down.svg";
 import { ReactComponent as ArrowRight } from "../../images/icons/drop-arrow-right.svg";
 import { checkDropdownStatus } from "../../lib/utils";
@@ -17,6 +17,7 @@ export default function ListItem({
   fontWeight?: number;
 }) {
   const router = useRouter();
+  const linkRef = useRef<HTMLAnchorElement>();
 
   const isDropdown = item.children && item.children.length > 0;
   const isActive = `/${router.query.version}${item.url}` === router.asPath;
@@ -36,8 +37,9 @@ export default function ListItem({
               Number(item.depth) >= 3 ? styles.TextGray : "",
               isActive ? styles.ActiveLink : ""
             )}
+            ref={linkRef}
             style={{
-              fontWeight: `${6 - Math.min(Number(item.depth), 4)}00`,
+              fontWeight,
             }}
           >
             {item.name}
@@ -54,6 +56,13 @@ export default function ListItem({
       checkDropdownStatus(router.asPath, item.url.split("/").reverse()[0])
     );
   }, [router.asPath, item]);
+
+  useEffect(() => {
+    // Logic to get the selected side nav item into view after page load
+    if (linkRef.current && linkRef.current.className.includes("ActiveLink")) {
+      linkRef.current.scrollIntoView({ block: "center", inline: "center" });
+    }
+  }, [isActive, linkRef]);
 
   return (
     <>

@@ -1,3 +1,4 @@
+import classNames from "classnames";
 import { startCase } from "lodash";
 import Link from "next/link";
 import React, { ReactNode } from "react";
@@ -36,7 +37,10 @@ export default function Breadcrumb({ slug }: { slug: string[] }) {
             : `/${docVersion}`;
         return (
           <React.Fragment key={crumb.path}>
-            <Link className="flex align-center" href={hrefString}>
+            <Link
+              className={classNames(styles.LinkItem, "flex align-center")}
+              href={hrefString}
+            >
               <span className={styles.BreadcumbLink}>
                 <span>{crumb.icon}</span>
                 <span>{startCase(crumb.title.replace("-", " "))}</span>
