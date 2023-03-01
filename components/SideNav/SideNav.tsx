@@ -55,7 +55,11 @@ export default function SideNav({ category, items, loading }: Props) {
           ) : (
             <div className={classNames(styles.LinkContainer)}>
               {items.map((item) => (
-                <ListItem item={item} key={item.name} fontWeight={400} />
+                <ListItem
+                  item={item}
+                  key={item.name}
+                  fontWeight={item.depth === "1" ? 500 : 400}
+                />
               ))}
             </div>
           )}
