@@ -1,8 +1,7 @@
 .Container {
-  color: #ff4b4b;
   border: 1px solid var(--default-border-color);
   border-radius: 4px;
-  background: transparent;
+  background: rgb(247, 250, 252);
   padding: 4px;
   font-size: 14px;
 }

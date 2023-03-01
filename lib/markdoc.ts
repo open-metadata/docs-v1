@@ -21,6 +21,9 @@ import Tile from "../components/common/Tiles/Tile/Tile";
 import CustomAnchorNode from "../components/common/CustomAnchorNode/CustomAnchorNode";
 import TilesContainer from "../components/common/Tiles/TilesContainer/TilesContainer";
 import InlineCode from "../components/common/Code/InlineCode";
+import Table from "../components/common/Table/Table";
+import Icon from "../components/common/Icon/Icon";
+import MultiTablesWrapper from "../components/common/Table/MultiTablesWrapper";
 
 import * as allTags from "../markdoc/tags";
 import * as allNodes from "../markdoc/nodes";
@@ -55,6 +58,9 @@ export const components = {
   TilesContainer,
   InlineCode,
   CustomAnchorNode,
+  Table,
+  Icon,
+  MultiTablesWrapper,
 };
 
 export const configs: Config = {

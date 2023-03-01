@@ -1,5 +1,6 @@
 .Container {
   display: flex;
+  height: 100%;
   flex-direction: column;
   padding: 16px;
   border: 1px solid var(--default-border-color);
@@ -15,11 +16,11 @@
 
 .Container h4 {
   color: var(--primary-color);
-  font-weight: 400;
+  font-weight: 500;
 }
 
 .Container span {
-  color: #4e566d;
+  color: rgb(78, 86, 109);
   margin-top: 8px;
-  font-weight: 300;
+  font-weight: 400;
 }

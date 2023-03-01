@@ -30,7 +30,7 @@
 
 .Container button {
   @apply absolute right-2 cursor-pointer h-6 w-6 mb-0 flex items-center hidden;
-  top: -4px;
+  top: 0px;
 }
 
 .Container:hover button {

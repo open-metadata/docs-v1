@@ -1,6 +1,7 @@
 .HeaderLink {
   display: flex;
   align-items: center;
+  color: rgb(26, 31, 54);
 }
 
 .CopiedText {

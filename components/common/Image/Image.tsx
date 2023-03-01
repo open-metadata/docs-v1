@@ -49,14 +49,12 @@ const Image = ({
           {customCaption}
         </section>
         <section className={styles.LightBox} onClick={closeModal}>
-          <button className={styles.CloseButton} onClick={openModal}>
-            close
-          </button>
           <section className={styles.ImageContainer}>
             <img
               src={src}
               alt={alt}
               className={classNames(captionClass, styles.ModalImage)}
+              onClick={(e) => e.stopPropagation()}
             />
             {customCaption}
           </section>

@@ -18,3 +18,5 @@ export * from "./Steps/Step/StepVisualInfo/stepVisualInfo.markdoc";
 export * from "./Steps/ExtraContent/extraContent.markdoc";
 export * from "./Tiles/Tile/tile.markdoc";
 export * from "./Tiles/TilesContainer/tilesContainer.markdoc";
+export * from "./icon.markdoc";
+export * from "./multiTablesWrapper.markdoc";
