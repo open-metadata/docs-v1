@@ -56,6 +56,11 @@ It's a tag for which will contain explanation or information about a chuck of co
 
 A container tag to enclose all the code chunks you will write for each steps given with 'codeInfo' tag. Make sure to maintain the same order you want 'codeInfo' tags to be associated with it.
 
+#### Attributes - 
+
+1. fileName (type - String)
+   This is an optional argument. Pass the name of the file in which the code given inside the `codeBlock` tag is supposed to be.
+
 #### code/fence node (```)
 
 Please make sure to pass an argument **srNumber** to the code node to link with the respective codeInfo section. This will determine which code block to highlight for which codeInfo section.
@@ -89,7 +94,7 @@ Information about 3rd code chunk
 
 {% /codeInfoContainer %}
 
-{% codeBlock %}
+{% codeBlock fileName="sample.txt" %}
 
 \`\`\`bash {% srNumber=1 %}
 Code for first codeInfo tag
