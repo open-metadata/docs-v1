@@ -1,10 +1,19 @@
-import React, { useEffect, useState } from "react";
+import React, { ReactNode, useEffect, useRef, useState } from "react";
 import { usePreviewContext } from "../../../context/CodePreviewContext";
-import styles from "./CodeBlock.module.css";
+import styles from "../../common/Code/Code.module.css";
+import { ReactComponent as ClipboardIcon } from "../../../images/icons/clipboard.svg";
+import { ReactComponent as FileIcon } from "../../../images/icons/file-icon.svg";
 
-export default function CodeBlock({ children }) {
+interface Props {
+  children: ReactNode;
+  fileName: string;
+}
+
+export default function CodeBlock({ children, fileName }: Props) {
   const { selectedPreviewNumber } = usePreviewContext();
   const [prevSelectedCode, setPrevSelectedCode] = useState<number>(1);
+  const [copyText, setCopyText] = useState<string>("Copy");
+  const preTag = useRef<HTMLPreElement>();
 
   const highlightCodeBlock = () => {
     const codeBlock = document.getElementById("code-block");
@@ -29,6 +38,19 @@ export default function CodeBlock({ children }) {
     setPrevSelectedCode(selectedPreviewNumber);
   };
 
+  const copyToClipboard = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    if (preTag.current) {
+      const copyText = preTag.current.textContent;
+      navigator.clipboard.writeText(copyText);
+      setCopyText("Copied");
+      setTimeout(() => {
+        setCopyText("Copy");
+      }, 1500);
+    }
+  };
+
   useEffect(() => {
     highlightCodeBlock();
   }, [selectedPreviewNumber]);
@@ -44,8 +66,20 @@ export default function CodeBlock({ children }) {
   }, []);
 
   return (
-    <div className={styles.Container} id="code-block">
-      {children}
+    <div className={styles.CodeBlockContainer} id="code-block">
+      <div className={styles.Toolbar}>
+        {fileName && (
+          <span className={styles.FileName}>
+            <FileIcon />
+            <span>{fileName}</span>
+          </span>
+        )}
+        <button className={styles.CopyButton} onClick={copyToClipboard}>
+          <ClipboardIcon className="w-3 h-3" />
+          <span>{copyText}</span>
+        </button>
+      </div>
+      <pre ref={preTag}>{children}</pre>
     </div>
   );
 }

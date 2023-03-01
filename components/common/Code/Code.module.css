@@ -1,26 +1,75 @@
-.Container {
-  @apply w-full mx-auto overflow-x-auto mt-3;
+.CodeContainer {
+  @apply overflow-x-auto mt-3;
   @apply relative !important;
   overflow-y: hidden;
+  min-width: 100%;
+  width: fit-content;
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
 
-.Container::-webkit-scrollbar {
+.CodeWithSrNumber {
+  padding-left: 32px;
+}
+
+.CodeBlockContainer {
+  overflow-x: auto;
+  background-color: #212d63;
+  border-radius: 4px;
+  height: fit-content;
+  position: sticky;
+  max-height: 80vh;
+  top: calc(var(--top-nav-height) + var(--main-nav-height) + 40px);
+  overflow-y: scroll;
+  overflow-x: scroll;
+  overscroll-behavior: contain;
+  width: 60%;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.CodeBlockContainer > pre {
+  padding-top: 8px;
+  opacity: 75%;
+}
+
+.CodeBlockContainer > pre > .CodeContainer {
+  margin: 0px;
+}
+.CodeBlockContainer > pre > .CodeContainer pre {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+.CodeBlockContainer::-webkit-scrollbar,
+.CodeContainer::-webkit-scrollbar {
   display: none;
 }
 
-.Container pre,
-.Container code {
+.CodeBlockContainer pre code {
+  margin: 0px !important;
+  font-size: 13px !important;
+}
+
+.CodeContainer pre,
+.CodeContainer code,
+.CodeBlockContainer pre,
+.CodeBlockContainer code {
   @apply overflow-auto max-w-full whitespace-pre;
   font-size: 14px;
 }
 
-.Container pre {
-  @apply text-white font-medium rounded-md relative py-3 px-8 leading-relaxed;
+.CodeContainer pre {
+  @apply py-3 px-8;
+  opacity: 98%;
 }
 
-.Container pre code {
+.CodeContainer pre,
+.CodeBlockContainer pre {
+  @apply text-white font-semibold rounded-md relative leading-relaxed;
+}
+
+.CodeContainer pre code,
+.CodeBlockContainer pre code {
   @apply my-2 relative;
 }
 
@@ -28,97 +77,170 @@
   @apply bg-gray-80 opacity-30 z-0;
 }
 
-.Container button {
+.CodeContainer button {
   @apply absolute right-2 cursor-pointer h-6 w-6 mb-0 flex items-center hidden;
   top: -4px;
 }
 
-.Container:hover button {
+.CodeContainer:hover button {
   @apply block;
 }
 
-.Container button::before {
+.CodeContainer button::before {
   @apply absolute top-2 right-2 z-10 transition-all duration-75 hover:opacity-40;
   content: url("/clipboard.svg");
 }
 
-.Container button span {
+.CodeContainer button span {
   @apply absolute top-1 right-8 text-white font-mono text-sm tracking-tight font-normal opacity-0;
 }
 
-.Container button:hover span {
+.CodeContainer button:hover span {
   @apply opacity-100;
 }
 
+.CodeBlockContainer > pre button,
+.CodeBlockContainer > pre button::before,
+.CodeBlockContainer:hover > pre button {
+  display: none;
+}
+
+.CodeBlockContainer > .Toolbar {
+  position: sticky;
+  top: 0px;
+  z-index: 30;
+  padding: 8px 20px;
+  border-bottom: 0.1px solid #a4cdfe;
+  background-color: #212d63;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.Toolbar > .FileName {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 2px 8px;
+  background-color: #a4cdfe;
+  color: #212d63;
+  border: 0.5px solid #a4cdfe;
+  border-radius: 16px;
+}
+
+.Toolbar > .CopyButton {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  height: 14px;
+  font-size: 14px;
+  padding: 12px;
+  border: 0.5px solid white;
+  border-radius: 8px;
+  color: white;
+}
+.Toolbar > .CopyButton:hover {
+  background-color: #a4cdfe;
+  border: 0.5px solid #a4cdfe;
+  color: #212d63;
+}
+
 /* Code block adjustments */
-.Container pre code :global(.operator) {
+.CodeContainer pre code :global(.operator),
+.CodeBlockContainer pre code :global(.operator) {
   @apply text-yellow-50;
 }
 
-.Container pre code :global(.decorator) {
+.CodeContainer pre code :global(.decorator),
+.CodeBlockContainer pre code :global(.decorator) {
   @apply text-yellow-80;
 }
 
-.Container pre code :global(.string) {
+.CodeContainer pre code :global(.string),
+.CodeBlockContainer pre code :global(.string) {
   @apply text-darkBlue-30;
 }
 
-.Container pre code :global(.keyword) {
+.CodeContainer pre code :global(.keyword),
+.CodeBlockContainer pre code :global(.keyword) {
   @apply text-darkBlue-50;
 }
 
-.Container pre code :global(.builtin) {
+.CodeContainer pre code :global(.builtin),
+.CodeBlockContainer pre code :global(.builtin) {
   @apply text-lightBlue-40;
 }
 
-.Container pre code :global(.number),
-.Container pre code :global(.boolean) {
+.CodeContainer pre code :global(.number),
+.CodeContainer pre code :global(.boolean),
+.CodeBlockContainer pre code :global(.number),
+.CodeBlockContainer pre code :global(.boolean) {
   @apply text-green-40;
 }
 
-.Container pre code :global(.function) {
+.CodeContainer pre code :global(.function),
+.CodeBlockContainer pre code :global(.function) {
   @apply text-red-50;
 }
 
-.Container pre code :global(.punctuation) {
+.CodeContainer pre code :global(.punctuation),
+.CodeBlockContainer pre code :global(.punctuation) {
   @apply text-gray-60;
 }
 
-.Container pre code :global(.comment) {
+.CodeContainer pre code :global(.key),
+.CodeBlockContainer pre code :global(.key) {
+  @apply text-lightBlue-30;
+}
+
+.CodeContainer pre code :global(.comment),
+.CodeBlockContainer pre code :global(.comment) {
   @apply text-gray-60 italic font-normal;
 }
 
-.Container pre code :global(.table) {
+.CodeContainer pre code :global(.table),
+.CodeBlockContainer pre code :global(.table) {
   @apply inline;
 }
 
 /* Dark mode adjustments */
-:global(.dark) .Container pre code :global(.operator),
-:global(.dark) .Container pre code :global(.decorator) {
+:global(.dark) .CodeContainer pre code :global(.operator),
+:global(.dark) .CodeContainer pre code :global(.decorator),
+:global(.dark) .CodeBlockContainer pre code :global(.operator),
+:global(.dark) .CodeBlockContainer pre code :global(.decorator) {
   @apply text-yellow-50;
 }
 
-:global(.dark) .Container pre code :global(.keyword) {
+:global(.dark) .CodeContainer pre code :global(.keyword),
+:global(.dark) .CodeBlockContainer pre code :global(.keyword) {
   @apply text-darkBlue-50;
 }
 
-:global(.dark) .Container pre code :global(.builtin) {
+:global(.dark) .CodeContainer pre code :global(.builtin),
+:global(.dark) .CodeBlockContainer pre code :global(.builtin) {
   @apply text-lightBlue-60;
 }
 
-:global(.dark) .Container pre code :global(.number),
-:global(.dark) .Container pre code :global(.boolean) {
+:global(.dark) .CodeContainer pre code :global(.number),
+:global(.dark) .CodeContainer pre code :global(.boolean),
+:global(.dark) .CodeBlockContainer pre code :global(.number),
+:global(.dark) .CodeBlockContainer pre code :global(.boolean) {
   @apply text-green-40;
 }
 
-:global(.dark) .Container pre code :global(.function) {
+:global(.dark) .CodeContainer pre code :global(.function),
+:global(.dark) .CodeBlockContainer pre code :global(.function) {
   @apply text-red-50;
 }
 
-:global(.dark) .Container pre code :global(.comment) {
+:global(.dark) .CodeContainer pre code :global(.comment),
+:global(.dark) .CodeBlockContainer pre code :global(.comment) {
   @apply text-gray-60;
 }
 
-:global(.dark) .Container pre code :global(.string) {
+:global(.dark) .CodeContainer pre code :global(.string),
+:global(.dark) .CodeBlockContainer pre code :global(.string) {
   @apply text-darkBlue-30;
 }

@@ -11,6 +11,7 @@ import { useRouter } from "next/router";
 import ErrorBoundary from "../components/ErrorBoundary";
 import { DocVersionContextProvider } from "../context/DocVersionContext";
 import { RouteChangingContextProvider } from "../context/RouteChangingContext";
+import { SideNavCollapseContextProvider } from "../context/SideNavCollapseContext";
 
 const TITLE = "Markdoc";
 const DESCRIPTION = "A powerful, flexible, Markdown-based authoring framework";
@@ -46,7 +47,9 @@ export default function MyApp({ Component, pageProps }: AppProps<MyAppProps>) {
       <ErrorBoundary>
         <RouteChangingContextProvider>
           <DocVersionContextProvider>
-            <Component {...pageProps} key={router.asPath} />
+            <SideNavCollapseContextProvider>
+              <Component {...pageProps} key={router.asPath} />
+            </SideNavCollapseContextProvider>
           </DocVersionContextProvider>
         </RouteChangingContextProvider>
       </ErrorBoundary>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { ReactNode, useEffect, useState } from "react";
 import classNames from "classnames";
 import Prism from "prismjs";
 import "prismjs/components/prism-jsx";
@@ -31,6 +31,14 @@ export default function Code({ code, children, language, img, srNumber }) {
     };
   }, [codeElement]);
 
+  const getWrappedCodeElement = (codeElement: ReactNode) => {
+    if (srNumber) {
+      return codeElement;
+    } else {
+      return <pre>{codeElement}</pre>;
+    }
+  };
+
   useEffect(() => {
     let customCode = code !== undefined ? code : children;
     let languageClass = `language-${language}`;
@@ -42,22 +50,26 @@ export default function Code({ code, children, language, img, srNumber }) {
 
     if (img) {
       setCodeElement(
-        <div className={styles.Container}>
+        <div className={styles.CodeContainer}>
           <Image src={img} clean={true} />
-          <pre>
+
+          {getWrappedCodeElement(
             <code className={languageClass}>{customCode}</code>
-          </pre>
+          )}
         </div>
       );
     } else {
       setCodeElement(
         <div
           id={srNumber ? `code-block-${srNumber}` : null}
-          className={styles.Container}
+          className={classNames(
+            styles.CodeContainer,
+            srNumber ? styles.CodeWithSrNumber : ""
+          )}
         >
-          <pre>
+          {getWrappedCodeElement(
             <code className={languageClass}>{customCode}</code>
-          </pre>
+          )}
         </div>
       );
     }

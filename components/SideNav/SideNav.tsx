@@ -9,31 +9,27 @@ import { MenuItem } from "../../interface/common.interface";
 import { isEmpty } from "lodash";
 import SkeletonLoader from "../common/SkeletonLoader/SkeletonLoader";
 import { SkeletonWidth } from "../../enums/SkeletonLoder.enum";
+import { useSideNavCollapseContextContext } from "../../context/SideNavCollapseContext";
 
 interface Props {
   category: string;
-  collapsedNav: boolean;
   items: MenuItem[];
-  handleCollapsedNav: (value: boolean) => void;
   loading: boolean;
 }
 
-export default function SideNav({
-  category,
-  collapsedNav,
-  items,
-  handleCollapsedNav,
-  loading,
-}: Props) {
+export default function SideNav({ category, items, loading }: Props) {
+  const { sideNavCollapsed, onChangeSideNavCollapsed } =
+    useSideNavCollapseContextContext();
+
   const toggleCollapse = () => {
-    handleCollapsedNav(!collapsedNav);
+    onChangeSideNavCollapsed(!sideNavCollapsed);
   };
 
   return (
     <nav
       className={`${classNames(
         styles.SideNav,
-        collapsedNav ? styles.CollapsedSideNav : styles.NonCollapsedSideNav
+        sideNavCollapsed ? styles.CollapsedSideNav : styles.NonCollapsedSideNav
       )} left-nav`}
     >
       {loading ? (
@@ -45,7 +41,7 @@ export default function SideNav({
       ) : (
         <div
           style={{
-            display: collapsedNav ? "none" : "block",
+            display: sideNavCollapsed ? "none" : "block",
           }}
         >
           <div className="flex items-center gap-2 px-1 mb-3">
@@ -66,7 +62,7 @@ export default function SideNav({
         </div>
       )}
       <span className={styles.IconContainer}>
-        {collapsedNav ? (
+        {sideNavCollapsed ? (
           <span title="Expand Menu">
             <CollapseRightIcon
               className={styles.CollapseIcon}
