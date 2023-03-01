@@ -8,10 +8,12 @@ Similar to the normal react components, custom tags can be used as follows
 Example: Here's how to use tag named 'exampleTag' with some attributes
 
 ```
-{% exampleTag attributeName='value' %}   <!-- starting tag with attributes -->
+{% exampleTag attributeName="value" %}   <!-- starting tag with attributes -->
 This is content inside tag.
 {% /exampleTag %}   <!-- closing tag -->
 ```
+
+**Note** that for passing the values in string type attribute, always use **Double Quotes** (`"`) and not Single Quotes (`'`) as it's done in the above example
 
 # Custom Tags
 
