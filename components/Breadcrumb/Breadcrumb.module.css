@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   font-size: 14px;
-  color: #697386;
+  color: var(--gray-text-color);
 }
 
 .Divider {
@@ -18,5 +18,14 @@
 }
 
 .BreadcumbLink:hover {
-  color: black;
+  color: var(--default-text-color);
+}
+
+.LinkItem {
+  font-weight: 400;
+  color: var(--gray-text-color);
+}
+
+.Container + article > a:first-child {
+  margin-top: 12px;
 }

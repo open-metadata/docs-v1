@@ -22,7 +22,9 @@
 }
 
 .LightBox {
-  @apply fixed z-30 top-0 left-0 w-full h-full flex justify-center items-center overscroll-contain bg-gray-20;
+  @apply fixed top-0 left-0 w-full h-full flex justify-center items-center overscroll-contain;
+  background-color: rgba(162, 162, 162, 0.5);
+  z-index: 9;
 }
 
 :global(.dark) .LightBox {
@@ -30,16 +32,18 @@
 }
 
 .ImageContainer {
-  @apply w-11/12 md:w-11/12 2xl:w-7/12 flex flex-col;
+  display: flex;
+  flex-direction: column;
+  margin: 0px 50px;
+  align-items: center;
+  justify-content: center;
+  height: 75%;
+  margin-top: calc(var(--top-nav-height) + var(--main-nav-height));
 }
 
 .ModalImage {
-  @apply h-full object-contain;
-}
-
-.CloseButton {
-  font-family: "Material Icons";
-  @apply font-normal text-5xl absolute right-0 md:right-8 top-12 cursor-pointer bg-gray-20 z-20 text-gray-90 hover:shadow-none hover:opacity-60 mb-0 px-2 lg:p-4;
+  object-fit: contain;
+  max-height: 100%;
 }
 
 :global(.dark) .CloseButton {

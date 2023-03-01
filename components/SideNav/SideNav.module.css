@@ -50,7 +50,7 @@
 }
 
 .TextGray {
-  color: #76746f;
+  color: var(--gray-text-color);
 }
 
 .ActiveLink {

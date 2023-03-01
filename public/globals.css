@@ -10,19 +10,20 @@
   --default-border-color: #dce3ec;
   --primary-color: rgb(24, 144, 255);
   --homepage-container-px: 130px;
-  --default-text-color: rgb(53, 58, 76);
-  --gray-text-color: rgba(53, 58, 76, 0.5);
+  --default-text-color: rgb(60, 66, 87);
+  --gray-text-color: rgba(60, 66, 87, 0.7);
   --white-color: #fff;
   --top-nav-color: #f7fafc;
 }
 
 body {
-  font-family: -apple-system, "system-ui", "Segoe UI", "Roboto",
-    "Helvetica Neue", "Ubuntu";
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   color: var(--default-text-color);
   margin: 0;
   font-size: 16px;
-  font-weight: 300;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
 }
 
 h1,
@@ -31,12 +32,12 @@ h3,
 h4,
 h5,
 h6 {
-  font-weight: 400;
+  font-weight: 700;
 }
 
 b,
 strong {
-  font-weight: 400;
+  font-weight: 500;
 }
 
 p {
@@ -52,11 +53,11 @@ h1 {
 }
 
 h2 {
-  font-size: 26px;
+  font-size: 21px;
 }
 
 h3 {
-  font-size: 20px;
+  font-size: 18px;
 }
 
 h4 {
@@ -73,7 +74,7 @@ h6 {
 
 a {
   color: var(--primary-color);
-  font-weight: 400;
+  font-weight: 500;
 }
 
 li {
@@ -183,14 +184,14 @@ code::-webkit-scrollbar {
 
 .overview-heading {
   font-weight: 700;
-  font-size: 32px;
+  font-size: 22px;
   line-height: 42px;
   margin-bottom: 12px;
 }
 
 .container-heading {
   font-weight: 700;
-  font-size: 32px;
+  font-size: 22px;
   line-height: 42px;
   margin-bottom: 40px;
 }
