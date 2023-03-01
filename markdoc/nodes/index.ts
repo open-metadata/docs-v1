@@ -3,3 +3,4 @@ export * from "./code.markdoc";
 export * from "./fence.markdoc";
 export * from "./link.markdoc";
 export * from "./heading.markdoc";
+export * from "./table/table.markdoc";
