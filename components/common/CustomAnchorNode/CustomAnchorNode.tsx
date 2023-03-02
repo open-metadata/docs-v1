@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React, { ReactNode } from "react";
 import { getUrlWithVersion } from "../../../utils/CommonUtils";
 
@@ -11,8 +12,12 @@ function CustomAnchorNode({ href, children }: Props) {
 
   const isExternalLink = href.search(regexToIdentifyLink) !== -1;
 
-  return (
-    <a href={isExternalLink ? href : getUrlWithVersion(href)}>{children}</a>
+  return isExternalLink ? (
+    <a href={href} target="_blank">
+      {children}
+    </a>
+  ) : (
+    <Link href={getUrlWithVersion(href)}>{children}</Link>
   );
 }
 
