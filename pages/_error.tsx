@@ -13,6 +13,7 @@ import { tilesInfoArray } from "../constants/404Page.constants";
 import { SKELETON_PARAGRAPH_WIDTHS } from "../constants/SkeletonLoader.constants";
 import { useDocVersionContext } from "../context/DocVersionContext";
 import { useRouteChangingContext } from "../context/RouteChangingContext";
+import { useSideNavCollapseContextContext } from "../context/SideNavCollapseContext";
 import { MenuItem } from "../interface/common.interface";
 import { getCategoryByIndex } from "../lib/utils";
 import { fetchMenuList, getVersionFromUrl } from "../utils/CommonUtils";
@@ -20,12 +21,10 @@ import { fetchMenuList, getVersionFromUrl } from "../utils/CommonUtils";
 function Error() {
   const router = useRouter();
   const { docVersion, onChangeDocVersion } = useDocVersionContext();
+  const { sideNavCollapsed, onChangeSideNavCollapsed } =
+    useSideNavCollapseContextContext();
   const { isRouteChanging } = useRouteChangingContext();
-  const [collapsedNav, setCollapsedNav] = useState(true);
   const [menu, setMenu] = useState<MenuItem[]>([]);
-  const handleCollapsedNav = (value: boolean) => {
-    setCollapsedNav(value);
-  };
 
   const category = getCategoryByIndex(router.asPath, 2);
 
@@ -45,17 +44,19 @@ function Error() {
     }
   }, [router]);
 
+  useEffect(() => {
+    onChangeSideNavCollapsed(true);
+  }, []);
+
   return (
     <>
       <TopNav />
-      <LayoutSelector collapsedNav={collapsedNav}>
+      <LayoutSelector collapsedNav={sideNavCollapsed}>
         <CategoriesNav menu={menu} />
         <SideNav
           category={startCase(category)}
-          collapsedNav={collapsedNav}
           items={[]}
           loading={isRouteChanging}
-          handleCollapsedNav={handleCollapsedNav}
         />
         <div className="content page-404 ">
           {isRouteChanging ? (

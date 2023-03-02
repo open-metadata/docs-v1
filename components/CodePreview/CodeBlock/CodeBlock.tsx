@@ -1,32 +1,54 @@
-import React, { useEffect, useState } from "react";
+import React, { ReactNode, useEffect, useRef, useState } from "react";
 import { usePreviewContext } from "../../../context/CodePreviewContext";
-import styles from "./CodeBlock.module.css";
+import styles from "../../common/Code/Code.module.css";
+import { ReactComponent as ClipboardIcon } from "../../../images/icons/clipboard.svg";
+import { ReactComponent as FileIcon } from "../../../images/icons/file-icon.svg";
 
-export default function CodeBlock({ children }) {
+interface Props {
+  children: ReactNode;
+  fileName: string;
+}
+
+export default function CodeBlock({ children, fileName }: Props) {
   const { selectedPreviewNumber } = usePreviewContext();
   const [prevSelectedCode, setPrevSelectedCode] = useState<number>(1);
-
-  const getElements = (): {
-    codeBlock: HTMLElement;
-    codesArray: NodeListOf<Element>;
-  } => {
-    const codeBlock = document.getElementById("code-block");
-    const codesArray = codeBlock.querySelectorAll('[class^="Code_Container_"]');
-    return { codeBlock, codesArray };
-  };
+  const [copyText, setCopyText] = useState<string>("Copy");
+  const preTag = useRef<HTMLPreElement>();
 
   const highlightCodeBlock = () => {
-    const { codeBlock, codesArray } = getElements();
-    codesArray.forEach((element: HTMLElement, id) => {
-      if (id + 1 === prevSelectedCode || id + 1 === selectedPreviewNumber) {
-        element.classList.toggle("highlitedCode");
-        if (id + 1 === selectedPreviewNumber) {
-          const positionFromTopOfCodeBlock = element.offsetTop - 180;
-          codeBlock.scrollTop = positionFromTopOfCodeBlock;
-        }
-      }
-    });
+    const codeBlock = document.getElementById("code-block");
+    const previousCodeBlock = document.getElementById(
+      `code-block-${prevSelectedCode}`
+    );
+    const currentCodeBlock = document.getElementById(
+      `code-block-${selectedPreviewNumber}`
+    );
+
+    if (previousCodeBlock) {
+      previousCodeBlock.classList.remove("highlightedCode");
+    }
+
+    if (currentCodeBlock) {
+      currentCodeBlock.classList.add("highlightedCode");
+
+      const positionFromTopOfCodeBlock = currentCodeBlock.offsetTop - 180;
+      codeBlock.scrollTop = positionFromTopOfCodeBlock;
+    }
+
     setPrevSelectedCode(selectedPreviewNumber);
+  };
+
+  const copyToClipboard = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    if (preTag.current) {
+      const copyText = preTag.current.textContent;
+      navigator.clipboard.writeText(copyText);
+      setCopyText("Copied");
+      setTimeout(() => {
+        setCopyText("Copy");
+      }, 1500);
+    }
   };
 
   useEffect(() => {
@@ -34,13 +56,30 @@ export default function CodeBlock({ children }) {
   }, [selectedPreviewNumber]);
 
   useEffect(() => {
-    const { codesArray } = getElements();
-    codesArray[0] && codesArray[0].classList.add("highlitedCode");
+    const initialSelectedCodeBlock = document.getElementById(
+      `code-block-${selectedPreviewNumber}`
+    );
+
+    if (initialSelectedCodeBlock) {
+      initialSelectedCodeBlock.classList.add("highlightedCode");
+    }
   }, []);
 
   return (
-    <div className={styles.Container} id="code-block">
-      {children}
+    <div className={styles.CodeBlockContainer} id="code-block">
+      <div className={styles.Toolbar}>
+        {fileName && (
+          <span className={styles.FileName}>
+            <FileIcon />
+            <span>{fileName}</span>
+          </span>
+        )}
+        <button className={styles.CopyButton} onClick={copyToClipboard}>
+          <ClipboardIcon className="w-3 h-3" />
+          <span>{copyText}</span>
+        </button>
+      </div>
+      <pre ref={preTag}>{children}</pre>
     </div>
   );
 }
