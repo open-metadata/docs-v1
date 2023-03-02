@@ -1,12 +1,16 @@
 .Container {
   display: grid;
-  grid-template-columns: auto 50%;
+  grid-template-columns: auto 60%;
   align-items: center;
   margin-top: 40px;
   cursor: pointer;
 }
 
-.HighlightedStep img {
+.StepVisualInfoContainer img {
+  margin-top: 8px;
+}
+
+.HighlightedStep > .StepVisualInfoContainer > :first-child {
   border: 1px solid var(--primary-color);
   border-radius: 8px;
   box-shadow: 4px 4px 4px var(--default-border-color);
