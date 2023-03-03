@@ -5,7 +5,9 @@ import styles from "./CodePreview.module.css";
 export default function CodePreview({ children }) {
   return (
     <CodePreviewContextProvider>
-      <div className={styles.Container}>{children}</div>
+      <div className={styles.Container} id="code-preview-container">
+        {children}
+      </div>
     </CodePreviewContextProvider>
   );
 }

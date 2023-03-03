@@ -37,7 +37,7 @@ h6 {
 
 b,
 strong {
-  font-weight: 500;
+  font-weight: 600;
 }
 
 p {
@@ -229,7 +229,7 @@ code::-webkit-scrollbar {
   display: block;
 }
 
-.highlitedCode pre {
+.highlightedCode {
   background-color: #1a2652;
 }
 

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { ReactNode, useEffect, useState } from "react";
 import classNames from "classnames";
 import Prism from "prismjs";
 import "prismjs/components/prism-jsx";
@@ -17,7 +17,7 @@ import "prismjs/plugins/normalize-whitespace/prism-normalize-whitespace";
 import styles from "./Code.module.css";
 import Image from "../Image/Image";
 
-export default function Code({ code, children, language, img, lines }) {
+export default function Code({ code, children, language, img, srNumber }) {
   const [codeElement, setCodeElement] = useState<JSX.Element>();
 
   useEffect(() => {
@@ -31,6 +31,14 @@ export default function Code({ code, children, language, img, lines }) {
     };
   }, [codeElement]);
 
+  const getWrappedCodeElement = (codeElement: ReactNode) => {
+    if (srNumber) {
+      return codeElement;
+    } else {
+      return <pre>{codeElement}</pre>;
+    }
+  };
+
   useEffect(() => {
     let customCode = code !== undefined ? code : children;
     let languageClass = `language-${language}`;
@@ -42,31 +50,30 @@ export default function Code({ code, children, language, img, lines }) {
 
     if (img) {
       setCodeElement(
-        <div className={styles.Container}>
+        <div className={styles.CodeContainer}>
           <Image src={img} clean={true} />
-          <pre>
+
+          {getWrappedCodeElement(
             <code className={languageClass}>{customCode}</code>
-          </pre>
-        </div>
-      );
-    } else if (lines) {
-      setCodeElement(
-        <div className={classNames(styles.Container, styles.LineHighlight)}>
-          <pre data-line={lines}>
-            <code className={languageClass}>{customCode}</code>
-          </pre>
+          )}
         </div>
       );
     } else {
       setCodeElement(
-        <div className={styles.Container}>
-          <pre>
+        <div
+          id={srNumber ? `code-block-${srNumber}` : null}
+          className={classNames(
+            styles.CodeContainer,
+            srNumber ? styles.CodeWithSrNumber : ""
+          )}
+        >
+          {getWrappedCodeElement(
             <code className={languageClass}>{customCode}</code>
-          </pre>
+          )}
         </div>
       );
     }
-  }, [img, code, children, language, lines]);
+  }, [img, code, children, language]);
 
   return codeElement;
 }

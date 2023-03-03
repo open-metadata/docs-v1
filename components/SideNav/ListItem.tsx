@@ -27,10 +27,12 @@ export default function ListItem({
     setIsOpen((open) => !open);
   };
 
+  const urlWithVersion = getUrlWithVersion(item.url);
+
   const linkItem = useMemo(
     () => (
       <>
-        <Link legacyBehavior href={getUrlWithVersion(item.url)}>
+        <Link legacyBehavior href={urlWithVersion}>
           <a
             className={classNames(
               styles.Link,
