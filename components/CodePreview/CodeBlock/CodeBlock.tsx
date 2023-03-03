@@ -1,8 +1,9 @@
-import React, { ReactNode, useEffect, useRef, useState } from "react";
+import React, { ReactNode, useEffect, useMemo, useRef, useState } from "react";
 import { usePreviewContext } from "../../../context/CodePreviewContext";
 import styles from "../../common/Code/Code.module.css";
 import { ReactComponent as ClipboardIcon } from "../../../images/icons/clipboard.svg";
 import { ReactComponent as FileIcon } from "../../../images/icons/file-icon.svg";
+import { uniqueId } from "lodash";
 
 interface Props {
   children: ReactNode;
@@ -14,9 +15,10 @@ export default function CodeBlock({ children, fileName }: Props) {
   const [prevSelectedCode, setPrevSelectedCode] = useState<number>(1);
   const [copyText, setCopyText] = useState<string>("Copy");
   const preTag = useRef<HTMLPreElement>();
+  const codeBlockId = useMemo(() => uniqueId("code-block-container-"), []);
 
   const highlightCodeBlock = () => {
-    const codeBlock = document.getElementById("code-block");
+    const codeBlock = document.getElementById(codeBlockId);
     const previousCodeBlock = document.getElementById(
       `code-block-${prevSelectedCode}`
     );
@@ -66,7 +68,7 @@ export default function CodeBlock({ children, fileName }: Props) {
   }, []);
 
   return (
-    <div className={styles.CodeBlockContainer} id="code-block">
+    <div className={styles.CodeBlockContainer} id={codeBlockId}>
       <div className={styles.Toolbar}>
         {fileName && (
           <span className={styles.FileName}>
