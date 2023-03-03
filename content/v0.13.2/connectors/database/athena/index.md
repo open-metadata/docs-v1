@@ -5,21 +5,25 @@ slug: /connectors/database/athena
 
 # Athena
 
-<Table>
+{% multiTablesWrapper %}
 
-| Stage | Metadata | Query Usage | Data Profiler | Data Quality |       Lineage       | DBT | Supported Versions |
-| :---: | :------: | :---------: | :-----------: | :----------: | :-----------------: | :-: | :----------------: |
-| PROD  |    ✅    |     ❌      |      ✅       |      ✅      | Partially via Views | ✅  |         --         |
+| Feature            | Status                       |
+| :----------------- | :--------------------------- |
+| Metadata           | {% icon iconName="check" /%} |
+| Query Usage        | {% icon iconName="cross" /%} |
+| Data Profiler      | {% icon iconName="check" /%} |
+| Data Quality       | {% icon iconName="check" /%} |
+| Lineage            | Partially via Views          |
+| DBT                | {% icon iconName="check" /%} |
+| Supported Versions | --                           |
 
-</Table>
+| Feature      | Status                       |
+| :----------- | :--------------------------- |
+| Lineage      | Partially via Views          |
+| Table-level  | {% icon iconName="check" /%} |
+| Column-level | {% icon iconName="check" /%} |
 
-<Table>
-
-|       Lineage       | Table-level | Column-level |
-| :-----------------: | :---------: | :----------: |
-| Partially via Views |     ✅      |      ✅      |
-
-</Table>
+{% /multiTablesWrapper %}
 
 In this section, we provide guides and references to use the Athena connector.
 
@@ -33,22 +37,20 @@ Configure and schedule Athena metadata and profiler workflows from the OpenMetad
 If you don't want to use the OpenMetadata Ingestion container to configure the workflows via the UI, then you can check
 the following docs to connect using Airflow SDK or with the CLI.
 
-<TileContainer>
-  <Tile
-    icon="air"
+{% tilesContainer %}
+
+{% tile
     title="Ingest with Airflow"
-    text="Configure the ingestion using Airflow SDK"
+    description="Configure the ingestion using Airflow SDK"
     link="/connectors/database/athena/airflow"
-    size="half"
-  />
-  <Tile
-    icon="account_tree"
+  / %}
+{% tile
     title="Ingest with the CLI"
-    text="Run a one-time ingestion using the metadata CLI"
+    description="Run a one-time ingestion using the metadata CLI"
     link="/connectors/database/athena/cli"
-    size="half"
-  />
-</TileContainer>
+  / %}
+
+{% /tilesContainer %}
 
 ## Requirements
 
@@ -61,44 +63,71 @@ custom Airflow plugins to handle the workflow deployment.
 
 ## Metadata Ingestion
 
-### 1. Visit the Services Page
+{% stepsContainer %}
 
-The first step is ingesting the metadata from your sources. Under
-Settings, you will find a Services link an external source system to
-OpenMetadata. Once a service is created, it can be used to configure
+{% step srNumber=1 %}
+
+{% stepDescription title="1. Visit the Services Page" %}
+
+The first step is to ingesting the metadata from your sources. To do that create a service connection first. Once a service is created, it can be used to configure
 metadata, usage, and profiler workflows.
 
-To visit the Services page, select Services from the Settings menu.
+To visit the Database Services page, click on 'Settings' in the top navigation bar and select 'Databases' from left panel.
 
-<Image
-src="/images/openmetadata/connectors/visit-services.png"
+{% /stepDescription %}
+
+{% stepVisualInfo %}
+
+{% image
+src="/images/openmetadata/connectors/visit-database-service-page.png"
 alt="Visit Services Page"
-caption="Find Services under the Settings menu"
-/>
+caption="Find Databases option on left panel of the settings page" /%}
 
-### 2. Create a New Service
+{% /stepVisualInfo %}
 
-Click on the Add New Service button to start the Service creation.
+{% /step %}
 
-<Image
-src="/images/openmetadata/connectors/create-service.png"
+{% step srNumber=2 %}
+
+{% stepDescription title="2. Create a New Service" %}
+
+Click on the 'Add New Service' button to start the Service creation.
+
+{% /stepDescription %}
+
+{% stepVisualInfo %}
+
+{% image
+src="/images/openmetadata/connectors/create-database-service.png"
 alt="Create a new service"
-caption="Add a new Service from the Services page"
-/>
+caption="Add a new Service from the Database Services page" /%}
 
-### 3. Select the Service Type
+{% /stepVisualInfo %}
+
+{% /step %}
+
+{% step srNumber=3 %}
+
+{% stepDescription title="3. Select the Service Type" %}
 
 Select Athena as the service type and click Next.
 
-<div className="w-100 flex justify-center">
-<Image
+{% /stepDescription %}
+
+{% stepVisualInfo %}
+
+{% image
   src="/images/openmetadata/connectors/athena/select-service.png"
   alt="Select Service"
-  caption="Select your service from the list"
-/>
-</div>
+  caption="Select your service from the list" /%}
 
-### 4. Name and Describe your Service
+{% /stepVisualInfo %}
+
+{% /step %}
+
+{% step srNumber=4 %}
+
+{% stepDescription title="4. Name and Describe your Service" %}
 
 Provide a name and description for your service as illustrated below.
 
@@ -109,39 +138,62 @@ a name that distinguishes your deployment from other services, including
 the other {connector} services that you might be ingesting metadata
 from.
 
-<div className="w-100 flex justify-center">
-<Image
+{% /stepDescription %}
+
+{% stepVisualInfo %}
+
+{% image
   src="/images/openmetadata/connectors/athena/add-new-service.png"
   alt="Add New Service"
-  caption="Provide a Name and description for your Service"
-/>
-</div>
+  caption="Provide a Name and description for your Service" /%}
 
-### 5. Configure the Service Connection
+{% /stepVisualInfo %}
+
+{% /step %}
+
+{% step srNumber=5 %}
+
+{% stepDescription title="5. Configure the Service Connection" %}
 
 In this step, we will configure the connection settings required for
 this connector. Please follow the instructions below to ensure that
 you've configured the connector to read from your athena service as
 desired.
 
-<div className="w-100 flex justify-center">
-<Image
+{% /stepDescription %}
+
+{% stepVisualInfo %}
+
+{% image
   src="/images/openmetadata/connectors/athena/service-connection.png"
   alt="Configure service connection"
-  caption="Configure the service connection by filling the form"
-/>
-</div>
+  caption="Configure the service connection by filling the form" /%}
+
+{% /stepVisualInfo %}
+
+{% /step %}
+
+{% step srNumber=6 %}
+
+{% stepDescription title="6. Test the Connection" %}
 
 Once the credentials have been added, click on `Test Connection` and Save
 the changes.
 
-<div className="w-100 flex justify-center">
-<Image
+{% /stepDescription %}
+
+{% stepVisualInfo %}
+
+{% image
   src="/images/openmetadata/connectors/test-connection.png"
   alt="Test Connection"
-  caption="Test the connection and save the Service"
-/>
-</div>
+  caption="Test the connection and save the Service" /%}
+
+{% /stepVisualInfo %}
+
+{% /step %}
+
+{% extraContent parentTagName="stepsContainer" %}
 
 #### Connection Options
 
@@ -158,16 +210,29 @@ the changes.
   - In case you are using Single-Sign-On (SSO) for authentication, add the `authenticator` details in the Connection Arguments as a Key-Value pair as follows: `"authenticator" : "sso_login_url"`
   - In case you authenticate with SSO using an external browser popup, then add the `authenticator` details in the Connection Arguments as a Key-Value pair as follows: `"authenticator" : "externalbrowser"`
 
-### 6. Configure Metadata Ingestion
+{% /extraContent %}
+
+{% step srNumber=7 %}
+
+{% stepDescription title="7. Configure Metadata Ingestion" %}
 
 In this step we will configure the metadata ingestion pipeline,
 Please follow the instructions below
 
-<Image
+{% /stepDescription %}
+
+{% stepVisualInfo %}
+
+{% image
 src="/images/openmetadata/connectors/configure-metadata-ingestion-database.png"
 alt="Configure Metadata Ingestion"
-caption="Configure Metadata Ingestion Page"
-/>
+caption="Configure Metadata Ingestion Page" /%}
+
+{% /stepVisualInfo %}
+
+{% /step %}
+
+{% extraContent parentTagName="stepsContainer" %}
 
 #### Metadata Ingestion Options
 
@@ -187,7 +252,11 @@ caption="Configure Metadata Ingestion Page"
 - **Mark Deleted Tables (toggle)**: Set the Mark Deleted Tables toggle to flag tables as soft-deleted if they are not present anymore in the source system.
 - **Mark Deleted Tables from Filter Only (toggle)**: Set the Mark Deleted Tables from Filter Only toggle to flag tables as soft-deleted if they are not present anymore within the filtered schema or database only. This flag is useful when you have more than one ingestion pipelines. For example if you have a schema
 
-### 7. Schedule the Ingestion and Deploy
+{% /extraContent %}
+
+{% step srNumber=8 %}
+
+{% stepDescription title="8. Schedule the Ingestion and Deploy" %}
 
 Scheduling can be set up at an hourly, daily, or weekly cadence. The
 timezone is in UTC. Select a Start Date to schedule for ingestion. It is
@@ -199,27 +268,45 @@ click Deploy to create the service and schedule metadata ingestion.
 If something doesn't look right, click the Back button to return to the
 appropriate step and change the settings as needed.
 
-<Image
-src="/images/openmetadata/connectors/schedule.png"
-alt="Schedule the Workflow"
-caption="Schedule the Ingestion Pipeline and Deploy"
-/>
-
 After configuring the workflow, you can click on Deploy to create the
 pipeline.
 
-### 8. View the Ingestion Pipeline
+{% /stepDescription %}
+
+{% stepVisualInfo %}
+
+{% image
+src="/images/openmetadata/connectors/schedule.png"
+alt="Schedule the Workflow"
+caption="Schedule the Ingestion Pipeline and Deploy" /%}
+
+{% /stepVisualInfo %}
+
+{% /step %}
+
+{% step srNumber=9 %}
+
+{% stepDescription title="9. View the Ingestion Pipeline" %}
 
 Once the workflow has been successfully deployed, you can view the
 Ingestion Pipeline running from the Service Page.
 
-<Image
+{% /stepDescription %}
+
+{% stepVisualInfo %}
+
+{% image
 src="/images/openmetadata/connectors/view-ingestion-pipeline.png"
 alt="View Ingestion Pipeline"
-caption="View the Ingestion Pipeline from the Service Page"
-/>
+caption="View the Ingestion Pipeline from the Service Page" /%}
 
-### 9. Workflow Deployment Error
+{% /stepVisualInfo %}
+
+{% /step %}
+
+{% step srNumber=10 %}
+
+{% stepDescription title="10. Workflow Deployment Error" %}
 
 If there were any errors during the workflow deployment process, the
 Ingestion Pipeline Entity will still be created, but no workflow will be
@@ -227,37 +314,41 @@ present in the Ingestion container.
 
 You can then edit the Ingestion Pipeline and Deploy it again.
 
-<Image
-src="/images/openmetadata/connectors/workflow-deployment-error.png"
-alt="Workflow Deployment Error"
-caption="Edit and Deploy the Ingestion Pipeline"
-/>
-
 From the Connection tab, you can also Edit the Service if needed.
 
-## Data Profiler
+{% /stepDescription %}
 
-<Tile
-icon="schema"
-title="Profiler Workflow"
-text="Learn more about how to configure the Data Profiler from the UI."
-link="/connectors/ingestion/workflows/profiler"
-/>
+{% stepVisualInfo %}
 
-## Data Quality
+{% image
+src="/images/openmetadata/connectors/workflow-deployment-error.png"
+alt="Workflow Deployment Error"
+caption="Edit and Deploy the Ingestion Pipeline" /%}
 
-<Tile
-icon="air"
-title="Data Quality Workflow"
-text="Learn more about how to configure the Data Quality tests from the UI."
-link="/connectors/ingestion/workflows/data-quality"
-/>
+{% /stepVisualInfo %}
 
-## dbt Integration
+{% /step %}
 
-<Tile
-icon="mediation"
-title="dbt Integration"
-text="Learn more about how to ingest dbt models' definitions and their lineage."
-link="/connectors/ingestion/workflows/dbt"
-/>
+{% /stepsContainer %}
+
+## Related
+
+{% tilesContainer %}
+
+{% tile
+  title="Profiler Workflow"
+  description="Learn more about how to configure the Data Profiler from the UI."
+  link="/connectors/ingestion/workflows/profiler" /%}
+
+{% tile
+  title="Data Quality Workflow"
+  description="Learn more about how to configure the Data Quality tests from the UI."
+  link="/connectors/ingestion/workflows/data-quality" /%}
+
+{% tile
+  icon="mediation"
+  title="dbt Integration"
+  description="Learn more about how to ingest dbt models' definitions and their lineage."
+  link="/connectors/ingestion/workflows/dbt" /%}
+
+{% /tilesContainer %}
