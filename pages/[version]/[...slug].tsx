@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import {
   getArticleSlugFromString,
   getArticleSlugs,
@@ -25,6 +25,7 @@ import { isEmpty, startCase } from "lodash";
 import SkeletonLoader from "../../components/common/SkeletonLoader/SkeletonLoader";
 import { SKELETON_PARAGRAPH_WIDTHS } from "../../constants/SkeletonLoader.constants";
 import { useRouteChangingContext } from "../../context/RouteChangingContext";
+import { useSideNavCollapseContextContext } from "../../context/SideNavCollapseContext";
 
 interface Props {
   menu: MenuItem[];
@@ -38,10 +39,9 @@ const SCROLLING_OFFSET = 152;
 export default function Article({ menu, content, slug }: Props) {
   const router = useRouter();
   const { isRouteChanging } = useRouteChangingContext();
-  const [collapsedNav, setCollapsedNav] = useState(false);
-  const handleCollapsedNav = (value: boolean) => {
-    setCollapsedNav(value);
-  };
+  const { sideNavCollapsed, onChangeSideNavCollapsed } =
+    useSideNavCollapseContextContext();
+
   const category = getCategoryByIndex(router.asPath, 2);
 
   const ast = Markdoc.parse(content);
@@ -75,22 +75,31 @@ export default function Article({ menu, content, slug }: Props) {
   }, []);
 
   useEffect(() => {
-    setCollapsedNav(isEmpty(item?.children));
+    onChangeSideNavCollapsed(isEmpty(item?.children));
   }, [item]);
+
+  useEffect(() => {
+    setTimeout(() => {
+      const codePreviewComponent = document.getElementById(
+        "code-preview-container"
+      );
+      if (codePreviewComponent) {
+        onChangeSideNavCollapsed(true);
+      }
+    }, 50);
+  }, [router]);
 
   return (
     <ErrorBoundary>
       <StepsContextProvider>
         <TopNav />
-        <LayoutSelector collapsedNav={collapsedNav}>
+        <LayoutSelector collapsedNav={sideNavCollapsed}>
           <CategoriesNav menu={menu} />
 
           <SideNav
             category={item ? item.category : startCase(category)}
-            collapsedNav={collapsedNav}
             items={item ? item.children : []}
             loading={isRouteChanging}
-            handleCollapsedNav={handleCollapsedNav}
           />
           <main className={classNames("flex flex-col content")}>
             {isRouteChanging ? (

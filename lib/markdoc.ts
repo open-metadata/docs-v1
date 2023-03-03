@@ -16,7 +16,7 @@ import StepsContainer from "../components/Steps/StepsContainer/StepsContainer";
 import Step from "../components/Steps/Step/Step";
 import StepDescription from "../components/Steps/Step/StepDescription/StepDescription";
 import StepVisualInfo from "../components/Steps/Step/StepVisualInfo/StepVisualInfo";
-import ExtraContent from "../components/Steps/ExtraContent/ExtraContent";
+import ExtraContent from "../components/ExtraContent/ExtraContent";
 import Tile from "../components/common/Tiles/Tile/Tile";
 import CustomAnchorNode from "../components/common/CustomAnchorNode/CustomAnchorNode";
 import TilesContainer from "../components/common/Tiles/TilesContainer/TilesContainer";

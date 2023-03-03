@@ -1,15 +1,23 @@
+import Link from "next/link";
 import React, { ReactNode } from "react";
 import { getUrlWithVersion } from "../../../utils/CommonUtils";
 
 interface Props {
   href: string;
   children: ReactNode;
-  isExternalLink: boolean;
 }
 
-function CustomAnchorNode({ href, children, isExternalLink = false }: Props) {
-  return (
-    <a href={isExternalLink ? href : getUrlWithVersion(href)}>{children}</a>
+function CustomAnchorNode({ href, children }: Props) {
+  const regexToIdentifyLink = /^(http|https|ftp|www)/g;
+
+  const isExternalLink = href.search(regexToIdentifyLink) !== -1;
+
+  return isExternalLink ? (
+    <a href={href} target="_blank">
+      {children}
+    </a>
+  ) : (
+    <Link href={getUrlWithVersion(href)}>{children}</Link>
   );
 }
 
