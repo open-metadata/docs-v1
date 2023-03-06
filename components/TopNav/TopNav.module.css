@@ -30,19 +30,3 @@
   width: 50px;
   height: 35px;
 }
-
-.VersionSelector {
-  margin-left: 32px;
-  margin-top: 4px;
-  height: 28px;
-  width: 160px;
-
-  background-color: var(--select-background-color);
-  border: 1px solid var(--select-border-color);
-  border-radius: 6px;
-  padding: 0px 16px;
-  color: var(--primary-color);
-  font-weight: 500;
-  font-size: 14px;
-  outline: none;
-}
