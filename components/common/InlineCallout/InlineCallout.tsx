@@ -29,15 +29,16 @@ const InlineCallout = ({
   }
 
   return (
-    <Link href={isExternalLink ? href : getUrlWithVersion(href)}>
-      <section className={classNames(styles.Container)}>
-        <span className={classNames(styles.IconContainer)}>
-          <span>{icon}</span>
-        </span>
-        <span className={styles.Text}>
-          <span className={classNames(styles.Link)}>{bold}</span> {children}
-        </span>
-      </section>
+    <Link
+      className={classNames(styles.Container)}
+      href={isExternalLink ? href : getUrlWithVersion(href)}
+    >
+      <span className={classNames(styles.IconContainer)}>
+        <span>{icon}</span>
+      </span>
+      <span className={styles.Text}>
+        <span className={classNames(styles.Link)}>{bold}</span> {children}
+      </span>
     </Link>
   );
 };
