@@ -6,10 +6,10 @@
   border: 1px solid var(--default-border-color);
   border-radius: 4px;
   cursor: pointer;
+  transition: box-shadow 0.2s ease-in-out;
 }
 
 .Container:hover {
-  border-color: rgb(192, 224, 255);
   box-shadow: 0 0 0 1px rgba(50, 50, 93, 0.01),
     0 7px 14px 0 rgba(50, 50, 93, 0.1), 0 3px 6px 0 rgba(0, 0, 0, 0.02);
 }

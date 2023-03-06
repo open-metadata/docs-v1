@@ -4,16 +4,19 @@
 
 :root {
   --top-nav-height: 75px;
-  --main-nav-height: 37px;
+  --main-nav-height: 42px;
   --side-nav-width: min(20%, 300px);
   --content-div-width: min(17%, 250px);
   --default-border-color: #dce3ec;
-  --primary-color: rgb(24, 144, 255);
+  --primary-color: #5469d4;
+  --select-background-color: #f4f7ff;
+  --select-border-color: #e9eefc;
   --homepage-container-px: 130px;
   --default-text-color: rgb(60, 66, 87);
   --gray-text-color: rgba(60, 66, 87, 0.7);
   --white-color: #fff;
   --top-nav-color: #f7fafc;
+  --code-background-color: #212d63;
 }
 
 body {
@@ -78,7 +81,7 @@ a {
 }
 
 li {
-  margin-top: 8px;
+  margin-top: 4px;
 }
 
 li::marker {
@@ -87,8 +90,14 @@ li::marker {
 
 ul {
   list-style: disc;
-  list-style-position: inside;
   margin-top: 16px;
+  margin-left: 16px;
+}
+
+li > ul {
+  margin-top: 0px;
+  margin-left: 16px;
+  list-style: circle;
 }
 
 ul li:first-child {
@@ -96,7 +105,7 @@ ul li:first-child {
 }
 
 pre {
-  background-color: #212d63;
+  background-color: var(--code-background-color);
 }
 
 pre,

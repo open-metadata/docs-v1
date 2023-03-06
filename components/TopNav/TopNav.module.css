@@ -23,9 +23,9 @@
 }
 
 .CloudBtn {
-  background-color: #7147e8;
+  background-color: var(--primary-color);
   padding: 0px 12px;
-  border: 1px solid #7147e8;
+  border: 1px solid var(--primary-color);
   border-radius: 24px;
   width: 50px;
   height: 35px;
@@ -37,8 +37,8 @@
   height: 28px;
   width: 160px;
 
-  background-color: #ebf6ff;
-  border: 1px solid #dff0ff;
+  background-color: var(--select-background-color);
+  border: 1px solid var(--select-border-color);
   border-radius: 6px;
   padding: 0px 16px;
   color: var(--primary-color);
