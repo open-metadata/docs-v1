@@ -1,0 +1,56 @@
+.Container {
+  font-size: 14px;
+  font-weight: 500;
+  position: relative;
+}
+
+.Selector {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-left: 32px;
+  padding: 0px 12px;
+  cursor: pointer;
+  border-radius: 6px;
+  border: 1px solid var(--select-border-color);
+  height: var(--select-dropdown-default-height);
+  width: var(--select-dropdown-default-width);
+  color: var(--primary-color);
+  background-color: var(--select-background-color);
+}
+
+.ArrowIcon {
+  height: 12px;
+  width: 12px;
+}
+
+.DropdownContainer {
+  display: none;
+  position: absolute;
+  padding: 8px 0px;
+  left: 32px;
+  border-radius: 4px;
+  border: 0.5px solid var(--default-border-color);
+  top: calc(var(--select-dropdown-default-height) + 4px);
+  background-color: var(--white-color);
+  min-width: var(--select-dropdown-default-width);
+  box-shadow: 0 0 0 1px rgb(136 152 170 / 5%), 0 15px 35px 0 rgb(49 49 93 / 5%),
+    0 5px 15px 0 rgb(0 0 0 / 5%);
+  z-index: 100;
+}
+
+.VisibleDropdown {
+  display: flex;
+  flex-direction: column;
+}
+
+.SelectOptions {
+  padding: 4px 12px;
+}
+
+.SelectOptions:hover {
+  background-color: #fafafa;
+  color: var(--primary-color);
+  cursor: pointer;
+}
