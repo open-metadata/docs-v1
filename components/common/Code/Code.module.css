@@ -3,7 +3,6 @@
   @apply relative !important;
   overflow-y: hidden;
   min-width: 100%;
-  width: fit-content;
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
@@ -14,7 +13,7 @@
 
 .CodeBlockContainer {
   overflow-x: auto;
-  background-color: #212d63;
+  background-color: var(--code-background-color);
   border-radius: 4px;
   height: fit-content;
   position: sticky;
@@ -30,10 +29,13 @@
 .CodeBlockContainer > pre {
   padding-top: 8px;
   opacity: 75%;
+  width: fit-content;
+  min-width: 100%;
 }
 
 .CodeBlockContainer > pre > .CodeContainer {
   margin: 0px;
+  min-width: 100%;
 }
 .CodeBlockContainer > pre > .CodeContainer pre {
   padding-top: 0px;
@@ -54,7 +56,7 @@
 .CodeContainer code,
 .CodeBlockContainer pre,
 .CodeBlockContainer code {
-  @apply overflow-auto max-w-full whitespace-pre;
+  @apply overflow-auto whitespace-pre;
   font-size: 14px;
 }
 
@@ -108,10 +110,11 @@
 .CodeBlockContainer > .Toolbar {
   position: sticky;
   top: 0px;
+  left: 0px;
   z-index: 30;
   padding: 8px 20px;
   border-bottom: 0.1px solid #a4cdfe;
-  background-color: #212d63;
+  background-color: var(--code-background-color);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -125,7 +128,7 @@
   font-weight: 500;
   padding: 2px 8px;
   background-color: #a4cdfe;
-  color: #212d63;
+  color: var(--code-background-color);
   border: 0.5px solid #a4cdfe;
   border-radius: 16px;
 }
@@ -141,10 +144,11 @@
   border-radius: 8px;
   color: white;
 }
+
 .Toolbar > .CopyButton:hover {
   background-color: #a4cdfe;
   border: 0.5px solid #a4cdfe;
-  color: #212d63;
+  color: var(--code-background-color);
 }
 
 /* Code block adjustments */
