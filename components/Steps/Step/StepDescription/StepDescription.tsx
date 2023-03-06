@@ -1,6 +1,5 @@
 import React, { ReactNode, useMemo, useRef } from "react";
 import { ReactComponent as StepIcon } from "../../../../images/icons/step-icon.svg";
-import { ReactComponent as SelectedStepIcon } from "../../../../images/icons/selected-step-icon.svg";
 import styles from "./StepDescription.module.css";
 import { useStepContext } from "../../../../context/StepsContext";
 import {
@@ -37,7 +36,15 @@ function StepDescription({ children, title }: StepDescriptionProp) {
   return (
     <div className={styles.Container} ref={stepDescriptionContainer}>
       <span className={styles.Heading}>
-        {isStepSelected ? <SelectedStepIcon /> : <StepIcon />}
+        <span
+          className={
+            isStepSelected
+              ? styles.SelectedStepIcon
+              : styles.NonSelectedStepIcon
+          }
+        >
+          <StepIcon />
+        </span>
         <Heading
           className={classNames(
             isStepSelected ? styles.HighlightedStepHeading : ""
