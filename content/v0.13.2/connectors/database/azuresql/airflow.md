@@ -254,22 +254,14 @@ Create a Python file in your Airflow DAGs directory with the following contents:
 #### Import necessary modules
 
 {% codeInfo srNumber=11 %}
-
-Here we are importing all the basic requirements to parse YAMLs, handle dates and build our DAG.
+The `Workflow` class that is being imported is a part of a metadata ingestion framework, which defines a process of getting data from different sources and ingesting it into a central metadata repository.
+Here we are also importing all the basic requirements to parse YAMLs, handle dates and build our DAG.
 
 {% /codeInfo %}
 
 {% codeInfo srNumber=12 %}
 **Default arguments for all tasks in the Airflow DAG.** 
-- **"owner": "user_name"**: Specifies the owner of the DAG. This is typically the name of the person or team responsible for maintaining the DAG.
-
-- **"email_on_failure": False**: Specifies whether email notifications should be sent in case of a task failure. In this case, email notifications are turned off (`False`).
-
-- **""retries": 3"**: Specifies the number of times a task should be retried in case of failure. If a task fails, it will be retried up to three times before being marked as failed.
-
-- **"retry_delay": timedelta(minutes=5)"**: Specifies the delay between task retries. In this case, the delay is set to 5 minutes.
-
-- **"execution_timeout": timedelta(minutes=60)"**: Specifies the maximum duration of time that a task should run for. If a task exceeds this duration, it will be marked as failed.
+- Default arguments dictionary contains default arguments for tasks in the DAG, including the owner's name, email address, number of retries, retry delay, and execution timeout.
 {% /codeInfo %}
 
 {% codeInfo srNumber=13 %}
@@ -277,7 +269,7 @@ Here we are importing all the basic requirements to parse YAMLs, handle dates an
 {% /codeInfo %}
 
 {% codeInfo srNumber=14 %}
-- **metadata_ingestion_workflow()**: This Python function `metadata_ingestion_workflow()` creates a Workflow object using a configuration loaded from a YAML file. It then executes the workflow, raises an exception if the execution fails, prints the workflow's current status, and finally stops the workflow execution. This function encapsulates the logic for executing a data ingestion workflow using the Airflow framework.
+- **metadata_ingestion_workflow()**: This code defines a function `metadata_ingestion_workflow()` that loads a YAML configuration, creates a `Workflow` object, executes the workflow, checks its status, prints the status to the console, and stops the workflow.
 {% /codeInfo %}
 
 {% codeInfo srNumber=15 %}
@@ -296,15 +288,16 @@ import pathlib
 import yaml
 from datetime import timedelta
 from airflow import DAG
+from metadata.config.common import load_config_file
+from metadata.ingestion.api.workflow import Workflow
+from airflow.utils.dates import days_ago
 
 try:
     from airflow.operators.python import PythonOperator
 except ModuleNotFoundError:
     from airflow.operators.python_operator import PythonOperator
 
-from metadata.config.common import load_config_file
-from metadata.ingestion.api.workflow import Workflow
-from airflow.utils.dates import days_ago
+
 ```
 
 ```python {% srNumber=12 %}
@@ -316,12 +309,16 @@ default_args = {
     "retry_delay": timedelta(minutes=5),
     "execution_timeout": timedelta(minutes=60)
 }
+
+
 ```
 
 ```python {% srNumber=13 %}
 config = """
 <your YAML configuration>
 """
+
+
 ```
 
 ```python {% srNumber=14 %}
@@ -332,6 +329,8 @@ def metadata_ingestion_workflow():
     workflow.raise_from_status()
     workflow.print_status()
     workflow.stop()
+
+
 ```
 
 ```python {% srNumber=15 %}
@@ -348,6 +347,8 @@ with DAG(
         task_id="ingest_using_recipe",
         python_callable=metadata_ingestion_workflow,
     )
+
+
 ```
 
 {% /codeBlock %}
@@ -553,24 +554,15 @@ Here, we follow a similar approach as with the metadata and usage pipelines, alt
 #### Import necessary modules
 
 {% codeInfo srNumber=28 %}
+The `ProfilerWorkflow` class that is being imported is a part of a metadata orm_profiler framework, which defines a process of extracting Profiler data. 
 
-Here we are importing all the basic requirements to parse YAMLs, handle dates and build our DAG.
+Here we are also importing all the basic requirements to parse YAMLs, handle dates and build our DAG.
 
 {% /codeInfo %}
 
 {% codeInfo srNumber=29 %}
 **Default arguments for all tasks in the Airflow DAG.** 
-
-- **"owner": "user_name"**: Specifies the owner of the DAG. This is typically the name of the person or team responsible for maintaining the DAG.
-
-- **"email_on_failure": False**: Specifies whether email notifications should be sent in case of a task failure. In this case, email notifications are turned off (`False`).
-
-- **""retries": 3"**: Specifies the number of times a task should be retried in case of failure. If a task fails, it will be retried up to three times before being marked as failed.
-
-- **"retry_delay": timedelta(seconds=10)"**: Specifies the delay between task retries. In this case, the delay is set to 10 seconds.
-
-- **"execution_timeout": timedelta(minutes=60)"**: Specifies the maximum duration of time that a task should run for. If a task exceeds this duration, it will be marked as failed.
-
+- Default arguments dictionary contains default arguments for tasks in the DAG, including the owner's name, email address, number of retries, retry delay, and execution timeout.
 {% /codeInfo %}
 
 
@@ -579,8 +571,7 @@ Here we are importing all the basic requirements to parse YAMLs, handle dates an
 {% /codeInfo %}
 
 {% codeInfo srNumber=31 %}
-- **metadata_ingestion_workflow()**: This Python function `metadata_ingestion_workflow()` creates a `ProfilerWorkflow` object using a configuration loaded from a YAML file. It then executes the workflow, raises an exception if the execution fails, prints the workflow's current status, and finally stops the workflow execution. This function encapsulates the logic for executing a data ingestion workflow using the Airflow framework.
-
+- **metadata_ingestion_workflow()**: This code defines a function `metadata_ingestion_workflow()` that loads a YAML configuration, creates a `ProfilerWorkflow` object, executes the workflow, checks its status, prints the status to the console, and stops the workflow.
 {% /codeInfo %}
 
 {% codeInfo srNumber=32 %}
@@ -597,8 +588,8 @@ Here we are importing all the basic requirements to parse YAMLs, handle dates an
 ```python {% srNumber=28 %}
 import yaml
 from datetime import timedelta
-
 from airflow import DAG
+from metadata.orm_profiler.api.workflow import ProfilerWorkflow
 
 try:
    from airflow.operators.python import PythonOperator
@@ -607,9 +598,8 @@ except ModuleNotFoundError:
 
 from airflow.utils.dates import days_ago
 
-from metadata.orm_profiler.api.workflow import ProfilerWorkflow
-```
 
+```
 ```python {% srNumber=29 %}
 default_args = {
    "owner": "user_name",
@@ -618,12 +608,16 @@ default_args = {
    "retry_delay": timedelta(seconds=10),
    "execution_timeout": timedelta(minutes=60),
 }
+
+
 ```
 
 ```python {% srNumber=30 %}
 config = """
 <your YAML configuration>
 """
+
+
 ```
 
 ```python {% srNumber=31 %}
@@ -634,6 +628,8 @@ def metadata_ingestion_workflow():
    workflow.raise_from_status()
    workflow.print_status()
    workflow.stop()
+
+
 ```
 
 ```python {% srNumber=32 %}
@@ -649,6 +645,8 @@ with DAG(
        task_id="profile_and_test_using_recipe",
        python_callable=metadata_ingestion_workflow,
    )
+
+
 ```
 
 {% /codeBlock %}
