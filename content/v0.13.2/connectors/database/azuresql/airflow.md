@@ -160,18 +160,18 @@ source:
       hostPort: hostPort
 ```
 ```yaml {% srNumber=4 %}
-      database: database_name
+      # database: database_name
 ```
 ```yaml {% srNumber=5 %}
-     # driver: ODBC Driver 18 for SQL Server (default)
+      # driver: ODBC Driver 18 for SQL Server (default)
 ```
 ```yaml {% srNumber=6 %}
       # connectionOptions:
-        # key: Value
+      #   key: value
 ```
 ```yaml {% srNumber=7 %}
       # connectionArguments:
-        # authenticator: externalbrowser
+      #   key: value
 ```
 
 ```yaml {% srNumber=8 %}
@@ -228,7 +228,9 @@ workflowConfig:
 
 We support different security providers. You can find their definitions [here](https://github.com/open-metadata/OpenMetadata/tree/main/openmetadata-spec/src/main/resources/json/schema/security/client).
 
-#### Openmetadata JWT Auth
+## Openmetadata JWT Auth
+
+- JWT tokens will allow your clients to authenticate against the OpenMetadata server. To enable JWT Tokens, you will get more details [here](/deployment/security/enable-jwt-tokens).
 
 ```yaml
 workflowConfig:
@@ -238,12 +240,8 @@ workflowConfig:
     securityConfig:
       jwtToken: "{bot_jwt_token}"
 ```
-- To enable JWT Tokens, you will get more details [here](/deployment/security/enable-jwt-tokens).
-  
-- If any issue regarding JWT Tokens, can checkout this [troubleshoot](/deployment/security/jwt-troubleshooting).
 
-- For other security providers please visit [this](/deployment/security/workflow-config-auth).
-
+- You can refer to the JWT Troubleshooting section [link](/deployment/security/jwt-troubleshooting) for any issues in your JWT configuration. If you need information on configuring the ingestion with other security providers in your bots, you can follow this doc [link](/deployment/security/workflow-config-auth).
 
 ### 2. Prepare the Ingestion DAG
 
@@ -257,25 +255,12 @@ Create a Python file in your Airflow DAGs directory with the following contents:
 
 {% codeInfo srNumber=11 %}
 
-- **yaml**: A Python package that can load YAML files and convert them into Python objects.
-
-- **timedelta**: A class from the `datetime` module used to represent a duration of time.
-
-- **DAG**: A class from the `airflow` module used to define an Airflow DAG.
-
-- **PythonOperator**: A class from the `airflow.operators.python` or `airflow.operators.python_operator` module used to define a task in an Airflow DAG that runs a Python function.
-
-- **days_ago**: A function from the `airflow.utils.dates` module used to calculate a datetime that is a certain number of days ago.
-
-- **Workflow**: A class that represents an OpenMetadata ingestion workflow.
-
-The `try-except` block is used to handle the case where the `PythonOperator` is located in different modules in different versions of Airflow. In older versions of Airflow, the `PythonOperator` is located in the `airflow.operators.python_operator` module, while in newer versions, it is located in the `airflow.operators.python` module.
+Here we are importing all the basic requirements to parse YAMLs, handle dates and build our DAG.
 
 {% /codeInfo %}
 
 {% codeInfo srNumber=12 %}
-Default arguments for all tasks in the Airflow DAG.
-
+**Default arguments for all tasks in the Airflow DAG.** 
 - **"owner": "user_name"**: Specifies the owner of the DAG. This is typically the name of the person or team responsible for maintaining the DAG.
 
 - **"email_on_failure": False**: Specifies whether email notifications should be sent in case of a task failure. In this case, email notifications are turned off (`False`).
@@ -288,17 +273,16 @@ Default arguments for all tasks in the Airflow DAG.
 {% /codeInfo %}
 
 {% codeInfo srNumber=13 %}
-- **config**: Specifies config for the profiler as we prepare above.
+- **config**: Specifies config for the metadata ingestion as we prepare above.
 {% /codeInfo %}
 
 {% codeInfo srNumber=14 %}
-- **metadata_ingestion_workflow()**: This code defines a function `metadata_ingestion_workflow()` that loads a YAML configuration, creates a `Workflow` object, executes the workflow, checks its status, prints the status to the console, and stops the workflow.
+- **metadata_ingestion_workflow()**: This Python function `metadata_ingestion_workflow()` creates a Workflow object using a configuration loaded from a YAML file. It then executes the workflow, raises an exception if the execution fails, prints the workflow's current status, and finally stops the workflow execution. This function encapsulates the logic for executing a data ingestion workflow using the Airflow framework.
 {% /codeInfo %}
 
 {% codeInfo srNumber=15 %}
-- **DAG**:  The DAG is created using the default arguments defined in the `default_args` dictionary. The DAG is set to start one day ago, is not paused upon creation, runs every 5 minutes using the cron syntax '*/5 * * * *', and does not catch up on any missed runs.
-
-The DAG contains a single task called "ingest_using_recipe", which is created using the `PythonOperator` class. The `metadata_ingestion_workflow` function is set as the callable to be executed when this task is run.
+- **DAG**: creates a DAG using the Airflow framework, and tune the DAG configurations to whatever fits with your requirements
+- For more Airflow DAGs creation details visit [here](https://github.com/open-metadata/OpenMetadata/blob/main/openmetadata-spec/src/main/resources/json/schema/metadataIngestion/databaseServiceProfilerPipeline.json).
 {% /codeInfo %}
 
 Note that from connector to connector, this recipe will always be the same.
@@ -381,7 +365,7 @@ While the `serviceName` will be the same to that was used in Metadata Ingestion,
 
 This is a sample config for the profiler:
 #### Source Configuration - Source Config
-
+- You can find all the definitions and types for the  `sourceConfig` [here](https://github.com/open-metadata/OpenMetadata/blob/main/openmetadata-spec/src/main/resources/json/schema/metadataIngestion/databaseServiceProfilerPipeline.json).
 {% codePreview %}
 
 {% codeInfoContainer %}
@@ -552,6 +536,7 @@ workflowConfig:
 
 {% /codePreview %}
 
+- You can learn more about how to configure and run the Profiler Workflow to extract Profiler data and execute the Data Quality from [here](/connectors/ingestion/workflows/profiler)
 
 
 
@@ -568,26 +553,13 @@ Here, we follow a similar approach as with the metadata and usage pipelines, alt
 #### Import necessary modules
 
 {% codeInfo srNumber=28 %}
-This code imports the necessary modules and packages to define an Airflow DAG and execute a `ProfilerWorkflow` using the `PythonOperator`.
 
-- **yaml**: A Python package that can load YAML files and convert them into Python objects.
-
-- **timedelta**: A class from the `datetime` module used to represent a duration of time.
-
-- **DAG**: A class from the `airflow` module used to define an Airflow DAG.
-
-- **PythonOperator**: A class from the `airflow.operators.python` or `airflow.operators.python_operator` module used to define a task in an Airflow DAG that runs a Python function.
-
-- **days_ago**: A function from the `airflow.utils.dates` module used to calculate a datetime that is a certain number of days ago.
-
-- **ProfilerWorkflow**: A class from the `metadata.orm_profiler.api.workflow` module that represents an OpenMetadata Profiler workflow.
-
-The `try-except` block is used to handle the case where the `PythonOperator` is located in different modules in different versions of Airflow. In older versions of Airflow, the `PythonOperator` is located in the `airflow.operators.python_operator` module, while in newer versions, it is located in the `airflow.operators.python` module.
+Here we are importing all the basic requirements to parse YAMLs, handle dates and build our DAG.
 
 {% /codeInfo %}
 
 {% codeInfo srNumber=29 %}
-Default arguments for all tasks in the Airflow DAG.
+**Default arguments for all tasks in the Airflow DAG.** 
 
 - **"owner": "user_name"**: Specifies the owner of the DAG. This is typically the name of the person or team responsible for maintaining the DAG.
 
@@ -607,11 +579,13 @@ Default arguments for all tasks in the Airflow DAG.
 {% /codeInfo %}
 
 {% codeInfo srNumber=31 %}
-- **metadata_ingestion_workflow()**: This code defines a function `metadata_ingestion_workflow()` that loads a YAML configuration, creates a `ProfilerWorkflow` object, executes the workflow, checks its status, prints the status to the console, and stops the workflow.
+- **metadata_ingestion_workflow()**: This Python function `metadata_ingestion_workflow()` creates a `ProfilerWorkflow` object using a configuration loaded from a YAML file. It then executes the workflow, raises an exception if the execution fails, prints the workflow's current status, and finally stops the workflow execution. This function encapsulates the logic for executing a data ingestion workflow using the Airflow framework.
+
 {% /codeInfo %}
 
 {% codeInfo srNumber=32 %}
-- **DAG**: Here DAG called `profiler_example` that runs a metadata ingestion workflow using the `PythonOperator`. The DAG has default arguments, a start date of one day ago, and is not paused or set to catch up on missed schedules. The `PythonOperator` calls the `metadata_ingestion_workflow()` function to execute the workflow.
+- **DAG**: creates a DAG using the Airflow framework, and tune the DAG configurations to whatever fits with your requirements
+- For more Airflow DAGs creation details visit [here](https://github.com/open-metadata/OpenMetadata/blob/main/openmetadata-spec/src/main/resources/json/schema/metadataIngestion/databaseServiceProfilerPipeline.json).
 {% /codeInfo %}
 
 

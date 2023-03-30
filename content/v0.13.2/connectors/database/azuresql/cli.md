@@ -163,15 +163,15 @@ source:
       database: database_name
 ```
 ```yaml {% srNumber=5 %}
-     # driver: ODBC Driver 18 for SQL Server (default)
+      # driver: ODBC Driver 18 for SQL Server (default)
 ```
 ```yaml {% srNumber=6 %}
       # connectionOptions:
-        # key: Value
+      #   key: value
 ```
 ```yaml {% srNumber=7 %}
       # connectionArguments:
-        # authenticator: externalbrowser
+      #   key: value
 ```
 
 ```yaml {% srNumber=8 %}
@@ -228,7 +228,9 @@ workflowConfig:
 
 We support different security providers. You can find their definitions [here](https://github.com/open-metadata/OpenMetadata/tree/main/openmetadata-spec/src/main/resources/json/schema/security/client).
 
-#### Openmetadata JWT Auth
+## Openmetadata JWT Auth
+
+- JWT tokens will allow your clients to authenticate against the OpenMetadata server. To enable JWT Tokens, you will get more details [here](/deployment/security/enable-jwt-tokens).
 
 ```yaml
 workflowConfig:
@@ -238,11 +240,8 @@ workflowConfig:
     securityConfig:
       jwtToken: "{bot_jwt_token}"
 ```
-- To enable JWT Tokens, you will get more details [here](/deployment/security/enable-jwt-tokens).
-  
-- If any issue regarding JWT Tokens, can checkout this [troubleshoot](/deployment/security/jwt-troubleshooting).
 
-- For other security providers please visit [this](/deployment/security/workflow-config-auth).
+- You can refer to the JWT Troubleshooting section [link](/deployment/security/jwt-troubleshooting) for any issues in your JWT configuration. If you need information on configuring the ingestion with other security providers in your bots, you can follow this doc [link](/deployment/security/workflow-config-auth).
 
 ### 2. Run with the CLI
 
@@ -266,7 +265,7 @@ While the `serviceName` will be the same to that was used in Metadata Ingestion,
 
 This is a sample config for the profiler:
 #### Source Configuration - Source Config
-
+- You can find all the definitions and types for the  `sourceConfig` [here](https://github.com/open-metadata/OpenMetadata/blob/main/openmetadata-spec/src/main/resources/json/schema/metadataIngestion/databaseServiceProfilerPipeline.json).
 {% codePreview %}
 
 {% codeInfoContainer %}
@@ -436,6 +435,8 @@ workflowConfig:
 {% /codeBlock %}
 
 {% /codePreview %}
+
+- You can learn more about how to configure and run the Profiler Workflow to extract Profiler data and execute the Data Quality from [here](/connectors/ingestion/workflows/profiler)
 
 ### 2. Run with the CLI
 
