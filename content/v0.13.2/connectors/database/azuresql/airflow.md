@@ -238,7 +238,7 @@ workflowConfig:
     securityConfig:
       jwtToken: "{bot_jwt_token}"
 ```
-- To enable JWT Tokens, you wll get more details [here](/deployment/security/enable-jwt-tokens).
+- To enable JWT Tokens, you will get more details [here](/deployment/security/enable-jwt-tokens).
   
 - If any issue regarding JWT Tokens, can checkout this [troubleshoot](/deployment/security/jwt-troubleshooting).
 
