@@ -53,6 +53,8 @@ It's a tag for which will contain explanation or information about a chuck of co
 
 1. srNumber (type - Number)
    It is the step number and the code chunk number you want to highlight for the given information.
+   
+**Note: srNumber is also a unique id to identify a code block. Make sure that you have srNumber values unique on a single page. That is even if multiple codePreview components are used in a page, the srNumbers should all be unique and should not repeat on a single page.**
 
 ### 4. codeBlock -
 
