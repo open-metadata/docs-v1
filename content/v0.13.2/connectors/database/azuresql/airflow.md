@@ -255,7 +255,7 @@ Create a Python file in your Airflow DAGs directory with the following contents:
 
 #### Import necessary modules
 
-{% codeInfo srNumber=1 %}
+{% codeInfo srNumber=11 %}
 
 - **yaml**: A Python package that can load YAML files and convert them into Python objects.
 
@@ -273,7 +273,7 @@ The `try-except` block is used to handle the case where the `PythonOperator` is 
 
 {% /codeInfo %}
 
-{% codeInfo srNumber=2 %}
+{% codeInfo srNumber=12 %}
 Default arguments for all tasks in the Airflow DAG.
 
 - **"owner": "user_name"**: Specifies the owner of the DAG. This is typically the name of the person or team responsible for maintaining the DAG.
@@ -287,15 +287,15 @@ Default arguments for all tasks in the Airflow DAG.
 - **"execution_timeout": timedelta(minutes=60)"**: Specifies the maximum duration of time that a task should run for. If a task exceeds this duration, it will be marked as failed.
 {% /codeInfo %}
 
-{% codeInfo srNumber=3 %}
+{% codeInfo srNumber=13 %}
 - **config**: Specifies config for the profiler as we prepare above.
 {% /codeInfo %}
 
-{% codeInfo srNumber=4 %}
+{% codeInfo srNumber=14 %}
 - **metadata_ingestion_workflow()**: This code defines a function `metadata_ingestion_workflow()` that loads a YAML configuration, creates a `Workflow` object, executes the workflow, checks its status, prints the status to the console, and stops the workflow.
 {% /codeInfo %}
 
-{% codeInfo srNumber=5 %}
+{% codeInfo srNumber=15 %}
 - **DAG**:  The DAG is created using the default arguments defined in the `default_args` dictionary. The DAG is set to start one day ago, is not paused upon creation, runs every 5 minutes using the cron syntax '*/5 * * * *', and does not catch up on any missed runs.
 
 The DAG contains a single task called "ingest_using_recipe", which is created using the `PythonOperator` class. The `metadata_ingestion_workflow` function is set as the callable to be executed when this task is run.
@@ -307,7 +307,7 @@ By updating the YAML configuration, you will be able to extract metadata from di
 
 {% codeBlock fileName="azuresql.py" %}
 
-```python {% srNumber=1 %}
+```python {% srNumber=11 %}
 import pathlib
 import yaml
 from datetime import timedelta
@@ -323,7 +323,7 @@ from metadata.ingestion.api.workflow import Workflow
 from airflow.utils.dates import days_ago
 ```
 
-```python {% srNumber=2 %}
+```python {% srNumber=12 %}
 default_args = {
     "owner": "user_name",
     "email": ["username@org.com"],
@@ -334,13 +334,13 @@ default_args = {
 }
 ```
 
-```python {% srNumber=3 %}
+```python {% srNumber=13 %}
 config = """
 <your YAML configuration>
 """
 ```
 
-```python {% srNumber=4 %}
+```python {% srNumber=14 %}
 def metadata_ingestion_workflow():
     workflow_config = yaml.safe_load(config)
     workflow = Workflow.create(workflow_config)
@@ -350,7 +350,7 @@ def metadata_ingestion_workflow():
     workflow.stop()
 ```
 
-```python {% srNumber=5 %}
+```python {% srNumber=15 %}
 with DAG(
     "sample_data",
     default_args=default_args,
@@ -386,45 +386,45 @@ This is a sample config for the profiler:
 
 {% codeInfoContainer %}
 
-{% codeInfo srNumber=1 %}
+{% codeInfo srNumber=16 %}
 **generateSampleData**: Option to turn on/off generating sample data.
 {% /codeInfo %}
 
-{% codeInfo srNumber=2 %}
+{% codeInfo srNumber=17 %}
 **profileSample**: Percentage of data or no. of rows we want to execute the profiler and tests on.
 {% /codeInfo %}
 
-{% codeInfo srNumber=3 %}
+{% codeInfo srNumber=18 %}
 **threadCount**: Number of threads to use during metric computations.
 {% /codeInfo %}
 
-{% codeInfo srNumber=4 %}
+{% codeInfo srNumber=19 %}
 **processPiiSensitive**: Optional configuration to automatically tag columns that might contain sensitive information.
 {% /codeInfo %}
 
-{% codeInfo srNumber=5 %}
+{% codeInfo srNumber=20 %}
 **confidence**: Set the Confidence value for which you want the column to be marked
 {% /codeInfo %}
 
 
-{% codeInfo srNumber=6 %}
+{% codeInfo srNumber=21 %}
 **timeoutSeconds**: Profiler Timeout in Seconds
 {% /codeInfo %}
 
-{% codeInfo srNumber=7 %}
+{% codeInfo srNumber=22 %}
 **databaseFilterPattern**: Regex to only fetch databases that matches the pattern.
 {% /codeInfo %}
 
-{% codeInfo srNumber=8 %}
+{% codeInfo srNumber=23 %}
 **schemaFilterPattern**: Regex to only fetch tables or databases that matches the pattern.
 {% /codeInfo %}
 
-{% codeInfo srNumber=9 %}
+{% codeInfo srNumber=24 %}
 **tableFilterPattern**: Regex to only fetch tables or databases that matches the pattern.
 {% /codeInfo %}
 
 
-{% codeInfo srNumber=10 %}
+{% codeInfo srNumber=25 %}
 #### Processor Configuration
 
 Choose the `orm-profiler`. Its config can also be updated to define tests from the YAML itself instead of the UI:
@@ -433,14 +433,14 @@ Choose the `orm-profiler`. Its config can also be updated to define tests from t
 {% /codeInfo %}
 
 
-{% codeInfo srNumber=11 %}
+{% codeInfo srNumber=26 %}
 #### Sink Configuration
 
 To send the metadata to OpenMetadata, it needs to be specified as `type: metadata-rest`.
 {% /codeInfo %}
 
 
-{% codeInfo srNumber=12 %}
+{% codeInfo srNumber=27 %}
 
 #### Workflow Configuration
 
@@ -464,25 +464,25 @@ source:
       type: Profiler
 ```
 
-```yaml {% srNumber=1 %}
+```yaml {% srNumber=16 %}
       generateSampleData: true
 ```
-```yaml {% srNumber=2 %}
+```yaml {% srNumber=17 %}
       # profileSample: 85
 ```
-```yaml {% srNumber=3 %}
+```yaml {% srNumber=18 %}
       # threadCount: 5
 ```
-```yaml {% srNumber=4 %}
+```yaml {% srNumber=19 %}
       processPiiSensitive: false
 ```
-```yaml {% srNumber=5 %}
+```yaml {% srNumber=20 %}
       # confidence: 80
 ```
-```yaml {% srNumber=6 %}
+```yaml {% srNumber=21 %}
       # timeoutSeconds: 43200
 ```
-```yaml {% srNumber=7 %}
+```yaml {% srNumber=22 %}
       # databaseFilterPattern:
       #   includes:
       #     - database1
@@ -491,7 +491,7 @@ source:
       #     - database3
       #     - database4
 ```
-```yaml {% srNumber=8 %}
+```yaml {% srNumber=23 %}
       # schemaFilterPattern:
       #   includes:
       #     - schema1
@@ -500,7 +500,7 @@ source:
       #     - schema3
       #     - schema4
 ```
-```yaml {% srNumber=9 %}
+```yaml {% srNumber=24 %}
       # tableFilterPattern:
       #   includes:
       #     - table1
@@ -509,7 +509,7 @@ source:
       #     - table3
       #     - table4
 ```
-```yaml {% srNumber=10 %}
+```yaml {% srNumber=25 %}
 processor:
   type: orm-profiler
   config: {}  # Remove braces if adding properties
@@ -535,12 +535,12 @@ processor:
     #       partitionIntervalUnit: <YEAR, MONTH, DAY, HOUR>
 
 ```
-```yaml {% srNumber=11 %}
+```yaml {% srNumber=26 %}
 sink:
   type: metadata-rest
   config: {}
 ```
-```yaml {% srNumber=12 %}
+```yaml {% srNumber=27 %}
 workflowConfig:
   # loggerLevel: DEBUG  # DEBUG, INFO, WARN or ERROR
   openMetadataServerConfig:
@@ -567,7 +567,7 @@ Here, we follow a similar approach as with the metadata and usage pipelines, alt
 {% codeInfoContainer %}
 #### Import necessary modules
 
-{% codeInfo srNumber=1 %}
+{% codeInfo srNumber=28 %}
 This code imports the necessary modules and packages to define an Airflow DAG and execute a `ProfilerWorkflow` using the `PythonOperator`.
 
 - **yaml**: A Python package that can load YAML files and convert them into Python objects.
@@ -586,7 +586,7 @@ The `try-except` block is used to handle the case where the `PythonOperator` is 
 
 {% /codeInfo %}
 
-{% codeInfo srNumber=2 %}
+{% codeInfo srNumber=29 %}
 Default arguments for all tasks in the Airflow DAG.
 
 - **"owner": "user_name"**: Specifies the owner of the DAG. This is typically the name of the person or team responsible for maintaining the DAG.
@@ -602,15 +602,15 @@ Default arguments for all tasks in the Airflow DAG.
 {% /codeInfo %}
 
 
-{% codeInfo srNumber=3 %}
+{% codeInfo srNumber=30 %}
 - **config**: Specifies config for the profiler as we prepare above.
 {% /codeInfo %}
 
-{% codeInfo srNumber=4 %}
+{% codeInfo srNumber=31 %}
 - **metadata_ingestion_workflow()**: This code defines a function `metadata_ingestion_workflow()` that loads a YAML configuration, creates a `ProfilerWorkflow` object, executes the workflow, checks its status, prints the status to the console, and stops the workflow.
 {% /codeInfo %}
 
-{% codeInfo srNumber=5 %}
+{% codeInfo srNumber=32 %}
 - **DAG**: Here DAG called `profiler_example` that runs a metadata ingestion workflow using the `PythonOperator`. The DAG has default arguments, a start date of one day ago, and is not paused or set to catch up on missed schedules. The `PythonOperator` calls the `metadata_ingestion_workflow()` function to execute the workflow.
 {% /codeInfo %}
 
@@ -620,7 +620,7 @@ Default arguments for all tasks in the Airflow DAG.
 
 {% codeBlock fileName="azuresql.py" %}
 
-```python {% srNumber=1 %}
+```python {% srNumber=28 %}
 import yaml
 from datetime import timedelta
 
@@ -636,7 +636,7 @@ from airflow.utils.dates import days_ago
 from metadata.orm_profiler.api.workflow import ProfilerWorkflow
 ```
 
-```python {% srNumber=2 %}
+```python {% srNumber=29 %}
 default_args = {
    "owner": "user_name",
    "email_on_failure": False,
@@ -646,13 +646,13 @@ default_args = {
 }
 ```
 
-```python {% srNumber=3 %}
+```python {% srNumber=30 %}
 config = """
 <your YAML configuration>
 """
 ```
 
-```python {% srNumber=4 %}
+```python {% srNumber=31 %}
 def metadata_ingestion_workflow():
    workflow_config = yaml.safe_load(config)
    workflow = ProfilerWorkflow.create(workflow_config)
@@ -662,7 +662,7 @@ def metadata_ingestion_workflow():
    workflow.stop()
 ```
 
-```python {% srNumber=5 %}
+```python {% srNumber=32 %}
 with DAG(
    "profiler_example",
    default_args=default_args,

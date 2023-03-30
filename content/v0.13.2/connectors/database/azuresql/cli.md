@@ -271,45 +271,45 @@ This is a sample config for the profiler:
 
 {% codeInfoContainer %}
 
-{% codeInfo srNumber=1 %}
+{% codeInfo srNumber=11 %}
 **generateSampleData**: Option to turn on/off generating sample data.
 {% /codeInfo %}
 
-{% codeInfo srNumber=2 %}
+{% codeInfo srNumber=12 %}
 **profileSample**: Percentage of data or no. of rows we want to execute the profiler and tests on.
 {% /codeInfo %}
 
-{% codeInfo srNumber=3 %}
+{% codeInfo srNumber=13 %}
 **threadCount**: Number of threads to use during metric computations.
 {% /codeInfo %}
 
-{% codeInfo srNumber=4 %}
+{% codeInfo srNumber=14 %}
 **processPiiSensitive**: Optional configuration to automatically tag columns that might contain sensitive information.
 {% /codeInfo %}
 
-{% codeInfo srNumber=5 %}
+{% codeInfo srNumber=15 %}
 **confidence**: Set the Confidence value for which you want the column to be marked
 {% /codeInfo %}
 
 
-{% codeInfo srNumber=6 %}
+{% codeInfo srNumber=16 %}
 **timeoutSeconds**: Profiler Timeout in Seconds
 {% /codeInfo %}
 
-{% codeInfo srNumber=7 %}
+{% codeInfo srNumber=17 %}
 **databaseFilterPattern**: Regex to only fetch databases that matches the pattern.
 {% /codeInfo %}
 
-{% codeInfo srNumber=8 %}
+{% codeInfo srNumber=18 %}
 **schemaFilterPattern**: Regex to only fetch tables or databases that matches the pattern.
 {% /codeInfo %}
 
-{% codeInfo srNumber=9 %}
+{% codeInfo srNumber=19 %}
 **tableFilterPattern**: Regex to only fetch tables or databases that matches the pattern.
 {% /codeInfo %}
 
 
-{% codeInfo srNumber=10 %}
+{% codeInfo srNumber=20 %}
 #### Processor Configuration
 
 Choose the `orm-profiler`. Its config can also be updated to define tests from the YAML itself instead of the UI:
@@ -318,14 +318,14 @@ Choose the `orm-profiler`. Its config can also be updated to define tests from t
 {% /codeInfo %}
 
 
-{% codeInfo srNumber=11 %}
+{% codeInfo srNumber=21 %}
 #### Sink Configuration
 
 To send the metadata to OpenMetadata, it needs to be specified as `type: metadata-rest`.
 {% /codeInfo %}
 
 
-{% codeInfo srNumber=12 %}
+{% codeInfo srNumber=22 %}
 
 #### Workflow Configuration
 
@@ -349,25 +349,25 @@ source:
       type: Profiler
 ```
 
-```yaml {% srNumber=1 %}
+```yaml {% srNumber=11 %}
       generateSampleData: true
 ```
-```yaml {% srNumber=2 %}
+```yaml {% srNumber=12 %}
       # profileSample: 85
 ```
-```yaml {% srNumber=3 %}
+```yaml {% srNumber=13 %}
       # threadCount: 5
 ```
-```yaml {% srNumber=4 %}
+```yaml {% srNumber=14 %}
       processPiiSensitive: false
 ```
-```yaml {% srNumber=5 %}
+```yaml {% srNumber=15 %}
       # confidence: 80
 ```
-```yaml {% srNumber=6 %}
+```yaml {% srNumber=16 %}
       # timeoutSeconds: 43200
 ```
-```yaml {% srNumber=7 %}
+```yaml {% srNumber=17 %}
       # databaseFilterPattern:
       #   includes:
       #     - database1
@@ -376,7 +376,7 @@ source:
       #     - database3
       #     - database4
 ```
-```yaml {% srNumber=8 %}
+```yaml {% srNumber=18 %}
       # schemaFilterPattern:
       #   includes:
       #     - schema1
@@ -385,7 +385,7 @@ source:
       #     - schema3
       #     - schema4
 ```
-```yaml {% srNumber=9 %}
+```yaml {% srNumber=19 %}
       # tableFilterPattern:
       #   includes:
       #     - table1
@@ -394,7 +394,7 @@ source:
       #     - table3
       #     - table4
 ```
-```yaml {% srNumber=10 %}
+```yaml {% srNumber=20 %}
 processor:
   type: orm-profiler
   config: {}  # Remove braces if adding properties
@@ -420,12 +420,12 @@ processor:
     #       partitionIntervalUnit: <YEAR, MONTH, DAY, HOUR>
 
 ```
-```yaml {% srNumber=11 %}
+```yaml {% srNumber=21 %}
 sink:
   type: metadata-rest
   config: {}
 ```
-```yaml {% srNumber=12 %}
+```yaml {% srNumber=22 %}
 workflowConfig:
   # loggerLevel: DEBUG  # DEBUG, INFO, WARN or ERROR
   openMetadataServerConfig:
