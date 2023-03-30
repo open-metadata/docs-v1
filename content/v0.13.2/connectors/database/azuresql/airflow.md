@@ -282,7 +282,7 @@ Here we are importing all the basic requirements to parse YAMLs, handle dates an
 
 {% codeInfo srNumber=15 %}
 - **DAG**: creates a DAG using the Airflow framework, and tune the DAG configurations to whatever fits with your requirements
-- For more Airflow DAGs creation details visit [here](https://github.com/open-metadata/OpenMetadata/blob/main/openmetadata-spec/src/main/resources/json/schema/metadataIngestion/databaseServiceProfilerPipeline.json).
+- For more Airflow DAGs creation details visit [here](https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/dags.html#declaring-a-dag).
 {% /codeInfo %}
 
 Note that from connector to connector, this recipe will always be the same.
@@ -585,7 +585,7 @@ Here we are importing all the basic requirements to parse YAMLs, handle dates an
 
 {% codeInfo srNumber=32 %}
 - **DAG**: creates a DAG using the Airflow framework, and tune the DAG configurations to whatever fits with your requirements
-- For more Airflow DAGs creation details visit [here](https://github.com/open-metadata/OpenMetadata/blob/main/openmetadata-spec/src/main/resources/json/schema/metadataIngestion/databaseServiceProfilerPipeline.json).
+- For more Airflow DAGs creation details visit [here](https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/dags.html#declaring-a-dag).
 {% /codeInfo %}
 
 
