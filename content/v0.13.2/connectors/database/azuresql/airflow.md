@@ -5,25 +5,29 @@ slug: /connectors/database/azuresql/airflow
 
 # Run AzureSQL using the Airflow SDK
 
-<Table>
+{% multiTablesWrapper %}
 
-| Stage | Metadata | Query Usage | Data Profiler | Data Quality |       Lineage       | DBT | Supported Versions |
-| :---: | :------: | :---------: | :-----------: | :----------: | :-----------------: | :-: | :----------------: |
-| PROD  |    ✅    |     ❌      |      ✅       |      ✅      | Partially via Views | ✅  |         --         |
+| Feature            | Status                       |
+| :----------------- | :--------------------------- |
+| Metadata           | {% icon iconName="check" /%} |
+| Query Usage        | {% icon iconName="cross" /%} |
+| Data Profiler      | {% icon iconName="check" /%} |
+| Data Quality       | {% icon iconName="check" /%} |
+| Lineage            | Partially via Views          |
+| DBT                | {% icon iconName="check" /%} |
+| Supported Versions | --                           |
 
-</Table>
+| Feature      | Status                       |
+| :----------- | :--------------------------- |
+| Lineage      | Partially via Views          |
+| Table-level  | {% icon iconName="check" /%} |
+| Column-level | {% icon iconName="check" /%} |
 
-<Table>
+{% /multiTablesWrapper %}
 
-|       Lineage       | Table-level | Column-level |
-| :-----------------: | :---------: | :----------: |
-| Partially via Views |     ✅      |      ✅      |
+In this section, we provide guides and references to use the Athena connector.
 
-</Table>
-
-In this section, we provide guides and references to use the AzureSQL connector.
-
-Configure and schedule AzureSQL metadata and profiler workflows from the OpenMetadata UI:
+Configure and schedule Athena metadata and profiler workflows from the OpenMetadata UI:
 
 - [Requirements](#requirements)
 - [Metadata Ingestion](#metadata-ingestion)
@@ -64,68 +68,36 @@ The workflow is modeled around the following
 
 This is a sample config for AzureSQL:
 
-```yaml
-source:
-  type: azuresql
-  serviceName: azuresql
-  serviceConnection:
-    config:
-      type: AzureSQL
-      hostPort: hostPort
-      database: database_name
-      username: username
-      password: password
-      # driver: ODBC Driver 18 for SQL Server (default)
-  sourceConfig:
-    config:
-      type: DatabaseMetadata
-      markDeletedTables: true
-      includeTables: true
-      includeViews: true
-      # includeTags: true
-      # databaseFilterPattern:
-      #   includes:
-      #     - database1
-      #     - database2
-      #   excludes:
-      #     - database3
-      #     - database4
-      # schemaFilterPattern:
-      #   includes:
-      #     - schema1
-      #     - schema2
-      #   excludes:
-      #     - schema3
-      #     - schema4
-      # tableFilterPattern:
-      #   includes:
-      #     - table1
-      #     - table2
-      #   excludes:
-      #     - table3
-      #     - table4
-sink:
-  type: metadata-rest
-  config: {}
-workflowConfig:
-  # loggerLevel: DEBUG  # DEBUG, INFO, WARN or ERROR
-  openMetadataServerConfig:
-    hostPort: <OpenMetadata host and port>
-    authProvider: <OpenMetadata auth provider>
-```
-
 #### Source Configuration - Service Connection
 
-- **username**: Specify the User to connect to AzureSQL. It should have enough privileges to read all the metadata.
-- **password**: Password to connect to AzureSQL.
-- **hostPort**: Enter the fully qualified hostname and port number for your AzureSQL deployment in the Host and Port field.
-- **database**: The database of the data source is an optional parameter, if you would like to restrict the metadata reading to a single database. If left blank, OpenMetadata ingestion attempts to scan all the databases.
-- **driver**: SQLAlchemy driver for AzureSQL. `ODBC Driver 18 for SQL Server` by default.
-- **Connection Options (Optional)**: Enter the details for any additional connection options that can be sent to AzureSQL during the connection. These details must be added as Key-Value pairs.
-- **Connection Arguments (Optional)**: Enter the details for any additional connection arguments such as security or protocol configs that can be sent to AzureSQL during the connection. These details must be added as Key-Value pairs.
-  - In case you are using Single-Sign-On (SSO) for authentication, add the `authenticator` details in the Connection Arguments as a Key-Value pair as follows: `"authenticator" : "sso_login_url"`
-  - In case you authenticate with SSO using an external browser popup, then add the `authenticator` details in the Connection Arguments as a Key-Value pair as follows: `"authenticator" : "externalbrowser"`
+{% codePreview %}
 
+{% codeInfoContainer %}
+
+{% codeInfo srNumber=1 %}
+**username**: Specify the User to connect to AzureSQL. It should have enough privileges to read all the metadata.
+{% /codeInfo %}
+
+{% codeInfo srNumber=2 %}
+**password**: Password to connect to AzureSQL.
+{% /codeInfo %}
+
+{% codeInfo srNumber=3 %}
+**hostPort**: Enter the fully qualified hostname and port number for your AzureSQL deployment in the Host and Port field.
+{% /codeInfo %}
+
+
+{% codeInfo srNumber=4 %}
+**database**: The database of the data source is an optional parameter, if you would like to restrict the metadata reading to a single database. If left blank, OpenMetadata ingestion attempts to scan all the databases.
+{% /codeInfo %}
+
+
+{% codeInfo srNumber=5 %}
+**driver**: SQLAlchemy driver for AzureSQL. `ODBC Driver 18 for SQL Server` by default.
+{% /codeInfo %}
+
+
+{% codeInfo srNumber=8 %}
 #### Source Configuration - Source Config
 
 The `sourceConfig` is defined [here](https://github.com/open-metadata/OpenMetadata/blob/main/openmetadata-spec/src/main/resources/json/schema/metadataIngestion/databaseServiceMetadataPipeline.json):
@@ -134,25 +106,111 @@ The `sourceConfig` is defined [here](https://github.com/open-metadata/OpenMetada
 - `includeTables`: true or false, to ingest table data. Default is true.
 - `includeViews`: true or false, to ingest views definitions.
 - `databaseFilterPattern`, `schemaFilterPattern`, `tableFilternPattern`: Note that the they support regex as include or exclude. E.g.,
+{% /codeInfo %}
 
-```yaml
-tableFilterPattern:
-  includes:
-    - users
-    - type_test
-```
 
+{% codeInfo srNumber=9 %}
 #### Sink Configuration
 
 To send the metadata to OpenMetadata, it needs to be specified as `type: metadata-rest`.
+{% /codeInfo %}
+
+
+{% codeInfo srNumber=10 %}
 
 #### Workflow Configuration
 
 The main property here is the `openMetadataServerConfig`, where you can define the host and security provider of your OpenMetadata installation.
 
 For a simple, local installation using our docker containers, this looks like:
+{% /codeInfo %}
+
+#### Advanced Configuration
+
+{% codeInfo srNumber=6 %}
+**Connection Options (Optional)**: Enter the details for any additional connection options that can be sent to Athena during the connection. These details must be added as Key-Value pairs.
+{% /codeInfo %}
+
+{% codeInfo srNumber=7 %}
+**Connection Arguments (Optional)**: Enter the details for any additional connection arguments such as security or protocol configs that can be sent to Athena during the connection. These details must be added as Key-Value pairs.
+- In case you are using Single-Sign-On (SSO) for authentication, add the `authenticator` details in the Connection Arguments as a Key-Value pair as follows: `"authenticator" : "sso_login_url"`
+- In case you authenticate with SSO using an external browser popup, then add the `authenticator` details in the Connection Arguments as a Key-Value pair as follows: `"authenticator" : "externalbrowser"`
+{% /codeInfo %}
+
+{% /codeInfoContainer %}
+
+{% codeBlock fileName="azuresql.yaml" %}
 
 ```yaml
+source:
+  type: azuresql
+  serviceName: local_azuresql
+  serviceConnection:
+    config:
+      type: AzureSQL
+```
+
+```yaml {% srNumber=1 %}
+      username: username
+```
+```yaml {% srNumber=2 %}
+      password: password
+```
+```yaml {% srNumber=3 %}
+      hostPort: hostPort
+```
+```yaml {% srNumber=4 %}
+      # database: database_name
+```
+```yaml {% srNumber=5 %}
+      # driver: ODBC Driver 18 for SQL Server (default)
+```
+```yaml {% srNumber=6 %}
+      # connectionOptions:
+      #   key: value
+```
+```yaml {% srNumber=7 %}
+      # connectionArguments:
+      #   key: value
+```
+
+```yaml {% srNumber=8 %}
+      sourceConfig:
+        config:
+          type: DatabaseMetadata
+          markDeletedTables: true
+          includeTables: true
+          includeViews: true
+          # includeTags: true
+          # databaseFilterPattern:
+          #   includes:
+          #     - database1
+          #     - database2
+          #   excludes:
+          #     - database3
+          #     - database4
+          # schemaFilterPattern:
+          #   includes:
+          #     - schema1
+          #     - schema2
+          #   excludes:
+          #     - schema3
+          #     - schema4
+          # tableFilterPattern:
+          #   includes:
+          #     - users
+          #     - type_test
+          #   excludes:
+          #     - table3
+          #     - table4
+```
+
+```yaml {% srNumber=9 %}
+sink:
+  type: metadata-rest
+  config: {}
+```
+```yaml {% srNumber=10 %}
 workflowConfig:
   openMetadataServerConfig:
     hostPort: "http://localhost:8585/api"
@@ -160,13 +218,19 @@ workflowConfig:
     securityConfig:
       jwtToken: "{bot_jwt_token}"
 ```
+
+{% /codeBlock %}
+
+{% /codePreview %}
+
+
+### Workflow Configs for Security Provider
 
 We support different security providers. You can find their definitions [here](https://github.com/open-metadata/OpenMetadata/tree/main/openmetadata-spec/src/main/resources/json/schema/security/client).
-You can find the different implementation of the ingestion below.
 
-<Collapse title="Configure SSO in the Ingestion Workflows">
+## Openmetadata JWT Auth
 
-### Openmetadata JWT Auth
+- JWT tokens will allow your clients to authenticate against the OpenMetadata server. To enable JWT Tokens, you will get more details [here](/deployment/security/enable-jwt-tokens).
 
 ```yaml
 workflowConfig:
@@ -177,140 +241,66 @@ workflowConfig:
       jwtToken: "{bot_jwt_token}"
 ```
 
-### Auth0 SSO
-
-```yaml
-workflowConfig:
-  openMetadataServerConfig:
-    hostPort: "http://localhost:8585/api"
-    authProvider: auth0
-    securityConfig:
-      clientId: "{your_client_id}"
-      secretKey: "{your_client_secret}"
-      domain: "{your_domain}"
-```
-
-### Azure SSO
-
-```yaml
-workflowConfig:
-  openMetadataServerConfig:
-    hostPort: "http://localhost:8585/api"
-    authProvider: azure
-    securityConfig:
-      clientSecret: "{your_client_secret}"
-      authority: "{your_authority_url}"
-      clientId: "{your_client_id}"
-      scopes:
-        - your_scopes
-```
-
-### Custom OIDC SSO
-
-```yaml
-workflowConfig:
-  openMetadataServerConfig:
-    hostPort: "http://localhost:8585/api"
-    authProvider: custom-oidc
-    securityConfig:
-      clientId: "{your_client_id}"
-      secretKey: "{your_client_secret}"
-      domain: "{your_domain}"
-```
-
-### Google SSO
-
-```yaml
-workflowConfig:
-  openMetadataServerConfig:
-    hostPort: "http://localhost:8585/api"
-    authProvider: google
-    securityConfig:
-      secretKey: "{path-to-json-creds}"
-```
-
-### Okta SSO
-
-```yaml
-workflowConfig:
-  openMetadataServerConfig:
-    hostPort: http://localhost:8585/api
-    authProvider: okta
-    securityConfig:
-      clientId: "{CLIENT_ID - SPA APP}"
-      orgURL: "{ISSUER_URL}/v1/token"
-      privateKey: "{public/private keypair}"
-      email: "{email}"
-      scopes:
-        - token
-```
-
-### Amazon Cognito SSO
-
-The ingestion can be configured by [Enabling JWT Tokens](https://docs.open-metadata.org/deployment/security/enable-jwt-tokens)
-
-```yaml
-workflowConfig:
-  openMetadataServerConfig:
-    hostPort: "http://localhost:8585/api"
-    authProvider: auth0
-    securityConfig:
-      clientId: "{your_client_id}"
-      secretKey: "{your_client_secret}"
-      domain: "{your_domain}"
-```
-
-### OneLogin SSO
-
-Which uses Custom OIDC for the ingestion
-
-```yaml
-workflowConfig:
-  openMetadataServerConfig:
-    hostPort: "http://localhost:8585/api"
-    authProvider: custom-oidc
-    securityConfig:
-      clientId: "{your_client_id}"
-      secretKey: "{your_client_secret}"
-      domain: "{your_domain}"
-```
-
-### KeyCloak SSO
-
-Which uses Custom OIDC for the ingestion
-
-```yaml
-workflowConfig:
-  openMetadataServerConfig:
-    hostPort: "http://localhost:8585/api"
-    authProvider: custom-oidc
-    securityConfig:
-      clientId: "{your_client_id}"
-      secretKey: "{your_client_secret}"
-      domain: "{your_domain}"
-```
-
-</Collapse>
+- You can refer to the JWT Troubleshooting section [link](/deployment/security/jwt-troubleshooting) for any issues in your JWT configuration. If you need information on configuring the ingestion with other security providers in your bots, you can follow this doc [link](/deployment/security/workflow-config-auth).
 
 ### 2. Prepare the Ingestion DAG
 
 Create a Python file in your Airflow DAGs directory with the following contents:
 
-```python
+{% codePreview %}
+
+{% codeInfoContainer %}
+
+#### Import necessary modules
+
+{% codeInfo srNumber=11 %}
+The `Workflow` class that is being imported is a part of a metadata ingestion framework, which defines a process of getting data from different sources and ingesting it into a central metadata repository.
+Here we are also importing all the basic requirements to parse YAMLs, handle dates and build our DAG.
+
+{% /codeInfo %}
+
+{% codeInfo srNumber=12 %}
+**Default arguments for all tasks in the Airflow DAG.** 
+- Default arguments dictionary contains default arguments for tasks in the DAG, including the owner's name, email address, number of retries, retry delay, and execution timeout.
+{% /codeInfo %}
+
+{% codeInfo srNumber=13 %}
+- **config**: Specifies config for the metadata ingestion as we prepare above.
+{% /codeInfo %}
+
+{% codeInfo srNumber=14 %}
+- **metadata_ingestion_workflow()**: This code defines a function `metadata_ingestion_workflow()` that loads a YAML configuration, creates a `Workflow` object, executes the workflow, checks its status, prints the status to the console, and stops the workflow.
+{% /codeInfo %}
+
+{% codeInfo srNumber=15 %}
+- **DAG**: creates a DAG using the Airflow framework, and tune the DAG configurations to whatever fits with your requirements
+- For more Airflow DAGs creation details visit [here](https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/dags.html#declaring-a-dag).
+{% /codeInfo %}
+
+Note that from connector to connector, this recipe will always be the same.
+By updating the YAML configuration, you will be able to extract metadata from different sources.
+{% /codeInfoContainer %}
+
+{% codeBlock fileName="azuresql.py" %}
+
+```python {% srNumber=11 %}
 import pathlib
 import yaml
 from datetime import timedelta
 from airflow import DAG
+from metadata.config.common import load_config_file
+from metadata.ingestion.api.workflow import Workflow
+from airflow.utils.dates import days_ago
 
 try:
     from airflow.operators.python import PythonOperator
 except ModuleNotFoundError:
     from airflow.operators.python_operator import PythonOperator
 
-from metadata.config.common import load_config_file
-from metadata.ingestion.api.workflow import Workflow
-from airflow.utils.dates import days_ago
 
+```
+
+```python {% srNumber=12 %}
 default_args = {
     "owner": "user_name",
     "email": ["username@org.com"],
@@ -320,10 +310,18 @@ default_args = {
     "execution_timeout": timedelta(minutes=60)
 }
 
+
+```
+
+```python {% srNumber=13 %}
 config = """
 <your YAML configuration>
 """
 
+
+```
+
+```python {% srNumber=14 %}
 def metadata_ingestion_workflow():
     workflow_config = yaml.safe_load(config)
     workflow = Workflow.create(workflow_config)
@@ -332,6 +330,10 @@ def metadata_ingestion_workflow():
     workflow.print_status()
     workflow.stop()
 
+
+```
+
+```python {% srNumber=15 %}
 with DAG(
     "sample_data",
     default_args=default_args,
@@ -345,39 +347,127 @@ with DAG(
         task_id="ingest_using_recipe",
         python_callable=metadata_ingestion_workflow,
     )
+
+
 ```
 
-Note that from connector to connector, this recipe will always be the same.
-By updating the YAML configuration, you will be able to extract metadata from different sources.
+{% /codeBlock %}
+{% /codePreview %}
+
 
 ## Data Profiler
 
 The Data Profiler workflow will be using the `orm-profiler` processor.
-While the `serviceConnection` will still be the same to reach the source system, the `sourceConfig` will be
-updated from previous configurations.
+After running a Metadata Ingestion workflow, we can run Data Profiler workflow.
+While the `serviceName` will be the same to that was used in Metadata Ingestion, so the ingestion bot can get the `serviceConnection` details from the server.
+
 
 ### 1. Define the YAML Config
 
 This is a sample config for the profiler:
+#### Source Configuration - Source Config
+- You can find all the definitions and types for the  `sourceConfig` [here](https://github.com/open-metadata/OpenMetadata/blob/main/openmetadata-spec/src/main/resources/json/schema/metadataIngestion/databaseServiceProfilerPipeline.json).
+{% codePreview %}
+
+{% codeInfoContainer %}
+
+{% codeInfo srNumber=16 %}
+**generateSampleData**: Option to turn on/off generating sample data.
+{% /codeInfo %}
+
+{% codeInfo srNumber=17 %}
+**profileSample**: Percentage of data or no. of rows we want to execute the profiler and tests on.
+{% /codeInfo %}
+
+{% codeInfo srNumber=18 %}
+**threadCount**: Number of threads to use during metric computations.
+{% /codeInfo %}
+
+{% codeInfo srNumber=19 %}
+**processPiiSensitive**: Optional configuration to automatically tag columns that might contain sensitive information.
+{% /codeInfo %}
+
+{% codeInfo srNumber=20 %}
+**confidence**: Set the Confidence value for which you want the column to be marked
+{% /codeInfo %}
+
+
+{% codeInfo srNumber=21 %}
+**timeoutSeconds**: Profiler Timeout in Seconds
+{% /codeInfo %}
+
+{% codeInfo srNumber=22 %}
+**databaseFilterPattern**: Regex to only fetch databases that matches the pattern.
+{% /codeInfo %}
+
+{% codeInfo srNumber=23 %}
+**schemaFilterPattern**: Regex to only fetch tables or databases that matches the pattern.
+{% /codeInfo %}
+
+{% codeInfo srNumber=24 %}
+**tableFilterPattern**: Regex to only fetch tables or databases that matches the pattern.
+{% /codeInfo %}
+
+
+{% codeInfo srNumber=25 %}
+#### Processor Configuration
+
+Choose the `orm-profiler`. Its config can also be updated to define tests from the YAML itself instead of the UI:
+
+**tableConfig**: `tableConfig` allows you to set up some configuration at the table level.
+{% /codeInfo %}
+
+
+{% codeInfo srNumber=26 %}
+#### Sink Configuration
+
+To send the metadata to OpenMetadata, it needs to be specified as `type: metadata-rest`.
+{% /codeInfo %}
+
+
+{% codeInfo srNumber=27 %}
+
+#### Workflow Configuration
+
+The main property here is the `openMetadataServerConfig`, where you can define the host and security provider of your OpenMetadata installation.
+
+For a simple, local installation using our docker containers, this looks like:
+{% /codeInfo %}
+
+
+{% /codeInfoContainer %}
+
+{% codeBlock fileName="azuresql.yaml" %}
+
 
 ```yaml
 source:
   type: azuresql
-  serviceName: azuresql
-  serviceConnection:
-    config:
-      type: AzureSQL
-      hostPort: hostPort
-      database: database_name
-      username: username
-      password: password
-      # driver: ODBC Driver 18 for SQL Server (default)
+  serviceName: local_azuresql
   sourceConfig:
     config:
       type: Profiler
-      # generateSampleData: true
+```
+
+```yaml {% srNumber=16 %}
+      generateSampleData: true
+```
+```yaml {% srNumber=17 %}
       # profileSample: 85
-      # threadCount: 5 (default)
+```
+```yaml {% srNumber=18 %}
+      # threadCount: 5
+```
+```yaml {% srNumber=19 %}
+      processPiiSensitive: false
+```
+```yaml {% srNumber=20 %}
+      # confidence: 80
+```
+```yaml {% srNumber=21 %}
+      # timeoutSeconds: 43200
+```
+```yaml {% srNumber=22 %}
       # databaseFilterPattern:
       #   includes:
       #     - database1
@@ -385,6 +475,8 @@ source:
       #   excludes:
       #     - database3
       #     - database4
+```
+```yaml {% srNumber=23 %}
       # schemaFilterPattern:
       #   includes:
       #     - schema1
@@ -392,6 +484,8 @@ source:
       #   excludes:
       #     - schema3
       #     - schema4
+```
+```yaml {% srNumber=24 %}
       # tableFilterPattern:
       #   includes:
       #     - table1
@@ -399,25 +493,39 @@ source:
       #   excludes:
       #     - table3
       #     - table4
+```
+```yaml {% srNumber=25 %}
 processor:
   type: orm-profiler
-  config: {} # Remove braces if adding properties
-  # tableConfig:
-  #   - fullyQualifiedName: <table fqn>
-  #     profileSample: <number between 0 and 99> # default will be 100 if omitted
-  #     profileQuery: <query to use for sampling data for the profiler>
-  #     columnConfig:
-  #       excludeColumns:
-  #         - <column name>
-  #       includeColumns:
-  #         - columnName: <column name>
-  #         - metrics:
-  #           - MEAN
-  #           - MEDIAN
-  #           - ...
+  config: {}  # Remove braces if adding properties
+    # tableConfig:
+    #   - fullyQualifiedName: <table fqn>
+    #     profileSample: <number between 0 and 99> # default 
+
+    #     profileSample: <number between 0 and 99> # default will be 100 if omitted
+    #     profileQuery: <query to use for sampling data for the profiler>
+    #     columnConfig:
+    #       excludeColumns:
+    #         - <column name>
+    #       includeColumns:
+    #         - columnName: <column name>
+    #         - metrics:
+    #           - MEAN
+    #           - MEDIAN
+    #           - ...
+    #     partitionConfig:
+    #       enablePartitioning: <set to true to use partitioning>
+    #       partitionColumnName: <partition column name. Must be a timestamp or datetime/date field type>
+    #       partitionInterval: <partition interval>
+    #       partitionIntervalUnit: <YEAR, MONTH, DAY, HOUR>
+
+```
+```yaml {% srNumber=26 %}
 sink:
   type: metadata-rest
   config: {}
+```
+```yaml {% srNumber=27 %}
 workflowConfig:
   # loggerLevel: DEBUG  # DEBUG, INFO, WARN or ERROR
   openMetadataServerConfig:
@@ -425,62 +533,63 @@ workflowConfig:
     authProvider: <OpenMetadata auth provider>
 ```
 
-#### Source Configuration
+{% /codeBlock %}
 
-- You can find all the definitions and types for the `serviceConnection` [here](https://github.com/open-metadata/OpenMetadata/blob/main/openmetadata-spec/src/main/resources/json/schema/entity/services/connections/database/azureSQLConnection.json).
-- The `sourceConfig` is defined [here](https://github.com/open-metadata/OpenMetadata/blob/main/openmetadata-spec/src/main/resources/json/schema/metadataIngestion/databaseServiceProfilerPipeline.json).
+{% /codePreview %}
 
-Note that the filter patterns support regex as includes or excludes. E.g.,
+- You can learn more about how to configure and run the Profiler Workflow to extract Profiler data and execute the Data Quality from [here](/connectors/ingestion/workflows/profiler)
 
-```yaml
-tableFilterPattern:
-  includes:
-  - *users$
-```
 
-#### Processor
-
-Choose the `orm-profiler`. Its config can also be updated to define tests from the YAML itself instead of the UI:
-
-```yaml
-processor:
-  type: orm-profiler
-  config:
-    tableConfig:
-      - fullyQualifiedName: <table fqn>
-        profileSample: <number between 0 and 99>
-        partitionConfig:
-          partitionField: <field to use as a partition field>
-          partitionQueryDuration: <for date/datetime partitioning based set the offset from today>
-          partitionValues: <values to uses as a predicate for the query>
-        profileQuery: <query to use for sampling data for the profiler>
-        columnConfig:
-          excludeColumns:
-            - <column name>
-          includeColumns:
-            - columnName: <column name>
-            - metrics:
-                - MEAN
-                - MEDIAN
-                - ...
-```
-
-`tableConfig` allows you to set up some configuration at the table level.
-All the properties are optional. `metrics` should be one of the metrics listed [here](https://docs.open-metadata.org/connectors/ingestion/workflows/profiler/metrics)
-
-#### Workflow Configuration
-
-The same as the metadata ingestion.
 
 ### 2. Prepare the Profiler DAG
 
 Here, we follow a similar approach as with the metadata and usage pipelines, although we will use a different Workflow class:
 
-```python
+
+
+
+{% codePreview %}
+
+{% codeInfoContainer %}
+#### Import necessary modules
+
+{% codeInfo srNumber=28 %}
+The `ProfilerWorkflow` class that is being imported is a part of a metadata orm_profiler framework, which defines a process of extracting Profiler data. 
+
+Here we are also importing all the basic requirements to parse YAMLs, handle dates and build our DAG.
+
+{% /codeInfo %}
+
+{% codeInfo srNumber=29 %}
+**Default arguments for all tasks in the Airflow DAG.** 
+- Default arguments dictionary contains default arguments for tasks in the DAG, including the owner's name, email address, number of retries, retry delay, and execution timeout.
+{% /codeInfo %}
+
+
+{% codeInfo srNumber=30 %}
+- **config**: Specifies config for the profiler as we prepare above.
+{% /codeInfo %}
+
+{% codeInfo srNumber=31 %}
+- **metadata_ingestion_workflow()**: This code defines a function `metadata_ingestion_workflow()` that loads a YAML configuration, creates a `ProfilerWorkflow` object, executes the workflow, checks its status, prints the status to the console, and stops the workflow.
+{% /codeInfo %}
+
+{% codeInfo srNumber=32 %}
+- **DAG**: creates a DAG using the Airflow framework, and tune the DAG configurations to whatever fits with your requirements
+- For more Airflow DAGs creation details visit [here](https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/dags.html#declaring-a-dag).
+{% /codeInfo %}
+
+
+
+{% /codeInfoContainer %}
+
+{% codeBlock fileName="azuresql.py" %}
+
+```python {% srNumber=28 %}
 import yaml
 from datetime import timedelta
-
 from airflow import DAG
+from metadata.orm_profiler.api.workflow import ProfilerWorkflow
 
 try:
    from airflow.operators.python import PythonOperator
@@ -489,9 +598,9 @@ except ModuleNotFoundError:
 
 from airflow.utils.dates import days_ago
 
-from metadata.orm_profiler.api.workflow import ProfilerWorkflow
 
-
+```
+```python {% srNumber=29 %}
 default_args = {
    "owner": "user_name",
    "email_on_failure": False,
@@ -500,10 +609,18 @@ default_args = {
    "execution_timeout": timedelta(minutes=60),
 }
 
+
+```
+
+```python {% srNumber=30 %}
 config = """
 <your YAML configuration>
 """
 
+
+```
+
+```python {% srNumber=31 %}
 def metadata_ingestion_workflow():
    workflow_config = yaml.safe_load(config)
    workflow = ProfilerWorkflow.create(workflow_config)
@@ -512,6 +629,10 @@ def metadata_ingestion_workflow():
    workflow.print_status()
    workflow.stop()
 
+
+```
+
+```python {% srNumber=32 %}
 with DAG(
    "profiler_example",
    default_args=default_args,
@@ -524,8 +645,35 @@ with DAG(
        task_id="profile_and_test_using_recipe",
        python_callable=metadata_ingestion_workflow,
    )
+
+
 ```
+
+{% /codeBlock %}
+
+{% /codePreview %}
+
 
 ## dbt Integration
 
-You can learn more about how to ingest dbt models' definitions and their lineage [here](/connectors/ingestion/workflows/dbt).
+{% tilesContainer %}
+
+{% tile
+  icon="mediation"
+  title="dbt Integration"
+  description="Learn more about how to ingest dbt models' definitions and their lineage."
+  link="/connectors/ingestion/workflows/dbt" /%}
+
+{% /tilesContainer %}
+
+## Related
+
+{% tilesContainer %}
+
+{% tile
+    title="Ingest with the CLI"
+    description="Run a one-time ingestion using the metadata CLI"
+    link="/connectors/database/azuresql/cli"
+  / %}
+
+{% /tilesContainer %}

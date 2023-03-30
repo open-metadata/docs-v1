@@ -29,10 +29,13 @@ In this section, we provide guides and references to use the Athena connector.
 
 Configure and schedule Athena metadata and profiler workflows from the OpenMetadata UI:
 
-- [Requirements](#requirements)
-- [Metadata Ingestion](#metadata-ingestion)
-- [Data Profiler](#data-profiler)
-- [dbt Integration](#dbt-integration)
+- [Athena](#athena)
+  - [Requirements](#requirements)
+  - [Metadata Ingestion](#metadata-ingestion)
+      - [Service Name](#service-name)
+      - [Connection Options](#connection-options)
+      - [Metadata Ingestion Options](#metadata-ingestion-options)
+  - [Related](#related)
 
 If you don't want to use the OpenMetadata Ingestion container to configure the workflows via the UI, then you can check
 the following docs to connect using Airflow SDK or with the CLI.
