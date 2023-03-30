@@ -242,7 +242,7 @@ workflowConfig:
   
 - If any issue regarding JWT Tokens, can checkout this [troubleshoot](/deployment/security/jwt-troubleshooting).
 
-- For other security providers please visit [this](/deployment/security/jwt-troubleshooting).
+- For other security providers please visit [this](/deployment/security/workflow-config-auth).
 
 
 ### 2. Prepare the Ingestion DAG
