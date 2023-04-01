@@ -9,6 +9,7 @@ slug: /connectors/database/athena
 
 | Feature            | Status                       |
 | :----------------- | :--------------------------- |
+| Stage              | PROD                         |
 | Metadata           | {% icon iconName="check" /%} |
 | Query Usage        | {% icon iconName="cross" /%} |
 | Data Profiler      | {% icon iconName="check" /%} |
@@ -35,6 +36,8 @@ Configure and schedule Athena metadata and profiler workflows from the OpenMetad
       - [Service Name](#service-name)
       - [Connection Options](#connection-options)
       - [Metadata Ingestion Options](#metadata-ingestion-options)
+  - [Troubleshooting](#troubleshooting)
+    - [Workflow Deployment Error](#workflow-deployment-error)
   - [Related](#related)
 
 If you don't want to use the OpenMetadata Ingestion container to configure the workflows via the UI, then you can check
@@ -176,6 +179,25 @@ desired.
 
 {% /step %}
 
+{% extraContent parentTagName="stepsContainer" %}
+
+#### Connection Options
+
+- **AWS Access Key ID**: Enter your secure access key ID for your Athena connection. The specified key ID should be authorized to read all databases you want to include in the metadata ingestion workflow.
+- **AWS Secret Access Key**: Enter the Secret Access Key (the passcode key pair to the key ID from above).
+- **AWS Region**: Enter the location of the amazon cluster that your data and account are associated with.
+- **AWS Session Token (optional)**: The AWS session token is an optional parameter. If you want, enter the details of your temporary session token.
+- **Endpoint URL (optional)**: Your Athena connector will automatically determine the AWS Athena endpoint URL based on the region. You may override this behavior by entering a value to the endpoint URL.
+- **Database (optional)**: The database of the data source is an optional parameter if you would like to restrict the metadata reading to a single database. If left blank, OpenMetadata ingestion attempts to scan all the databases.
+- **S3 Staging Directory (optional)**: The S3 staging directory is an optional parameter. Enter a staging dirrectory to override the default staging directory for AWS Athena.
+- **Athena Workgroup (optional)**: The Athena workgroup is an optional parameter. If you wish to have your Athena connection related to an existing AWS workgroup add your workgroup name here.
+- **Connection Options (Optional)**: Enter the details for any additional connection options that can be sent to Athena during the connection. These details must be added as Key-Value pairs.
+- **Connection Arguments (Optional)**: Enter the details for any additional connection arguments such as security or protocol configs that can be sent to Athena during the connection. These details must be added as Key-Value pairs.
+  - In case you are using Single-Sign-On (SSO) for authentication, add the `authenticator` details in the Connection Arguments as a Key-Value pair as follows: `"authenticator" : "sso_login_url"`
+  - In case you authenticate with SSO using an external browser popup, then add the `authenticator` details in the Connection Arguments as a Key-Value pair as follows: `"authenticator" : "externalbrowser"`
+
+{% /extraContent %}
+
 {% step srNumber=6 %}
 
 {% stepDescription title="6. Test the Connection" %}
@@ -195,25 +217,6 @@ the changes.
 {% /stepVisualInfo %}
 
 {% /step %}
-
-{% extraContent parentTagName="stepsContainer" %}
-
-#### Connection Options
-
-- **AWS Access Key ID**: Enter your secure access key ID for your Athena connection. The specified key ID should be authorized to read all databases you want to include in the metadata ingestion workflow.
-- **AWS Secret Access Key**: Enter the Secret Access Key (the passcode key pair to the key ID from above).
-- **AWS Region**: Enter the location of the amazon cluster that your data and account are associated with.
-- **AWS Session Token (optional)**: The AWS session token is an optional parameter. If you want, enter the details of your temporary session token.
-- **Endpoint URL (optional)**: Your Athena connector will automatically determine the AWS Athena endpoint URL based on the region. You may override this behavior by entering a value to the endpoint URL.
-- **Database (optional)**: The database of the data source is an optional parameter if you would like to restrict the metadata reading to a single database. If left blank, OpenMetadata ingestion attempts to scan all the databases.
-- **S3 Staging Directory (optional)**: The S3 staging directory is an optional parameter. Enter a staging dirrectory to override the default staging directory for AWS Athena.
-- **Athena Workgroup (optional)**: The Athena workgroup is an optional parameter. If you wish to have your Athena connection related to an existing AWS workgroup add your workgroup name here.
-- **Connection Options (Optional)**: Enter the details for any additional connection options that can be sent to Athena during the connection. These details must be added as Key-Value pairs.
-- **Connection Arguments (Optional)**: Enter the details for any additional connection arguments such as security or protocol configs that can be sent to Athena during the connection. These details must be added as Key-Value pairs.
-  - In case you are using Single-Sign-On (SSO) for authentication, add the `authenticator` details in the Connection Arguments as a Key-Value pair as follows: `"authenticator" : "sso_login_url"`
-  - In case you authenticate with SSO using an external browser popup, then add the `authenticator` details in the Connection Arguments as a Key-Value pair as follows: `"authenticator" : "externalbrowser"`
-
-{% /extraContent %}
 
 {% step srNumber=7 %}
 
@@ -252,9 +255,9 @@ caption="Configure Metadata Ingestion Page" /%}
 - **Include views (toggle)**: Set the Include views toggle to control whether or not to include views as part of metadata ingestion.
 - **Include tags (toggle)**: Set the Include tags toggle to control whether or not to include tags as part of metadata ingestion.
 - **Enable Debug Log (toggle)**: Set the Enable Debug Log toggle to set the default log level to debug, these logs can be viewed later in Airflow.
+- **Auto Tag PII(toggle)**: Auto PII tagging checks for column name to mark PII Sensitive/NonSensitive tag
 - **Mark Deleted Tables (toggle)**: Set the Mark Deleted Tables toggle to flag tables as soft-deleted if they are not present anymore in the source system.
 - **Mark Deleted Tables from Filter Only (toggle)**: Set the Mark Deleted Tables from Filter Only toggle to flag tables as soft-deleted if they are not present anymore within the filtered schema or database only. This flag is useful when you have more than one ingestion pipelines. For example if you have a schema
-
 {% /extraContent %}
 
 {% step srNumber=8 %}
@@ -307,32 +310,24 @@ caption="View the Ingestion Pipeline from the Service Page" /%}
 
 {% /step %}
 
-{% step srNumber=10 %}
+{% /stepsContainer %}
 
-{% stepDescription title="10. Workflow Deployment Error" %}
+## Troubleshooting
+
+ ### Workflow Deployment Error
 
 If there were any errors during the workflow deployment process, the
 Ingestion Pipeline Entity will still be created, but no workflow will be
 present in the Ingestion container.
 
-You can then edit the Ingestion Pipeline and Deploy it again.
+- You can then edit the Ingestion Pipeline and Deploy it again.
 
-From the Connection tab, you can also Edit the Service if needed.
-
-{% /stepDescription %}
-
-{% stepVisualInfo %}
+- From the Connection tab, you can also Edit the Service if needed.
 
 {% image
 src="/images/openmetadata/connectors/workflow-deployment-error.png"
 alt="Workflow Deployment Error"
 caption="Edit and Deploy the Ingestion Pipeline" /%}
-
-{% /stepVisualInfo %}
-
-{% /step %}
-
-{% /stepsContainer %}
 
 ## Related
 
