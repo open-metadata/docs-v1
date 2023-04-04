@@ -5,21 +5,26 @@ slug: /connectors/database/domo-database/cli
 
 # Run Domo Database using the metadata CLI
 
-<Table>
+{% multiTablesWrapper %}
 
-| Stage | Metadata | Query Usage | Data Profiler | Data Quality | Lineage | DBT | Supported Versions |
-| :---: | :------: | :---------: | :-----------: | :----------: | :-----: | :-: | :----------------: |
-| PROD  |    ✅    |     ❌      |      ❌       |      ❌      |   ❌    | ❌  |         --         |
+| Feature            | Status                       |
+| :----------------- | :--------------------------- |
+| Stage              | PROD                         |
+| Metadata           | {% icon iconName="check" /%} |
+| Query Usage        | {% icon iconName="cross" /%} |
+| Data Profiler      | {% icon iconName="check" /%} |
+| Data Quality       | {% icon iconName="check" /%} |
+| Lineage            | Partially via Views          |
+| DBT                | {% icon iconName="check" /%} |
+| Supported Versions | --                           |
 
-</Table>
+| Feature      | Status                       |
+| :----------- | :--------------------------- |
+| Lineage      | Partially via Views          |
+| Table-level  | {% icon iconName="check" /%} |
+| Column-level | {% icon iconName="check" /%} |
 
-<Table>
-
-| Lineage | Table-level | Column-level |
-| :-----: | :---------: | :----------: |
-|   ❌    |     ❌      |      ❌      |
-
-</Table>
+{% /multiTablesWrapper %}
 
 In this section, we provide guides and references to use the Domo Database connector.
 
@@ -39,12 +44,11 @@ To deploy OpenMetadata, check the Deployment guides.
 To run the Ingestion via the UI you'll need to use the OpenMetadata Ingestion Container, which comes shipped with
 custom Airflow plugins to handle the workflow deployment.
 
-<Note>
+**Note:**
 
 For metadata ingestion, kindly make sure add alteast `data` scopes to the clientId provided.
 Question related to scopes, click [here](https://developer.domo.com/docs/authentication/quickstart-5).
 
-</Note>
 
 ### Python Requirements
 
@@ -71,66 +75,178 @@ The workflow is modeled around the following
 
 This is a sample config for DomoDatabase:
 
-```yaml
-source:
-  type: domodatabase
-  serviceName: local_domodatabase
-  serviceConnection:
-    config:
-      type: DomoDatabase
-      clientId: clientid
-      secretToken: secret-token
-      accessToken: access-token
-      apiHost: api.domo.com
-      sandboxDomain: https://<api_domo>.domo.com
-  sourceConfig:
-    config:
-      type: DatabaseMetadata
-sink:
-  type: metadata-rest
-  config: {}
-workflowConfig:
-  # loggerLevel: DEBUG  # DEBUG, INFO, WARN or ERROR
-  openMetadataServerConfig:
-    hostPort: <OpenMetadata host and port>
-    authProvider: <OpenMetadata auth provider>
-```
+{% codePreview %}
+
+{% codeInfoContainer %}
 
 #### Source Configuration - Service Connection
 
-- **Client ID**: Client ID to Connect to DOMO Database.
-- **Secret Token**: Secret Token to Connect DOMO Database.
-- **Access Token**: Access to Connect to DOMO Database.
-- **API Host**: API Host to Connect to DOMO Database instance.
-- **SandBox Domain**: Connect to SandBox Domain.
+{% codeInfo srNumber=1 %}
+
+**Client ID**: Client ID to Connect to DOMODatabase.
+
+{% /codeInfo %}
+
+{% codeInfo srNumber=2 %}
+
+**Secret Token**: Secret Token to Connect DOMODatabase.
+
+{% /codeInfo %}
+
+{% codeInfo srNumber=3 %}
+
+**Access Token**: Access to Connect to DOMODatabase.
+
+{% /codeInfo %}
+
+{% codeInfo srNumber=4 %}
+
+**API Host**:  API Host to Connect to DOMODatabase instance.
+
+{% /codeInfo %}
+
+{% codeInfo srNumber=5 %}
+
+**SandBox Domain**: Connect to SandBox Domain.
+
+{% /codeInfo %}
+
+{% codeInfo srNumber=6 %}
+
+**database**: Optional name to give to the database in OpenMetadata. If left blank, we will use default as the database name
+
+{% /codeInfo %}
 
 #### Source Configuration - Source Config
 
+{% codeInfo srNumber=7 %}
+
 The `sourceConfig` is defined [here](https://github.com/open-metadata/OpenMetadata/blob/main/openmetadata-spec/src/main/resources/json/schema/metadataIngestion/databaseServiceMetadataPipeline.json):
 
-- `markDeletedTables`: To flag tables as soft-deleted if they are not present anymore in the source system.
-- `includeTables`: true or false, to ingest table data. Default is true.
-- `includeViews`: true or false, to ingest views definitions.
-- `databaseFilterPattern`, `schemaFilterPattern`, `tableFilternPattern`: Note that the they support regex as include or exclude. E.g.,
+**markDeletedTables**: To flag tables as soft-deleted if they are not present anymore in the source system.
 
-```yaml
-tableFilterPattern:
-  includes:
-    - users
-    - type_test
-```
+**includeTables**: true or false, to ingest table data. Default is true.
+
+**includeViews**: true or false, to ingest views definitions.
+
+**databaseFilterPattern**, **schemaFilterPattern**, **tableFilternPattern**: Note that the they support regex as include or exclude. E.g.,
+
+{% /codeInfo %}
 
 #### Sink Configuration
 
+{% codeInfo srNumber=8 %}
+
 To send the metadata to OpenMetadata, it needs to be specified as `type: metadata-rest`.
 
+{% /codeInfo %}
+
 #### Workflow Configuration
+
+{% codeInfo srNumber=9 %}
 
 The main property here is the `openMetadataServerConfig`, where you can define the host and security provider of your OpenMetadata installation.
 
 For a simple, local installation using our docker containers, this looks like:
 
+{% /codeInfo %}
+
+#### Advanced Configuration
+
+{% codeInfo srNumber=10 %}
+
+**Connection Options (Optional)**: Enter the details for any additional connection options that can be sent to Athena during the connection. These details must be added as Key-Value pairs.
+
+{% /codeInfo %}
+
+{% codeInfo srNumber=11 %}
+
+**Connection Arguments (Optional)**: Enter the details for any additional connection arguments such as security or protocol configs that can be sent to Athena during the connection. These details must be added as Key-Value pairs.
+
+- In case you are using Single-Sign-On (SSO) for authentication, add the `authenticator` details in the Connection Arguments as a Key-Value pair as follows: `"authenticator" : "sso_login_url"`
+- In case you authenticate with SSO using an external browser popup, then add the `authenticator` details in the Connection Arguments as a Key-Value pair as follows: `"authenticator" : "externalbrowser"`
+
+{% /codeInfo %}
+
+{% /codeInfoContainer %}
+
+{% codeBlock fileName="filename.yaml" %}
+
+
 ```yaml
+source:
+  type: domodatabase
+  serviceName: local_DomoDatabase
+  serviceConnection:
+    config:
+      type: DomoDashboard
+```
+```yaml {% srNumber=1 %}
+      clientId: client-id
+```
+```yaml {% srNumber=2 %}
+      secretToken: secret-token
+```
+```yaml {% srNumber=3 %}
+      accessToken: access-token
+```
+```yaml {% srNumber=4 %}
+      apiHost: api.domo.com
+```
+```yaml {% srNumber=5 %}
+      sandboxDomain: https://<api_domo>.domo.com
+```
+```yaml {% srNumber=6 %}
+      # database: database
+```
+```yaml {% srNumber=7 %}
+      # connectionOptions:
+      #   key: value
+```
+```yaml {% srNumber=8 %}
+      # connectionArguments:
+      #   key: value
+```
+
+
+```yaml {% srNumber=9 %}
+      sourceConfig:
+        config:
+          type: DatabaseMetadata
+          markDeletedTables: true
+          includeTables: true
+          includeViews: true
+          # includeTags: true
+          # databaseFilterPattern:
+          #   includes:
+          #     - database1
+          #     - database2
+          #   excludes:
+          #     - database3
+          #     - database4
+          # schemaFilterPattern:
+          #   includes:
+          #     - schema1
+          #     - schema2
+          #   excludes:
+          #     - schema3
+          #     - schema4
+          # tableFilterPattern:
+          #   includes:
+          #     - users
+          #     - type_test
+          #   excludes:
+          #     - table3
+          #     - table4
+```
+
+```yaml {% srNumber=10 %}
+sink:
+  type: metadata-rest
+  config: {}
+```
+
+```yaml {% srNumber=11 %}
 workflowConfig:
   openMetadataServerConfig:
     hostPort: "http://localhost:8585/api"
@@ -138,13 +254,18 @@ workflowConfig:
     securityConfig:
       jwtToken: "{bot_jwt_token}"
 ```
+
+{% /codeBlock %}
+
+{% /codePreview %}
+
+### Workflow Configs for Security Provider
 
 We support different security providers. You can find their definitions [here](https://github.com/open-metadata/OpenMetadata/tree/main/openmetadata-spec/src/main/resources/json/schema/security/client).
-You can find the different implementation of the ingestion below.
 
-<Collapse title="Configure SSO in the Ingestion Workflows">
+## Openmetadata JWT Auth
 
-### Openmetadata JWT Auth
+- JWT tokens will allow your clients to authenticate against the OpenMetadata server. To enable JWT Tokens, you will get more details [here](/deployment/security/enable-jwt-tokens).
 
 ```yaml
 workflowConfig:
@@ -155,120 +276,7 @@ workflowConfig:
       jwtToken: "{bot_jwt_token}"
 ```
 
-### Auth0 SSO
-
-```yaml
-workflowConfig:
-  openMetadataServerConfig:
-    hostPort: "http://localhost:8585/api"
-    authProvider: auth0
-    securityConfig:
-      clientId: "{your_client_id}"
-      secretKey: "{your_client_secret}"
-      domain: "{your_domain}"
-```
-
-### Azure SSO
-
-```yaml
-workflowConfig:
-  openMetadataServerConfig:
-    hostPort: "http://localhost:8585/api"
-    authProvider: azure
-    securityConfig:
-      clientSecret: "{your_client_secret}"
-      authority: "{your_authority_url}"
-      clientId: "{your_client_id}"
-      scopes:
-        - your_scopes
-```
-
-### Custom OIDC SSO
-
-````yaml
-workflowConfig:
-  openMetadataServerConfig:
-    hostPort: 'http://localhost:8585/api'
-    authProvider: custom-oidc
-    securityConfig:
-      clientId: '{your_client_id}'
-      secretKey: '{your_client_secret}'
-      domain: '{your_domain}'
-      ```
-
-      ### Google SSO
-
-```yaml
-workflowConfig:
-  openMetadataServerConfig:
-    hostPort: 'http://localhost:8585/api'
-    authProvider: google
-    securityConfig:
-      secretKey: '{path-to-json-creds}'
-````
-
-### Okta SSO
-
-```yaml
-workflowConfig:
-  openMetadataServerConfig:
-    hostPort: http://localhost:8585/api
-    authProvider: okta
-    securityConfig:
-      clientId: "{CLIENT_ID - SPA APP}"
-      orgURL: "{ISSUER_URL}/v1/token"
-      privateKey: "{public/private keypair}"
-      email: "{email}"
-      scopes:
-        - token
-```
-
-### Amazon Cognito SSO
-
-The ingestion can be configured by [Enabling JWT Tokens](https://docs.open-metadata.org/deployment/security/enable-jwt-tokens)
-
-```yaml
-workflowConfig:
-  openMetadataServerConfig:
-    hostPort: "http://localhost:8585/api"
-    authProvider: auth0
-    securityConfig:
-      clientId: "{your_client_id}"
-      secretKey: "{your_client_secret}"
-      domain: "{your_domain}"
-```
-
-### OneLogin SSO
-
-Which uses Custom OIDC for the ingestion
-
-```yaml
-workflowConfig:
-  openMetadataServerConfig:
-    hostPort: "http://localhost:8585/api"
-    authProvider: custom-oidc
-    securityConfig:
-      clientId: "{your_client_id}"
-      secretKey: "{your_client_secret}"
-      domain: "{your_domain}"
-```
-
-### KeyCloak SSO
-
-Which uses Custom OIDC for the ingestion
-
-```yaml
-workflowConfig:
-  openMetadataServerConfig:
-    hostPort: "http://localhost:8585/api"
-    authProvider: custom-oidc
-    securityConfig:
-      clientId: "{your_client_id}"
-      secretKey: "{your_client_secret}"
-      domain: "{your_domain}"
-```
-
-</Collapse>
+- You can refer to the JWT Troubleshooting section [link](/deployment/security/jwt-troubleshooting) for any issues in your JWT configuration. If you need information on configuring the ingestion with other security providers in your bots, you can follow this doc [link](/deployment/security/workflow-config-auth).
 
 ### 2. Run with the CLI
 
@@ -281,88 +289,26 @@ metadata ingest -c <path-to-yaml>
 Note that from connector to connector, this recipe will always be the same. By updating the YAML configuration,
 you will be able to extract metadata from different sources.
 
-### 1. Define the YAML Config
+## dbt Integration
 
-This is a sample config for the profiler:
+{% tilesContainer %}
 
-```yaml
-source:
-  type: domodatabase
-  serviceName: <service name>
-  serviceConnection:
-    config:
-      type: DomoDatabase
-      type: DomoDashboard
-      clientId: client-id
-      secretToken: secret-token
-      accessToken: access-token
-      apiHost: api.domo.com
-      sandboxDomain: https://<api_domo>.domo.com
-        # endPointURL: https://athena.us-east-2.amazonaws.com/
-        # awsSessionToken: TOKEN
-      s3StagingDir: s3 directory for datasource
-      workgroup: workgroup name
-  sourceConfig:
-    config:
-      type: Profiler
-      # generateSampleData: true
-      # profileSample: 85
-      # threadCount: 5 (default)
-      # databaseFilterPattern:
-      #   includes:
-      #     - database1
-      #     - database2
-      #   excludes:
-      #     - database3
-      #     - database4
-      # schemaFilterPattern:
-      #   includes:
-      #     - schema1
-      #     - schema2
-      #   excludes:
-      #     - schema3
-      #     - schema4
-      # tableFilterPattern:
-      #   includes:
-      #     - table1
-      #     - table2
-      #   excludes:
-      #     - table3
-      #     - table4
- - ...
-sink:
-  type: metadata-rest
-  config: {}
-workflowConfig:
-  # loggerLevel: DEBUG  # DEBUG, INFO, WARN or ERROR
-  openMetadataServerConfig:
-    hostPort: <OpenMetadata host and port>
-    authProvider: <OpenMetadata auth provider>
-```
+{% tile
+  icon="mediation"
+  title="dbt Integration"
+  description="Learn more about how to ingest dbt models' definitions and their lineage."
+  link="/connectors/ingestion/workflows/dbt" /%}
 
-#### Source Configuration
+{% /tilesContainer %}
 
-- You can find all the definitions and types for the `serviceConnection` [here](https://github.com/open-metadata/OpenMetadata/blob/main/openmetadata-spec/src/main/resources/json/schema/entity/services/connections/database/athenaConnection.json).
-- The `sourceConfig` is defined [here](https://github.com/open-metadata/OpenMetadata/blob/main/openmetadata-spec/src/main/resources/json/schema/metadataIngestion/databaseServiceProfilerPipeline.json).
+## Related
 
-Note that the filter patterns support regex as includes or excludes. E.g.,
+{% tilesContainer %}
 
-```yaml
-tableFilterPattern:
-  includes:
-  - *users$
-```
+{% tile
+    title="Ingest with Airflow"
+    description="Configure the ingestion using Airflow SDK"
+    link="/connectors/database/domo-databas/airflow"
+  / %}
 
-#### Workflow Configuration
-
-The same as the metadata ingestion.
-
-### 2. Run with the CLI
-
-After saving the YAML config, we will run the command the same way we did for the metadata ingestion:
-
-```bash
-metadata profile -c <path-to-yaml>
-```
-
-Note how instead of running `ingest`, we are using the `profile` command to select the Profiler workflow.
+{% /tilesContainer %}

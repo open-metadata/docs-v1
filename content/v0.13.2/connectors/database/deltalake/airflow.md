@@ -5,21 +5,26 @@ slug: /connectors/database/deltalake/airflow
 
 # Run Deltalake using the Airflow SDK
 
-<Table>
+{% multiTablesWrapper %}
 
-| Stage | Metadata | Query Usage | Data Profiler | Data Quality | Lineage | DBT | Supported Versions |
-| :---: | :------: | :---------: | :-----------: | :----------: | :-----: | :-: | :----------------: |
-| PROD  |    ✅    |     ❌      |      ❌       |      ❌      |   ❌    | ❌  |         --         |
+| Feature            | Status                       |
+| :----------------- | :--------------------------- |
+| Stage              | PROD                         |
+| Metadata           | {% icon iconName="check" /%} |
+| Query Usage        | {% icon iconName="cross" /%} |
+| Data Profiler      | {% icon iconName="cross" /%} |
+| Data Quality       | {% icon iconName="cross" /%} |
+| Lineage            | Partially via Views          |
+| DBT                | {% icon iconName="cross" /%} |
+| Supported Versions | --                           |
 
-</Table>
+| Feature      | Status                       |
+| :----------- | :--------------------------- |
+| Lineage      | Partially via Views          |
+| Table-level  | {% icon iconName="check" /%} |
+| Column-level | {% icon iconName="check" /%} |
 
-<Table>
-
-|       Lineage       | Table-level | Column-level |
-| :-----------------: | :---------: | :----------: |
-| Partially via Views |     ✅      |      ✅      |
-
-</Table>
+{% /multiTablesWrapper %}
 
 In this section, we provide guides and references to use the Deltalake connector.
 
@@ -31,7 +36,7 @@ Configure and schedule Deltalake metadata and profiler workflows from the OpenMe
 
 ## Requirements
 
-{%inlineCallout icon="description" bold="OpenMetadata 0.12.1 or later" href="/deployment"%}
+{%inlineCallout icon="description" bold="OpenMetadata 0.12 or later" href="/deployment"%}
 To deploy OpenMetadata, check the Deployment guides.
 {%/inlineCallout%}
 
@@ -63,67 +68,26 @@ The workflow is modeled around the following
 
 This is a sample config for Deltalake:
 
-```yaml
-source:
-  type: deltalake
-  serviceName: "<service name>"
-  serviceConnection:
-    config:
-      type: DeltaLake
-      metastoreConnection:
-        # Pick only of the three
-        metastoreHostPort: "<metastore host port>"
-        # metastoreDb: jdbc:mysql://localhost:3306/demo_hive
-        # metastoreFilePath: "<path_to_metastore>/metastore_db"
-      appName: MyApp
-  sourceConfig:
-    config:
-      type: DatabaseMetadata
-      markDeletedTables: true
-      includeTables: true
-      includeViews: true
-      # includeTags: true
-      # databaseFilterPattern:
-      #   includes:
-      #     - database1
-      #     - database2
-      #   excludes:
-      #     - database3
-      #     - database4
-      # schemaFilterPattern:
-      #   includes:
-      #     - schema1
-      #     - schema2
-      #   excludes:
-      #     - schema3
-      #     - schema4
-      # tableFilterPattern:
-      #   includes:
-      #     - table1
-      #     - table2
-      #   excludes:
-      #     - table3
-      #     - table4
-sink:
-  type: metadata-rest
-  config: {}
-workflowConfig:
-  # loggerLevel: DEBUG  # DEBUG, INFO, WARN or ERROR
-  openMetadataServerConfig:
-    hostPort: "<OpenMetadata host and port>"
-    authProvider: "<OpenMetadata auth provider>"
-```
+{% codePreview %}
+
+{% codeInfoContainer %}
 
 #### Source Configuration - Service Connection
 
-- **Metastore Host Port**: Enter the Host & Port of Hive Metastore Service to configure the Spark Session. Either
+{% codeInfo srNumber=1 %}
+
+**Metastore Host Port**: Enter the Host & Port of Hive Metastore Service to configure the Spark Session. Either
   of `metastoreHostPort`, `metastoreDb` or `metastoreFilePath` is required.
-- **Metastore File Path**: Enter the file path to local Metastore in case Spark cluster is running locally. Either
+
+**Metastore File Path**: Enter the file path to local Metastore in case Spark cluster is running locally. Either
   of `metastoreHostPort`, `metastoreDb` or `metastoreFilePath` is required.
-- **Metastore DB**: The JDBC connection to the underlying Hive metastore DB. Either
+
+**Metastore DB**: The JDBC connection to the underlying Hive metastore DB. Either
   of `metastoreHostPort`, `metastoreDb` or `metastoreFilePath` is required.
-- **appName (Optional)**: Enter the app name of spark session.
-- **Connection Arguments (Optional)**: Key-Value pairs that will be used to pass extra `config` elements to the Spark
+
+**appName (Optional)**: Enter the app name of spark session.
+
+**Connection Arguments (Optional)**: Key-Value pairs that will be used to pass extra `config` elements to the Spark
   Session builder.
 
 We are internally running with `pyspark` 3.X and `delta-lake` 2.0.0. This means that we need to consider Spark
@@ -134,7 +98,7 @@ configuration options for 3.X.
 When connecting to an External Metastore passing the parameter `Metastore Host Port`, we will be preparing a Spark Session with the configuration
 
 ```
-.config("hive.metastore.uris", "thrift://{connection.metastoreHostPort}")
+.config("hive.metastore.uris", "thrift://{connection.metastoreHostPort}") 
 ```
 
 Then, we will be using the `catalog` functions from the Spark Session to pick up the metadata exposed by the Hive Metastore.
@@ -144,7 +108,7 @@ Then, we will be using the `catalog` functions from the Spark Session to pick up
 If instead we use a local file path that contains the metastore information (e.g., for local testing with the default `metastore_db` directory), we will set
 
 ```
-.config("spark.driver.extraJavaOptions", "-Dderby.system.home={connection.metastoreFilePath}")
+.config("spark.driver.extraJavaOptions", "-Dderby.system.home={connection.metastoreFilePath}") 
 ```
 
 To update the `Derby` information. More information about this in a great [SO thread](https://stackoverflow.com/questions/38377188/how-to-get-rid-of-derby-log-metastore-db-from-spark-shell).
@@ -154,33 +118,127 @@ To update the `Derby` information. More information about this in a great [SO th
   it [here](https://spark.apache.org/docs/3.0.0-preview/sql-data-sources-hive-tables.html), and in The Internals of
   Spark SQL [book](https://jaceklaskowski.gitbooks.io/mastering-spark-sql/content/spark-sql-hive-metastore.html).
 
+{% /codeInfo %}
+
+
 #### Source Configuration - Source Config
+
+{% codeInfo srNumber=4 %}
 
 The `sourceConfig` is defined [here](https://github.com/open-metadata/OpenMetadata/blob/main/openmetadata-spec/src/main/resources/json/schema/metadataIngestion/databaseServiceMetadataPipeline.json):
 
-- `markDeletedTables`: To flag tables as soft-deleted if they are not present anymore in the source system.
-- `includeTables`: true or false, to ingest table data. Default is true.
-- `includeViews`: true or false, to ingest views definitions.
-- `databaseFilterPattern`, `schemaFilterPattern`, `tableFilternPattern`: Note that the they support regex as include or exclude. E.g.,
+**markDeletedTables**: To flag tables as soft-deleted if they are not present anymore in the source system.
 
-```yaml
-tableFilterPattern:
-  includes:
-    - users
-    - type_test
-```
+**includeTables**: true or false, to ingest table data. Default is true.
+
+**includeViews**: true or false, to ingest views definitions.
+
+**databaseFilterPattern**, **schemaFilterPattern**, **tableFilternPattern**: Note that the they support regex as include or exclude. E.g.,
+
+{% /codeInfo %}
 
 #### Sink Configuration
 
+{% codeInfo srNumber=5 %}
+
 To send the metadata to OpenMetadata, it needs to be specified as `type: metadata-rest`.
 
+{% /codeInfo %}
+
 #### Workflow Configuration
+
+{% codeInfo srNumber=6 %}
 
 The main property here is the `openMetadataServerConfig`, where you can define the host and security provider of your OpenMetadata installation.
 
 For a simple, local installation using our docker containers, this looks like:
 
+{% /codeInfo %}
+
+#### Advanced Configuration
+
+{% codeInfo srNumber=2 %}
+
+**Connection Options (Optional)**: Enter the details for any additional connection options that can be sent to Athena during the connection. These details must be added as Key-Value pairs.
+
+{% /codeInfo %}
+
+{% codeInfo srNumber=3 %}
+
+**Connection Arguments (Optional)**: Enter the details for any additional connection arguments such as security or protocol configs that can be sent to Athena during the connection. These details must be added as Key-Value pairs.
+
+- In case you are using Single-Sign-On (SSO) for authentication, add the `authenticator` details in the Connection Arguments as a Key-Value pair as follows: `"authenticator" : "sso_login_url"`
+- In case you authenticate with SSO using an external browser popup, then add the `authenticator` details in the Connection Arguments as a Key-Value pair as follows: `"authenticator" : "externalbrowser"`
+
+{% /codeInfo %}
+
+{% /codeInfoContainer %}
+
+{% codeBlock fileName="filename.yaml" %}
+
 ```yaml
+source:
+  type: deltalake
+  serviceName: "<service name>"
+  serviceConnection:
+    config:
+      type: DeltaLake
+```
+```yaml {% srNumber=1 %}
+      metastoreConnection:
+        # Pick only of the three
+        metastoreHostPort: "<metastore host port>"
+        # metastoreDb: jdbc:mysql://localhost:3306/demo_hive
+        # metastoreFilePath: "<path_to_metastore>/metastore_db"
+      appName: MyApp
+```
+```yaml {% srNumber=2 %}
+      # connectionOptions:
+      #   key: value
+```
+```yaml {% srNumber=3 %}
+      # connectionArguments:
+      #   key: value
+```
+
+```yaml {% srNumber=4 %}
+      sourceConfig:
+        config:
+          type: DatabaseMetadata
+          markDeletedTables: true
+          includeTables: true
+          includeViews: true
+          # includeTags: true
+          # databaseFilterPattern:
+          #   includes:
+          #     - database1
+          #     - database2
+          #   excludes:
+          #     - database3
+          #     - database4
+          # schemaFilterPattern:
+          #   includes:
+          #     - schema1
+          #     - schema2
+          #   excludes:
+          #     - schema3
+          #     - schema4
+          # tableFilterPattern:
+          #   includes:
+          #     - users
+          #     - type_test
+          #   excludes:
+          #     - table3
+          #     - table4
+```
+
+```yaml {% srNumber=5 %}
+sink:
+  type: metadata-rest
+  config: {}
+```
+
+```yaml {% srNumber=6 %}
 workflowConfig:
   openMetadataServerConfig:
     hostPort: "http://localhost:8585/api"
@@ -188,13 +246,18 @@ workflowConfig:
     securityConfig:
       jwtToken: "{bot_jwt_token}"
 ```
+
+{% /codeBlock %}
+
+{% /codePreview %}
+
+### Workflow Configs for Security Provider
 
 We support different security providers. You can find their definitions [here](https://github.com/open-metadata/OpenMetadata/tree/main/openmetadata-spec/src/main/resources/json/schema/security/client).
-You can find the different implementation of the ingestion below.
 
-<Collapse title="Configure SSO in the Ingestion Workflows">
+## Openmetadata JWT Auth
 
-### Openmetadata JWT Auth
+- JWT tokens will allow your clients to authenticate against the OpenMetadata server. To enable JWT Tokens, you will get more details [here](/deployment/security/enable-jwt-tokens).
 
 ```yaml
 workflowConfig:
@@ -205,140 +268,80 @@ workflowConfig:
       jwtToken: "{bot_jwt_token}"
 ```
 
-### Auth0 SSO
+- You can refer to the JWT Troubleshooting section [link](/deployment/security/jwt-troubleshooting) for any issues in your JWT configuration. If you need information on configuring the ingestion with other security providers in your bots, you can follow this doc [link](/deployment/security/workflow-config-auth).
 
-```yaml
-workflowConfig:
-  openMetadataServerConfig:
-    hostPort: "http://localhost:8585/api"
-    authProvider: auth0
-    securityConfig:
-      clientId: "{your_client_id}"
-      secretKey: "{your_client_secret}"
-      domain: "{your_domain}"
-```
-
-### Azure SSO
-
-```yaml
-workflowConfig:
-  openMetadataServerConfig:
-    hostPort: "http://localhost:8585/api"
-    authProvider: azure
-    securityConfig:
-      clientSecret: "{your_client_secret}"
-      authority: "{your_authority_url}"
-      clientId: "{your_client_id}"
-      scopes:
-        - your_scopes
-```
-
-### Custom OIDC SSO
-
-```yaml
-workflowConfig:
-  openMetadataServerConfig:
-    hostPort: "http://localhost:8585/api"
-    authProvider: custom-oidc
-    securityConfig:
-      clientId: "{your_client_id}"
-      secretKey: "{your_client_secret}"
-      domain: "{your_domain}"
-```
-
-### Google SSO
-
-```yaml
-workflowConfig:
-  openMetadataServerConfig:
-    hostPort: "http://localhost:8585/api"
-    authProvider: google
-    securityConfig:
-      secretKey: "{path-to-json-creds}"
-```
-
-### Okta SSO
-
-```yaml
-workflowConfig:
-  openMetadataServerConfig:
-    hostPort: http://localhost:8585/api
-    authProvider: okta
-    securityConfig:
-      clientId: "{CLIENT_ID - SPA APP}"
-      orgURL: "{ISSUER_URL}/v1/token"
-      privateKey: "{public/private keypair}"
-      email: "{email}"
-      scopes:
-        - token
-```
-
-### Amazon Cognito SSO
-
-The ingestion can be configured by [Enabling JWT Tokens](https://docs.open-metadata.org/deployment/security/enable-jwt-tokens)
-
-```yaml
-workflowConfig:
-  openMetadataServerConfig:
-    hostPort: "http://localhost:8585/api"
-    authProvider: auth0
-    securityConfig:
-      clientId: "{your_client_id}"
-      secretKey: "{your_client_secret}"
-      domain: "{your_domain}"
-```
-
-### OneLogin SSO
-
-Which uses Custom OIDC for the ingestion
-
-```yaml
-workflowConfig:
-  openMetadataServerConfig:
-    hostPort: "http://localhost:8585/api"
-    authProvider: custom-oidc
-    securityConfig:
-      clientId: "{your_client_id}"
-      secretKey: "{your_client_secret}"
-      domain: "{your_domain}"
-```
-
-### KeyCloak SSO
-
-Which uses Custom OIDC for the ingestion
-
-```yaml
-workflowConfig:
-  openMetadataServerConfig:
-    hostPort: "http://localhost:8585/api"
-    authProvider: custom-oidc
-    securityConfig:
-      clientId: "{your_client_id}"
-      secretKey: "{your_client_secret}"
-      domain: "{your_domain}"
-```
-
-</Collapse>
 
 ### 2. Prepare the Ingestion DAG
 
 Create a Python file in your Airflow DAGs directory with the following contents:
 
-```python
+{% codePreview %}
+
+{% codeInfoContainer %}
+
+
+{% codeInfo srNumber=7 %}
+
+#### Import necessary modules
+
+The `Workflow` class that is being imported is a part of a metadata ingestion framework, which defines a process of getting data from different sources and ingesting it into a central metadata repository.
+
+Here we are also importing all the basic requirements to parse YAMLs, handle dates and build our DAG.
+
+{% /codeInfo %}
+
+{% codeInfo srNumber=8 %}
+
+**Default arguments for all tasks in the Airflow DAG.** 
+
+- Default arguments dictionary contains default arguments for tasks in the DAG, including the owner's name, email address, number of retries, retry delay, and execution timeout.
+
+{% /codeInfo %}
+
+{% codeInfo srNumber=9 %}
+
+- **config**: Specifies config for the metadata ingestion as we prepare above.
+
+{% /codeInfo %}
+
+{% codeInfo srNumber=10 %}
+
+- **metadata_ingestion_workflow()**: This code defines a function `metadata_ingestion_workflow()` that loads a YAML configuration, creates a `Workflow` object, executes the workflow, checks its status, prints the status to the console, and stops the workflow.
+
+{% /codeInfo %}
+
+{% codeInfo srNumber=11 %}
+
+- **DAG**: creates a DAG using the Airflow framework, and tune the DAG configurations to whatever fits with your requirements
+- For more Airflow DAGs creation details visit [here](https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/dags.html#declaring-a-dag).
+
+{% /codeInfo %}
+
+Note that from connector to connector, this recipe will always be the same.
+By updating the `YAML configuration`, you will be able to extract metadata from different sources.
+
+{% /codeInfoContainer %}
+
+{% codeBlock fileName="filename.py" %}
+
+```python {% srNumber=7 %}
 import pathlib
 import yaml
 from datetime import timedelta
 from airflow import DAG
+from metadata.config.common import load_config_file
+from metadata.ingestion.api.workflow import Workflow
+from airflow.utils.dates import days_ago
 
 try:
     from airflow.operators.python import PythonOperator
 except ModuleNotFoundError:
     from airflow.operators.python_operator import PythonOperator
 
-from metadata.config.common import load_config_file
-from metadata.ingestion.api.workflow import Workflow
-from airflow.utils.dates import days_ago
 
+```
+
+```python {% srNumber=8 %}
 default_args = {
     "owner": "user_name",
     "email": ["username@org.com"],
@@ -348,10 +351,18 @@ default_args = {
     "execution_timeout": timedelta(minutes=60)
 }
 
+
+```
+
+```python {% srNumber=9 %}
 config = """
 <your YAML configuration>
 """
 
+
+```
+
+```python {% srNumber=10 %}
 def metadata_ingestion_workflow():
     workflow_config = yaml.safe_load(config)
     workflow = Workflow.create(workflow_config)
@@ -360,6 +371,10 @@ def metadata_ingestion_workflow():
     workflow.print_status()
     workflow.stop()
 
+
+```
+
+```python {% srNumber=11 %}
 with DAG(
     "sample_data",
     default_args=default_args,
@@ -373,11 +388,34 @@ with DAG(
         task_id="ingest_using_recipe",
         python_callable=metadata_ingestion_workflow,
     )
+
+
 ```
 
-Note that from connector to connector, this recipe will always be the same.
-By updating the YAML configuration, you will be able to extract metadata from different sources.
+{% /codeBlock %}
+
+{% /codePreview %}
 
 ## dbt Integration
 
-You can learn more about how to ingest dbt models' definitions and their lineage [here](/connectors/ingestion/workflows/dbt).
+{% tilesContainer %}
+
+{% tile
+  icon="mediation"
+  title="dbt Integration"
+  description="Learn more about how to ingest dbt models' definitions and their lineage."
+  link="/connectors/ingestion/workflows/dbt" /%}
+
+{% /tilesContainer %}
+
+## Related
+
+{% tilesContainer %}
+
+{% tile
+    title="Ingest with the CLI"
+    description="Run a one-time ingestion using the metadata CLI"
+    link="/connectors/database/deltalake/cli"
+  / %}
+
+{% /tilesContainer %}
