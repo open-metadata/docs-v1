@@ -4,36 +4,34 @@ slug: /connectors/database/datalake/airflow
 ---
 
 # Run Datalake using the Airflow SDK
-
 <Table>
 
-| Stage | Metadata | Query Usage | Data Profiler | Data Quality | Lineage | DBT | Supported Versions |
-| :---: | :------: | :---------: | :-----------: | :----------: | :-----: | :-: | :----------------: |
-| PROD  |    ✅    |     ❌      |      ✅       |      ✅      |   ❌    | ❌  |         --         |
+| Stage | Metadata |Query Usage | Data Profiler | Data Quality | Lineage | DBT | Supported Versions |
+|:------:|:------:|:-----------:|:-------------:|:------------:|:-------:|:---:|:------------------:|
+|  PROD  |   ✅   |      ❌      |       ✅       |       ✅      |    ❌    |  ❌  |  --  |
 
 </Table>
 
 <Table>
 
 | Lineage | Table-level | Column-level |
-| :-----: | :---------: | :----------: |
-|   ❌    |     ❌      |      ❌      |
+|:------:|:-----------:|:-------------:|
+| ❌ | ❌ | ❌ |
 
 </Table>
 
 In this section, we provide guides and references to use the Datalake connector.
 
 Configure and schedule Datalake metadata and profiler workflows from the OpenMetadata UI:
-
 - [Requirements](#requirements)
 - [Metadata Ingestion](#metadata-ingestion)
 - [dbt Integration](#dbt-integration)
 
 ## Requirements
 
-{%inlineCallout icon="description" bold="OpenMetadata 0.12 or later" href="/deployment"%}
-To deploy OpenMetadata, check the Deployment guides.
-{%/inlineCallout%}
+<InlineCallout color="violet-70" icon="description" bold="OpenMetadata 0.12 or later" href="/deployment">
+To deploy OpenMetadata, check the <a href="/deployment">Deployment</a> guides.
+</InlineCallout>
 
 To run the Ingestion via the UI you'll need to use the OpenMetadata Ingestion Container, which comes shipped with
 custom Airflow plugins to handle the workflow deployment.
@@ -50,14 +48,20 @@ Datalake connector supports extracting metadata from file types `JSON`, `CSV`, `
 
 ```json
 {
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Action": ["s3:GetObject", "s3:ListBucket"],
-      "Resource": ["arn:aws:s3:::<my bucket>", "arn:aws:s3:::<my bucket>/*"]
-    }
-  ]
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:GetObject",
+                "s3:ListBucket"
+            ],
+            "Resource": [
+                "arn:aws:s3:::<my bucket>",
+                "arn:aws:s3:::<my bucket>/*"
+            ]
+        }
+    ]
 }
 ```
 
@@ -92,7 +96,6 @@ pip3 install "openmetadata-ingestion[datalake]"
 ```
 
 ## Metadata Ingestion
-
 All connectors are defined as JSON Schemas. Here you can find the structure to create a connection to Datalake.
 
 In order to create and run a Metadata Ingestion workflow, we will follow the steps to create a YAML configuration able to connect to the source, process the Entities if needed, and reach the OpenMetadata server.
@@ -100,7 +103,6 @@ In order to create and run a Metadata Ingestion workflow, we will follow the ste
 The workflow is modeled around the following JSON Schema.
 
 ## 1. Define the YAML Config
-
 This is a sample config for Datalake using AWS S3:
 
 ```yaml
@@ -111,8 +113,8 @@ source:
   serviceConnection:
     config:
       type: Datalake
-      configSource:
-        securityConfig:
+      configSource:      
+        securityConfig: 
           awsAccessKeyId: aws access key id
           awsSecretAccessKey: aws secret access key
           awsRegion: aws region
@@ -140,10 +142,10 @@ workflowConfig:
 
 The `sourceConfig` is defined [here](https://github.com/open-metadata/OpenMetadata/blob/main/openmetadata-spec/src/main/resources/json/schema/metadataIngestion/databaseServiceMetadataPipeline.json).
 
-- **awsAccessKeyId**: Enter your secure access key ID for your DynamoDB connection. The specified key ID should be authorized to read all databases you want to include in the metadata ingestion workflow.
-- **awsSecretAccessKey**: Enter the Secret Access Key (the passcode key pair to the key ID from above).
-- **awsRegion**: Specify the region in which your DynamoDB is located. This setting is required even if you have configured a local AWS profile.
-- **schemaFilterPattern** and **tableFilternPattern**: Note that the `schemaFilterPattern` and `tableFilterPattern` both support regex as `include` or `exclude`. E.g.,
+* **awsAccessKeyId**: Enter your secure access key ID for your DynamoDB connection. The specified key ID should be authorized to read all databases you want to include in the metadata ingestion workflow.
+* **awsSecretAccessKey**: Enter the Secret Access Key (the passcode key pair to the key ID from above).
+* **awsRegion**: Specify the region in which your DynamoDB is located. This setting is required even if you have configured a local AWS profile.
+* **schemaFilterPattern** and **tableFilternPattern**: Note that the `schemaFilterPattern` and `tableFilterPattern` both support regex as `include` or `exclude`. E.g.,
 
 This is a sample config for Datalake using GCS:
 
@@ -190,23 +192,24 @@ workflowConfig:
 - `includeViews`: true or false, to ingest views definitions.
 - `databaseFilterPattern`, `schemaFilterPattern`, `tableFilternPattern`: Note that the they support regex as include or exclude. E.g.,
 
+
 #### Source Configuration - Service Connection using GCS
 
 The `sourceConfig` is defined [here](https://github.com/open-metadata/OpenMetadata/blob/main/openmetadata-spec/src/main/resources/json/schema/metadataIngestion/databaseServiceMetadataPipeline.json).
 
-- **type**: Credentials type, e.g. `service_account`.
-- **projectId**
-- **privateKey**
-- **privateKeyId**
-- **clientEmail**
-- **clientId**
-- **authUri**: [https://accounts.google.com/o/oauth2/auth](https://accounts.google.com/o/oauth2/auth) by default
-- **tokenUri**: [https://oauth2.googleapis.com/token](https://oauth2.googleapis.com/token) by default
-- **authProviderX509CertUrl**: [https://www.googleapis.com/oauth2/v1/certs](https://www.googleapis.com/oauth2/v1/certs) by default
-- **clientX509CertUrl**
-- **bucketName**: name of the bucket in GCS
-- **Prefix**: prefix in gcs bucket
-- **schemaFilterPattern** and **tableFilternPattern**: Note that the `schemaFilterPattern` and `tableFilterPattern` both support regex as `include` or `exclude`. E.g.,
+* **type**: Credentials type, e.g. `service_account`.
+* **projectId**
+* **privateKey**
+* **privateKeyId**
+* **clientEmail**
+* **clientId**
+* **authUri**: [https://accounts.google.com/o/oauth2/auth](https://accounts.google.com/o/oauth2/auth) by default
+* **tokenUri**: [https://oauth2.googleapis.com/token](https://oauth2.googleapis.com/token) by default
+* **authProviderX509CertUrl**: [https://www.googleapis.com/oauth2/v1/certs](https://www.googleapis.com/oauth2/v1/certs) by default
+* **clientX509CertUrl**
+* **bucketName**: name of the bucket in GCS
+* **Prefix**: prefix in gcs bucket
+* **schemaFilterPattern** and **tableFilternPattern**: Note that the `schemaFilterPattern` and `tableFilterPattern` both support regex as `include` or `exclude`. E.g.,
 
 #### Source Configuration - Source Config
 
@@ -220,7 +223,7 @@ The `sourceConfig` is defined [here](https://github.com/open-metadata/OpenMetada
 This is a sample config for Datalake using Azure:
 
 ```yaml
-# Datalake with Azure
+# Datalake with Azure 
 
 source:
   type: datalake
@@ -228,8 +231,8 @@ source:
   serviceConnection:
     config:
       type: Datalake
-      configSource:
-        securityConfig:
+      configSource:      
+        securityConfig: 
           clientId: client-id
           clientSecret: client-secret
           tenantId: tenant-id
@@ -239,7 +242,7 @@ source:
     config:
       tableFilterPattern:
         includes:
-          - ""
+        - ''
 sink:
   type: metadata-rest
   config: {}
@@ -284,10 +287,10 @@ For a simple, local installation using our docker containers, this looks like:
 ```yaml
 workflowConfig:
   openMetadataServerConfig:
-    hostPort: "http://localhost:8585/api"
+    hostPort: 'http://localhost:8585/api'
     authProvider: openmetadata
     securityConfig:
-      jwtToken: "{bot_jwt_token}"
+      jwtToken: '{bot_jwt_token}'
 ```
 
 We support different security providers. You can find their definitions [here](https://github.com/open-metadata/OpenMetadata/tree/main/openmetadata-spec/src/main/resources/json/schema/security/client).
@@ -300,10 +303,10 @@ You can find the different implementation of the ingestion below.
 ```yaml
 workflowConfig:
   openMetadataServerConfig:
-    hostPort: "http://localhost:8585/api"
+    hostPort: 'http://localhost:8585/api'
     authProvider: openmetadata
     securityConfig:
-      jwtToken: "{bot_jwt_token}"
+      jwtToken: '{bot_jwt_token}'
 ```
 
 ### Auth0 SSO
@@ -311,12 +314,12 @@ workflowConfig:
 ```yaml
 workflowConfig:
   openMetadataServerConfig:
-    hostPort: "http://localhost:8585/api"
+    hostPort: 'http://localhost:8585/api'
     authProvider: auth0
     securityConfig:
-      clientId: "{your_client_id}"
-      secretKey: "{your_client_secret}"
-      domain: "{your_domain}"
+      clientId: '{your_client_id}'
+      secretKey: '{your_client_secret}'
+      domain: '{your_domain}'
 ```
 
 ### Azure SSO
@@ -324,12 +327,12 @@ workflowConfig:
 ```yaml
 workflowConfig:
   openMetadataServerConfig:
-    hostPort: "http://localhost:8585/api"
+    hostPort: 'http://localhost:8585/api'
     authProvider: azure
     securityConfig:
-      clientSecret: "{your_client_secret}"
-      authority: "{your_authority_url}"
-      clientId: "{your_client_id}"
+      clientSecret: '{your_client_secret}'
+      authority: '{your_authority_url}'
+      clientId: '{your_client_id}'
       scopes:
         - your_scopes
 ```
@@ -339,12 +342,12 @@ workflowConfig:
 ```yaml
 workflowConfig:
   openMetadataServerConfig:
-    hostPort: "http://localhost:8585/api"
+    hostPort: 'http://localhost:8585/api'
     authProvider: custom-oidc
     securityConfig:
-      clientId: "{your_client_id}"
-      secretKey: "{your_client_secret}"
-      domain: "{your_domain}"
+      clientId: '{your_client_id}'
+      secretKey: '{your_client_secret}'
+      domain: '{your_domain}'
 ```
 
 ### Google SSO
@@ -352,10 +355,10 @@ workflowConfig:
 ```yaml
 workflowConfig:
   openMetadataServerConfig:
-    hostPort: "http://localhost:8585/api"
+    hostPort: 'http://localhost:8585/api'
     authProvider: google
     securityConfig:
-      secretKey: "{path-to-json-creds}"
+      secretKey: '{path-to-json-creds}'
 ```
 
 ### Okta SSO
@@ -381,12 +384,12 @@ The ingestion can be configured by [Enabling JWT Tokens](https://docs.open-metad
 ```yaml
 workflowConfig:
   openMetadataServerConfig:
-    hostPort: "http://localhost:8585/api"
+    hostPort: 'http://localhost:8585/api'
     authProvider: auth0
     securityConfig:
-      clientId: "{your_client_id}"
-      secretKey: "{your_client_secret}"
-      domain: "{your_domain}"
+      clientId: '{your_client_id}'
+      secretKey: '{your_client_secret}'
+      domain: '{your_domain}'
 ```
 
 ### OneLogin SSO
@@ -396,12 +399,12 @@ Which uses Custom OIDC for the ingestion
 ```yaml
 workflowConfig:
   openMetadataServerConfig:
-    hostPort: "http://localhost:8585/api"
+    hostPort: 'http://localhost:8585/api'
     authProvider: custom-oidc
     securityConfig:
-      clientId: "{your_client_id}"
-      secretKey: "{your_client_secret}"
-      domain: "{your_domain}"
+      clientId: '{your_client_id}'
+      secretKey: '{your_client_secret}'
+      domain: '{your_domain}'
 ```
 
 ### KeyCloak SSO
@@ -411,12 +414,12 @@ Which uses Custom OIDC for the ingestion
 ```yaml
 workflowConfig:
   openMetadataServerConfig:
-    hostPort: "http://localhost:8585/api"
+    hostPort: 'http://localhost:8585/api'
     authProvider: custom-oidc
     securityConfig:
-      clientId: "{your_client_id}"
-      secretKey: "{your_client_secret}"
-      domain: "{your_domain}"
+      clientId: '{your_client_id}'
+      secretKey: '{your_client_secret}'
+      domain: '{your_domain}'
 ```
 
 </Collapse>
