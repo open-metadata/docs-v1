@@ -46,6 +46,68 @@ The workflow is modeled around the following
 
 This is a sample config for Mode:
 
+{% codePreview %}
+
+{% codeInfoContainer %}
+
+#### Source Configuration - Service Connection
+
+{% codeInfo srNumber=1 %}
+
+
+**accessToken**: Access Token for Mode Dashboard.
+
+{% /codeInfo %}
+
+{% codeInfo srNumber=2 %}
+
+**accessTokenPassword**: Access Token Password for Mode Dashboard.
+
+{% /codeInfo %}
+
+{% codeInfo srNumber=3 %}
+
+**workspaceName**: Mode Workspace Name.
+
+{% /codeInfo %}
+
+#### Source Configuration - Source Config
+
+{% codeInfo srNumber=4 %}
+
+The `sourceConfig` is defined [here](https://github.com/open-metadata/OpenMetadata/blob/main/openmetadata-spec/src/main/resources/json/schema/metadataIngestion/dashboardServiceMetadataPipeline.json):
+
+**dbServiceNames**: Database Service Name for the creation of lineage, if the source supports it.
+**dashboardFilterPattern**, **chartFilterPattern**: Note that the they support regex as include or exclude. E.g.,
+**includeTags**: Set the Include tags toggle to control whether or not to include tags as part of metadata ingestion.
+**markDeletedDashboards**: Set the Mark Deleted Dashboards toggle to flag dashboards as soft-deleted if they are not present anymore in the source system.
+
+
+{% /codeInfo %}
+
+
+#### Sink Configuration
+
+{% codeInfo srNumber=5 %}
+
+To send the metadata to OpenMetadata, it needs to be specified as `type: metadata-rest`.
+
+{% /codeInfo %}
+
+#### Workflow Configuration
+
+{% codeInfo srNumber=6 %}
+
+The main property here is the `openMetadataServerConfig`, where you can define the host and security provider of your OpenMetadata installation.
+
+For a simple, local installation using our docker containers, this looks like:
+
+{% /codeInfo %}
+
+{% /codeInfoContainer %}
+
+{% codeBlock fileName="filename.yaml" %}
+
 ```yaml
 source:
   type: mode
@@ -53,9 +115,17 @@ source:
   serviceConnection:
     config:
       type: Mode
+```
+```yaml {% srNumber=1 %}
       access_token: access_token
+```
+```yaml {% srNumber=2 %}
       access_token_password: access_token_password
+```
+```yaml {% srNumber=3 %}
       workspace_name: workspace_name
+```
+```yaml {% srNumber=4 %}
   sourceConfig:
     config:
       type: DashboardMetadata
@@ -76,47 +146,14 @@ source:
       #   excludes:
       #     - chart3
       #     - chart4
+```
+```yaml {% srNumber=5 %}
 sink:
   type: metadata-rest
   config: {}
-workflowConfig:
-  # loggerLevel: DEBUG  # DEBUG, INFO, WARN or ERROR
-  openMetadataServerConfig:
-    hostPort: <OpenMetadata host and port>
-    authProvider: <OpenMetadata auth provider>
 ```
 
-#### Source Configuration - Service Connection
-
-- **accessToken**: Access Token for Mode Dashboard.
-- **accessTokenPassword**: Access Token Password for Mode Dashboard.
-- **workspaceName**: Mode Workspace Name.
-
-#### Source Configuration - Source Config
-
-The `sourceConfig` is defined [here](https://github.com/open-metadata/OpenMetadata/blob/main/openmetadata-spec/src/main/resources/json/schema/metadataIngestion/dashboardServiceMetadataPipeline.json):
-
-- `dbServiceNames`: Database Service Name for the creation of lineage, if the source supports it.
-- `dashboardFilterPattern` and `chartFilterPattern`: Note that the `dashboardFilterPattern` and `chartFilterPattern` both support regex as include or exclude. E.g.,
-
-```yaml
-dashboardFilterPattern:
-  includes:
-    - users
-    - type_test
-```
-
-#### Sink Configuration
-
-To send the metadata to OpenMetadata, it needs to be specified as `type: metadata-rest`.
-
-#### Workflow Configuration
-
-The main property here is the `openMetadataServerConfig`, where you can define the host and security provider of your OpenMetadata installation.
-
-For a simple, local installation using our docker containers, this looks like:
-
-```yaml
+```yaml {% srNumber=6 %}
 workflowConfig:
   openMetadataServerConfig:
     hostPort: "http://localhost:8585/api"
@@ -124,13 +161,18 @@ workflowConfig:
     securityConfig:
       jwtToken: "{bot_jwt_token}"
 ```
+
+{% /codeBlock %}
+
+{% /codePreview %}
+
+### Workflow Configs for Security Provider
 
 We support different security providers. You can find their definitions [here](https://github.com/open-metadata/OpenMetadata/tree/main/openmetadata-spec/src/main/resources/json/schema/security/client).
-You can find the different implementation of the ingestion below.
 
-<Collapse title="Configure SSO in the Ingestion Workflows">
+## Openmetadata JWT Auth
 
-### Openmetadata JWT Auth
+- JWT tokens will allow your clients to authenticate against the OpenMetadata server. To enable JWT Tokens, you will get more details [here](/deployment/security/enable-jwt-tokens).
 
 ```yaml
 workflowConfig:
@@ -141,120 +183,7 @@ workflowConfig:
       jwtToken: "{bot_jwt_token}"
 ```
 
-### Auth0 SSO
-
-```yaml
-workflowConfig:
-  openMetadataServerConfig:
-    hostPort: "http://localhost:8585/api"
-    authProvider: auth0
-    securityConfig:
-      clientId: "{your_client_id}"
-      secretKey: "{your_client_secret}"
-      domain: "{your_domain}"
-```
-
-### Azure SSO
-
-```yaml
-workflowConfig:
-  openMetadataServerConfig:
-    hostPort: "http://localhost:8585/api"
-    authProvider: azure
-    securityConfig:
-      clientSecret: "{your_client_secret}"
-      authority: "{your_authority_url}"
-      clientId: "{your_client_id}"
-      scopes:
-        - your_scopes
-```
-
-### Custom OIDC SSO
-
-```yaml
-workflowConfig:
-  openMetadataServerConfig:
-    hostPort: "http://localhost:8585/api"
-    authProvider: custom-oidc
-    securityConfig:
-      clientId: "{your_client_id}"
-      secretKey: "{your_client_secret}"
-      domain: "{your_domain}"
-```
-
-### Google SSO
-
-```yaml
-workflowConfig:
-  openMetadataServerConfig:
-    hostPort: "http://localhost:8585/api"
-    authProvider: google
-    securityConfig:
-      secretKey: "{path-to-json-creds}"
-```
-
-### Okta SSO
-
-```yaml
-workflowConfig:
-  openMetadataServerConfig:
-    hostPort: http://localhost:8585/api
-    authProvider: okta
-    securityConfig:
-      clientId: "{CLIENT_ID - SPA APP}"
-      orgURL: "{ISSUER_URL}/v1/token"
-      privateKey: "{public/private keypair}"
-      email: "{email}"
-      scopes:
-        - token
-```
-
-### Amazon Cognito SSO
-
-The ingestion can be configured by [Enabling JWT Tokens](https://docs.open-metadata.org/deployment/security/enable-jwt-tokens)
-
-```yaml
-workflowConfig:
-  openMetadataServerConfig:
-    hostPort: "http://localhost:8585/api"
-    authProvider: auth0
-    securityConfig:
-      clientId: "{your_client_id}"
-      secretKey: "{your_client_secret}"
-      domain: "{your_domain}"
-```
-
-### OneLogin SSO
-
-Which uses Custom OIDC for the ingestion
-
-```yaml
-workflowConfig:
-  openMetadataServerConfig:
-    hostPort: "http://localhost:8585/api"
-    authProvider: custom-oidc
-    securityConfig:
-      clientId: "{your_client_id}"
-      secretKey: "{your_client_secret}"
-      domain: "{your_domain}"
-```
-
-### KeyCloak SSO
-
-Which uses Custom OIDC for the ingestion
-
-```yaml
-workflowConfig:
-  openMetadataServerConfig:
-    hostPort: "http://localhost:8585/api"
-    authProvider: custom-oidc
-    securityConfig:
-      clientId: "{your_client_id}"
-      secretKey: "{your_client_secret}"
-      domain: "{your_domain}"
-```
-
-</Collapse>
+- You can refer to the JWT Troubleshooting section [link](/deployment/security/jwt-troubleshooting) for any issues in your JWT configuration. If you need information on configuring the ingestion with other security providers in your bots, you can follow this doc [link](/deployment/security/workflow-config-auth).
 
 ### 2. Run with the CLI
 
@@ -266,3 +195,4 @@ metadata ingest -c <path-to-yaml>
 
 Note that from connector to connector, this recipe will always be the same. By updating the YAML configuration,
 you will be able to extract metadata from different sources.
+
