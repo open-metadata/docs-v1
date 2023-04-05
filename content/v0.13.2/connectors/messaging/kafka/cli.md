@@ -42,9 +42,82 @@ process the Entities if needed, and reach the OpenMetadata server.
 The workflow is modeled around the following
 [JSON Schema](https://github.com/open-metadata/OpenMetadata/blob/main/openmetadata-spec/src/main/resources/json/schema/metadataIngestion/workflow.json)
 
+
 ### 1. Define the YAML Config
 
 This is a sample config for Kafka:
+
+{% codePreview %}
+
+{% codeInfoContainer %}
+
+#### Source Configuration - Service Connection
+
+{% codeInfo srNumber=1 %}
+
+**bootstrapServers**: Kafka bootstrap servers. 
+
+Add them in comma separated values ex: host1:9092,host2:9092.
+
+{% /codeInfo %}
+
+{% codeInfo srNumber=2 %}
+
+**schemaRegistryURL**: Confluent Kafka Schema Registry URL. URI format.
+
+{% /codeInfo %}
+
+{% codeInfo srNumber=3 %}
+
+**consumerConfig**: Confluent Kafka Consumer Config.
+
+{% /codeInfo %}
+
+{% codeInfo srNumber=4 %}
+
+**schemaRegistryConfig**:Confluent Kafka Schema Registry Config.
+
+**Note:** To ingest the topic schema `schemaRegistryURL` must be passed
+
+{% /codeInfo %}
+
+
+
+
+#### Source Configuration - Source Config
+
+{% codeInfo srNumber=5 %}
+
+The sourceConfig is defined [here](https://github.com/open-metadata/OpenMetadata/blob/main/openmetadata-spec/src/main/resources/json/schema/metadataIngestion/messagingServiceMetadataPipeline.json):
+
+**generateSampleData:** Option to turn on/off generating sample data during metadata extraction.
+
+**topicFilterPattern:** Note that the `topicFilterPattern` supports regex as include or exclude.
+
+{% /codeInfo %}
+
+#### Sink Configuration
+
+{% codeInfo srNumber=6 %}
+
+To send the metadata to OpenMetadata, it needs to be specified as `type: metadata-rest`.
+
+{% /codeInfo %}
+
+#### Workflow Configuration
+
+{% codeInfo srNumber=7 %}
+
+The main property here is the `openMetadataServerConfig`, where you can define the host and security provider of your OpenMetadata installation.
+
+For a simple, local installation using our docker containers, this looks like:
+
+{% /codeInfo %}
+
+{% /codeInfoContainer %}
+
+{% codeBlock fileName="filename.yaml" %}
+
 
 ```yaml
 source:
@@ -53,10 +126,20 @@ source:
   serviceConnection:
     config:
       type: Kafka
+```
+```yaml {% srNumber=1 %}
       bootstrapServers: localhost:9092
-      schemaRegistryURL: http://localhost:8081 # Needs to be a URI
+```
+```yaml {% srNumber=2 %}
+      schemaRegistryURL: http://localhost:8081  # Needs to be a URI
+```
+```yaml {% srNumber=3 %}
       consumerConfig: {}
+```
+```yaml {% srNumber=4 %}
       schemaRegistryConfig: {}
+```
+```yaml {% srNumber=5 %}
   sourceConfig:
     config:
       type: MessagingMetadata
@@ -65,49 +148,16 @@ source:
           - _confluent.*
         # includes:
         #   - topic1
-      generateSampleData: true
+      # generateSampleData: true
+
+```
+```yaml {% srNumber=6 %}
 sink:
   type: metadata-rest
   config: {}
-workflowConfig:
-  # loggerLevel: DEBUG  # DEBUG, INFO, WARN or ERROR
-  openMetadataServerConfig:
-    hostPort: <OpenMetadata host and port>
-    authProvider: <OpenMetadata auth provider>
 ```
 
-#### Source Configuration - Service Connection
-
-- **bootstrapServers**: Kafka bootstrap servers. Add them in comma separated values ex: host1:9092,host2:9092.
-- **schemaRegistryURL**: Confluent Kafka Schema Registry URL. URI format.
-- **consumerConfig**: Confluent Kafka Consumer Config.
-- **schemaRegistryConfig**:Confluent Kafka Schema Registry Config.
-
-#### Source Configuration - Source Config
-
-The sourceConfig is defined [here](https://github.com/open-metadata/OpenMetadata/blob/main/openmetadata-spec/src/main/resources/json/schema/metadataIngestion/messagingServiceMetadataPipeline.json):
-
-- `generateSampleData`: Option to turn on/off generating sample data during metadata extraction.
-- `topicFilterPattern`: Note that the `topicFilterPattern` supports regex as include or exclude. E.g.,
-
-```yaml
-topicFilterPattern:
-  includes:
-    - users
-    - type_test
-```
-
-#### Sink Configuration
-
-To send the metadata to OpenMetadata, it needs to be specified as `type: metadata-rest`.
-
-#### Workflow Configuration
-
-The main property here is the `openMetadataServerConfig`, where you can define the host and security provider of your OpenMetadata installation.
-
-For a simple, local installation using our docker containers, this looks like:
-
-```yaml
+```yaml {% srNumber=7 %}
 workflowConfig:
   openMetadataServerConfig:
     hostPort: "http://localhost:8585/api"
@@ -115,13 +165,18 @@ workflowConfig:
     securityConfig:
       jwtToken: "{bot_jwt_token}"
 ```
+
+{% /codeBlock %}
+
+{% /codePreview %}
+
+### Workflow Configs for Security Provider
 
 We support different security providers. You can find their definitions [here](https://github.com/open-metadata/OpenMetadata/tree/main/openmetadata-spec/src/main/resources/json/schema/security/client).
-You can find the different implementation of the ingestion below.
 
-<Collapse title="Configure SSO in the Ingestion Workflows">
+## Openmetadata JWT Auth
 
-### Openmetadata JWT Auth
+- JWT tokens will allow your clients to authenticate against the OpenMetadata server. To enable JWT Tokens, you will get more details [here](/deployment/security/enable-jwt-tokens).
 
 ```yaml
 workflowConfig:
@@ -132,120 +187,7 @@ workflowConfig:
       jwtToken: "{bot_jwt_token}"
 ```
 
-### Auth0 SSO
-
-```yaml
-workflowConfig:
-  openMetadataServerConfig:
-    hostPort: "http://localhost:8585/api"
-    authProvider: auth0
-    securityConfig:
-      clientId: "{your_client_id}"
-      secretKey: "{your_client_secret}"
-      domain: "{your_domain}"
-```
-
-### Azure SSO
-
-```yaml
-workflowConfig:
-  openMetadataServerConfig:
-    hostPort: "http://localhost:8585/api"
-    authProvider: azure
-    securityConfig:
-      clientSecret: "{your_client_secret}"
-      authority: "{your_authority_url}"
-      clientId: "{your_client_id}"
-      scopes:
-        - your_scopes
-```
-
-### Custom OIDC SSO
-
-```yaml
-workflowConfig:
-  openMetadataServerConfig:
-    hostPort: "http://localhost:8585/api"
-    authProvider: custom-oidc
-    securityConfig:
-      clientId: "{your_client_id}"
-      secretKey: "{your_client_secret}"
-      domain: "{your_domain}"
-```
-
-### Google SSO
-
-```yaml
-workflowConfig:
-  openMetadataServerConfig:
-    hostPort: "http://localhost:8585/api"
-    authProvider: google
-    securityConfig:
-      secretKey: "{path-to-json-creds}"
-```
-
-### Okta SSO
-
-```yaml
-workflowConfig:
-  openMetadataServerConfig:
-    hostPort: http://localhost:8585/api
-    authProvider: okta
-    securityConfig:
-      clientId: "{CLIENT_ID - SPA APP}"
-      orgURL: "{ISSUER_URL}/v1/token"
-      privateKey: "{public/private keypair}"
-      email: "{email}"
-      scopes:
-        - token
-```
-
-### Amazon Cognito SSO
-
-The ingestion can be configured by [Enabling JWT Tokens](https://docs.open-metadata.org/deployment/security/enable-jwt-tokens)
-
-```yaml
-workflowConfig:
-  openMetadataServerConfig:
-    hostPort: "http://localhost:8585/api"
-    authProvider: auth0
-    securityConfig:
-      clientId: "{your_client_id}"
-      secretKey: "{your_client_secret}"
-      domain: "{your_domain}"
-```
-
-### OneLogin SSO
-
-Which uses Custom OIDC for the ingestion
-
-```yaml
-workflowConfig:
-  openMetadataServerConfig:
-    hostPort: "http://localhost:8585/api"
-    authProvider: custom-oidc
-    securityConfig:
-      clientId: "{your_client_id}"
-      secretKey: "{your_client_secret}"
-      domain: "{your_domain}"
-```
-
-### KeyCloak SSO
-
-Which uses Custom OIDC for the ingestion
-
-```yaml
-workflowConfig:
-  openMetadataServerConfig:
-    hostPort: "http://localhost:8585/api"
-    authProvider: custom-oidc
-    securityConfig:
-      clientId: "{your_client_id}"
-      secretKey: "{your_client_secret}"
-      domain: "{your_domain}"
-```
-
-</Collapse>
+- You can refer to the JWT Troubleshooting section [link](/deployment/security/jwt-troubleshooting) for any issues in your JWT configuration. If you need information on configuring the ingestion with other security providers in your bots, you can follow this doc [link](/deployment/security/workflow-config-auth).
 
 ### 2. Run with the CLI
 
