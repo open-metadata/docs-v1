@@ -161,8 +161,6 @@ desired.
 
 #### Connection Options
 
-#### Connection Options
-
 
 - **Host and Port**: URL to the Metabase instance.
 - **Username**: Specify the User to connect to Metabase. It should have enough privileges to read all the metadata.

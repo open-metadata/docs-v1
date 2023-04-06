@@ -12,12 +12,13 @@ Configure and schedule Atlas metadata and profiler workflows from the OpenMetada
 - [Requirements](#requirements)
 - [Metadata Ingestion](#metadata-ingestion)
 
+
 ## Requirements
 
-Before this, you must ingest the database / messaging service you want to get metadata for.
+Before this, you must ingest the database / messaging service you want to get metadata for. 
 For more details click [here](/connectors/metadata/atlas#create-database-service)
 
-{%inlineCallout icon="description" bold="OpenMetadata 0.13 or later" href="/deployment"%}
+{%inlineCallout icon="description" bold="OpenMetadata 0.12 or later" href="/deployment"%}
 To deploy OpenMetadata, check the Deployment guides.
 {%/inlineCallout%}
 
@@ -47,7 +48,68 @@ The workflow is modeled around the following
 
 ### 1. Define the YAML Config
 
-This is a sample config for Atlas:
+{% codePreview %}
+
+{% codeInfoContainer %}
+
+#### Source Configuration - Service Connection
+
+{% codeInfo srNumber=12 %}
+
+**hostPort**: Atlas Host of the data source.
+
+{% /codeInfo %}
+
+{% codeInfo srNumber=13 %}
+
+**username**: Username to connect to the Atlas. This user should have privileges to read all the metadata in Atlas.
+
+{% /codeInfo %}
+
+{% codeInfo srNumber=14 %}
+
+**password**: Password to connect to the Atlas.
+
+{% /codeInfo %}
+
+{% codeInfo srNumber=15 %}
+
+**databaseServiceName**: source database of the data source(Database service that you created from UI. example- local_hive).
+
+{% /codeInfo %}
+
+{% codeInfo srNumber=16 %}
+
+**messagingServiceName**: messaging service source of the data source.
+
+{% /codeInfo %}
+
+{% codeInfo srNumber=17 %}
+
+**entity_type**: Name of the entity type in Atlas.
+
+{% /codeInfo %}
+
+#### Sink Configuration
+
+{% codeInfo srNumber=18 %}
+
+To send the metadata to OpenMetadata, it needs to be specified as `type: metadata-rest`.
+
+{% /codeInfo %}
+
+#### Workflow Configuration
+
+{% codeInfo srNumber=19 %}
+
+The main property here is the `openMetadataServerConfig`, where you can define the host and security provider of your OpenMetadata installation.
+
+For a simple, local installation using our docker containers, this looks like:
+
+{% /codeInfo %}
+{% /codeInfoContainer %}
+
+{% codeBlock fileName="filename.yaml" %}
 
 ```yaml
 source:
@@ -56,44 +118,35 @@ source:
   serviceConnection:
     config:
       type: Atlas
+```
+```yaml {% srNumber=12 %}
       hostPort: http://localhost:10000
+```
+```yaml {% srNumber=13 %}
       username: username
+```
+```yaml {% srNumber=14 %}
       password: password
-      databaseServiceName: ["local_hive"] # pass database service here
-      messagingServiceName: [] # pass messaging service here
-      entity_type: Table # this entity must be present on atlas
+```
+```yaml {% srNumber=15 %}
+      databaseServiceName: ["local_hive"] # create database service and messaging service and pass `service name` here
+```
+```yaml {% srNumber=16 %}
+      messagingServiceName: []
+```
+```yaml {% srNumber=17 %}
+      entity_type: Table
   sourceConfig:
     config:
       type: DatabaseMetadata
+```
+```yaml {% srNumber=18 %}
 sink:
   type: metadata-rest
   config: {}
-workflowConfig:
-  openMetadataServerConfig:
-    hostPort: "<OpenMetadata host and port>"
-    authProvider: "<OpenMetadata auth provider>"
 ```
 
-#### Source Configuration - Service Connection
-
-- **Host and Port**: Host and port of the Atlas service.
-- **Username**: username to connect to the Atlas. This user should have privileges to read all the metadata in Atlas.
-- **Password**: password to connect to the Atlas.
-- **databaseServiceName**: source database of the data source(Database service that you created from UI. example- local_hive)
-- **messagingServiceName**: messaging service source of the data source.
-- **entity_type**: Name of the entity type in Atlas.
-
-#### Sink Configuration
-
-To send the metadata to OpenMetadata, it needs to be specified as `type: metadata-rest`.
-
-#### Workflow Configuration
-
-The main property here is the `openMetadataServerConfig`, where you can define the host and security provider of your OpenMetadata installation.
-
-For a simple, local installation using our docker containers, this looks like:
-
-```yaml
+```yaml {% srNumber=19 %}
 workflowConfig:
   openMetadataServerConfig:
     hostPort: "http://localhost:8585/api"
@@ -101,13 +154,19 @@ workflowConfig:
     securityConfig:
       jwtToken: "{bot_jwt_token}"
 ```
+
+{% /codeBlock %}
+
+{% /codePreview %}
+
+
+### Workflow Configs for Security Provider
 
 We support different security providers. You can find their definitions [here](https://github.com/open-metadata/OpenMetadata/tree/main/openmetadata-spec/src/main/resources/json/schema/security/client).
-You can find the different implementation of the ingestion below.
 
-<Collapse title="Configure SSO in the Ingestion Workflows">
+## Openmetadata JWT Auth
 
-### Openmetadata JWT Auth
+- JWT tokens will allow your clients to authenticate against the OpenMetadata server. To enable JWT Tokens, you will get more details [here](/deployment/security/enable-jwt-tokens).
 
 ```yaml
 workflowConfig:
@@ -118,120 +177,7 @@ workflowConfig:
       jwtToken: "{bot_jwt_token}"
 ```
 
-### Auth0 SSO
-
-```yaml
-workflowConfig:
-  openMetadataServerConfig:
-    hostPort: "http://localhost:8585/api"
-    authProvider: auth0
-    securityConfig:
-      clientId: "{your_client_id}"
-      secretKey: "{your_client_secret}"
-      domain: "{your_domain}"
-```
-
-### Azure SSO
-
-```yaml
-workflowConfig:
-  openMetadataServerConfig:
-    hostPort: "http://localhost:8585/api"
-    authProvider: azure
-    securityConfig:
-      clientSecret: "{your_client_secret}"
-      authority: "{your_authority_url}"
-      clientId: "{your_client_id}"
-      scopes:
-        - your_scopes
-```
-
-### Custom OIDC SSO
-
-```yaml
-workflowConfig:
-  openMetadataServerConfig:
-    hostPort: "http://localhost:8585/api"
-    authProvider: custom-oidc
-    securityConfig:
-      clientId: "{your_client_id}"
-      secretKey: "{your_client_secret}"
-      domain: "{your_domain}"
-```
-
-### Google SSO
-
-```yaml
-workflowConfig:
-  openMetadataServerConfig:
-    hostPort: "http://localhost:8585/api"
-    authProvider: google
-    securityConfig:
-      secretKey: "{path-to-json-creds}"
-```
-
-### Okta SSO
-
-```yaml
-workflowConfig:
-  openMetadataServerConfig:
-    hostPort: http://localhost:8585/api
-    authProvider: okta
-    securityConfig:
-      clientId: "{CLIENT_ID - SPA APP}"
-      orgURL: "{ISSUER_URL}/v1/token"
-      privateKey: "{public/private keypair}"
-      email: "{email}"
-      scopes:
-        - token
-```
-
-### Amazon Cognito SSO
-
-The ingestion can be configured by [Enabling JWT Tokens](https://docs.open-metadata.org/deployment/security/enable-jwt-tokens)
-
-```yaml
-workflowConfig:
-  openMetadataServerConfig:
-    hostPort: "http://localhost:8585/api"
-    authProvider: auth0
-    securityConfig:
-      clientId: "{your_client_id}"
-      secretKey: "{your_client_secret}"
-      domain: "{your_domain}"
-```
-
-### OneLogin SSO
-
-Which uses Custom OIDC for the ingestion
-
-```yaml
-workflowConfig:
-  openMetadataServerConfig:
-    hostPort: "http://localhost:8585/api"
-    authProvider: custom-oidc
-    securityConfig:
-      clientId: "{your_client_id}"
-      secretKey: "{your_client_secret}"
-      domain: "{your_domain}"
-```
-
-### KeyCloak SSO
-
-Which uses Custom OIDC for the ingestion
-
-```yaml
-workflowConfig:
-  openMetadataServerConfig:
-    hostPort: "http://localhost:8585/api"
-    authProvider: custom-oidc
-    securityConfig:
-      clientId: "{your_client_id}"
-      secretKey: "{your_client_secret}"
-      domain: "{your_domain}"
-```
-
-</Collapse>
+- You can refer to the JWT Troubleshooting section [link](/deployment/security/jwt-troubleshooting) for any issues in your JWT configuration. If you need information on configuring the ingestion with other security providers in your bots, you can follow this doc [link](/deployment/security/workflow-config-auth).
 
 ### 2. Run with the CLI
 
