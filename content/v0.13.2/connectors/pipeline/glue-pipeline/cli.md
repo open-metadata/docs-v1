@@ -8,7 +8,6 @@ slug: /connectors/pipeline/glue-pipeline/cli
 In this section, we provide guides and references to use the Glue connector.
 
 Configure and schedule Glue metadata and profiler workflows from the OpenMetadata UI:
-
 - [Requirements](#requirements)
 - [Metadata Ingestion](#metadata-ingestion)
 
@@ -16,7 +15,7 @@ Configure and schedule Glue metadata and profiler workflows from the OpenMetadat
 
 {%inlineCallout icon="description" bold="OpenMetadata 0.12 or later" href="/deployment"%}
 To deploy OpenMetadata, check the Deployment guides.
-{%/inlineCallout%}
+{% /inlineCallout %}
 
 To run the Ingestion via the UI you'll need to use the OpenMetadata Ingestion Container, which comes shipped with
 custom Airflow plugins to handle the workflow deployment.
@@ -46,22 +45,118 @@ The workflow is modeled around the following
 
 This is a sample config for Glue:
 
+{% codePreview %}
+
+{% codeInfoContainer %}
+
+#### Source Configuration - Service Connection
+
+{% codeInfo srNumber=1 %}
+
+
+**awsAccessKeyId**: Enter your secure access key ID for your Glue connection. The specified key ID should be
+  authorized to read all databases you want to include in the metadata ingestion workflow.
+
+{% /codeInfo %}
+
+{% codeInfo srNumber=2 %}
+
+**awsSecretAccessKey**: Enter the Secret Access Key (the passcode key pair to the key ID from above).
+
+
+{% /codeInfo %}
+
+{% codeInfo srNumber=3 %}
+
+**awsRegion**: Enter the location of the amazon cluster that your data and account are associated with.
+
+{% /codeInfo %}
+
+{% codeInfo srNumber=4 %}
+
+**awsSessionToken**: The AWS session token is an optional parameter. If you want, enter the details of your temporary
+  session token.
+
+{% /codeInfo %}
+
+{% codeInfo srNumber=5 %}
+
+**endPointURL**: Your Glue connector will automatically determine the AWS Glue endpoint URL based on the region. You
+  may override this behavior by entering a value to the endpoint URL.
+
+
+{% /codeInfo %}
+
+
+#### Source Configuration - Source Config
+
+{% codeInfo srNumber=6 %}
+
+The `sourceConfig` is defined [here](https://github.com/open-metadata/OpenMetadata/blob/main/openmetadata-spec/src/main/resources/json/schema/metadataIngestion/pipelineServiceMetadataPipeline.json):
+
+**dbServiceNames**: Database Service Name for the creation of lineage, if the source supports it.
+
+**includeTags**: Set the Include tags toggle to control whether or not to include tags as part of metadata ingestion.
+
+**markDeletedPipelines**: Set the Mark Deleted Pipelines toggle to flag pipelines as soft-deleted if they are not present anymore in the source system.
+
+**pipelineFilterPattern** and **chartFilterPattern**: Note that the `pipelineFilterPattern` and `chartFilterPattern` both support regex as include or exclude.
+
+{% /codeInfo %}
+
+
+#### Sink Configuration
+
+{% codeInfo srNumber=7 %}
+
+To send the metadata to OpenMetadata, it needs to be specified as `type: metadata-rest`.
+
+{% /codeInfo %}
+
+#### Workflow Configuration
+
+{% codeInfo srNumber=8 %}
+
+The main property here is the `openMetadataServerConfig`, where you can define the host and security provider of your OpenMetadata installation.
+
+For a simple, local installation using our docker containers, this looks like:
+
+{% /codeInfo %}
+
+{% /codeInfoContainer %}
+
+{% codeBlock fileName="filename.yaml" %}
+
 ```yaml
 source:
-  type: glue-pipeline
+  type: glue
   serviceName: local_glue
   serviceConnection:
     config:
-      type: GluePipeline
+      type: Glue
       awsConfig:
+```
+```yaml {% srNumber=1 %}
         awsAccessKeyId: KEY
+```
+```yaml {% srNumber=2 %}
         awsSecretAccessKey: SECRET
+```
+```yaml {% srNumber=3 %}
         awsRegion: us-east-2
-        # endPointURL: https://glue.us-east-2.amazonaws.com/
+```
+```yaml {% srNumber=4 %}
         # awsSessionToken: TOKEN
+```
+```yaml {% srNumber=5 %}
+        # endPointURL: https://glue.us-east-2.amazonaws.com/
+```
+```yaml {% srNumber=6 %}
   sourceConfig:
     config:
       type: PipelineMetadata
+      # markDeletedPipelines: True
+      # includeTags: True
       # includeLineage: true
       # pipelineFilterPattern:
       #   includes:
@@ -70,52 +165,14 @@ source:
       #   excludes:
       #     - pipeline3
       #     - pipeline4
+```
+```yaml {% srNumber=7 %}
 sink:
   type: metadata-rest
   config: {}
-workflowConfig:
-  # loggerLevel: DEBUG  # DEBUG, INFO, WARN or ERROR
-  openMetadataServerConfig:
-    hostPort: <OpenMetadata host and port>
-    authProvider: <OpenMetadata auth provider>
 ```
 
-#### Source Configuration - Service Connection
-
-- **awsAccessKeyId**: Enter your secure access key ID for your Glue connection. The specified key ID should be
-  authorized to read all databases you want to include in the metadata ingestion workflow.
-- **awsSecretAccessKey**: Enter the Secret Access Key (the passcode key pair to the key ID from above).
-- **awsRegion**: Enter the location of the amazon cluster that your data and account are associated with.
-- **awsSessionToken**: The AWS session token is an optional parameter. If you want, enter the details of your temporary
-  session token.
-- **endPointURL**: Your Glue connector will automatically determine the AWS Glue endpoint URL based on the region. You
-  may override this behavior by entering a value to the endpoint URL.
-
-#### Source Configuration - Source Config
-
-The `sourceConfig` is defined [here](https://github.com/open-metadata/OpenMetadata/blob/main/openmetadata-spec/src/main/resources/json/schema/metadataIngestion/pipelineServiceMetadataPipeline.json):
-
-- `dbServiceNames`: Database Service Name for the creation of lineage, if the source supports it.
-- `pipelineFilterPattern` and `chartFilterPattern`: Note that the `pipelineFilterPattern` and `chartFilterPattern` both support regex as include or exclude. E.g.,
-
-```yaml
-pipelineFilterPattern:
-  includes:
-    - users
-    - type_test
-```
-
-#### Sink Configuration
-
-To send the metadata to OpenMetadata, it needs to be specified as `type: metadata-rest`.
-
-#### Workflow Configuration
-
-The main property here is the `openMetadataServerConfig`, where you can define the host and security provider of your OpenMetadata installation.
-
-For a simple, local installation using our docker containers, this looks like:
-
-```yaml
+```yaml {% srNumber=8 %}
 workflowConfig:
   openMetadataServerConfig:
     hostPort: "http://localhost:8585/api"
@@ -123,13 +180,18 @@ workflowConfig:
     securityConfig:
       jwtToken: "{bot_jwt_token}"
 ```
+
+{% /codeBlock %}
+
+{% /codePreview %}
+
+### Workflow Configs for Security Provider
 
 We support different security providers. You can find their definitions [here](https://github.com/open-metadata/OpenMetadata/tree/main/openmetadata-spec/src/main/resources/json/schema/security/client).
-You can find the different implementation of the ingestion below.
 
-<Collapse title="Configure SSO in the Ingestion Workflows">
+## Openmetadata JWT Auth
 
-### Openmetadata JWT Auth
+- JWT tokens will allow your clients to authenticate against the OpenMetadata server. To enable JWT Tokens, you will get more details [here](/deployment/security/enable-jwt-tokens).
 
 ```yaml
 workflowConfig:
@@ -140,120 +202,7 @@ workflowConfig:
       jwtToken: "{bot_jwt_token}"
 ```
 
-### Auth0 SSO
-
-```yaml
-workflowConfig:
-  openMetadataServerConfig:
-    hostPort: "http://localhost:8585/api"
-    authProvider: auth0
-    securityConfig:
-      clientId: "{your_client_id}"
-      secretKey: "{your_client_secret}"
-      domain: "{your_domain}"
-```
-
-### Azure SSO
-
-```yaml
-workflowConfig:
-  openMetadataServerConfig:
-    hostPort: "http://localhost:8585/api"
-    authProvider: azure
-    securityConfig:
-      clientSecret: "{your_client_secret}"
-      authority: "{your_authority_url}"
-      clientId: "{your_client_id}"
-      scopes:
-        - your_scopes
-```
-
-### Custom OIDC SSO
-
-```yaml
-workflowConfig:
-  openMetadataServerConfig:
-    hostPort: "http://localhost:8585/api"
-    authProvider: custom-oidc
-    securityConfig:
-      clientId: "{your_client_id}"
-      secretKey: "{your_client_secret}"
-      domain: "{your_domain}"
-```
-
-### Google SSO
-
-```yaml
-workflowConfig:
-  openMetadataServerConfig:
-    hostPort: "http://localhost:8585/api"
-    authProvider: google
-    securityConfig:
-      secretKey: "{path-to-json-creds}"
-```
-
-### Okta SSO
-
-```yaml
-workflowConfig:
-  openMetadataServerConfig:
-    hostPort: http://localhost:8585/api
-    authProvider: okta
-    securityConfig:
-      clientId: "{CLIENT_ID - SPA APP}"
-      orgURL: "{ISSUER_URL}/v1/token"
-      privateKey: "{public/private keypair}"
-      email: "{email}"
-      scopes:
-        - token
-```
-
-### Amazon Cognito SSO
-
-The ingestion can be configured by [Enabling JWT Tokens](https://docs.open-metadata.org/deployment/security/enable-jwt-tokens)
-
-```yaml
-workflowConfig:
-  openMetadataServerConfig:
-    hostPort: "http://localhost:8585/api"
-    authProvider: auth0
-    securityConfig:
-      clientId: "{your_client_id}"
-      secretKey: "{your_client_secret}"
-      domain: "{your_domain}"
-```
-
-### OneLogin SSO
-
-Which uses Custom OIDC for the ingestion
-
-```yaml
-workflowConfig:
-  openMetadataServerConfig:
-    hostPort: "http://localhost:8585/api"
-    authProvider: custom-oidc
-    securityConfig:
-      clientId: "{your_client_id}"
-      secretKey: "{your_client_secret}"
-      domain: "{your_domain}"
-```
-
-### KeyCloak SSO
-
-Which uses Custom OIDC for the ingestion
-
-```yaml
-workflowConfig:
-  openMetadataServerConfig:
-    hostPort: "http://localhost:8585/api"
-    authProvider: custom-oidc
-    securityConfig:
-      clientId: "{your_client_id}"
-      secretKey: "{your_client_secret}"
-      domain: "{your_domain}"
-```
-
-</Collapse>
+- You can refer to the JWT Troubleshooting section [link](/deployment/security/jwt-troubleshooting) for any issues in your JWT configuration. If you need information on configuring the ingestion with other security providers in your bots, you can follow this doc [link](/deployment/security/workflow-config-auth).
 
 ### 2. Run with the CLI
 

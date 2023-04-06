@@ -5,11 +5,8 @@ slug: /connectors/metadata/amundsen
 
 # Amundsen
 
+
 In this page, you will learn how to use the `metadata` CLI to run a one-ingestion.
-
-<Requirements />
-
-<PythonMod connector="Amundsen" module="amundsen" />
 
 Make sure you are running openmetadata-ingestion version 0.11.0 or above.
 
@@ -20,39 +17,106 @@ You need to create database services before ingesting the metadata from Amundsen
 from 3 data sources i.e., `hive`, `dynamo` & `delta` so in OpenMetadata we have to create database services with the same name
 as the source.
 
-<Image src="/images/openmetadata/connectors/amundsen/create-db-service.png" alt="db-service" caption="Amundsen dashboard"/>
+{% image
+src="/images/openmetadata/connectors/amundsen/create-db-service.png"
+alt="db-service"
+caption="Amundsen dashboard" /%}
 
 To create database service follow these steps:
 
-### 1. Visit the Services Page
+{% stepsContainer %}
 
-The first step is ingesting the metadata from your sources. Under Settings, you will find a Services link an external
-source system to OpenMetadata. Once a service is created, it can be used to configure metadata, usage, and profiler
-workflows.To visit the Services page, select Services from the Settings menu.serv
+{% step srNumber=1 %}
 
-<Image src="/images/openmetadata/connectors/amundsen/create-service-1.png" alt="db-service" caption="Navigate to Settings >> Services"/>
+{% stepDescription title="1. Visit the Services Page" %}
 
-### 2. Create a New Service
+The first step is ingesting the metadata from your sources. Under
+Settings, you will find a Services link an external source system to
+OpenMetadata. Once a service is created, it can be used to configure
+metadata, usage, and profiler workflows.
 
-Click on the Add New Service button to start the Service creation.
+To visit the Services page, select Services from the Settings menu.
 
-<Image src="/images/openmetadata/connectors/amundsen/create-service-2.png" alt="db-service" caption="Add a New Service from the Database Services Page"/>
+{% /stepDescription %}
 
-### 3. Select the Service Type
+{% stepVisualInfo %}
+
+{% image
+src="/images/openmetadata/connectors/visit-database-service-page.png"
+alt="Visit Services Page"
+caption="Find Databases option on left panel of the settings page" /%}
+
+{% /stepVisualInfo %}
+
+{% /step %}
+
+{% step srNumber=2 %}
+
+{% stepDescription title="2. Create a New Service" %}
+
+Click on the 'Add New Service' button to start the Service creation.
+
+{% /stepDescription %}
+
+{% stepVisualInfo %}
+
+{% image
+src="/images/openmetadata/connectors/create-database-service.png"
+alt="Create a new service"
+caption="Add a new Service from the Database Services page" /%}
+
+{% /stepVisualInfo %}
+
+{% /step %}
+
+{% step srNumber=3 %}
+
+{% stepDescription title="3. Select the Service Type" %}
 
 Select the service type which are available on the amundsen and create a service one by one. In this example we will
 need to create services for hive, dynamo db & deltalake. Possible service names are `athena`, `bigquery`, `db2`, `druid`, `delta`,
 `salesforce`, `oracle`, `glue`, `snowflake` or `hive`.
 
-<Image src="/images/openmetadata/connectors/amundsen/create-service-3.png" alt="db-service"/>
+{% /stepDescription %}
+
+{% stepVisualInfo %}
+
+{% image
+  src="/images/openmetadata/connectors/amundsen/create-service-3.png"
+  alt="db-service"
+  caption="Select your service from the list" /%}
+
+{% /stepVisualInfo %}
+
+{% /step %}
+
+{% step srNumber=4 %}
+
+{% stepDescription title="4. Add New Service" %}
 
 
-<Image src="/images/openmetadata/connectors/amundsen/create-service-4.png" alt="db-service"/>
-
-Note: Adding ingestion in this step is optional, because we will fetch the metadata from Amundsen. After creating all
+Adding ingestion in this step is optional, because we will fetch the metadata from Amundsen. After creating all
 the database services, `my service` page looks like below, and we are ready to start with the Amundsen ingestion via the CLI.
 
-<Image src="/images/openmetadata/connectors/amundsen/create-service-5.png" alt="db-service"/>
+
+{% /stepDescription %}
+
+{% stepVisualInfo %}
+
+{% image
+  src="/images/openmetadata/connectors/amundsen/create-service-4.png"
+  alt="db-service" /%}
+{% image
+  src="/images/openmetadata/connectors/amundsen/create-service-5.png"
+  alt="db-service" /%}
+
+{% /stepVisualInfo %}
+
+{% /step %}
+
+{% /stepsContainer %}
+
+
 
 ## Metadata Ingestion
 
@@ -68,6 +132,70 @@ The workflow is modeled around the following [JSON Schema](https://github.com/op
 
 This is a sample config for Amundsen:
 
+{% codePreview %}
+
+{% codeInfoContainer %}
+
+#### Source Configuration - Service Connection
+
+{% codeInfo srNumber=5 %}
+
+**username**: Enter the username of your Amundsen user in the Username field. The specified user should be authorized to read all databases you want to include in the metadata ingestion workflow. 
+
+{% /codeInfo %}
+
+{% codeInfo srNumber=6 %}
+
+**password**: Enter the password for your amundsen user in the Password field. 
+
+{% /codeInfo %}
+
+{% codeInfo srNumber=7 %}
+
+**hostPort**: Host and port of the Amundsen Neo4j Connection. This expect a URI format like: bolt://localhost:7687.
+
+{% /codeInfo %}
+
+{% codeInfo srNumber=8 %}
+
+**maxConnectionLifeTime (optional)**: Maximum connection lifetime for the Amundsen Neo4j Connection 
+
+{% /codeInfo %}
+
+{% codeInfo srNumber=9 %}
+
+**validateSSL (optional)**: Enable SSL validation for the Amundsen Neo4j Connection. 
+
+{% /codeInfo %}
+
+{% codeInfo srNumber=10 %}
+
+**encrypted (Optional)**: Enable encryption for the Amundsen Neo4j Connection. 
+
+{% /codeInfo %}
+
+#### Sink Configuration
+
+{% codeInfo srNumber=11 %}
+
+To send the metadata to OpenMetadata, it needs to be specified as `type: metadata-rest`.
+
+{% /codeInfo %}
+
+#### Workflow Configuration
+
+{% codeInfo srNumber=12 %}
+
+The main property here is the `openMetadataServerConfig`, where you can define the host and security provider of your OpenMetadata installation.
+
+For a simple, local installation using our docker containers, this looks like:
+
+{% /codeInfo %}
+
+{% /codeInfoContainer %}
+
+{% codeBlock fileName="filename.yaml" %}
+
 ```yaml
 source:
   type: amundsen
@@ -75,180 +203,66 @@ source:
   serviceConnection:
     config:
       type: Amundsen
+```
+```yaml {% srNumber=5 %}
       username: <username>
+```
+```yaml {% srNumber=6 %}
       password: <password>
+```
+```yaml {% srNumber=7 %}
       hostPort: bolt://localhost:7687
+```
+```yaml {% srNumber=8 %}
       maxConnectionLifeTime: <time in secs.>
+```
+```yaml {% srNumber=9 %}
       validateSSL: <true or false>
+```
+```yaml {% srNumber=10 %}
       encrypted: <true or false>
   sourceConfig:
     config:
       type: DatabaseMetadata
+```
+```yaml {% srNumber=11 %}
 sink:
   type: metadata-rest
   config: {}
-workflowConfig:
-  openMetadataServerConfig:
-    hostPort: <OpenMetadata host and port>
-    authProvider: <OpenMetadata auth provider>
 ```
 
-### Source Configuration - Service Connection
-
-You can find all the definitions and types for the `serviceConnection` [here](https://github.com/open-metadata/OpenMetadata/blob/main/openmetadata-spec/src/main/resources/json/schema/entity/services/connections/metadata/amundsenConnection.json).
-
-- `username`: Enter the username of your Amundsen user in the Username field. The specified user should be authorized to read all databases you want to include in the metadata ingestion workflow. 
-- `password`: Enter the password for your amundsen user in the Password field. 
-- `hostPort`: Host and port of the Amundsen Neo4j Connection. This expect a URI format like: bolt://localhost:7687.
-- `maxConnectionLifeTime` (optional): Maximum connection lifetime for the Amundsen Neo4j Connection 
-- `validateSSL` (optional): Enable SSL validation for the Amundsen Neo4j Connection. 
-- `encrypted` (Optional): Enable encryption for the Amundsen Neo4j Connection. 
-
-### Sink Configuration
-
-To send the metadata to OpenMetadata, it needs to be specified as `"type": "metadata-rest"`.
-
-### Workflow Configuration
-
-The main property here is the `openMetadataServerConfig`, where you can define the host and security provider of your
-OpenMetadata installation. For a simple, local installation using our docker containers, this looks like:
-
-```yaml
+```yaml {% srNumber=12 %}
 workflowConfig:
   openMetadataServerConfig:
-    hostPort: 'http://localhost:8585/api'
+    hostPort: "http://localhost:8585/api"
     authProvider: openmetadata
     securityConfig:
-      jwtToken: '{bot_jwt_token}'
+      jwtToken: "{bot_jwt_token}"
+
 ```
 
-<Collapse title="Configure SSO in the Ingestion Workflows">
+{% /codeBlock %}
 
-### Openmetadata JWT Auth
+{% /codePreview %}
+
+### Workflow Configs for Security Provider
+
+We support different security providers. You can find their definitions [here](https://github.com/open-metadata/OpenMetadata/tree/main/openmetadata-spec/src/main/resources/json/schema/security/client).
+
+## Openmetadata JWT Auth
+
+- JWT tokens will allow your clients to authenticate against the OpenMetadata server. To enable JWT Tokens, you will get more details [here](/deployment/security/enable-jwt-tokens).
 
 ```yaml
 workflowConfig:
   openMetadataServerConfig:
-    hostPort: 'http://localhost:8585/api'
+    hostPort: "http://localhost:8585/api"
     authProvider: openmetadata
     securityConfig:
-      jwtToken: '{bot_jwt_token}'
+      jwtToken: "{bot_jwt_token}"
 ```
 
-### Auth0 SSO
-
-```yaml
-workflowConfig:
-  openMetadataServerConfig:
-    hostPort: 'http://localhost:8585/api'
-    authProvider: auth0
-    securityConfig:
-      clientId: '{your_client_id}'
-      secretKey: '{your_client_secret}'
-      domain: '{your_domain}'
-```
-
-### Azure SSO
-
-```yaml
-workflowConfig:
-  openMetadataServerConfig:
-    hostPort: 'http://localhost:8585/api'
-    authProvider: azure
-    securityConfig:
-      clientSecret: '{your_client_secret}'
-      authority: '{your_authority_url}'
-      clientId: '{your_client_id}'
-      scopes:
-        - your_scopes
-```
-
-### Custom OIDC SSO
-
-```yaml
-workflowConfig:
-  openMetadataServerConfig:
-    hostPort: 'http://localhost:8585/api'
-    authProvider: custom-oidc
-    securityConfig:
-      clientId: '{your_client_id}'
-      secretKey: '{your_client_secret}'
-      domain: '{your_domain}'
-```
-
-### Google SSO
-
-```yaml
-workflowConfig:
-  openMetadataServerConfig:
-    hostPort: 'http://localhost:8585/api'
-    authProvider: google
-    securityConfig:
-      secretKey: '{path-to-json-creds}'
-```
-
-### Okta SSO
-
-```yaml
-workflowConfig:
-  openMetadataServerConfig:
-    hostPort: http://localhost:8585/api
-    authProvider: okta
-    securityConfig:
-      clientId: "{CLIENT_ID - SPA APP}"
-      orgURL: "{ISSUER_URL}/v1/token"
-      privateKey: "{public/private keypair}"
-      email: "{email}"
-      scopes:
-        - token
-```
-
-### Amazon Cognito SSO
-
-The ingestion can be configured by [Enabling JWT Tokens](https://docs.open-metadata.org/deployment/security/enable-jwt-tokens)
-
-```yaml
-workflowConfig:
-  openMetadataServerConfig:
-    hostPort: 'http://localhost:8585/api'
-    authProvider: auth0
-    securityConfig:
-      clientId: '{your_client_id}'
-      secretKey: '{your_client_secret}'
-      domain: '{your_domain}'
-```
-
-### OneLogin SSO
-
-Which uses Custom OIDC for the ingestion
-
-```yaml
-workflowConfig:
-  openMetadataServerConfig:
-    hostPort: 'http://localhost:8585/api'
-    authProvider: custom-oidc
-    securityConfig:
-      clientId: '{your_client_id}'
-      secretKey: '{your_client_secret}'
-      domain: '{your_domain}'
-```
-
-### KeyCloak SSO
-
-Which uses Custom OIDC for the ingestion
-
-```yaml
-workflowConfig:
-  openMetadataServerConfig:
-    hostPort: 'http://localhost:8585/api'
-    authProvider: custom-oidc
-    securityConfig:
-      clientId: '{your_client_id}'
-      secretKey: '{your_client_secret}'
-      domain: '{your_domain}'
-```
-
-</Collapse>
+- You can refer to the JWT Troubleshooting section [link](/deployment/security/jwt-troubleshooting) for any issues in your JWT configuration. If you need information on configuring the ingestion with other security providers in your bots, you can follow this doc [link](/deployment/security/workflow-config-auth).
 
 ## 2. Run with the CLI
 

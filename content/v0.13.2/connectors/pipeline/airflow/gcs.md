@@ -5,12 +5,12 @@ slug: /connectors/pipeline/airflow/gcs
 
 # Extract GCS Composer Metadata
 
-<Note>
 
-This approach has been tested against Airflow 2.1.4 & 2.2.5 If you have any issues or questions,
+
+**Note:** This approach has been tested against Airflow 2.1.4 & 2.2.5 If you have any issues or questions,
 please do not hesitate to reach out!
 
-</Note>
+
 
 There are 2 main approaches we can follow here to extract metadata from GCS. Both of them involve creating a DAG
 directly in your Composer instance, but the requirements and the steps to follow are going to be slightly different.
@@ -36,12 +36,11 @@ In your environment you will need to install the following packages:
 - `flask-appbuilder==3.4.5`: Again, this is just an alignment of versions so that `openmetadata-ingestion` can
   work with GCS Composer internals.
 
-<Note>
 
-Make sure to use the `openmetadata-ingestion` version that matches the server version
+
+**Note:** Make sure to use the `openmetadata-ingestion` version that matches the server version
 you currently have!
 
-</Note>
 
 ### Prepare the DAG!
 
@@ -138,11 +137,11 @@ we will rely on the `KubernetesPodOperator` to use the underlying k8s cluster of
 Then, the code won't directly run using the hosts' environment, but rather inside a container that we created
 with only the `openmetadata-ingestion` package.
 
-<Note>
 
-This approach only has the `openmetadata/ingestion-base` ready from version 0.12.1 or higher!
 
-</Note>
+**Note:** This approach only has the `openmetadata/ingestion-base` ready from version 0.12.1 or higher!
+
+
 
 ### Requirements
 
