@@ -410,6 +410,7 @@ The Query Usage workflow will be using the `query-parser` processor.
 After running a Metadata Ingestion workflow, we can run Query Usage workflow.
 While the `serviceName` will be the same to that was used in Metadata Ingestion, so the ingestion bot can get the `serviceConnection` details from the server.
 
+**Note**: To get Query Usage and Lineage details, need a Azure Databricks Premium account.
 
 ### 1. Define the YAML Config
 
