@@ -1,5 +1,5 @@
 import React, { ReactNode, useMemo, useRef } from "react";
-import { ReactComponent as StepIcon } from "../../../../icons/step-icon.svg";
+import { ReactComponent as StepIcon } from "../../../icons/step-icon.svg";
 import styles from "./StepDescription.module.css";
 import { useStepContext } from "../../../../context/StepsContext";
 import {

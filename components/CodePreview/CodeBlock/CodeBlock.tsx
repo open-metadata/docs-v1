@@ -1,8 +1,8 @@
 import React, { ReactNode, useEffect, useMemo, useRef, useState } from "react";
 import { usePreviewContext } from "../../../context/CodePreviewContext";
 import styles from "../../common/Code/Code.module.css";
-import { ReactComponent as ClipboardIcon } from "../../../icons/clipboard.svg";
-import { ReactComponent as FileIcon } from "../../../icons/file-icon.svg";
+import { ReactComponent as ClipboardIcon } from "../../icons/clipboard.svg";
+import { ReactComponent as FileIcon } from "../../icons/file-icon.svg";
 import { uniqueId } from "lodash";
 
 interface Props {

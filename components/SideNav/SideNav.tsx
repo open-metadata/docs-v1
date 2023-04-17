@@ -1,10 +1,10 @@
 import React from "react";
-import { ReactComponent as OverviewIcon } from "../../icons/overview-icon.svg";
+import { ReactComponent as OverviewIcon } from "../icons/overview-icon.svg";
 import styles from "./SideNav.module.css";
 import ListItem from "./ListItem";
 import classNames from "classnames";
-import { ReactComponent as CollapseLeftIcon } from "../../icons/collapse-left.svg";
-import { ReactComponent as CollapseRightIcon } from "../../icons/collapse-right.svg";
+import { ReactComponent as CollapseLeftIcon } from "../icons/collapse-left.svg";
+import { ReactComponent as CollapseRightIcon } from "../icons/collapse-right.svg";
 import { MenuItem } from "../../interface/common.interface";
 import { isEmpty } from "lodash";
 import SkeletonLoader from "../common/SkeletonLoader/SkeletonLoader";

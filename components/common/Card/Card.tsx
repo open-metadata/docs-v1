@@ -1,6 +1,6 @@
 import React, { ReactNode } from "react";
-import { ReactComponent as Puzzle } from "../../../icons/puzzle.svg";
-import { ReactComponent as ArrowRight } from "../../../icons/arrow-right.svg";
+import { ReactComponent as Puzzle } from "../../icons/puzzle.svg";
+import { ReactComponent as ArrowRight } from "../../icons/arrow-right.svg";
 import styles from "./Card.module.css";
 import Link from "next/link";
 import { getUrlWithVersion } from "../../../utils/CommonUtils";
