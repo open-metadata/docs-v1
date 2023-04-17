@@ -43,7 +43,7 @@ export const TITLE_INFO_CARDS = [
 export const NEWS_ENTRY_INFO = [
   {
     title: "OpenMetadata 0.11.0 release",
-    text: "Data Collaboration, Column-level Lineage, ML Models, Data Profiler, Advanced Search, Data Lake Connectors, and more.",
+    text: "Data Collaboration, Column-level Lineage, ML Models, Data Profiler, Advanced Search, Data Lake connectors, and more.",
     link: "https://blog.open-metadata.org/openmetadata-0-11-release-8b82c85636a",
     image: <img src="/blog1.png" />,
   },
