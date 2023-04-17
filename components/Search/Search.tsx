@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styles from "./Search.module.css";
-import { ReactComponent as SearchIcon } from "../../images/icons/search.svg";
-import { ReactComponent as Loader } from "../../images/icons/loader.svg";
+import { ReactComponent as SearchIcon } from "../../icons/search.svg";
+import { ReactComponent as Loader } from "../../icons/loader.svg";
 import {
   Configure,
   Hits,

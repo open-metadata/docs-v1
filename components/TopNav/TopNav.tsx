@@ -2,11 +2,11 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import styles from "./TopNav.module.css";
 
-import { ReactComponent as SvgLogo } from "../../images/icons/omd.svg";
-import { ReactComponent as Github } from "../../images/icons/github.svg";
-import { ReactComponent as Slack } from "../../images/icons/slack.svg";
-import { ReactComponent as Cloud } from "../../images/icons/cloud.svg";
-import { ReactComponent as API } from "../../images/icons/api.svg";
+import { ReactComponent as SvgLogo } from "../../icons/omd.svg";
+import { ReactComponent as Github } from "../../icons/github.svg";
+import { ReactComponent as Slack } from "../../icons/slack.svg";
+import { ReactComponent as Cloud } from "../../icons/cloud.svg";
+import { ReactComponent as API } from "../../icons/api.svg";
 import Search from "../Search/Search";
 import { SearchContextProvider } from "../../context/SearchContext";
 import { InstantSearch } from "react-instantsearch-hooks-web";
