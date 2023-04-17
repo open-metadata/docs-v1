@@ -1,22 +1,18 @@
-.PHONY: all
-all:
-	npm i
-
 .PHONY: up
 up:
-	npm run dev
+	yarn dev
 
 .PHONY: start
 start:
-	npm run start
+	yarn start
 
 .PHONY: build
 build:
-	npm run build
+	yarn build
 
 .PHONY: export
 export:
-	npm run export
+	yarn export
 
 .PHONY: search
 search:

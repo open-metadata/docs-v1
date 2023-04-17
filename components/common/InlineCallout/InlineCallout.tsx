@@ -1,8 +1,8 @@
 import Link from "next/link";
 import classNames from "classnames";
-import { ReactComponent as SvgDocker } from "../../icons/Docker.svg";
-import { ReactComponent as SvgSecurity } from "../../icons/bare_metal.svg";
-import { ReactComponent as SvgKubernetes } from "../../icons/kubernetes.svg";
+import { ReactComponent as SvgDocker } from "../../../images/icons/Docker.svg";
+import { ReactComponent as SvgSecurity } from "../../../images/icons/bare_metal.svg";
+import { ReactComponent as SvgKubernetes } from "../../../images/icons/kubernetes.svg";
 
 import styles from "./InlineCallout.module.css";
 import { getUrlWithVersion } from "../../../utils/CommonUtils";

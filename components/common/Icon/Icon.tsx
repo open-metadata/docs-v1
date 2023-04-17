@@ -1,6 +1,6 @@
 import React from "react";
-import { ReactComponent as CheckIcon } from "../../icons/check.svg";
-import { ReactComponent as CrossIcon } from "../../icons/cross.svg";
+import { ReactComponent as CheckIcon } from "../../../images/icons/check.svg";
+import { ReactComponent as CrossIcon } from "../../../images/icons/cross.svg";
 
 function Icon({ iconName }: { iconName: string }) {
   let IconComponent: SvgComponent;

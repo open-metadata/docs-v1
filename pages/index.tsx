@@ -6,7 +6,7 @@ import bannerStyles from "../components/common/Banner/Banner.module.css";
 import YouTube from "../components/common/Youtube/Youtube";
 import NewsEntry from "../components/NewsEntry/NewsEntry";
 import Button from "../components/common/Button/Button";
-import { ReactComponent as ArrowRight } from "../icons/arrow-right.svg";
+import { ReactComponent as ArrowRight } from "../images/icons/arrow-right.svg";
 import TopNav from "../components/TopNav/TopNav";
 import LayoutSelector from "../components/LayoutSelector/LayoutSelector";
 import CategoriesNav from "../components/CategoriesNav/CategoriesNav";
