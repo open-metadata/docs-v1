@@ -5,6 +5,8 @@
 :root {
   --top-nav-height: 75px;
   --main-nav-height: 42px;
+  --select-dropdown-default-height: 28px;
+  --select-dropdown-default-width: 120px;
   --side-nav-width: min(20%, 300px);
   --content-div-width: min(17%, 250px);
   --default-border-color: #dce3ec;
