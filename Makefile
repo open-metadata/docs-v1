@@ -24,4 +24,4 @@ search:
 
 .PHONY: docker-build
 docker-build:
-	docker build -t openmetadata-docs:local .
+	docker build -t openmetadata-docs-v1:local .
