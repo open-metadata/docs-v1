@@ -25,6 +25,6 @@ export const tilesInfoArray = [
     description:
       "Connect to database, dashboard, messaging, pipeline and ML services.",
     link: "/connectors",
-    title: "Connectors",
+    title: "connectors",
   },
 ];
