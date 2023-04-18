@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import styles from "./TopNav.module.css";
-
 import { ReactComponent as SvgLogo } from "../../images/icons/omd.svg";
 import { ReactComponent as Github } from "../../images/icons/github.svg";
 import { ReactComponent as Slack } from "../../images/icons/slack.svg";
@@ -14,7 +13,8 @@ import algoliasearch from "algoliasearch/lite";
 import { useRouter } from "next/router";
 import { isEmpty, isString, isUndefined } from "lodash";
 import { useDocVersionContext } from "../../context/DocVersionContext";
-import { DEFAULT_VERSION } from "../../constants/version.constants";
+import { VERSION_SELECT_DEFAULT_OPTIONS } from "../../constants/version.constants";
+import SelectDropdown, { SelectOption } from "../SelectDropdown/SelectDropdown";
 
 const searchClient = algoliasearch(
   process.env.NEXT_PUBLIC_ALGOLIA_APP_ID,
@@ -24,9 +24,11 @@ const searchClient = algoliasearch(
 export default function TopNav() {
   const router = useRouter();
   const { docVersion, onChangeDocVersion } = useDocVersionContext();
-  const [versions, setVersions] = useState<Array<string>>([DEFAULT_VERSION]);
+  const [versions, setVersions] = useState<Array<SelectOption<string>>>(
+    VERSION_SELECT_DEFAULT_OPTIONS
+  );
 
-  const handleVersionChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+  const handleVersionChange = (value: string) => {
     // Logic to handle case if router.asPath coming from page is '/v0.23.3' instead of '/v0.23.3/'
     const regexToMatchVersionString =
       isUndefined(router.query.slug) && router.pathname !== "/_error"
@@ -35,11 +37,8 @@ export default function TopNav() {
 
     const path =
       router.asPath === "/"
-        ? `/${e.target.value}`
-        : router.asPath.replace(
-            regexToMatchVersionString,
-            `/${e.target.value}/`
-          );
+        ? `/${value}`
+        : router.asPath.replace(regexToMatchVersionString, `/${value}/`);
 
     router.push(path);
   };
@@ -53,14 +52,14 @@ export default function TopNav() {
       if (res.status === 200) {
         setVersions(parsedResponse);
       } else {
-        setVersions([DEFAULT_VERSION]);
+        setVersions(VERSION_SELECT_DEFAULT_OPTIONS);
         console.error(
           "An error occurred while fetching versions list:",
           parsedResponse
         );
       }
     } catch (error) {
-      setVersions([DEFAULT_VERSION]);
+      setVersions(VERSION_SELECT_DEFAULT_OPTIONS);
     }
   };
 
@@ -76,26 +75,16 @@ export default function TopNav() {
 
   return (
     <nav className={styles.NavBar}>
-      <div className="flex justify-between align-center">
+      <div className="flex justify-between items-center">
         <Link href="/">
           <SvgLogo />
         </Link>
         {!isEmpty(versions) && (
-          <div className={styles.VersionSelectorDiv}>
-            <select
-              className={styles.VersionSelector}
-              name="version-selector"
-              id="version-selector"
-              value={docVersion}
-              onChange={handleVersionChange}
-            >
-              {versions.map((version, id) => (
-                <option key={`${version} ${id}`} value={version}>
-                  {version}
-                </option>
-              ))}
-            </select>
-          </div>
+          <SelectDropdown
+            value={docVersion}
+            options={versions}
+            onChange={handleVersionChange}
+          />
         )}
       </div>
       <SearchContextProvider>
