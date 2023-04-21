@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { ReactComponent as OverviewIcon } from "../../images/icons/overview-icon.svg";
 import styles from "./SideNav.module.css";
 import ListItem from "./ListItem";
@@ -9,28 +9,58 @@ import { MenuItem } from "../../interface/common.interface";
 import { isEmpty } from "lodash";
 import SkeletonLoader from "../common/SkeletonLoader/SkeletonLoader";
 import { SkeletonWidth } from "../../enums/SkeletonLoder.enum";
-import { useSideNavCollapseContextContext } from "../../context/SideNavCollapseContext";
 
 interface Props {
   category: string;
   items: MenuItem[];
   loading: boolean;
+  handleSetSideNavCollapsed: (value: boolean) => void;
+  sideNavCollapsed: boolean;
 }
 
-export default function SideNav({ category, items, loading }: Props) {
-  const { sideNavCollapsed, onChangeSideNavCollapsed } =
-    useSideNavCollapseContextContext();
+export default function SideNav({
+  sideNavCollapsed,
+  category,
+  items,
+  loading,
+  handleSetSideNavCollapsed,
+}: Props) {
+  // Ref to keep track if the side nav is collapsed before, when "code-preview-container" is in the view.
+  const autoCollapsed = useRef(false);
 
-  const toggleCollapse = () => {
-    onChangeSideNavCollapsed(!sideNavCollapsed);
+  const toggleSideNavCollapsed = () => {
+    handleSetSideNavCollapsed(!sideNavCollapsed);
   };
 
+  useEffect(() => {
+    const scrollEventListener = () => {
+      // check if the SideNav was already collapsed before.
+      if (!autoCollapsed.current) {
+        const codePreviewComponent = document.getElementById(
+          "code-preview-container"
+        );
+        if (codePreviewComponent && window && window.innerWidth <= 1440) {
+          const position = codePreviewComponent.getBoundingClientRect();
+
+          if (position?.top < window.innerHeight - 100) {
+            handleSetSideNavCollapsed(true);
+            autoCollapsed.current = true;
+          }
+        }
+      }
+    };
+
+    document.addEventListener("scroll", scrollEventListener);
+
+    return () => document.removeEventListener("scroll", scrollEventListener);
+  }, []);
+
   return (
-    <nav
-      className={`${classNames(
+    <div
+      className={classNames(
         styles.SideNav,
         sideNavCollapsed ? styles.CollapsedSideNav : styles.NonCollapsedSideNav
-      )} left-nav`}
+      )}
     >
       {loading ? (
         <SkeletonLoader
@@ -40,9 +70,11 @@ export default function SideNav({ category, items, loading }: Props) {
         />
       ) : (
         <div
-          style={{
-            display: sideNavCollapsed ? "none" : "block",
-          }}
+          className={
+            sideNavCollapsed
+              ? styles.CollapsedSideNavContent
+              : styles.NonCollapsedSideNavContent
+          }
         >
           <div className="flex items-center gap-2 px-1 mb-3">
             <OverviewIcon />
@@ -70,18 +102,18 @@ export default function SideNav({ category, items, loading }: Props) {
           <span title="Expand Menu">
             <CollapseRightIcon
               className={styles.CollapseIcon}
-              onClick={toggleCollapse}
+              onClick={toggleSideNavCollapsed}
             />
           </span>
         ) : (
           <span title="Collapse Menu">
             <CollapseLeftIcon
               className={styles.CollapseIcon}
-              onClick={toggleCollapse}
+              onClick={toggleSideNavCollapsed}
             />
           </span>
         )}
       </span>
-    </nav>
+    </div>
   );
 }

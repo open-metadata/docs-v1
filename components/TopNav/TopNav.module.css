@@ -1,7 +1,8 @@
 .NavBar {
   box-sizing: border-box;
 
-  position: fixed;
+  position: sticky;
+  top: 0px;
   width: 100%;
   height: var(--top-nav-height);
   padding: 10px 32px;

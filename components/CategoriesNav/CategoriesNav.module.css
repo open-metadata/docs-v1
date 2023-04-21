@@ -1,5 +1,6 @@
 .Container {
-  position: fixed;
+  position: sticky;
+  top: var(--top-nav-height);
   width: 100vw;
   height: var(--main-nav-height);
   padding: 10px 24px 0px 24px;
