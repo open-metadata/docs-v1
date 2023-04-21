@@ -16,7 +16,7 @@ export default function CategoriesNav({ menu }: Props) {
   const category = getCategoryByIndex(router.asPath, 2) ?? "";
 
   return (
-    <div className={classNames("main-nav", styles.Container)}>
+    <div className={classNames(styles.Container)}>
       {menu.map((item) => {
         const active = category === getCategoryByIndex(item.url, 1);
         return (

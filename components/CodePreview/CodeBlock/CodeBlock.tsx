@@ -1,4 +1,11 @@
-import React, { ReactNode, useEffect, useMemo, useRef, useState } from "react";
+import React, {
+  ReactNode,
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import { usePreviewContext } from "../../../context/CodePreviewContext";
 import styles from "../../common/Code/Code.module.css";
 import { ReactComponent as ClipboardIcon } from "../../../images/icons/clipboard.svg";
@@ -15,7 +22,7 @@ export default function CodeBlock({ children, fileName }: Props) {
   const [prevSelectedCode, setPrevSelectedCode] = useState<number>(1);
   const [copyText, setCopyText] = useState<string>("Copy");
   const preTag = useRef<HTMLPreElement>();
-  const codeBlockId = useMemo(() => uniqueId("code-block-container-"), []);
+  const [codeBlockId, setCodeBlockId] = useState<string>();
 
   const highlightCodeBlock = () => {
     const codeBlock = document.getElementById(codeBlockId);
@@ -40,9 +47,7 @@ export default function CodeBlock({ children, fileName }: Props) {
     setPrevSelectedCode(selectedPreviewNumber);
   };
 
-  const copyToClipboard = (
-    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
-  ) => {
+  const copyToClipboard = useCallback(() => {
     if (preTag.current) {
       const copyText = preTag.current.textContent;
       navigator.clipboard.writeText(copyText);
@@ -51,11 +56,11 @@ export default function CodeBlock({ children, fileName }: Props) {
         setCopyText("Copy");
       }, 1500);
     }
-  };
+  }, [preTag.current, setCopyText]);
 
   useEffect(() => {
     highlightCodeBlock();
-  }, [selectedPreviewNumber]);
+  }, [selectedPreviewNumber, codeBlockId]);
 
   useEffect(() => {
     const initialSelectedCodeBlock = document.getElementById(
@@ -67,21 +72,32 @@ export default function CodeBlock({ children, fileName }: Props) {
     }
   }, []);
 
-  return (
-    <div className={styles.CodeBlockContainer} id={codeBlockId}>
-      <div className={styles.Toolbar}>
-        {fileName && (
-          <span className={styles.FileName}>
-            <FileIcon />
-            <span>{fileName}</span>
-          </span>
-        )}
-        <button className={styles.CopyButton} onClick={copyToClipboard}>
-          <ClipboardIcon className="w-3 h-3" />
-          <span>{copyText}</span>
-        </button>
+  useEffect(() => {
+    const id = uniqueId("code-block-container-");
+
+    setCodeBlockId(id);
+  }, []);
+
+  const codeBlock = useMemo(
+    () => (
+      <div className={styles.CodeBlockContainer} id={codeBlockId}>
+        <div className={styles.Toolbar}>
+          {fileName && (
+            <span className={styles.FileName}>
+              <FileIcon />
+              <span>{fileName}</span>
+            </span>
+          )}
+          <button className={styles.CopyButton} onClick={copyToClipboard}>
+            <ClipboardIcon className="w-3 h-3" />
+            <span>{copyText}</span>
+          </button>
+        </div>
+        <pre ref={preTag}>{children}</pre>
       </div>
-      <pre ref={preTag}>{children}</pre>
-    </div>
+    ),
+    [fileName, copyToClipboard, copyText, preTag, children, codeBlockId]
   );
+
+  return codeBlock;
 }
