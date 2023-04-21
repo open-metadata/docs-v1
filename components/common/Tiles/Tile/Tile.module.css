@@ -7,9 +7,10 @@
   border-radius: 4px;
   cursor: pointer;
   transition: box-shadow 0.2s ease-in-out;
+  color: rgb(78, 86, 109);
 }
 
-.Container:hover {
+.HoverEffect:hover {
   box-shadow: 0 0 0 1px rgba(50, 50, 93, 0.01),
     0 7px 14px 0 rgba(50, 50, 93, 0.1), 0 3px 6px 0 rgba(0, 0, 0, 0.02);
 }
@@ -19,8 +20,10 @@
   font-weight: 500;
 }
 
-.Container {
-  color: rgb(78, 86, 109);
+.Container :nth-child(2) {
   margin-top: 8px;
-  font-weight: 400;
+}
+
+.Container > ul > li > * {
+  margin-top: 0px;
 }
