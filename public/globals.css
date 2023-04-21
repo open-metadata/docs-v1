@@ -5,6 +5,8 @@
 :root {
   --top-nav-height: 75px;
   --main-nav-height: 42px;
+  --side-nav-width: 288px;
+  --side-nav-collapsed-width: 42px;
   --select-dropdown-default-height: 28px;
   --select-dropdown-default-width: 120px;
   --side-nav-width: min(20%, 300px);
@@ -161,28 +163,6 @@ code::-webkit-scrollbar {
   margin-right: 5px;
 }
 
-.main-nav {
-  grid-area: mainNav;
-}
-
-.home-page {
-  grid-area: homePage;
-}
-
-.left-nav {
-  grid-area: leftNav;
-}
-
-.content {
-  grid-area: content;
-  padding: 24px 48px;
-  margin-top: var(--main-nav-height);
-}
-
-.footer {
-  grid-area: footer;
-}
-
 .overview-container {
   width: 1440px;
   height: 228px;
@@ -246,4 +226,17 @@ code::-webkit-scrollbar {
 
 .page-404 {
   height: calc(100vh - var(--top-nav-height) - var(--main-nav-height));
+}
+
+.content {
+  flex-grow: 0;
+  flex-shrink: 1;
+}
+
+.non-collapsed-content {
+  width: calc(100vw - var(--side-nav-width));
+}
+
+.collapsed-content {
+  width: calc(100vw - var(--side-nav-collapsed-width));
 }

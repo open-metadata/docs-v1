@@ -6,25 +6,26 @@ import SkeletonLoader from "../components/common/SkeletonLoader/SkeletonLoader";
 import Tile from "../components/common/Tiles/Tile/Tile";
 import TilesContainer from "../components/common/Tiles/TilesContainer/TilesContainer";
 import Footer from "../components/Footer/Footer";
-import LayoutSelector from "../components/LayoutSelector/LayoutSelector";
 import SideNav from "../components/SideNav/SideNav";
 import TopNav from "../components/TopNav/TopNav";
 import { tilesInfoArray } from "../constants/404Page.constants";
 import { SKELETON_PARAGRAPH_WIDTHS } from "../constants/SkeletonLoader.constants";
 import { useDocVersionContext } from "../context/DocVersionContext";
 import { useRouteChangingContext } from "../context/RouteChangingContext";
-import { useSideNavCollapseContextContext } from "../context/SideNavCollapseContext";
 import { MenuItem } from "../interface/common.interface";
 import { getCategoryByIndex } from "../lib/utils";
 import { fetchMenuList, getVersionFromUrl } from "../utils/CommonUtils";
 
-function Error() {
+function ErrorComponent() {
   const router = useRouter();
   const { docVersion, onChangeDocVersion } = useDocVersionContext();
-  const { sideNavCollapsed, onChangeSideNavCollapsed } =
-    useSideNavCollapseContextContext();
   const { isRouteChanging } = useRouteChangingContext();
   const [menu, setMenu] = useState<MenuItem[]>([]);
+  const [sideNavCollapsed, setSideNavCollapsed] = useState<boolean>(true);
+
+  const handleSetSideNavCollapsed = (value: boolean) => {
+    setSideNavCollapsed(value);
+  };
 
   const category = getCategoryByIndex(router.asPath, 2);
 
@@ -44,49 +45,49 @@ function Error() {
     }
   }, [router]);
 
-  useEffect(() => {
-    onChangeSideNavCollapsed(true);
-  }, []);
-
   return (
-    <>
+    <div className="flex flex-col">
       <TopNav />
-      <LayoutSelector collapsedNav={sideNavCollapsed}>
-        <CategoriesNav menu={menu} />
+      <CategoriesNav menu={menu} />
+      <div className="flex">
         <SideNav
           category={startCase(category)}
           items={[]}
+          sideNavCollapsed={sideNavCollapsed}
+          handleSetSideNavCollapsed={handleSetSideNavCollapsed}
           loading={isRouteChanging}
         />
-        <div className="content page-404 ">
-          {isRouteChanging ? (
-            <SkeletonLoader
-              paragraph={{
-                rows: SKELETON_PARAGRAPH_WIDTHS.length,
-                width: SKELETON_PARAGRAPH_WIDTHS,
-              }}
-            />
-          ) : (
-            <>
-              <h2>Page not found :(</h2>
-              <TilesContainer>
-                {tilesInfoArray.map((tileInfo) => (
-                  <Tile
-                    description={tileInfo.description}
-                    key={`${tileInfo.link}${tileInfo.title}`}
-                    link={tileInfo.link}
-                    isExternalLink={tileInfo.isExternalLink}
-                    title={tileInfo.title}
-                  />
-                ))}
-              </TilesContainer>
-            </>
-          )}
+        <div>
+          <div className="px-12 py-6">
+            {isRouteChanging ? (
+              <SkeletonLoader
+                paragraph={{
+                  rows: SKELETON_PARAGRAPH_WIDTHS.length,
+                  width: SKELETON_PARAGRAPH_WIDTHS,
+                }}
+              />
+            ) : (
+              <>
+                <h2>Page not found :(</h2>
+                <TilesContainer>
+                  {tilesInfoArray.map((tileInfo) => (
+                    <Tile
+                      description={tileInfo.description}
+                      key={`${tileInfo.link}${tileInfo.title}`}
+                      link={tileInfo.link}
+                      isExternalLink={tileInfo.isExternalLink}
+                      title={tileInfo.title}
+                    />
+                  ))}
+                </TilesContainer>
+              </>
+            )}
+          </div>
+          <Footer />
         </div>
-        <Footer />
-      </LayoutSelector>
-    </>
+      </div>
+    </div>
   );
 }
 
-export default Error;
+export default ErrorComponent;

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
   getArticleSlugFromString,
   getArticleSlugs,
@@ -14,18 +14,16 @@ import TopNav from "../../components/TopNav/TopNav";
 import CategoriesNav from "../../components/CategoriesNav/CategoriesNav";
 import classNames from "classnames";
 import Footer from "../../components/Footer/Footer";
-import LayoutSelector from "../../components/LayoutSelector/LayoutSelector";
 import { components, configs } from "../../lib/markdoc";
 import Breadcrumb from "../../components/Breadcrumb/Breadcrumb";
 import { MenuItem, PathObj } from "../../interface/common.interface";
 import { getCategoryByIndex } from "../../lib/utils";
 import ErrorBoundary from "../../components/ErrorBoundary";
 import { StepsContextProvider } from "../../context/StepsContext";
-import { isEmpty, startCase } from "lodash";
+import { startCase } from "lodash";
 import SkeletonLoader from "../../components/common/SkeletonLoader/SkeletonLoader";
 import { SKELETON_PARAGRAPH_WIDTHS } from "../../constants/SkeletonLoader.constants";
 import { useRouteChangingContext } from "../../context/RouteChangingContext";
-import { useSideNavCollapseContextContext } from "../../context/SideNavCollapseContext";
 
 interface Props {
   menu: MenuItem[];
@@ -39,8 +37,11 @@ const SCROLLING_OFFSET = 152;
 export default function Article({ menu, content, slug }: Props) {
   const router = useRouter();
   const { isRouteChanging } = useRouteChangingContext();
-  const { sideNavCollapsed, onChangeSideNavCollapsed } =
-    useSideNavCollapseContextContext();
+  const [sideNavCollapsed, setSideNavCollapsed] = useState<boolean>(false);
+
+  const handleSetSideNavCollapsed = (value: boolean) => {
+    setSideNavCollapsed(value);
+  };
 
   const category = getCategoryByIndex(router.asPath, 2);
 
@@ -74,52 +75,47 @@ export default function Article({ menu, content, slug }: Props) {
     scrollToElementWithOffsetMargin();
   }, []);
 
-  useEffect(() => {
-    onChangeSideNavCollapsed(isEmpty(item?.children));
-  }, [item]);
-
-  useEffect(() => {
-    setTimeout(() => {
-      const codePreviewComponent = document.getElementById(
-        "code-preview-container"
-      );
-      if (codePreviewComponent) {
-        onChangeSideNavCollapsed(true);
-      }
-    }, 50);
-  }, [router]);
-
   return (
     <ErrorBoundary>
       <StepsContextProvider>
-        <TopNav />
-        <LayoutSelector collapsedNav={sideNavCollapsed}>
+        <div className="flex flex-col">
+          <TopNav />
           <CategoriesNav menu={menu} />
-
-          <SideNav
-            category={item ? item.category : startCase(category)}
-            items={item ? item.children : []}
-            loading={isRouteChanging}
-          />
-          <main className={classNames("flex flex-col content")}>
-            {isRouteChanging ? (
-              <SkeletonLoader
-                paragraph={{
-                  rows: SKELETON_PARAGRAPH_WIDTHS.length,
-                  width: SKELETON_PARAGRAPH_WIDTHS,
-                }}
-              />
-            ) : (
-              <>
-                <Breadcrumb slug={slug} />
-                {Markdoc.renderers.react(ParsedContent, React, {
-                  components,
-                })}
-              </>
-            )}
-          </main>
-          <Footer />
-        </LayoutSelector>
+          <div className="flex">
+            <SideNav
+              sideNavCollapsed={sideNavCollapsed}
+              category={item ? item.category : startCase(category)}
+              items={item ? item.children : []}
+              loading={isRouteChanging}
+              handleSetSideNavCollapsed={handleSetSideNavCollapsed}
+            />
+            <div
+              className={classNames(
+                "content",
+                sideNavCollapsed ? "collapsed-content" : "non-collapsed-content"
+              )}
+            >
+              <main className={classNames("flex flex-col mx-12 my-6")}>
+                {isRouteChanging ? (
+                  <SkeletonLoader
+                    paragraph={{
+                      rows: SKELETON_PARAGRAPH_WIDTHS.length,
+                      width: SKELETON_PARAGRAPH_WIDTHS,
+                    }}
+                  />
+                ) : (
+                  <>
+                    <Breadcrumb slug={slug} />
+                    {Markdoc.renderers.react(ParsedContent, React, {
+                      components,
+                    })}
+                  </>
+                )}
+              </main>
+              <Footer />
+            </div>
+          </div>
+        </div>
       </StepsContextProvider>
     </ErrorBoundary>
   );
@@ -181,7 +177,7 @@ async function getPaths() {
     let realSlug = [slug];
     slug = `/${slug}`;
     const fileContents = fs.readFileSync(articles[index], "utf8");
-    const { data, content } = matter(fileContents);
+    const { data } = matter(fileContents);
 
     // Use slug instead of Category if it's present
     if ("slug" in data) {
