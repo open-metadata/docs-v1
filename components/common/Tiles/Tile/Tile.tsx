@@ -20,7 +20,7 @@ function Tile({
   children,
 }: TileProps) {
   const getWrappedTile = useCallback(
-    (tileContainer: ReactNode) =>
+    (tileContainer: JSX.Element): JSX.Element =>
       link ? (
         <Link
           target={isExternalLink ? "_blank" : "_self"}
