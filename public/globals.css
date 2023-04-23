@@ -22,6 +22,9 @@
   --top-nav-color: #f7fafc;
   --code-background-color: #212d63;
 }
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,

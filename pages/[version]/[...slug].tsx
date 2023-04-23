@@ -65,7 +65,7 @@ export default function Article({ menu, content, slug }: Props) {
       () =>
         window.scrollTo({
           top: offsetPosition,
-          behavior: "auto",
+          behavior: "smooth",
         }),
       0
     );
@@ -122,47 +122,53 @@ export default function Article({ menu, content, slug }: Props) {
 }
 
 export async function getServerSideProps(context) {
-  const paths = await getPaths();
-  const props = { menu: [], content: "", slug: [] };
+  try {
+    const paths = await getPaths();
+    const props = { menu: [], content: "", slug: [] };
 
-  // Check if the version field passed in context params is proper version format
-  const versionFormat = /(v\d\.*\d*)/g;
-  const isVersionPresent = versionFormat.test(context.params.version);
+    // Check if the version field passed in context params is proper version format
+    const versionFormat = /v(\d+\.\d+\.\d+)/g;
+    const isVersionPresent = versionFormat.test(context.params.version);
 
-  if (isVersionPresent) {
-    let location = `/${context.params.version}/${context.params.slug.join(
-      "/"
-    )}`;
+    if (isVersionPresent) {
+      let location = `/${context.params.version}/${context.params.slug.join(
+        "/"
+      )}`;
 
-    const menu = getMenu(context.params.version);
+      const menu = getMenu(context.params.version);
 
-    if ("slug" in context.params) {
-      let filename = "";
-      let notFound = true;
+      if ("slug" in context.params) {
+        let filename = "";
+        let notFound = true;
 
-      for (const obj of paths) {
-        if (`/${obj.params.version}${obj.params.location}` === location) {
-          filename = obj.params.fileName;
-          notFound = false;
-          break;
+        for (const obj of paths) {
+          if (`/${obj.params.version}${obj.params.location}` === location) {
+            filename = obj.params.fileName;
+            notFound = false;
+            break;
+          }
         }
+
+        if (notFound) {
+          return { notFound };
+        }
+
+        // Get the last element of the array to find the MD file
+        const fileContents = fs.readFileSync(filename, "utf8");
+        const { content } = matter(fileContents);
+
+        props["menu"] = menu;
+        props["content"] = content;
+        props["slug"] = context.params.slug;
       }
-
-      if (notFound) {
-        return { notFound };
-      }
-
-      // Get the last element of the array to find the MD file
-      const fileContents = fs.readFileSync(filename, "utf8");
-      const { content } = matter(fileContents);
-
-      props["menu"] = menu;
-      props["content"] = content;
-      props["slug"] = context.params.slug;
     }
-  }
 
-  return { props };
+    return { props };
+  } catch {
+    return {
+      notFound: true,
+    };
+  }
 }
 
 async function getPaths() {

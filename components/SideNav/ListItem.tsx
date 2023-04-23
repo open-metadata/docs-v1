@@ -4,7 +4,6 @@ import { useRouter } from "next/router";
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { ReactComponent as ArrowDown } from "../../images/icons/drop-arrow-down.svg";
 import { ReactComponent as ArrowRight } from "../../images/icons/drop-arrow-right.svg";
-import { checkDropdownStatus } from "../../lib/utils";
 import { MenuItem } from "../../interface/common.interface";
 import styles from "./SideNav.module.css";
 import { getUrlWithVersion } from "../../utils/CommonUtils";
@@ -20,7 +19,9 @@ export default function ListItem({
   const linkRef = useRef<HTMLAnchorElement>();
 
   const isDropdown = item.children && item.children.length > 0;
-  const isActive = `/${router.query.version}${item.url}` === router.asPath;
+  const isActive = router.asPath.includes(
+    `/${router.query.version}${item.url}`
+  );
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleOpen = () => {
@@ -53,10 +54,10 @@ export default function ListItem({
   );
 
   useEffect(() => {
+    const menuKey = item.url.split("/").reverse()[0];
+
     // Check if category name is present in pathname
-    setIsOpen(
-      checkDropdownStatus(router.asPath, item.url.split("/").reverse()[0])
-    );
+    setIsOpen(router.asPath.includes(menuKey));
   }, [router.asPath, item]);
 
   useEffect(() => {

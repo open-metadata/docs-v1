@@ -17,7 +17,9 @@ function CustomAnchorNode({ href, children }: Props) {
       {children}
     </a>
   ) : (
-    <Link href={getUrlWithVersion(href)}>{children}</Link>
+    <Link href={href.startsWith("#") ? href : getUrlWithVersion(href)}>
+      {children}
+    </Link>
   );
 }
 
