@@ -20,7 +20,7 @@ import { MenuItem, PathObj } from "../../interface/common.interface";
 import { getCategoryByIndex } from "../../lib/utils";
 import ErrorBoundary from "../../components/ErrorBoundary";
 import { StepsContextProvider } from "../../context/StepsContext";
-import { startCase } from "lodash";
+import { has, startCase } from "lodash";
 import SkeletonLoader from "../../components/common/SkeletonLoader/SkeletonLoader";
 import { SKELETON_PARAGRAPH_WIDTHS } from "../../constants/SkeletonLoader.constants";
 import { useRouteChangingContext } from "../../context/RouteChangingContext";
@@ -55,25 +55,27 @@ export default function Article({ menu, content, slug }: Props) {
   // Function to scroll element into view with some offset margin
   // For scrolling to the hash element on page after load
   const scrollToElementWithOffsetMargin = () => {
-    const hashElementId = window.location.hash.slice(1);
-    const element = document.getElementById(hashElementId);
-    const elementPosition = element?.getBoundingClientRect().top;
-    const offsetPosition =
-      elementPosition + window.pageYOffset - SCROLLING_OFFSET;
+    if (has(window, "location.hash")) {
+      const hashElementId = window.location.hash.slice(1);
+      const element = document.getElementById(hashElementId);
+      const elementPosition = element?.getBoundingClientRect().top;
+      const offsetPosition =
+        elementPosition + window.pageYOffset - SCROLLING_OFFSET;
 
-    setTimeout(
-      () =>
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: "smooth",
-        }),
-      0
-    );
+      setTimeout(
+        () =>
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: "auto",
+          }),
+        0
+      );
+    }
   };
 
   useEffect(() => {
     scrollToElementWithOffsetMargin();
-  }, []);
+  });
 
   return (
     <ErrorBoundary>
