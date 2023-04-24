@@ -7,7 +7,7 @@ export function Heading({ id = "", level = 1, children, className }) {
   const [copied, setCopied] = useState(false);
 
   const copyLinkUnbound = async () => {
-    const link = `${window.location.host}${window.location.pathname}#${id}`;
+    const link = `${window.location.protocol}//${window.location.host}${window.location.pathname}#${id}`;
     await navigator.clipboard.writeText(link);
 
     setCopied(true);

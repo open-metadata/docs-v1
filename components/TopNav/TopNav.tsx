@@ -11,10 +11,15 @@ import { SearchContextProvider } from "../../context/SearchContext";
 import { InstantSearch } from "react-instantsearch-hooks-web";
 import algoliasearch from "algoliasearch/lite";
 import { useRouter } from "next/router";
-import { isEmpty, isString, isUndefined } from "lodash";
+import { isEmpty, isString } from "lodash";
 import { useDocVersionContext } from "../../context/DocVersionContext";
-import { VERSION_SELECT_DEFAULT_OPTIONS } from "../../constants/version.constants";
+import {
+  DEFAULT_VERSION,
+  REGEX_VERSION_MATCH,
+  VERSION_SELECT_DEFAULT_OPTIONS,
+} from "../../constants/version.constants";
 import SelectDropdown, { SelectOption } from "../SelectDropdown/SelectDropdown";
+import { getUrlWithVersion } from "../../utils/CommonUtils";
 
 const searchClient = algoliasearch(
   process.env.NEXT_PUBLIC_ALGOLIA_APP_ID,
@@ -29,16 +34,10 @@ export default function TopNav() {
   );
 
   const handleVersionChange = (value: string) => {
-    // Logic to handle case if router.asPath coming from page is '/v0.23.3' instead of '/v0.23.3/'
-    const regexToMatchVersionString =
-      isUndefined(router.query.slug) && router.pathname !== "/_error"
-        ? /(\/v(\d*\.*)*)/g
-        : /(\/v(\d*\.*)*\/)/g;
-
     const path =
       router.asPath === "/"
         ? `/${value}`
-        : router.asPath.replace(regexToMatchVersionString, `/${value}/`);
+        : router.asPath.replace(REGEX_VERSION_MATCH, value);
 
     router.push(path);
   };
@@ -68,15 +67,24 @@ export default function TopNav() {
   }, []);
 
   useEffect(() => {
-    if (isString(router.query.version)) {
-      onChangeDocVersion(router.query.version);
+    const regexToMatchVersionString = /v(\d+\.\d+\.\d+)/g;
+
+    if (router.pathname !== "/_error") {
+      if (
+        isString(router.query.version) &&
+        regexToMatchVersionString.test(router.query.version)
+      ) {
+        onChangeDocVersion(router.query.version);
+      } else {
+        router.push(`/${DEFAULT_VERSION}${router.asPath}`);
+      }
     }
   }, [router]);
 
   return (
     <nav className={styles.NavBar}>
       <div className="flex justify-between items-center">
-        <Link href="/">
+        <Link href={docVersion ? getUrlWithVersion("/") : "/"}>
           <SvgLogo />
         </Link>
         {!isEmpty(versions) && (
@@ -108,7 +116,7 @@ export default function TopNav() {
         </a>
         <a
           className="btn fw-500 btn-primary rounded-pill"
-          href="https://share.hsforms.com/1fstvMCeZRZKTYA4nG1VTPgcq0j9"
+          href="https://cloud.getcollate.io"
           target="_blank"
         >
           <button className={styles.CloudBtn}>
