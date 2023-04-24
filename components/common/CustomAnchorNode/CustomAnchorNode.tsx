@@ -1,6 +1,7 @@
 import Link from "next/link";
 import React, { ReactNode } from "react";
 import { getUrlWithVersion } from "../../../utils/CommonUtils";
+import { PAGES_WITHOUT_VERSION } from "../../../constants/pagesWithoutVersion.constants";
 
 interface Props {
   href: string;
@@ -12,7 +13,7 @@ function CustomAnchorNode({ href, children }: Props) {
 
   const isExternalLink = href.search(regexToIdentifyLink) !== -1;
 
-  return isExternalLink ? (
+  return isExternalLink || PAGES_WITHOUT_VERSION.includes(href) ? (
     <a href={href} target="_blank">
       {children}
     </a>
