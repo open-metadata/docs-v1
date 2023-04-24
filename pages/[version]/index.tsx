@@ -95,6 +95,7 @@ export default function Index({ menu }) {
                     heading={cardInfo.heading}
                     url={cardInfo.url}
                     isExternalLink={cardInfo.isExternalLink}
+                    icon={cardInfo.icon}
                   />
                 ))}
               </div>
