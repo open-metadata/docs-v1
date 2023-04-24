@@ -12,36 +12,33 @@ import ErrorBoundary from "../components/ErrorBoundary";
 import { DocVersionContextProvider } from "../context/DocVersionContext";
 import { RouteChangingContextProvider } from "../context/RouteChangingContext";
 
-const TITLE = "Markdoc";
-const DESCRIPTION = "A powerful, flexible, Markdown-based authoring framework";
+const TITLE = "OpenMetadata Documentation";
+const DESCRIPTION =
+  "A documentation for 'OpenMetadata', an end-to-end metadata management solution that includes data discovery, governance, data quality, observability, and people collaboration";
 
 export type MyAppProps = MarkdocNextJsPageProps;
 
 export default function MyApp({ Component, pageProps }: AppProps<MyAppProps>) {
-  const { markdoc } = pageProps;
   const router = useRouter();
-
-  let title = TITLE;
-  let description = DESCRIPTION;
-  if (markdoc) {
-    if (markdoc.frontmatter.title) {
-      title = markdoc.frontmatter.title;
-    }
-    if (markdoc.frontmatter.description) {
-      description = markdoc.frontmatter.description;
-    }
-  }
 
   return (
     <>
       <Head>
-        <title>{title}</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="referrer" content="strict-origin" />
-        <meta name="title" content={title} />
-        <meta name="description" content={description} />
-        <link rel="shortcut icon" href="/favicon.ico" />
-        <link rel="icon" href="/favicon.ico" />
+        <title>{TITLE}</title>
+        <link rel="icon" href="/favicon.svg" />
+        <link rel="alternate icon" href="/favicon32.ico" />
+        <meta name="theme-color" content="#ffffff" />
+        <meta content="OpenMetadata Docs" property="og:title" />
+        <meta content="OpenMetadata Docs" name="twitter:title" />
+        {DESCRIPTION && (
+          <React.Fragment>
+            <meta content={DESCRIPTION} name="description" />
+            <meta content={DESCRIPTION} property="og:description" />
+            <meta content={DESCRIPTION} name="twitter:description" />
+          </React.Fragment>
+        )}
+        <meta property="og:type" content="website" />
+        <meta content="summary_large_image" name="twitter:card" />
       </Head>
       <ErrorBoundary>
         <RouteChangingContextProvider>
