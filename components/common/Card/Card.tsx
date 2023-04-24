@@ -19,13 +19,15 @@ export default function Card({
   isExternalLink = false,
 }: Props) {
   return (
-    <div className={styles.Container}>
-      <Puzzle />
-      <div className={styles.Heading}>{heading}</div>
-      <p className="m-0 mb-5">{content}</p>
       <Link href={isExternalLink ? url : getUrlWithVersion(url)}>
+        <div className={styles.Container}>
+
+        <Puzzle />
+        <div className={styles.Heading}>{heading}</div>
+         <p className="m-0 mb-5">{content}</p>
         <ArrowRight className={styles.ArrowIcon} />
+
+        </div>
       </Link>
-    </div>
   );
 }

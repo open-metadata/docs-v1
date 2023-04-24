@@ -20,6 +20,8 @@ import {
 import { useRouteChangingContext } from "../../context/RouteChangingContext";
 import SkeletonLoader from "../../components/common/SkeletonLoader/SkeletonLoader";
 import { SkeletonWidth } from "../../enums/SkeletonLoder.enum";
+import Tile from '../../components/common/Tiles/Tile/Tile'
+import TilesContainer from '../../components/common/Tiles/TilesContainer/TilesContainer'
 
 export default function Index({ menu }) {
   const { isRouteChanging } = useRouteChangingContext();
@@ -89,29 +91,17 @@ export default function Index({ menu }) {
             </div>
             <div className="homepage-containers">
               <div className="container-heading">Quick Links</div>
-              <div className="cards-container">
-                {QUICK_LINK_CARDS.map((cardInfo) => (
-                  <Card
-                    content={cardInfo.content}
-                    key={`${cardInfo.heading}${cardInfo.url}`}
-                    heading={cardInfo.heading}
-                    url={cardInfo.url}
-                  />
-                ))}
-              </div>
-            </div>
-            <div className="homepage-containers">
-              <div className="container-heading">Title</div>
-              <div className="cards-container">
-                {TITLE_INFO_CARDS.map((cardInfo) => (
-                  <InfoCards
-                    content={cardInfo.content}
-                    key={`${cardInfo.heading}${cardInfo.content}`}
-                    heading={cardInfo.heading}
-                    color={cardInfo.color}
-                  />
-                ))}
-              </div>
+                <div className="cards-container">
+                    {QUICK_LINK_CARDS.map((cardInfo) => (
+                        <Card
+                            content={cardInfo.content}
+                            key={`${cardInfo.heading}${cardInfo.url}`}
+                            heading={cardInfo.heading}
+                            url={cardInfo.url}
+                            isExternalLink={cardInfo.isExternalLink}
+                        />
+                    ))}
+                </div>
             </div>
             <div className="homepage-containers">
               <div className="container-heading">Connectors</div>
