@@ -8,6 +8,12 @@
   border-radius: 10px;
   display: flex;
   flex-direction: column;
+  color: var(--default-text-color);
+  transition: box-shadow 0.2s linear;
+}
+
+.Container:hover {
+  box-shadow: 0px 4px 14px 6px rgba(0, 0, 0, 0.09);
 }
 
 .Heading {

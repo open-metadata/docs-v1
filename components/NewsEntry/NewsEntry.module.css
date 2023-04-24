@@ -8,6 +8,12 @@
   border-radius: 10px;
   display: flex;
   flex-direction: column;
+  cursor: pointer;
+  transition: box-shadow 0.2s linear;
+}
+
+.Container:hover {
+  box-shadow: 0px 4px 14px 10px rgba(0, 0, 0, 0.09);
 }
 
 .Title {
@@ -21,7 +27,7 @@
 }
 
 .blogContent {
-  @apply flex flex-col justify-between p-4 pb-8;
+  @apply flex flex-col justify-between p-4 py-6;
 }
 
 .Link {
@@ -30,11 +36,10 @@
   font-size: 14px;
 }
 
-.blogImage {
-  @apply h-[164px];
+.blogImage > img {
   box-shadow: 0px 0px 2px rgb(0 0 0 / 30%);
-  border-top: 1px solid #ffffff;
-  border-radius: 10px;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
   width: 344px;
   height: 164px;
 }
