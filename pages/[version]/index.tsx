@@ -141,15 +141,21 @@ export default function Index({ menu }) {
 }
 
 export async function getServerSideProps(context) {
-  // Check if the version field passed in context params is proper version format
-  const versionFormat = /(v\d\.*\d*)/g;
-  const isVersionPresent = versionFormat.test(context.params.version);
-  let menu = [];
+  try {
+    // Check if the version field passed in context params is proper version format
+    const versionFormat = /(v\d\.*\d*)/g;
+    const isVersionPresent = versionFormat.test(context.params.version);
+    let menu = [];
 
-  if (isVersionPresent) {
-    menu = getMenu(context.params.version);
+    if (isVersionPresent) {
+      menu = getMenu(context.params.version);
+    }
+    return {
+      props: { menu },
+    };
+  } catch {
+    return {
+      notFound: true,
+    };
   }
-  return {
-    props: { menu },
-  };
 }
