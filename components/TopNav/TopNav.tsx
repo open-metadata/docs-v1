@@ -96,7 +96,7 @@ export default function TopNav() {
         )}
       </div>
       <SearchContextProvider>
-        <InstantSearch indexName="openmetadata" searchClient={searchClient}>
+        <InstantSearch indexName="openmetadata-v1" searchClient={searchClient}>
           <Search />
         </InstantSearch>
       </SearchContextProvider>
