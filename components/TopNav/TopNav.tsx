@@ -116,7 +116,7 @@ export default function TopNav() {
         </a>
         <a
           className="btn fw-500 btn-primary rounded-pill"
-          href="https://share.hsforms.com/1fstvMCeZRZKTYA4nG1VTPgcq0j9"
+          href="https://www.getcollate.io/"
           target="_blank"
         >
           <button className={styles.CloudBtn}>
