@@ -10,7 +10,11 @@
   gap: 10px;
 }
 
+.ConnectorItem > p {
+  margin: 0px;
+}
+
 .ConnectorImg {
-  height: 42px;
-  width: 42px;
+  max-height: 42px;
+  max-width: 42px;
 }
