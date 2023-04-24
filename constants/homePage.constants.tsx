@@ -1,21 +1,24 @@
 export const QUICK_LINK_CARDS = [
   {
-    heading: "Features",
+    heading: "Deployment",
     content:
-      "OpenMetadata includes a rapidly growing set of features to address common needs in data discovery, quality, observability, and collaboration.",
-    url: "/features",
-  },
-  {
-    heading: "Docker Deployment",
-    content:
-      "Deploying OpenMetadata in Docker is a great start! Take a look at our Quickstart guide to learn how to get OpenMetadata up and running locally in less than 7 minutes!",
+      "Deploy in Bare Metal, Docker or Kubernetes on any cloud 🎉",
     url: "/deployment",
+    isExternalLink: false
   },
   {
-    heading: "Metadata Ingestion",
+    heading: "SaaS",
     content:
-      "OM serves as a centralised platform where users can gather and collaborate around data and deploy and schedule to connect to the data sources to extract metadata.",
-    url: "/ingestion",
+      "Enjoy 100% of OpenMetadata with 0% of the hassle 🚀",
+    url: "https://cloud.getcollate.io",
+    isExternalLink: true
+  },
+  {
+    heading: "Knowledge Base",
+    content:
+      "Check out some frequent Questions & Answers 💬",
+    url: "https://github.com/open-metadata/OpenMetadata/discussions",
+    isExternalLink: true
   },
 ];
 
@@ -42,21 +45,21 @@ export const TITLE_INFO_CARDS = [
 
 export const NEWS_ENTRY_INFO = [
   {
-    title: "OpenMetadata 0.11.0 release",
-    text: "Data Collaboration, Column-level Lineage, ML Models, Data Profiler, Advanced Search, Data Lake connectors, and more.",
-    link: "https://blog.open-metadata.org/openmetadata-0-11-release-8b82c85636a",
-    image: <img src="/blog1.png" />,
+    title: "How we Built the Ingestion Framework",
+    text: "Extracting Metadata from Every Corner: The evolution of the Ingestion Framework at OpenMetadata.",
+    link: "https://blog.open-metadata.org/how-we-built-the-ingestion-framework-1af0b6ff5c81",
+    image: <img src="./blogs/how-we-built-the-ingestion-framework.png" />,
   },
   {
-    title: "OpenMetadata 0.10.0 release",
-    text: "Backend APIs, Support for database schema objects, Hard deletion of entities, Refactor service connectors, DBT changes, Security updates, and more.",
-    link: "https://blog.open-metadata.org/openmetadata-0-10-0-release-82c4f5533c3f",
-    image: <img src="/blog2.png" />,
+    title: "OpenMetadata 0.13.2 Release",
+    text: "Improved SQL Lineage, Glossary Bulk Upload, Unified Tag Category API, Mutually Exclusive Tags, Chrome Extension, and lots more.",
+    link: "https://blog.open-metadata.org/openmetadata-0-13-2-release-e32c0de93361",
+    image: <img src="./blogs/0132-release.png" />,
   },
   {
-    title: "Why OpenMetadata is the Right Choice for you",
-    text: "OpenMetadata is a fresh start on how to do Metadata right from first principles.",
-    link: "https://blog.open-metadata.org/why-openmetadata-is-the-right-choice-for-you-59e329163cac",
-    image: <img src="/blog3.png" />,
+    title: "How to Integrate OpenMetadata Test Suites with your Data Pipelines",
+    text: "Create and execute test suites from the UI or include them to your existing ETLs.",
+    link: "https://blog.open-metadata.org/how-to-integrate-openmetadata-test-suites-with-your-data-pipelines-d83fb55fa494",
+    image: <img src="./blogs/test-suite.png" />,
   },
 ];
