@@ -167,7 +167,7 @@ code::-webkit-scrollbar {
 }
 
 .overview-container {
-  width: 1440px;
+  width: 100vw;
   height: 228px;
   display: flex;
   flex-direction: column;
