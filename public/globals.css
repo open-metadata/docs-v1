@@ -21,6 +21,12 @@
   --white-color: #fff;
   --top-nav-color: #f7fafc;
   --code-background-color: #212d63;
+  --purple-bg-color: #7147e81a;
+  --green-bg-color: #0084761a;
+  --pink-bg-color: #b02aac1a;
+  --purple-icon-color: #7147e8;
+  --green-icon-color: #008376;
+  --pink-icon-color: #b02aac;
 }
 html {
   scroll-behavior: smooth;
@@ -242,4 +248,25 @@ code::-webkit-scrollbar {
 
 .collapsed-content {
   width: calc(100vw - var(--side-nav-collapsed-width));
+}
+
+.card-icon-container {
+  padding: 8px;
+  width: fit-content;
+  border-radius: 10px;
+}
+
+.card-purple-icon {
+  background-color: var(--purple-bg-color);
+  border: 1px solid #7147e8;
+}
+
+.card-green-icon {
+  background-color: var(--green-bg-color);
+  border: 1px solid #008376;
+}
+
+.card-pink-icon {
+  background-color: var(--pink-bg-color);
+  border: 1px solid #b02aac;
 }
