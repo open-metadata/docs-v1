@@ -28,34 +28,13 @@ export const QUICK_LINK_CARDS = [
   {
     heading: "Knowledge Base",
     content: "Check out some frequent Questions & Answers 💬",
-    url: "https://github.com/open-metadata/OpenMetadata/discussions",
+    url: "https://github.com/open-metadata/OpenMetadata/discussions/categories/q-a",
     isExternalLink: true,
     icon: (
       <span className="card-icon-container card-pink-icon">
         <KnowledgeBaseIcon height={36} />
       </span>
     ),
-  },
-];
-
-export const TITLE_INFO_CARDS = [
-  {
-    heading: "OpenMetadata Sandbox",
-    content:
-      "Sandbox set-up allow users to get the experience of OM with least efforts that mimics a real production setup.",
-    color: "#1890FF",
-  },
-  {
-    heading: "Latest Release 0.12.0",
-    content:
-      "Roles & Policies, Teams Hierarchy, Slack & MS Teams Webhooks, Custom Attributes, and more…",
-    color: "#B02AAC",
-  },
-  {
-    heading: "Discovery & Collaboration",
-    content:
-      "OpenMetadata supports a rich set of features to enable Data Discovery & Collaboration.",
-    color: "#008376",
   },
 ];
 
