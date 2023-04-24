@@ -1,6 +1,5 @@
 import React from "react";
 import Card from "../../components/common/Card/Card";
-import InfoCards from "../../components/common/InfoCards/InfoCards";
 import ConnectorsInfo from "../../components/ConnectorsInfo/ConnectorsInfo";
 import bannerStyles from "../../components/common/Banner/Banner.module.css";
 import YouTube from "../../components/common/Youtube/Youtube";
@@ -15,13 +14,10 @@ import { getUrlWithVersion } from "../../utils/CommonUtils";
 import {
   NEWS_ENTRY_INFO,
   QUICK_LINK_CARDS,
-  TITLE_INFO_CARDS,
 } from "../../constants/homePage.constants";
 import { useRouteChangingContext } from "../../context/RouteChangingContext";
 import SkeletonLoader from "../../components/common/SkeletonLoader/SkeletonLoader";
 import { SkeletonWidth } from "../../enums/SkeletonLoder.enum";
-import Tile from '../../components/common/Tiles/Tile/Tile'
-import TilesContainer from '../../components/common/Tiles/TilesContainer/TilesContainer'
 
 export default function Index({ menu }) {
   const { isRouteChanging } = useRouteChangingContext();
@@ -91,17 +87,17 @@ export default function Index({ menu }) {
             </div>
             <div className="homepage-containers">
               <div className="container-heading">Quick Links</div>
-                <div className="cards-container">
-                    {QUICK_LINK_CARDS.map((cardInfo) => (
-                        <Card
-                            content={cardInfo.content}
-                            key={`${cardInfo.heading}${cardInfo.url}`}
-                            heading={cardInfo.heading}
-                            url={cardInfo.url}
-                            isExternalLink={cardInfo.isExternalLink}
-                        />
-                    ))}
-                </div>
+              <div className="cards-container">
+                {QUICK_LINK_CARDS.map((cardInfo) => (
+                  <Card
+                    content={cardInfo.content}
+                    key={`${cardInfo.heading}${cardInfo.url}`}
+                    heading={cardInfo.heading}
+                    url={cardInfo.url}
+                    isExternalLink={cardInfo.isExternalLink}
+                  />
+                ))}
+              </div>
             </div>
             <div className="homepage-containers">
               <div className="container-heading">Connectors</div>

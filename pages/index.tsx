@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import Card from "../components/common/Card/Card";
-import InfoCards from "../components/common/InfoCards/InfoCards";
 import ConnectorsInfo from "../components/ConnectorsInfo/ConnectorsInfo";
 import bannerStyles from "../components/common/Banner/Banner.module.css";
 import YouTube from "../components/common/Youtube/Youtube";
@@ -14,7 +13,6 @@ import { fetchMenuList, getUrlWithVersion } from "../utils/CommonUtils";
 import {
   NEWS_ENTRY_INFO,
   QUICK_LINK_CARDS,
-  TITLE_INFO_CARDS,
 } from "../constants/homePage.constants";
 import { useDocVersionContext } from "../context/DocVersionContext";
 import { MenuItem } from "../interface/common.interface";
@@ -108,19 +106,7 @@ export default function Index() {
                     key={`${cardInfo.heading}${cardInfo.url}`}
                     heading={cardInfo.heading}
                     url={cardInfo.url}
-                  />
-                ))}
-              </div>
-            </div>
-            <div className="homepage-containers">
-              <div className="container-heading">Title</div>
-              <div className="cards-container">
-                {TITLE_INFO_CARDS.map((cardInfo) => (
-                  <InfoCards
-                    content={cardInfo.content}
-                    key={`${cardInfo.heading}${cardInfo.content}`}
-                    heading={cardInfo.heading}
-                    color={cardInfo.color}
+                    isExternalLink={cardInfo.isExternalLink}
                   />
                 ))}
               </div>
