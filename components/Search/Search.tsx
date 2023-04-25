@@ -12,7 +12,7 @@ import CustomSearch from "./CustomSearch/CustomSearch";
 import { useRouter } from "next/router";
 import { useSearchContext } from "../../context/SearchContext";
 import HitComponent from "./HitComponent/HitComponent";
-import { isEmpty, isUndefined } from "lodash";
+import { isEmpty, isNull, isUndefined } from "lodash";
 
 export default function Search() {
   const [hotKey, setHotKey] = useState("second");
@@ -100,15 +100,19 @@ export default function Search() {
   };
 
   useEffect(() => {
-    const platform = window.navigator.userAgent
-      .match(/(\(\w+;)/g)[0]
-      .slice(1, -1);
+    const platformMatch = window.navigator.userAgent.match(/(\(\w+;)/g);
 
-    if (platform.indexOf("Mac") != -1) {
-      setHotKey("⌘");
-    } else if (platform.indexOf("Win") != -1) {
-      setHotKey("Ctrl");
-    } else if (platform.indexOf("Linux") != -1) {
+    if (!isEmpty(platformMatch) && !isNull(platformMatch)) {
+      const platform = platformMatch[0].slice(1, -1);
+
+      if (platform.indexOf("Mac") != -1) {
+        setHotKey("⌘");
+      } else if (platform.indexOf("Win") != -1) {
+        setHotKey("Ctrl");
+      } else if (platform.indexOf("Linux") != -1) {
+        setHotKey("Ctrl");
+      }
+    } else {
       setHotKey("Ctrl");
     }
   }, []);
