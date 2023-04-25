@@ -72,7 +72,7 @@ export default function Index({ menu }) {
                 </>
               </div>
               <div className={bannerStyles.Video}>
-                <YouTube videoId="ld43_jafL9w" />
+                <YouTube videoId="ld43_jafL9w" start="0:00" end="6:48" />
               </div>
             </div>
             <div className="overview-container">
