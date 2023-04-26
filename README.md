@@ -221,3 +221,48 @@ caption="step2 caption" /%}
 ##### Here's the preview of the Stepper functionality
 
 <img width="2032" alt="steps-component-gif" src="./public/steps-component.gif">
+
+## Other Tags
+
+### 1. note
+
+A tag for highlighting some part of the content.
+
+#### Attributes
+
+1. noteType (type - String)
+Mention the type of note you want to show. There are 3 types of note which differ in styling.
+
+**If no attribute is passed then the default type will be considered as "Note"**
+
+Example:
+
+- Note
+
+{% note noteType="Note" %}
+A Note
+{% /note %}
+
+**OR**
+
+{% note %}
+A Note
+{% /note %}
+
+<img width="2032" alt="note-tag-img" src="./public/note-tag.png">
+
+- Warning
+
+{% note noteType="Warning" %}
+A Warning
+{% /note %}
+
+<img width="2032" alt="warning-tag-img" src="./public/warning-tag.png">
+
+- Tip
+
+{% note noteType="Tip" %}
+A Tip
+{% /note %}
+
+<img width="2032" alt="tip-tag-img" src="./public/tip-tag.png">
