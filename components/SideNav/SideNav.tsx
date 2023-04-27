@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { forwardRef, useEffect } from "react";
 import { ReactComponent as OverviewIcon } from "../../images/icons/overview-icon.svg";
 import styles from "./SideNav.module.css";
 import ListItem from "./ListItem";
@@ -18,16 +18,16 @@ interface Props {
   sideNavCollapsed: boolean;
 }
 
-export default function SideNav({
-  sideNavCollapsed,
-  category,
-  items,
-  loading,
-  handleSetSideNavCollapsed,
-}: Props) {
-  // Ref to keep track if the side nav is collapsed before, when "code-preview-container" is in the view.
-  const autoCollapsed = useRef(false);
-
+export default forwardRef(function SideNav(
+  {
+    sideNavCollapsed,
+    category,
+    items,
+    loading,
+    handleSetSideNavCollapsed,
+  }: Props,
+  ref: React.MutableRefObject<boolean>
+) {
   const toggleSideNavCollapsed = () => {
     handleSetSideNavCollapsed(!sideNavCollapsed);
   };
@@ -35,7 +35,7 @@ export default function SideNav({
   useEffect(() => {
     const scrollEventListener = () => {
       // check if the SideNav was already collapsed before.
-      if (!autoCollapsed.current) {
+      if (ref && !ref.current) {
         const codePreviewComponent = document.getElementById(
           "code-preview-container"
         );
@@ -44,7 +44,12 @@ export default function SideNav({
 
           if (position?.top < window.innerHeight - 100) {
             handleSetSideNavCollapsed(true);
-            autoCollapsed.current = true;
+            // The hash element scrolling is dependent on this ref value ,
+            // to avoid the ongoing scrolling from stopping
+            // setting this timeout
+            setTimeout(() => {
+              ref.current = true;
+            }, 200);
           }
         }
       }
@@ -116,4 +121,4 @@ export default function SideNav({
       </span>
     </div>
   );
-}
+});

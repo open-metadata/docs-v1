@@ -61,7 +61,7 @@ export default function Search() {
 
   const handleKey = (e: KeyboardEvent) => {
     e.stopPropagation();
-    if (searchValue) {
+    if (isSuggestionVisible) {
       const searchResults = document.querySelectorAll(".ais-Hits-item");
 
       switch (e.key) {
