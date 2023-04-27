@@ -107,6 +107,16 @@ ul {
   margin-left: 16px;
 }
 
+ol {
+  list-style: decimal;
+  margin-top: 16px;
+  margin-left: 16px;
+}
+
+ol li::marker {
+  color: var(--default-text-color);
+}
+
 li > ul {
   margin-top: 0px;
   margin-left: 16px;
