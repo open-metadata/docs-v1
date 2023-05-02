@@ -1,13 +1,11 @@
 .IframeContainer {
   position: relative;
-  width: 100%;
   margin-top: 16px;
 }
 
 .Iframe {
   width: 100%;
   aspect-ratio: 16 / 9;
-  max-width: 100%;
   display: inline-block;
   border: 1px solid #dde3ea;
   border-radius: 6px;
