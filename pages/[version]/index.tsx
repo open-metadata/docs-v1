@@ -18,9 +18,11 @@ import {
 import { useRouteChangingContext } from "../../context/RouteChangingContext";
 import SkeletonLoader from "../../components/common/SkeletonLoader/SkeletonLoader";
 import { SkeletonWidth } from "../../enums/SkeletonLoder.enum";
+import { useDocVersionContext } from "../../context/DocVersionContext";
 
 export default function Index({ menu }) {
   const { isRouteChanging } = useRouteChangingContext();
+  const { docVersion } = useDocVersionContext();
 
   return (
     <>
@@ -61,7 +63,7 @@ export default function Index({ menu }) {
                   </p>
                   <Button
                     className="mt-4"
-                    href={getUrlWithVersion("/quick-start")}
+                    href={getUrlWithVersion("/quick-start", docVersion)}
                     type="link"
                   >
                     Get Started

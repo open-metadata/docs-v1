@@ -9,9 +9,7 @@ export const generateIdFromHeading = (heading: string) => {
   return heading.toLowerCase().replaceAll(" ", "-");
 };
 
-export const getUrlWithVersion = (url: string) => {
-  const { docVersion } = useDocVersionContext();
-
+export const getUrlWithVersion = (url: string, docVersion: string) => {
   return `/${docVersion}${url}`;
 };
 

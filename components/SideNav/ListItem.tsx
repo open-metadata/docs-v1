@@ -7,6 +7,7 @@ import { ReactComponent as ArrowRight } from "../../images/icons/drop-arrow-righ
 import { MenuItem } from "../../interface/common.interface";
 import styles from "./SideNav.module.css";
 import { getUrlWithVersion } from "../../utils/CommonUtils";
+import { useDocVersionContext } from "../../context/DocVersionContext";
 
 export default function ListItem({
   item,
@@ -16,6 +17,7 @@ export default function ListItem({
   fontWeight?: number;
 }) {
   const router = useRouter();
+  const { docVersion } = useDocVersionContext();
   const linkRef = useRef<HTMLAnchorElement>();
 
   const isDropdown = item.children && item.children.length > 0;
@@ -28,7 +30,7 @@ export default function ListItem({
     setIsOpen((open) => !open);
   };
 
-  const urlWithVersion = getUrlWithVersion(item.url);
+  const urlWithVersion = getUrlWithVersion(item.url, docVersion);
 
   const linkItem = useMemo(
     () => (
