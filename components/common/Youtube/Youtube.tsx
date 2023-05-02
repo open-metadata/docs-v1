@@ -3,10 +3,10 @@ import React from "react";
 import styles from "./Youtube.module.css";
 
 interface YouTubeProps {
-  caption: string;
   videoId: string;
-  start: string;
-  end: string;
+  start?: string;
+  end?: string;
+  caption?: string;
   height?: string;
   width?: string;
 }
