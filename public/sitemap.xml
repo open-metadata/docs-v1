@@ -348,6 +348,21 @@
   <priority>0.64</priority>
 </url>
 <url>
+  <loc>https://docs.open-metadata.org/v1.0.0/connectors/ingestion/versioning/change-feeds</loc>
+  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.0.0/connectors/pipeline/glue-pipeline/airflow</loc>
+  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.0.0/main-concepts/metadata-standard/schemas/metadataingestion/messagingservicemetadatapipeline</loc>
+  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
   <loc>https://docs.open-metadata.org/v1.0.0/deployment/upgrade</loc>
   <lastmod>2023-05-04T12:34:45+00:00</lastmod>
   <priority>0.64</priority>
