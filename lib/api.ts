@@ -1,4 +1,7 @@
-import { DEFAULT_VERSION } from "./../constants/version.constants";
+import {
+  DEFAULT_VERSION,
+  VERSION_SELECT_DEFAULT_OPTIONS,
+} from "./../constants/version.constants";
 import fs from "fs";
 import { join, basename } from "path";
 import findIndex from "lodash/findIndex";
@@ -101,3 +104,20 @@ export function getMenu(version?: string) {
 
   return menu;
 }
+
+export const getVersionsList = () => {
+  try {
+    const versionsArray = fs.readdirSync(ARTICLES_DIRECTORY);
+    const versionsList = versionsArray.map((version) => ({
+      label: version,
+      value: version,
+    }));
+
+    versionsList.sort();
+    versionsList.reverse();
+
+    return versionsList;
+  } catch (error) {
+    return VERSION_SELECT_DEFAULT_OPTIONS;
+  }
+};

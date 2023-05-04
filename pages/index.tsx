@@ -19,8 +19,14 @@ import { MenuItem } from "../interface/common.interface";
 import { useRouteChangingContext } from "../context/RouteChangingContext";
 import SkeletonLoader from "../components/common/SkeletonLoader/SkeletonLoader";
 import { SkeletonWidth } from "../enums/SkeletonLoder.enum";
+import { SelectOption } from "../components/SelectDropdown/SelectDropdown";
+import { getMenu, getVersionsList } from "../lib/api";
 
-export default function Index() {
+interface Props {
+  versionsList: Array<SelectOption<string>>;
+}
+
+export default function Index({ versionsList }: Props) {
   const { docVersion } = useDocVersionContext();
   const { isRouteChanging } = useRouteChangingContext();
   const [menu, setMenu] = useState<MenuItem[]>([]);
@@ -36,7 +42,7 @@ export default function Index() {
 
   return (
     <>
-      <TopNav />
+      <TopNav versionsList={versionsList} />
       <CategoriesNav menu={menu} />
       <div className="home-page">
         {isRouteChanging ? (
@@ -136,4 +142,18 @@ export default function Index() {
       </div>
     </>
   );
+}
+
+export async function getServerSideProps() {
+  try {
+    const versionsList: Array<SelectOption<string>> = getVersionsList();
+
+    return {
+      props: { versionsList },
+    };
+  } catch {
+    return {
+      notFound: true,
+    };
+  }
 }
