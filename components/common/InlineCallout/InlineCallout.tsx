@@ -6,6 +6,7 @@ import { ReactComponent as SvgKubernetes } from "../../../images/icons/kubernete
 
 import styles from "./InlineCallout.module.css";
 import { getUrlWithVersion } from "../../../utils/CommonUtils";
+import { useDocVersionContext } from "../../../context/DocVersionContext";
 
 const InlineCallout = ({
   children,
@@ -14,6 +15,7 @@ const InlineCallout = ({
   href,
   isExternalLink = false,
 }) => {
+  const { docVersion } = useDocVersionContext();
   switch (icon) {
     case "celebration":
       icon = <SvgDocker />;
@@ -31,7 +33,7 @@ const InlineCallout = ({
   return (
     <Link
       className={classNames(styles.Container)}
-      href={isExternalLink ? href : getUrlWithVersion(href)}
+      href={isExternalLink ? href : getUrlWithVersion(href, docVersion)}
     >
       <span className={classNames(styles.IconContainer)}>
         <span>{icon}</span>

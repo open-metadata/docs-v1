@@ -61,7 +61,7 @@ export default function TopNav({ versionsList }: TopNavProps) {
   return (
     <nav className={styles.NavBar}>
       <div className="flex justify-between items-center">
-        <Link href={docVersion ? getUrlWithVersion("/") : "/"}>
+        <Link href={docVersion ? getUrlWithVersion("/", docVersion) : "/"}>
           <SvgLogo />
         </Link>
         {!isEmpty(versionsList) && (
