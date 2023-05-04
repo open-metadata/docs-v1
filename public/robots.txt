@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://docs.open-metadata.org/sitemap.xml
