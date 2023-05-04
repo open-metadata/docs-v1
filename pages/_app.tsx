@@ -39,6 +39,10 @@ export default function MyApp({ Component, pageProps }: AppProps<MyAppProps>) {
         )}
         <meta property="og:type" content="website" />
         <meta content="summary_large_image" name="twitter:card" />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/icon?family=Material+Icons"
+        />
       </Head>
       <ErrorBoundary>
         <RouteChangingContextProvider>

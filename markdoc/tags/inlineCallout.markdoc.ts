@@ -1,7 +1,11 @@
 export const inlineCallout = {
   render: "InlineCallout",
   attributes: {
-    icon: { type: String },
+    icon: {
+      type: String,
+      description:
+        "The identifier string to render the icons from 'Material Icons'",
+    },
     bold: { type: String },
     href: { type: String },
     isExternalLink: {

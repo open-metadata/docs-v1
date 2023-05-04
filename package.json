@@ -9,6 +9,8 @@
   "dependencies": {
     "@markdoc/markdoc": "latest",
     "@markdoc/next.js": "latest",
+    "@mui/icons-material": "^5.11.16",
+    "@mui/material": "^5.12.3",
     "@svgr/webpack": "^6.2.1",
     "algoliasearch": "^4.14.3",
     "classnames": "^2.3.2",
