@@ -1,7 +1,7 @@
 export const connectorsArr = [
   { name: "Airbyte", icon: "./images/connectors/airbyte.png", url: "/connectors/pipeline/airbyte" },
   { name: "Airflow", icon: "./images/connectors/airflow.png", url: "/connectors/pipeline/airflow" },
-  { name: "S3", icon: "./images/connectors/amazon-s3.png", url: "/connectors/storage/S3" },
+  { name: "S3", icon: "./images/connectors/amazon-s3.png", url: "/connectors/storage/s3" },
   { name: "Amundsen", icon: "./images/connectors/amundsen.png", url: "/connectors/metadata/amundsen" },
   { name: "Athena", icon: "./images/connectors/athena.png", url: "/connectors/database/athena" },
   { name: "Atlas", icon: "./images/connectors/atlas.png", url: "/connectors/metadata/atlas" },
