@@ -17,5 +17,11 @@ export const image = {
     clean: {
       type: Boolean,
     },
+    height: {
+      type: Boolean,
+    },
+    width: {
+      type: Boolean,
+    },
   },
 };

@@ -10,7 +10,7 @@
 }
 
 .Image {
-  @apply transition duration-100 ease-in-out hover:opacity-80 cursor-pointer mt-6 w-fit shadow;
+  @apply transition duration-100 ease-in-out hover:opacity-80 cursor-pointer mt-6 shadow;
 }
 
 .Caption {

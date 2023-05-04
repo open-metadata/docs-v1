@@ -26,12 +26,13 @@ const searchClient = algoliasearch(
   process.env.NEXT_PUBLIC_ALGOLIA_API_KEY
 );
 
-export default function TopNav() {
+interface TopNavProps {
+  versionsList: Array<SelectOption<string>>;
+}
+
+export default function TopNav({ versionsList }: TopNavProps) {
   const router = useRouter();
   const { docVersion, onChangeDocVersion } = useDocVersionContext();
-  const [versions, setVersions] = useState<Array<SelectOption<string>>>(
-    VERSION_SELECT_DEFAULT_OPTIONS
-  );
 
   const handleVersionChange = (value: string) => {
     const path =
@@ -41,30 +42,6 @@ export default function TopNav() {
 
     router.push(path);
   };
-
-  const fetchVersionsList = async () => {
-    try {
-      const res = await fetch("/api/getVersionsList");
-
-      const parsedResponse = await res.json();
-
-      if (res.status === 200) {
-        setVersions(parsedResponse);
-      } else {
-        setVersions(VERSION_SELECT_DEFAULT_OPTIONS);
-        console.error(
-          "An error occurred while fetching versions list:",
-          parsedResponse
-        );
-      }
-    } catch (error) {
-      setVersions(VERSION_SELECT_DEFAULT_OPTIONS);
-    }
-  };
-
-  useEffect(() => {
-    fetchVersionsList();
-  }, []);
 
   useEffect(() => {
     const regexToMatchVersionString = /v(\d+\.\d+\.\d+)/g;
@@ -84,13 +61,13 @@ export default function TopNav() {
   return (
     <nav className={styles.NavBar}>
       <div className="flex justify-between items-center">
-        <Link href={docVersion ? getUrlWithVersion("/") : "/"}>
+        <Link href={docVersion ? getUrlWithVersion("/", docVersion) : "/"}>
           <SvgLogo />
         </Link>
-        {!isEmpty(versions) && (
+        {!isEmpty(versionsList) && (
           <SelectDropdown
             value={docVersion}
-            options={versions}
+            options={versionsList}
             onChange={handleVersionChange}
           />
         )}

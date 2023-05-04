@@ -2,7 +2,23 @@ import React from "react";
 
 import styles from "./Youtube.module.css";
 
-const YouTube = ({ caption = "", videoId, start = "", end = "" }) => {
+interface YouTubeProps {
+  videoId: string;
+  start?: string;
+  end?: string;
+  caption?: string;
+  height?: string;
+  width?: string;
+}
+
+const YouTube = ({
+  caption = "",
+  videoId,
+  start = "",
+  end = "",
+  height,
+  width,
+}: YouTubeProps) => {
   let YouTubeBlock;
 
   if (caption) {
@@ -10,12 +26,13 @@ const YouTube = ({ caption = "", videoId, start = "", end = "" }) => {
       <section className={styles.Container}>
         <section className={styles.IframeContainer}>
           <iframe
+            allowFullScreen
             src={`https://www.youtube-nocookie.com/embed/${videoId}?rel=0&start=${start}&end=${end}`}
             className={styles.Iframe}
             title="YouTube video player"
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
+            style={{ height, width }}
           ></iframe>
         </section>
         <section className={styles.CaptionContainer}>
@@ -25,14 +42,15 @@ const YouTube = ({ caption = "", videoId, start = "", end = "" }) => {
     );
   } else {
     YouTubeBlock = (
-      <section className={styles.IframeContainer}>
+      <section className={styles.IframeContainer} style={{ height, width }}>
         <iframe
+          allowFullScreen
           src={`https://www.youtube-nocookie.com/embed/${videoId}?rel=0&start=${start}&end=${end}`}
           className={styles.Iframe}
           title="YouTube video player"
           frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
+          style={{ height, width }}
         ></iframe>
       </section>
     );

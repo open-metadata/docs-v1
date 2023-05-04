@@ -15,8 +15,14 @@ import { useRouteChangingContext } from "../context/RouteChangingContext";
 import { MenuItem } from "../interface/common.interface";
 import { getCategoryByIndex } from "../lib/utils";
 import { fetchMenuList, getVersionFromUrl } from "../utils/CommonUtils";
+import { SelectOption } from "../components/SelectDropdown/SelectDropdown";
+import { getVersionsList } from "../lib/api";
 
-function ErrorComponent() {
+interface Props {
+  versionsList: Array<SelectOption<string>>;
+}
+
+function ErrorComponent({ versionsList }: Props) {
   const router = useRouter();
   const { docVersion, onChangeDocVersion } = useDocVersionContext();
   const { isRouteChanging } = useRouteChangingContext();
@@ -47,7 +53,7 @@ function ErrorComponent() {
 
   return (
     <div className="flex flex-col">
-      <TopNav />
+      <TopNav versionsList={versionsList} />
       <CategoriesNav menu={menu} />
       <div className="flex">
         <SideNav
@@ -91,3 +97,17 @@ function ErrorComponent() {
 }
 
 export default ErrorComponent;
+
+export async function getServerSideProps() {
+  try {
+    const versionsList: Array<SelectOption<string>> = getVersionsList();
+
+    return {
+      props: { versionsList },
+    };
+  } catch {
+    return {
+      notFound: true,
+    };
+  }
+}

@@ -3,6 +3,7 @@ import React, { ReactNode, useCallback } from "react";
 import { getUrlWithVersion } from "../../../../utils/CommonUtils";
 import styles from "./Tile.module.css";
 import classNames from "classnames";
+import { useDocVersionContext } from "../../../../context/DocVersionContext";
 
 interface TileProps {
   description: string;
@@ -19,12 +20,14 @@ function Tile({
   isExternalLink = false,
   children,
 }: TileProps) {
+  const { docVersion } = useDocVersionContext();
+
   const getWrappedTile = useCallback(
     (tileContainer: JSX.Element): JSX.Element =>
       link ? (
         <Link
           target={isExternalLink ? "_blank" : "_self"}
-          href={isExternalLink ? link : getUrlWithVersion(link)}
+          href={isExternalLink ? link : getUrlWithVersion(link, docVersion)}
         >
           {tileContainer}
         </Link>

@@ -85,14 +85,14 @@
   text-overflow: ellipsis;
 }
 
-.ActiveHit > .HitLink,
-.ActiveHit > .HitLink > .SnippetContainer > .HighlightedText,
-.ActiveHit > .HitLink > .HitTitle,
-.ActiveHit > .HitLink > .HitTitle > .HighlightRoot > .HighlightedText {
+.ActiveHit,
+.ActiveHit > .SnippetContainer > .HighlightedText,
+.ActiveHit > .HitTitle,
+.ActiveHit > .HitTitle > .HighlightRoot > .HighlightedText {
   color: var(--white-color);
 }
 
-.ActiveHit > .HitLink > .HitCategory {
+.ActiveHit > .HitCategory {
   color: var(--white-color);
   opacity: 0.7;
 }

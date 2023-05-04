@@ -3,6 +3,7 @@ import {
   getArticleSlugFromString,
   getArticleSlugs,
   getMenu,
+  getVersionsList,
 } from "../../lib/api";
 import fs from "fs";
 import matter from "gray-matter";
@@ -25,17 +26,19 @@ import SkeletonLoader from "../../components/common/SkeletonLoader/SkeletonLoade
 import { SKELETON_PARAGRAPH_WIDTHS } from "../../constants/SkeletonLoader.constants";
 import { useRouteChangingContext } from "../../context/RouteChangingContext";
 import Script from "next/script";
+import { SelectOption } from "../../components/SelectDropdown/SelectDropdown";
 
 interface Props {
   menu: MenuItem[];
   content: string;
   slug: string[];
+  versionsList: Array<SelectOption<string>>;
 }
 
 // Offset of 152px = 112px top nav-bar height + 140px top margin to show the link properly
 const SCROLLING_OFFSET = 252;
 
-export default function Article({ menu, content, slug }: Props) {
+export default function Article({ menu, content, slug, versionsList }: Props) {
   const router = useRouter();
   const { isRouteChanging } = useRouteChangingContext();
   const [sideNavCollapsed, setSideNavCollapsed] = useState<boolean>(false);
@@ -105,7 +108,7 @@ export default function Article({ menu, content, slug }: Props) {
       <ErrorBoundary>
         <StepsContextProvider>
           <div className="flex flex-col">
-            <TopNav />
+            <TopNav versionsList={versionsList} />
             <CategoriesNav menu={menu} />
             <div className="flex">
               <SideNav
@@ -160,6 +163,8 @@ export async function getServerSideProps(context) {
     const versionFormat = /v(\d+\.\d+\.\d+)/g;
     const isVersionPresent = versionFormat.test(context.params.version);
 
+    const versionsList: Array<SelectOption<string>> = getVersionsList();
+
     if (isVersionPresent) {
       let location = `/${context.params.version}/${context.params.slug.join(
         "/"
@@ -190,6 +195,7 @@ export async function getServerSideProps(context) {
         props["menu"] = menu;
         props["content"] = content;
         props["slug"] = context.params.slug;
+        props["versionsList"] = versionsList;
       }
     }
 

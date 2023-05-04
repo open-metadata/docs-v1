@@ -8,7 +8,7 @@ import Button from "../../components/common/Button/Button";
 import { ReactComponent as ArrowRight } from "../../images/icons/arrow-right.svg";
 import TopNav from "../../components/TopNav/TopNav";
 import CategoriesNav from "../../components/CategoriesNav/CategoriesNav";
-import { getMenu } from "../../lib/api";
+import { getMenu, getVersionsList } from "../../lib/api";
 import Footer from "../../components/Footer/Footer";
 import { getUrlWithVersion } from "../../utils/CommonUtils";
 import {
@@ -18,13 +18,22 @@ import {
 import { useRouteChangingContext } from "../../context/RouteChangingContext";
 import SkeletonLoader from "../../components/common/SkeletonLoader/SkeletonLoader";
 import { SkeletonWidth } from "../../enums/SkeletonLoder.enum";
+import { useDocVersionContext } from "../../context/DocVersionContext";
+import { MenuItem } from "../../interface/common.interface";
+import { SelectOption } from "../../components/SelectDropdown/SelectDropdown";
 
-export default function Index({ menu }) {
+interface Props {
+  menu: MenuItem[];
+  versionsList: Array<SelectOption<string>>;
+}
+
+export default function Index({ menu, versionsList }: Props) {
   const { isRouteChanging } = useRouteChangingContext();
+  const { docVersion } = useDocVersionContext();
 
   return (
     <>
-      <TopNav />
+      <TopNav versionsList={versionsList} />
       <CategoriesNav menu={menu} />
       <div className="home-page">
         {isRouteChanging ? (
@@ -61,7 +70,7 @@ export default function Index({ menu }) {
                   </p>
                   <Button
                     className="mt-4"
-                    href={getUrlWithVersion("/quick-start")}
+                    href={getUrlWithVersion("/quick-start", docVersion)}
                     type="link"
                   >
                     Get Started
@@ -133,12 +142,13 @@ export async function getServerSideProps(context) {
     const versionFormat = /(v\d\.*\d*)/g;
     const isVersionPresent = versionFormat.test(context.params.version);
     let menu = [];
+    const versionsList: Array<SelectOption<string>> = getVersionsList();
 
     if (isVersionPresent) {
       menu = getMenu(context.params.version);
     }
     return {
-      props: { menu },
+      props: { menu, versionsList },
     };
   } catch {
     return {
