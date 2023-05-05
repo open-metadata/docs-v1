@@ -39,7 +39,7 @@ export const fetchMenuList = async (version: string) => {
   }
 };
 
-export const getMaterialDesignIconConstructor = (iconName: string) => {
+export const materialDesignIcon = (iconName: string) => {
   // Converts the icon name passed to the respective component name present in the library
   // Example. open_in_new => MdOpenInNew
   const iconComponentName = `Md${startCase(iconName).replaceAll(" ", "")}`;

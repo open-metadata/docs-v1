@@ -4,7 +4,7 @@ import { ReactComponent as SvgCelebration } from "../../../images/icons/celebrat
 import { ReactComponent as SvgFitScreen } from "../../../images/icons/fitScreen.svg";
 import { ReactComponent as SvgList } from "../../../images/icons/list.svg";
 import {
-  getMaterialDesignIconConstructor,
+  materialDesignIcon,
   getUrlWithVersion,
 } from "../../../utils/CommonUtils";
 import { ReactNode, useMemo } from "react";
@@ -35,12 +35,8 @@ const InlineCallout = ({
       case "fit_screen":
         return <SvgFitScreen />;
       default: {
-        const iconConstructorFunc = getMaterialDesignIconConstructor(icon);
-        return iconConstructorFunc ? (
-          iconConstructorFunc({ size: 32 })
-        ) : (
-          <SvgList />
-        );
+        const getIcon = materialDesignIcon(icon);
+        return getIcon ? getIcon({ size: 32 }) : <SvgList />;
       }
     }
   }, [icon]);
