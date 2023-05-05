@@ -1,5 +1,6 @@
 import { DEFAULT_VERSION } from "../constants/version.constants";
-import { useDocVersionContext } from "../context/DocVersionContext";
+import * as icons from "react-icons/md";
+import { startCase } from "lodash";
 
 export const getDivIndexFromId = (id: string) => {
   return Number(id.split("-").reverse()[0]);
@@ -36,4 +37,12 @@ export const fetchMenuList = async (version: string) => {
   } catch (error) {
     return [];
   }
+};
+
+export const getMaterialDesignIconConstructor = (iconName: string) => {
+  // Converts the icon name passed to the respective component name present in the library
+  // Example. open_in_new => MdOpenInNew
+  const iconComponentName = `Md${startCase(iconName).replaceAll(" ", "")}`;
+
+  return icons[iconComponentName];
 };
