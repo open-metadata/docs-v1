@@ -14,5 +14,11 @@ export const youtube = {
     end: {
       type: String,
     },
+    height: {
+      type: Boolean,
+    },
+    width: {
+      type: Boolean,
+    },
   },
 };

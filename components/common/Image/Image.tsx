@@ -3,19 +3,25 @@ import classNames from "classnames";
 
 import styles from "./Image.module.css";
 
+interface ImageProps {
+  caption?: string;
+  pure?: string;
+  src: string;
+  alt?: string;
+  clean?: boolean;
+  height?: string;
+  width?: string;
+}
+
 const Image = ({
   caption,
   pure,
   src,
   alt,
   clean,
-}: {
-  caption?: string;
-  pure?: string;
-  src: string;
-  alt?: string;
-  clean?: boolean;
-}) => {
+  height,
+  width,
+}: ImageProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const openModal = () => {
@@ -35,25 +41,27 @@ const Image = ({
     customCaption = <p className={styles.Caption}>{caption}</p>;
   }
   if (pure) {
-    block = <img src={src} alt={alt} />;
+    block = <img src={src} alt={alt} style={{ height, width }} />;
   } else if (isOpen) {
     block = (
       <section className={styles.Container}>
         <section className={styles.InnerContainer}>
           <img
+            className={classNames(captionClass, styles.Image)}
             onClick={openModal}
             src={src}
             alt={alt}
-            className={classNames(captionClass, styles.Image)}
+            style={{ height, width }}
           />
           {customCaption}
         </section>
         <section className={styles.LightBox} onClick={closeModal}>
           <section className={styles.ImageContainer}>
             <img
+              className={classNames(captionClass, styles.ModalImage)}
               src={src}
               alt={alt}
-              className={classNames(captionClass, styles.ModalImage)}
+              style={{ height, width }}
               onClick={(e) => e.stopPropagation()}
             />
             {customCaption}
@@ -64,7 +72,12 @@ const Image = ({
   } else if (clean) {
     block = (
       <section>
-        <img src={src} alt={alt} className={captionClass} />
+        <img
+          className={captionClass}
+          src={src}
+          alt={alt}
+          style={{ height, width }}
+        />
         {customCaption}
       </section>
     );
@@ -77,6 +90,7 @@ const Image = ({
             className={classNames(captionClass, styles.Image)}
             src={src}
             alt={alt}
+            style={{ height, width }}
           />
           {customCaption}
         </section>

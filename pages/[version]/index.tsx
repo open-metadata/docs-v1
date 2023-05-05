@@ -18,6 +18,7 @@ import {
 import { useRouteChangingContext } from "../../context/RouteChangingContext";
 import SkeletonLoader from "../../components/common/SkeletonLoader/SkeletonLoader";
 import { SkeletonWidth } from "../../enums/SkeletonLoder.enum";
+import { useDocVersionContext } from "../../context/DocVersionContext";
 import { MenuItem } from "../../interface/common.interface";
 import { SelectOption } from "../../components/SelectDropdown/SelectDropdown";
 
@@ -28,6 +29,7 @@ interface Props {
 
 export default function Index({ menu, versionsList }: Props) {
   const { isRouteChanging } = useRouteChangingContext();
+  const { docVersion } = useDocVersionContext();
 
   return (
     <>
@@ -68,7 +70,7 @@ export default function Index({ menu, versionsList }: Props) {
                   </p>
                   <Button
                     className="mt-4"
-                    href={getUrlWithVersion("/quick-start")}
+                    href={getUrlWithVersion("/quick-start", docVersion)}
                     type="link"
                   >
                     Get Started

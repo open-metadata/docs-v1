@@ -5,9 +5,11 @@ import { Highlight, Snippet } from "react-instantsearch-hooks-web";
 import { useSearchContext } from "../../../context/SearchContext";
 import { getUrlWithVersion } from "../../../utils/CommonUtils";
 import styles from "../Search.module.css";
+import { useDocVersionContext } from "../../../context/DocVersionContext";
 
 function HitComponent(props) {
   const { focusedSearchItem, onChangeFocusedSearchItem } = useSearchContext();
+  const { docVersion } = useDocVersionContext();
   const articleItemRef = useRef<HTMLElement>();
 
   const category = props.hit.categories
@@ -34,17 +36,17 @@ function HitComponent(props) {
   }, []);
 
   return (
-    <article
-      className={classNames(
-        styles.HitContainer,
-        props.hit.__position === focusedSearchItem ? styles.ActiveHit : ""
-      )}
-      id={`list-item-${props.hit.__position}`}
-      ref={articleItemRef}
+    <Link
+      className={classNames(styles.HitLink)}
+      href={getUrlWithVersion(props.hit.objectID, docVersion)}
     >
-      <Link
-        className={classNames(styles.HitLink)}
-        href={getUrlWithVersion(props.hit.objectID)}
+      <article
+        className={classNames(
+          styles.HitContainer,
+          props.hit.__position === focusedSearchItem ? styles.ActiveHit : ""
+        )}
+        id={`list-item-${props.hit.__position}`}
+        ref={articleItemRef}
       >
         <p className={styles.HitTitle}>
           <Highlight
@@ -71,8 +73,8 @@ function HitComponent(props) {
           )}
 
         <p className={styles.HitCategory}>{category}</p>
-      </Link>
-    </article>
+      </article>
+    </Link>
   );
 }
 
