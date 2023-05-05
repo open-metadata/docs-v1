@@ -42,17 +42,14 @@ export const fetchMenuList = async (version: string) => {
 export const materialDesignIcon = (icon: string) => {
   // Checking whether the icon name passed has prefix 'Md' applied already
   // i.e. 'MdCircle' for 'circle' icon
-  const regexToMatchMdPattern = /^Md/g;
-  const prefixExits = regexToMatchMdPattern.test(icon);
-
   // If prefix doesn't exist, apply the prefix
-  const prefix = prefixExits ? "" : `Md`;
-
   // Logic to fix the icon name passed with the incorrect cases or pattern
   // i.e. if passed `open_lock` or `Open lock` instead of `OpenLock`
-  const iconName = startCase(icon).replaceAll(" ", "");
+  let iconName = startCase(icon).replaceAll(" ", "");
 
-  const iconComponentName = `${prefix}${iconName}`;
+  if (!/^Md/g.test(iconName)) {
+    iconName = "Md" + iconName;
+  }
 
-  return icons[iconComponentName];
+  return icons[iconName];
 };
