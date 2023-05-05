@@ -158,6 +158,7 @@ export default function Search() {
           styles.SearchModal,
           isSuggestionVisible ? styles.VisibleModal : ""
         )}
+        id="search-modal"
       >
         <Configure
           attributesToSnippet={["content:10"]}
