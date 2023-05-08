@@ -22,6 +22,7 @@
     "prismjs": "latest",
     "react": "latest",
     "react-dom": "latest",
+    "react-icons": "^4.8.0",
     "react-instantsearch-hooks-web": "^6.38.2",
     "rehype-slug": "^5.0.1",
     "remark-unwrap-images": "^3.0.1",
