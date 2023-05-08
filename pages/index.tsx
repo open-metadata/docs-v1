@@ -20,7 +20,8 @@ import { useRouteChangingContext } from "../context/RouteChangingContext";
 import SkeletonLoader from "../components/common/SkeletonLoader/SkeletonLoader";
 import { SkeletonWidth } from "../enums/SkeletonLoder.enum";
 import { SelectOption } from "../components/SelectDropdown/SelectDropdown";
-import { getMenu, getVersionsList } from "../lib/api";
+import { getVersionsList } from "../lib/api";
+import { useNavBarCollapsedContext } from "../context/NavBarCollapseContext";
 
 interface Props {
   versionsList: Array<SelectOption<string>>;
@@ -29,7 +30,14 @@ interface Props {
 export default function Index({ versionsList }: Props) {
   const { docVersion } = useDocVersionContext();
   const { isRouteChanging } = useRouteChangingContext();
+  const { isMobileDevice } = useNavBarCollapsedContext();
   const [menu, setMenu] = useState<MenuItem[]>([]);
+
+  useEffect(() => {
+    if (isMobileDevice) {
+      document.body.classList.add("min-width-600");
+    }
+  }, [isMobileDevice]);
 
   const fetchMenuItems = async (docVersion: string) => {
     const res = await fetchMenuList(docVersion);
@@ -42,8 +50,10 @@ export default function Index({ versionsList }: Props) {
 
   return (
     <>
-      <TopNav versionsList={versionsList} />
-      <CategoriesNav menu={menu} />
+      <div className="nav-bar-container">
+        <TopNav versionsList={versionsList} />
+        <CategoriesNav menu={menu} />
+      </div>
       <div className="home-page">
         {isRouteChanging ? (
           <div className="m-36">
@@ -123,7 +133,7 @@ export default function Index({ versionsList }: Props) {
             </div>
             <div className="homepage-containers">
               <div className="container-heading">Blogs</div>
-              <div className="flex justify-between">
+              <div className="blogs-container">
                 {NEWS_ENTRY_INFO.map((cardInfo) => (
                   <NewsEntry
                     image={cardInfo.image}
