@@ -4,3 +4,9 @@
   gap: 8px;
   margin: 16px 0px;
 }
+
+@media (max-width: 600px) {
+  .Container {
+    grid-template-columns: 1fr;
+  }
+}
