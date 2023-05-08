@@ -3,7 +3,7 @@
 }
 
 .InnerContainer {
-  @apply flex items-center justify-between;
+  @apply flex items-center justify-between flex-wrap;
   padding: 16px 100px;
 }
 
@@ -32,7 +32,7 @@
 }
 
 .IconLink {
-  @apply relative rounded-full overflow-hidden flex justify-center items-center px-2 sm:p-2 hover:opacity-100 hover:scale-105 hover:bg-gray-10;
+  @apply relative rounded-full overflow-hidden flex justify-center items-center hover:opacity-100 hover:scale-105 hover:bg-gray-10;
 }
 
 .IconContainer {
@@ -64,4 +64,18 @@
 .Copyright {
   @apply text-base tracking-tight leading-7 mt-2;
   @apply text-gray-60 !important;
+}
+
+@media (max-width: 900px) {
+  .InnerContainer {
+    padding: 16px 60px;
+    align-items: center;
+    gap: 16px;
+  }
+  .Navigation,
+  .SocialNetworks {
+    width: 100%;
+    justify-content: center;
+    gap: 20px;
+  }
 }

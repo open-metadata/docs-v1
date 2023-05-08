@@ -27,3 +27,31 @@
   max-height: 42px;
   max-width: 42px;
 }
+
+@media (max-width: 1200px) {
+  .Container {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+
+@media (max-width: 900px) {
+  .Container {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .Container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .Container {
+    gap: 16px;
+  }
+  .ConnectorImg {
+    max-height: 16px;
+    max-width: 16px;
+  }
+}

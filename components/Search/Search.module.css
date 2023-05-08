@@ -143,3 +143,13 @@
     transform: rotate(360deg);
   }
 }
+
+@media (max-width: 600px) {
+  .SearchContainer {
+    max-width: 100%;
+    width: 100%;
+  }
+  .CollapsedNav {
+    display: none;
+  }
+}

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import Link from "next/link";
 import styles from "./TopNav.module.css";
 import { ReactComponent as SvgLogo } from "../../images/icons/omd.svg";
@@ -16,10 +16,12 @@ import { useDocVersionContext } from "../../context/DocVersionContext";
 import {
   DEFAULT_VERSION,
   REGEX_VERSION_MATCH,
-  VERSION_SELECT_DEFAULT_OPTIONS,
 } from "../../constants/version.constants";
 import SelectDropdown, { SelectOption } from "../SelectDropdown/SelectDropdown";
 import { getUrlWithVersion } from "../../utils/CommonUtils";
+import { useNavBarCollapsedContext } from "../../context/NavBarCollapseContext";
+import classNames from "classnames";
+import { MdMenu, MdMenuOpen } from "react-icons/md";
 
 const searchClient = algoliasearch(
   process.env.NEXT_PUBLIC_ALGOLIA_APP_ID,
@@ -32,7 +34,11 @@ interface TopNavProps {
 
 export default function TopNav({ versionsList }: TopNavProps) {
   const router = useRouter();
+  const [displayNavBarCollapseButton, setDisplayNavBarCollapseButton] =
+    useState(false);
   const { docVersion, onChangeDocVersion } = useDocVersionContext();
+  const { navBarCollapsed, onChangeNavBarCollapsed } =
+    useNavBarCollapsedContext();
 
   const handleVersionChange = (value: string) => {
     const path =
@@ -42,6 +48,16 @@ export default function TopNav({ versionsList }: TopNavProps) {
 
     router.push(path);
   };
+
+  const handleCollapseButtonClick = useCallback(() => {
+    onChangeNavBarCollapsed(!navBarCollapsed);
+  }, [navBarCollapsed, onChangeNavBarCollapsed]);
+
+  useEffect(() => {
+    if (window && window.screen?.width <= 600) {
+      setDisplayNavBarCollapseButton(true);
+    }
+  }, []);
 
   useEffect(() => {
     const regexToMatchVersionString = /v(\d+\.\d+\.\d+)/g;
@@ -59,17 +75,32 @@ export default function TopNav({ versionsList }: TopNavProps) {
   }, [router]);
 
   return (
-    <nav className={styles.NavBar}>
-      <div className="flex justify-between items-center">
-        <Link href={docVersion ? getUrlWithVersion("/", docVersion) : "/"}>
-          <SvgLogo />
-        </Link>
-        {!isEmpty(versionsList) && (
-          <SelectDropdown
-            value={docVersion}
-            options={versionsList}
-            onChange={handleVersionChange}
-          />
+    <nav
+      className={classNames(
+        styles.NavBar,
+        navBarCollapsed ? styles.CollapsedNavBar : ""
+      )}
+    >
+      <div className={styles.CollapsedDivContainer}>
+        <div className={styles.LogoContainer}>
+          <Link href={docVersion ? getUrlWithVersion("/", docVersion) : "/"}>
+            <SvgLogo />
+          </Link>
+          {!isEmpty(versionsList) && (
+            <SelectDropdown
+              value={docVersion}
+              options={versionsList}
+              onChange={handleVersionChange}
+            />
+          )}
+        </div>
+        {displayNavBarCollapseButton && (
+          <button
+            className={styles.CollapseButton}
+            onClick={handleCollapseButtonClick}
+          >
+            {navBarCollapsed ? <MdMenu size={32} /> : <MdMenuOpen size={32} />}
+          </button>
         )}
       </div>
       <SearchContextProvider>

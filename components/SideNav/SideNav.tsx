@@ -9,27 +9,23 @@ import { MenuItem } from "../../interface/common.interface";
 import { isEmpty } from "lodash";
 import SkeletonLoader from "../common/SkeletonLoader/SkeletonLoader";
 import { SkeletonWidth } from "../../enums/SkeletonLoder.enum";
+import { useNavBarCollapsedContext } from "../../context/NavBarCollapseContext";
 
 interface Props {
   category: string;
   items: MenuItem[];
   loading: boolean;
-  handleSetSideNavCollapsed: (value: boolean) => void;
+  handleSideNavCollapsed: (value: boolean) => void;
   sideNavCollapsed: boolean;
 }
 
 export default forwardRef(function SideNav(
-  {
-    sideNavCollapsed,
-    category,
-    items,
-    loading,
-    handleSetSideNavCollapsed,
-  }: Props,
+  { sideNavCollapsed, category, items, loading, handleSideNavCollapsed }: Props,
   ref: React.MutableRefObject<boolean>
 ) {
+  const { navBarCollapsed, isMobileDevice } = useNavBarCollapsedContext();
   const toggleSideNavCollapsed = () => {
-    handleSetSideNavCollapsed(!sideNavCollapsed);
+    handleSideNavCollapsed(!sideNavCollapsed);
   };
 
   useEffect(() => {
@@ -43,7 +39,7 @@ export default forwardRef(function SideNav(
           const position = codePreviewComponent.getBoundingClientRect();
 
           if (position?.top < window.innerHeight - 100) {
-            handleSetSideNavCollapsed(true);
+            handleSideNavCollapsed(true);
             // The hash element scrolling is dependent on this ref value ,
             // to avoid the ongoing scrolling from stopping
             // setting this timeout
@@ -60,12 +56,27 @@ export default forwardRef(function SideNav(
     return () => document.removeEventListener("scroll", scrollEventListener);
   }, []);
 
+  useEffect(() => {
+    if (window && window.screen?.width <= 600) {
+      handleSideNavCollapsed(true);
+    }
+  }, []);
+
   return (
     <div
       className={classNames(
         styles.SideNav,
         sideNavCollapsed ? styles.CollapsedSideNav : styles.NonCollapsedSideNav
       )}
+      style={
+        isMobileDevice
+          ? {
+              // setting the top position to stick side nav bar to based on the top nav bar height
+              // based on collapsed or non-collapsed top bar
+              top: navBarCollapsed ? "86px" : "253px",
+            }
+          : {}
+      }
     >
       {loading ? (
         <SkeletonLoader

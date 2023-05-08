@@ -47,7 +47,7 @@ const Note = ({ children, noteType = "note" }: NoteProps) => {
   return (
     <section className={classNames(styles.Container, noteDetails.className)}>
       <span>{noteDetails.icon}</span>
-      <div>{children}</div>
+      <div className={styles.NoteContent}>{children}</div>
     </section>
   );
 };

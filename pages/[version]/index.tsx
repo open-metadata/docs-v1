@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Card from "../../components/common/Card/Card";
 import ConnectorsInfo from "../../components/ConnectorsInfo/ConnectorsInfo";
 import bannerStyles from "../../components/common/Banner/Banner.module.css";
@@ -21,6 +21,7 @@ import { SkeletonWidth } from "../../enums/SkeletonLoder.enum";
 import { useDocVersionContext } from "../../context/DocVersionContext";
 import { MenuItem } from "../../interface/common.interface";
 import { SelectOption } from "../../components/SelectDropdown/SelectDropdown";
+import { useNavBarCollapsedContext } from "../../context/NavBarCollapseContext";
 
 interface Props {
   menu: MenuItem[];
@@ -30,11 +31,20 @@ interface Props {
 export default function Index({ menu, versionsList }: Props) {
   const { isRouteChanging } = useRouteChangingContext();
   const { docVersion } = useDocVersionContext();
+  const { isMobileDevice } = useNavBarCollapsedContext();
+
+  useEffect(() => {
+    if (isMobileDevice) {
+      document.body.classList.add("min-width-600");
+    }
+  }, [isMobileDevice]);
 
   return (
     <>
-      <TopNav versionsList={versionsList} />
-      <CategoriesNav menu={menu} />
+      <div className="nav-bar-container">
+        <TopNav versionsList={versionsList} />
+        <CategoriesNav menu={menu} />
+      </div>
       <div className="home-page">
         {isRouteChanging ? (
           <div className="m-36">
@@ -115,7 +125,7 @@ export default function Index({ menu, versionsList }: Props) {
             </div>
             <div className="homepage-containers">
               <div className="container-heading">Blogs</div>
-              <div className="flex justify-between">
+              <div className="blogs-container">
                 {NEWS_ENTRY_INFO.map((cardInfo) => (
                   <NewsEntry
                     image={cardInfo.image}

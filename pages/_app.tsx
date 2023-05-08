@@ -11,6 +11,7 @@ import { useRouter } from "next/router";
 import ErrorBoundary from "../components/ErrorBoundary";
 import { DocVersionContextProvider } from "../context/DocVersionContext";
 import { RouteChangingContextProvider } from "../context/RouteChangingContext";
+import { NavBarCollapseContextProvider } from "../context/NavBarCollapseContext";
 
 const TITLE = "OpenMetadata Documentation";
 const DESCRIPTION =
@@ -43,7 +44,9 @@ export default function MyApp({ Component, pageProps }: AppProps<MyAppProps>) {
       <ErrorBoundary>
         <RouteChangingContextProvider>
           <DocVersionContextProvider>
-            <Component {...pageProps} key={router.asPath} />
+            <NavBarCollapseContextProvider>
+              <Component {...pageProps} key={router.asPath} />
+            </NavBarCollapseContextProvider>
           </DocVersionContextProvider>
         </RouteChangingContextProvider>
       </ErrorBoundary>
