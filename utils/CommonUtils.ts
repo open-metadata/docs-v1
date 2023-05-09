@@ -1,5 +1,6 @@
 import { DEFAULT_VERSION } from "../constants/version.constants";
-import { useDocVersionContext } from "../context/DocVersionContext";
+import * as icons from "react-icons/md";
+import { startCase } from "lodash";
 
 export const getDivIndexFromId = (id: string) => {
   return Number(id.split("-").reverse()[0]);
@@ -36,4 +37,19 @@ export const fetchMenuList = async (version: string) => {
   } catch (error) {
     return [];
   }
+};
+
+export const materialDesignIcon = (icon: string) => {
+  // Checking whether the icon name passed has prefix 'Md' applied already
+  // i.e. 'MdCircle' for 'circle' icon
+  // If prefix doesn't exist, apply the prefix
+  // Logic to fix the icon name passed with the incorrect cases or pattern
+  // i.e. if passed `open_lock` or `Open lock` instead of `OpenLock`
+  let iconName = startCase(icon).replaceAll(" ", "");
+
+  if (!/^Md/g.test(iconName)) {
+    iconName = "Md" + iconName;
+  }
+
+  return icons[iconName];
 };

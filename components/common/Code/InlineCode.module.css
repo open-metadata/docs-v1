@@ -4,4 +4,5 @@
   background: rgb(247, 250, 252);
   padding: 4px;
   font-size: 14px;
+  word-break: break-all;
 }

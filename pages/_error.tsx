@@ -17,6 +17,8 @@ import { getCategoryByIndex } from "../lib/utils";
 import { fetchMenuList, getVersionFromUrl } from "../utils/CommonUtils";
 import { SelectOption } from "../components/SelectDropdown/SelectDropdown";
 import { getVersionsList } from "../lib/api";
+import { useNavBarCollapsedContext } from "../context/NavBarCollapseContext";
+import classNames from "classnames";
 
 interface Props {
   versionsList: Array<SelectOption<string>>;
@@ -26,10 +28,11 @@ function ErrorComponent({ versionsList }: Props) {
   const router = useRouter();
   const { docVersion, onChangeDocVersion } = useDocVersionContext();
   const { isRouteChanging } = useRouteChangingContext();
+  const { isMobileDevice } = useNavBarCollapsedContext();
   const [menu, setMenu] = useState<MenuItem[]>([]);
   const [sideNavCollapsed, setSideNavCollapsed] = useState<boolean>(true);
 
-  const handleSetSideNavCollapsed = (value: boolean) => {
+  const handleSideNavCollapsed = (value: boolean) => {
     setSideNavCollapsed(value);
   };
 
@@ -39,6 +42,12 @@ function ErrorComponent({ versionsList }: Props) {
     const res = await fetchMenuList(docVersion);
     setMenu(res);
   };
+
+  useEffect(() => {
+    if (isMobileDevice) {
+      document.body.classList.add("min-width-600");
+    }
+  }, [isMobileDevice]);
 
   useEffect(() => {
     fetchMenuItems(docVersion);
@@ -60,10 +69,14 @@ function ErrorComponent({ versionsList }: Props) {
           category={startCase(category)}
           items={[]}
           sideNavCollapsed={sideNavCollapsed}
-          handleSetSideNavCollapsed={handleSetSideNavCollapsed}
+          handleSideNavCollapsed={handleSideNavCollapsed}
           loading={isRouteChanging}
         />
-        <div>
+        <div
+          className={classNames(
+            sideNavCollapsed ? "collapsed-content" : "non-collapsed-content"
+          )}
+        >
           <div className="px-12 py-6">
             {isRouteChanging ? (
               <SkeletonLoader

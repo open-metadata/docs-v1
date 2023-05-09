@@ -31,3 +31,7 @@
   background: #b02aac0f;
   border-left: 4px solid #b02aac;
 }
+
+.NoteContent {
+  width: 95%;
+}

@@ -1,5 +1,4 @@
 .Container {
-  /* @apply flex flex-col flex-initial items-center my-4 pb-4 border-b border-b-gray-30; */
   position: relative;
   width: 344px;
   background: #ffffff;
@@ -40,6 +39,10 @@
   box-shadow: 0px 0px 2px rgb(0 0 0 / 30%);
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
-  width: 344px;
-  height: 164px;
+}
+
+@media (max-width: 450px) {
+  .Container {
+    width: 100%;
+  }
 }

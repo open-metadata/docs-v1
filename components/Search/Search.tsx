@@ -13,6 +13,7 @@ import { useRouter } from "next/router";
 import { useSearchContext } from "../../context/SearchContext";
 import HitComponent from "./HitComponent/HitComponent";
 import { isEmpty, isNull, isUndefined } from "lodash";
+import { useNavBarCollapsedContext } from "../../context/NavBarCollapseContext";
 
 export default function Search() {
   const [hotKey, setHotKey] = useState("second");
@@ -22,6 +23,7 @@ export default function Search() {
   const [showNoDataPlaceHolder, setShowNoDataPlaceHolder] =
     useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>();
+  const { navBarCollapsed } = useNavBarCollapsedContext();
 
   const { status, results } = useInstantSearch();
 
@@ -134,7 +136,12 @@ export default function Search() {
   }, [results]);
 
   return (
-    <div className={styles.SearchContainer}>
+    <div
+      className={classNames(
+        styles.SearchContainer,
+        navBarCollapsed ? styles.CollapsedNav : ""
+      )}
+    >
       <CustomSearch
         bringElementIntoView={bringElementIntoView}
         searchValue={searchValue}

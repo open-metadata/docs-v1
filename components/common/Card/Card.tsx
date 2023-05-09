@@ -24,13 +24,14 @@ export default function Card({
   const { docVersion } = useDocVersionContext();
 
   return (
-    <Link href={isExternalLink ? url : getUrlWithVersion(url, docVersion)}>
-      <div className={styles.Container}>
-        {icon ? icon : <Puzzle />}
-        <div className={styles.Heading}>{heading}</div>
-        <p className="m-0 mb-5">{content}</p>
-        <ArrowRight className={styles.ArrowIcon} />
-      </div>
+    <Link
+      className={styles.Container}
+      href={isExternalLink ? url : getUrlWithVersion(url, docVersion)}
+    >
+      {icon ? icon : <Puzzle />}
+      <div className={styles.Heading}>{heading}</div>
+      <p className="m-0 mb-5">{content}</p>
+      <ArrowRight className={styles.ArrowIcon} />
     </Link>
   );
 }

@@ -117,3 +117,17 @@
   font-size: 14px;
   color: var(--gray-text-color);
 }
+
+@media (max-width: 600px) {
+  .NonCollapsedSideNav {
+    width: 100%;
+    transition: width 0s linear;
+  }
+  .CollapsedSideNav {
+    transition: width 0s linear;
+    overflow-x: hidden;
+  }
+  .CollapsedSideNavContent {
+    display: none;
+  }
+}
