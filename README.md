@@ -224,7 +224,37 @@ caption="step2 caption" /%}
 
 ## Other Tags
 
-### 1. note
+### 1. partial
+
+The partial tag helps in reducing the repetition in the content. If a set of lines are being used in multiple pages, you can use this tag to prevent adding same lines in multiple files.
+
+#### Steps to use
+
+1. Add the repeating content in a file inside **"content/partials"** folder.
+Lets say you created a file names 'test.md' with content -
+
+```
+### repeating line
+
+This is the repeating line 1
+
+This is the repeating line 2
+```
+
+2. Now just use the partial tag in some other file like this
+```
+# This is the parent file
+
+{% partial file="test.md" /%}
+
+and some other content
+```
+
+And this is how the parent file will render 
+
+<img width="2032" alt="partial-tag-example" src="./public/partial-tag-example.png">
+
+### 2. note
 
 A tag for highlighting some part of the content.
 
