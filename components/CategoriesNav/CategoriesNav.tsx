@@ -7,6 +7,7 @@ import { getCategoryByIndex } from "../../lib/utils";
 import { getUrlWithVersion } from "../../utils/CommonUtils";
 import styles from "./CategoriesNav.module.css";
 import { useDocVersionContext } from "../../context/DocVersionContext";
+import { useNavBarCollapsedContext } from "../../context/NavBarCollapseContext";
 
 interface Props {
   menu: MenuItem[];
@@ -15,10 +16,16 @@ interface Props {
 export default function CategoriesNav({ menu }: Props) {
   const router = useRouter();
   const { docVersion } = useDocVersionContext();
+  const { navBarCollapsed } = useNavBarCollapsedContext();
   const category = getCategoryByIndex(router.asPath, 2) ?? "";
 
   return (
-    <div className={classNames(styles.Container)}>
+    <div
+      className={classNames(
+        styles.Container,
+        navBarCollapsed ? styles.CollapsedNav : ""
+      )}
+    >
       {menu.map((item) => {
         const active = category === getCategoryByIndex(item.url, 1);
         return (

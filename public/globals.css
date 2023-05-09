@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --top-nav-height: 75px;
+  --top-nav-height: 70px;
   --main-nav-height: 42px;
   --side-nav-width: 288px;
   --side-nav-collapsed-width: 42px;
@@ -54,6 +54,7 @@ h6 {
 b,
 strong {
   font-weight: 600;
+  word-break: break-all;
 }
 
 p {
@@ -184,7 +185,6 @@ code::-webkit-scrollbar {
 
 .overview-container {
   width: 100vw;
-  height: 228px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -207,8 +207,15 @@ code::-webkit-scrollbar {
 }
 
 .cards-container {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 32px;
+}
+
+.blogs-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 32px;
 }
 
 .homepage-containers {
@@ -279,4 +286,49 @@ code::-webkit-scrollbar {
 .card-pink-icon {
   background-color: var(--pink-bg-color);
   border: 1px solid #b02aac;
+}
+
+.nav-bar-container {
+  position: sticky;
+  top: 0px;
+  z-index: 100;
+}
+
+.min-width-600 {
+  min-width: 600px;
+}
+
+@media (max-width: 1240px) {
+  .blogs-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 900px) {
+  .cards-container {
+    grid-template-columns: 1fr 1fr;
+  }
+  .blogs-container {
+    grid-template-columns: 1fr;
+  }
+  .overview-container {
+    padding: 20px 60px;
+    width: 100%;
+  }
+  .homepage-containers {
+    padding: 20px 60px;
+    margin: 32px 0px 0px 0px;
+  }
+}
+
+@media (max-width: 600px) {
+  .cards-container {
+    grid-template-columns: 1fr;
+  }
+  .non-collapsed-content {
+    display: none;
+  }
+  .collapsed-content {
+    width: calc(100% - 41px);
+  }
 }

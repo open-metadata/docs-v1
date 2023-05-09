@@ -37,3 +37,15 @@
     (100vw - (var(--homepage-container-px) * 2) - 40px) / 2
   ); /* 40px gap between fro .Container */
 }
+
+@media (max-width: 900px) {
+  .Container {
+    padding: 20px 60px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .Content,
+  .Video {
+    width: 100%;
+  }
+}

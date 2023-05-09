@@ -27,6 +27,7 @@ import { SKELETON_PARAGRAPH_WIDTHS } from "../../constants/SkeletonLoader.consta
 import { useRouteChangingContext } from "../../context/RouteChangingContext";
 import Script from "next/script";
 import { SelectOption } from "../../components/SelectDropdown/SelectDropdown";
+import { useNavBarCollapsedContext } from "../../context/NavBarCollapseContext";
 
 interface Props {
   menu: MenuItem[];
@@ -41,12 +42,13 @@ const SCROLLING_OFFSET = 252;
 export default function Article({ menu, content, slug, versionsList }: Props) {
   const router = useRouter();
   const { isRouteChanging } = useRouteChangingContext();
+  const { isMobileDevice } = useNavBarCollapsedContext();
   const [sideNavCollapsed, setSideNavCollapsed] = useState<boolean>(false);
 
   // Ref to keep track if the side nav is collapsed before, when "code-preview-container" is in the view.
   const autoCollapsed = useRef(false);
 
-  const handleSetSideNavCollapsed = (value: boolean) => {
+  const handleSideNavCollapsed = (value: boolean) => {
     setSideNavCollapsed(value);
   };
 
@@ -58,6 +60,12 @@ export default function Article({ menu, content, slug, versionsList }: Props) {
   const item = (menu as MenuItem[]).find(
     (item) => getCategoryByIndex(item.url, 1) === category
   );
+
+  useEffect(() => {
+    if (isMobileDevice) {
+      document.body.classList.add("min-width-600");
+    }
+  }, [isMobileDevice]);
 
   // Function to scroll element into view with some offset margin
   // For scrolling to the hash element on page after load
@@ -108,15 +116,17 @@ export default function Article({ menu, content, slug, versionsList }: Props) {
       <ErrorBoundary>
         <StepsContextProvider>
           <div className="flex flex-col">
-            <TopNav versionsList={versionsList} />
-            <CategoriesNav menu={menu} />
+            <div className="nav-bar-container">
+              <TopNav versionsList={versionsList} />
+              <CategoriesNav menu={menu} />
+            </div>
             <div className="flex">
               <SideNav
                 sideNavCollapsed={sideNavCollapsed}
                 category={item ? item.category : startCase(category)}
                 items={item ? item.children : []}
                 loading={isRouteChanging}
-                handleSetSideNavCollapsed={handleSetSideNavCollapsed}
+                handleSideNavCollapsed={handleSideNavCollapsed}
                 ref={autoCollapsed}
               />
               <div
