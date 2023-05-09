@@ -36,8 +36,9 @@ interface Props {
   versionsList: Array<SelectOption<string>>;
 }
 
-// Offset of 152px = 112px top nav-bar height + 140px top margin to show the link properly
-const SCROLLING_OFFSET = 252;
+// Offset of 152px = 112px top nav-bar height + 240px top margin to show the link properly
+// as auto collapse of the sideNav may move the content
+const SCROLLING_OFFSET = 352;
 
 export default function Article({ menu, content, slug, versionsList }: Props) {
   const router = useRouter();
@@ -85,9 +86,9 @@ export default function Article({ menu, content, slug, versionsList }: Props) {
         () =>
           window.scrollTo({
             top: offsetPosition,
-            behavior: "auto",
+            behavior: "smooth",
           }),
-        0
+        500
       );
     }
   };

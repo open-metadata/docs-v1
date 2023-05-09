@@ -39,6 +39,7 @@
 
 .SearchModal {
   display: none;
+  overscroll-behavior: contain;
 }
 
 .SearchModal ol {

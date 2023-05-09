@@ -31,9 +31,11 @@ function CustomSearch({
     onChangeFocusedSearchItem(1);
 
     setTimeout(() => {
-      const searchResults = document.querySelectorAll(".ais-Hits-item");
+      const searchResults = document.getElementById("search-modal");
 
-      bringElementIntoView(searchResults, 1);
+      searchResults.scrollTo({
+        top: 0,
+      });
     }, 0);
   };
 
