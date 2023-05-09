@@ -227,6 +227,7 @@ caption="step2 caption" /%}
 ### 1. partial
 
 The partial tag helps in reducing the repetition in the content. If a set of lines are being used in multiple pages, you can use this tag to prevent adding same lines in multiple files.
+**You can also pass variables for some varying content. Learn more about that [here](https://markdoc.dev/docs/partials#passing-variables)**
 
 #### Steps to use
 
