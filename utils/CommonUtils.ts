@@ -1,6 +1,7 @@
 import { DEFAULT_VERSION } from "../constants/version.constants";
 import * as icons from "react-icons/md";
-import { startCase } from "lodash";
+import { isEmpty, startCase } from "lodash";
+import Markdoc from "@markdoc/markdoc";
 
 export const getDivIndexFromId = (id: string) => {
   return Number(id.split("-").reverse()[0]);
@@ -52,4 +53,19 @@ export const materialDesignIcon = (icon: string) => {
   }
 
   return icons[iconName];
+};
+
+export const getFormattedPartials = (
+  partialsObject: Record<string, string>
+) => {
+  if (isEmpty(partialsObject)) {
+    return {};
+  }
+  const formattedPartialsObj = {};
+
+  Object.entries(partialsObject).forEach(([key, value]) => {
+    formattedPartialsObj[key] = Markdoc.parse(value);
+  });
+
+  return formattedPartialsObj;
 };
