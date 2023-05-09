@@ -39,12 +39,10 @@ export default forwardRef(function SideNav(
           const position = codePreviewComponent.getBoundingClientRect();
 
           if (position?.top < window.innerHeight - 100) {
-            handleSideNavCollapsed(true);
-            // The hash element scrolling is dependent on this ref value ,
-            // to avoid the ongoing scrolling from stopping
-            // setting this timeout
+            ref.current = true;
+            // Setting timeout to avoid stopping the auto scroll for the hash element
             setTimeout(() => {
-              ref.current = true;
+              handleSideNavCollapsed(true);
             }, 200);
           }
         }
