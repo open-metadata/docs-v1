@@ -7,8 +7,10 @@ import { join, basename } from "path";
 import findIndex from "lodash/findIndex";
 import matter from "gray-matter";
 import slugify from "slugify";
-import { serialize } from "next-mdx-remote/serialize";
-import { ARTICLES_DIRECTORY } from "../constants/common.constants";
+import {
+  ARTICLES_DIRECTORY,
+  PARTIALS_DIRECTORY,
+} from "../constants/common.constants";
 
 export function getAllFilesInDirectory(
   articleDirectory: string,
@@ -108,10 +110,14 @@ export function getMenu(version?: string) {
 export const getVersionsList = () => {
   try {
     const versionsArray = fs.readdirSync(ARTICLES_DIRECTORY);
-    const versionsList = versionsArray.map((version) => ({
-      label: version,
-      value: version,
-    }));
+    const versionsList = versionsArray
+      // content folder now also has partials folder with the versions folders
+      // this check is to select only versions folders
+      .filter((version) => /v(\d+\.\d+\.\d+)/g.test(version))
+      .map((version) => ({
+        label: version,
+        value: version,
+      }));
 
     versionsList.sort();
     versionsList.reverse();
@@ -119,5 +125,21 @@ export const getVersionsList = () => {
     return versionsList;
   } catch (error) {
     return VERSION_SELECT_DEFAULT_OPTIONS;
+  }
+};
+
+export const getPartialsConfigObject = () => {
+  try {
+    const allPartials = getAllFilesInDirectory(PARTIALS_DIRECTORY);
+    const partialsObject: Record<string, string> = {};
+    allPartials.forEach((partialPath) => {
+      const fileName = partialPath.split("/").pop();
+      const fileContent = fs.readFileSync(partialPath, "utf8");
+      partialsObject[fileName] = fileContent;
+    });
+
+    return partialsObject;
+  } catch (error) {
+    return {};
   }
 };
