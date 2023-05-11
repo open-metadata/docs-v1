@@ -1,8 +1,15 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, {
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import {
   getArticleSlugFromString,
   getArticleSlugs,
   getMenu,
+  getPartialsConfigObject,
   getVersionsList,
 } from "../../lib/api";
 import fs from "fs";
@@ -28,19 +35,27 @@ import { useRouteChangingContext } from "../../context/RouteChangingContext";
 import Script from "next/script";
 import { SelectOption } from "../../components/SelectDropdown/SelectDropdown";
 import { useNavBarCollapsedContext } from "../../context/NavBarCollapseContext";
+import { getFormattedPartials } from "../../utils/CommonUtils";
 
 interface Props {
   menu: MenuItem[];
   content: string;
   slug: string[];
   versionsList: Array<SelectOption<string>>;
+  partials: Record<string, string>;
 }
 
 // Offset of 152px = 112px top nav-bar height + 240px top margin to show the link properly
 // as auto collapse of the sideNav may move the content
 const SCROLLING_OFFSET = 352;
 
-export default function Article({ menu, content, slug, versionsList }: Props) {
+export default function Article({
+  menu,
+  content,
+  slug,
+  versionsList,
+  partials,
+}: Props) {
   const router = useRouter();
   const { isRouteChanging } = useRouteChangingContext();
   const { isMobileDevice } = useNavBarCollapsedContext();
@@ -49,17 +64,40 @@ export default function Article({ menu, content, slug, versionsList }: Props) {
   // Ref to keep track if the side nav is collapsed before, when "code-preview-container" is in the view.
   const autoCollapsed = useRef(false);
 
-  const handleSideNavCollapsed = (value: boolean) => {
-    setSideNavCollapsed(value);
-  };
+  const handleSideNavCollapsed = useCallback(
+    (value: boolean) => {
+      setSideNavCollapsed(value);
+    },
+    [setSideNavCollapsed]
+  );
 
-  const category = getCategoryByIndex(router.asPath, 2);
+  const category = useMemo(
+    () => getCategoryByIndex(router.asPath, 2),
+    [router.asPath]
+  );
 
-  const ast = Markdoc.parse(content);
-  const ParsedContent = Markdoc.transform(ast, configs);
+  const ast = useMemo(() => Markdoc.parse(content), [content]);
 
-  const item = (menu as MenuItem[]).find(
-    (item) => getCategoryByIndex(item.url, 1) === category
+  const formattedPartialsObj = useMemo(
+    () => getFormattedPartials(partials),
+    [partials]
+  );
+
+  const ParsedContent = useMemo(
+    () =>
+      Markdoc.transform(ast, {
+        ...configs,
+        partials: formattedPartialsObj,
+      }),
+    [ast, configs, formattedPartialsObj]
+  );
+
+  const item = useMemo(
+    () =>
+      (menu as MenuItem[]).find(
+        (item) => getCategoryByIndex(item.url, 1) === category
+      ),
+    [menu, category]
   );
 
   useEffect(() => {
@@ -70,7 +108,7 @@ export default function Article({ menu, content, slug, versionsList }: Props) {
 
   // Function to scroll element into view with some offset margin
   // For scrolling to the hash element on page after load
-  const scrollToElementWithOffsetMargin = () => {
+  const scrollToElementWithOffsetMargin = useCallback(() => {
     if (
       has(window, "location.hash") &&
       !isEmpty(window.location.hash) &&
@@ -78,20 +116,17 @@ export default function Article({ menu, content, slug, versionsList }: Props) {
     ) {
       const hashElementId = window.location.hash.slice(1);
       const element = document.getElementById(hashElementId);
-      const elementPosition = element?.getBoundingClientRect().top;
-      const offsetPosition =
-        elementPosition + window.pageYOffset - SCROLLING_OFFSET;
 
-      setTimeout(
-        () =>
-          window.scrollTo({
-            top: offsetPosition,
+      setTimeout(() => {
+        element &&
+          element.scrollIntoView({
+            block: "center",
+            inline: "center",
             behavior: "smooth",
-          }),
-        500
-      );
+          });
+      }, 500);
     }
-  };
+  }, [autoCollapsed.current]);
 
   useEffect(() => {
     scrollToElementWithOffsetMargin();
@@ -182,6 +217,7 @@ export async function getServerSideProps(context) {
       )}`;
 
       const menu = getMenu(context.params.version);
+      const partials = getPartialsConfigObject();
 
       if ("slug" in context.params) {
         let filename = "";
@@ -207,6 +243,7 @@ export async function getServerSideProps(context) {
         props["content"] = content;
         props["slug"] = context.params.slug;
         props["versionsList"] = versionsList;
+        props["partials"] = partials;
       }
     }
 
