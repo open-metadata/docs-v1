@@ -111,9 +111,9 @@ export const getVersionsList = () => {
   try {
     const versionsArray = fs.readdirSync(ARTICLES_DIRECTORY);
     const versionsList = versionsArray
-      // content folder now also has partials folder with the versions folders
+      // content folder now also has other folders like partial or the next release snapshot content with the versions folders
       // this check is to select only versions folders
-      .filter((version) => /v(\d+\.\d+\.\d+)/g.test(version))
+      .filter((version) => /^v(\d+\.\d+\.\d+)$/g.test(version))
       .map((version) => ({
         label: version,
         value: version,
