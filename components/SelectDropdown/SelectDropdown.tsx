@@ -4,6 +4,7 @@ import { ReactComponent as ArrowDownIcon } from "../../images/icons/arrow-down.s
 import classNames from "classnames";
 import { getSelectedOption } from "../../utils/SelectDropdownUtils";
 import { uniqueId } from "lodash";
+import { STABLE_VERSION } from "../../constants/version.constants";
 
 export interface SelectOption<V> {
   label: string;
@@ -107,13 +108,16 @@ function SelectDropdown<T>({
         id={`dropdown-container-${idString}`}
         style={{ top: `calc(${height} + 4px)` ?? "", minWidth: width ?? "" }}
       >
-        {options.map((option, idx) => (
+        {options.map((option) => (
           <span
             className={styles.SelectOptions}
-            key={`${option.label}-${idx}`}
+            key={option.label}
             onClick={() => handleOptionClick(option)}
           >
-            {option.label}
+            <span>{option.label}</span>
+            {option.label === STABLE_VERSION ? (
+              <span className={styles.StableLabel}>Stable</span>
+            ) : null}
           </span>
         ))}
       </div>
