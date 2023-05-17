@@ -46,7 +46,19 @@
 }
 
 .SelectOptions {
+  display: flex;
+  gap: 8px;
   padding: 4px 12px;
+}
+
+.StableLabel {
+  font-size: 12px;
+  line-height: 15px;
+  padding: 0px 6px;
+  align-self: center;
+  border-radius: 9px;
+  color: white;
+  background-color: var(--primary-color);
 }
 
 .SelectOptions:hover {
