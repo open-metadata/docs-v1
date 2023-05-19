@@ -38,18 +38,18 @@ export const QUICK_LINK_CARDS = [
   },
 ];
 
-export const NEWS_ENTRY_INFO = [
+export const BLOGS_INFO = [
+  {
+    title: "OpenMetadata 1.0.0 Release",
+    text: "Improved Schemas & APIs, Ingestion Improvements, Storage Services, Dashboard Data Models, Auto PII Classification, Localization and much more.",
+    link: "https://blog.open-metadata.org/openmetadata-1-0-release-beb34762d916",
+    image: <img src="./blogs/v1.0.0.jpg" />,
+  },
   {
     title: "How we Built the Ingestion Framework",
     text: "Extracting Metadata from Every Corner: The evolution of the Ingestion Framework at OpenMetadata.",
     link: "https://blog.open-metadata.org/how-we-built-the-ingestion-framework-1af0b6ff5c81",
     image: <img src="./blogs/how-we-built-the-ingestion-framework.png" />,
-  },
-  {
-    title: "OpenMetadata 0.13.2 Release",
-    text: "Improved SQL Lineage, Glossary Bulk Upload, Unified Tag Category API, Mutually Exclusive Tags, Chrome Extension, and lots more.",
-    link: "https://blog.open-metadata.org/openmetadata-0-13-2-release-e32c0de93361",
-    image: <img src="./blogs/0132-release.png" />,
   },
   {
     title: "How to Integrate OpenMetadata Test Suites with your Data Pipelines",
