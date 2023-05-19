@@ -19,7 +19,7 @@ export default function Footer() {
             Home
           </Link>
           <Link
-            href="mailto:hello@getcollate.io?subject=Contact%20from%20documentation%20"
+            href="mailto:sales@getcollate.io?subject=Contact%20from%20documentation%20"
             className={`
                   not-link
                   ${styles.Link}
