@@ -47,11 +47,11 @@ export default function Index({ menu, versionsList }: Props) {
       </div>
       <div className="home-page">
         {isRouteChanging ? (
-          <div className="m-36">
+          <div className="pt-20 px-32">
             <SkeletonLoader
               paragraph={{
-                rows: 12,
-                width: SkeletonWidth.DEFAULT,
+                rows: 16,
+                width: SkeletonWidth.FULL,
               }}
               title={SkeletonWidth.SMALL}
             />

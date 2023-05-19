@@ -14,6 +14,9 @@ const getWidthClass = (width: SkeletonWidth) => {
     case SkeletonWidth.LARGE: {
       return styles.Large;
     }
+    case SkeletonWidth.FULL: {
+      return styles.Full;
+    }
     case SkeletonWidth.DEFAULT:
     default: {
       return styles.Default;
