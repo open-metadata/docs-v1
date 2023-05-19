@@ -26,8 +26,7 @@ export default function MyApp({ Component, pageProps }: AppProps<MyAppProps>) {
     <>
       <Head>
         <title>{TITLE}</title>
-        <link rel="icon" href="/favicon.svg" />
-        <link rel="alternate icon" href="/favicon32.ico" />
+        <link rel="icon" href="/favicon.png" />
         <meta name="theme-color" content="#ffffff" />
         <meta content="OpenMetadata Docs" property="og:title" />
         <meta content="OpenMetadata Docs" name="twitter:title" />
