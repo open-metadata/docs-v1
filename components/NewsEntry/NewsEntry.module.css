@@ -36,6 +36,8 @@
 }
 
 .blogImage > img {
+  width: 100%;
+  height: 175px;
   box-shadow: 0px 0px 2px rgb(0 0 0 / 30%);
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
