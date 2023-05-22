@@ -12,7 +12,7 @@ import { getMenu, getVersionsList } from "../../lib/api";
 import Footer from "../../components/Footer/Footer";
 import { getUrlWithVersion } from "../../utils/CommonUtils";
 import {
-  NEWS_ENTRY_INFO,
+  BLOGS_INFO,
   QUICK_LINK_CARDS,
 } from "../../constants/homePage.constants";
 import { useRouteChangingContext } from "../../context/RouteChangingContext";
@@ -47,11 +47,11 @@ export default function Index({ menu, versionsList }: Props) {
       </div>
       <div className="home-page">
         {isRouteChanging ? (
-          <div className="m-36">
+          <div className="pt-20 px-32">
             <SkeletonLoader
               paragraph={{
-                rows: 12,
-                width: SkeletonWidth.DEFAULT,
+                rows: 16,
+                width: SkeletonWidth.FULL,
               }}
               title={SkeletonWidth.SMALL}
             />
@@ -126,7 +126,7 @@ export default function Index({ menu, versionsList }: Props) {
             <div className="homepage-containers">
               <div className="container-heading">Blogs</div>
               <div className="blogs-container">
-                {NEWS_ENTRY_INFO.map((cardInfo) => (
+                {BLOGS_INFO.map((cardInfo) => (
                   <NewsEntry
                     image={cardInfo.image}
                     key={`${cardInfo.title}${cardInfo.link}`}

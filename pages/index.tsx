@@ -10,10 +10,7 @@ import TopNav from "../components/TopNav/TopNav";
 import CategoriesNav from "../components/CategoriesNav/CategoriesNav";
 import Footer from "../components/Footer/Footer";
 import { fetchMenuList, getUrlWithVersion } from "../utils/CommonUtils";
-import {
-  NEWS_ENTRY_INFO,
-  QUICK_LINK_CARDS,
-} from "../constants/homePage.constants";
+import { BLOGS_INFO, QUICK_LINK_CARDS } from "../constants/homePage.constants";
 import { useDocVersionContext } from "../context/DocVersionContext";
 import { MenuItem } from "../interface/common.interface";
 import { useRouteChangingContext } from "../context/RouteChangingContext";
@@ -134,7 +131,7 @@ export default function Index({ versionsList }: Props) {
             <div className="homepage-containers">
               <div className="container-heading">Blogs</div>
               <div className="blogs-container">
-                {NEWS_ENTRY_INFO.map((cardInfo) => (
+                {BLOGS_INFO.map((cardInfo) => (
                   <NewsEntry
                     image={cardInfo.image}
                     key={`${cardInfo.title}${cardInfo.link}`}

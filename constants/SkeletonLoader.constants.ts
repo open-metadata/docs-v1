@@ -14,4 +14,7 @@ export const SKELETON_PARAGRAPH_WIDTHS = [
   undefined,
   undefined,
   SkeletonWidth.SMALL,
+  SkeletonWidth.LARGE,
+  SkeletonWidth.LARGE,
+  SkeletonWidth.LARGE,
 ];
