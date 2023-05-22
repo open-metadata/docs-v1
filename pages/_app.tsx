@@ -12,6 +12,7 @@ import ErrorBoundary from "../components/ErrorBoundary";
 import { DocVersionContextProvider } from "../context/DocVersionContext";
 import { RouteChangingContextProvider } from "../context/RouteChangingContext";
 import { NavBarCollapseContextProvider } from "../context/NavBarCollapseContext";
+import { StepsContextProvider } from "../context/StepsContext";
 
 const TITLE = "OpenMetadata Documentation";
 const DESCRIPTION =
@@ -46,7 +47,9 @@ export default function MyApp({ Component, pageProps }: AppProps<MyAppProps>) {
         <RouteChangingContextProvider>
           <DocVersionContextProvider>
             <NavBarCollapseContextProvider>
-              <Component {...pageProps} key={router.asPath} />
+              <StepsContextProvider>
+                <Component {...pageProps} key={router.asPath} />
+              </StepsContextProvider>
             </NavBarCollapseContextProvider>
           </DocVersionContextProvider>
         </RouteChangingContextProvider>
