@@ -1,0 +1,35 @@
+.DropdownContainer {
+  position: relative;
+}
+
+.DropdownButton {
+  font-size: 14px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.DropdownIcon {
+  height: 12px;
+  width: 12px;
+}
+
+.PopupContainer {
+  position: absolute;
+  padding: 4px 0px;
+  min-width: 150px;
+  background-color: white;
+  box-shadow: 0 0 0 1px rgb(136 152 170 / 5%), 0 15px 35px 0 rgb(49 49 93 / 5%),
+    0 5px 15px 0 rgb(0 0 0 / 5%);
+  z-index: 100;
+  border: 0.5px solid var(--default-border-color);
+  border-radius: 4px;
+}
+
+.LeftAligned {
+  left: 0;
+}
+
+.RightAligned {
+  right: 0;
+}
