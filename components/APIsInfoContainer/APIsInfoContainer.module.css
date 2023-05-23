@@ -1,0 +1,7 @@
+.APIsInfoContainer {
+  display: grid;
+  grid-template-columns: auto 45%;
+  gap: 16px;
+  margin-top: 40px;
+  cursor: pointer;
+}
