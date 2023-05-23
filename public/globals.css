@@ -10,6 +10,7 @@
   --select-dropdown-default-height: 28px;
   --select-dropdown-default-width: 120px;
   --side-nav-width: min(20%, 300px);
+  --api-side-nav-width: max(14%, 220px);
   --content-div-width: min(17%, 250px);
   --default-border-color: #dce3ec;
   --primary-color: #5469d4;

@@ -16,7 +16,10 @@ import ErrorBoundary from "../../components/ErrorBoundary";
 import Script from "next/script";
 import { SelectOption } from "../../components/SelectDropdown/SelectDropdown";
 import { getFormattedPartials } from "../../utils/CommonUtils";
-import DocsPageLayout from "../../components/PageLayouts/DocsPageLayout";
+import DocsPageLayout from "../../components/PageLayouts/DocsPageLayout/DocsPageLayout";
+import { isEqual } from "lodash";
+import { API_AND_SDK_MENU_ITEMS } from "../../constants/categoriesNav.constants";
+import APIsPageLayout from "../../components/PageLayouts/APIsPageLayout/APIsPageLayout";
 
 interface Props {
   menu: MenuItem[];
@@ -49,6 +52,18 @@ export default function Article({
     [ast, configs, formattedPartialsObj]
   );
 
+  const isAPIsPage = useMemo(() => {
+    return Boolean(
+      API_AND_SDK_MENU_ITEMS.find((item) => {
+        const slugFromItemPath = item.value.split("/");
+        // Removing first element which will be empty
+        slugFromItemPath.shift();
+
+        return isEqual(slug, slugFromItemPath);
+      })
+    );
+  }, [slug]);
+
   return (
     <>
       <Script
@@ -67,12 +82,16 @@ export default function Article({
         }}
       />
       <ErrorBoundary>
-        <DocsPageLayout
-          parsedContent={parsedContent}
-          menu={menu}
-          slug={slug}
-          versionsList={versionsList}
-        />
+        {isAPIsPage ? (
+          <APIsPageLayout />
+        ) : (
+          <DocsPageLayout
+            parsedContent={parsedContent}
+            menu={menu}
+            slug={slug}
+            versionsList={versionsList}
+          />
+        )}
       </ErrorBoundary>
     </>
   );

@@ -1,0 +1,16 @@
+.APIsPageContainer {
+  display: flex;
+}
+
+.APIsPageLeftPanel {
+  min-width: var(--api-side-nav-width);
+  height: 100vh;
+  padding: 12px;
+  border-right: 1px solid var(--default-border-color);
+  position: sticky;
+  top: 0px;
+}
+
+.APIsPageContent {
+  padding: 16px;
+}

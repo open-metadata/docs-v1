@@ -5,23 +5,23 @@ import React, {
   useRef,
   useState,
 } from "react";
-import TopNav from "../TopNav/TopNav";
-import CategoriesNav from "../CategoriesNav/CategoriesNav";
-import SideNav from "../SideNav/SideNav";
+import TopNav from "../../TopNav/TopNav";
+import CategoriesNav from "../../CategoriesNav/CategoriesNav";
+import SideNav from "../../SideNav/SideNav";
 import classNames from "classnames";
-import SkeletonLoader from "../common/SkeletonLoader/SkeletonLoader";
-import { SKELETON_PARAGRAPH_WIDTHS } from "../../constants/SkeletonLoader.constants";
-import Footer from "../Footer/Footer";
+import SkeletonLoader from "../../common/SkeletonLoader/SkeletonLoader";
+import { SKELETON_PARAGRAPH_WIDTHS } from "../../../constants/SkeletonLoader.constants";
+import Footer from "../../Footer/Footer";
 import Markdoc, { RenderableTreeNode } from "@markdoc/markdoc";
 import { has, isEmpty, startCase } from "lodash";
-import { SelectOption } from "../SelectDropdown/SelectDropdown";
+import { SelectOption } from "../../SelectDropdown/SelectDropdown";
 import { useRouter } from "next/router";
-import { getCategoryByIndex } from "../../lib/utils";
-import { MenuItem } from "../../interface/common.interface";
-import { useRouteChangingContext } from "../../context/RouteChangingContext";
-import { useNavBarCollapsedContext } from "../../context/NavBarCollapseContext";
-import { components } from "../../lib/markdoc";
-import Breadcrumb from "../Breadcrumb/Breadcrumb";
+import { getCategoryByIndex } from "../../../lib/utils";
+import { MenuItem } from "../../../interface/common.interface";
+import { useRouteChangingContext } from "../../../context/RouteChangingContext";
+import { useNavBarCollapsedContext } from "../../../context/NavBarCollapseContext";
+import { components } from "../../../lib/markdoc";
+import Breadcrumb from "../../Breadcrumb/Breadcrumb";
 
 interface DocsPageLayoutProps {
   parsedContent: RenderableTreeNode;
