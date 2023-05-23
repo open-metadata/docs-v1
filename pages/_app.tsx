@@ -13,9 +13,9 @@ import { DocVersionContextProvider } from "../context/DocVersionContext";
 import { RouteChangingContextProvider } from "../context/RouteChangingContext";
 import { NavBarCollapseContextProvider } from "../context/NavBarCollapseContext";
 
-const TITLE = "OpenMetadata Documentation";
+const TITLE = "OpenMetadata Documentation: Get Help Instantly";
 const DESCRIPTION =
-  "A documentation for 'OpenMetadata', the #1 open source data catalog tool. Empower innovation and foster collaboration with the all-in-one platform for data discovery, lineage, data quality, observability, governance, and more.";
+  "Follow the step-by-step guides to get started with OpenMetadata, the #1 open source data catalog tool. Get discovery, collaboration, governance, observability, quality tools all in one place.";
 
 export type MyAppProps = MarkdocNextJsPageProps;
 
@@ -34,7 +34,7 @@ export default function MyApp({ Component, pageProps }: AppProps<MyAppProps>) {
         <meta content="OpenMetadata Docs" name="twitter:title" />
         <meta
           name="keywords"
-          content="best open-source data catalog, #1 open source data catalog, enterprise data catalog, data governance solutions, centralized metadata platform, best data discovery tool, data collaboration platform, modern data catalog, data catalog data lineage, best metadata management tool"
+          content="best open-source data catalog, #1 open source data catalog, openmetadata documentation, data governance solutions, centralized metadata platform, best data discovery tool, data collaboration platform, modern data catalog, data catalog data lineage, best metadata management tool"
         />
         {DESCRIPTION && (
           <React.Fragment>
