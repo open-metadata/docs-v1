@@ -108,7 +108,6 @@ export const createNestedNodeStructure = (
     // Adding the same node to keep track of the last added node to compare with the next element later
     stack.push(newNode);
   }
-  console.log(root);
 
   return root.children;
 };
