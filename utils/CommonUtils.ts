@@ -2,6 +2,7 @@ import { DEFAULT_VERSION } from "../constants/version.constants";
 import * as icons from "react-icons/md";
 import { isEmpty, startCase } from "lodash";
 import Markdoc from "@markdoc/markdoc";
+import { HeadingObject } from "../components/PageLayouts/APIsPageLayout/APIsPageSideNav/APIsPageSideNav";
 
 export const getDivIndexFromId = (id: string) => {
   return Number(id.split("-").reverse()[0]);
@@ -68,4 +69,46 @@ export const getFormattedPartials = (
   });
 
   return formattedPartialsObj;
+};
+
+// Function to convert the flat headings array to a nested array based on hierarchy
+// For example.
+// input = ['h1','h2','h3','h1']
+// output = [
+//   {
+//     level: "h1",
+//     children: [{ level: "h2", children: [{ level: "h3", children: [] }] }],
+//   },
+//   { level: "h1", children: [] },
+// ];
+export const createNestedNodeStructure = (
+  inputArray: HeadingObject[]
+): HeadingObject[] => {
+  // Initializing the root object to start as a base to compare next elements to
+  const root: HeadingObject = {
+    level: "",
+    label: "",
+    children: [],
+  };
+  const stack = [root];
+
+  for (const element of inputArray) {
+    const newNode = { ...element, children: [] };
+
+    let parent = stack[stack.length - 1];
+
+    // Logic to traverse to the appropriate parent positions for current element
+    while (stack.length > 1 && parent.level >= element.level) {
+      stack.pop();
+      parent = stack[stack.length - 1];
+    }
+
+    // Adding the the current element as the children of the appropriate parent
+    parent.children.push(newNode);
+    // Adding the same node to keep track of the last added node to compare with the next element later
+    stack.push(newNode);
+  }
+  console.log(root);
+
+  return root.children;
 };

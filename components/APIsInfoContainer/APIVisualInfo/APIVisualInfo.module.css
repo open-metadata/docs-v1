@@ -1,5 +1,5 @@
 .APIVisualInfoContainer {
   height: fit-content;
   position: sticky;
-  top: calc(var(--top-nav-height) + var(--main-nav-height));
+  top: 80px;
 }
