@@ -88,6 +88,7 @@ export const createNestedNodeStructure = (
   const root: HeadingObject = {
     level: "",
     label: "",
+    target: "",
     children: [],
   };
   const stack = [root];
