@@ -2,6 +2,7 @@ import React, { useCallback, useContext, useEffect, useState } from "react";
 
 export const APIElementInViewContext = React.createContext({
   apiElementInView: "",
+  onChangeApiElementInView: (value: string) => null,
 });
 
 export const useAPIElementInViewContext = () =>
@@ -9,6 +10,10 @@ export const useAPIElementInViewContext = () =>
 
 export const APIElementInViewContextProvider = ({ children }) => {
   const [apiElementInView, setApiElementInView] = useState("");
+
+  const onChangeApiElementInView = (value: string) => {
+    setApiElementInView(value);
+  };
 
   // A callback function that will be called when the links enter/leave the screen.
   const callback = useCallback(
@@ -49,7 +54,9 @@ export const APIElementInViewContextProvider = ({ children }) => {
   }, []);
 
   return (
-    <APIElementInViewContext.Provider value={{ apiElementInView }}>
+    <APIElementInViewContext.Provider
+      value={{ apiElementInView, onChangeApiElementInView }}
+    >
       {children}
     </APIElementInViewContext.Provider>
   );

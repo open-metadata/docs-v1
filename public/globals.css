@@ -14,6 +14,7 @@
   --content-div-width: min(17%, 250px);
   --default-border-color: #dce3ec;
   --primary-color: #5469d4;
+  --primary-background-color: rgba(84, 105, 212, 0.05);
   --select-background-color: #f4f7ff;
   --select-border-color: #e9eefc;
   --homepage-container-px: 130px;

@@ -9,6 +9,10 @@
   align-items: center;
 }
 
+.DropdownName {
+  font-weight: 500;
+}
+
 .DropdownIcon {
   height: 12px;
   width: 12px;

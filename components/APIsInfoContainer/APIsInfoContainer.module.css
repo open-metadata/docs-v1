@@ -2,6 +2,6 @@
   display: grid;
   grid-template-columns: auto 45%;
   gap: 24px;
-  margin-top: 40px;
-  cursor: pointer;
+  border-bottom: 1px solid var(--default-border-color);
+  padding: 72px;
 }

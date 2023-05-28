@@ -2,7 +2,25 @@
   min-width: var(--api-side-nav-width);
   height: 100vh;
   padding: 12px;
+  padding-left: 0px;
   border-right: 1px solid var(--default-border-color);
   position: sticky;
   top: 0px;
+}
+
+.Heading {
+  padding-bottom: 12px;
+  padding-left: 12px;
+  display: flex;
+  gap: 6px;
+}
+
+.OpenMetadata {
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.Api {
+  font-weight: 700;
+  color: var(--primary-color);
 }
