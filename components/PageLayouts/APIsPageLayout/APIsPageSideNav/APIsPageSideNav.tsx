@@ -1,10 +1,16 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { ReactComponent as SearchIcon } from "../../../../images/icons/search.svg";
+import { ReactComponent as OmLogo } from "../../../../images/icons/om-monogram.svg";
 import APILeftPanelHeadings from "../../../APILeftPanelHeadings/APILeftPanelHeadings";
-import { createNestedNodeStructure } from "../../../../utils/CommonUtils";
+import {
+  createNestedNodeStructure,
+  getUrlWithVersion,
+} from "../../../../utils/CommonUtils";
 import { isEmpty } from "lodash";
 import styles from "./APIsPageSideNav.module.css";
 import APISearchModal from "../../../modals/APISearchModal/APISearchModal";
+import Link from "next/link";
+import { useDocVersionContext } from "../../../../context/DocVersionContext";
 
 export interface HeadingObject {
   label: string;
@@ -13,10 +19,18 @@ export interface HeadingObject {
   children?: HeadingObject[];
 }
 
-function APIsPageSideNav() {
+interface APIsPageSideNavProps {
+  pageInfoObject: {
+    label: string;
+    value: string;
+  };
+}
+
+function APIsPageSideNav({ pageInfoObject }: APIsPageSideNavProps) {
   const [nestedHeadings, setNestedHeadings] = useState<Array<HeadingObject>>(
     []
   );
+  const { docVersion } = useDocVersionContext();
   const [searchModalVisibility, setSearchModalVisibility] =
     useState<boolean>(false);
 
@@ -73,12 +87,15 @@ function APIsPageSideNav() {
     };
   }, []);
 
-  return nestedHeadings.length > 1 ? (
+  return (
     <div className={styles.APIsPageSideNavContainer}>
-      <div className={styles.Heading}>
-        <span className={styles.OpenMetadata}>OpenMetadata</span>
-        <span className={styles.Api}>API</span>
-      </div>
+      <Link
+        className={styles.Heading}
+        href={getUrlWithVersion(pageInfoObject.value, docVersion)}
+      >
+        <OmLogo className={styles.OpenMetadataLogo} />
+        <span className={styles.Api}>{pageInfoObject.label}</span>
+      </Link>
       <div className={styles.Search} onClick={handleSearchClick}>
         <div className="flex items-center gap-2">
           <SearchIcon className={styles.SearchIcon} />
@@ -91,7 +108,7 @@ function APIsPageSideNav() {
         <APISearchModal handleMaskClick={handleMaskClick} />
       )}
     </div>
-  ) : null;
+  );
 }
 
 export default APIsPageSideNav;

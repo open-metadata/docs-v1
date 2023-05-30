@@ -55,7 +55,7 @@ export default function CategoriesNav({ menu }: Props) {
         <Dropdown
           alignX="right"
           className={styles.APIContainer}
-          name="APIs and SDKs"
+          name="SDKs"
           popupContent={
             <DropdownMenu
               items={API_AND_SDK_MENU_ITEMS}

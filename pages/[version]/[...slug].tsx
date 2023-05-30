@@ -17,6 +17,9 @@ import Script from "next/script";
 import { SelectOption } from "../../components/SelectDropdown/SelectDropdown";
 import { getFormattedPartials } from "../../utils/CommonUtils";
 import DocsPageLayout from "../../components/PageLayouts/DocsPageLayout/DocsPageLayout";
+import { API_AND_SDK_MENU_ITEMS } from "../../constants/categoriesNav.constants";
+import { isEqual, isObject, isUndefined } from "lodash";
+import APIsPageLayout from "../../components/PageLayouts/APIsPageLayout/APIsPageLayout";
 
 interface Props {
   menu: MenuItem[];
@@ -49,6 +52,20 @@ export default function Article({
     [ast, configs, formattedPartialsObj]
   );
 
+  const isAPIsPage = useMemo(() => {
+    const matchedObject = API_AND_SDK_MENU_ITEMS.find((item) => {
+      const slugFromItemPath = item.value.split("/");
+      // Removing first element which will be empty
+      slugFromItemPath.shift();
+
+      return isEqual(slug, slugFromItemPath);
+    });
+
+    return isObject(matchedObject)
+      ? { value: true, pageInfoObject: matchedObject }
+      : { value: false, pageInfoObject: { label: "", value: "" } };
+  }, [slug]);
+
   return (
     <>
       <Script
@@ -67,12 +84,19 @@ export default function Article({
         }}
       />
       <ErrorBoundary>
-        <DocsPageLayout
-          parsedContent={parsedContent}
-          menu={menu}
-          slug={slug}
-          versionsList={versionsList}
-        />
+        {isAPIsPage.value ? (
+          <APIsPageLayout
+            parsedContent={parsedContent}
+            pageInfoObject={isAPIsPage.pageInfoObject}
+          />
+        ) : (
+          <DocsPageLayout
+            parsedContent={parsedContent}
+            menu={menu}
+            slug={slug}
+            versionsList={versionsList}
+          />
+        )}
       </ErrorBoundary>
     </>
   );

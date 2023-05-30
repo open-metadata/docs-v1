@@ -53,6 +53,13 @@ export const APIElementInViewContextProvider = ({ children }) => {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    if (window.location.hash) {
+      const hash = window.location.hash.slice(1);
+      onChangeApiElementInView(hash);
+    }
+  }, []);
+
   return (
     <APIElementInViewContext.Provider
       value={{ apiElementInView, onChangeApiElementInView }}

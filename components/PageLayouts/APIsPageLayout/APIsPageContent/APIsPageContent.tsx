@@ -12,9 +12,16 @@ import Link from "next/link";
 
 interface APIsPageContentProps {
   parsedContent: RenderableTreeNode;
+  pageInfoObject: {
+    label: string;
+    value: string;
+  };
 }
 
-function APIsPageContent({ parsedContent }: APIsPageContentProps) {
+function APIsPageContent({
+  parsedContent,
+  pageInfoObject,
+}: APIsPageContentProps) {
   const router = useRouter();
   const { docVersion } = useDocVersionContext();
   const handleMenuItemClick = (item: DropdownMenuItem) => {
@@ -27,11 +34,11 @@ function APIsPageContent({ parsedContent }: APIsPageContentProps) {
         <Dropdown
           alignX="right"
           className={styles.APIRefContainer}
-          name="APIs reference"
+          name="SDKs reference"
           popupContent={
             <DropdownMenu
               items={API_AND_SDK_MENU_ITEMS.filter(
-                (item) => item.value !== "/api"
+                (item) => item.value !== pageInfoObject.value
               )}
               onItemClick={handleMenuItemClick}
             />
