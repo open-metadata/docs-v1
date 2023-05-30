@@ -13,6 +13,7 @@ Build Algolia index based on the content folder
 """
 
 import json
+import logging
 import os
 import re
 from typing import Optional, List
@@ -28,9 +29,9 @@ ALGOLIA_CLIENT_ID = os.environ.get("ALGOLIA_CLIENT_ID")
 ALGOLIA_ADMIN_KEY = os.environ.get("ALGOLIA_ADMIN_KEY")
 ALGOLIA_INDEX = os.environ.get("ALGOLIA_INDEX")
 
-CONTENT_REGEX = re.compile(r'<(.*?)>', re.DOTALL|re.MULTILINE)
+CONTENT_REGEX = re.compile(r"<(.*?)>", re.DOTALL | re.MULTILINE)
 
-EXCLUDED_FILES = {"gdpr-banner", "index", "menu"}
+EXCLUDED_FILES = {"gdpr-banner", "menu"}
 
 
 class AlgoliaDoc(BaseModel):
@@ -55,21 +56,25 @@ def get_page_content(content: str) -> str:
     return CONTENT_REGEX.sub("", content, 0).replace("\n", "").replace("#", "")
 
 
-def get_algolia_doc_from_file(file: Path) -> AlgoliaDoc:
+def get_algolia_doc_from_file(file: Path) -> Optional[AlgoliaDoc]:
     """
     Given a markdown file, search the metadata of the
     header and return the AlgoliaDoc
     """
-    with open(file.absolute()) as f:
-        page = frontmatter.load(f)
+    try:
+        with open(file.absolute()) as f:
+            page = frontmatter.load(f)
 
-        return AlgoliaDoc(
-            objectID=page.metadata["slug"],
-            title=page.metadata["title"],
-            description=page.metadata.get("description"),
-            categories=page.metadata["slug"].lstrip("/").split("/"),
-            content=get_page_content(page.content),
-        )
+            return AlgoliaDoc(
+                objectID=page.metadata["slug"],
+                title=page.metadata["title"],
+                description=page.metadata.get("description"),
+                categories=page.metadata["slug"].lstrip("/").split("/"),
+                content=get_page_content(page.content),
+            )
+    except KeyError as err:
+        logging.warning(f"Error processing file at {file} - [{err}]. Skipping...")
+        return None
 
 
 def build_index():
@@ -90,7 +95,8 @@ def build_index():
         if file.stem not in EXCLUDED_FILES
     ]
 
-    docs = [json.loads(get_algolia_doc_from_file(page).json()) for page in results]
+    algolia_docs = (get_algolia_doc_from_file(page) for page in results)
+    docs = [json.loads(doc.json()) for doc in algolia_docs if doc]
 
     # Start the API client
     # https://www.algolia.com/doc/api-client/getting-started/instantiate-client-index/
@@ -102,9 +108,7 @@ def build_index():
 
     # Replace the index with new objects
     # https://www.algolia.com/doc/api-reference/api-methods/replace-all-objects/
-    index.replace_all_objects(docs, {
-        'safe': True
-    })
+    index.replace_all_objects(docs, {"safe": True})
 
 
 if __name__ == "__main__":
