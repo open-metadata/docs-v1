@@ -11,13 +11,15 @@ import styles from "../../common/Code/Code.module.css";
 import { ReactComponent as ClipboardIcon } from "../../../images/icons/clipboard.svg";
 import { ReactComponent as FileIcon } from "../../../images/icons/file-icon.svg";
 import { uniqueId } from "lodash";
+import classNames from "classnames";
 
 interface Props {
   children: ReactNode;
   fileName: string;
+  theme: "gray" | "light" | "default";
 }
 
-export default function CodeBlock({ children, fileName }: Props) {
+export default function CodeBlock({ children, fileName, theme }: Props) {
   const { selectedPreviewNumber } = usePreviewContext();
   const [prevSelectedCode, setPrevSelectedCode] = useState<number>(1);
   const [copyText, setCopyText] = useState<string>("Copy");
@@ -58,6 +60,18 @@ export default function CodeBlock({ children, fileName }: Props) {
     }
   }, [preTag.current, setCopyText]);
 
+  const themeClass = useMemo(() => {
+    switch (theme) {
+      case "gray":
+        return styles.GrayTheme;
+      case "light":
+        return styles.LightTheme;
+      case "default":
+      default:
+        return "";
+    }
+  }, [theme]);
+
   useEffect(() => {
     highlightCodeBlock();
   }, [selectedPreviewNumber, codeBlockId]);
@@ -80,7 +94,10 @@ export default function CodeBlock({ children, fileName }: Props) {
 
   const codeBlock = useMemo(
     () => (
-      <div className={styles.CodeBlockContainer} id={codeBlockId}>
+      <div
+        className={classNames(styles.CodeBlockContainer, themeClass)}
+        id={codeBlockId}
+      >
         <div className={styles.Toolbar}>
           {fileName && (
             <span className={styles.FileName}>

@@ -37,7 +37,6 @@
 }
 .CodeBlockContainer > pre {
   padding-top: 8px;
-  opacity: 75%;
   width: fit-content;
   min-width: 100%;
 }
@@ -76,7 +75,12 @@
 
 .CodeContainer pre,
 .CodeBlockContainer pre {
-  @apply text-white font-semibold rounded-md relative leading-relaxed;
+  @apply font-semibold relative leading-relaxed;
+  color: var(--code-block-text-color);
+}
+
+.CodeBlockContainer pre {
+  border-radius: 0px;
 }
 
 .CodeContainer pre code,
@@ -122,7 +126,7 @@
   left: 0px;
   z-index: 30;
   padding: 8px 20px;
-  border-bottom: 0.1px solid #a4cdfe;
+  border-bottom: 0.1px solid var(--code-filename-color);
   background-color: var(--code-background-color);
   display: flex;
   align-items: center;
@@ -136,9 +140,9 @@
   font-size: 12px;
   font-weight: 500;
   padding: 2px 8px;
-  background-color: #a4cdfe;
+  background-color: var(--code-filename-color);
   color: var(--code-background-color);
-  border: 0.5px solid #a4cdfe;
+  border: 0.5px solid var(--code-filename-color);
   border-radius: 16px;
 }
 
@@ -155,8 +159,8 @@
 }
 
 .Toolbar > .CopyButton:hover {
-  background-color: #a4cdfe;
-  border: 0.5px solid #a4cdfe;
+  background-color: var(--code-filename-color);
+  border: 0.5px solid var(--code-filename-color);
   color: var(--code-background-color);
 }
 
@@ -256,4 +260,52 @@
 :global(.dark) .CodeContainer pre code :global(.string),
 :global(.dark) .CodeBlockContainer pre code :global(.string) {
   @apply text-darkBlue-30;
+}
+
+.GrayTheme pre {
+  background-color: var(--code-gray-background-color);
+}
+
+.GrayTheme .Toolbar {
+  background-color: var(--code-gray-toolbar-color);
+  border-color: var(--code-gray-toolbar-color);
+}
+
+.GrayTheme .Toolbar > .CopyButton:hover {
+  background-color: var(--code-gray-filename-color);
+  border-color: var(--code-gray-filename-color);
+}
+
+.GrayTheme .Toolbar > .FileName {
+  color: var(--code-gray-toolbar-color);
+  background-color: var(--code-gray-filename-color);
+  border-color: var(--code-gray-filename-color);
+}
+
+.LightTheme pre {
+  background-color: var(--code-light-background-color);
+  color: var(--default-text-color);
+}
+
+.LightTheme .Toolbar {
+  background-color: var(--code-light-toolbar-color);
+  border-color: var(--code-light-toolbar-color);
+}
+
+.LightTheme .Toolbar > .CopyButton {
+  color: var(--default-text-color);
+  background-color: var(--code-light-filename-color);
+  border-color: var(--code-light-filename-color);
+}
+
+.LightTheme .Toolbar > .CopyButton:hover {
+  color: var(--code-light-filename-color);
+  background-color: var(--default-text-color);
+  border-color: var(--default-text-color);
+}
+
+.LightTheme .Toolbar > .FileName {
+  color: var(--default-text-color);
+  background-color: var(--code-light-filename-color);
+  border-color: var(--code-light-filename-color);
 }
