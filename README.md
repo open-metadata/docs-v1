@@ -243,6 +243,7 @@ A tag to show description about the API.
 Example:
 
 {% apisInfoContainer %}
+
 {% apiDescription %}
 
 API description 1
@@ -252,12 +253,13 @@ API description 1
 {% apiVisualInfo %}
 
 {% codeBlock fileName="API1" theme="gray" %}
-```
+\`\`\`
 Code for API 1
-```
+\`\`\`
 {% /codeBlock %}
 
 {% /apiVisualInfo %}
+
 {% apiDescription %}
 
 API description 2
@@ -268,13 +270,14 @@ API description 2
 
 
 {% codeBlock fileName="API2" theme="gray" %}
-```
+\`\`\`
 Code for API 2
-```
+\`\`\`
 {% /codeBlock %}
 
 
 {% /apiVisualInfo %}
+
 {% /apisInfoContainer %}
 
 <img width="2032" alt="api-page-tags" src="./public/api-page-tags.png">
