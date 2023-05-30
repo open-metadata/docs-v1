@@ -23,6 +23,15 @@
   --white-color: #fff;
   --top-nav-color: #f7fafc;
   --code-background-color: #212d63;
+  --code-gray-background-color: rgb(79, 86, 107);
+  --code-light-background-color: #f7fafc;
+  --code-toolbar-color: #212d63;
+  --code-gray-toolbar-color: #3c4257;
+  --code-light-toolbar-color: #e3e8ee;
+  --code-filename-color: #a4cdfe;
+  --code-gray-filename-color: #dadce1;
+  --code-light-filename-color: #f7fafc;
+  --code-block-text-color: #f5fbff;
   --purple-bg-color: #7147e81a;
   --green-bg-color: #0084761a;
   --pink-bg-color: #b02aac1a;
@@ -128,6 +137,7 @@ ul li:first-child {
 }
 
 pre {
+  border-radius: 6px;
   background-color: var(--code-background-color);
 }
 
@@ -330,4 +340,11 @@ code::-webkit-scrollbar {
   .collapsed-content {
     width: calc(100% - 41px);
   }
+}
+
+.api-page-container {
+  display: grid;
+  grid-template-columns: var(--api-side-nav-width) calc(
+      100vw - var(--api-side-nav-width)
+    );
 }

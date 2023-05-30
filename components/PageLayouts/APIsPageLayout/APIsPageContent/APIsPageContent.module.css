@@ -5,7 +5,7 @@
 .TopNavContainer {
   padding: 20px 72px;
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   gap: 15px;
   font-size: 14px;
 }

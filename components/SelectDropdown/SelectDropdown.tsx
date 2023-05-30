@@ -48,7 +48,6 @@ function SelectDropdown<T>({
     switch (event.key) {
       case "Escape": {
         setIsDropdownVisible(false);
-        dropdownContainerRef.current.blur();
         break;
       }
     }

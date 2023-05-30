@@ -15,7 +15,17 @@ import HitComponent from "./HitComponent/HitComponent";
 import { isEmpty, isNull, isUndefined } from "lodash";
 import { useNavBarCollapsedContext } from "../../context/NavBarCollapseContext";
 
-export default function Search() {
+interface SearchProps {
+  showHotKeys?: boolean;
+  className?: string;
+  resultsContainerClassName?: string;
+}
+
+export default function Search({
+  showHotKeys = true,
+  className = "",
+  resultsContainerClassName = "",
+}: SearchProps) {
   const [hotKey, setHotKey] = useState("second");
   const [searchValue, setSearchValue] = useState("");
   const [isSuggestionVisible, setIsSuggestionVisible] =
@@ -125,7 +135,7 @@ export default function Search() {
     return () => {
       document.body.removeEventListener("keydown", handleKey);
     };
-  }, [searchValue, focusedSearchItem]);
+  }, [searchValue, focusedSearchItem, isSuggestionVisible]);
 
   useEffect(() => {
     setIsLoading(status === "loading");
@@ -139,7 +149,8 @@ export default function Search() {
     <div
       className={classNames(
         styles.SearchContainer,
-        navBarCollapsed ? styles.CollapsedNav : ""
+        navBarCollapsed ? styles.CollapsedNav : "",
+        className
       )}
     >
       <CustomSearch
@@ -151,7 +162,7 @@ export default function Search() {
 
       <SearchIcon className={styles.SearchIcon} />
       <div className={styles.HotKeyContainer}>
-        {!isSuggestionVisible && (
+        {!isSuggestionVisible && showHotKeys && (
           <>
             <span className={styles.HotKey}>{hotKey}</span>
             <span>+</span>
@@ -163,7 +174,8 @@ export default function Search() {
       <div
         className={classNames(
           styles.SearchModal,
-          isSuggestionVisible ? styles.VisibleModal : ""
+          isSuggestionVisible ? styles.VisibleModal : "",
+          resultsContainerClassName
         )}
         id="search-modal"
       >

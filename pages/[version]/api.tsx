@@ -29,7 +29,7 @@ function api({ content, partials }) {
 
   return (
     <APIElementInViewContextProvider>
-      <div className="flex">
+      <div className="api-page-container">
         <APIsPageSideNav />
         <APIsPageContent parsedContent={parsedContent} />
       </div>

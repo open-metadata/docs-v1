@@ -33,7 +33,6 @@ function Dropdown({
     switch (event.key) {
       case "Escape": {
         setVisible(false);
-        dropdownContainerRef.current.blur();
         break;
       }
     }
