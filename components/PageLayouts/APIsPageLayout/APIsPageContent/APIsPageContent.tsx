@@ -25,7 +25,11 @@ function APIsPageContent({
   const router = useRouter();
   const { docVersion } = useDocVersionContext();
   const handleMenuItemClick = (item: DropdownMenuItem) => {
-    router.push(getUrlWithVersion(item.value, docVersion));
+    if (item.value.startsWith("/")) {
+      router.push(getUrlWithVersion(item.value, docVersion));
+    } else {
+      window.open(item.value, "_blank").focus();
+    }
   };
 
   return (
@@ -34,7 +38,7 @@ function APIsPageContent({
         <Dropdown
           alignX="right"
           className={styles.APIRefContainer}
-          name="SDKs reference"
+          name="APIs & SDKs"
           popupContent={
             <DropdownMenu
               items={API_AND_SDK_MENU_ITEMS.filter(

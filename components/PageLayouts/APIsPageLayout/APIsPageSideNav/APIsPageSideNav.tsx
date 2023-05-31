@@ -1,7 +1,6 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { ReactComponent as SearchIcon } from "../../../../images/icons/search.svg";
 import { ReactComponent as OmLogo } from "../../../../images/icons/om-monogram.svg";
-import APILeftPanelHeadings from "../../../APILeftPanelHeadings/APILeftPanelHeadings";
 import {
   createNestedNodeStructure,
   getUrlWithVersion,
@@ -11,6 +10,7 @@ import styles from "./APIsPageSideNav.module.css";
 import APISearchModal from "../../../modals/APISearchModal/APISearchModal";
 import Link from "next/link";
 import { useDocVersionContext } from "../../../../context/DocVersionContext";
+import APILeftPanelItem from "../../../APILeftPanelItem/APILeftPanelItem";
 
 export interface HeadingObject {
   label: string;
@@ -23,6 +23,7 @@ interface APIsPageSideNavProps {
   pageInfoObject: {
     label: string;
     value: string;
+    category?: string;
   };
 }
 
@@ -95,6 +96,9 @@ function APIsPageSideNav({ pageInfoObject }: APIsPageSideNavProps) {
       >
         <OmLogo className={styles.OpenMetadataLogo} />
         <span className={styles.Api}>{pageInfoObject.label}</span>
+        {pageInfoObject.category && (
+          <span className={styles.Api}>{pageInfoObject.category}</span>
+        )}
       </Link>
       <div className={styles.Search} onClick={handleSearchClick}>
         <div className="flex items-center gap-2">
@@ -103,7 +107,12 @@ function APIsPageSideNav({ pageInfoObject }: APIsPageSideNavProps) {
         </div>
         <div className={styles.HotKeyContainer}>/</div>
       </div>
-      <APILeftPanelHeadings headingObjects={nestedHeadings} />
+      {nestedHeadings.map((headingObject) => (
+        <APILeftPanelItem
+          headingObject={headingObject}
+          key={`${headingObject.label}-${headingObject.level}`}
+        />
+      ))}
       {searchModalVisibility && (
         <APISearchModal handleMaskClick={handleMaskClick} />
       )}

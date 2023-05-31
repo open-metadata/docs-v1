@@ -23,7 +23,11 @@ export default function CategoriesNav({ menu }: Props) {
   const category = getCategoryByIndex(router.asPath, 2) ?? "";
 
   const handleMenuItemClick = (item: DropdownMenuItem) => {
-    router.push(getUrlWithVersion(item.value, docVersion));
+    if (item.value.startsWith("/")) {
+      router.push(getUrlWithVersion(item.value, docVersion));
+    } else {
+      window.open(item.value, "_blank").focus();
+    }
   };
 
   return (
@@ -55,7 +59,7 @@ export default function CategoriesNav({ menu }: Props) {
         <Dropdown
           alignX="right"
           className={styles.APIContainer}
-          name="SDKs"
+          name="APIs & SDKs"
           popupContent={
             <DropdownMenu
               items={API_AND_SDK_MENU_ITEMS}

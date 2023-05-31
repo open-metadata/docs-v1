@@ -1,5 +1,5 @@
 export const API_AND_SDK_MENU_ITEMS = [
-  { label: "SDK", value: "/sdk" },
-  { label: "Python SDK", value: "/python-sdk" },
-  { label: "Java SDK", value: "/java-sdk" },
+  { label: "REST API", value: "https://sandbox.open-metadata.org/docs" },
+  { label: "Python", value: "/python-sdk", category: "SDK" },
+  { label: "Java", value: "/java-sdk", category: "SDK" },
 ];

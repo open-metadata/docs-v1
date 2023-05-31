@@ -1,9 +1,9 @@
 import React, { useCallback, useMemo } from "react";
 import { isEmpty } from "lodash";
-import styles from "./APILeftPanelHeadings.module.css";
 import { HeadingObject } from "../PageLayouts/APIsPageLayout/APIsPageSideNav/APIsPageSideNav";
 import classNames from "classnames";
 import { useAPIElementInViewContext } from "../../context/APIElementInViewContext";
+import styles from "./APILeftPanelItem.module.css";
 
 interface APILeftPanelItemProps {
   headingObject: HeadingObject;
