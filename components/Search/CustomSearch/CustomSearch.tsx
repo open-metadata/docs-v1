@@ -94,6 +94,7 @@ function CustomSearch({
     <input
       className={styles.Input}
       placeholder="Search"
+      id="search-input"
       ref={searchInputRef}
       value={searchValue}
       onChange={handleSearchValueChange}
