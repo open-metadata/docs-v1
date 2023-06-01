@@ -16,11 +16,11 @@ export function Heading({ id = "", level = 1, children, className }) {
 
   return (
     <>
-      <a id={id} className={styles.HashLink} />
       <HeadingElement
         className={classNames(className, styles.HeaderLink)}
         level={level}
       >
+        <a id={id} className={styles.HashLink} />
         {children}
         {copied ? (
           <span className={styles.CopiedText}>Copied</span>

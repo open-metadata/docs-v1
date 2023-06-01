@@ -1,0 +1,20 @@
+.Content {
+  scroll-padding-top: 40px;
+}
+
+.Content > article > * {
+  padding-left: 72px;
+  padding-right: 72px;
+}
+
+.TopNavContainer {
+  padding: 20px 72px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  font-size: 14px;
+}
+
+.APIRefContainer {
+  color: var(--primary-color);
+}

@@ -29,6 +29,9 @@ import * as allTags from "../markdoc/tags";
 import * as allNodes from "../markdoc/nodes";
 import * as allFunctions from "../markdoc/functions";
 import { Config, ConfigFunction, NodeType, Schema } from "@markdoc/markdoc";
+import APIsInfoContainer from "../components/APIsInfoContainer/APIsInfoContainer";
+import APIDescription from "../components/APIsInfoContainer/APIDescription/APIDescription";
+import APIVisualInfo from "../components/APIsInfoContainer/APIVisualInfo/APIVisualInfo";
 
 const tags = allTags as unknown as Record<string, Schema>;
 const nodes = allNodes as unknown as Partial<Record<NodeType, Schema>>;
@@ -61,6 +64,9 @@ export const components = {
   Table,
   Icon,
   MultiTablesWrapper,
+  APIsInfoContainer,
+  APIDescription,
+  APIVisualInfo,
 };
 
 export const configs: Config = {

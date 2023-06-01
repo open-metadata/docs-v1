@@ -65,6 +65,10 @@ A container tag to enclose all the code chunks you will write for each steps giv
 1. fileName (type - String)
    This is an optional argument. Pass the name of the file in which the code given inside the `codeBlock` tag is supposed to be.
 
+1. theme (type - String)
+   This is an optional argument to choose the color theme for the code block.
+   Available options are 'gray', 'light' and 'default'
+
 #### code/fence node (```)
 
 Please make sure to pass an argument **srNumber** to the code node to link with the respective codeInfo section. This will determine which code block to highlight for which codeInfo section.
@@ -221,6 +225,62 @@ caption="step2 caption" /%}
 ##### Here's the preview of the Stepper functionality
 
 <img width="2032" alt="steps-component-gif" src="./public/steps-component.gif">
+
+## APIs & SDKs page tags
+
+### 1. apisInfoContainer
+
+A container tag to envelop "apiVisualInfo" and "apiDescription" tags
+
+### 1. apiVisualInfo
+
+A tag to display visual information about APIs. May contain an Image or a code block.
+
+### 1. apiDescription
+
+A tag to show description about the API.
+
+Example:
+
+{% apisInfoContainer %}
+
+{% apiDescription %}
+
+API description 1
+
+{% /apiDescription %}
+
+{% apiVisualInfo %}
+
+{% codeBlock fileName="API1" theme="gray" %}
+\`\`\`
+Code for API 1
+\`\`\`
+{% /codeBlock %}
+
+{% /apiVisualInfo %}
+
+{% apiDescription %}
+
+API description 2
+
+{% /apiDescription %}
+
+{% apiVisualInfo %}
+
+
+{% codeBlock fileName="API2" theme="gray" %}
+\`\`\`
+Code for API 2
+\`\`\`
+{% /codeBlock %}
+
+
+{% /apiVisualInfo %}
+
+{% /apisInfoContainer %}
+
+<img width="2032" alt="api-page-tags" src="./public/api-page-tags.png">
 
 ## Other Tags
 
