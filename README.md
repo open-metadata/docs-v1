@@ -1,3 +1,13 @@
+# How to run locally?
+
+1. Clone the repository 
+2. Run `yarn` to install all the required packages.
+3. Run `yarn dev` to start server for development mode.
+
+# Change the default version
+
+Refer [this](https://github.com/open-metadata/docs-v1/pull/135) PR to change the default version for the `version selector` on the top navigation bar
+
 # Docs with Markdoc
 
 To add content to the docs use markdown files. Some custom markdoc tags are listed below for adding content with predefined styling.
