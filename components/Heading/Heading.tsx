@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import React, { useState } from "react";
+import { useState } from "react";
 import styles from "./Heading.module.css";
 import HeadingElement from "./HeadingElement";
 
@@ -21,11 +21,15 @@ export function Heading({ id = "", level = 1, children, className }) {
         level={level}
       >
         <a id={id} className={styles.HashLink} />
-        {children}
+        <span>{children}</span>
         {copied ? (
           <span className={styles.CopiedText}>Copied</span>
         ) : (
-          <span className={styles.Icon} onClick={copyLinkUnbound}>
+          <span
+            className={styles.Icon}
+            title="Copy Link"
+            onClick={copyLinkUnbound}
+          >
             <svg
               width="14"
               height="17"
