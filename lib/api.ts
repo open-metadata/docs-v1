@@ -133,9 +133,9 @@ export const getPartialsConfigObject = () => {
     const allPartials = getAllFilesInDirectory(PARTIALS_DIRECTORY);
     const partialsObject: Record<string, string> = {};
     allPartials.forEach((partialPath) => {
-      const fileName = partialPath.split("/").pop();
+      const filePath = partialPath.split(PARTIALS_DIRECTORY).pop();
       const fileContent = fs.readFileSync(partialPath, "utf8");
-      partialsObject[fileName] = fileContent;
+      partialsObject[filePath] = fileContent;
     });
 
     return partialsObject;
