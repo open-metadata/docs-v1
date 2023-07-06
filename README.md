@@ -1,3 +1,13 @@
+# How to run locally?
+
+1. Clone the repository 
+2. Run `yarn` to install all the required packages.
+3. Run `yarn dev` to start server for development mode.
+
+# Change the default version
+
+Refer [this](https://github.com/open-metadata/docs-v1/pull/135) PR to change the default version for the `version selector` on the top navigation bar
+
 # Docs with Markdoc
 
 To add content to the docs use markdown files. Some custom markdoc tags are listed below for adding content with predefined styling.
@@ -291,8 +301,8 @@ The partial tag helps in reducing the repetition in the content. If a set of lin
 
 #### Steps to use
 
-1. Add the repeating content in a file inside **"content/partials"** folder.
-Lets say you created a file names 'test.md' with content -
+1. Add the repeating content in a file inside **"content/partials"** folder. You can also add nested structure inside the "partials" folder.
+Lets say you created a file named 'test.md' inside a path `content/partials/folder1/folder2` with content -
 
 ```
 ### repeating line
@@ -306,7 +316,7 @@ This is the repeating line 2
 ```
 # This is the parent file
 
-{% partial file="test.md" /%}
+{% partial file="/folder1/folder2/test.md" /%}
 
 and some other content
 ```
