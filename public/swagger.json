@@ -12,7 +12,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0"
     },
-    "version": "1.0.0-alpha"
+    "version": "1.1.0"
   },
   "servers": [
     {
@@ -199,8 +199,8 @@
             "description": "Include all, deleted, or non-deleted entities.",
             "schema": {
               "type": "string",
-              "default": "non-deleted",
-              "enum": ["all", "deleted", "non-deleted"]
+              "enum": ["all", "deleted", "non-deleted"],
+              "default": "non-deleted"
             }
           }
         ],
@@ -300,8 +300,8 @@
             "description": "Include all, deleted, or non-deleted entities.",
             "schema": {
               "type": "string",
-              "default": "non-deleted",
-              "enum": ["all", "deleted", "non-deleted"]
+              "enum": ["all", "deleted", "non-deleted"],
+              "default": "non-deleted"
             }
           }
         ],
@@ -397,8 +397,8 @@
             "in": "query",
             "schema": {
               "type": "string",
-              "default": "non-deleted",
-              "enum": ["all", "deleted", "non-deleted"]
+              "enum": ["all", "deleted", "non-deleted"],
+              "default": "non-deleted"
             }
           },
           {
@@ -641,8 +641,8 @@
             "description": "Include all, deleted, or non-deleted entities.",
             "schema": {
               "type": "string",
-              "default": "non-deleted",
-              "enum": ["all", "deleted", "non-deleted"]
+              "enum": ["all", "deleted", "non-deleted"],
+              "default": "non-deleted"
             }
           }
         ],
@@ -748,8 +748,8 @@
             "description": "Include all, deleted, or non-deleted entities.",
             "schema": {
               "type": "string",
-              "default": "non-deleted",
-              "enum": ["all", "deleted", "non-deleted"]
+              "enum": ["all", "deleted", "non-deleted"],
+              "default": "non-deleted"
             }
           }
         ],
@@ -865,8 +865,8 @@
             "description": "Include all, deleted, or non-deleted entities.",
             "schema": {
               "type": "string",
-              "default": "non-deleted",
-              "enum": ["all", "deleted", "non-deleted"]
+              "enum": ["all", "deleted", "non-deleted"],
+              "default": "non-deleted"
             }
           }
         ],
@@ -1134,6 +1134,14 @@
             }
           },
           {
+            "name": "disabled",
+            "in": "query",
+            "description": "Filter Disabled Classifications",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
             "name": "limit",
             "in": "query",
             "description": "Limit the number classifications returned. (1 to 1000000, default = 10) ",
@@ -1167,8 +1175,8 @@
             "description": "Include all, deleted, or non-deleted entities.",
             "schema": {
               "type": "string",
-              "default": "non-deleted",
-              "enum": ["all", "deleted", "non-deleted"]
+              "enum": ["all", "deleted", "non-deleted"],
+              "default": "non-deleted"
             }
           }
         ],
@@ -1270,8 +1278,8 @@
             "description": "Include all, deleted, or non-deleted entities.",
             "schema": {
               "type": "string",
-              "default": "non-deleted",
-              "enum": ["all", "deleted", "non-deleted"]
+              "enum": ["all", "deleted", "non-deleted"],
+              "default": "non-deleted"
             }
           }
         ],
@@ -1387,8 +1395,8 @@
             "description": "Include all, deleted, or non-deleted entities.",
             "schema": {
               "type": "string",
-              "default": "non-deleted",
-              "enum": ["all", "deleted", "non-deleted"]
+              "enum": ["all", "deleted", "non-deleted"],
+              "default": "non-deleted"
             }
           }
         ],
@@ -1640,8 +1648,8 @@
             "description": "Include all, deleted, or non-deleted entities.",
             "schema": {
               "type": "string",
-              "default": "non-deleted",
-              "enum": ["all", "deleted", "non-deleted"]
+              "enum": ["all", "deleted", "non-deleted"],
+              "default": "non-deleted"
             }
           }
         ],
@@ -1749,8 +1757,8 @@
             "description": "Include all, deleted, or non-deleted entities.",
             "schema": {
               "type": "string",
-              "default": "non-deleted",
-              "enum": ["all", "deleted", "non-deleted"]
+              "enum": ["all", "deleted", "non-deleted"],
+              "default": "non-deleted"
             }
           }
         ],
@@ -1865,8 +1873,8 @@
             "description": "Include all, deleted, or non-deleted entities.",
             "schema": {
               "type": "string",
-              "default": "non-deleted",
-              "enum": ["all", "deleted", "non-deleted"]
+              "enum": ["all", "deleted", "non-deleted"],
+              "default": "non-deleted"
             }
           }
         ],
@@ -2182,8 +2190,8 @@
             "description": "Include all, deleted, or non-deleted entities.",
             "schema": {
               "type": "string",
-              "default": "non-deleted",
-              "enum": ["all", "deleted", "non-deleted"]
+              "enum": ["all", "deleted", "non-deleted"],
+              "default": "non-deleted"
             }
           }
         ],
@@ -2289,8 +2297,8 @@
             "description": "Include all, deleted, or non-deleted entities.",
             "schema": {
               "type": "string",
-              "default": "non-deleted",
-              "enum": ["all", "deleted", "non-deleted"]
+              "enum": ["all", "deleted", "non-deleted"],
+              "default": "non-deleted"
             }
           }
         ],
@@ -2406,8 +2414,8 @@
             "description": "Include all, deleted, or non-deleted entities.",
             "schema": {
               "type": "string",
-              "default": "non-deleted",
-              "enum": ["all", "deleted", "non-deleted"]
+              "enum": ["all", "deleted", "non-deleted"],
+              "default": "non-deleted"
             }
           }
         ],
@@ -2717,8 +2725,8 @@
             "description": "Include all, deleted, or non-deleted entities.",
             "schema": {
               "type": "string",
-              "default": "non-deleted",
-              "enum": ["all", "deleted", "non-deleted"]
+              "enum": ["all", "deleted", "non-deleted"],
+              "default": "non-deleted"
             }
           }
         ],
@@ -2827,8 +2835,8 @@
             "description": "Include all, deleted, or non-deleted entities.",
             "schema": {
               "type": "string",
-              "default": "non-deleted",
-              "enum": ["all", "deleted", "non-deleted"]
+              "enum": ["all", "deleted", "non-deleted"],
+              "default": "non-deleted"
             }
           }
         ],
@@ -2944,8 +2952,8 @@
             "description": "Include all, deleted, or non-deleted entities.",
             "schema": {
               "type": "string",
-              "default": "non-deleted",
-              "enum": ["all", "deleted", "non-deleted"]
+              "enum": ["all", "deleted", "non-deleted"],
+              "default": "non-deleted"
             }
           }
         ],
@@ -3200,7 +3208,7 @@
       "get": {
         "tags": ["Test Cases"],
         "summary": "List test cases",
-        "description": "Get a list of test. Use `fields` parameter to get only necessary fields. Use cursor-based pagination to limit the number entries in the list using `limit` and `before` or `after` query params.",
+        "description": "Get a list of test. Use `fields` parameter to get only necessary fields. Use cursor-based pagination to limit the number entries in the list using `limit` and `before` or `after` query params.Use the `testSuite` field to get the executable Test Suite linked to this test case or use the `testSuites` field to list test suites (executable and logical) linked.",
         "operationId": "listTestCases",
         "parameters": [
           {
@@ -3209,7 +3217,7 @@
             "description": "Fields requested in the returned resource",
             "schema": {
               "type": "string",
-              "example": "owner,testSuite,testDefinition"
+              "example": "owner,testSuite,testDefinition,testSuites"
             }
           },
           {
@@ -3272,8 +3280,8 @@
             "description": "Include all, deleted, or non-deleted entities.",
             "schema": {
               "type": "string",
-              "default": "non-deleted",
-              "enum": ["all", "deleted", "non-deleted"]
+              "enum": ["all", "deleted", "non-deleted"],
+              "default": "non-deleted"
             }
           }
         ],
@@ -3348,6 +3356,102 @@
         }
       }
     },
+    "/v1/dataQuality/testCases/executionSummary": {
+      "get": {
+        "tags": ["Test Cases"],
+        "summary": "Get the execution summary of test cases",
+        "description": "Get the execution summary of test cases.",
+        "operationId": "getExecutionSummaryOfTestCases",
+        "parameters": [
+          {
+            "name": "testSuiteId",
+            "in": "query",
+            "description": "get summary for a specific test suite",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Tests Execution Summary",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TestSummary"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/dataQuality/testCases/logicalTestCases": {
+      "put": {
+        "tags": ["Test Cases"],
+        "summary": "Add test cases to a logical test suite",
+        "description": "Add test cases to a logical test suite.",
+        "operationId": "addTestCasesToLogicalTestSuite",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateLogicalTestCases"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successfully added test cases to the logical test suite.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TestSuite"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/dataQuality/testCases/logicalTestCases/{testSuiteId}/{id}": {
+      "delete": {
+        "tags": ["Test Cases"],
+        "summary": "Delete a logical test case by Id from a test suite",
+        "description": "Delete a logical test case by `Id` a test suite.",
+        "operationId": "deleteLogicalTestCase",
+        "parameters": [
+          {
+            "name": "testSuiteId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Logical test case for instance {id} is not found"
+          }
+        }
+      }
+    },
     "/v1/dataQuality/testCases/name/{fqn}": {
       "get": {
         "tags": ["Test Cases"],
@@ -3370,7 +3474,7 @@
             "description": "Fields requested in the returned resource",
             "schema": {
               "type": "string",
-              "example": "owner,testSuite,testDefinition"
+              "example": "owner,testSuite,testDefinition,testSuites"
             }
           },
           {
@@ -3379,8 +3483,8 @@
             "description": "Include all, deleted, or non-deleted entities.",
             "schema": {
               "type": "string",
-              "default": "non-deleted",
-              "enum": ["all", "deleted", "non-deleted"]
+              "enum": ["all", "deleted", "non-deleted"],
+              "default": "non-deleted"
             }
           }
         ],
@@ -3588,6 +3692,56 @@
             }
           }
         }
+      },
+      "patch": {
+        "tags": ["Test Cases"],
+        "summary": "Update a test case result",
+        "description": "Update an existing test case using JsonPatch.",
+        "externalDocs": {
+          "description": "JsonPatch RFC",
+          "url": "https://tools.ietf.org/html/rfc6902"
+        },
+        "operationId": "patchTestCaseResult",
+        "parameters": [
+          {
+            "name": "fqn",
+            "in": "path",
+            "description": "fqn of the test case",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "timestamp",
+            "in": "path",
+            "description": "Timestamp of the testCase result",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "JsonPatch with array of operations",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "type": "object"
+              },
+              "example": "[{op:remove, path:/a},{op:add, path: /b, value: val}]"
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "description": "default response",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
       }
     },
     "/v1/dataQuality/testCases/{id}": {
@@ -3613,7 +3767,7 @@
             "description": "Fields requested in the returned resource",
             "schema": {
               "type": "string",
-              "example": "owner,testSuite,testDefinition"
+              "example": "owner,testSuite,testDefinition,testSuites"
             }
           },
           {
@@ -3622,8 +3776,8 @@
             "description": "Include all, deleted, or non-deleted entities.",
             "schema": {
               "type": "string",
-              "default": "non-deleted",
-              "enum": ["all", "deleted", "non-deleted"]
+              "enum": ["all", "deleted", "non-deleted"],
+              "default": "non-deleted"
             }
           }
         ],
@@ -3847,8 +4001,8 @@
             "description": "Include all, deleted, or non-deleted entities.",
             "schema": {
               "type": "string",
-              "default": "non-deleted",
-              "enum": ["all", "deleted", "non-deleted"]
+              "enum": ["all", "deleted", "non-deleted"],
+              "default": "non-deleted"
             }
           },
           {
@@ -4056,8 +4210,8 @@
             "description": "Include all, deleted, or non-deleted entities.",
             "schema": {
               "type": "string",
-              "default": "non-deleted",
-              "enum": ["all", "deleted", "non-deleted"]
+              "enum": ["all", "deleted", "non-deleted"],
+              "default": "non-deleted"
             }
           }
         ],
@@ -4173,8 +4327,8 @@
             "description": "Include all, deleted, or non-deleted entities.",
             "schema": {
               "type": "string",
-              "default": "non-deleted",
-              "enum": ["all", "deleted", "non-deleted"]
+              "enum": ["all", "deleted", "non-deleted"],
+              "default": "non-deleted"
             }
           }
         ],
@@ -4361,7 +4515,7 @@
             "description": "Fields requested in the returned resource",
             "schema": {
               "type": "string",
-              "example": "owner,tests"
+              "example": "owner,tests,summary"
             }
           },
           {
@@ -4374,6 +4528,15 @@
               "type": "integer",
               "format": "int32",
               "default": 10
+            }
+          },
+          {
+            "name": "testSuiteType",
+            "in": "query",
+            "description": "Returns executable or logical test suites. If omitted, returns all test suites.",
+            "schema": {
+              "type": "string",
+              "example": "executable"
             }
           },
           {
@@ -4398,8 +4561,8 @@
             "description": "Include all, deleted, or non-deleted entities.",
             "schema": {
               "type": "string",
-              "default": "non-deleted",
-              "enum": ["all", "deleted", "non-deleted"]
+              "enum": ["all", "deleted", "non-deleted"],
+              "default": "non-deleted"
             }
           }
         ],
@@ -4418,9 +4581,9 @@
       },
       "put": {
         "tags": ["Test Suites"],
-        "summary": "Update test suite",
-        "description": "Create a TestSuite, it it does not exist or update an existing test suite.",
-        "operationId": "createOrUpdateTestSuite",
+        "summary": "Update logical test suite",
+        "description": "Create a logical TestSuite, if it does not exist or update an existing test suite.",
+        "operationId": "createOrUpdateLogicalTestSuite",
         "requestBody": {
           "content": {
             "application/json": {
@@ -4445,9 +4608,9 @@
       },
       "post": {
         "tags": ["Test Suites"],
-        "summary": "Create a test suite",
-        "description": "Create a test suite.",
-        "operationId": "createTestSuite",
+        "summary": "Create a logical test suite",
+        "description": "Create a logical test suite.",
+        "operationId": "createLogicalTestSuite",
         "requestBody": {
           "content": {
             "application/json": {
@@ -4474,45 +4637,51 @@
         }
       }
     },
-    "/v1/dataQuality/testSuites/name/{name}": {
-      "get": {
+    "/v1/dataQuality/testSuites/executable": {
+      "put": {
         "tags": ["Test Suites"],
-        "summary": "Get a test suite by name",
-        "description": "Get a test suite by  name.",
-        "operationId": "getTestSuiteByName",
-        "parameters": [
-          {
-            "name": "name",
-            "in": "path",
-            "description": "Name of the test suite",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "fields",
-            "in": "query",
-            "description": "Fields requested in the returned resource",
-            "schema": {
-              "type": "string",
-              "example": "owner,tests"
-            }
-          },
-          {
-            "name": "include",
-            "in": "query",
-            "description": "Include all, deleted, or non-deleted entities.",
-            "schema": {
-              "type": "string",
-              "default": "non-deleted",
-              "enum": ["all", "deleted", "non-deleted"]
+        "summary": "Create or Update Executable test suite",
+        "description": "Create an Executable TestSuite if it does not exist or update an existing one.",
+        "operationId": "createOrUpdateExecutableTestSuite",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateTestSuite"
+              }
             }
           }
-        ],
+        },
         "responses": {
           "200": {
-            "description": "The test suite",
+            "description": "The updated test definition ",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TestSuite"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": ["Test Suites"],
+        "summary": "Create an executable test suite",
+        "description": "Create an executable test suite.",
+        "operationId": "createExecutableTestSuite",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateTestSuite"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Executable test suite",
             "content": {
               "application/json": {
                 "schema": {
@@ -4521,17 +4690,28 @@
               }
             }
           },
-          "404": {
-            "description": "Test Suite for instance {name} is not found"
+          "400": {
+            "description": "Bad request"
           }
         }
-      },
+      }
+    },
+    "/v1/dataQuality/testSuites/executable/name/{name}": {
       "delete": {
         "tags": ["Test Suites"],
         "summary": "Delete a test suite",
         "description": "Delete a test suite by `name`.",
         "operationId": "deleteTestSuiteByName",
         "parameters": [
+          {
+            "name": "recursive",
+            "in": "query",
+            "description": "Recursively delete this entity and it's children. (Default `false`)",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          },
           {
             "name": "hardDelete",
             "in": "query",
@@ -4557,6 +4737,139 @@
           },
           "404": {
             "description": "Test suite for instance {name} is not found"
+          }
+        }
+      }
+    },
+    "/v1/dataQuality/testSuites/executable/{id}": {
+      "delete": {
+        "tags": ["Test Suites"],
+        "summary": "Delete a test suite",
+        "description": "Delete a test suite by `Id`.",
+        "operationId": "deleteTestSuite",
+        "parameters": [
+          {
+            "name": "recursive",
+            "in": "query",
+            "description": "Recursively delete this entity and it's children. (Default `false`)",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          {
+            "name": "hardDelete",
+            "in": "query",
+            "description": "Hard delete the entity. (Default = `false`)",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Id of the test suite",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Test suite for instance {id} is not found"
+          }
+        }
+      }
+    },
+    "/v1/dataQuality/testSuites/name/{name}": {
+      "get": {
+        "tags": ["Test Suites"],
+        "summary": "Get a test suite by name",
+        "description": "Get a test suite by  name.",
+        "operationId": "getTestSuiteByName",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "description": "Name of the test suite",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "Fields requested in the returned resource",
+            "schema": {
+              "type": "string",
+              "example": "owner,tests,summary"
+            }
+          },
+          {
+            "name": "include",
+            "in": "query",
+            "description": "Include all, deleted, or non-deleted entities.",
+            "schema": {
+              "type": "string",
+              "enum": ["all", "deleted", "non-deleted"],
+              "default": "non-deleted"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The test suite",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TestSuite"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Test Suite for instance {name} is not found"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Test Suites"],
+        "summary": "Delete a logical test suite",
+        "description": "Delete a logical test suite by `name`.",
+        "operationId": "deleteLogicalTestSuite",
+        "parameters": [
+          {
+            "name": "hardDelete",
+            "in": "query",
+            "description": "Hard delete the logical entity. (Default = `false`)",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          {
+            "name": "name",
+            "in": "path",
+            "description": "FQN of the logical test suite",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Logical Test suite for instance {name} is not found"
           }
         }
       }
@@ -4613,7 +4926,7 @@
             "description": "Fields requested in the returned resource",
             "schema": {
               "type": "string",
-              "example": "owner,tests"
+              "example": "owner,tests,summary"
             }
           },
           {
@@ -4622,8 +4935,8 @@
             "description": "Include all, deleted, or non-deleted entities.",
             "schema": {
               "type": "string",
-              "default": "non-deleted",
-              "enum": ["all", "deleted", "non-deleted"]
+              "enum": ["all", "deleted", "non-deleted"],
+              "default": "non-deleted"
             }
           }
         ],
@@ -4645,23 +4958,14 @@
       },
       "delete": {
         "tags": ["Test Suites"],
-        "summary": "Delete a test suite",
-        "description": "Delete a test suite by `Id`.",
-        "operationId": "deleteTestSuite",
+        "summary": "Delete a logical test suite",
+        "description": "Delete a logical test suite by `id`.",
+        "operationId": "deleteLogicalTestSuite_1",
         "parameters": [
-          {
-            "name": "recursive",
-            "in": "query",
-            "description": "Recursively delete this entity and it's children. (Default `false`)",
-            "schema": {
-              "type": "boolean",
-              "default": false
-            }
-          },
           {
             "name": "hardDelete",
             "in": "query",
-            "description": "Hard delete the entity. (Default = `false`)",
+            "description": "Hard delete the logical entity. (Default = `false`)",
             "schema": {
               "type": "boolean",
               "default": false
@@ -4670,7 +4974,7 @@
           {
             "name": "id",
             "in": "path",
-            "description": "Id of the test suite",
+            "description": "Id of the logical test suite",
             "required": true,
             "schema": {
               "type": "string",
@@ -4683,7 +4987,7 @@
             "description": "OK"
           },
           "404": {
-            "description": "Test suite for instance {id} is not found"
+            "description": "Logical test suite for instance {id} is not found"
           }
         }
       },
@@ -4819,7 +5123,7 @@
             "description": "Fields requested in the returned resource",
             "schema": {
               "type": "string",
-              "example": "owner,tables,usageSummary,tags"
+              "example": "owner,tables,usageSummary,tags,extension"
             }
           },
           {
@@ -4865,8 +5169,8 @@
             "description": "Include all, deleted, or non-deleted entities.",
             "schema": {
               "type": "string",
-              "default": "non-deleted",
-              "enum": ["all", "deleted", "non-deleted"]
+              "enum": ["all", "deleted", "non-deleted"],
+              "default": "non-deleted"
             }
           }
         ],
@@ -4963,7 +5267,7 @@
             "description": "Fields requested in the returned resource",
             "schema": {
               "type": "string",
-              "example": "owner,tables,usageSummary,tags"
+              "example": "owner,tables,usageSummary,tags,extension"
             }
           },
           {
@@ -4972,8 +5276,8 @@
             "description": "Include all, deleted, or non-deleted entities.",
             "schema": {
               "type": "string",
-              "default": "non-deleted",
-              "enum": ["all", "deleted", "non-deleted"]
+              "enum": ["all", "deleted", "non-deleted"],
+              "default": "non-deleted"
             }
           }
         ],
@@ -5080,7 +5384,7 @@
             "description": "Fields requested in the returned resource",
             "schema": {
               "type": "string",
-              "example": "owner,tables,usageSummary,tags"
+              "example": "owner,tables,usageSummary,tags,extension"
             }
           },
           {
@@ -5089,8 +5393,8 @@
             "description": "Include all, deleted, or non-deleted entities.",
             "schema": {
               "type": "string",
-              "default": "non-deleted",
-              "enum": ["all", "deleted", "non-deleted"]
+              "enum": ["all", "deleted", "non-deleted"],
+              "default": "non-deleted"
             }
           }
         ],
@@ -5286,7 +5590,7 @@
             "description": "Fields requested in the returned resource",
             "schema": {
               "type": "string",
-              "example": "owner,databaseSchemas,usageSummary,location,tags"
+              "example": "owner,databaseSchemas,usageSummary,location,tags,extension"
             }
           },
           {
@@ -5332,8 +5636,8 @@
             "description": "Include all, deleted, or non-deleted entities.",
             "schema": {
               "type": "string",
-              "default": "non-deleted",
-              "enum": ["all", "deleted", "non-deleted"]
+              "enum": ["all", "deleted", "non-deleted"],
+              "default": "non-deleted"
             }
           }
         ],
@@ -5430,7 +5734,7 @@
             "description": "Fields requested in the returned resource",
             "schema": {
               "type": "string",
-              "example": "owner,databaseSchemas,usageSummary,location,tags"
+              "example": "owner,databaseSchemas,usageSummary,location,tags,extension"
             }
           },
           {
@@ -5439,8 +5743,8 @@
             "description": "Include all, deleted, or non-deleted entities.",
             "schema": {
               "type": "string",
-              "default": "non-deleted",
-              "enum": ["all", "deleted", "non-deleted"]
+              "enum": ["all", "deleted", "non-deleted"],
+              "default": "non-deleted"
             }
           }
         ],
@@ -5547,7 +5851,7 @@
             "description": "Fields requested in the returned resource",
             "schema": {
               "type": "string",
-              "example": "owner,databaseSchemas,usageSummary,location,tags"
+              "example": "owner,databaseSchemas,usageSummary,location,tags,extension"
             }
           },
           {
@@ -5556,8 +5860,8 @@
             "description": "Include all, deleted, or non-deleted entities.",
             "schema": {
               "type": "string",
-              "default": "non-deleted",
-              "enum": ["all", "deleted", "non-deleted"]
+              "enum": ["all", "deleted", "non-deleted"],
+              "default": "non-deleted"
             }
           }
         ],
@@ -5853,8 +6157,8 @@
             "description": "Include all, deleted, or non-deleted entities.",
             "schema": {
               "type": "string",
-              "default": "non-deleted",
-              "enum": ["all", "deleted", "non-deleted"]
+              "enum": ["all", "deleted", "non-deleted"],
+              "default": "non-deleted"
             }
           }
         ],
@@ -5986,8 +6290,8 @@
             "description": "Include all, deleted, or non-deleted entities.",
             "schema": {
               "type": "string",
-              "default": "non-deleted",
-              "enum": ["all", "deleted", "non-deleted"]
+              "enum": ["all", "deleted", "non-deleted"],
+              "default": "non-deleted"
             }
           }
         ],
@@ -6081,10 +6385,38 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/EventSubResourceDescriptorList"
+                  "$ref": "#/components/schemas/ResultListSubscriptionResourceDescriptor"
                 }
               }
             }
+          }
+        }
+      }
+    },
+    "/v1/events/subscriptions/trigger/{id}": {
+      "put": {
+        "tags": ["Events"],
+        "summary": "Trigger a existing Data Insight Report Job to run",
+        "description": "Trigger a existing Data Insight Report Job to run",
+        "operationId": "triggerDataInsightJob",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Id of the event Subscription",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Trigger a Data Insight Job"
+          },
+          "400": {
+            "description": "Bad request"
           }
         }
       }
@@ -6183,8 +6515,8 @@
             "description": "Include all, deleted, or non-deleted entities.",
             "schema": {
               "type": "string",
-              "default": "non-deleted",
-              "enum": ["all", "deleted", "non-deleted"]
+              "enum": ["all", "deleted", "non-deleted"],
+              "default": "non-deleted"
             }
           }
         ],
@@ -7016,8 +7348,8 @@
             "description": "Include all, deleted, or non-deleted entities.",
             "schema": {
               "type": "string",
-              "default": "non-deleted",
-              "enum": ["all", "deleted", "non-deleted"]
+              "enum": ["all", "deleted", "non-deleted"],
+              "default": "non-deleted"
             }
           }
         ],
@@ -7156,8 +7488,8 @@
             "description": "Include all, deleted, or non-deleted entities.",
             "schema": {
               "type": "string",
-              "default": "non-deleted",
-              "enum": ["all", "deleted", "non-deleted"]
+              "enum": ["all", "deleted", "non-deleted"],
+              "default": "non-deleted"
             }
           }
         ],
@@ -7351,8 +7683,8 @@
             "description": "Include all, deleted, or non-deleted entities.",
             "schema": {
               "type": "string",
-              "default": "non-deleted",
-              "enum": ["all", "deleted", "non-deleted"]
+              "enum": ["all", "deleted", "non-deleted"],
+              "default": "non-deleted"
             }
           }
         ],
@@ -7603,8 +7935,8 @@
             "description": "Include all, deleted, or non-deleted entities.",
             "schema": {
               "type": "string",
-              "default": "non-deleted",
-              "enum": ["all", "deleted", "non-deleted"]
+              "enum": ["all", "deleted", "non-deleted"],
+              "default": "non-deleted"
             }
           }
         ],
@@ -7713,8 +8045,8 @@
             "description": "Include all, deleted, or non-deleted entities.",
             "schema": {
               "type": "string",
-              "default": "non-deleted",
-              "enum": ["all", "deleted", "non-deleted"]
+              "enum": ["all", "deleted", "non-deleted"],
+              "default": "non-deleted"
             }
           }
         ],
@@ -7830,8 +8162,8 @@
             "description": "Include all, deleted, or non-deleted entities.",
             "schema": {
               "type": "string",
-              "default": "non-deleted",
-              "enum": ["all", "deleted", "non-deleted"]
+              "enum": ["all", "deleted", "non-deleted"],
+              "default": "non-deleted"
             }
           }
         ],
@@ -8375,8 +8707,8 @@
             "description": "Include all, deleted, or non-deleted entities.",
             "schema": {
               "type": "string",
-              "default": "non-deleted",
-              "enum": ["all", "deleted", "non-deleted"]
+              "enum": ["all", "deleted", "non-deleted"],
+              "default": "non-deleted"
             }
           }
         ],
@@ -8454,8 +8786,8 @@
             "description": "Include all, deleted, or non-deleted entities.",
             "schema": {
               "type": "string",
-              "default": "non-deleted",
-              "enum": ["all", "deleted", "non-deleted"]
+              "enum": ["all", "deleted", "non-deleted"],
+              "default": "non-deleted"
             }
           }
         ],
@@ -8805,8 +9137,8 @@
             "description": "Include all, deleted, or non-deleted entities.",
             "schema": {
               "type": "string",
-              "default": "non-deleted",
-              "enum": ["all", "deleted", "non-deleted"]
+              "enum": ["all", "deleted", "non-deleted"],
+              "default": "non-deleted"
             }
           }
         ],
@@ -8886,8 +9218,8 @@
             "description": "Include all, deleted, or non-deleted entities.",
             "schema": {
               "type": "string",
-              "default": "non-deleted",
-              "enum": ["all", "deleted", "non-deleted"]
+              "enum": ["all", "deleted", "non-deleted"],
+              "default": "non-deleted"
             }
           }
         ],
@@ -8996,8 +9328,8 @@
             "description": "Include all, deleted, or non-deleted entities.",
             "schema": {
               "type": "string",
-              "default": "non-deleted",
-              "enum": ["all", "deleted", "non-deleted"]
+              "enum": ["all", "deleted", "non-deleted"],
+              "default": "non-deleted"
             }
           }
         ],
@@ -9113,8 +9445,8 @@
             "description": "Include all, deleted, or non-deleted entities.",
             "schema": {
               "type": "string",
-              "default": "non-deleted",
-              "enum": ["all", "deleted", "non-deleted"]
+              "enum": ["all", "deleted", "non-deleted"],
+              "default": "non-deleted"
             }
           }
         ],
@@ -9588,7 +9920,7 @@
             "description": "Fields requested in the returned resource",
             "schema": {
               "type": "string",
-              "example": "owner,tasks,pipelineStatus,followers,tags,extension"
+              "example": "owner,tasks,pipelineStatus,followers,tags,extension,scheduleInterval"
             }
           },
           {
@@ -9634,8 +9966,8 @@
             "description": "Include all, deleted, or non-deleted entities.",
             "schema": {
               "type": "string",
-              "default": "non-deleted",
-              "enum": ["all", "deleted", "non-deleted"]
+              "enum": ["all", "deleted", "non-deleted"],
+              "default": "non-deleted"
             }
           }
         ],
@@ -9735,7 +10067,7 @@
             "description": "Fields requested in the returned resource",
             "schema": {
               "type": "string",
-              "example": "owner,tasks,pipelineStatus,followers,tags,extension"
+              "example": "owner,tasks,pipelineStatus,followers,tags,extension,scheduleInterval"
             }
           },
           {
@@ -9744,8 +10076,8 @@
             "description": "Include all, deleted, or non-deleted entities.",
             "schema": {
               "type": "string",
-              "default": "non-deleted",
-              "enum": ["all", "deleted", "non-deleted"]
+              "enum": ["all", "deleted", "non-deleted"],
+              "default": "non-deleted"
             }
           }
         ],
@@ -9886,7 +10218,7 @@
           {
             "name": "fqn",
             "in": "path",
-            "description": "Id of the pipeline",
+            "description": "Fully qualified name of the pipeline",
             "required": true,
             "schema": {
               "type": "string"
@@ -9983,7 +10315,7 @@
             "description": "Fields requested in the returned resource",
             "schema": {
               "type": "string",
-              "example": "owner,tasks,pipelineStatus,followers,tags,extension"
+              "example": "owner,tasks,pipelineStatus,followers,tags,extension,scheduleInterval"
             }
           },
           {
@@ -9992,8 +10324,8 @@
             "description": "Include all, deleted, or non-deleted entities.",
             "schema": {
               "type": "string",
-              "default": "non-deleted",
-              "enum": ["all", "deleted", "non-deleted"]
+              "enum": ["all", "deleted", "non-deleted"],
+              "default": "non-deleted"
             }
           }
         ],
@@ -10304,8 +10636,8 @@
             "description": "Include all, deleted, or non-deleted entities.",
             "schema": {
               "type": "string",
-              "default": "non-deleted",
-              "enum": ["all", "deleted", "non-deleted"]
+              "enum": ["all", "deleted", "non-deleted"],
+              "default": "non-deleted"
             }
           }
         ],
@@ -10434,8 +10766,8 @@
             "description": "Include all, deleted, or non-deleted entities.",
             "schema": {
               "type": "string",
-              "default": "non-deleted",
-              "enum": ["all", "deleted", "non-deleted"]
+              "enum": ["all", "deleted", "non-deleted"],
+              "default": "non-deleted"
             }
           }
         ],
@@ -10598,8 +10930,8 @@
             "description": "Include all, deleted, or non-deleted entities.",
             "schema": {
               "type": "string",
-              "default": "non-deleted",
-              "enum": ["all", "deleted", "non-deleted"]
+              "enum": ["all", "deleted", "non-deleted"],
+              "default": "non-deleted"
             }
           }
         ],
@@ -10832,8 +11164,8 @@
             "description": "Include all, deleted, or non-deleted entities.",
             "schema": {
               "type": "string",
-              "default": "non-deleted",
-              "enum": ["all", "deleted", "non-deleted"]
+              "enum": ["all", "deleted", "non-deleted"],
+              "default": "non-deleted"
             }
           }
         ],
@@ -10942,8 +11274,8 @@
             "description": "Include all, deleted, or non-deleted entities.",
             "schema": {
               "type": "string",
-              "default": "non-deleted",
-              "enum": ["all", "deleted", "non-deleted"]
+              "enum": ["all", "deleted", "non-deleted"],
+              "default": "non-deleted"
             }
           }
         ],
@@ -11050,8 +11382,8 @@
             "description": "Include all, deleted, or non-deleted entities.",
             "schema": {
               "type": "string",
-              "default": "non-deleted",
-              "enum": ["all", "deleted", "non-deleted"]
+              "enum": ["all", "deleted", "non-deleted"],
+              "default": "non-deleted"
             }
           }
         ],
@@ -11556,8 +11888,8 @@
             "description": "Include all, deleted, or non-deleted entities.",
             "schema": {
               "type": "string",
-              "default": "non-deleted",
-              "enum": ["all", "deleted", "non-deleted"]
+              "enum": ["all", "deleted", "non-deleted"],
+              "default": "non-deleted"
             }
           }
         ],
@@ -11637,8 +11969,8 @@
             "description": "Include all, deleted, or non-deleted entities.",
             "schema": {
               "type": "string",
-              "default": "non-deleted",
-              "enum": ["all", "deleted", "non-deleted"]
+              "enum": ["all", "deleted", "non-deleted"],
+              "default": "non-deleted"
             }
           }
         ],
@@ -11747,8 +12079,8 @@
             "description": "Include all, deleted, or non-deleted entities.",
             "schema": {
               "type": "string",
-              "default": "non-deleted",
-              "enum": ["all", "deleted", "non-deleted"]
+              "enum": ["all", "deleted", "non-deleted"],
+              "default": "non-deleted"
             }
           }
         ],
@@ -11864,8 +12196,8 @@
             "description": "Include all, deleted, or non-deleted entities.",
             "schema": {
               "type": "string",
-              "default": "non-deleted",
-              "enum": ["all", "deleted", "non-deleted"]
+              "enum": ["all", "deleted", "non-deleted"],
+              "default": "non-deleted"
             }
           }
         ],
@@ -12095,6 +12427,32 @@
         }
       }
     },
+    "/v1/search/mappings": {
+      "get": {
+        "tags": ["Search"],
+        "summary": "Get Search Mapping Schema",
+        "description": "Get Search Mapping Schema",
+        "operationId": "getSearchMappingSchema",
+        "parameters": [
+          {
+            "name": "entityType",
+            "in": "query",
+            "description": "List of Entities to get schema for",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
+      }
+    },
     "/v1/search/query": {
       "get": {
         "tags": ["Search"],
@@ -12165,8 +12523,7 @@
             "description": "Sort order asc for ascending or desc for descending, defaults to desc",
             "schema": {
               "type": "string",
-              "default": "desc",
-              "enum": ["asc", "desc"]
+              "default": "desc"
             }
           },
           {
@@ -12231,7 +12588,7 @@
     },
     "/v1/search/reindex": {
       "get": {
-        "tags": ["search", "Search"],
+        "tags": ["Search"],
         "summary": "Get all reindex batch jobs",
         "description": "Get all reindex batch jobs",
         "operationId": "getAllReindexBatchJobs",
@@ -12423,8 +12780,8 @@
             "name": "deleted",
             "in": "query",
             "schema": {
-              "type": "string",
-              "default": "false"
+              "type": "boolean",
+              "default": false
             }
           }
         ],
@@ -12498,8 +12855,8 @@
             "description": "Include all, deleted, or non-deleted entities.",
             "schema": {
               "type": "string",
-              "default": "non-deleted",
-              "enum": ["all", "deleted", "non-deleted"]
+              "enum": ["all", "deleted", "non-deleted"],
+              "default": "non-deleted"
             }
           }
         ],
@@ -12608,8 +12965,8 @@
             "description": "Include all, deleted, or non-deleted entities.",
             "schema": {
               "type": "string",
-              "default": "non-deleted",
-              "enum": ["all", "deleted", "non-deleted"]
+              "enum": ["all", "deleted", "non-deleted"],
+              "default": "non-deleted"
             }
           }
         ],
@@ -12725,8 +13082,8 @@
             "description": "Include all, deleted, or non-deleted entities.",
             "schema": {
               "type": "string",
-              "default": "non-deleted",
-              "enum": ["all", "deleted", "non-deleted"]
+              "enum": ["all", "deleted", "non-deleted"],
+              "default": "non-deleted"
             }
           }
         ],
@@ -12999,8 +13356,8 @@
             "description": "Include all, deleted, or non-deleted entities.",
             "schema": {
               "type": "string",
-              "default": "non-deleted",
-              "enum": ["all", "deleted", "non-deleted"]
+              "enum": ["all", "deleted", "non-deleted"],
+              "default": "non-deleted"
             }
           }
         ],
@@ -13109,8 +13466,8 @@
             "description": "Include all, deleted, or non-deleted entities.",
             "schema": {
               "type": "string",
-              "default": "non-deleted",
-              "enum": ["all", "deleted", "non-deleted"]
+              "enum": ["all", "deleted", "non-deleted"],
+              "default": "non-deleted"
             }
           }
         ],
@@ -13226,8 +13583,8 @@
             "description": "Include all, deleted, or non-deleted entities.",
             "schema": {
               "type": "string",
-              "default": "non-deleted",
-              "enum": ["all", "deleted", "non-deleted"]
+              "enum": ["all", "deleted", "non-deleted"],
+              "default": "non-deleted"
             }
           }
         ],
@@ -13501,8 +13858,8 @@
             "description": "Include all, deleted, or non-deleted entities.",
             "schema": {
               "type": "string",
-              "default": "non-deleted",
-              "enum": ["all", "deleted", "non-deleted"]
+              "enum": ["all", "deleted", "non-deleted"],
+              "default": "non-deleted"
             }
           }
         ],
@@ -13611,8 +13968,8 @@
             "description": "Include all, deleted, or non-deleted entities.",
             "schema": {
               "type": "string",
-              "default": "non-deleted",
-              "enum": ["all", "deleted", "non-deleted"]
+              "enum": ["all", "deleted", "non-deleted"],
+              "default": "non-deleted"
             }
           }
         ],
@@ -13728,8 +14085,8 @@
             "description": "Include all, deleted, or non-deleted entities.",
             "schema": {
               "type": "string",
-              "default": "non-deleted",
-              "enum": ["all", "deleted", "non-deleted"]
+              "enum": ["all", "deleted", "non-deleted"],
+              "default": "non-deleted"
             }
           }
         ],
@@ -14002,8 +14359,8 @@
             "description": "Include all, deleted, or non-deleted entities.",
             "schema": {
               "type": "string",
-              "default": "non-deleted",
-              "enum": ["all", "deleted", "non-deleted"]
+              "enum": ["all", "deleted", "non-deleted"],
+              "default": "non-deleted"
             }
           }
         ],
@@ -14112,8 +14469,8 @@
             "description": "Include all, deleted, or non-deleted entities.",
             "schema": {
               "type": "string",
-              "default": "non-deleted",
-              "enum": ["all", "deleted", "non-deleted"]
+              "enum": ["all", "deleted", "non-deleted"],
+              "default": "non-deleted"
             }
           }
         ],
@@ -14229,8 +14586,8 @@
             "description": "Include all, deleted, or non-deleted entities.",
             "schema": {
               "type": "string",
-              "default": "non-deleted",
-              "enum": ["all", "deleted", "non-deleted"]
+              "enum": ["all", "deleted", "non-deleted"],
+              "default": "non-deleted"
             }
           }
         ],
@@ -14504,8 +14861,8 @@
             "description": "Include all, deleted, or non-deleted entities.",
             "schema": {
               "type": "string",
-              "default": "non-deleted",
-              "enum": ["all", "deleted", "non-deleted"]
+              "enum": ["all", "deleted", "non-deleted"],
+              "default": "non-deleted"
             }
           }
         ],
@@ -14614,8 +14971,8 @@
             "description": "Include all, deleted, or non-deleted entities.",
             "schema": {
               "type": "string",
-              "default": "non-deleted",
-              "enum": ["all", "deleted", "non-deleted"]
+              "enum": ["all", "deleted", "non-deleted"],
+              "default": "non-deleted"
             }
           }
         ],
@@ -14731,8 +15088,8 @@
             "description": "Include all, deleted, or non-deleted entities.",
             "schema": {
               "type": "string",
-              "default": "non-deleted",
-              "enum": ["all", "deleted", "non-deleted"]
+              "enum": ["all", "deleted", "non-deleted"],
+              "default": "non-deleted"
             }
           }
         ],
@@ -15006,8 +15363,8 @@
             "description": "Include all, deleted, or non-deleted entities.",
             "schema": {
               "type": "string",
-              "default": "non-deleted",
-              "enum": ["all", "deleted", "non-deleted"]
+              "enum": ["all", "deleted", "non-deleted"],
+              "default": "non-deleted"
             }
           }
         ],
@@ -15116,8 +15473,8 @@
             "description": "Include all, deleted, or non-deleted entities.",
             "schema": {
               "type": "string",
-              "default": "non-deleted",
-              "enum": ["all", "deleted", "non-deleted"]
+              "enum": ["all", "deleted", "non-deleted"],
+              "default": "non-deleted"
             }
           }
         ],
@@ -15233,8 +15590,8 @@
             "description": "Include all, deleted, or non-deleted entities.",
             "schema": {
               "type": "string",
-              "default": "non-deleted",
-              "enum": ["all", "deleted", "non-deleted"]
+              "enum": ["all", "deleted", "non-deleted"],
+              "default": "non-deleted"
             }
           }
         ],
@@ -15507,8 +15864,8 @@
             "description": "Include all, deleted, or non-deleted entities.",
             "schema": {
               "type": "string",
-              "default": "non-deleted",
-              "enum": ["all", "deleted", "non-deleted"]
+              "enum": ["all", "deleted", "non-deleted"],
+              "default": "non-deleted"
             }
           }
         ],
@@ -15652,8 +16009,8 @@
             "description": "Include all, deleted, or non-deleted entities.",
             "schema": {
               "type": "string",
-              "default": "non-deleted",
-              "enum": ["all", "deleted", "non-deleted"]
+              "enum": ["all", "deleted", "non-deleted"],
+              "default": "non-deleted"
             }
           }
         ],
@@ -15734,8 +16091,8 @@
             "description": "Include all, deleted, or non-deleted entities.",
             "schema": {
               "type": "string",
-              "default": "non-deleted",
-              "enum": ["all", "deleted", "non-deleted"]
+              "enum": ["all", "deleted", "non-deleted"],
+              "default": "non-deleted"
             }
           }
         ],
@@ -15988,7 +16345,7 @@
             "description": "Fields requested in the returned resource",
             "schema": {
               "type": "string",
-              "example": "tableConstraints,tablePartition,usageSummary,owner,customMetrics,tags,followers,joins,viewDefinition,dataModel,extension"
+              "example": "tableConstraints,tablePartition,usageSummary,owner,customMetrics,tags,followers,joins,viewDefinition,dataModel,extension,testSuite"
             }
           },
           {
@@ -15998,6 +16355,25 @@
             "schema": {
               "type": "string",
               "example": "snowflakeWestCoast.financeDB"
+            }
+          },
+          {
+            "name": "databaseSchema",
+            "in": "query",
+            "description": "Filter tables by databaseSchema fully qualified name",
+            "schema": {
+              "type": "string",
+              "example": "snowflakeWestCoast.financeDB.schema"
+            }
+          },
+          {
+            "name": "includeEmptyTestSuite",
+            "in": "query",
+            "description": "Include tables with an empty test suite (i.e. no test cases have been created for this table). Default to true",
+            "schema": {
+              "type": "boolean",
+              "example": true,
+              "default": true
             }
           },
           {
@@ -16034,8 +16410,8 @@
             "description": "Include all, deleted, or non-deleted entities.",
             "schema": {
               "type": "string",
-              "default": "non-deleted",
-              "enum": ["all", "deleted", "non-deleted"]
+              "enum": ["all", "deleted", "non-deleted"],
+              "default": "non-deleted"
             }
           }
         ],
@@ -16135,7 +16511,7 @@
             "description": "Fields requested in the returned resource",
             "schema": {
               "type": "string",
-              "example": "tableConstraints,tablePartition,usageSummary,owner,customMetrics,tags,followers,joins,viewDefinition,dataModel,extension"
+              "example": "tableConstraints,tablePartition,usageSummary,owner,customMetrics,tags,followers,joins,viewDefinition,dataModel,extension,testSuite"
             }
           },
           {
@@ -16144,8 +16520,8 @@
             "description": "Include all, deleted, or non-deleted entities.",
             "schema": {
               "type": "string",
-              "default": "non-deleted",
-              "enum": ["all", "deleted", "non-deleted"]
+              "enum": ["all", "deleted", "non-deleted"],
+              "default": "non-deleted"
             }
           }
         ],
@@ -16478,7 +16854,7 @@
             "description": "Fields requested in the returned resource",
             "schema": {
               "type": "string",
-              "example": "tableConstraints,tablePartition,usageSummary,owner,customMetrics,tags,followers,joins,viewDefinition,dataModel,extension"
+              "example": "tableConstraints,tablePartition,usageSummary,owner,customMetrics,tags,followers,joins,viewDefinition,dataModel,extension,testSuite"
             }
           },
           {
@@ -16487,8 +16863,8 @@
             "description": "Include all, deleted, or non-deleted entities.",
             "schema": {
               "type": "string",
-              "default": "non-deleted",
-              "enum": ["all", "deleted", "non-deleted"]
+              "enum": ["all", "deleted", "non-deleted"],
+              "default": "non-deleted"
             }
           }
         ],
@@ -16876,15 +17252,6 @@
             }
           }
         ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/TableData"
-              }
-            }
-          }
-        },
         "responses": {
           "200": {
             "description": "Successfully update the Table",
@@ -16954,15 +17321,6 @@
             }
           }
         ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/TableData"
-              }
-            }
-          }
-        },
         "responses": {
           "200": {
             "description": "Successfully update the Table",
@@ -17221,6 +17579,16 @@
             }
           },
           {
+            "name": "disabled",
+            "in": "query",
+            "description": "Filter Disabled Classifications",
+            "schema": {
+              "type": "string",
+              "example": "children, usageCount",
+              "default": "false"
+            }
+          },
+          {
             "name": "limit",
             "in": "query",
             "description": "Limit the number tags returned. (1 to 1000000, default = 10)",
@@ -17254,8 +17622,8 @@
             "description": "Include all, deleted, or non-deleted entities.",
             "schema": {
               "type": "string",
-              "default": "non-deleted",
-              "enum": ["all", "deleted", "non-deleted"]
+              "enum": ["all", "deleted", "non-deleted"],
+              "default": "non-deleted"
             }
           }
         ],
@@ -17364,8 +17732,8 @@
             "description": "Include all, deleted, or non-deleted entities.",
             "schema": {
               "type": "string",
-              "default": "non-deleted",
-              "enum": ["all", "deleted", "non-deleted"]
+              "enum": ["all", "deleted", "non-deleted"],
+              "default": "non-deleted"
             }
           }
         ],
@@ -17481,8 +17849,8 @@
             "description": "Include all, deleted, or non-deleted entities.",
             "schema": {
               "type": "string",
-              "default": "non-deleted",
-              "enum": ["all", "deleted", "non-deleted"]
+              "enum": ["all", "deleted", "non-deleted"],
+              "default": "non-deleted"
             }
           }
         ],
@@ -17731,8 +18099,8 @@
             "description": "Include all, deleted, or non-deleted entities.",
             "schema": {
               "type": "string",
-              "default": "non-deleted",
-              "enum": ["all", "deleted", "non-deleted"]
+              "enum": ["all", "deleted", "non-deleted"],
+              "default": "non-deleted"
             }
           }
         ],
@@ -17912,8 +18280,8 @@
             "description": "Include all, deleted, or non-deleted entities.",
             "schema": {
               "type": "string",
-              "default": "non-deleted",
-              "enum": ["all", "deleted", "non-deleted"]
+              "enum": ["all", "deleted", "non-deleted"],
+              "default": "non-deleted"
             }
           }
         ],
@@ -18105,8 +18473,8 @@
             "description": "Include all, deleted, or non-deleted entities.",
             "schema": {
               "type": "string",
-              "default": "non-deleted",
-              "enum": ["all", "deleted", "non-deleted"]
+              "enum": ["all", "deleted", "non-deleted"],
+              "default": "non-deleted"
             }
           }
         ],
@@ -18302,7 +18670,7 @@
             "description": "Fields requested in the returned resource",
             "schema": {
               "type": "string",
-              "example": "owner,followers,tags,sampleData,extension"
+              "example": "owner,followers,tags,extension"
             }
           },
           {
@@ -18348,8 +18716,8 @@
             "description": "Include all, deleted, or non-deleted entities.",
             "schema": {
               "type": "string",
-              "default": "non-deleted",
-              "enum": ["all", "deleted", "non-deleted"]
+              "enum": ["all", "deleted", "non-deleted"],
+              "default": "non-deleted"
             }
           }
         ],
@@ -18446,7 +18814,7 @@
             "description": "Fields requested in the returned resource",
             "schema": {
               "type": "string",
-              "example": "owner,followers,tags,sampleData,extension"
+              "example": "owner,followers,tags,extension"
             }
           },
           {
@@ -18455,8 +18823,8 @@
             "description": "Include all, deleted, or non-deleted entities.",
             "schema": {
               "type": "string",
-              "default": "non-deleted",
-              "enum": ["all", "deleted", "non-deleted"]
+              "enum": ["all", "deleted", "non-deleted"],
+              "default": "non-deleted"
             }
           }
         ],
@@ -18563,7 +18931,7 @@
             "description": "Fields requested in the returned resource",
             "schema": {
               "type": "string",
-              "example": "owner,followers,tags,sampleData,extension"
+              "example": "owner,followers,tags,extension"
             }
           },
           {
@@ -18572,8 +18940,8 @@
             "description": "Include all, deleted, or non-deleted entities.",
             "schema": {
               "type": "string",
-              "default": "non-deleted",
-              "enum": ["all", "deleted", "non-deleted"]
+              "enum": ["all", "deleted", "non-deleted"],
+              "default": "non-deleted"
             }
           }
         ],
@@ -18758,6 +19126,36 @@
       }
     },
     "/v1/topics/{id}/sampleData": {
+      "get": {
+        "tags": ["Topics"],
+        "summary": "Get sample data",
+        "description": "Get sample data from the topic.",
+        "operationId": "getSampleData_1",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Id of the topic",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully obtained the Topic",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Topic"
+                }
+              }
+            }
+          }
+        }
+      },
       "put": {
         "tags": ["Topics"],
         "summary": "Add sample data",
@@ -19280,8 +19678,8 @@
             "description": "Include all, deleted, or non-deleted entities.",
             "schema": {
               "type": "string",
-              "default": "non-deleted",
-              "enum": ["all", "deleted", "non-deleted"]
+              "enum": ["all", "deleted", "non-deleted"],
+              "default": "non-deleted"
             }
           }
         ],
@@ -19828,8 +20226,8 @@
             "description": "Include all, deleted, or non-deleted entities.",
             "schema": {
               "type": "string",
-              "default": "non-deleted",
-              "enum": ["all", "deleted", "non-deleted"]
+              "enum": ["all", "deleted", "non-deleted"],
+              "default": "non-deleted"
             }
           }
         ],
@@ -20267,8 +20665,8 @@
             "description": "Include all, deleted, or non-deleted entities.",
             "schema": {
               "type": "string",
-              "default": "non-deleted",
-              "enum": ["all", "deleted", "non-deleted"]
+              "enum": ["all", "deleted", "non-deleted"],
+              "default": "non-deleted"
             }
           }
         ],
@@ -20449,9 +20847,6 @@
         "required": ["edge"],
         "type": "object",
         "properties": {
-          "description": {
-            "type": "string"
-          },
           "edge": {
             "$ref": "#/components/schemas/EntitiesEdge"
           }
@@ -20623,7 +21018,7 @@
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Bot"
+              "type": "string"
             }
           },
           "paging": {
@@ -20756,9 +21151,6 @@
               "Other"
             ]
           },
-          "chartUrl": {
-            "type": "string"
-          },
           "deleted": {
             "type": "boolean"
           },
@@ -20793,7 +21185,7 @@
           "name": {
             "maxLength": 128,
             "minLength": 1,
-            "pattern": "^(?U)[\\w'\\- .&]+$",
+            "pattern": "^(?U)[\\w'\\- .&()]+$",
             "type": "string"
           },
           "owner": {
@@ -20820,6 +21212,9 @@
               "DomoDashboard",
               "QuickSight"
             ]
+          },
+          "sourceUrl": {
+            "type": "string"
           },
           "tags": {
             "type": "array",
@@ -20859,7 +21254,7 @@
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Chart"
+              "type": "string"
             }
           },
           "paging": {
@@ -20914,7 +21309,7 @@
           "name": {
             "maxLength": 64,
             "minLength": 2,
-            "pattern": "^(?U)[\\w'\\- .&]+$",
+            "pattern": "^(?U)[\\w'\\- .&()]+$",
             "type": "string"
           },
           "owner": {
@@ -20967,7 +21362,7 @@
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Classification"
+              "type": "string"
             }
           },
           "paging": {
@@ -21411,7 +21806,7 @@
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/ColumnProfile"
+              "type": "string"
             }
           },
           "paging": {
@@ -21580,7 +21975,7 @@
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Container"
+              "type": "string"
             }
           },
           "paging": {
@@ -21638,9 +22033,6 @@
               "Other"
             ]
           },
-          "chartUrl": {
-            "type": "string"
-          },
           "description": {
             "type": "string"
           },
@@ -21653,7 +22045,7 @@
           "name": {
             "maxLength": 128,
             "minLength": 1,
-            "pattern": "^(?U)[\\w'\\- .&]+$",
+            "pattern": "^(?U)[\\w'\\- .&()]+$",
             "type": "string"
           },
           "owner": {
@@ -21662,6 +22054,9 @@
           "service": {
             "maxLength": 256,
             "minLength": 1,
+            "type": "string"
+          },
+          "sourceUrl": {
             "type": "string"
           },
           "tags": {
@@ -21691,7 +22086,7 @@
           "name": {
             "maxLength": 64,
             "minLength": 2,
-            "pattern": "^(?U)[\\w'\\- .&]+$",
+            "pattern": "^(?U)[\\w'\\- .&()]+$",
             "type": "string"
           },
           "owner": {
@@ -21787,7 +22182,7 @@
           "name": {
             "maxLength": 128,
             "minLength": 1,
-            "pattern": "^(?U)[\\w'\\- .&]+$",
+            "pattern": "^(?U)[\\w'\\- .&()]+$",
             "type": "string"
           },
           "owner": {
@@ -21812,8 +22207,9 @@
               "type": "string"
             }
           },
-          "dashboardUrl": {
-            "type": "string"
+          "dashboardType": {
+            "type": "string",
+            "enum": ["Dashboard", "Report"]
           },
           "dataModels": {
             "type": "array",
@@ -21833,15 +22229,21 @@
           "name": {
             "maxLength": 128,
             "minLength": 1,
-            "pattern": "^(?U)[\\w'\\- .&]+$",
+            "pattern": "^(?U)[\\w'\\- .&()]+$",
             "type": "string"
           },
           "owner": {
             "$ref": "#/components/schemas/EntityReference"
           },
+          "project": {
+            "type": "string"
+          },
           "service": {
             "maxLength": 256,
             "minLength": 1,
+            "type": "string"
+          },
+          "sourceUrl": {
             "type": "string"
           },
           "tags": {
@@ -21865,11 +22267,12 @@
           "dataModelType": {
             "type": "string",
             "enum": [
-              "TableauSheet",
+              "TableauDataModel",
               "SupersetDataModel",
               "MetabaseDataModel",
               "LookMlView",
-              "LookMlExplore"
+              "LookMlExplore",
+              "PowerBIDataModel"
             ]
           },
           "description": {
@@ -21884,11 +22287,14 @@
           "name": {
             "maxLength": 128,
             "minLength": 1,
-            "pattern": "^(?U)[\\w'\\- .&]+$",
+            "pattern": "^(?U)[\\w'\\- .&()]+$",
             "type": "string"
           },
           "owner": {
             "$ref": "#/components/schemas/EntityReference"
+          },
+          "project": {
+            "type": "string"
           },
           "service": {
             "maxLength": 256,
@@ -21940,7 +22346,7 @@
           "name": {
             "maxLength": 128,
             "minLength": 1,
-            "pattern": "^(?U)[\\w'\\- .&]+$",
+            "pattern": "^(?U)[\\w'\\- .&()]+$",
             "type": "string"
           },
           "owner": {
@@ -21994,6 +22400,9 @@
           "owner": {
             "$ref": "#/components/schemas/EntityReference"
           },
+          "retentionPeriod": {
+            "type": "string"
+          },
           "service": {
             "maxLength": 256,
             "minLength": 1,
@@ -22034,6 +22443,9 @@
           "owner": {
             "$ref": "#/components/schemas/EntityReference"
           },
+          "retentionPeriod": {
+            "type": "string"
+          },
           "tags": {
             "type": "array",
             "items": {
@@ -22061,7 +22473,7 @@
           "name": {
             "maxLength": 128,
             "minLength": 1,
-            "pattern": "^(?U)[\\w'\\- .&]+$",
+            "pattern": "^(?U)[\\w'\\- .&()]+$",
             "type": "string"
           },
           "owner": {
@@ -22100,7 +22512,9 @@
               "DomoDatabase",
               "QueryLog",
               "CustomDatabase",
-              "Dbt"
+              "Dbt",
+              "SapHana",
+              "MongoDB"
             ]
           },
           "tags": {
@@ -22114,6 +22528,9 @@
       "CreateEventPublisherJob": {
         "type": "object",
         "properties": {
+          "afterCursor": {
+            "type": "string"
+          },
           "batchSize": {
             "type": "integer",
             "format": "int32"
@@ -22146,14 +22563,17 @@
         }
       },
       "CreateEventSubscription": {
-        "required": [
-          "filteringRules",
-          "name",
-          "subscriptionConfig",
-          "subscriptionType"
-        ],
+        "required": ["alertType", "name", "subscriptionType"],
         "type": "object",
         "properties": {
+          "alertType": {
+            "type": "string",
+            "enum": [
+              "ChangeEvent",
+              "DataInsightReport",
+              "Task/Conversation/Announcement"
+            ]
+          },
           "batchSize": {
             "type": "integer",
             "format": "int32"
@@ -22176,11 +22596,15 @@
           "name": {
             "maxLength": 128,
             "minLength": 1,
-            "pattern": "^(?U)[\\w'\\- .&]+$",
+            "pattern": "^(?U)[\\w'\\- .&()]+$",
             "type": "string"
           },
           "owner": {
             "$ref": "#/components/schemas/EntityReference"
+          },
+          "provider": {
+            "type": "string",
+            "enum": ["system", "user"]
           },
           "readTimeout": {
             "type": "integer",
@@ -22197,12 +22621,16 @@
               "MsTeamsWebhook",
               "GChatWebhook",
               "Email",
-              "ActivityFeed"
+              "ActivityFeed",
+              "DataInsight"
             ]
           },
           "timeout": {
             "type": "integer",
             "format": "int32"
+          },
+          "trigger": {
+            "$ref": "#/components/schemas/TriggerConfig"
           }
         }
       },
@@ -22225,7 +22653,7 @@
           "name": {
             "maxLength": 128,
             "minLength": 1,
-            "pattern": "^(?U)[\\w'\\- .&]+$",
+            "pattern": "^(?U)[\\w'\\- .&()]+$",
             "type": "string"
           },
           "owner": {
@@ -22263,9 +22691,8 @@
             "type": "object"
           },
           "glossary": {
-            "maxLength": 128,
+            "maxLength": 256,
             "minLength": 1,
-            "pattern": "^(?U)[\\w'\\- .&]+$",
             "type": "string"
           },
           "mutuallyExclusive": {
@@ -22274,7 +22701,7 @@
           "name": {
             "maxLength": 128,
             "minLength": 1,
-            "pattern": "^(?U)[\\w'\\- .&]+$",
+            "pattern": "^(?U)[\\w'\\- .&()]+$",
             "type": "string"
           },
           "owner": {
@@ -22321,6 +22748,23 @@
           }
         }
       },
+      "CreateLogicalTestCases": {
+        "required": ["testCaseIds", "testSuiteId"],
+        "type": "object",
+        "properties": {
+          "testCaseIds": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          "testSuiteId": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      },
       "CreateMessagingService": {
         "required": ["connection", "name", "serviceType"],
         "type": "object",
@@ -22340,7 +22784,7 @@
           "name": {
             "maxLength": 128,
             "minLength": 1,
-            "pattern": "^(?U)[\\w'\\- .&]+$",
+            "pattern": "^(?U)[\\w'\\- .&()]+$",
             "type": "string"
           },
           "owner": {
@@ -22348,13 +22792,7 @@
           },
           "serviceType": {
             "type": "string",
-            "enum": [
-              "Kafka",
-              "Pulsar",
-              "Redpanda",
-              "Kinesis",
-              "CustomMessaging"
-            ]
+            "enum": ["Kafka", "Redpanda", "Kinesis", "CustomMessaging"]
           },
           "tags": {
             "type": "array",
@@ -22383,7 +22821,7 @@
           "name": {
             "maxLength": 128,
             "minLength": 1,
-            "pattern": "^(?U)[\\w'\\- .&]+$",
+            "pattern": "^(?U)[\\w'\\- .&()]+$",
             "type": "string"
           },
           "owner": {
@@ -22434,7 +22872,7 @@
           "name": {
             "maxLength": 128,
             "minLength": 1,
-            "pattern": "^(?U)[\\w'\\- .&]+$",
+            "pattern": "^(?U)[\\w'\\- .&()]+$",
             "type": "string"
           },
           "owner": {
@@ -22458,7 +22896,7 @@
           "target": {
             "maxLength": 128,
             "minLength": 1,
-            "pattern": "^(?U)[\\w'\\- .&]+$",
+            "pattern": "^(?U)[\\w'\\- .&()]+$",
             "type": "string"
           }
         }
@@ -22482,7 +22920,7 @@
           "name": {
             "maxLength": 128,
             "minLength": 1,
-            "pattern": "^(?U)[\\w'\\- .&]+$",
+            "pattern": "^(?U)[\\w'\\- .&()]+$",
             "type": "string"
           },
           "owner": {
@@ -22542,12 +22980,15 @@
           "pipelineLocation": {
             "type": "string"
           },
-          "pipelineUrl": {
+          "scheduleInterval": {
             "type": "string"
           },
           "service": {
             "maxLength": 256,
             "minLength": 1,
+            "type": "string"
+          },
+          "sourceUrl": {
             "type": "string"
           },
           "startDate": {
@@ -22587,11 +23028,14 @@
           "name": {
             "maxLength": 128,
             "minLength": 1,
-            "pattern": "^(?U)[\\w'\\- .&]+$",
+            "pattern": "^(?U)[\\w'\\- .&()]+$",
             "type": "string"
           },
           "owner": {
             "$ref": "#/components/schemas/EntityReference"
+          },
+          "scheduleInterval": {
+            "type": "string"
           },
           "serviceType": {
             "type": "string",
@@ -22604,7 +23048,8 @@
               "Nifi",
               "DomoPipeline",
               "CustomPipeline",
-              "DatabricksPipeline"
+              "DatabricksPipeline",
+              "Spline"
             ]
           },
           "tags": {
@@ -22638,7 +23083,7 @@
           "name": {
             "maxLength": 128,
             "minLength": 1,
-            "pattern": "^(?U)[\\w'\\- .&]+$",
+            "pattern": "^(?U)[\\w'\\- .&()]+$",
             "type": "string"
           },
           "owner": {
@@ -22684,7 +23129,7 @@
           "name": {
             "maxLength": 128,
             "minLength": 1,
-            "pattern": "^(?U)[\\w'\\- .&]+$",
+            "pattern": "^(?U)[\\w'\\- .&()]+$",
             "type": "string"
           },
           "owner": {
@@ -22733,7 +23178,7 @@
           "name": {
             "maxLength": 128,
             "minLength": 1,
-            "pattern": "^(?U)[\\w'\\- .&]+$",
+            "pattern": "^(?U)[\\w'\\- .&()]+$",
             "type": "string"
           },
           "owner": {
@@ -22766,7 +23211,7 @@
           "name": {
             "maxLength": 128,
             "minLength": 1,
-            "pattern": "^(?U)[\\w'\\- .&]+$",
+            "pattern": "^(?U)[\\w'\\- .&()]+$",
             "type": "string"
           },
           "owner": {
@@ -22816,6 +23261,12 @@
           },
           "owner": {
             "$ref": "#/components/schemas/EntityReference"
+          },
+          "retentionPeriod": {
+            "type": "string"
+          },
+          "sourceUrl": {
+            "type": "string"
           },
           "tableConstraints": {
             "type": "array",
@@ -22888,7 +23339,7 @@
           "classification": {
             "maxLength": 64,
             "minLength": 2,
-            "pattern": "^(?U)[\\w'\\- .&]+$",
+            "pattern": "^(?U)[\\w'\\- .&()]+$",
             "type": "string"
           },
           "description": {
@@ -22906,7 +23357,7 @@
           "name": {
             "maxLength": 64,
             "minLength": 2,
-            "pattern": "^(?U)[\\w'\\- .&]+$",
+            "pattern": "^(?U)[\\w'\\- .&()]+$",
             "type": "string"
           },
           "owner": {
@@ -22975,6 +23426,12 @@
           "displayName": {
             "type": "string"
           },
+          "email": {
+            "maxLength": 127,
+            "minLength": 6,
+            "pattern": "^\\S+@\\S+\\.\\S+$",
+            "type": "string"
+          },
           "extension": {
             "type": "object"
           },
@@ -22984,7 +23441,7 @@
           "name": {
             "maxLength": 128,
             "minLength": 1,
-            "pattern": "^(?U)[\\w'\\- .&]+$",
+            "pattern": "^(?U)[\\w'\\- .&()]+$",
             "type": "string"
           },
           "owner": {
@@ -23046,7 +23503,7 @@
           "name": {
             "maxLength": 128,
             "minLength": 1,
-            "pattern": "^(?U)[\\w'\\- .&]+$",
+            "pattern": "^(?U)[\\w'\\- .&()]+$",
             "type": "string"
           },
           "owner": {
@@ -23090,7 +23547,7 @@
           "name": {
             "maxLength": 128,
             "minLength": 1,
-            "pattern": "^(?U)[\\w'\\- .&]+$",
+            "pattern": "^(?U)[\\w'\\- .&()]+$",
             "type": "string"
           },
           "owner": {
@@ -23194,7 +23651,7 @@
         }
       },
       "CreateTestSuite": {
-        "required": ["description", "name"],
+        "required": ["name"],
         "type": "object",
         "properties": {
           "description": {
@@ -23203,13 +23660,17 @@
           "displayName": {
             "type": "string"
           },
+          "executableEntityReference": {
+            "maxLength": 256,
+            "minLength": 1,
+            "type": "string"
+          },
           "extension": {
             "type": "object"
           },
           "name": {
-            "maxLength": 128,
+            "maxLength": 256,
             "minLength": 1,
-            "pattern": "^(?U)[\\w'\\- .&]+$",
             "type": "string"
           },
           "owner": {
@@ -23281,7 +23742,7 @@
           "name": {
             "maxLength": 128,
             "minLength": 1,
-            "pattern": "^(?U)[\\w'\\- .&]+$",
+            "pattern": "^(?U)[\\w'\\- .&()]+$",
             "type": "string"
           },
           "owner": {
@@ -23473,7 +23934,7 @@
           "name": {
             "maxLength": 128,
             "minLength": 1,
-            "pattern": "^(?U)[\\w'\\- .&]+$",
+            "pattern": "^(?U)[\\w'\\- .&()]+$",
             "type": "string"
           },
           "owner": {
@@ -23542,8 +24003,9 @@
               "$ref": "#/components/schemas/EntityReference"
             }
           },
-          "dashboardUrl": {
-            "type": "string"
+          "dashboardType": {
+            "type": "string",
+            "enum": ["Dashboard", "Report"]
           },
           "dataModels": {
             "type": "array",
@@ -23585,11 +24047,14 @@
           "name": {
             "maxLength": 128,
             "minLength": 1,
-            "pattern": "^(?U)[\\w'\\- .&]+$",
+            "pattern": "^(?U)[\\w'\\- .&()]+$",
             "type": "string"
           },
           "owner": {
             "$ref": "#/components/schemas/EntityReference"
+          },
+          "project": {
+            "type": "string"
           },
           "provider": {
             "type": "string",
@@ -23612,6 +24077,9 @@
               "DomoDashboard",
               "QuickSight"
             ]
+          },
+          "sourceUrl": {
+            "type": "string"
           },
           "tags": {
             "type": "array",
@@ -23662,11 +24130,12 @@
           "dataModelType": {
             "type": "string",
             "enum": [
-              "TableauSheet",
+              "TableauDataModel",
               "SupersetDataModel",
               "MetabaseDataModel",
               "LookMlView",
-              "LookMlExplore"
+              "LookMlExplore",
+              "PowerBIDataModel"
             ]
           },
           "dataModels": {
@@ -23709,11 +24178,14 @@
           "name": {
             "maxLength": 128,
             "minLength": 1,
-            "pattern": "^(?U)[\\w'\\- .&]+$",
+            "pattern": "^(?U)[\\w'\\- .&()]+$",
             "type": "string"
           },
           "owner": {
             "$ref": "#/components/schemas/EntityReference"
+          },
+          "project": {
+            "type": "string"
           },
           "provider": {
             "type": "string",
@@ -23775,7 +24247,7 @@
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/DashboardDataModel"
+              "type": "string"
             }
           },
           "paging": {
@@ -23796,7 +24268,7 @@
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Dashboard"
+              "type": "string"
             }
           },
           "paging": {
@@ -23848,7 +24320,7 @@
           "name": {
             "maxLength": 128,
             "minLength": 1,
-            "pattern": "^(?U)[\\w'\\- .&]+$",
+            "pattern": "^(?U)[\\w'\\- .&()]+$",
             "type": "string"
           },
           "owner": {
@@ -23917,7 +24389,7 @@
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/DashboardService"
+              "type": "string"
             }
           },
           "paging": {
@@ -24035,6 +24507,9 @@
             "type": "string",
             "enum": ["system", "user"]
           },
+          "retentionPeriod": {
+            "type": "string"
+          },
           "service": {
             "$ref": "#/components/schemas/EntityReference"
           },
@@ -24071,7 +24546,9 @@
               "DomoDatabase",
               "QueryLog",
               "CustomDatabase",
-              "Dbt"
+              "Dbt",
+              "SapHana",
+              "MongoDB"
             ]
           },
           "tags": {
@@ -24120,7 +24597,7 @@
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Database"
+              "type": "string"
             }
           },
           "paging": {
@@ -24182,6 +24659,9 @@
             "type": "string",
             "enum": ["system", "user"]
           },
+          "retentionPeriod": {
+            "type": "string"
+          },
           "service": {
             "$ref": "#/components/schemas/EntityReference"
           },
@@ -24218,7 +24698,9 @@
               "DomoDatabase",
               "QueryLog",
               "CustomDatabase",
-              "Dbt"
+              "Dbt",
+              "SapHana",
+              "MongoDB"
             ]
           },
           "tables": {
@@ -24265,7 +24747,7 @@
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/DatabaseSchema"
+              "type": "string"
             }
           },
           "paging": {
@@ -24317,7 +24799,7 @@
           "name": {
             "maxLength": 128,
             "minLength": 1,
-            "pattern": "^(?U)[\\w'\\- .&]+$",
+            "pattern": "^(?U)[\\w'\\- .&()]+$",
             "type": "string"
           },
           "owner": {
@@ -24366,7 +24848,9 @@
               "DomoDatabase",
               "QueryLog",
               "CustomDatabase",
-              "Dbt"
+              "Dbt",
+              "SapHana",
+              "MongoDB"
             ]
           },
           "tags": {
@@ -24407,7 +24891,7 @@
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/DatabaseService"
+              "type": "string"
             }
           },
           "paging": {
@@ -24418,11 +24902,20 @@
       "DocumentField": {
         "type": "object",
         "properties": {
-          "fragment": {
-            "type": "boolean"
+          "ignoredValues": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          "ignoredValuesWriter": {
+            "$ref": "#/components/schemas/ToXContentFragment"
           },
           "name": {
             "type": "string"
+          },
+          "validValuesWriter": {
+            "$ref": "#/components/schemas/ToXContentFragment"
           },
           "value": {
             "type": "object"
@@ -24625,28 +25118,7 @@
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/ChangeEvent"
-            }
-          },
-          "paging": {
-            "$ref": "#/components/schemas/Paging"
-          }
-        }
-      },
-      "EventSubResourceDescriptorList": {
-        "required": ["data"],
-        "type": "object",
-        "properties": {
-          "data": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/SubscriptionResourceDescriptor"
-            }
-          },
-          "errors": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/SubscriptionResourceDescriptor"
+              "type": "string"
             }
           },
           "paging": {
@@ -24655,15 +25127,17 @@
         }
       },
       "EventSubscription": {
-        "required": [
-          "filteringRules",
-          "id",
-          "name",
-          "subscriptionConfig",
-          "subscriptionType"
-        ],
+        "required": ["alertType", "id", "name", "subscriptionType"],
         "type": "object",
         "properties": {
+          "alertType": {
+            "type": "string",
+            "enum": [
+              "ChangeEvent",
+              "DataInsightReport",
+              "Task/Conversation/Announcement"
+            ]
+          },
           "batchSize": {
             "type": "integer",
             "format": "int32"
@@ -24696,9 +25170,8 @@
             }
           },
           "fullyQualifiedName": {
-            "maxLength": 128,
+            "maxLength": 256,
             "minLength": 1,
-            "pattern": "^(?U)[\\w'\\- .&]+$",
             "type": "string"
           },
           "href": {
@@ -24712,7 +25185,7 @@
           "name": {
             "maxLength": 128,
             "minLength": 1,
-            "pattern": "^(?U)[\\w'\\- .&]+$",
+            "pattern": "^(?U)[\\w'\\- .&()]+$",
             "type": "string"
           },
           "owner": {
@@ -24740,7 +25213,8 @@
               "MsTeamsWebhook",
               "GChatWebhook",
               "Email",
-              "ActivityFeed"
+              "ActivityFeed",
+              "DataInsight"
             ]
           },
           "tags": {
@@ -24752,6 +25226,9 @@
           "timeout": {
             "type": "integer",
             "format": "int32"
+          },
+          "trigger": {
+            "$ref": "#/components/schemas/TriggerConfig"
           },
           "updatedAt": {
             "type": "integer",
@@ -24782,7 +25259,7 @@
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/EventSubscription"
+              "type": "string"
             }
           },
           "paging": {
@@ -24996,7 +25473,7 @@
           "name": {
             "maxLength": 128,
             "minLength": 1,
-            "pattern": "^(?U)[\\w'\\- .&]+$",
+            "pattern": "^(?U)[\\w'\\- .&()]+$",
             "type": "string"
           },
           "owner": {
@@ -25055,7 +25532,7 @@
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Glossary"
+              "type": "string"
             }
           },
           "paging": {
@@ -25119,7 +25596,7 @@
           "name": {
             "maxLength": 128,
             "minLength": 1,
-            "pattern": "^(?U)[\\w'\\- .&]+$",
+            "pattern": "^(?U)[\\w'\\- .&()]+$",
             "type": "string"
           },
           "owner": {
@@ -25199,7 +25676,7 @@
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/GlossaryTerm"
+              "type": "string"
             }
           },
           "paging": {
@@ -25355,6 +25832,9 @@
               "$ref": "#/components/schemas/ColumnLineage"
             }
           },
+          "description": {
+            "type": "string"
+          },
           "pipeline": {
             "$ref": "#/components/schemas/EntityReference"
           },
@@ -25464,7 +25944,7 @@
           "name": {
             "maxLength": 128,
             "minLength": 1,
-            "pattern": "^(?U)[\\w'\\- .&]+$",
+            "pattern": "^(?U)[\\w'\\- .&()]+$",
             "type": "string"
           },
           "owner": {
@@ -25482,13 +25962,7 @@
           },
           "serviceType": {
             "type": "string",
-            "enum": [
-              "Kafka",
-              "Pulsar",
-              "Redpanda",
-              "Kinesis",
-              "CustomMessaging"
-            ]
+            "enum": ["Kafka", "Redpanda", "Kinesis", "CustomMessaging"]
           },
           "tags": {
             "type": "array",
@@ -25528,7 +26002,7 @@
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/MessagingService"
+              "type": "string"
             }
           },
           "paging": {
@@ -25588,7 +26062,7 @@
           "name": {
             "maxLength": 128,
             "minLength": 1,
-            "pattern": "^(?U)[\\w'\\- .&]+$",
+            "pattern": "^(?U)[\\w'\\- .&()]+$",
             "type": "string"
           },
           "owner": {
@@ -25646,7 +26120,7 @@
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/MetadataService"
+              "type": "string"
             }
           },
           "paging": {
@@ -25695,7 +26169,7 @@
           "name": {
             "maxLength": 128,
             "minLength": 1,
-            "pattern": "^(?U)[\\w'\\- .&]+$",
+            "pattern": "^(?U)[\\w'\\- .&()]+$",
             "type": "string"
           },
           "owner": {
@@ -25746,7 +26220,7 @@
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Metrics"
+              "type": "string"
             }
           },
           "paging": {
@@ -25781,7 +26255,7 @@
           "name": {
             "maxLength": 128,
             "minLength": 1,
-            "pattern": "^(?U)[\\w'\\- .&]+$",
+            "pattern": "^(?U)[\\w'\\- .&()]+$",
             "type": "string"
           },
           "tags": {
@@ -25822,7 +26296,7 @@
           "name": {
             "maxLength": 128,
             "minLength": 1,
-            "pattern": "^(?U)[\\w'\\- .&]+$",
+            "pattern": "^(?U)[\\w'\\- .&()]+$",
             "type": "string"
           },
           "tags": {
@@ -25909,7 +26383,7 @@
           "name": {
             "maxLength": 128,
             "minLength": 1,
-            "pattern": "^(?U)[\\w'\\- .&]+$",
+            "pattern": "^(?U)[\\w'\\- .&()]+$",
             "type": "string"
           },
           "owner": {
@@ -25939,7 +26413,7 @@
           "target": {
             "maxLength": 128,
             "minLength": 1,
-            "pattern": "^(?U)[\\w'\\- .&]+$",
+            "pattern": "^(?U)[\\w'\\- .&()]+$",
             "type": "string"
           },
           "updatedAt": {
@@ -25982,7 +26456,7 @@
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/MlModel"
+              "type": "string"
             }
           },
           "paging": {
@@ -26034,7 +26508,7 @@
           "name": {
             "maxLength": 128,
             "minLength": 1,
-            "pattern": "^(?U)[\\w'\\- .&]+$",
+            "pattern": "^(?U)[\\w'\\- .&()]+$",
             "type": "string"
           },
           "owner": {
@@ -26092,7 +26566,7 @@
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/MlModelService"
+              "type": "string"
             }
           },
           "paging": {
@@ -26145,9 +26619,6 @@
             "type": "string"
           }
         }
-      },
-      "OriginalIndices": {
-        "type": "object"
       },
       "Paging": {
         "required": ["total"],
@@ -26284,6 +26755,7 @@
               "EditTeams",
               "EditTier",
               "EditTests",
+              "EditUsage",
               "EditUsers"
             ]
           },
@@ -26344,7 +26816,7 @@
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/PersonalAccessToken"
+              "type": "string"
             }
           },
           "paging": {
@@ -26409,12 +26881,12 @@
           "pipelineStatus": {
             "$ref": "#/components/schemas/PipelineStatus"
           },
-          "pipelineUrl": {
-            "type": "string"
-          },
           "provider": {
             "type": "string",
             "enum": ["system", "user"]
+          },
+          "scheduleInterval": {
+            "type": "string"
           },
           "service": {
             "$ref": "#/components/schemas/EntityReference"
@@ -26430,8 +26902,12 @@
               "Nifi",
               "DomoPipeline",
               "CustomPipeline",
-              "DatabricksPipeline"
+              "DatabricksPipeline",
+              "Spline"
             ]
+          },
+          "sourceUrl": {
+            "type": "string"
           },
           "startDate": {
             "type": "string",
@@ -26486,7 +26962,7 @@
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Pipeline"
+              "type": "string"
             }
           },
           "paging": {
@@ -26538,7 +27014,7 @@
           "name": {
             "maxLength": 128,
             "minLength": 1,
-            "pattern": "^(?U)[\\w'\\- .&]+$",
+            "pattern": "^(?U)[\\w'\\- .&()]+$",
             "type": "string"
           },
           "owner": {
@@ -26565,7 +27041,8 @@
               "Nifi",
               "DomoPipeline",
               "CustomPipeline",
-              "DatabricksPipeline"
+              "DatabricksPipeline",
+              "Spline"
             ]
           },
           "tags": {
@@ -26606,7 +27083,7 @@
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/PipelineService"
+              "type": "string"
             }
           },
           "paging": {
@@ -26673,7 +27150,7 @@
           "fullyQualifiedName": {
             "maxLength": 128,
             "minLength": 1,
-            "pattern": "^(?U)[\\w'\\- .&]+$",
+            "pattern": "^(?U)[\\w'\\- .&()]+$",
             "type": "string"
           },
           "href": {
@@ -26690,7 +27167,7 @@
           "name": {
             "maxLength": 128,
             "minLength": 1,
-            "pattern": "^(?U)[\\w'\\- .&]+$",
+            "pattern": "^(?U)[\\w'\\- .&()]+$",
             "type": "string"
           },
           "owner": {
@@ -26753,7 +27230,7 @@
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Policy"
+              "type": "string"
             }
           },
           "paging": {
@@ -26800,7 +27277,7 @@
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Post"
+              "type": "string"
             }
           },
           "paging": {
@@ -26813,6 +27290,9 @@
         "properties": {
           "images": {
             "$ref": "#/components/schemas/ImageList"
+          },
+          "subscription": {
+            "$ref": "#/components/schemas/SubscriptionConfig"
           }
         }
       },
@@ -26831,6 +27311,12 @@
           "luceneDescription": {
             "type": "string"
           },
+          "profiledChildren": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProfileResult"
+            }
+          },
           "queryName": {
             "type": "string"
           },
@@ -26843,20 +27329,6 @@
             "additionalProperties": {
               "type": "integer",
               "format": "int64"
-            }
-          }
-        }
-      },
-      "ProfileShardResult": {
-        "type": "object",
-        "properties": {
-          "aggregationProfileResults": {
-            "$ref": "#/components/schemas/AggregationProfileShardResult"
-          },
-          "queryProfileResults": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/QueryProfileShardResult"
             }
           }
         }
@@ -26909,7 +27381,7 @@
           "name": {
             "maxLength": 128,
             "minLength": 1,
-            "pattern": "^(?U)[\\w'\\- .&]+$",
+            "pattern": "^(?U)[\\w'\\- .&()]+$",
             "type": "string"
           },
           "owner": {
@@ -26973,7 +27445,7 @@
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Query"
+              "type": "string"
             }
           },
           "paging": {
@@ -27088,7 +27560,7 @@
           "name": {
             "maxLength": 128,
             "minLength": 1,
-            "pattern": "^(?U)[\\w'\\- .&]+$",
+            "pattern": "^(?U)[\\w'\\- .&()]+$",
             "type": "string"
           },
           "owner": {
@@ -27139,7 +27611,7 @@
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Report"
+              "type": "string"
             }
           },
           "paging": {
@@ -27194,6 +27666,7 @@
                 "EditTeams",
                 "EditTier",
                 "EditTests",
+                "EditUsage",
                 "EditUsers"
               ]
             }
@@ -27228,7 +27701,7 @@
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/ResourcePermission"
+              "type": "string"
             }
           },
           "paging": {
@@ -27259,7 +27732,7 @@
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Bot"
+              "type": "string"
             }
           },
           "paging": {
@@ -27280,7 +27753,7 @@
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/ChangeEvent"
+              "type": "string"
             }
           },
           "paging": {
@@ -27301,7 +27774,7 @@
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Chart"
+              "type": "string"
             }
           },
           "paging": {
@@ -27322,7 +27795,7 @@
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Classification"
+              "type": "string"
             }
           },
           "paging": {
@@ -27343,7 +27816,7 @@
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/ColumnProfile"
+              "type": "string"
             }
           },
           "paging": {
@@ -27364,7 +27837,7 @@
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Container"
+              "type": "string"
             }
           },
           "paging": {
@@ -27385,7 +27858,7 @@
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Dashboard"
+              "type": "string"
             }
           },
           "paging": {
@@ -27406,7 +27879,7 @@
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/DashboardDataModel"
+              "type": "string"
             }
           },
           "paging": {
@@ -27427,7 +27900,7 @@
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/DashboardService"
+              "type": "string"
             }
           },
           "paging": {
@@ -27448,7 +27921,7 @@
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Database"
+              "type": "string"
             }
           },
           "paging": {
@@ -27469,7 +27942,7 @@
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/DatabaseSchema"
+              "type": "string"
             }
           },
           "paging": {
@@ -27490,7 +27963,7 @@
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/DatabaseService"
+              "type": "string"
             }
           },
           "paging": {
@@ -27511,7 +27984,7 @@
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/EventSubscription"
+              "type": "string"
             }
           },
           "paging": {
@@ -27532,7 +28005,7 @@
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Function"
+              "type": "string"
             }
           },
           "paging": {
@@ -27553,7 +28026,7 @@
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Glossary"
+              "type": "string"
             }
           },
           "paging": {
@@ -27574,7 +28047,7 @@
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/GlossaryTerm"
+              "type": "string"
             }
           },
           "paging": {
@@ -27595,7 +28068,7 @@
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/MessagingService"
+              "type": "string"
             }
           },
           "paging": {
@@ -27616,7 +28089,7 @@
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/MetadataService"
+              "type": "string"
             }
           },
           "paging": {
@@ -27637,7 +28110,7 @@
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Metrics"
+              "type": "string"
             }
           },
           "paging": {
@@ -27658,7 +28131,7 @@
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/MlModel"
+              "type": "string"
             }
           },
           "paging": {
@@ -27679,7 +28152,7 @@
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/MlModelService"
+              "type": "string"
             }
           },
           "paging": {
@@ -27700,7 +28173,7 @@
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Pipeline"
+              "type": "string"
             }
           },
           "paging": {
@@ -27721,7 +28194,7 @@
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/PipelineService"
+              "type": "string"
             }
           },
           "paging": {
@@ -27742,7 +28215,7 @@
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/PipelineStatus"
+              "type": "string"
             }
           },
           "paging": {
@@ -27763,7 +28236,28 @@
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Policy"
+              "type": "string"
+            }
+          },
+          "paging": {
+            "$ref": "#/components/schemas/Paging"
+          }
+        }
+      },
+      "ResultListPost": {
+        "required": ["data"],
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Post"
+            }
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "type": "string"
             }
           },
           "paging": {
@@ -27784,7 +28278,7 @@
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Query"
+              "type": "string"
             }
           },
           "paging": {
@@ -27805,7 +28299,7 @@
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Report"
+              "type": "string"
             }
           },
           "paging": {
@@ -27826,7 +28320,7 @@
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/ResourceDescriptor"
+              "type": "string"
             }
           },
           "paging": {
@@ -27847,7 +28341,7 @@
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/ResourcePermission"
+              "type": "string"
             }
           },
           "paging": {
@@ -27868,7 +28362,7 @@
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Role"
+              "type": "string"
             }
           },
           "paging": {
@@ -27889,7 +28383,28 @@
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/StorageService"
+              "type": "string"
+            }
+          },
+          "paging": {
+            "$ref": "#/components/schemas/Paging"
+          }
+        }
+      },
+      "ResultListSubscriptionResourceDescriptor": {
+        "required": ["data"],
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SubscriptionResourceDescriptor"
+            }
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "type": "string"
             }
           },
           "paging": {
@@ -27910,7 +28425,7 @@
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/SystemProfile"
+              "type": "string"
             }
           },
           "paging": {
@@ -27931,7 +28446,7 @@
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Table"
+              "type": "string"
             }
           },
           "paging": {
@@ -27952,7 +28467,7 @@
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/TableProfile"
+              "type": "string"
             }
           },
           "paging": {
@@ -27973,7 +28488,7 @@
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Tag"
+              "type": "string"
             }
           },
           "paging": {
@@ -27994,7 +28509,7 @@
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Team"
+              "type": "string"
             }
           },
           "paging": {
@@ -28015,7 +28530,7 @@
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/TeamHierarchy"
+              "type": "string"
             }
           },
           "paging": {
@@ -28036,7 +28551,7 @@
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/TestCase"
+              "type": "string"
             }
           },
           "paging": {
@@ -28057,7 +28572,7 @@
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/TestCaseResult"
+              "type": "string"
             }
           },
           "paging": {
@@ -28078,7 +28593,7 @@
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/TestDefinition"
+              "type": "string"
             }
           },
           "paging": {
@@ -28099,7 +28614,7 @@
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/TestSuite"
+              "type": "string"
             }
           },
           "paging": {
@@ -28120,7 +28635,7 @@
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Thread"
+              "type": "string"
             }
           },
           "paging": {
@@ -28141,7 +28656,7 @@
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Topic"
+              "type": "string"
             }
           },
           "paging": {
@@ -28162,7 +28677,7 @@
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Type"
+              "type": "string"
             }
           },
           "paging": {
@@ -28183,7 +28698,7 @@
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/User"
+              "type": "string"
             }
           },
           "paging": {
@@ -28263,7 +28778,7 @@
           "name": {
             "maxLength": 128,
             "minLength": 1,
-            "pattern": "^(?U)[\\w'\\- .&]+$",
+            "pattern": "^(?U)[\\w'\\- .&()]+$",
             "type": "string"
           },
           "owner": {
@@ -28326,7 +28841,7 @@
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Role"
+              "type": "string"
             }
           },
           "paging": {
@@ -28388,6 +28903,7 @@
                 "EditTeams",
                 "EditTier",
                 "EditTests",
+                "EditUsage",
                 "EditUsers"
               ]
             }
@@ -28405,6 +28921,12 @@
         "properties": {
           "clusterAlias": {
             "type": "string"
+          },
+          "documentFields": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/DocumentField"
+            }
           },
           "explanation": {
             "$ref": "#/components/schemas/Explanation"
@@ -28440,6 +28962,12 @@
             "type": "array",
             "items": {
               "type": "string"
+            }
+          },
+          "metadataFields": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/DocumentField"
             }
           },
           "nestedIdentity": {
@@ -28529,6 +29057,43 @@
           }
         }
       },
+      "SearchProfileQueryPhaseResult": {
+        "type": "object",
+        "properties": {
+          "aggregationProfileResults": {
+            "$ref": "#/components/schemas/AggregationProfileShardResult"
+          },
+          "queryProfileResults": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/QueryProfileShardResult"
+            }
+          }
+        }
+      },
+      "SearchProfileShardResult": {
+        "type": "object",
+        "properties": {
+          "aggregationProfileResults": {
+            "$ref": "#/components/schemas/AggregationProfileShardResult"
+          },
+          "fetchPhase": {
+            "$ref": "#/components/schemas/ProfileResult"
+          },
+          "fragment": {
+            "type": "boolean"
+          },
+          "queryPhase": {
+            "$ref": "#/components/schemas/SearchProfileQueryPhaseResult"
+          },
+          "queryProfileResults": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/QueryProfileShardResult"
+            }
+          }
+        }
+      },
       "SearchResponse": {
         "type": "object",
         "properties": {
@@ -28558,7 +29123,7 @@
           "profileResults": {
             "type": "object",
             "additionalProperties": {
-              "$ref": "#/components/schemas/ProfileShardResult"
+              "$ref": "#/components/schemas/SearchProfileShardResult"
             }
           },
           "scrollId": {
@@ -28626,9 +29191,6 @@
           "nodeIdText": {
             "$ref": "#/components/schemas/Text"
           },
-          "originalIndices": {
-            "$ref": "#/components/schemas/OriginalIndices"
-          },
           "shardId": {
             "$ref": "#/components/schemas/ShardId"
           }
@@ -28688,11 +29250,11 @@
                       "type": "integer",
                       "format": "int32"
                     },
-                    "nativeMethod": {
-                      "type": "boolean"
-                    },
                     "className": {
                       "type": "string"
+                    },
+                    "nativeMethod": {
+                      "type": "boolean"
                     }
                   }
                 }
@@ -28726,11 +29288,11 @@
                             "type": "integer",
                             "format": "int32"
                           },
-                          "nativeMethod": {
-                            "type": "boolean"
-                          },
                           "className": {
                             "type": "string"
+                          },
+                          "nativeMethod": {
+                            "type": "boolean"
                           }
                         }
                       }
@@ -28748,6 +29310,92 @@
           },
           "fragment": {
             "type": "boolean"
+          },
+          "localizedMessage": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "stackTrace": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "classLoaderName": {
+                  "type": "string"
+                },
+                "moduleName": {
+                  "type": "string"
+                },
+                "moduleVersion": {
+                  "type": "string"
+                },
+                "methodName": {
+                  "type": "string"
+                },
+                "fileName": {
+                  "type": "string"
+                },
+                "lineNumber": {
+                  "type": "integer",
+                  "format": "int32"
+                },
+                "className": {
+                  "type": "string"
+                },
+                "nativeMethod": {
+                  "type": "boolean"
+                }
+              }
+            }
+          },
+          "suppressed": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "stackTrace": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "classLoaderName": {
+                        "type": "string"
+                      },
+                      "moduleName": {
+                        "type": "string"
+                      },
+                      "moduleVersion": {
+                        "type": "string"
+                      },
+                      "methodName": {
+                        "type": "string"
+                      },
+                      "fileName": {
+                        "type": "string"
+                      },
+                      "lineNumber": {
+                        "type": "integer",
+                        "format": "int32"
+                      },
+                      "className": {
+                        "type": "string"
+                      },
+                      "nativeMethod": {
+                        "type": "boolean"
+                      }
+                    }
+                  }
+                },
+                "message": {
+                  "type": "string"
+                },
+                "localizedMessage": {
+                  "type": "string"
+                }
+              }
+            }
           }
         }
       },
@@ -28869,7 +29517,7 @@
           "name": {
             "maxLength": 128,
             "minLength": 1,
-            "pattern": "^(?U)[\\w'\\- .&]+$",
+            "pattern": "^(?U)[\\w'\\- .&()]+$",
             "type": "string"
           },
           "owner": {
@@ -28927,11 +29575,28 @@
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/StorageService"
+              "type": "string"
             }
           },
           "paging": {
             "$ref": "#/components/schemas/Paging"
+          }
+        }
+      },
+      "SubscriptionConfig": {
+        "type": "object",
+        "properties": {
+          "gChat": {
+            "$ref": "#/components/schemas/Webhook"
+          },
+          "generic": {
+            "$ref": "#/components/schemas/Webhook"
+          },
+          "msTeams": {
+            "$ref": "#/components/schemas/Webhook"
+          },
+          "slack": {
+            "$ref": "#/components/schemas/Webhook"
           }
         }
       },
@@ -29036,7 +29701,7 @@
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/SystemProfile"
+              "type": "string"
             }
           },
           "paging": {
@@ -29119,6 +29784,9 @@
             "type": "string",
             "enum": ["system", "user"]
           },
+          "retentionPeriod": {
+            "type": "string"
+          },
           "sampleData": {
             "$ref": "#/components/schemas/TableData"
           },
@@ -29158,8 +29826,13 @@
               "DomoDatabase",
               "QueryLog",
               "CustomDatabase",
-              "Dbt"
+              "Dbt",
+              "SapHana",
+              "MongoDB"
             ]
+          },
+          "sourceUrl": {
+            "type": "string"
           },
           "tableConstraints": {
             "type": "array",
@@ -29192,6 +29865,9 @@
             "items": {
               "$ref": "#/components/schemas/TagLabel"
             }
+          },
+          "testSuite": {
+            "$ref": "#/components/schemas/TestSuite"
           },
           "updatedAt": {
             "type": "integer",
@@ -29299,7 +29975,7 @@
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Table"
+              "type": "string"
             }
           },
           "paging": {
@@ -29339,6 +30015,10 @@
             "type": "number",
             "format": "double"
           },
+          "createDateTime": {
+            "type": "string",
+            "format": "date-time"
+          },
           "profileSample": {
             "type": "number",
             "format": "double"
@@ -29348,6 +30028,10 @@
             "enum": ["PERCENTAGE", "ROWS"]
           },
           "rowCount": {
+            "type": "number",
+            "format": "double"
+          },
+          "sizeInByte": {
             "type": "number",
             "format": "double"
           },
@@ -29370,7 +30054,7 @@
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/TableProfile"
+              "type": "string"
             }
           },
           "paging": {
@@ -29466,7 +30150,7 @@
           "name": {
             "maxLength": 64,
             "minLength": 2,
-            "pattern": "^(?U)[\\w'\\- .&]+$",
+            "pattern": "^(?U)[\\w'\\- .&()]+$",
             "type": "string"
           },
           "owner": {
@@ -29548,7 +30232,7 @@
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Tag"
+              "type": "string"
             }
           },
           "paging": {
@@ -29581,6 +30265,9 @@
           "name": {
             "type": "string"
           },
+          "sourceUrl": {
+            "type": "string"
+          },
           "startDate": {
             "type": "string"
           },
@@ -29594,9 +30281,6 @@
             "type": "string"
           },
           "taskType": {
-            "type": "string"
-          },
-          "taskUrl": {
             "type": "string"
           }
         }
@@ -29679,6 +30363,12 @@
           "displayName": {
             "type": "string"
           },
+          "email": {
+            "maxLength": 127,
+            "minLength": 6,
+            "pattern": "^\\S+@\\S+\\.\\S+$",
+            "type": "string"
+          },
           "extension": {
             "type": "object"
           },
@@ -29713,7 +30403,7 @@
           "name": {
             "maxLength": 128,
             "minLength": 1,
-            "pattern": "^(?U)[\\w'\\- .&]+$",
+            "pattern": "^(?U)[\\w'\\- .&()]+$",
             "type": "string"
           },
           "owner": {
@@ -29818,7 +30508,7 @@
           "name": {
             "maxLength": 128,
             "minLength": 1,
-            "pattern": "^(?U)[\\w'\\- .&]+$",
+            "pattern": "^(?U)[\\w'\\- .&()]+$",
             "type": "string"
           },
           "teamType": {
@@ -29846,7 +30536,7 @@
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Team"
+              "type": "string"
             }
           },
           "paging": {
@@ -29914,7 +30604,7 @@
           "name": {
             "maxLength": 128,
             "minLength": 1,
-            "pattern": "^(?U)[\\w'\\- .&]+$",
+            "pattern": "^(?U)[\\w'\\- .&()]+$",
             "type": "string"
           },
           "owner": {
@@ -29945,6 +30635,12 @@
           "testSuite": {
             "$ref": "#/components/schemas/EntityReference"
           },
+          "testSuites": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TestSuite"
+            }
+          },
           "updatedAt": {
             "type": "integer",
             "format": "int64"
@@ -29961,6 +30657,35 @@
           }
         }
       },
+      "TestCaseFailureStatus": {
+        "type": "object",
+        "properties": {
+          "testCaseFailureComment": {
+            "type": "string"
+          },
+          "testCaseFailureReason": {
+            "type": "string",
+            "enum": [
+              "FalsePositive",
+              "MissingData",
+              "Duplicates",
+              "OutOfBounds",
+              "Other"
+            ]
+          },
+          "testCaseFailureStatusType": {
+            "type": "string",
+            "enum": ["Ack", "New", "Resolved"]
+          },
+          "updatedAt": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "updatedBy": {
+            "type": "string"
+          }
+        }
+      },
       "TestCaseList": {
         "required": ["data"],
         "type": "object",
@@ -29974,7 +30699,7 @@
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/TestCase"
+              "type": "string"
             }
           },
           "paging": {
@@ -30013,6 +30738,12 @@
           "name": {
             "type": "string"
           },
+          "optionValues": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
           "required": {
             "type": "boolean"
           }
@@ -30037,6 +30768,9 @@
           },
           "sampleData": {
             "type": "string"
+          },
+          "testCaseFailureStatus": {
+            "$ref": "#/components/schemas/TestCaseFailureStatus"
           },
           "testCaseStatus": {
             "type": "string",
@@ -30067,7 +30801,7 @@
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/TestCaseResult"
+              "type": "string"
             }
           },
           "paging": {
@@ -30161,7 +30895,7 @@
           "name": {
             "maxLength": 128,
             "minLength": 1,
-            "pattern": "^(?U)[\\w'\\- .&]+$",
+            "pattern": "^(?U)[\\w'\\- .&()]+$",
             "type": "string"
           },
           "owner": {
@@ -30301,7 +31035,7 @@
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/TestDefinition"
+              "type": "string"
             }
           },
           "paging": {
@@ -30321,7 +31055,7 @@
         }
       },
       "TestSuite": {
-        "required": ["description", "name"],
+        "required": ["name"],
         "type": "object",
         "properties": {
           "changeDescription": {
@@ -30338,6 +31072,12 @@
           },
           "displayName": {
             "type": "string"
+          },
+          "executable": {
+            "type": "boolean"
+          },
+          "executableEntityReference": {
+            "$ref": "#/components/schemas/EntityReference"
           },
           "extension": {
             "type": "object"
@@ -30362,9 +31102,8 @@
             "format": "uuid"
           },
           "name": {
-            "maxLength": 128,
+            "maxLength": 256,
             "minLength": 1,
-            "pattern": "^(?U)[\\w'\\- .&]+$",
             "type": "string"
           },
           "owner": {
@@ -30383,6 +31122,9 @@
           "serviceType": {
             "type": "string",
             "enum": ["TestSuite"]
+          },
+          "summary": {
+            "$ref": "#/components/schemas/TestSummary"
           },
           "tags": {
             "type": "array",
@@ -30436,11 +31178,32 @@
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/TestSuite"
+              "type": "string"
             }
           },
           "paging": {
             "$ref": "#/components/schemas/Paging"
+          }
+        }
+      },
+      "TestSummary": {
+        "type": "object",
+        "properties": {
+          "aborted": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "failed": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "success": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "total": {
+            "type": "integer",
+            "format": "int32"
           }
         }
       },
@@ -30553,7 +31316,7 @@
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Thread"
+              "type": "string"
             }
           },
           "paging": {
@@ -30618,6 +31381,14 @@
           },
           "stringRep": {
             "type": "string"
+          }
+        }
+      },
+      "ToXContentFragment": {
+        "type": "object",
+        "properties": {
+          "fragment": {
+            "type": "boolean"
           }
         }
       },
@@ -30689,7 +31460,7 @@
           "name": {
             "maxLength": 128,
             "minLength": 1,
-            "pattern": "^(?U)[\\w'\\- .&]+$",
+            "pattern": "^(?U)[\\w'\\- .&()]+$",
             "type": "string"
           },
           "owner": {
@@ -30723,13 +31494,7 @@
           },
           "serviceType": {
             "type": "string",
-            "enum": [
-              "Kafka",
-              "Pulsar",
-              "Redpanda",
-              "Kinesis",
-              "CustomMessaging"
-            ]
+            "enum": ["Kafka", "Redpanda", "Kinesis", "CustomMessaging"]
           },
           "tags": {
             "type": "array",
@@ -30772,7 +31537,7 @@
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Topic"
+              "type": "string"
             }
           },
           "paging": {
@@ -30801,6 +31566,23 @@
           "value": {
             "type": "integer",
             "format": "int64"
+          }
+        }
+      },
+      "TriggerConfig": {
+        "required": ["triggerType"],
+        "type": "object",
+        "properties": {
+          "cronExpression": {
+            "type": "string"
+          },
+          "scheduleInfo": {
+            "type": "string",
+            "enum": ["Daily", "Weekly", "Monthly", "Custom"]
+          },
+          "triggerType": {
+            "type": "string",
+            "enum": ["RealTime", "Scheduled"]
           }
         }
       },
@@ -30904,7 +31686,7 @@
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Type"
+              "type": "string"
             }
           },
           "paging": {
@@ -31084,7 +31866,7 @@
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/User"
+              "type": "string"
             }
           },
           "paging": {
@@ -31123,6 +31905,27 @@
           "upVotes": {
             "type": "integer",
             "format": "int32"
+          }
+        }
+      },
+      "Webhook": {
+        "type": "object",
+        "properties": {
+          "endpoint": {
+            "type": "string",
+            "format": "uri"
+          },
+          "secretKey": {
+            "type": "string"
+          },
+          "sendToAdmins": {
+            "type": "boolean"
+          },
+          "sendToFollowers": {
+            "type": "boolean"
+          },
+          "sendToOwners": {
+            "type": "boolean"
           }
         }
       }
