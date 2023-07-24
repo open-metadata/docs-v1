@@ -19,7 +19,7 @@ export interface HeadingObject {
   children?: HeadingObject[];
 }
 
-interface APIsPageSideNavProps {
+interface APIPageSideNavProps {
   pageInfoObject: {
     label: string;
     value: string;
@@ -27,7 +27,7 @@ interface APIsPageSideNavProps {
   };
 }
 
-function APIsPageSideNav({ pageInfoObject }: APIsPageSideNavProps) {
+function APIPageSideNav({ pageInfoObject }: APIPageSideNavProps) {
   const [nestedHeadings, setNestedHeadings] = useState<Array<HeadingObject>>(
     []
   );
@@ -98,7 +98,7 @@ function APIsPageSideNav({ pageInfoObject }: APIsPageSideNavProps) {
   }, []);
 
   return (
-    <div className={styles.APIsPageSideNavContainer}>
+    <div className={styles.APIPageSideNavContainer}>
       <Link
         className={styles.Heading}
         href={getUrlWithVersion(pageInfoObject.value, docVersion)}
@@ -129,4 +129,4 @@ function APIsPageSideNav({ pageInfoObject }: APIsPageSideNavProps) {
   );
 }
 
-export default APIsPageSideNav;
+export default APIPageSideNav;

@@ -1,7 +1,7 @@
 import Markdoc from "@markdoc/markdoc";
 import { isEmpty, startCase } from "lodash";
 import * as icons from "react-icons/md";
-import { HeadingObject } from "../components/PageLayouts/APIPageLayout/APIsPageSideNav/APIsPageSideNav";
+import { HeadingObject } from "../components/PageLayouts/APIPageLayout/APIPageSideNav/APIPageSideNav";
 import { DEFAULT_VERSION } from "../constants/version.constants";
 
 export const getDivIndexFromId = (id: string) => {
