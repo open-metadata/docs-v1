@@ -1,16 +1,16 @@
-import React, { useCallback, useEffect, useState } from "react";
-import { ReactComponent as SearchIcon } from "../../../../images/icons/search.svg";
+import { isEmpty } from "lodash";
+import Link from "next/link";
+import { useCallback, useEffect, useState } from "react";
+import { useDocVersionContext } from "../../../../context/DocVersionContext";
 import { ReactComponent as OmLogo } from "../../../../images/icons/om-monogram.svg";
+import { ReactComponent as SearchIcon } from "../../../../images/icons/search.svg";
 import {
   createNestedNodeStructure,
   getUrlWithVersion,
 } from "../../../../utils/CommonUtils";
-import { isEmpty } from "lodash";
-import styles from "./APIsPageSideNav.module.css";
-import APISearchModal from "../../../modals/APISearchModal/APISearchModal";
-import Link from "next/link";
-import { useDocVersionContext } from "../../../../context/DocVersionContext";
 import APILeftPanelItem from "../../../APILeftPanelItem/APILeftPanelItem";
+import APISearchModal from "../../../modals/APISearchModal/APISearchModal";
+import styles from "./APIPageSideNav.module.css";
 
 export interface HeadingObject {
   label: string;
@@ -37,7 +37,16 @@ function APIsPageSideNav({ pageInfoObject }: APIsPageSideNavProps) {
 
   useEffect(() => {
     const headingElements: HTMLHeadingElement[] = Array.from(
-      document.querySelectorAll("h1, h2, h3, h4, h5, h6")
+      document.querySelectorAll(
+        [
+          "[class^='api-description-container'] h1",
+          "[class^='api-description-container'] h2",
+          "[class^='api-description-container'] h3",
+          "[class^='api-description-container'] h4",
+          "[class^='api-description-container'] h5",
+          "[class^='api-description-container'] h6",
+        ].join(",")
+      )
     );
 
     const headingObjectsArray = headingElements.map((heading) => {

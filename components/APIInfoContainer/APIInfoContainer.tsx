@@ -1,5 +1,5 @@
-import React, { ReactNode } from "react";
-import styles from "./APIsInfoContainer.module.css";
+import { ReactNode } from "react";
+import styles from "./APIInfoContainer.module.css";
 
 interface APIsInfoContainerProps {
   children: ReactNode;
