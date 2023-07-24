@@ -2,7 +2,7 @@ import classNames from "classnames";
 import { isEmpty } from "lodash";
 import { useCallback, useMemo } from "react";
 import { useAPIElementInViewContext } from "../../context/APIElementInViewContext";
-import { HeadingObject } from "../PageLayouts/APIsPageLayout/APIPageSideNav/APIPageSideNav";
+import { HeadingObject } from "../PageLayouts/APIPageLayout/APIPageSideNav/APIPageSideNav";
 import styles from "./APILeftPanelItem.module.css";
 
 interface APILeftPanelItemProps {

@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import ReactDOM from "react-dom";
 import { InstantSearch } from "react-instantsearch-hooks-web";
 import { SearchContextProvider } from "../../../context/SearchContext";
-import styles from "../../PageLayouts/APIsPageLayout/APIPageSideNav/APIPageSideNav.module.css";
+import styles from "../../PageLayouts/APIPageLayout/APIPageSideNav/APIPageSideNav.module.css";
 import Search from "../../Search/Search";
 
 const searchClient = algoliasearch(

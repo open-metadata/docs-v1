@@ -90,7 +90,7 @@ function CodeWithLanguageSelector({
             className={classNames(
               styles.Language,
               language === selectedLanguageObject[id]
-                ? styles.SelectedLanguage
+                ? codeStyles.SelectedLanguage
                 : ""
             )}
             id={language}

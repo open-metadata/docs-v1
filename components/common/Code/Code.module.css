@@ -420,11 +420,16 @@
   padding: 0px 24px;
   background-color: var(--code-background-color);
   color: var(--code-light-filename-color);
-  border-bottom: 1px solid var(--code-toolbar-color);
+  border-bottom: 1px solid var(--code-filename-color);
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
 
 .LanguageSelector::-webkit-scrollbar {
   display: none;
+}
+
+.SelectedLanguage{
+  font-weight: 500;
+  border-bottom: 2px solid var(--code-filename-color);
 }

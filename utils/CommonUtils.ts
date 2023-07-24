@@ -1,8 +1,8 @@
-import { DEFAULT_VERSION } from "../constants/version.constants";
-import * as icons from "react-icons/md";
-import { isEmpty, startCase } from "lodash";
 import Markdoc from "@markdoc/markdoc";
-import { HeadingObject } from "../components/PageLayouts/APIsPageLayout/APIsPageSideNav/APIsPageSideNav";
+import { isEmpty, startCase } from "lodash";
+import * as icons from "react-icons/md";
+import { HeadingObject } from "../components/PageLayouts/APIPageLayout/APIsPageSideNav/APIsPageSideNav";
+import { DEFAULT_VERSION } from "../constants/version.constants";
 
 export const getDivIndexFromId = (id: string) => {
   return Number(id.split("-").reverse()[0]);
