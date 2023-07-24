@@ -1,5 +1,6 @@
 export const apiInfoContainer = {
   render: "APIInfoContainer",
-  description: "Container to envelop APIs Info components",
+  description:
+    "A container tag to envelop 'apiVisualInfo' and 'apiDescription' tags",
   attributes: {},
 };
