@@ -1,16 +1,15 @@
 import classNames from "classnames";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import React from "react";
+import { API_AND_SDK_MENU_ITEMS } from "../../constants/categoriesNav.constants";
+import { useDocVersionContext } from "../../context/DocVersionContext";
+import { useNavBarCollapsedContext } from "../../context/NavBarCollapseContext";
 import { MenuItem } from "../../interface/common.interface";
 import { getCategoryByIndex } from "../../lib/utils";
 import { getUrlWithVersion } from "../../utils/CommonUtils";
-import styles from "./CategoriesNav.module.css";
-import { useDocVersionContext } from "../../context/DocVersionContext";
-import { useNavBarCollapsedContext } from "../../context/NavBarCollapseContext";
 import Dropdown from "../Dropdown/Dropdown";
-import DropdownMenu, { DropdownMenuItem } from "../Dropdown/DropdownMenu";
-import { API_AND_SDK_MENU_ITEMS } from "../../constants/categoriesNav.constants";
+import DropdownMenu from "../Dropdown/DropdownMenu";
+import styles from "./CategoriesNav.module.css";
 
 interface Props {
   menu: MenuItem[];
@@ -22,8 +21,13 @@ export default function CategoriesNav({ menu }: Props) {
   const { navBarCollapsed } = useNavBarCollapsedContext();
   const category = getCategoryByIndex(router.asPath, 2) ?? "";
 
-  const handleMenuItemClick = (item: DropdownMenuItem) => {
-    if (item.value.startsWith("/")) {
+  const handleMenuItemClick = (item: {
+    label: string;
+    value: string;
+    category: string;
+    withoutVersionPath?: boolean;
+  }) => {
+    if (item.value.startsWith("/") && !item.withoutVersionPath) {
       router.push(getUrlWithVersion(item.value, docVersion));
     } else {
       window.open(item.value, "_blank").focus();
