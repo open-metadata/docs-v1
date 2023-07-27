@@ -1,10 +1,10 @@
-import React, { use, useEffect } from "react";
-import ReactDOM from "react-dom";
-import styles from "../../PageLayouts/APIsPageLayout/APIsPageSideNav/APIsPageSideNav.module.css";
-import { SearchContextProvider } from "../../../context/SearchContext";
-import { InstantSearch } from "react-instantsearch-hooks-web";
-import Search from "../../Search/Search";
 import algoliasearch from "algoliasearch/lite";
+import { useEffect } from "react";
+import ReactDOM from "react-dom";
+import { InstantSearch } from "react-instantsearch-hooks-web";
+import { SearchContextProvider } from "../../../context/SearchContext";
+import styles from "../../PageLayouts/APIPageLayout/APIPageSideNav/APIPageSideNav.module.css";
+import Search from "../../Search/Search";
 
 const searchClient = algoliasearch(
   process.env.NEXT_PUBLIC_ALGOLIA_APP_ID,

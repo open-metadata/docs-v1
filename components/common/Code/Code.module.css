@@ -35,8 +35,9 @@
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
+
 .CodeBlockContainer > pre {
-  padding-top: 8px;
+  padding: 8px 0px;
   width: fit-content;
   min-width: 100%;
 }
@@ -92,26 +93,33 @@
   @apply bg-gray-80 opacity-30 z-0;
 }
 
-.CodeContainer button {
-  @apply absolute right-2 cursor-pointer h-6 w-6 mb-0 flex items-center hidden;
-  top: 0px;
+.CopyIconContainer{
+  display: none;
+  background-color: var(--code-background-color);
+  color:white;
 }
 
-.CodeContainer:hover button {
-  @apply block;
+.CodeContainer:hover .CopyIconContainer{
+  display: flex;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  height: 16px;
+  width: 16px;
+  z-index: 100;
 }
 
-.CodeContainer button::before {
-  @apply absolute top-2 right-2 z-10 transition-all duration-75 hover:opacity-40;
-  content: url("/clipboard.svg");
+.CopiedText{
+  border:0.5px solid white;
+  padding: 0px 4px;
+  border-radius: 4px;
+  background-color: var(--code-background-color);
+  position: absolute;
+  right: 0px;
 }
 
-.CodeContainer button span {
-  @apply absolute top-1 right-8 text-white font-mono text-sm tracking-tight font-normal opacity-0;
-}
-
-.CodeContainer button:hover span {
-  @apply opacity-100;
+.CodePreviewContainer:hover .CopyIconContainer,.CodeBlockContainer:hover .CopyIconContainer{
+  display: none;
 }
 
 .CodeBlockContainer > pre button,
@@ -167,7 +175,14 @@
 /* Code block adjustments */
 .CodeContainer pre code :global(.operator),
 .CodeBlockContainer pre code :global(.operator) {
-  @apply text-yellow-50;
+  @apply text-indigo-50;
+}
+
+.LightTheme .CodeContainer pre code :global(.operator),
+.LightTheme .CodeBlockContainer pre code :global(.operator),
+.LightTheme .CodeContainer pre code :global(.decorator),
+.LightTheme .CodeBlockContainer pre code :global(.decorator) {
+  @apply text-indigo-50;
 }
 
 .CodeContainer pre code :global(.decorator),
@@ -175,14 +190,19 @@
   @apply text-yellow-80;
 }
 
+.CodeContainer pre code :global(.property),
+.CodeBlockContainer pre code :global(.property) {
+  @apply text-red-60;
+}
+
 .CodeContainer pre code :global(.string),
 .CodeBlockContainer pre code :global(.string) {
-  @apply text-darkBlue-30;
+  @apply text-green-70;
 }
 
 .CodeContainer pre code :global(.keyword),
 .CodeBlockContainer pre code :global(.keyword) {
-  @apply text-darkBlue-50;
+  @apply text-indigo-50;
 }
 
 .CodeContainer pre code :global(.builtin),
@@ -190,21 +210,33 @@
   @apply text-lightBlue-40;
 }
 
+.CodeContainer pre code :global(.class-name),
+.CodeBlockContainer pre code :global(.class-name),
+.CodeContainer pre code :global(.variable),
+.CodeBlockContainer pre code :global(.variable),
 .CodeContainer pre code :global(.number),
+.CodeBlockContainer pre code :global(.number){
+  @apply text-orange-60;
+}
+
 .CodeContainer pre code :global(.boolean),
-.CodeBlockContainer pre code :global(.number),
 .CodeBlockContainer pre code :global(.boolean) {
-  @apply text-green-40;
+  @apply text-darkBlue-60;
 }
 
 .CodeContainer pre code :global(.function),
 .CodeBlockContainer pre code :global(.function) {
-  @apply text-red-50;
+  @apply text-darkBlue-60;
 }
 
 .CodeContainer pre code :global(.punctuation),
 .CodeBlockContainer pre code :global(.punctuation) {
-  @apply text-gray-60;
+  @apply text-yellow-50;
+}
+
+.LightTheme .CodeContainer pre code :global(.punctuation),
+.LightTheme .CodeBlockContainer pre code :global(.punctuation) {
+  color: var(--default-text-color)
 }
 
 .CodeContainer pre code :global(.key),
@@ -271,6 +303,15 @@
   border-color: var(--code-gray-toolbar-color);
 }
 
+.GrayTheme .Title,.GrayTheme .LanguageSelector{
+  background-color: var(--code-gray-toolbar-color);
+  color: var(--code-light-filename-color);
+}
+
+.GrayTheme .LanguageSelector{
+  border-bottom: 1px solid var(--code-gray-toolbar-color);
+}
+
 .GrayTheme .Toolbar > .CopyButton:hover {
   background-color: var(--code-gray-filename-color);
   border-color: var(--code-gray-filename-color);
@@ -289,23 +330,106 @@
 
 .LightTheme .Toolbar {
   background-color: var(--code-light-toolbar-color);
-  border-color: var(--code-light-toolbar-color);
+  border-bottom: 1px solid var(--code-light-border-color);
+}
+
+.LightTheme .Content pre {
+  background-color: var(--code-light-background-color);
+}
+
+.LightTheme .Title,.LightTheme .LanguageSelector{
+  background-color: var(--code-light-toolbar-color);
+  color: var(--code-gray-toolbar-color);
+}
+
+.LightTheme {
+  background-color: var(--code-light-toolbar-color);
+  border: 1px solid var(--code-light-border-color);
+}
+
+.LightTheme .LanguageSelector{
+  border-bottom: 1px solid var(--code-light-border-color);
 }
 
 .LightTheme .Toolbar > .CopyButton {
   color: var(--default-text-color);
   background-color: var(--code-light-filename-color);
-  border-color: var(--code-light-filename-color);
+  border: 0.2px solid var(--code-light-border-color);
 }
 
 .LightTheme .Toolbar > .CopyButton:hover {
   color: var(--code-light-filename-color);
   background-color: var(--default-text-color);
-  border-color: var(--default-text-color);
+  border-color: var(--code-light-toolbar-color);
 }
 
 .LightTheme .Toolbar > .FileName {
   color: var(--default-text-color);
   background-color: var(--code-light-filename-color);
-  border-color: var(--code-light-filename-color);
+  border: 0.2px solid var(--code-light-border-color);
+}
+
+.Content *{
+  font-weight: 400;
+}
+
+.Content pre{
+  padding: 12px 24px;
+  border-radius: 0px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.Content > *{
+  display: none;
+}
+
+.LightTheme .CopyIconContainer{
+  color: var(--default-text-color);
+  background-color: var(--code-light-background-color);
+}
+
+.GrayTheme .CopyIconContainer{
+  background-color: var(--code-gray-background-color);
+}
+
+.LightTheme .CopiedText{
+  border-color: var(--default-border-color);
+  background-color: var(--code-light-background-color);
+}
+
+.GrayTheme .CopiedText{
+  background-color: var(--code-gray-background-color);
+}
+
+.Title{
+  font-weight: 500;
+  font-size: 16px;
+  padding: 8px 16px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  background-color: var(--code-background-color);
+  color: var(--code-light-filename-color);
+}
+
+.LanguageSelector{
+  width: 100%;
+  overflow-x: scroll;
+  display: flex;
+  gap: 8px;
+  padding: 0px 24px;
+  background-color: var(--code-background-color);
+  color: var(--code-light-filename-color);
+  border-bottom: 1px solid var(--code-filename-color);
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.LanguageSelector::-webkit-scrollbar {
+  display: none;
+}
+
+.SelectedLanguage{
+  font-weight: 500;
+  border-bottom: 2px solid var(--code-filename-color);
 }

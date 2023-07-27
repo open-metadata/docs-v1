@@ -1,4 +1,4 @@
-.APIsPageSideNavContainer {
+.APIPageSideNavContainer {
   min-width: var(--api-side-nav-width);
   height: 100vh;
   padding: 12px;
