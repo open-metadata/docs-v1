@@ -1,4 +1,16 @@
-import React, { useMemo } from "react";
+import Markdoc from "@markdoc/markdoc";
+import fs from "fs";
+import matter from "gray-matter";
+import { isEqual, isObject } from "lodash";
+import Script from "next/script";
+import { basename } from "path";
+import { useMemo } from "react";
+import ErrorBoundary from "../../components/ErrorBoundary";
+import APIPageLayout from "../../components/PageLayouts/APIPageLayout/APIPageLayout";
+import DocsPageLayout from "../../components/PageLayouts/DocsPageLayout/DocsPageLayout";
+import { SelectOption } from "../../components/SelectDropdown/SelectDropdown";
+import { API_AND_SDK_MENU_ITEMS } from "../../constants/categoriesNav.constants";
+import { MenuItem, PathObj } from "../../interface/common.interface";
 import {
   getArticleSlugFromString,
   getArticleSlugs,
@@ -6,20 +18,8 @@ import {
   getPartialsConfigObject,
   getVersionsList,
 } from "../../lib/api";
-import fs from "fs";
-import matter from "gray-matter";
-import { basename } from "path";
-import Markdoc from "@markdoc/markdoc";
 import { configs } from "../../lib/markdoc";
-import { MenuItem, PathObj } from "../../interface/common.interface";
-import ErrorBoundary from "../../components/ErrorBoundary";
-import Script from "next/script";
-import { SelectOption } from "../../components/SelectDropdown/SelectDropdown";
 import { getFormattedPartials } from "../../utils/CommonUtils";
-import DocsPageLayout from "../../components/PageLayouts/DocsPageLayout/DocsPageLayout";
-import { API_AND_SDK_MENU_ITEMS } from "../../constants/categoriesNav.constants";
-import { isEqual, isObject, isUndefined } from "lodash";
-import APIsPageLayout from "../../components/PageLayouts/APIsPageLayout/APIsPageLayout";
 
 interface Props {
   menu: MenuItem[];
@@ -85,7 +85,7 @@ export default function Article({
       />
       <ErrorBoundary>
         {isAPIsPage.value ? (
-          <APIsPageLayout
+          <APIPageLayout
             parsedContent={parsedContent}
             pageInfoObject={isAPIsPage.pageInfoObject}
           />

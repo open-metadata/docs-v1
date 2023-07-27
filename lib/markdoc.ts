@@ -1,37 +1,37 @@
-import Banner from "../components/common/Banner/Banner";
-import { Callout } from "../components/Callout";
-import Divider from "../components/common/Divider/Divider";
-import InlineCallout from "../components/common/InlineCallout/InlineCallout";
-import InlineCalloutContainer from "../components/common/InlineCallout/InlineCalloutContainer";
-import Note from "../components/common/Note/Note";
-import YouTube from "../components/common/Youtube/Youtube";
+import { Config, ConfigFunction, NodeType, Schema } from "@markdoc/markdoc";
+import APIDescription from "../components/APIInfoContainer/APIDescription/APIDescription";
+import APIInfoContainer from "../components/APIInfoContainer/APIInfoContainer";
+import APIVisualInfo from "../components/APIInfoContainer/APIVisualInfo/APIVisualInfo";
+import APIPageContainer from "../components/APIPageContainer/APIPageContainer";
 import CodeBlock from "../components/CodePreview/CodeBlock/CodeBlock";
 import CodeInfo from "../components/CodePreview/CodeInfo/CodeInfo";
 import CodeInfoContainer from "../components/CodePreview/CodeInfoContainer/CodeInfoContainer";
 import CodePreview from "../components/CodePreview/CodePreview";
-import Code from "../components/common/Code/Code";
+import CodeWithLanguageSelector from "../components/CodeWithLanguageSelector/CodeWithLanguageSelector";
+import ExtraContent from "../components/ExtraContent/ExtraContent";
 import { Heading } from "../components/Heading/Heading";
-import Image from "../components/common/Image/Image";
-import StepsContainer from "../components/Steps/StepsContainer/StepsContainer";
 import Step from "../components/Steps/Step/Step";
 import StepDescription from "../components/Steps/Step/StepDescription/StepDescription";
 import StepVisualInfo from "../components/Steps/Step/StepVisualInfo/StepVisualInfo";
-import ExtraContent from "../components/ExtraContent/ExtraContent";
-import Tile from "../components/common/Tiles/Tile/Tile";
-import CustomAnchorNode from "../components/common/CustomAnchorNode/CustomAnchorNode";
-import TilesContainer from "../components/common/Tiles/TilesContainer/TilesContainer";
+import StepsContainer from "../components/Steps/StepsContainer/StepsContainer";
+import Banner from "../components/common/Banner/Banner";
+import Code from "../components/common/Code/Code";
 import InlineCode from "../components/common/Code/InlineCode";
-import Table from "../components/common/Table/Table";
+import CustomAnchorNode from "../components/common/CustomAnchorNode/CustomAnchorNode";
+import Divider from "../components/common/Divider/Divider";
 import Icon from "../components/common/Icon/Icon";
+import Image from "../components/common/Image/Image";
+import InlineCallout from "../components/common/InlineCallout/InlineCallout";
+import InlineCalloutContainer from "../components/common/InlineCallout/InlineCalloutContainer";
+import Note from "../components/common/Note/Note";
 import MultiTablesWrapper from "../components/common/Table/MultiTablesWrapper";
-
-import * as allTags from "../markdoc/tags";
-import * as allNodes from "../markdoc/nodes";
+import Table from "../components/common/Table/Table";
+import Tile from "../components/common/Tiles/Tile/Tile";
+import TilesContainer from "../components/common/Tiles/TilesContainer/TilesContainer";
+import YouTube from "../components/common/Youtube/Youtube";
 import * as allFunctions from "../markdoc/functions";
-import { Config, ConfigFunction, NodeType, Schema } from "@markdoc/markdoc";
-import APIsInfoContainer from "../components/APIsInfoContainer/APIsInfoContainer";
-import APIDescription from "../components/APIsInfoContainer/APIDescription/APIDescription";
-import APIVisualInfo from "../components/APIsInfoContainer/APIVisualInfo/APIVisualInfo";
+import * as allNodes from "../markdoc/nodes";
+import * as allTags from "../markdoc/tags";
 
 const tags = allTags as unknown as Record<string, Schema>;
 const nodes = allNodes as unknown as Partial<Record<NodeType, Schema>>;
@@ -39,7 +39,6 @@ const functions = allFunctions as unknown as Record<string, ConfigFunction>;
 
 export const components = {
   Banner,
-  Callout,
   Divider,
   InlineCallout,
   InlineCalloutContainer,
@@ -64,9 +63,11 @@ export const components = {
   Table,
   Icon,
   MultiTablesWrapper,
-  APIsInfoContainer,
+  APIPageContainer,
+  APIInfoContainer,
   APIDescription,
   APIVisualInfo,
+  CodeWithLanguageSelector,
 };
 
 export const configs: Config = {

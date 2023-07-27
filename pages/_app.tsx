@@ -1,17 +1,18 @@
-import React from "react";
 import Head from "next/head";
+import React from "react";
 
 import "prismjs";
 // Import other Prism themes here
 import "../public/globals.css";
 
-import type { AppProps } from "next/app";
 import type { MarkdocNextJsPageProps } from "@markdoc/next.js";
+import type { AppProps } from "next/app";
 import { useRouter } from "next/router";
 import ErrorBoundary from "../components/ErrorBoundary";
+import { CodeWithLanguageSelectorContextProvider } from "../context/CodeWithLanguageSelectorContext";
 import { DocVersionContextProvider } from "../context/DocVersionContext";
-import { RouteChangingContextProvider } from "../context/RouteChangingContext";
 import { NavBarCollapseContextProvider } from "../context/NavBarCollapseContext";
+import { RouteChangingContextProvider } from "../context/RouteChangingContext";
 import { StepsContextProvider } from "../context/StepsContext";
 
 const TITLE = "OpenMetadata Documentation: Get Help Instantly";
@@ -52,7 +53,9 @@ export default function MyApp({ Component, pageProps }: AppProps<MyAppProps>) {
           <DocVersionContextProvider>
             <NavBarCollapseContextProvider>
               <StepsContextProvider>
-                <Component {...pageProps} key={router.asPath} />
+                <CodeWithLanguageSelectorContextProvider>
+                  <Component {...pageProps} key={router.asPath} />
+                </CodeWithLanguageSelectorContextProvider>
               </StepsContextProvider>
             </NavBarCollapseContextProvider>
           </DocVersionContextProvider>

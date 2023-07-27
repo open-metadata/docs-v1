@@ -22,7 +22,15 @@ export const APIElementInViewContextProvider = ({ children }) => {
       if (headingElementInView.isIntersecting) {
         const elementId = headingElementInView.target.getAttribute("id");
         setApiElementInView(elementId);
-        window.location.hash = elementId;
+        
+        const currentUrlObject = new URL(window.location.href);
+        currentUrlObject.hash = elementId;
+        
+        const urlWithUpdatedHash = currentUrlObject.toString();
+
+        // Using history.replaceState method here to change the hash instead of using window.location.hash
+        // to prevent auto scrolling of page with hash change which was resulting in flakiness in the page.
+        history.replaceState(null, "", urlWithUpdatedHash);
       }
     },
     [setApiElementInView]
@@ -33,12 +41,12 @@ export const APIElementInViewContextProvider = ({ children }) => {
     const headingLinks = Array.from(
       document.querySelectorAll(
         [
-          "h1 a:first-of-type",
-          "h2 a:first-of-type",
-          "h3 a:first-of-type",
-          "h4 a:first-of-type",
-          "h5 a:first-of-type",
-          "h6 a:first-of-type",
+          "[class^='api-description-container'] h1 a:first-of-type",
+          "[class^='api-description-container'] h2 a:first-of-type",
+          "[class^='api-description-container'] h3 a:first-of-type",
+          "[class^='api-description-container'] h4 a:first-of-type",
+          "[class^='api-description-container'] h5 a:first-of-type",
+          "[class^='api-description-container'] h6 a:first-of-type",
         ].join(",")
       )
     );

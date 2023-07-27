@@ -1,14 +1,14 @@
-import React from "react";
-import styles from "./APIsPageContent.module.css";
 import Markdoc, { RenderableTreeNode } from "@markdoc/markdoc";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import React from "react";
+import { API_AND_SDK_MENU_ITEMS } from "../../../../constants/categoriesNav.constants";
+import { useDocVersionContext } from "../../../../context/DocVersionContext";
 import { components } from "../../../../lib/markdoc";
+import { getUrlWithVersion } from "../../../../utils/CommonUtils";
 import Dropdown from "../../../Dropdown/Dropdown";
 import DropdownMenu, { DropdownMenuItem } from "../../../Dropdown/DropdownMenu";
-import { API_AND_SDK_MENU_ITEMS } from "../../../../constants/categoriesNav.constants";
-import { useRouter } from "next/router";
-import { useDocVersionContext } from "../../../../context/DocVersionContext";
-import { getUrlWithVersion } from "../../../../utils/CommonUtils";
-import Link from "next/link";
+import styles from "./APIPageContent.module.css";
 
 interface APIsPageContentProps {
   parsedContent: RenderableTreeNode;

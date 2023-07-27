@@ -75,7 +75,7 @@ A container tag to enclose all the code chunks you will write for each steps giv
 1. fileName (type - String)
    This is an optional argument. Pass the name of the file in which the code given inside the `codeBlock` tag is supposed to be.
 
-1. theme (type - String)
+2. theme (type - String)
    This is an optional argument to choose the color theme for the code block.
    Available options are 'gray', 'light' and 'default'
 
@@ -238,59 +238,104 @@ caption="step2 caption" /%}
 
 ## APIs & SDKs page tags
 
-### 1. apisInfoContainer
+Use following 4 tags to achieve the API page layout and functionalities.
+
+### 1. apiPageContainer
+
+A container tag to wrap all the content tags for API page layout.
+
+### 2. apiInfoContainer
 
 A container tag to envelop "apiVisualInfo" and "apiDescription" tags
 
-### 1. apiVisualInfo
+### 3. apiVisualInfo
 
 A tag to display visual information about APIs. May contain an Image or a code block.
 
-### 1. apiDescription
+### 4. apiDescription
 
 A tag to show description about the API.
 
 Example:
 
-{% apisInfoContainer %}
+{% apiPageContainer %}
+
+{% apiInfoContainer %}
 
 {% apiDescription %}
 
-API description 1
+\#\# Title 1
+API description
 
 {% /apiDescription %}
 
 {% apiVisualInfo %}
 
-{% codeBlock fileName="API1" theme="gray" %}
-\`\`\`
-Code for API 1
-\`\`\`
+{% codeBlock fileName="open.json" %}
+
+```
+This is a new code
+```
+
 {% /codeBlock %}
 
 {% /apiVisualInfo %}
 
+{% /apiInfoContainer %}
+
+{% apiInfoContainer %}
+
 {% apiDescription %}
 
+\#\#\# SubTitle
 API description 2
 
 {% /apiDescription %}
 
 {% apiVisualInfo %}
 
+{% codeBlock fileName="open.json" theme="light" %}
 
-{% codeBlock fileName="API2" theme="gray" %}
-\`\`\`
-Code for API 2
-\`\`\`
+```
+This is a new code
+```
+
 {% /codeBlock %}
-
 
 {% /apiVisualInfo %}
 
-{% /apisInfoContainer %}
+{% /apiInfoContainer %}
+
+{% apiInfoContainer %}
+
+{% apiDescription %}
+
+\#\# Title 2
+API description 2
+
+{% /apiDescription %}
+
+{% apiVisualInfo %}
+
+{% codeBlock fileName="open.json" theme="gray" %}
+
+```
+This is a new code
+```
+
+{% /codeBlock %}
+
+{% /apiVisualInfo %}
+
+{% /apiInfoContainer %}
+
+{% /apiPageContainer %}
 
 <img width="2032" alt="api-page-tags" src="./public/api-page-tags.png">
+
+### Preview of API page
+
+<img width="2032" alt="steps-component-gif" src="./public/code-lang-selector-preview.gif">
 
 ## Other Tags
 
@@ -332,7 +377,7 @@ A tag for highlighting some part of the content.
 #### Attributes
 
 1. noteType (type - String)
-Mention the type of note you want to show. There are 3 types of note which differ in styling.
+   Mention the type of note you want to show. There are 3 types of note which differ in styling.
 
 **If no attribute is passed then the default type will be considered as "Note"**
 
@@ -367,3 +412,71 @@ A Tip
 {% /note %}
 
 <img width="2032" alt="tip-tag-img" src="./public/tip-tag.png">
+
+### 3. codeWithLanguageSelector
+
+A tag to display specific code snippets with the selected language from the given language options.
+Include code snippets for all the languages given in the `languagesArray` inside the opening and closing tag with proper syntax as given in the example below.
+
+#### Attributes
+
+1. title (type - String)
+   Title to show for the language selector component.
+
+2. languagesArray (type - Array<string>)
+   An array of language codes. This array will determine how many and what tabs to display for selection. Use similar 'language codes' that are used for highlighting the code in the markdown fence nodes.
+   example: java, python, javascript, json, etc.
+
+3. id (type - String)
+   Id should be unique for all the 'codeWithLanguageSelector' tags within a single page.
+
+4. theme (type - String)
+   This is an optional argument to choose the color theme for the code block.
+   Available options are 'gray', 'light' and 'default'
+
+Example:
+
+{% codeWithLanguageSelector title="The Title" id="container-1" languagesArray=["json","python","java","bash"] theme="light" %}
+
+\`\`\`json
+{
+  "a": {
+    "c": "open",
+    "num": 5,
+    "val": false
+  }
+}
+ \`\`\` 
+
+\`\`\`python
+def my_function():
+  print("Hello world!")
+ \`\`\` 
+
+\`\`\`java
+public class Main {
+  static void myMethod() {
+    System.out.print("Hello world!")
+  }
+}
+ \`\`\` 
+
+\`\`\`bash
+curl https://google.com -a
+ \`\`\` 
+
+{% /codeWithLanguageSelector %}
+
+#### Images of `codeWithLanguageSelector` tag with different themes
+
+1. Default
+
+<img width="2032" alt="code-lang-selector-default-img" src="./public/code-lang-selector-default.png">
+
+2. Light
+
+<img width="2032" alt="code-lang-selector-light-img" src="./public/code-lang-selector-light.png">
+
+3. Gray
+
+<img width="2032" alt="code-lang-selector-gray-img" src="./public/code-lang-selector-gray.png">
