@@ -1,7 +1,7 @@
 import { SelectOption } from "../components/SelectDropdown/SelectDropdown";
 
-export const DEFAULT_VERSION = "v1.1.1";
-export const STABLE_VERSION = "v1.1.1";
+export const DEFAULT_VERSION = "v1.1.2";
+export const STABLE_VERSION = "v1.1.2";
 
 export const VERSION_SELECT_DEFAULT_OPTIONS: Array<SelectOption<string>> = [
   {
