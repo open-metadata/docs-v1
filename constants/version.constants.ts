@@ -1,7 +1,7 @@
 import { SelectOption } from "../components/SelectDropdown/SelectDropdown";
 
-export const DEFAULT_VERSION = "v1.1";
-export const STABLE_VERSION = "v1.1";
+export const DEFAULT_VERSION = "v1.1.x";
+export const STABLE_VERSION = "v1.1.x";
 
 export const VERSION_SELECT_DEFAULT_OPTIONS: Array<SelectOption<string>> = [
   {
@@ -10,4 +10,4 @@ export const VERSION_SELECT_DEFAULT_OPTIONS: Array<SelectOption<string>> = [
   },
 ];
 
-export const REGEX_VERSION_MATCH = /v(\d+\.\d+)/g;
+export const REGEX_VERSION_MATCH = /v(\d+\.\d+\.x)/g;
