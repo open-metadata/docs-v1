@@ -149,7 +149,7 @@ export default function Index({ menu, versionsList }: Props) {
 export async function getServerSideProps(context) {
   try {
     // Check if the version field passed in context params is proper version format
-    const versionFormat = /(v\d\.\d*)/g;
+    const versionFormat = /(v\d\.\d\.\x*)/g;
     const isVersionPresent = versionFormat.test(context.params.version);
     let menu = [];
     const versionsList: Array<SelectOption<string>> = getVersionsList();
