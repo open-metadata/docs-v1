@@ -60,7 +60,7 @@ export default function TopNav({ versionsList }: TopNavProps) {
   }, []);
 
   useEffect(() => {
-    const regexToMatchVersionString = /v(\d+\.\d+\.\d+)/g;
+    const regexToMatchVersionString = /v(\d+\.\d+)/g;
 
     if (router.pathname !== "/_error") {
       if (
