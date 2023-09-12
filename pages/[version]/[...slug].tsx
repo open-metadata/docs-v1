@@ -108,7 +108,7 @@ export async function getServerSideProps(context) {
     const props = { menu: [], content: "", slug: [] };
 
     // Check if the version field passed in context params is proper version format
-    const versionFormat = /v(\d+\.\d+\.\d+)/g;
+    const versionFormat = /v(\d+\.\d+)/g;
     const isVersionPresent = versionFormat.test(context.params.version);
 
     const versionsList: Array<SelectOption<string>> = getVersionsList();
