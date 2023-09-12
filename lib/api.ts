@@ -113,7 +113,7 @@ export const getVersionsList = () => {
     const versionsList = versionsArray
       // content folder now also has other folders like partial or the next release snapshot content with the versions folders
       // this check is to select only versions folders
-      .filter((version) => /^v(\d+\.\d+\.\d+)$/g.test(version))
+      .filter((version) => /^v(\d+\.\d+)$/g.test(version))
       .map((version) => ({
         label: version,
         value: version,
