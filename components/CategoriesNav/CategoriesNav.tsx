@@ -1,14 +1,11 @@
 import classNames from "classnames";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { API_AND_SDK_MENU_ITEMS } from "../../constants/categoriesNav.constants";
 import { useDocVersionContext } from "../../context/DocVersionContext";
 import { useNavBarCollapsedContext } from "../../context/NavBarCollapseContext";
 import { MenuItem } from "../../interface/common.interface";
 import { getCategoryByIndex } from "../../lib/utils";
 import { getUrlWithVersion } from "../../utils/CommonUtils";
-import Dropdown from "../Dropdown/Dropdown";
-import DropdownMenu from "../Dropdown/DropdownMenu";
 import styles from "./CategoriesNav.module.css";
 
 interface Props {
@@ -59,7 +56,8 @@ export default function CategoriesNav({ menu }: Props) {
         })}
       </div>
 
-      <div className={styles.ExtraContent}>
+      {/* TODO: uncomment once the API page contents are added */}
+      {/* <div className={styles.ExtraContent}>
         <Dropdown
           alignX="right"
           className={styles.APIContainer}
@@ -71,7 +69,7 @@ export default function CategoriesNav({ menu }: Props) {
             />
           }
         />
-      </div>
+      </div> */}
     </div>
   );
 }
