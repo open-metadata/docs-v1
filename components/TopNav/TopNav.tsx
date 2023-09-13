@@ -1,27 +1,28 @@
-import React, { useCallback, useEffect, useState } from "react";
-import Link from "next/link";
-import styles from "./TopNav.module.css";
-import { ReactComponent as SvgLogo } from "../../images/icons/omd.svg";
-import { ReactComponent as Github } from "../../images/icons/github.svg";
-import { ReactComponent as Slack } from "../../images/icons/slack.svg";
-import { ReactComponent as Cloud } from "../../images/icons/cloud.svg";
-import { ReactComponent as API } from "../../images/icons/api.svg";
-import Search from "../Search/Search";
-import { SearchContextProvider } from "../../context/SearchContext";
-import { InstantSearch } from "react-instantsearch-hooks-web";
 import algoliasearch from "algoliasearch/lite";
-import { useRouter } from "next/router";
+import classNames from "classnames";
 import { isEmpty, isString } from "lodash";
-import { useDocVersionContext } from "../../context/DocVersionContext";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import { useCallback, useEffect, useState } from "react";
+import { MdMenu, MdMenuOpen } from "react-icons/md";
+import { InstantSearch } from "react-instantsearch-hooks-web";
 import {
   DEFAULT_VERSION,
   REGEX_VERSION_MATCH,
+  REGEX_VERSION_MATCH_WITH_SLASH_AT_START,
 } from "../../constants/version.constants";
-import SelectDropdown, { SelectOption } from "../SelectDropdown/SelectDropdown";
-import { getUrlWithVersion } from "../../utils/CommonUtils";
+import { useDocVersionContext } from "../../context/DocVersionContext";
 import { useNavBarCollapsedContext } from "../../context/NavBarCollapseContext";
-import classNames from "classnames";
-import { MdMenu, MdMenuOpen } from "react-icons/md";
+import { SearchContextProvider } from "../../context/SearchContext";
+import { ReactComponent as API } from "../../images/icons/api.svg";
+import { ReactComponent as Cloud } from "../../images/icons/cloud.svg";
+import { ReactComponent as Github } from "../../images/icons/github.svg";
+import { ReactComponent as SvgLogo } from "../../images/icons/omd.svg";
+import { ReactComponent as Slack } from "../../images/icons/slack.svg";
+import { getUrlWithVersion } from "../../utils/CommonUtils";
+import Search from "../Search/Search";
+import SelectDropdown, { SelectOption } from "../SelectDropdown/SelectDropdown";
+import styles from "./TopNav.module.css";
 
 const searchClient = algoliasearch(
   process.env.NEXT_PUBLIC_ALGOLIA_APP_ID,
@@ -60,16 +61,19 @@ export default function TopNav({ versionsList }: TopNavProps) {
   }, []);
 
   useEffect(() => {
-    const regexToMatchVersionString = /v(\d+\.\d+\.\x)/g;
-
     if (router.pathname !== "/_error") {
       if (
         isString(router.query.version) &&
-        regexToMatchVersionString.test(router.query.version)
+        REGEX_VERSION_MATCH.test(router.query.version)
       ) {
         onChangeDocVersion(router.query.version);
       } else {
-        router.push(`/${DEFAULT_VERSION}${router.asPath}`);
+        router.push(
+          `/${DEFAULT_VERSION}${router.asPath.replace(
+            REGEX_VERSION_MATCH_WITH_SLASH_AT_START,
+            ""
+          )}`
+        );
       }
     }
   }, [router]);
