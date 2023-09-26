@@ -1,10 +1,13 @@
 import classNames from "classnames";
-import React, { HTMLAttributes } from "react";
+import { HTMLAttributes } from "react";
+import { useDocVersionContext } from "../../../context/DocVersionContext";
+import { getUrlWithVersion } from "../../../utils/CommonUtils";
 import styles from "./Button.module.css";
 
 interface Props extends HTMLAttributes<HTMLButtonElement> {
-  href: string;
+  href?: string;
   type: "link" | "button";
+  isExternalLink?: boolean;
 }
 
 export default function Button({
@@ -14,15 +17,25 @@ export default function Button({
   id,
   onClick,
   type,
+  style,
+  isExternalLink = false,
 }: Props) {
+  const { docVersion } = useDocVersionContext();
+
   return type === "link" ? (
-    <a className={classNames(styles.Container, className)} href={href} id={id}>
+    <a
+      className={classNames(styles.Container, className)}
+      href={isExternalLink ? href : getUrlWithVersion(href, docVersion)}
+      id={id}
+      style={style}
+    >
       {children}
     </a>
   ) : (
     <button
       className={classNames(styles.Container, className)}
       id={id}
+      style={style}
       onClick={onClick}
     >
       {children}
