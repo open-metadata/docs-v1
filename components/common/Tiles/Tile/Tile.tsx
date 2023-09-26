@@ -1,23 +1,19 @@
-import Link from "next/link";
-import React, { ReactNode, useCallback } from "react";
-import { getUrlWithVersion } from "../../../../utils/CommonUtils";
-import styles from "./Tile.module.css";
 import classNames from "classnames";
+import { isEmpty } from "lodash";
+import Link from "next/link";
+import { useCallback, useMemo } from "react";
 import { useDocVersionContext } from "../../../../context/DocVersionContext";
-
-interface TileProps {
-  description: string;
-  link: string;
-  title: string;
-  isExternalLink?: boolean;
-  children?: ReactNode;
-}
+import { getUrlWithVersion } from "../../../../utils/CommonUtils";
+import { getTileIcons } from "../../../../utils/TileUtils";
+import { TileProps } from "./Tile.interface";
+import styles from "./Tile.module.css";
 
 function Tile({
   description,
   link,
   title,
   isExternalLink = false,
+  icon,
   children,
 }: TileProps) {
   const { docVersion } = useDocVersionContext();
@@ -37,13 +33,22 @@ function Tile({
     [link, isExternalLink]
   );
 
+  const tileIcon = useMemo(() => getTileIcons(icon), [icon]);
+
   return getWrappedTile(
     <div
-      className={classNames(styles.Container, link ? styles.HoverEffect : "")}
+      className={classNames(
+        styles.Container,
+        { [styles.WithIcon]: !isEmpty(icon) },
+        link ? styles.HoverEffect : ""
+      )}
     >
-      <h4>{title}</h4>
-      {description && <span>{description}</span>}
-      {children}
+      {!isEmpty(icon) && <div className={styles.IconContainer}>{tileIcon}</div>}
+      <div className={classNames(styles.InnerContainer)}>
+        <h4>{title}</h4>
+        {description && <span>{description}</span>}
+        {children}
+      </div>
     </div>
   );
 }
