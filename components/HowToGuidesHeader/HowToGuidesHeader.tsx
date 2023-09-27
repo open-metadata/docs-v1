@@ -21,7 +21,8 @@ function HowToGuidesHeader() {
         <div>
           <div className={styles.Heading}>Documentation</div>
           <div className={styles.SubHeading}>
-            Explore our guides and examples to integrate Stripe.
+            Explore our how-to guides and a complete overview of the features in
+            OpenMetadata.
           </div>
         </div>
         <div className="flex gap-8 items-center">
