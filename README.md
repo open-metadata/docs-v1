@@ -594,7 +594,17 @@ A styled, bordered component, with or without icons, to navigate to pages.
 #### Attributes
 
 1. icon (type - String)
-   Name of the custom icon (administration | collaboration | discovery | governance | quality) or the identifier string to render the icons from 'Material Icons'. Visit https://react-icons.github.io/react-icons/icons?name=md to checkout the available icon
+   Name of the custom icon or the identifier string to render the icons from 'Material Icons'. Visit https://react-icons.github.io/react-icons/icons?name=md to checkout the available icon
+
+   Available Custom Icons:
+   - administration
+   - collaboration
+   - discovery
+   - governance
+   - insight
+   - lineage
+   - quality
+   - steward
 
 2. title (type - String)
    The title or the header of the tile.

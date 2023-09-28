@@ -1,0 +1,14 @@
+<svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g style="mix-blend-mode:multiply">
+<rect x="20.5714" y="1" width="11.4286" height="11.4286" rx="2" fill="#56BC3B"/>
+</g>
+<g style="mix-blend-mode:multiply">
+<path d="M0 3C0 1.89543 0.895431 1 2 1H9.42857C10.5331 1 11.4286 1.89543 11.4286 3V10.4286C11.4286 11.5331 10.5331 12.4286 9.42857 12.4286H2C0.895433 12.4286 0 11.5331 0 10.4286V3Z" fill="#56BC3B"/>
+</g>
+<g style="mix-blend-mode:multiply">
+<rect x="16" y="19.2858" width="11.4286" height="11.4286" rx="2" fill="#56BC3B"/>
+</g>
+<g style="mix-blend-mode:multiply">
+<path d="M27 7H6L21.5 25.5" stroke="#65D3DE" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</svg>
