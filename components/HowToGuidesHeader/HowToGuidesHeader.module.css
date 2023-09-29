@@ -1,0 +1,26 @@
+.HowToGuidesHeaderContainer{
+    display: flex;
+    align-items: center;
+    position: relative;
+    min-height: calc(100vw/4);
+}
+
+.BGImage{
+    z-index: -1;
+    position: absolute;
+}
+
+.Heading{
+    font-weight: 700;
+    font-size: 40px;
+}
+
+.SubHeading{
+    font-size: 24px;
+}
+
+.ExploreLink{
+    color: var(--default-text-color);
+    text-decoration: underline;
+    font-weight: 400;
+}
