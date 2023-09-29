@@ -6,6 +6,12 @@ export const tile = {
     description: {
       type: String,
     },
+    icon: {
+      type: String,
+      description: `Name of the custom icon (administration | collaboration | discovery | governance | quality). 
+        Or the identifier string to render the icons from 'Material Icons'. 
+        Visit https://react-icons.github.io/react-icons/icons?name=md to checkout the available icon`,
+    },
     link: {
       type: String,
     },

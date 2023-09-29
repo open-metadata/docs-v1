@@ -1,3 +1,7 @@
+import Markdoc, { RenderableTreeNode } from "@markdoc/markdoc";
+import classNames from "classnames";
+import { has, isEmpty, startCase } from "lodash";
+import { useRouter } from "next/router";
 import React, {
   useCallback,
   useEffect,
@@ -5,23 +9,21 @@ import React, {
   useRef,
   useState,
 } from "react";
-import TopNav from "../../TopNav/TopNav";
-import CategoriesNav from "../../CategoriesNav/CategoriesNav";
-import SideNav from "../../SideNav/SideNav";
-import classNames from "classnames";
-import SkeletonLoader from "../../common/SkeletonLoader/SkeletonLoader";
 import { SKELETON_PARAGRAPH_WIDTHS } from "../../../constants/SkeletonLoader.constants";
-import Footer from "../../Footer/Footer";
-import Markdoc, { RenderableTreeNode } from "@markdoc/markdoc";
-import { has, isEmpty, startCase } from "lodash";
-import { SelectOption } from "../../SelectDropdown/SelectDropdown";
-import { useRouter } from "next/router";
-import { getCategoryByIndex } from "../../../lib/utils";
-import { MenuItem } from "../../../interface/common.interface";
-import { useRouteChangingContext } from "../../../context/RouteChangingContext";
 import { useNavBarCollapsedContext } from "../../../context/NavBarCollapseContext";
+import { useRouteChangingContext } from "../../../context/RouteChangingContext";
+import { MenuItem } from "../../../interface/common.interface";
 import { components } from "../../../lib/markdoc";
+import { getCategoryByIndex } from "../../../lib/utils";
+import { checkIsHowToGuidesPaths } from "../../../utils/PathUtils";
 import Breadcrumb from "../../Breadcrumb/Breadcrumb";
+import CategoriesNav from "../../CategoriesNav/CategoriesNav";
+import Footer from "../../Footer/Footer";
+import HowToGuidesHeader from "../../HowToGuidesHeader/HowToGuidesHeader";
+import { SelectOption } from "../../SelectDropdown/SelectDropdown";
+import SideNav from "../../SideNav/SideNav";
+import TopNav from "../../TopNav/TopNav";
+import SkeletonLoader from "../../common/SkeletonLoader/SkeletonLoader";
 
 interface DocsPageLayoutProps {
   parsedContent: RenderableTreeNode;
@@ -77,7 +79,7 @@ function DocsPageLayout({
       const element = document.getElementById(hashElementId);
 
       setTimeout(() => {
-        element &&
+        !isEmpty(element) &&
           element.scrollIntoView({
             block: "center",
             inline: "center",
@@ -86,6 +88,11 @@ function DocsPageLayout({
       }, 500);
     }
   }, [autoCollapsed.current]);
+
+  const isHowToGuidesHomePagePath = useMemo(
+    () => checkIsHowToGuidesPaths(router),
+    []
+  );
 
   useEffect(() => {
     scrollToElementWithOffsetMargin();
@@ -97,22 +104,36 @@ function DocsPageLayout({
         <TopNav versionsList={versionsList} />
         <CategoriesNav menu={menu} />
       </div>
+      {isHowToGuidesHomePagePath && <HowToGuidesHeader />}
       <div className="flex">
-        <SideNav
-          sideNavCollapsed={sideNavCollapsed}
-          category={item ? item.category : startCase(category)}
-          items={item ? item.children : []}
-          loading={isRouteChanging}
-          handleSideNavCollapsed={handleSideNavCollapsed}
-          ref={autoCollapsed}
-        />
+        {!isHowToGuidesHomePagePath && (
+          <SideNav
+            sideNavCollapsed={sideNavCollapsed}
+            category={item ? item.category : startCase(category)}
+            items={item ? item.children : []}
+            loading={isRouteChanging}
+            handleSideNavCollapsed={handleSideNavCollapsed}
+            ref={autoCollapsed}
+          />
+        )}
         <div
           className={classNames(
             "content",
-            sideNavCollapsed ? "collapsed-content" : "non-collapsed-content"
+            sideNavCollapsed ? "collapsed-content" : "non-collapsed-content",
+            { "mx-auto": isHowToGuidesHomePagePath }
           )}
         >
-          <main className={classNames("flex flex-col mx-12 my-6")}>
+          <main
+            className={classNames(
+              "flex flex-col my-6",
+              {
+                "mx-12": !isHowToGuidesHomePagePath,
+              },
+              {
+                "px-12": isHowToGuidesHomePagePath,
+              }
+            )}
+          >
             {isRouteChanging ? (
               <SkeletonLoader
                 paragraph={{
