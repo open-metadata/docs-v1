@@ -47,6 +47,11 @@ export default function MyApp({ Component, pageProps }: AppProps<MyAppProps>) {
         )}
         <meta property="og:type" content="website" />
         <meta content="summary_large_image" name="twitter:card" />
+        <script
+          src="https://jiffygpt.com/embed.js"
+          id={process.env.NEXT_PUBLIC_GIFFY_GPT_ID}
+          defer
+        ></script>
       </Head>
       <ErrorBoundary>
         <RouteChangingContextProvider>
