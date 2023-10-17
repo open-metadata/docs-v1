@@ -22,6 +22,7 @@ import { useDocVersionContext } from "../../context/DocVersionContext";
 import { MenuItem } from "../../interface/common.interface";
 import { SelectOption } from "../../components/SelectDropdown/SelectDropdown";
 import { useNavBarCollapsedContext } from "../../context/NavBarCollapseContext";
+import Link from "next/link";
 
 interface Props {
   menu: MenuItem[];
@@ -78,16 +79,14 @@ export default function Index({ menu, versionsList }: Props) {
                     Get to know OpenMetadata in few minutes. Watch the data
                     discovery, data profiler, and lineage features in action
                   </p>
-                  <Button
-                    className="mt-4"
-                    href={getUrlWithVersion("/quick-start", docVersion)}
-                    type="link"
-                  >
-                    Get Started
-                    <span className="ml-2">
-                      <ArrowRight />
-                    </span>
-                  </Button>
+                  <Link href={getUrlWithVersion("/quick-start", docVersion)}>
+                    <Button className="mt-4" type="button">
+                      Get Started
+                      <span className="ml-2">
+                        <ArrowRight />
+                      </span>
+                    </Button>
+                  </Link>
                 </>
               </div>
               <div className={bannerStyles.Video}>
