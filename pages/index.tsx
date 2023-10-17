@@ -86,7 +86,7 @@ export default function Index({ versionsList }: Props) {
                   </p>
                   <Button
                     className="mt-4"
-                    href={getUrlWithVersion("/quick-start", docVersion)}
+                    href="/quick-start"
                     type="link"
                   >
                     Get Started
