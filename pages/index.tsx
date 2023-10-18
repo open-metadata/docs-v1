@@ -19,6 +19,7 @@ import { SkeletonWidth } from "../enums/SkeletonLoder.enum";
 import { SelectOption } from "../components/SelectDropdown/SelectDropdown";
 import { getVersionsList } from "../lib/api";
 import { useNavBarCollapsedContext } from "../context/NavBarCollapseContext";
+import Link from "next/link";
 
 interface Props {
   versionsList: Array<SelectOption<string>>;
@@ -84,16 +85,14 @@ export default function Index({ versionsList }: Props) {
                     Get to know OpenMetadata in few minutes. Watch the data
                     discovery, data profiler, and lineage features in action
                   </p>
-                  <Button
-                    className="mt-4"
-                    href={getUrlWithVersion("/quick-start", docVersion)}
-                    type="link"
-                  >
-                    Get Started
-                    <span className="ml-2">
-                      <ArrowRight />
-                    </span>
-                  </Button>
+                  <Link href={getUrlWithVersion("quick-start", docVersion)}>
+                    <Button type="button" className="mt-4">
+                      Get Started
+                      <span className="ml-2">
+                        <ArrowRight />
+                      </span>
+                    </Button>
+                  </Link>
                 </>
               </div>
               <div className={bannerStyles.Video}>
