@@ -31,6 +31,8 @@ ALGOLIA_INDEX = os.environ.get("ALGOLIA_INDEX")
 
 CONTENT_REGEX = re.compile(r"<(.*?)>", re.DOTALL | re.MULTILINE)
 
+STABLE_VERSION = "1.1.x"
+
 EXCLUDED_FILES = {"gdpr-banner", "menu"}
 
 
@@ -87,11 +89,11 @@ def build_index():
     """
 
     versions = list(Path("content").glob("v*"))
-    latest_version = max(versions)
+    stable_version = next((v for v in versions if STABLE_VERSION in v.name), None)
 
     results = [
         file
-        for file in latest_version.rglob("*.[mM][dD]")
+        for file in stable_version.rglob("*.[mM][dD]")
         if file.stem not in EXCLUDED_FILES
     ]
 
