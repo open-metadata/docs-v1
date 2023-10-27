@@ -1,5 +1,5 @@
 # Rebuild the source code only when needed
-FROM node:16.15.1-slim AS builder
+FROM node:18.18.2-slim AS builder
 WORKDIR /docs
 COPY . .
 
