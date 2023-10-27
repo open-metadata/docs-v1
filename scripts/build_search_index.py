@@ -31,7 +31,7 @@ ALGOLIA_INDEX = os.environ.get("ALGOLIA_INDEX")
 
 CONTENT_REGEX = re.compile(r"<(.*?)>", re.DOTALL | re.MULTILINE)
 
-STABLE_VERSION = "1.1.x"
+STABLE_VERSION = "1.2.x"
 
 EXCLUDED_FILES = {"gdpr-banner", "menu"}
 
