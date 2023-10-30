@@ -6,6 +6,7 @@ export interface SkeletonLoaderParagraphProp {
 }
 export interface SkeletonLoaderProps {
   className?: string;
+  showBreadcrumb?: boolean;
   title?: boolean | SkeletonWidth | number;
   paragraph?: SkeletonLoaderParagraphProp | boolean;
 }

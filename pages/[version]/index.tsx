@@ -1,38 +1,38 @@
-import React, { useEffect } from "react";
-import Card from "../../components/common/Card/Card";
-import ConnectorsInfo from "../../components/ConnectorsInfo/ConnectorsInfo";
-import bannerStyles from "../../components/common/Banner/Banner.module.css";
-import YouTube from "../../components/common/Youtube/Youtube";
-import NewsEntry from "../../components/NewsEntry/NewsEntry";
-import Button from "../../components/common/Button/Button";
-import { ReactComponent as ArrowRight } from "../../images/icons/arrow-right.svg";
-import TopNav from "../../components/TopNav/TopNav";
+import Link from "next/link";
+import { useEffect } from "react";
 import CategoriesNav from "../../components/CategoriesNav/CategoriesNav";
-import { getMenu, getVersionsList } from "../../lib/api";
+import ConnectorsInfo from "../../components/ConnectorsInfo/ConnectorsInfo";
 import Footer from "../../components/Footer/Footer";
-import { getUrlWithVersion } from "../../utils/CommonUtils";
+import NewsEntry from "../../components/NewsEntry/NewsEntry";
+import { SelectOption } from "../../components/SelectDropdown/SelectDropdown";
+import TopNav from "../../components/TopNav/TopNav";
+import bannerStyles from "../../components/common/Banner/Banner.module.css";
+import Button from "../../components/common/Button/Button";
+import Card from "../../components/common/Card/Card";
+import SkeletonLoader from "../../components/common/SkeletonLoader/SkeletonLoader";
+import YouTube from "../../components/common/Youtube/Youtube";
 import {
   BLOGS_INFO,
   QUICK_LINK_CARDS,
 } from "../../constants/homePage.constants";
-import { useRouteChangingContext } from "../../context/RouteChangingContext";
-import SkeletonLoader from "../../components/common/SkeletonLoader/SkeletonLoader";
-import { SkeletonWidth } from "../../enums/SkeletonLoder.enum";
 import { useDocVersionContext } from "../../context/DocVersionContext";
-import { MenuItem } from "../../interface/common.interface";
-import { SelectOption } from "../../components/SelectDropdown/SelectDropdown";
+import { useMenuItemsContext } from "../../context/MenuItemsContext";
 import { useNavBarCollapsedContext } from "../../context/NavBarCollapseContext";
-import Link from "next/link";
+import { useRouteChangingContext } from "../../context/RouteChangingContext";
+import { SkeletonWidth } from "../../enums/SkeletonLoder.enum";
+import { ReactComponent as ArrowRight } from "../../images/icons/arrow-right.svg";
+import { getVersionsList } from "../../lib/api";
+import { getUrlWithVersion } from "../../utils/CommonUtils";
 
 interface Props {
-  menu: MenuItem[];
   versionsList: Array<SelectOption<string>>;
 }
 
-export default function Index({ menu, versionsList }: Props) {
+export default function Index({ versionsList }: Props) {
   const { isRouteChanging } = useRouteChangingContext();
   const { docVersion } = useDocVersionContext();
   const { isMobileDevice } = useNavBarCollapsedContext();
+  const { menuItems } = useMenuItemsContext();
 
   useEffect(() => {
     if (isMobileDevice) {
@@ -44,7 +44,7 @@ export default function Index({ menu, versionsList }: Props) {
     <>
       <div className="nav-bar-container">
         <TopNav versionsList={versionsList} />
-        <CategoriesNav menu={menu} />
+        <CategoriesNav menu={menuItems} />
       </div>
       <div className="home-page">
         {isRouteChanging ? (
@@ -149,15 +149,10 @@ export async function getServerSideProps(context) {
   try {
     // Check if the version field passed in context params is proper version format
     const versionFormat = /(v\d\.\d\.\x*)/g;
-    const isVersionPresent = versionFormat.test(context.params.version);
-    let menu = [];
     const versionsList: Array<SelectOption<string>> = getVersionsList();
 
-    if (isVersionPresent) {
-      menu = getMenu(context.params.version);
-    }
     return {
-      props: { menu, versionsList },
+      props: { versionsList },
     };
   } catch {
     return {

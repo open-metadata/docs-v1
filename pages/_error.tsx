@@ -1,24 +1,22 @@
-import { startCase } from "lodash";
+import classNames from "classnames";
 import { useRouter } from "next/router";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import CategoriesNav from "../components/CategoriesNav/CategoriesNav";
+import Footer from "../components/Footer/Footer";
+import { SelectOption } from "../components/SelectDropdown/SelectDropdown";
+import SideNav from "../components/SideNav/SideNav";
+import TopNav from "../components/TopNav/TopNav";
 import SkeletonLoader from "../components/common/SkeletonLoader/SkeletonLoader";
 import Tile from "../components/common/Tiles/Tile/Tile";
 import TilesContainer from "../components/common/Tiles/TilesContainer/TilesContainer";
-import Footer from "../components/Footer/Footer";
-import SideNav from "../components/SideNav/SideNav";
-import TopNav from "../components/TopNav/TopNav";
 import { tilesInfoArray } from "../constants/404Page.constants";
 import { SKELETON_PARAGRAPH_WIDTHS } from "../constants/SkeletonLoader.constants";
 import { useDocVersionContext } from "../context/DocVersionContext";
-import { useRouteChangingContext } from "../context/RouteChangingContext";
-import { MenuItem } from "../interface/common.interface";
-import { getCategoryByIndex } from "../lib/utils";
-import { fetchMenuList, getVersionFromUrl } from "../utils/CommonUtils";
-import { SelectOption } from "../components/SelectDropdown/SelectDropdown";
-import { getVersionsList } from "../lib/api";
+import { useMenuItemsContext } from "../context/MenuItemsContext";
 import { useNavBarCollapsedContext } from "../context/NavBarCollapseContext";
-import classNames from "classnames";
+import { useRouteChangingContext } from "../context/RouteChangingContext";
+import { getVersionsList } from "../lib/api";
+import { getVersionFromUrl } from "../utils/CommonUtils";
 
 interface Props {
   versionsList: Array<SelectOption<string>>;
@@ -29,18 +27,11 @@ function ErrorComponent({ versionsList }: Props) {
   const { docVersion, onChangeDocVersion } = useDocVersionContext();
   const { isRouteChanging } = useRouteChangingContext();
   const { isMobileDevice } = useNavBarCollapsedContext();
-  const [menu, setMenu] = useState<MenuItem[]>([]);
+  const { menuItems } = useMenuItemsContext();
   const [sideNavCollapsed, setSideNavCollapsed] = useState<boolean>(true);
 
   const handleSideNavCollapsed = (value: boolean) => {
     setSideNavCollapsed(value);
-  };
-
-  const category = getCategoryByIndex(router.asPath, 2);
-
-  const fetchMenuItems = async (docVersion: string) => {
-    const res = await fetchMenuList(docVersion);
-    setMenu(res);
   };
 
   useEffect(() => {
@@ -50,27 +41,20 @@ function ErrorComponent({ versionsList }: Props) {
   }, [isMobileDevice]);
 
   useEffect(() => {
-    fetchMenuItems(docVersion);
-  }, [docVersion]);
-
-  useEffect(() => {
     const version = getVersionFromUrl(router.asPath);
     if (docVersion !== version) {
       onChangeDocVersion(version);
     }
-  }, [router]);
+  }, [router.asPath]);
 
   return (
     <div className="flex flex-col">
       <TopNav versionsList={versionsList} />
-      <CategoriesNav menu={menu} />
+      <CategoriesNav menu={menuItems} />
       <div className="flex">
         <SideNav
-          category={startCase(category)}
-          items={[]}
           sideNavCollapsed={sideNavCollapsed}
           handleSideNavCollapsed={handleSideNavCollapsed}
-          loading={isRouteChanging}
         />
         <div
           className={classNames(

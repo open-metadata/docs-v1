@@ -10,11 +10,10 @@ import APIPageLayout from "../../components/PageLayouts/APIPageLayout/APIPageLay
 import DocsPageLayout from "../../components/PageLayouts/DocsPageLayout/DocsPageLayout";
 import { SelectOption } from "../../components/SelectDropdown/SelectDropdown";
 import { API_AND_SDK_MENU_ITEMS } from "../../constants/categoriesNav.constants";
-import { MenuItem, PathObj } from "../../interface/common.interface";
+import { PathObj } from "../../interface/common.interface";
 import {
   getArticleSlugFromString,
   getArticleSlugs,
-  getMenu,
   getPartialsConfigObject,
   getVersionsList,
 } from "../../lib/api";
@@ -22,7 +21,6 @@ import { configs } from "../../lib/markdoc";
 import { getFormattedPartials } from "../../utils/CommonUtils";
 
 interface Props {
-  menu: MenuItem[];
   content: string;
   slug: string[];
   versionsList: Array<SelectOption<string>>;
@@ -30,7 +28,6 @@ interface Props {
 }
 
 export default function Article({
-  menu,
   content,
   slug,
   versionsList,
@@ -92,7 +89,6 @@ export default function Article({
         ) : (
           <DocsPageLayout
             parsedContent={parsedContent}
-            menu={menu}
             slug={slug}
             versionsList={versionsList}
           />
@@ -118,7 +114,6 @@ export async function getServerSideProps(context) {
         "/"
       )}`;
 
-      const menu = getMenu(context.params.version);
       const partials = getPartialsConfigObject();
 
       if ("slug" in context.params) {
@@ -141,7 +136,6 @@ export async function getServerSideProps(context) {
         const fileContents = fs.readFileSync(filename, "utf8");
         const { content } = matter(fileContents);
 
-        props["menu"] = menu;
         props["content"] = content;
         props["slug"] = context.params.slug;
         props["versionsList"] = versionsList;
