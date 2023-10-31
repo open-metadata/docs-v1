@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useMemo, useState } from "react";
 import { DEFAULT_VERSION } from "../constants/version.constants";
 
 export const DocVersionContext = React.createContext({
@@ -15,8 +15,13 @@ export const DocVersionContextProvider = ({ children }) => {
     setDocVersion(version);
   };
 
+  const contextValue = useMemo(
+    () => ({ docVersion, onChangeDocVersion }),
+    [docVersion, onChangeDocVersion]
+  );
+
   return (
-    <DocVersionContext.Provider value={{ docVersion, onChangeDocVersion }}>
+    <DocVersionContext.Provider value={contextValue}>
       {children}
     </DocVersionContext.Provider>
   );
