@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useCallback, useEffect, useState } from "react";
 import { MdMenu, MdMenuOpen } from "react-icons/md";
-import { InstantSearch } from "react-instantsearch-hooks-web";
+import { InstantSearch } from "react-instantsearch";
 import {
   DEFAULT_VERSION,
   REGEX_VERSION_MATCH,
@@ -108,7 +108,10 @@ export default function TopNav({ versionsList }: TopNavProps) {
         )}
       </div>
       <SearchContextProvider>
-        <InstantSearch indexName="openmetadata-v1" searchClient={searchClient}>
+        <InstantSearch
+          indexName={`openmetadata-v1-${docVersion}`}
+          searchClient={searchClient}
+        >
           <Search />
         </InstantSearch>
       </SearchContextProvider>
