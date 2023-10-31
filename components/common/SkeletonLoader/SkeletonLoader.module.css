@@ -3,12 +3,10 @@
   flex-direction: column;
   overflow: hidden;
   gap: 16px;
-  margin: 16px 0px;
 }
 
 .OutsideDiv {
   overflow-x: hidden;
-  background-color: #f6f7f8;
   background: linear-gradient(
     to right,
     rgb(243, 243, 243) 8%,
@@ -42,6 +40,28 @@
 .Paragraph {
   height: 16px;
   margin-bottom: 8px;
+}
+
+.BreadCrumb{
+  margin-bottom: 32px;
+  display:flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.BreadCrumbItem {
+  overflow-x: hidden;
+  background: linear-gradient(
+    to right,
+    rgb(243, 243, 243) 8%,
+    rgb(236, 236, 236) 33%,
+    rgb(243, 243, 243) 55%
+  );
+  animation: skeleton-loading 40s linear infinite forwards;
+  border: 0px solid transparent;
+  border-radius: 4px;
+  height: 14px;
+  width: 7%;
 }
 
 .Small {

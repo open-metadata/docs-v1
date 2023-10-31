@@ -1,6 +1,6 @@
 import Markdoc, { RenderableTreeNode } from "@markdoc/markdoc";
 import classNames from "classnames";
-import { has, isEmpty, startCase } from "lodash";
+import { has, isEmpty } from "lodash";
 import { useRouter } from "next/router";
 import React, {
   useCallback,
@@ -10,11 +10,10 @@ import React, {
   useState,
 } from "react";
 import { SKELETON_PARAGRAPH_WIDTHS } from "../../../constants/SkeletonLoader.constants";
+import { useMenuItemsContext } from "../../../context/MenuItemsContext";
 import { useNavBarCollapsedContext } from "../../../context/NavBarCollapseContext";
 import { useRouteChangingContext } from "../../../context/RouteChangingContext";
-import { MenuItem } from "../../../interface/common.interface";
 import { components } from "../../../lib/markdoc";
-import { getCategoryByIndex } from "../../../lib/utils";
 import { checkIsHowToGuidesPaths } from "../../../utils/PathUtils";
 import Breadcrumb from "../../Breadcrumb/Breadcrumb";
 import CategoriesNav from "../../CategoriesNav/CategoriesNav";
@@ -27,14 +26,12 @@ import SkeletonLoader from "../../common/SkeletonLoader/SkeletonLoader";
 
 interface DocsPageLayoutProps {
   parsedContent: RenderableTreeNode;
-  menu: MenuItem[];
   slug: string[];
   versionsList: SelectOption<string>[];
 }
 
 function DocsPageLayout({
   parsedContent,
-  menu,
   slug,
   versionsList,
 }: DocsPageLayoutProps) {
@@ -42,18 +39,10 @@ function DocsPageLayout({
   const { isRouteChanging } = useRouteChangingContext();
   const { isMobileDevice } = useNavBarCollapsedContext();
   const [sideNavCollapsed, setSideNavCollapsed] = useState<boolean>(false);
+  const { menuItems, isMenuLoading } = useMenuItemsContext();
 
   // Ref to keep track if the side nav is collapsed before, when "code-preview-container" is in the view.
   const autoCollapsed = useRef(false);
-  const category = useMemo(
-    () => getCategoryByIndex(router.asPath, 2),
-    [router.asPath]
-  );
-
-  const item = useMemo(
-    () => menu.find((item) => getCategoryByIndex(item.url, 1) === category),
-    [menu, category]
-  );
 
   const handleSideNavCollapsed = useCallback(
     (value: boolean) => {
@@ -91,7 +80,7 @@ function DocsPageLayout({
 
   const isHowToGuidesHomePagePath = useMemo(
     () => checkIsHowToGuidesPaths(router),
-    []
+    [router.asPath]
   );
 
   useEffect(() => {
@@ -102,16 +91,13 @@ function DocsPageLayout({
     <div className="flex flex-col">
       <div className="nav-bar-container">
         <TopNav versionsList={versionsList} />
-        <CategoriesNav menu={menu} />
+        <CategoriesNav menu={menuItems} />
       </div>
-      {isHowToGuidesHomePagePath && <HowToGuidesHeader />}
+      {!isRouteChanging && isHowToGuidesHomePagePath && <HowToGuidesHeader />}
       <div className="flex">
         {!isHowToGuidesHomePagePath && (
           <SideNav
             sideNavCollapsed={sideNavCollapsed}
-            category={item ? item.category : startCase(category)}
-            items={item ? item.children : []}
-            loading={isRouteChanging}
             handleSideNavCollapsed={handleSideNavCollapsed}
             ref={autoCollapsed}
           />
@@ -134,8 +120,9 @@ function DocsPageLayout({
               }
             )}
           >
-            {isRouteChanging ? (
+            {isRouteChanging || isMenuLoading ? (
               <SkeletonLoader
+                showBreadcrumb
                 paragraph={{
                   rows: SKELETON_PARAGRAPH_WIDTHS.length,
                   width: SKELETON_PARAGRAPH_WIDTHS,

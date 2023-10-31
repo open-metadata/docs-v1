@@ -1,13 +1,13 @@
 import classNames from "classnames";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { useDocVersionContext } from "../../context/DocVersionContext";
 import { ReactComponent as ArrowDown } from "../../images/icons/drop-arrow-down.svg";
 import { ReactComponent as ArrowRight } from "../../images/icons/drop-arrow-right.svg";
 import { MenuItem } from "../../interface/common.interface";
-import styles from "./SideNav.module.css";
 import { getUrlWithVersion } from "../../utils/CommonUtils";
-import { useDocVersionContext } from "../../context/DocVersionContext";
+import styles from "./SideNav.module.css";
 
 export default function ListItem({
   item,
@@ -52,7 +52,7 @@ export default function ListItem({
         </Link>
       </>
     ),
-    [item]
+    [item, router.asPath]
   );
 
   useEffect(() => {
