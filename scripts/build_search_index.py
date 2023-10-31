@@ -112,7 +112,7 @@ def build_index(version: Path):
 
     # Replace the index with new objects
     # https://www.algolia.com/doc/api-reference/api-methods/replace-all-objects/
-    index.replace_all_objects(docs, {"safe": True})
+    index.replace_all_objects(docs, {"safe": False})
 
 
 def build_indexes() -> None:
