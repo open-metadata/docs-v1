@@ -81,7 +81,7 @@ def get_algolia_doc_from_file(file: Path) -> Optional[AlgoliaDoc]:
 
 def build_algolia_index_name(version: str) -> str:
     """Build dynamic index name based on version"""
-    return f"{ALGOLIA_INDEX}-{version}".replace(".", "")
+    return f"{ALGOLIA_INDEX}-{version}"
 
 
 def build_index(version: Path):
