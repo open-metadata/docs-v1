@@ -5,6 +5,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { useDocVersionContext } from "../../context/DocVersionContext";
 import { ReactComponent as ArrowDown } from "../../images/icons/drop-arrow-down.svg";
 import { ReactComponent as ArrowRight } from "../../images/icons/drop-arrow-right.svg";
+import { ReactComponent as CollateIcon } from "../../images/icons/ic-collate.svg";
 import { MenuItem } from "../../interface/common.interface";
 import { getUrlWithVersion } from "../../utils/CommonUtils";
 import styles from "./SideNav.module.css";
@@ -32,9 +33,9 @@ export default function ListItem({
 
   const urlWithVersion = getUrlWithVersion(item.url, docVersion);
 
-  const linkItem = useMemo(
-    () => (
-      <>
+  const linkItem = useMemo(() => {
+    return (
+      <span className=" ml-4 mb-2 flex items-center gap-2">
         <Link legacyBehavior href={urlWithVersion}>
           <a
             className={classNames(
@@ -50,10 +51,10 @@ export default function ListItem({
             {item.name}
           </a>
         </Link>
-      </>
-    ),
-    [item, router.asPath]
-  );
+        {item.isCollateFeature && <CollateIcon width={14} height={14} />}
+      </span>
+    );
+  }, [item, router.asPath]);
 
   useEffect(() => {
     const menuKey = item.url.split("/").reverse()[0];
