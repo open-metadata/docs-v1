@@ -117,7 +117,7 @@ def build_index(version: Path):
 
 def build_indexes() -> None:
     """Build one index for each version"""
-    versions = [v for v in list(Path("/Users/pmbrull/projects/OpenMetadata/openmetadata-docs/content").glob("v*"))]
+    versions = [v for v in list(Path("content").glob("v*"))]
     for version in versions:
         build_index(version=version)
 
