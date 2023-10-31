@@ -1,11 +1,11 @@
 import classNames from "classnames";
 import Link from "next/link";
-import React, { useEffect, useRef } from "react";
-import { Highlight, Snippet } from "react-instantsearch-hooks-web";
+import { useEffect, useRef } from "react";
+import { Highlight, Snippet } from "react-instantsearch";
+import { useDocVersionContext } from "../../../context/DocVersionContext";
 import { useSearchContext } from "../../../context/SearchContext";
 import { getUrlWithVersion } from "../../../utils/CommonUtils";
 import styles from "../Search.module.css";
-import { useDocVersionContext } from "../../../context/DocVersionContext";
 
 function HitComponent(props) {
   const { focusedSearchItem, onChangeFocusedSearchItem } = useSearchContext();

@@ -1,7 +1,8 @@
 import algoliasearch from "algoliasearch/lite";
 import { useEffect } from "react";
 import ReactDOM from "react-dom";
-import { InstantSearch } from "react-instantsearch-hooks-web";
+import { InstantSearch } from "react-instantsearch";
+import { useDocVersionContext } from "../../../context/DocVersionContext";
 import { SearchContextProvider } from "../../../context/SearchContext";
 import styles from "../../PageLayouts/APIPageLayout/APIPageSideNav/APIPageSideNav.module.css";
 import Search from "../../Search/Search";
@@ -16,6 +17,8 @@ interface APISearchModalProps {
 }
 
 function APISearchModal({ handleMaskClick }: APISearchModalProps) {
+  const { docVersion } = useDocVersionContext();
+
   useEffect(() => {
     setTimeout(() => {
       const inputElement = document.getElementById("search-input");
@@ -33,7 +36,7 @@ function APISearchModal({ handleMaskClick }: APISearchModalProps) {
       >
         <SearchContextProvider>
           <InstantSearch
-            indexName="openmetadata-v1"
+            indexName={`openmetadata-v1-${docVersion}`}
             searchClient={searchClient}
           >
             <Search

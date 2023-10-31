@@ -1,47 +1,57 @@
-import React, { useEffect, useRef } from "react";
-import { useSearchBox } from "react-instantsearch-hooks-web";
+import { debounce } from "lodash";
+import { useCallback, useEffect, useRef } from "react";
+import { useSearchBox } from "react-instantsearch";
 import { useSearchContext } from "../../../context/SearchContext";
 import { isCommandKeyPress } from "../../../utils/SearchUtils";
 import styles from "./CustomSearch.module.css";
 
 interface CustomSearchProps {
   searchValue: string;
+  searchText: string;
   bringElementIntoView: (
     searchResults: NodeListOf<Element>,
     focusedSearchItemNumber: number
   ) => void;
   handleSearchValue: (value: string) => void;
+  handleSearchText: (value: string) => void;
   handleIsSuggestionVisible: (value: boolean) => void;
 }
 
 function CustomSearch({
   bringElementIntoView,
   searchValue,
+  searchText,
   handleSearchValue,
   handleIsSuggestionVisible,
+  handleSearchText,
 }: CustomSearchProps) {
   const { refine } = useSearchBox();
   const searchInputRef = useRef<HTMLInputElement>();
   const { onChangeFocusedSearchItem } = useSearchContext();
 
-  const handleSearchValueChange = (
-    event: React.ChangeEvent<HTMLInputElement>
-  ) => {
-    handleSearchValue(event.target.value);
-    onChangeFocusedSearchItem(1);
+  const handleSearchValueChange = useCallback(
+    (searchText: string) => {
+      handleSearchValue(searchText);
+      onChangeFocusedSearchItem(1);
 
-    setTimeout(() => {
-      const searchResults = document.getElementById("search-modal");
+      setTimeout(() => {
+        const searchResults = document.getElementById("search-modal");
 
-      searchResults.scrollTo({
-        top: 0,
-      });
-    }, 0);
-  };
+        searchResults.scrollTo({
+          top: 0,
+        });
+      }, 0);
+    },
+    [document]
+  );
 
   const handleFocus = () => {
     handleIsSuggestionVisible(true);
   };
+
+  const debouncedSearch = useCallback(debounce(handleSearchValueChange, 500), [
+    handleSearchValueChange,
+  ]);
 
   const handleKeyDown = (event: KeyboardEvent) => {
     switch (event.key) {
@@ -62,13 +72,9 @@ function CustomSearch({
   };
 
   const handleGlobalSearchKeyDown = (event: KeyboardEvent) => {
-    switch (event.key) {
-      case "k": {
-        if (isCommandKeyPress(event)) {
-          searchInputRef.current?.focus();
-          event.preventDefault();
-        }
-      }
+    if (event.key === "k" && isCommandKeyPress(event)) {
+      searchInputRef.current?.focus();
+      event.preventDefault();
     }
   };
 
@@ -77,6 +83,15 @@ function CustomSearch({
       handleIsSuggestionVisible(false);
     }
   };
+
+  const handleInputChange = useCallback(
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      const { value } = event.target;
+      debouncedSearch(value);
+      handleSearchText(value);
+    },
+    [debouncedSearch, handleSearchText]
+  );
 
   useEffect(() => {
     if (searchInputRef.current) {
@@ -96,8 +111,8 @@ function CustomSearch({
       placeholder="Search"
       id="search-input"
       ref={searchInputRef}
-      value={searchValue}
-      onChange={handleSearchValueChange}
+      value={searchText}
+      onChange={handleInputChange}
       onFocus={handleFocus}
     />
   );
