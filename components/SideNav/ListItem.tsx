@@ -51,7 +51,7 @@ export default function ListItem({
             {item.name}
           </a>
         </Link>
-        {item.isCollateFeature && <CollateIcon width={14} height={14} />}
+        {item.isCollateOnly && <CollateIcon width={14} height={14} />}
       </span>
     );
   }, [item, router.asPath]);

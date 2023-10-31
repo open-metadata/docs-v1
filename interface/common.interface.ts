@@ -1,7 +1,7 @@
 export interface MenuItem {
   category: string;
   children: MenuItem[];
-  isCollateFeature?: boolean;
+  isCollateOnly?: boolean;
   depth: string;
   icon?: string;
   menu_key: string;
