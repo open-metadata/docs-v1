@@ -1,19 +1,16 @@
-import React, { useEffect, useState } from "react";
-import styles from "./Search.module.css";
-import { ReactComponent as SearchIcon } from "../../images/icons/search.svg";
-import { ReactComponent as Loader } from "../../images/icons/loader.svg";
-import {
-  Configure,
-  Hits,
-  useInstantSearch,
-} from "react-instantsearch-hooks-web";
 import classNames from "classnames";
-import CustomSearch from "./CustomSearch/CustomSearch";
-import { useRouter } from "next/router";
-import { useSearchContext } from "../../context/SearchContext";
-import HitComponent from "./HitComponent/HitComponent";
 import { isEmpty, isNull, isUndefined } from "lodash";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
+import { IoIosCloseCircleOutline } from "react-icons/io";
+import { Configure, Hits, useInstantSearch } from "react-instantsearch";
 import { useNavBarCollapsedContext } from "../../context/NavBarCollapseContext";
+import { useSearchContext } from "../../context/SearchContext";
+import { ReactComponent as Loader } from "../../images/icons/loader.svg";
+import { ReactComponent as SearchIcon } from "../../images/icons/search.svg";
+import CustomSearch from "./CustomSearch/CustomSearch";
+import HitComponent from "./HitComponent/HitComponent";
+import styles from "./Search.module.css";
 
 interface SearchProps {
   showHotKeys?: boolean;
@@ -27,7 +24,8 @@ export default function Search({
   resultsContainerClassName = "",
 }: SearchProps) {
   const [hotKey, setHotKey] = useState("second");
-  const [searchValue, setSearchValue] = useState("");
+  const [searchValue, setSearchValue] = useState(""); // To manage search value with debouncing
+  const [searchText, setSearchText] = useState(""); // To manage search input value
   const [isSuggestionVisible, setIsSuggestionVisible] =
     useState<boolean>(false);
   const [showNoDataPlaceHolder, setShowNoDataPlaceHolder] =
@@ -43,6 +41,15 @@ export default function Search({
 
   const handleSearchValue = (value: string) => {
     setSearchValue(value);
+  };
+
+  const handleSearchText = (value: string) => {
+    setSearchText(value);
+  };
+
+  const clearSearch = () => {
+    setSearchText("");
+    setSearchValue("");
   };
 
   const handleIsSuggestionVisible = (value: boolean) => {
@@ -156,7 +163,9 @@ export default function Search({
       <CustomSearch
         bringElementIntoView={bringElementIntoView}
         searchValue={searchValue}
+        searchText={searchText}
         handleSearchValue={handleSearchValue}
+        handleSearchText={handleSearchText}
         handleIsSuggestionVisible={handleIsSuggestionVisible}
       />
 
@@ -168,6 +177,13 @@ export default function Search({
             <span>+</span>
             <span className={styles.HotKey}>K</span>
           </>
+        )}
+        {isSuggestionVisible && searchText && !isLoading && (
+          <IoIosCloseCircleOutline
+            className="cursor-pointer"
+            onClick={clearSearch}
+            size={18}
+          />
         )}
         {isLoading && <Loader className={styles.LoadingIcon} />}
       </div>
