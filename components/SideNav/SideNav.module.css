@@ -63,10 +63,8 @@
 }
 
 .Link {
-  margin-bottom: 8px;
   color: inherit;
   font-weight: 300;
-  margin-left: 16px;
   line-height: 20px;
   font-size: 14px;
 }
@@ -75,7 +73,6 @@
   font-size: 14px;
   font-weight: 400;
   margin: 0px;
-  margin-bottom: 8px;
   position: relative;
 }
 
