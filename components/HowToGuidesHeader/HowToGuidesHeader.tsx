@@ -32,7 +32,7 @@ function HowToGuidesHeader() {
               padding: "8px 12px",
             }}
             type="link"
-            href="/how-to-guides/openmetadata/data-discovery"
+            href="/how-to-guides/data-discovery"
           >
             <span>Get Started</span>
             <MdOutlineArrowForwardIos size={10} />

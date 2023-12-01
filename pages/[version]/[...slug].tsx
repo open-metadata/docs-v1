@@ -32,7 +32,7 @@ export default function Article({
   slug,
   versionsList,
   partials,
-}: Props) {
+}: Readonly<Props>) {
   const ast = useMemo(() => Markdoc.parse(content), [content]);
 
   const formattedPartialsObj = useMemo(
