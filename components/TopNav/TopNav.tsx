@@ -14,11 +14,11 @@ import {
 import { useDocVersionContext } from "../../context/DocVersionContext";
 import { useNavBarCollapsedContext } from "../../context/NavBarCollapseContext";
 import { SearchContextProvider } from "../../context/SearchContext";
-import { ReactComponent as Api } from "../../images/icons/api.svg";
-import { ReactComponent as Cloud } from "../../images/icons/cloud.svg";
-import { ReactComponent as Github } from "../../images/icons/github.svg";
-import { ReactComponent as SvgLogo } from "../../images/icons/omd.svg";
-import { ReactComponent as Slack } from "../../images/icons/slack.svg";
+import { ReactComponent as ApiIcon } from "../../images/icons/api.svg";
+import { ReactComponent as CloudIcon } from "../../images/icons/cloud.svg";
+import { ReactComponent as GithubIcon } from "../../images/icons/github.svg";
+import { ReactComponent as OMDIcon } from "../../images/icons/omd.svg";
+import { ReactComponent as SlackIcon } from "../../images/icons/slack.svg";
 import { getUrlWithVersion } from "../../utils/CommonUtils";
 import Search from "../Search/Search";
 import SelectDropdown, { SelectOption } from "../SelectDropdown/SelectDropdown";
@@ -88,7 +88,7 @@ export default function TopNav({ versionsList }: Readonly<TopNavProps>) {
       <div className={styles.CollapsedDivContainer}>
         <div className={styles.LogoContainer}>
           <Link href={docVersion ? getUrlWithVersion("/", docVersion) : "/"}>
-            <SvgLogo />
+            <OMDIcon />
           </Link>
           {!isEmpty(versionsList) && (
             <SelectDropdown
@@ -120,17 +120,17 @@ export default function TopNav({ versionsList }: Readonly<TopNavProps>) {
       </SearchContextProvider>
       <div className={styles.IconContainer}>
         <a href="https://slack.open-metadata.org" target="_blank" title="Slack">
-          <Slack />
+          <SlackIcon />
         </a>
         <a
           href="https://github.com/open-metadata/OpenMetadata"
           target="_blank"
           title="Github"
         >
-          <Github />
+          <GithubIcon />
         </a>
         <a href="/swagger.html" target="_blank" title="Swagger">
-          <Api />
+          <ApiIcon />
         </a>
         <a
           className="btn fw-500 btn-primary rounded-pill"
@@ -138,7 +138,7 @@ export default function TopNav({ versionsList }: Readonly<TopNavProps>) {
           target="_blank"
         >
           <button className={styles.CloudBtn}>
-            <Cloud />
+            <CloudIcon />
           </button>
         </a>
       </div>
