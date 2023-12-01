@@ -1,13 +1,54 @@
-.Container {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-  gap: 30px;
+.Container{
+  display: flex;
+  gap: 8px;
+  height: 500px;
+  overflow-y: hidden;
+}
+
+.TabsContainer{
+  flex: 0 0 auto;
+  width: 200px;
+  padding-right: 16px;
+  border-right: 1px solid var(--default-border-color);
+}
+
+.TabItem{
+  padding: 8px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.TabItem:hover{
+  background-color: var(--primary-background-color);
+}
+
+.SelectedTab{
+  border: 0.5px solid var(--select-border-color);
+  background-color: var(--primary-background-color);
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.ConnectorsContainer{
+  max-height: 100%;
+  overflow-y: scroll;
+}
+
+.ConnectorsGridContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-items: flex-start;
+  justify-content: flex-start;
+  height: fit-content;
+  gap: 20px;
+  padding: 16px;
 }
 
 .ConnectorItem {
   color: var(--default-text-color);
   display: flex;
-  height: 100%;
+  height: 65px;
+  width: 200px;
   align-items: center;
   gap: 10px;
   transition: box-shadow 0.2s linear;
@@ -29,25 +70,25 @@
 }
 
 @media (max-width: 1200px) {
-  .Container {
+  .ConnectorsGridContainer {
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }
 
 @media (max-width: 900px) {
-  .Container {
+  .ConnectorsGridContainer {
     grid-template-columns: 1fr 1fr 1fr;
   }
 }
 
 @media (max-width: 600px) {
-  .Container {
+  .ConnectorsGridContainer {
     grid-template-columns: 1fr 1fr;
   }
 }
 
 @media (max-width: 600px) {
-  .Container {
+  .ConnectorsGridContainer {
     gap: 16px;
   }
   .ConnectorImg {

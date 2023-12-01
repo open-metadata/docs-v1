@@ -1,4 +1,5 @@
 import classNames from "classnames";
+import { isNil } from "lodash";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useMemo, useRef, useState } from "react";
@@ -6,17 +7,11 @@ import { useDocVersionContext } from "../../context/DocVersionContext";
 import { ReactComponent as ArrowDown } from "../../images/icons/drop-arrow-down.svg";
 import { ReactComponent as ArrowRight } from "../../images/icons/drop-arrow-right.svg";
 import { ReactComponent as CollateIcon } from "../../images/icons/ic-collate.svg";
-import { MenuItem } from "../../interface/common.interface";
 import { getUrlWithVersion } from "../../utils/CommonUtils";
+import { ListItemProps } from "./ListItem.interface";
 import styles from "./SideNav.module.css";
 
-export default function ListItem({
-  item,
-  fontWeight,
-}: {
-  item: MenuItem;
-  fontWeight?: number;
-}) {
+export default function ListItem({ item, fontWeight }: Readonly<ListItemProps>) {
   const router = useRouter();
   const { docVersion } = useDocVersionContext();
   const linkRef = useRef<HTMLAnchorElement>();
@@ -65,7 +60,10 @@ export default function ListItem({
 
   useEffect(() => {
     // Logic to get the selected side nav item into view after page load
-    if (linkRef.current && linkRef.current.className.includes("ActiveLink")) {
+    if (
+      !isNil(linkRef.current) &&
+      linkRef.current.className.includes("ActiveLink")
+    ) {
       linkRef.current.scrollIntoView({ block: "center", inline: "center" });
     }
   }, [isActive, linkRef]);
