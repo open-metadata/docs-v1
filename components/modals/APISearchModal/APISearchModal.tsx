@@ -1,4 +1,5 @@
 import algoliasearch from "algoliasearch/lite";
+import { isNil } from "lodash";
 import { useEffect } from "react";
 import ReactDOM from "react-dom";
 import { InstantSearch } from "react-instantsearch";
@@ -23,7 +24,7 @@ function APISearchModal({ handleMaskClick }: APISearchModalProps) {
     setTimeout(() => {
       const inputElement = document.getElementById("search-input");
 
-      inputElement && inputElement.focus();
+      !isNil(inputElement) && inputElement.focus();
     }, 50);
   }, []);
 
@@ -38,6 +39,9 @@ function APISearchModal({ handleMaskClick }: APISearchModalProps) {
           <InstantSearch
             indexName={`openmetadata-v1-${docVersion}`}
             searchClient={searchClient}
+            future={{
+              preserveSharedStateOnUnmount: false, // Library recommendation to keep the old behavior
+            }}
           >
             <Search
               className={styles.SearchContainer}

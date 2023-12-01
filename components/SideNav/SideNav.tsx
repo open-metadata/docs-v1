@@ -9,6 +9,7 @@ import { ReactComponent as CollapseLeftIcon } from "../../images/icons/collapse-
 import { ReactComponent as CollapseRightIcon } from "../../images/icons/collapse-right.svg";
 import { ReactComponent as OverviewIcon } from "../../images/icons/overview-icon.svg";
 import { getCategoryByIndex } from "../../lib/utils";
+import { getSideNavItems } from "../../utils/SideNavUtils";
 import SkeletonLoader from "../common/SkeletonLoader/SkeletonLoader";
 import ListItem from "./ListItem";
 import styles from "./SideNav.module.css";
@@ -42,7 +43,10 @@ export default forwardRef(function SideNav(
     [menuItems, category]
   );
 
-  const childItems = useMemo(() => item?.children ?? [], [item]);
+  const childItems = useMemo(
+    () => getSideNavItems(item, router.asPath),
+    [item, router.asPath]
+  );
 
   useEffect(() => {
     const scrollEventListener = () => {

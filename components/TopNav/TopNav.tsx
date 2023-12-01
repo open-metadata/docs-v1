@@ -14,7 +14,7 @@ import {
 import { useDocVersionContext } from "../../context/DocVersionContext";
 import { useNavBarCollapsedContext } from "../../context/NavBarCollapseContext";
 import { SearchContextProvider } from "../../context/SearchContext";
-import { ReactComponent as API } from "../../images/icons/api.svg";
+import { ReactComponent as Api } from "../../images/icons/api.svg";
 import { ReactComponent as Cloud } from "../../images/icons/cloud.svg";
 import { ReactComponent as Github } from "../../images/icons/github.svg";
 import { ReactComponent as SvgLogo } from "../../images/icons/omd.svg";
@@ -33,7 +33,7 @@ interface TopNavProps {
   versionsList: Array<SelectOption<string>>;
 }
 
-export default function TopNav({ versionsList }: TopNavProps) {
+export default function TopNav({ versionsList }: Readonly<TopNavProps>) {
   const router = useRouter();
   const [displayNavBarCollapseButton, setDisplayNavBarCollapseButton] =
     useState(false);
@@ -111,6 +111,9 @@ export default function TopNav({ versionsList }: TopNavProps) {
         <InstantSearch
           indexName={`openmetadata-v1-${docVersion}`}
           searchClient={searchClient}
+          future={{
+            preserveSharedStateOnUnmount: false,
+          }}
         >
           <Search />
         </InstantSearch>
@@ -127,7 +130,7 @@ export default function TopNav({ versionsList }: TopNavProps) {
           <Github />
         </a>
         <a href="/swagger.html" target="_blank" title="Swagger">
-          <API />
+          <Api />
         </a>
         <a
           className="btn fw-500 btn-primary rounded-pill"

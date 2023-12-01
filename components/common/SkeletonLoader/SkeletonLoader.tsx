@@ -16,7 +16,7 @@ function SkeletonLoader({
   showBreadcrumb = false,
   title = DEFAULT_TITLE,
   paragraph = DEFAULT_PARAGRAPH,
-}: SkeletonLoaderProps) {
+}: Readonly<SkeletonLoaderProps>) {
   return (
     <div className={classNames(styles.Container, className)}>
       {showBreadcrumb && getSkeletonBreadcrumbs()}
