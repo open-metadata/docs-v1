@@ -1,16 +1,17 @@
-import Markdoc from "@markdoc/markdoc";
-import { isEmpty, startCase } from "lodash";
-import * as icons from "react-icons/md";
-import { HeadingObject } from "../components/PageLayouts/APIPageLayout/APIPageSideNav/APIPageSideNav";
-import { DEFAULT_VERSION } from "../constants/version.constants";
-import { MenuItem } from "../interface/common.interface";
+import Markdoc from '@markdoc/markdoc';
+import { isEmpty, startCase } from 'lodash';
+import * as icons from 'react-icons/md';
+import { HeadingObject } from '../components/PageLayouts/APIPageLayout/APIPageSideNav/APIPageSideNav';
+import { DEFAULT_VERSION } from '../constants/version.constants';
+import { MenuItem } from '../interface/common.interface';
 
+// this is comment
 export const getDivIndexFromId = (id: string) => {
-  return Number(id.split("-").reverse()[0]);
+  return Number(id.split('-').reverse()[0]);
 };
 
 export const generateIdFromHeading = (heading: string) => {
-  return heading.toLowerCase().replaceAll(" ", "-");
+  return heading.toLowerCase().replaceAll(' ', '-');
 };
 
 export const getUrlWithVersion = (url: string, docVersion: string) => {
@@ -28,7 +29,7 @@ export const getVersionFromUrl = (url: string) => {
 export const fetchMenuList = async (version: string) => {
   try {
     const response = await fetch(`/api/getMenu?version=${version}`, {
-      method: "GET",
+      method: 'GET',
     });
 
     const parsedResponse: Array<MenuItem> = await response.json();
@@ -49,10 +50,10 @@ export const materialDesignIcon = (icon: string) => {
   // If prefix doesn't exist, apply the prefix
   // Logic to fix the icon name passed with the incorrect cases or pattern
   // i.e. if passed `open_lock` or `Open lock` instead of `OpenLock`
-  let iconName = startCase(icon).replaceAll(" ", "");
+  let iconName = startCase(icon).replaceAll(' ', '');
 
   if (!/^Md/g.test(iconName)) {
-    iconName = "Md" + iconName;
+    iconName = 'Md' + iconName;
   }
 
   return icons[iconName];
@@ -88,9 +89,9 @@ export const createNestedNodeStructure = (
 ): HeadingObject[] => {
   // Initializing the root object to start as a base to compare next elements to
   const root: HeadingObject = {
-    level: "",
-    label: "",
-    target: "",
+    level: '',
+    label: '',
+    target: '',
     children: [],
   };
   const stack = [root];
