@@ -18,7 +18,6 @@ import { checkIsHowToGuidesPaths } from "../../../utils/PathUtils";
 import Breadcrumb from "../../Breadcrumb/Breadcrumb";
 import CategoriesNav from "../../CategoriesNav/CategoriesNav";
 import Footer from "../../Footer/Footer";
-import HowToGuidesHeader from "../../HowToGuidesHeader/HowToGuidesHeader";
 import { SelectOption } from "../../SelectDropdown/SelectDropdown";
 import SideNav from "../../SideNav/SideNav";
 import TopNav from "../../TopNav/TopNav";
@@ -93,7 +92,6 @@ function DocsPageLayout({
         <TopNav versionsList={versionsList} />
         <CategoriesNav menu={menuItems} />
       </div>
-      {!isRouteChanging && isHowToGuidesHomePagePath && <HowToGuidesHeader />}
       <div className="flex">
         {!isHowToGuidesHomePagePath && (
           <SideNav
