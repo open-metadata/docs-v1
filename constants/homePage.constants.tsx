@@ -2,6 +2,33 @@ import { ReactComponent as DeploymentIcon } from "../images/icons/deploymentTile
 import { ReactComponent as KnowledgeBaseIcon } from "../images/icons/knowledge.svg";
 import { ReactComponent as SaasIcon } from "../images/icons/saas.svg";
 
+export const HOME_PAGE_BANNER_INFO = {
+  title: "OpenMetadata Documentation",
+  description:
+    "Unlock the value of data a management solution that includes data discovery, governance, data quality, observability, and people collaboration.",
+};
+
+export const BANNER_LINKS_INFO = [
+  {
+    title: "Quick Start",
+    description: "Install OpenMetadata to explore its full potential.",
+    linkTitle: "Get Started",
+    href: "/quick-start",
+  },
+  {
+    title: "How-to Guides",
+    description: "Get a complete overview of OpenMetadata.",
+    linkTitle: "Explore Features",
+    href: "/how-to-guides",
+  },
+];
+
+export const OVERVIEW_INFO = {
+  title: "Overview",
+  description:
+    "OpenMetadata is a unified platform for discovery, observability, and governance powered by a central metadata repository, in-depth lineage, and seamless team collaboration. It is one of the fastest-growing open-source projects with a vibrant community and adoption by a diverse set of companies in a variety of industry verticals. Based on Open Metadata Standards and APIs, supporting connectors to a wide range of data services, OpenMetadata enables end-to-end metadata management, giving you the freedom to unlock the value of your data assets.",
+};
+
 export const QUICK_LINK_CARDS = [
   {
     heading: "Deployment",
