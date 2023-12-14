@@ -31,7 +31,7 @@ interface Props {
   versionsList: Array<SelectOption<string>>;
 }
 
-export default function Index({ versionsList }: Props) {
+export default function Index({ versionsList }: Readonly<Props>) {
   const { isRouteChanging } = useRouteChangingContext();
   const { docVersion } = useDocVersionContext();
   const { isMobileDevice } = useNavBarCollapsedContext();
@@ -144,7 +144,6 @@ export default function Index({ versionsList }: Props) {
 export async function getServerSideProps(context) {
   try {
     // Check if the version field passed in context params is proper version format
-    const versionFormat = /(v\d\.\d\.\x*)/g;
     const versionsList: Array<SelectOption<string>> = getVersionsList();
 
     return {
