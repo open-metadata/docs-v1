@@ -1,31 +1,37 @@
-import React, { useEffect, useState } from "react";
-import Card from "../components/common/Card/Card";
-import ConnectorsInfo from "../components/ConnectorsInfo/ConnectorsInfo";
-import bannerStyles from "../components/common/Banner/Banner.module.css";
-import YouTube from "../components/common/Youtube/Youtube";
-import NewsEntry from "../components/NewsEntry/NewsEntry";
-import Button from "../components/common/Button/Button";
-import { ReactComponent as ArrowRight } from "../images/icons/arrow-right.svg";
-import TopNav from "../components/TopNav/TopNav";
-import CategoriesNav from "../components/CategoriesNav/CategoriesNav";
-import Footer from "../components/Footer/Footer";
-import { fetchMenuList, getUrlWithVersion } from "../utils/CommonUtils";
-import { BLOGS_INFO, QUICK_LINK_CARDS } from "../constants/homePage.constants";
-import { useDocVersionContext } from "../context/DocVersionContext";
-import { MenuItem } from "../interface/common.interface";
-import { useRouteChangingContext } from "../context/RouteChangingContext";
-import SkeletonLoader from "../components/common/SkeletonLoader/SkeletonLoader";
-import { SkeletonWidth } from "../enums/SkeletonLoder.enum";
-import { SelectOption } from "../components/SelectDropdown/SelectDropdown";
-import { getVersionsList } from "../lib/api";
-import { useNavBarCollapsedContext } from "../context/NavBarCollapseContext";
 import Link from "next/link";
+import { useEffect, useState } from "react";
+import CategoriesNav from "../components/CategoriesNav/CategoriesNav";
+import ConnectorsInfo from "../components/ConnectorsInfo/ConnectorsInfo";
+import Footer from "../components/Footer/Footer";
+import NewsEntry from "../components/NewsEntry/NewsEntry";
+import { SelectOption } from "../components/SelectDropdown/SelectDropdown";
+import TopNav from "../components/TopNav/TopNav";
+import bannerStyles from "../components/common/Banner/Banner.module.css";
+import Button from "../components/common/Button/Button";
+import Card from "../components/common/Card/Card";
+import SkeletonLoader from "../components/common/SkeletonLoader/SkeletonLoader";
+import YouTube from "../components/common/Youtube/Youtube";
+import {
+  BANNER_LINKS_INFO,
+  BLOGS_INFO,
+  HOME_PAGE_BANNER_INFO,
+  OVERVIEW_INFO,
+  QUICK_LINK_CARDS,
+} from "../constants/homePage.constants";
+import { useDocVersionContext } from "../context/DocVersionContext";
+import { useNavBarCollapsedContext } from "../context/NavBarCollapseContext";
+import { useRouteChangingContext } from "../context/RouteChangingContext";
+import { SkeletonWidth } from "../enums/SkeletonLoder.enum";
+import { ReactComponent as ArrowRight } from "../images/icons/arrow-right.svg";
+import { MenuItem } from "../interface/common.interface";
+import { getVersionsList } from "../lib/api";
+import { fetchMenuList, getUrlWithVersion } from "../utils/CommonUtils";
 
 interface Props {
   versionsList: Array<SelectOption<string>>;
 }
 
-export default function Index({ versionsList }: Props) {
+export default function Index({ versionsList }: Readonly<Props>) {
   const { docVersion } = useDocVersionContext();
   const { isRouteChanging } = useRouteChangingContext();
   const { isMobileDevice } = useNavBarCollapsedContext();
@@ -54,11 +60,11 @@ export default function Index({ versionsList }: Props) {
       </div>
       <div className="home-page">
         {isRouteChanging ? (
-          <div className="m-36">
+          <div className="pt-20 px-32">
             <SkeletonLoader
               paragraph={{
-                rows: 12,
-                width: SkeletonWidth.DEFAULT,
+                rows: 16,
+                width: SkeletonWidth.FULL,
               }}
               title={SkeletonWidth.SMALL}
             />
@@ -69,45 +75,38 @@ export default function Index({ versionsList }: Props) {
               <div className={bannerStyles.Content}>
                 <div className="mb-8">
                   <div className={bannerStyles.Heading}>
-                    OpenMetadata Documentation
+                    {HOME_PAGE_BANNER_INFO.title}
                   </div>
                   <section className={bannerStyles.Divider} />
-                  <p className="text-xl">
-                    Unlock the value of data assets with an end-to-end metadata
-                    management solution that includes data discovery,
-                    governance, data quality, observability, and people
-                    collaboration.
-                  </p>
+                  <p className="text-xl">{HOME_PAGE_BANNER_INFO.description}</p>
                 </div>
-                <>
-                  <div className={bannerStyles.SubHeading}>Quick Start</div>
-                  <p className="tw-lg">
-                    Get to know OpenMetadata in few minutes. Watch the data
-                    discovery, data profiler, and lineage features in action
-                  </p>
-                  <Link href={getUrlWithVersion("quick-start", docVersion)}>
-                    <Button type="button" className="mt-4">
-                      Get Started
-                      <span className="ml-2">
-                        <ArrowRight />
-                      </span>
-                    </Button>
-                  </Link>
-                </>
+                <div className="flex gap-8">
+                  {BANNER_LINKS_INFO.map(
+                    ({ title, description, linkTitle, href }) => (
+                      <div key={href}>
+                        <div className={bannerStyles.SubHeading}>{title}</div>
+                        <p className="tw-lg">{description}</p>
+                        <Link href={getUrlWithVersion(href, docVersion)}>
+                          <Button className="mt-4" type="button">
+                            <span>{linkTitle}</span>
+                            <span className="ml-2">
+                              <ArrowRight />
+                            </span>
+                          </Button>
+                        </Link>
+                      </div>
+                    )
+                  )}
+                </div>
               </div>
               <div className={bannerStyles.Video}>
-                <YouTube videoId="ld43_jafL9w" />
+                <YouTube videoId="ld43_jafL9w" start="0:00" end="6:48" />
               </div>
             </div>
+
             <div className="overview-container">
-              <div className="overview-heading">Overview</div>
-              <p className="m-0">
-                OpenMetadata enables metadata management end-to-end, giving you
-                the ability to unlock the value of data assets in the common use
-                cases of data discovery and governance, but also in emerging use
-                cases related to data quality, observability, and people
-                collaboration.
-              </p>
+              <div className="overview-heading">{OVERVIEW_INFO.title}</div>
+              <p className="m-0">{OVERVIEW_INFO.description}</p>
             </div>
             <div className="homepage-containers">
               <div className="container-heading">Quick Links</div>
@@ -119,6 +118,7 @@ export default function Index({ versionsList }: Props) {
                     heading={cardInfo.heading}
                     url={cardInfo.url}
                     isExternalLink={cardInfo.isExternalLink}
+                    icon={cardInfo.icon}
                   />
                 ))}
               </div>
