@@ -1,16 +1,11 @@
-import {
-  DEFAULT_VERSION,
-  VERSION_SELECT_DEFAULT_OPTIONS,
-} from "./../constants/version.constants";
 import fs from "fs";
-import { join, basename } from "path";
-import findIndex from "lodash/findIndex";
-import matter from "gray-matter";
+import { join } from "path";
 import slugify from "slugify";
 import {
   ARTICLES_DIRECTORY,
   PARTIALS_DIRECTORY,
 } from "../constants/common.constants";
+import { VERSION_SELECT_DEFAULT_OPTIONS } from "./../constants/version.constants";
 
 export function getAllFilesInDirectory(
   articleDirectory: string,
@@ -36,84 +31,13 @@ export function getArticleSlugFromString(pathname) {
   return slugify(pathname).toLowerCase();
 }
 
-export function getArticleBySlug(slug, fields = []) {
-  const realSlug = basename(slug).replace(/\.md$/, "");
-  const fullPath = slug;
-  const fileContents = fs.readFileSync(fullPath, "utf8");
-  const { data, content } = matter(fileContents);
-
-  const items = {};
-
-  // Ensure only the minimal needed data is exposed
-  fields.forEach((field) => {
-    if (field === "slug") {
-      items[field] = realSlug;
-    }
-    if (field === "content") {
-      items[field] = content;
-    }
-    if (data[field]) {
-      items[field] = data[field];
-    }
-  });
-
-  return items;
-}
-
-export function getAllArticles(fields = []) {
-  const slugs = getArticleSlugs();
-  const posts = slugs.map((slug) => getArticleBySlug(slug, fields));
-  return posts;
-}
-
-export function getMenu(version?: string) {
-  const menu = [];
-  const fullPath = join(
-    ARTICLES_DIRECTORY,
-    version ? version : DEFAULT_VERSION,
-    `menu.md`
-  );
-  const fileContents = fs.readFileSync(fullPath, "utf8");
-  const data = matter(fileContents);
-
-  let menuRoot = menu;
-  let objRoot = menu;
-
-  const flatMenu = data.data["site_menu"];
-
-  for (const index in flatMenu) {
-    const item = flatMenu[index];
-    const category = item["category"].split("/");
-    // Move to the depth we need
-    for (const depth in category) {
-      const menu_key = slugify(category[depth].trim().toLowerCase());
-      let exist = findIndex(menuRoot, { menu_key: menu_key });
-      if (exist < 0) {
-        menuRoot.push({
-          menu_key: menu_key,
-          name: category[depth].trim(),
-          depth: depth,
-          children: [],
-        });
-        exist = findIndex(menuRoot, { menu_key: menu_key });
-      }
-      objRoot = menuRoot[exist];
-      menuRoot = menuRoot[exist]["children"];
-    }
-    Object.assign(objRoot, item);
-    menuRoot = menu;
-  }
-
-  return menu;
-}
-
 export const getVersionsList = () => {
   try {
     const versionsArray = fs.readdirSync(ARTICLES_DIRECTORY);
     const versionsList = versionsArray
       // content folder now also has other folders like partial or the next release snapshot content with the versions folders
       // this check is to select only versions folders
-      .filter((version) => /^v(\d+\.\d+\.\d+)$/g.test(version))
+      .filter((version) => /^v(\d+\.\d+\.\x)$/g.test(version))
       .map((version) => ({
         label: version,
         value: version,

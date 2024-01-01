@@ -1,21 +1,17 @@
 import classNames from "classnames";
+import { isNil } from "lodash";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { useDocVersionContext } from "../../context/DocVersionContext";
 import { ReactComponent as ArrowDown } from "../../images/icons/drop-arrow-down.svg";
 import { ReactComponent as ArrowRight } from "../../images/icons/drop-arrow-right.svg";
-import { MenuItem } from "../../interface/common.interface";
-import styles from "./SideNav.module.css";
+import { ReactComponent as CollateIcon } from "../../images/icons/ic-collate.svg";
 import { getUrlWithVersion } from "../../utils/CommonUtils";
-import { useDocVersionContext } from "../../context/DocVersionContext";
+import { ListItemProps } from "./ListItem.interface";
+import styles from "./SideNav.module.css";
 
-export default function ListItem({
-  item,
-  fontWeight,
-}: {
-  item: MenuItem;
-  fontWeight?: number;
-}) {
+export default function ListItem({ item, fontWeight }: Readonly<ListItemProps>) {
   const router = useRouter();
   const { docVersion } = useDocVersionContext();
   const linkRef = useRef<HTMLAnchorElement>();
@@ -32,9 +28,9 @@ export default function ListItem({
 
   const urlWithVersion = getUrlWithVersion(item.url, docVersion);
 
-  const linkItem = useMemo(
-    () => (
-      <>
+  const linkItem = useMemo(() => {
+    return (
+      <span className=" ml-4 mb-2 flex items-center gap-2">
         <Link legacyBehavior href={urlWithVersion}>
           <a
             className={classNames(
@@ -50,10 +46,10 @@ export default function ListItem({
             {item.name}
           </a>
         </Link>
-      </>
-    ),
-    [item]
-  );
+        {item.isCollateOnly && <CollateIcon width={14} height={14} />}
+      </span>
+    );
+  }, [item, router.asPath]);
 
   useEffect(() => {
     const menuKey = item.url.split("/").reverse()[0];
@@ -64,7 +60,10 @@ export default function ListItem({
 
   useEffect(() => {
     // Logic to get the selected side nav item into view after page load
-    if (linkRef.current && linkRef.current.className.includes("ActiveLink")) {
+    if (
+      !isNil(linkRef.current) &&
+      linkRef.current.className.includes("ActiveLink")
+    ) {
       linkRef.current.scrollIntoView({ block: "center", inline: "center" });
     }
   }, [isActive, linkRef]);

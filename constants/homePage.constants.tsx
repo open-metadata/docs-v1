@@ -2,6 +2,33 @@ import { ReactComponent as DeploymentIcon } from "../images/icons/deploymentTile
 import { ReactComponent as KnowledgeBaseIcon } from "../images/icons/knowledge.svg";
 import { ReactComponent as SaasIcon } from "../images/icons/saas.svg";
 
+export const HOME_PAGE_BANNER_INFO = {
+  title: "OpenMetadata Documentation",
+  description:
+    "Unlock the value of data a management solution that includes data discovery, governance, data quality, observability, and people collaboration.",
+};
+
+export const BANNER_LINKS_INFO = [
+  {
+    title: "Quick Start",
+    description: "Install OpenMetadata to explore its full potential.",
+    linkTitle: "Get Started",
+    href: "/quick-start",
+  },
+  {
+    title: "How-to Guides",
+    description: "Get a complete overview of OpenMetadata.",
+    linkTitle: "Explore Features",
+    href: "/how-to-guides",
+  },
+];
+
+export const OVERVIEW_INFO = {
+  title: "Overview",
+  description:
+    "OpenMetadata is a unified platform for discovery, observability, and governance powered by a central metadata repository, in-depth lineage, and seamless team collaboration. It is one of the fastest-growing open-source projects with a vibrant community and adoption by a diverse set of companies in a variety of industry verticals. Based on Open Metadata Standards and APIs, supporting connectors to a wide range of data services, OpenMetadata enables end-to-end metadata management, giving you the freedom to unlock the value of your data assets.",
+};
+
 export const QUICK_LINK_CARDS = [
   {
     heading: "Deployment",
@@ -40,21 +67,21 @@ export const QUICK_LINK_CARDS = [
 
 export const BLOGS_INFO = [
   {
-    title: "OpenMetadata 1.0.0 Release",
-    text: "Improved Schemas & APIs, Ingestion Improvements, Storage Services, Dashboard Data Models, Auto PII Classification, Localization and much more.",
-    link: "https://blog.open-metadata.org/openmetadata-1-0-release-beb34762d916",
-    image: <img src="./blogs/v1.0.0.jpg" />,
+    title: "Simple, Easy, and Efficient Data Quality with OpenMetadata",
+    text: "Data quality and reliability are two top priorities for organizations. We have a different take on how data quality should be done.",
+    link: "https://blog.open-metadata.org/simple-easy-and-efficient-data-quality-with-openmetadata-1c4e7d329364",
+    image: <img src="./blogs/simple-easy-data-quality.png" />,
   },
   {
-    title: "How we Built the Ingestion Framework",
-    text: "Extracting Metadata from Every Corner: The evolution of the Ingestion Framework at OpenMetadata.",
-    link: "https://blog.open-metadata.org/how-we-built-the-ingestion-framework-1af0b6ff5c81",
-    image: <img src="./blogs/how-we-built-the-ingestion-framework.png" />,
+    title: "OpenMetadata 1.1.0 Release",
+    text: "UI Overhaul, New Connectors, Improved Lineage Parsing, PII Masking, and lots more",
+    link: "https://blog.open-metadata.org/openmetadata-1-1-0-release-97c1fb603bcf",
+    image: <img src="./blogs/openmetadata-1.1.0-release.png" />,
   },
   {
-    title: "How to Integrate OpenMetadata Test Suites with your Data Pipelines",
-    text: "Create and execute test suites from the UI or include them to your existing ETLs.",
-    link: "https://blog.open-metadata.org/how-to-integrate-openmetadata-test-suites-with-your-data-pipelines-d83fb55fa494",
-    image: <img src="./blogs/test-suite.png" />,
+    title: "Stuck with Amundsen? Here is how to migrate to OpenMetadata",
+    text: "And unlock Collaboration, Data Quality, Data Insights, and more!",
+    link: "https://blog.open-metadata.org/stuck-with-amundsen-here-is-how-to-migrate-to-openmetadata-6104cd2d5a71",
+    image: <img src="./blogs/stuck-with-amundsen.png" />,
   },
 ];

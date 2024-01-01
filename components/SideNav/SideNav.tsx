@@ -1,32 +1,52 @@
-import React, { forwardRef, useEffect } from "react";
-import { ReactComponent as OverviewIcon } from "../../images/icons/overview-icon.svg";
-import styles from "./SideNav.module.css";
-import ListItem from "./ListItem";
 import classNames from "classnames";
+import { isEmpty } from "lodash";
+import { useRouter } from "next/router";
+import React, { forwardRef, useEffect, useMemo } from "react";
+import { useMenuItemsContext } from "../../context/MenuItemsContext";
+import { useNavBarCollapsedContext } from "../../context/NavBarCollapseContext";
+import { SkeletonWidth } from "../../enums/SkeletonLoder.enum";
 import { ReactComponent as CollapseLeftIcon } from "../../images/icons/collapse-left.svg";
 import { ReactComponent as CollapseRightIcon } from "../../images/icons/collapse-right.svg";
-import { MenuItem } from "../../interface/common.interface";
-import { isEmpty } from "lodash";
+import { ReactComponent as OverviewIcon } from "../../images/icons/overview-icon.svg";
+import { getCategoryByIndex } from "../../lib/utils";
+import { getSideNavItems } from "../../utils/SideNavUtils";
 import SkeletonLoader from "../common/SkeletonLoader/SkeletonLoader";
-import { SkeletonWidth } from "../../enums/SkeletonLoder.enum";
-import { useNavBarCollapsedContext } from "../../context/NavBarCollapseContext";
+import ListItem from "./ListItem";
+import styles from "./SideNav.module.css";
+
+export const componentKey = "manual";
 
 interface Props {
-  category: string;
-  items: MenuItem[];
-  loading: boolean;
   handleSideNavCollapsed: (value: boolean) => void;
   sideNavCollapsed: boolean;
 }
 
 export default forwardRef(function SideNav(
-  { sideNavCollapsed, category, items, loading, handleSideNavCollapsed }: Props,
+  { sideNavCollapsed, handleSideNavCollapsed }: Props,
   ref: React.MutableRefObject<boolean>
 ) {
+  const router = useRouter();
   const { navBarCollapsed, isMobileDevice } = useNavBarCollapsedContext();
   const toggleSideNavCollapsed = () => {
     handleSideNavCollapsed(!sideNavCollapsed);
   };
+  const { menuItems, isMenuLoading } = useMenuItemsContext();
+
+  const category = useMemo(
+    () => getCategoryByIndex(router.asPath, 2),
+    [router.asPath]
+  );
+
+  const item = useMemo(
+    () =>
+      menuItems.find((item) => getCategoryByIndex(item.url, 1) === category),
+    [menuItems, category]
+  );
+
+  const childItems = useMemo(
+    () => getSideNavItems(item, router.asPath),
+    [item, router.asPath]
+  );
 
   useEffect(() => {
     const scrollEventListener = () => {
@@ -76,7 +96,7 @@ export default forwardRef(function SideNav(
           : {}
       }
     >
-      {loading ? (
+      {isMenuLoading ? (
         <SkeletonLoader
           className="w-full"
           title={false}
@@ -92,15 +112,15 @@ export default forwardRef(function SideNav(
         >
           <div className="flex items-center gap-2 px-1 mb-3">
             <OverviewIcon />
-            <p className={styles.Heading}>{category}</p>
+            <p className={styles.Heading}>{item?.category ?? category}</p>
           </div>
-          {isEmpty(items) ? (
+          {isEmpty(childItems) ? (
             <div className={styles.NoDataPlaceholder}>
               No menu items for this category
             </div>
           ) : (
             <div className={classNames(styles.LinkContainer)}>
-              {items.map((item) => (
+              {childItems.map((item) => (
                 <ListItem
                   item={item}
                   key={item.name}

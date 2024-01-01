@@ -1,27 +1,28 @@
-import React, { useCallback, useEffect, useState } from "react";
-import Link from "next/link";
-import styles from "./TopNav.module.css";
-import { ReactComponent as SvgLogo } from "../../images/icons/omd.svg";
-import { ReactComponent as Github } from "../../images/icons/github.svg";
-import { ReactComponent as Slack } from "../../images/icons/slack.svg";
-import { ReactComponent as Cloud } from "../../images/icons/cloud.svg";
-import { ReactComponent as API } from "../../images/icons/api.svg";
-import Search from "../Search/Search";
-import { SearchContextProvider } from "../../context/SearchContext";
-import { InstantSearch } from "react-instantsearch-hooks-web";
 import algoliasearch from "algoliasearch/lite";
-import { useRouter } from "next/router";
+import classNames from "classnames";
 import { isEmpty, isString } from "lodash";
-import { useDocVersionContext } from "../../context/DocVersionContext";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import { useCallback, useEffect, useState } from "react";
+import { MdMenu, MdMenuOpen } from "react-icons/md";
+import { InstantSearch } from "react-instantsearch";
 import {
   DEFAULT_VERSION,
   REGEX_VERSION_MATCH,
+  REGEX_VERSION_MATCH_WITH_SLASH_AT_START,
 } from "../../constants/version.constants";
-import SelectDropdown, { SelectOption } from "../SelectDropdown/SelectDropdown";
-import { getUrlWithVersion } from "../../utils/CommonUtils";
+import { useDocVersionContext } from "../../context/DocVersionContext";
 import { useNavBarCollapsedContext } from "../../context/NavBarCollapseContext";
-import classNames from "classnames";
-import { MdMenu, MdMenuOpen } from "react-icons/md";
+import { SearchContextProvider } from "../../context/SearchContext";
+import { ReactComponent as ApiIcon } from "../../images/icons/api.svg";
+import { ReactComponent as CloudIcon } from "../../images/icons/cloud.svg";
+import { ReactComponent as GithubIcon } from "../../images/icons/github.svg";
+import { ReactComponent as OMDIcon } from "../../images/icons/omd.svg";
+import { ReactComponent as SlackIcon } from "../../images/icons/slack.svg";
+import { getUrlWithVersion } from "../../utils/CommonUtils";
+import Search from "../Search/Search";
+import SelectDropdown, { SelectOption } from "../SelectDropdown/SelectDropdown";
+import styles from "./TopNav.module.css";
 
 const searchClient = algoliasearch(
   process.env.NEXT_PUBLIC_ALGOLIA_APP_ID,
@@ -32,7 +33,7 @@ interface TopNavProps {
   versionsList: Array<SelectOption<string>>;
 }
 
-export default function TopNav({ versionsList }: TopNavProps) {
+export default function TopNav({ versionsList }: Readonly<TopNavProps>) {
   const router = useRouter();
   const [displayNavBarCollapseButton, setDisplayNavBarCollapseButton] =
     useState(false);
@@ -60,16 +61,19 @@ export default function TopNav({ versionsList }: TopNavProps) {
   }, []);
 
   useEffect(() => {
-    const regexToMatchVersionString = /v(\d+\.\d+\.\d+)/g;
-
     if (router.pathname !== "/_error") {
       if (
         isString(router.query.version) &&
-        regexToMatchVersionString.test(router.query.version)
+        REGEX_VERSION_MATCH.test(router.query.version)
       ) {
         onChangeDocVersion(router.query.version);
       } else {
-        router.push(`/${DEFAULT_VERSION}${router.asPath}`);
+        router.push(
+          `/${DEFAULT_VERSION}${router.asPath.replace(
+            REGEX_VERSION_MATCH_WITH_SLASH_AT_START,
+            ""
+          )}`
+        );
       }
     }
   }, [router]);
@@ -84,7 +88,7 @@ export default function TopNav({ versionsList }: TopNavProps) {
       <div className={styles.CollapsedDivContainer}>
         <div className={styles.LogoContainer}>
           <Link href={docVersion ? getUrlWithVersion("/", docVersion) : "/"}>
-            <SvgLogo />
+            <OMDIcon />
           </Link>
           {!isEmpty(versionsList) && (
             <SelectDropdown
@@ -104,23 +108,29 @@ export default function TopNav({ versionsList }: TopNavProps) {
         )}
       </div>
       <SearchContextProvider>
-        <InstantSearch indexName="openmetadata-v1" searchClient={searchClient}>
+        <InstantSearch
+          indexName={`openmetadata-v1-${docVersion}`}
+          searchClient={searchClient}
+          future={{
+            preserveSharedStateOnUnmount: false,
+          }}
+        >
           <Search />
         </InstantSearch>
       </SearchContextProvider>
       <div className={styles.IconContainer}>
         <a href="https://slack.open-metadata.org" target="_blank" title="Slack">
-          <Slack />
+          <SlackIcon />
         </a>
         <a
           href="https://github.com/open-metadata/OpenMetadata"
           target="_blank"
           title="Github"
         >
-          <Github />
+          <GithubIcon />
         </a>
         <a href="/swagger.html" target="_blank" title="Swagger">
-          <API />
+          <ApiIcon />
         </a>
         <a
           className="btn fw-500 btn-primary rounded-pill"
@@ -128,7 +138,7 @@ export default function TopNav({ versionsList }: TopNavProps) {
           target="_blank"
         >
           <button className={styles.CloudBtn}>
-            <Cloud />
+            <CloudIcon />
           </button>
         </a>
       </div>

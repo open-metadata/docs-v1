@@ -1,3 +1,7 @@
+import Markdoc, { RenderableTreeNode } from "@markdoc/markdoc";
+import classNames from "classnames";
+import { has, isEmpty } from "lodash";
+import { useRouter } from "next/router";
 import React, {
   useCallback,
   useEffect,
@@ -5,34 +9,28 @@ import React, {
   useRef,
   useState,
 } from "react";
-import TopNav from "../../TopNav/TopNav";
-import CategoriesNav from "../../CategoriesNav/CategoriesNav";
-import SideNav from "../../SideNav/SideNav";
-import classNames from "classnames";
-import SkeletonLoader from "../../common/SkeletonLoader/SkeletonLoader";
 import { SKELETON_PARAGRAPH_WIDTHS } from "../../../constants/SkeletonLoader.constants";
-import Footer from "../../Footer/Footer";
-import Markdoc, { RenderableTreeNode } from "@markdoc/markdoc";
-import { has, isEmpty, startCase } from "lodash";
-import { SelectOption } from "../../SelectDropdown/SelectDropdown";
-import { useRouter } from "next/router";
-import { getCategoryByIndex } from "../../../lib/utils";
-import { MenuItem } from "../../../interface/common.interface";
-import { useRouteChangingContext } from "../../../context/RouteChangingContext";
+import { useMenuItemsContext } from "../../../context/MenuItemsContext";
 import { useNavBarCollapsedContext } from "../../../context/NavBarCollapseContext";
+import { useRouteChangingContext } from "../../../context/RouteChangingContext";
 import { components } from "../../../lib/markdoc";
+import { checkIsHowToGuidesPaths } from "../../../utils/PathUtils";
 import Breadcrumb from "../../Breadcrumb/Breadcrumb";
+import CategoriesNav from "../../CategoriesNav/CategoriesNav";
+import Footer from "../../Footer/Footer";
+import { SelectOption } from "../../SelectDropdown/SelectDropdown";
+import SideNav from "../../SideNav/SideNav";
+import TopNav from "../../TopNav/TopNav";
+import SkeletonLoader from "../../common/SkeletonLoader/SkeletonLoader";
 
 interface DocsPageLayoutProps {
   parsedContent: RenderableTreeNode;
-  menu: MenuItem[];
   slug: string[];
   versionsList: SelectOption<string>[];
 }
 
 function DocsPageLayout({
   parsedContent,
-  menu,
   slug,
   versionsList,
 }: DocsPageLayoutProps) {
@@ -40,18 +38,10 @@ function DocsPageLayout({
   const { isRouteChanging } = useRouteChangingContext();
   const { isMobileDevice } = useNavBarCollapsedContext();
   const [sideNavCollapsed, setSideNavCollapsed] = useState<boolean>(false);
+  const { menuItems, isMenuLoading } = useMenuItemsContext();
 
   // Ref to keep track if the side nav is collapsed before, when "code-preview-container" is in the view.
   const autoCollapsed = useRef(false);
-  const category = useMemo(
-    () => getCategoryByIndex(router.asPath, 2),
-    [router.asPath]
-  );
-
-  const item = useMemo(
-    () => menu.find((item) => getCategoryByIndex(item.url, 1) === category),
-    [menu, category]
-  );
 
   const handleSideNavCollapsed = useCallback(
     (value: boolean) => {
@@ -77,7 +67,7 @@ function DocsPageLayout({
       const element = document.getElementById(hashElementId);
 
       setTimeout(() => {
-        element &&
+        !isEmpty(element) &&
           element.scrollIntoView({
             block: "center",
             inline: "center",
@@ -87,6 +77,11 @@ function DocsPageLayout({
     }
   }, [autoCollapsed.current]);
 
+  const isHowToGuidesHomePagePath = useMemo(
+    () => checkIsHowToGuidesPaths(router),
+    [router.asPath]
+  );
+
   useEffect(() => {
     scrollToElementWithOffsetMargin();
   });
@@ -95,26 +90,37 @@ function DocsPageLayout({
     <div className="flex flex-col">
       <div className="nav-bar-container">
         <TopNav versionsList={versionsList} />
-        <CategoriesNav menu={menu} />
+        <CategoriesNav menu={menuItems} />
       </div>
       <div className="flex">
-        <SideNav
-          sideNavCollapsed={sideNavCollapsed}
-          category={item ? item.category : startCase(category)}
-          items={item ? item.children : []}
-          loading={isRouteChanging}
-          handleSideNavCollapsed={handleSideNavCollapsed}
-          ref={autoCollapsed}
-        />
+        {!isHowToGuidesHomePagePath && (
+          <SideNav
+            sideNavCollapsed={sideNavCollapsed}
+            handleSideNavCollapsed={handleSideNavCollapsed}
+            ref={autoCollapsed}
+          />
+        )}
         <div
           className={classNames(
             "content",
-            sideNavCollapsed ? "collapsed-content" : "non-collapsed-content"
+            sideNavCollapsed ? "collapsed-content" : "non-collapsed-content",
+            { "mx-auto": isHowToGuidesHomePagePath }
           )}
         >
-          <main className={classNames("flex flex-col mx-12 my-6")}>
-            {isRouteChanging ? (
+          <main
+            className={classNames(
+              "flex flex-col my-6",
+              {
+                "mx-12": !isHowToGuidesHomePagePath,
+              },
+              {
+                "px-12": isHowToGuidesHomePagePath,
+              }
+            )}
+          >
+            {isRouteChanging || isMenuLoading ? (
               <SkeletonLoader
+                showBreadcrumb
                 paragraph={{
                   rows: SKELETON_PARAGRAPH_WIDTHS.length,
                   width: SKELETON_PARAGRAPH_WIDTHS,

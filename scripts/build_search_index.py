@@ -31,6 +31,8 @@ ALGOLIA_INDEX = os.environ.get("ALGOLIA_INDEX")
 
 CONTENT_REGEX = re.compile(r"<(.*?)>", re.DOTALL | re.MULTILINE)
 
+STABLE_VERSION = "1.2.x"
+
 EXCLUDED_FILES = {"gdpr-banner", "menu"}
 
 
@@ -77,7 +79,12 @@ def get_algolia_doc_from_file(file: Path) -> Optional[AlgoliaDoc]:
         return None
 
 
-def build_index():
+def build_algolia_index_name(version: str) -> str:
+    """Build dynamic index name based on version"""
+    return f"{ALGOLIA_INDEX}-{version}"
+
+
+def build_index(version: Path):
     """
     Picks up all content files and replaces
     the algolia index.
@@ -86,12 +93,9 @@ def build_index():
     menu or index.
     """
 
-    versions = list(Path("content").glob("v*"))
-    latest_version = max(versions)
-
     results = [
         file
-        for file in latest_version.rglob("*.[mM][dD]")
+        for file in version.rglob("*.[mM][dD]")
         if file.stem not in EXCLUDED_FILES
     ]
 
@@ -104,12 +108,19 @@ def build_index():
 
     # Create an index (or connect to it, if an index with the name `ALGOLIA_INDEX_NAME` already exists)
     # https://www.algolia.com/doc/api-client/getting-started/instantiate-client-index/#initialize-an-index
-    index = client.init_index(ALGOLIA_INDEX)
+    index = client.init_index(build_algolia_index_name(version.name))
 
     # Replace the index with new objects
     # https://www.algolia.com/doc/api-reference/api-methods/replace-all-objects/
-    index.replace_all_objects(docs, {"safe": True})
+    index.replace_all_objects(docs, {"safe": False})
+
+
+def build_indexes() -> None:
+    """Build one index for each version"""
+    versions = [v for v in list(Path("content").glob("v*"))]
+    for version in versions:
+        build_index(version=version)
 
 
 if __name__ == "__main__":
-    build_index()
+    build_indexes()

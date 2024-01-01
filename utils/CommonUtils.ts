@@ -3,6 +3,7 @@ import { isEmpty, startCase } from "lodash";
 import * as icons from "react-icons/md";
 import { HeadingObject } from "../components/PageLayouts/APIPageLayout/APIPageSideNav/APIPageSideNav";
 import { DEFAULT_VERSION } from "../constants/version.constants";
+import { MenuItem } from "../interface/common.interface";
 
 export const getDivIndexFromId = (id: string) => {
   return Number(id.split("-").reverse()[0]);
@@ -17,10 +18,11 @@ export const getUrlWithVersion = (url: string, docVersion: string) => {
 };
 
 export const getVersionFromUrl = (url: string) => {
-  const versionStringArray = url.match(/(\/v(\d*\.*)*\/)/g);
-  const versionString = versionStringArray ? versionStringArray[0] : undefined;
-  const version = versionString ? versionString.split("/")[1] : DEFAULT_VERSION;
-  return version;
+  const versionStringArray = url.match(/v\d+\.\d+\.x/);
+  const versionString = versionStringArray
+    ? versionStringArray[0]
+    : DEFAULT_VERSION;
+  return versionString;
 };
 
 export const fetchMenuList = async (version: string) => {
@@ -29,7 +31,7 @@ export const fetchMenuList = async (version: string) => {
       method: "GET",
     });
 
-    const parsedResponse = await response.json();
+    const parsedResponse: Array<MenuItem> = await response.json();
 
     if (response.status === 200) {
       return parsedResponse;

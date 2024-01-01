@@ -7,10 +7,10 @@ import "../public/globals.css";
 
 import type { MarkdocNextJsPageProps } from "@markdoc/next.js";
 import type { AppProps } from "next/app";
-import { useRouter } from "next/router";
 import ErrorBoundary from "../components/ErrorBoundary";
 import { CodeWithLanguageSelectorContextProvider } from "../context/CodeWithLanguageSelectorContext";
 import { DocVersionContextProvider } from "../context/DocVersionContext";
+import { MenuItemsContextProvider } from "../context/MenuItemsContext";
 import { NavBarCollapseContextProvider } from "../context/NavBarCollapseContext";
 import { RouteChangingContextProvider } from "../context/RouteChangingContext";
 import { StepsContextProvider } from "../context/StepsContext";
@@ -22,8 +22,6 @@ const DESCRIPTION =
 export type MyAppProps = MarkdocNextJsPageProps;
 
 export default function MyApp({ Component, pageProps }: AppProps<MyAppProps>) {
-  const router = useRouter();
-
   return (
     <>
       <Head>
@@ -47,17 +45,24 @@ export default function MyApp({ Component, pageProps }: AppProps<MyAppProps>) {
         )}
         <meta property="og:type" content="website" />
         <meta content="summary_large_image" name="twitter:card" />
+        <script
+          src="https://jiffygpt.com/embed.js"
+          id={process.env.NEXT_PUBLIC_GIFFY_GPT_ID}
+          defer
+        ></script>
       </Head>
       <ErrorBoundary>
         <RouteChangingContextProvider>
           <DocVersionContextProvider>
-            <NavBarCollapseContextProvider>
-              <StepsContextProvider>
-                <CodeWithLanguageSelectorContextProvider>
-                  <Component {...pageProps} key={router.asPath} />
-                </CodeWithLanguageSelectorContextProvider>
-              </StepsContextProvider>
-            </NavBarCollapseContextProvider>
+            <MenuItemsContextProvider>
+              <NavBarCollapseContextProvider>
+                <StepsContextProvider>
+                  <CodeWithLanguageSelectorContextProvider>
+                    <Component {...pageProps} />
+                  </CodeWithLanguageSelectorContextProvider>
+                </StepsContextProvider>
+              </NavBarCollapseContextProvider>
+            </MenuItemsContextProvider>
           </DocVersionContextProvider>
         </RouteChangingContextProvider>
       </ErrorBoundary>

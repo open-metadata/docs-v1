@@ -24,18 +24,19 @@ export default function handler(req, res) {
     for (const index in flatMenu) {
       const item = flatMenu[index];
       const category = item["category"].split("/");
+      const url = item["url"].slice(1).split("/");
       // Move to the depth we need
       for (const depth in category) {
-        const menu_key = slugify(category[depth].trim().toLowerCase());
-        let exist = findIndex(menuRoot, { menu_key: menu_key });
+        const menu_key = slugify(url[depth].trim().toLowerCase());
+        let exist = findIndex(menuRoot, { menu_key });
         if (exist < 0) {
           menuRoot.push({
-            menu_key: menu_key,
+            menu_key,
             name: category[depth].trim(),
-            depth: depth,
+            depth,
             children: [],
           });
-          exist = findIndex(menuRoot, { menu_key: menu_key });
+          exist = findIndex(menuRoot, { menu_key });
         }
         objRoot = menuRoot[exist];
         menuRoot = menuRoot[exist]["children"];
