@@ -1,0 +1,98 @@
+#  Copyright 2021 Collate
+#  Licensed under the Apache License, Version 2.0 (the "License");
+#  you may not use this file except in compliance with the License.
+#  You may obtain a copy of the License at
+#  http://www.apache.org/licenses/LICENSE-2.0
+#  Unless required by applicable law or agreed to in writing, software
+#  distributed under the License is distributed on an "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#  See the License for the specific language governing permissions and
+#  limitations under the License.
+
+name: Link-checker
+on:
+  push:
+    branches:
+      - publish
+
+jobs:
+  link-checker:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the Repo
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref.GITHUB_REF_NAME }}
+
+      - name: Set up Node 
+        uses: actions/setup-node@v4
+        with:
+            node-version: 18.19.0
+
+      - name: Install dependencies
+        run: |
+          yarn
+
+      - name: Get linkchecker package
+        run: |
+          wget https://github.com/filiph/linkcheck/releases/download/3.0.0/linkcheck-3.0.0-linux-x64.tar.gz
+          tar -xzf linkcheck-3.0.0-linux-x64.tar.gz
+
+      - name: Run yarn build and start
+        run: |
+          yarn build
+          yarn start -p 8000 &
+          sleep 10
+
+      - name: Run linkchecker
+        id: run-linkchecker
+        continue-on-error: true
+        run: |
+          cd linkcheck
+          ./linkcheck :8000 -e | tee -a linkchecker.log
+          echo "FILE_LOCATION=$(pwd)" >> $GITHUB_ENV
+
+      - name: Output stats
+        run: |
+          cd linkcheck
+          FILTER_CMD='awk '\''/^Stats:$/{flag=1; next} /\n.EOF$/{flag=0} flag'\'' linkchecker.log | sed '\''$d'\'''
+          echo LINKS_CHECKED=$(eval "$FILTER_CMD" | grep links | awk '{print $1}') >> $GITHUB_ENV
+          echo DEST_URLS=$(eval "$FILTER_CMD" | grep destination | awk '{print $1}') >> $GITHUB_ENV
+          echo IGNORED_URL=$(eval "$FILTER_CMD" | grep ignored | awk '{print $1}') >> $GITHUB_ENV
+          echo WARNINGS=$(eval "$FILTER_CMD" | grep warnings | awk '{print $1}') >> $GITHUB_ENV
+          echo ERRORS=$(eval "$FILTER_CMD" | grep errors | awk '{print $1}') >> $GITHUB_ENV
+
+      - name: Upload log file
+        uses: actions/upload-artifact@v4
+        with:
+          name: linkchecker.log
+          path: ${{ env.FILE_LOCATION }}/linkchecker.log
+
+      - name: Post payload file summary to slack
+        id: slack
+        continue-on-error: true
+        uses: slackapi/slack-github-action@v1.24.0
+        with:
+          channel-id: ${{ secrets.SLACK_CHANNEL_IDS }}
+          payload: |
+            {
+              "text": "Link-checker build result: ${{ job.status }}",
+              "blocks": [
+                {
+                  "type": "section",
+                  "text": {
+                    "type": "mrkdwn",
+                    "text": "<!here> Link-checker build result: *${{ job.status }}*\n Please check the <${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}|Build URL> for logs and linkchecker report."
+                  }
+                },
+                {
+                  "type": "section",
+                  "text": {
+                    "type": "mrkdwn",
+                    "text": "Push/commit by: `${{ github.actor }}`\n>Links checked \t\t  -> ${{ env.LINKS_CHECKED }} \n>Destination URLs \t-> ${{ env.DEST_URLS }} \n>Ignored URLs \t\t   -> ${{ env.IGNORED_URL }} \n>Warnings \t\t\t\t  -> ${{ env.WARNINGS }} \n>*No. or Errors* \t\t\t-> *${{ env.ERRORS }}*"
+                  }
+                }
+              ]
+            }
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
