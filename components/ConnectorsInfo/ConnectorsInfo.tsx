@@ -1,7 +1,9 @@
 import classNames from "classnames";
 import { sortBy } from "lodash";
+import dynamic from "next/dynamic";
 import Link from "next/link";
 import { useState } from "react";
+import Loader from "../common/Loader/Loader";
 import { CONNECTORS } from "./ConnectorsInfo.constants";
 import styles from "./ConnectorsInfo.module.css";
 
@@ -13,6 +15,10 @@ interface ConnectorCategory {
     name: string;
   }[];
 }
+const ConnectorImage = dynamic(() => import("./ConnectorImage"), {
+  ssr: false,
+  loading: () => <Loader size={28} />,
+});
 
 CONNECTORS.unshift({
   connector: "All connectors",
@@ -33,7 +39,7 @@ export default function ConnectorsInfo() {
     <div className={styles.Container}>
       <div className={styles.TabsContainer}>
         {CONNECTORS.map((connectorCategory) => (
-          <div
+          <button
             className={classNames(
               styles.TabItem,
               connectorCategory.connector === selectedTab.connector
@@ -44,7 +50,7 @@ export default function ConnectorsInfo() {
             onClick={() => setSelectedTab(connectorCategory)}
           >
             {connectorCategory.connector}
-          </div>
+          </button>
         ))}
       </div>
       <div className={styles.ConnectorsContainer}>
@@ -55,7 +61,7 @@ export default function ConnectorsInfo() {
               href={connector.url}
               key={connector.name}
             >
-              <img
+              <ConnectorImage
                 className={styles.ConnectorImg}
                 src={connector.icon}
                 alt={connector.name}
