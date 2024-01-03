@@ -68,11 +68,12 @@ jobs:
           name: linkchecker.log
           path: ${{ env.FILE_LOCATION }}/linkchecker.log
 
-      - name: Send payload file to slack
+      - name: Post payload file summary to slack
         id: slack
         continue-on-error: true
         uses: slackapi/slack-github-action@v1.24.0
         with:
+          channel-id: ${{ secrets.SLACK_CHANNEL_IDS }}
           payload: |
             {
               "text": "Link-checker build result: ${{ job.status }}",
@@ -94,5 +95,4 @@ jobs:
               ]
             }
         env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-          SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
