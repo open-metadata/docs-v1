@@ -10,7 +10,7 @@ export const CONNECTORS = [
       {
         url: "/connectors/database/datalake",
         icon: "./images/connectors/amazon-s3.png",
-        name: "Amazon S3",
+        name: "S3",
       },
       {
         url: "/connectors/database/azuresql",
@@ -26,6 +26,11 @@ export const CONNECTORS = [
         url: "/connectors/database/clickhouse",
         icon: "./images/connectors/clickhouse.png",
         name: "ClickHouse",
+      },
+      {
+        url: "/connectors/database/couchbase",
+        icon: "./images/connectors/couchbase.png",
+        name: "Couchbase",
       },
       {
         url: "/connectors/database/deltalake",
@@ -63,6 +68,11 @@ export const CONNECTORS = [
         name: "GCS",
       },
       {
+        url: "/connectors/database/greenplum",
+        icon: "./images/connectors/greenplum.png",
+        name: "Greenplum",
+      },
+      {
         url: "/connectors/database/hive",
         icon: "./images/connectors/hive.png",
         name: "Hive",
@@ -81,6 +91,11 @@ export const CONNECTORS = [
         url: "/connectors/database/mariadb",
         icon: "./images/connectors/mariadb.png",
         name: "MariaDB",
+      },
+      {
+        url: "/connectors/database/mongodb",
+        icon: "./images/connectors/mongodb.png",
+        name: "MongoDB",
       },
       {
         url: "/connectors/database/mssql",
@@ -118,6 +133,11 @@ export const CONNECTORS = [
         name: "Salesforce",
       },
       {
+        url: "/connectors/database/sap-hana",
+        icon: "./images/connectors/sap-hana.png",
+        name: "SAP HANA",
+      },
+      {
         url: "/connectors/database/snowflake",
         icon: "./images/connectors/snowflakes.png",
         name: "Snowflake",
@@ -147,11 +167,6 @@ export const CONNECTORS = [
         icon: "./images/connectors/sqllite.png",
         name: "SQL Lite",
       },
-      {
-        url: "#",
-        icon: "./images/connectors/iceberg.png",
-        name: "Apache Iceberg",
-      },
     ],
   },
   {
@@ -168,21 +183,20 @@ export const CONNECTORS = [
         name: "Redpanda",
       },
       {
-        url: "/main-concepts/metadata-standard/schemas/entity/services/connections/messaging/pulsarconnection",
-        icon: "./images/connectors/pulsar.png",
-        name: "Pulsar",
-      },
-
-      {
         url: "/connectors/messaging/kinesis",
         icon: "./images/connectors/kinesis.png",
-        name: "AWS Kinesis",
+        name: "Kinesis",
       },
     ],
   },
   {
     connector: "Dashboard",
     services: [
+      {
+        url: "/main-concepts/metadata-standard/schemas/entity/services/connections/dashboard/lightdashconnection",
+        icon: "./images/connectors/light-dash.png",
+        name: "Lightdash",
+      },
       {
         url: "/connectors/dashboard/looker",
         icon: "./images/connectors/looker.png",
@@ -221,7 +235,7 @@ export const CONNECTORS = [
       {
         url: "/connectors/dashboard/quicksight",
         icon: "./images/connectors/quicksight.png",
-        name: "AWS QuickSight",
+        name: "QuickSight",
       },
     ],
   },
@@ -251,7 +265,12 @@ export const CONNECTORS = [
       {
         url: "/connectors/pipeline/nifi",
         icon: "./images/connectors/apachenifi.png",
-        name: "Apache NiFi",
+        name: "NiFi",
+      },
+      {
+        url: "/connectors/pipeline/spline",
+        icon: "./images/connectors/spline.png",
+        name: "Spline",
       },
     ],
   },
@@ -266,7 +285,17 @@ export const CONNECTORS = [
       {
         url: "/connectors/ml-model/sagemaker",
         icon: "./images/connectors/sagemaker.png",
-        name: "AWS SageMaker",
+        name: "SageMaker",
+      },
+    ],
+  },
+  {
+    connector: "Search",
+    services: [
+      {
+        url: "/connectors/search/elasticsearch",
+        icon: "./images/connectors/elasticsearch.png",
+        name: "Elasticsearch",
       },
     ],
   },
@@ -282,21 +311,6 @@ export const CONNECTORS = [
         url: "/connectors/metadata/atlas",
         icon: "./images/connectors/atlas.png",
         name: "Atlas",
-      },
-    ],
-  },
-  {
-    connector: "Others",
-    services: [
-      {
-        url: "#",
-        icon: "./images/connectors/ldap.png",
-        name: "LDAP",
-      },
-      {
-        url: "#",
-        icon: "./images/connectors/sqlalchemy.png",
-        name: "SQLAlchemy",
       },
     ],
   },
