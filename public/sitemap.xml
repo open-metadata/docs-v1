@@ -9,1748 +9,1988 @@
 
 <url>
   <loc>https://docs.open-metadata.org/</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://docs.open-metadata.org/swagger.html</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/quick-start</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/quick-start</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/deployment</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/how-to-guides</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/deployment</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://docs.open-metadata.org/connectors/pipeline/airbyte</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://docs.open-metadata.org/connectors/pipeline/airflow</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/connectors/storage/S3</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/connectors/metadata/amundsen</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/connectors/database/athena</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/connectors/metadata/atlas</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/connectors/database/azuresql</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/connectors/database/bigquery</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/connectors/database/clickhouse</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/connectors/database/databricks</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/connectors/ingestion/workflows/dbt/ingest-dbt-ui</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/connectors/database/deltalake</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/connectors/database/domo</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/connectors/database/druid</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/connectors/database/dynamodb</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/connectors/database/glue</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://docs.open-metadata.org/connectors/database/datalake</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/connectors/database/hive</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/connectors/metadata/amundsen</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/connectors/database/impala</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/connectors/pipeline/nifi</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/connectors/database/db2</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/connectors/database/athena</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/connectors/messaging/kafka</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/connectors/metadata/atlas</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://docs.open-metadata.org/connectors/messaging/kinesis</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/connectors/dashboard/looker</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/connectors/messaging/mariadb</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/connectors/dashboard/metabase</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/connectors/ml-model/mlflow</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/connectors/dashboard/mode</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/connectors/database/mssql</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/connectors/database/oracle</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/connectors/database/pinotdb</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/connectors/database/postgres</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/connectors/dashboard/powerbi</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/connectors/database/presto</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://docs.open-metadata.org/connectors/dashboard/quicksight</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/connectors/dashboard/redash</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/connectors/messaging/redpanda</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/connectors/database/redshift</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/connectors/database/salesforce</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://docs.open-metadata.org/connectors/ml-model/sagemaker</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/connectors/database/singlestore</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/connectors/database/azuresql</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/connectors/database/snowflake</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/connectors/database/bigquery</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/connectors/database/clickhouse</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/connectors/pipeline/dagster</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/connectors/database/databricks</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/connectors/database/deltalake</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/connectors/database/domo-database</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/connectors/database/druid</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/connectors/database/dynamodb</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/connectors/pipeline/fivetran</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/connectors/database/glue</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/connectors/database/hive</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/connectors/database/db2</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/connectors/database/impala</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/connectors/messaging/kafka</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/connectors/dashboard/looker</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/connectors/database/mariadb</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/connectors/dashboard/metabase</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/connectors/ml-model/mlflow</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/connectors/dashboard/mode</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/connectors/database/mssql</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://docs.open-metadata.org/connectors/database/mysql</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/connectors/database/oracle</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/connectors/database/pinotdb</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/connectors/database/postgres</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/connectors/dashboard/powerbi</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/connectors/database/presto</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/main-concepts/metadata-standard/schemas/entity/services/connections/messaging/pulsarconnection</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/connectors/dashboard/redash</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/connectors/messaging/redpanda</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/connectors/database/redshift</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/connectors/database/salesforce</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/connectors/database/singlestore</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/connectors/database/snowflake</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://docs.open-metadata.org/connectors/database/sqlite</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://docs.open-metadata.org/connectors/dashboard/superset</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://docs.open-metadata.org/connectors/dashboard/tableau</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://docs.open-metadata.org/connectors/database/trino</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://docs.open-metadata.org/connectors/database/vertica</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/releases</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/quick-start/local-docker-deployment</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/quick-start/local-kubernetes-deployment</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/how-to-guides</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/quick-start/sandbox</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/features</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/how-to-guides/data-discovery</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/main-concepts</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/how-to-guides/data-collaboration</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/developers</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/how-to-guides/data-quality-profiler</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/sdk</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/how-to-guides/data-lineage</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/quick-start/local-deployment</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/how-to-guides/data-insights</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/quick-start/sandbox</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/how-to-guides/data-governance</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/deployment/bare-metal</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/how-to-guides/admin-guide</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/deployment/docker</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/how-to-guides/guide-for-data-users</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/deployment/kubernetes</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/how-to-guides/admin-guide/roles-policies</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/deployment/airflow</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/how-to-guides/data-governance/glossary</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/deployment/security</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/deployment/bare-metal</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/deployment/secrets-manager</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/deployment/kubernetes</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/deployment/configuration</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/deployment/security</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/ingestion/versioning/change-feeds</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/deployment/upgrade</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/pipeline/glue-pipeline/airflow</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.64</priority>
+  <loc>https://docs.open-metadata.org/v1.2.x/deployment/docker/security</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.51</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/main-concepts/metadata-standard/schemas/metadataingestion/messagingservicemetadatapipeline</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.64</priority>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.51</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/deployment/upgrade</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.64</priority>
+  <loc>https://docs.open-metadata.org/v1.2.x/how-to-guides/data-discovery/discover</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.51</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/deployment/backup-restore-metadata</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.64</priority>
+  <loc>https://docs.open-metadata.org/v1.2.x/how-to-guides/data-discovery/preview</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.51</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/releases/latest-release</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/how-to-guides/data-discovery/details</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/releases/roadmap</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/how-to-guides/data-discovery/advanced</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/releases/all-releases</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/how-to-guides/data-collaboration/activity-feeds</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/deployment/security/enable-password-masking</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/how-to-guides/data-collaboration/request-description</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/database</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/how-to-guides/data-collaboration/request-tags</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/dashboard</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/how-to-guides/data-collaboration/announcements</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/messaging</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/how-to-guides/data-collaboration/add-announcement</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/pipeline</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/how-to-guides/data-quality-profiler/tab</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/ml-model</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/how-to-guides/data-quality-profiler/test</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/storage</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/how-to-guides/data-quality-profiler/alerts</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/metadata</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/how-to-guides/data-lineage/workflow</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/custom-connectors</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/how-to-guides/data-lineage/explore</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/credentials</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/how-to-guides/data-lineage/column</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/ingestion</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/how-to-guides/data-lineage/manual</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/database/athena</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/how-to-guides/data-insights/tiering</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/database/azuresql</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/how-to-guides/data-insights/ingestion</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/database/bigquery</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/how-to-guides/data-insights/kpi</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/database/clickhouse</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/how-to-guides/data-insights/report</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/database/databricks</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/how-to-guides/data-insights/cost-analysis</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/database/datalake</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/how-to-guides/data-insights/email-report</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/database/db2</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/how-to-guides/data-insights/data-culture</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/database/deltalake</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/how-to-guides/data-governance/classification</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/database/druid</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/how-to-guides/admin-guide/how-to-ingest-metadata</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/database/dynamodb</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/how-to-guides/admin-guide/teams-and-users</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/database/glue</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/how-to-guides/admin-guide/teams-and-users/invite-users</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/database/hive</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/how-to-guides/guide-for-data-users/basics-openmetadata</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/database/mariadb</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/how-to-guides/guide-for-data-users/data-asset-tabs</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/database/mssql</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/how-to-guides/guide-for-data-users/description</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/database/mysql</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/how-to-guides/guide-for-data-users/request-description</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/database/oracle</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/how-to-guides/guide-for-data-users/data-ownership</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/database/postgres</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/how-to-guides/guide-for-data-users/follow-data-asset</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/database/presto</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/how-to-guides/guide-for-data-users/tags</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/database/pinotdb</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/how-to-guides/guide-for-data-users/request-tags</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/database/redshift</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/how-to-guides/guide-for-data-users/glossary</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/database/salesforce</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/how-to-guides/guide-for-data-users/custom</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/database/singlestore</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/how-to-guides/guide-for-data-users/announcements</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/database/snowflake</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/how-to-guides/guide-for-data-users/add-announcement</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/database/sqlite</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/how-to-guides/guide-for-data-users/versions</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/database/trino</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/how-to-guides/guide-for-data-users/delete</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/database/vertica</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/how-to-guides/admin-guide/roles-policies/authorization</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/database/domo-database</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/how-to-guides/admin-guide/roles-policies/use-cases</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/dashboard/looker</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/how-to-guides/data-governance/glossary/glossary-term</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/dashboard/metabase</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/how-to-guides/data-governance/glossary/setup</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/dashboard/mode</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/how-to-guides/data-governance/glossary/create-terms</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/dashboard/powerbi</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/how-to-guides/data-governance/glossary/import</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/dashboard/redash</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/how-to-guides/data-governance/glossary/approval</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/dashboard/superset</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/how-to-guides/data-governance/glossary/styling</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/dashboard/tableau</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/how-to-guides/data-governance/glossary/assets</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/dashboard/domo-dashboard</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/how-to-guides/data-governance/glossary/best-practices</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/messaging/kafka</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/deployment/ingestion</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/messaging/redpanda</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/deployment/configuration</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/messaging/kinesis</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/deployment/bare-metal/security</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/pipeline/airbyte</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/deployment/kubernetes/helm-values</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/pipeline/airflow</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/deployment/kubernetes/eks</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/pipeline/dagster</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/deployment/kubernetes/gke</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/pipeline/fivetran</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/deployment/kubernetes/on-prem</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/pipeline/glue-pipeline</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/deployment/kubernetes/faqs</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/pipeline/domo-pipeline</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/deployment/security/auth0</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/pipeline/nifi</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/deployment/security/azure</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/ml-model/mlflow</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/deployment/security/custom-oidc</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/ml-model/sagemaker</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/deployment/security/google</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/storage/s3</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/deployment/security/okta</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/metadata/amundsen</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/deployment/security/amazon-cognito</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/metadata/atlas</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/deployment/security/one-login</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/how-to-guides/cli-ingestion-with-basic-auth</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/deployment/security/keycloak</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/how-to-guides/feature-configurations</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/deployment/upgrade/how-does-it-work</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/how-to-guides/teams-and-users</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/deployment/backup-restore-metadata</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/how-to-guides/how-to-add-custom-property-to-an-entity</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/deployment/upgrade/kubernetes</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/how-to-guides/custom-logo/how-to-add-custom-logo</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/deployment/upgrade/docker</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/how-to-guides/how-to-add-language-support</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/deployment/upgrade/bare-metal</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.51</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/features/discovery-collaboration</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.51</priority>
+  <loc>https://docs.open-metadata.org/v1.2.x/deployment/docker</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/features/users</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.51</priority>
+  <loc>https://docs.open-metadata.org/v1.2.x/deployment/security/basic-auth</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/features/integrations</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.51</priority>
+  <loc>https://docs.open-metadata.org/v1.2.x/deployment/security/ldap/docker</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/features/glossaries</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.51</priority>
+  <loc>https://docs.open-metadata.org/v1.2.x/deployment/security/auth0/docker</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/features/data-insight</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.51</priority>
+  <loc>https://docs.open-metadata.org/v1.2.x/deployment/security/azure/docker</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/features/alerts-notifications</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.51</priority>
+  <loc>https://docs.open-metadata.org/v1.2.x/deployment/security/custom-oidc/docker</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/main-concepts/high-level-design</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.51</priority>
+  <loc>https://docs.open-metadata.org/v1.2.x/deployment/security/google/docker</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/main-concepts/metadata-standard</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.51</priority>
+  <loc>https://docs.open-metadata.org/v1.2.x/deployment/security/okta/docker</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/main-concepts/metadata-standard/schemas</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.51</priority>
+  <loc>https://docs.open-metadata.org/v1.2.x/deployment/ingestion/openmetadata</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/main-concepts/metadata-standard/apis</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.51</priority>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/athena</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/developers/architecture</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.51</priority>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/azuresql</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/developers/open-source-community</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.51</priority>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/bigquery</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/developers/contribute</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.51</priority>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/clickhouse</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/developers/webhooks</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.51</priority>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/couchbase</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/sdk/python</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.51</priority>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/datalake</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/sdk/java</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.51</priority>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/databricks</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/deployment/docker/security</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.51</priority>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/db2</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/deployment/docker/volumes</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.51</priority>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/deltalake</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/deployment/bare-metal/security</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.51</priority>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/domo-database</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/deployment/kubernetes/security</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.51</priority>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/druid</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/dynamodb</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/glue</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/greenplum</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/hive</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/impala</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/mariadb</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/mongodb</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/mssql</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/mysql</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/oracle</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/pinotdb</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/postgres</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/presto</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/redshift</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/salesforce</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/sap-hana</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/singlestore</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/snowflake</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/sqlite</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/trino</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/unity-catalog</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/vertica</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/dashboard/domo-dashboard</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/dashboard/looker</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/dashboard/metabase</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/dashboard/mode</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/dashboard/powerbi</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/dashboard/qliksense</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/dashboard/quicksight</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/dashboard/redash</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/dashboard/superset</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/dashboard/tableau</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/messaging/kafka</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/messaging/kinesis</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/messaging/redpanda</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/pipeline/airbyte</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/pipeline/airflow</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/pipeline/dagster</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/pipeline/databricks-pipeline</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/pipeline/domo-pipeline</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/pipeline/fivetran</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/pipeline/glue-pipeline</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/pipeline/nifi</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/pipeline/spline</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/ml-model/mlflow</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/ml-model/sagemaker</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/storage/s3</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/metadata/amundsen</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/metadata/atlas</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/search/elasticsearch</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/ingestion/workflows/usage/filter-query-set</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/ingestion/workflows/dbt/ingest-dbt-ui</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/ingestion/lineage</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/ingestion/workflows/lineage/lineage-workflow-query-logs</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/ingestion/workflows/usage</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/ingestion/workflows/profiler</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/features/data-insight</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/how-to-guides/data-governance/classification/tiers</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/how-to-guides/data-governance/classification/overview</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/how-to-guides/data-governance/classification/assets</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/how-to-guides/data-governance/classification/request-tags</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/how-to-guides/data-governance/classification/auto</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/how-to-guides/data-governance/classification/best-practices</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/ingestion/workflows/lineage</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/ingestion/workflows/dbt</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/ingestion/best-practices</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/how-to-guides/admin-guide/delete-service-connection</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/how-to-guides/admin-guide/teams-and-users/team-structure-openmetadata</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/how-to-guides/admin-guide/teams-and-users/add-users</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/ingestion/auto_tagging</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/deployment/ingestion/airflow</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/deployment/ingestion/mwaa</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/deployment/ingestion/gcs-composer</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/deployment/ingestion/github-actions</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/deployment/security/ldap</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
 </url>
 <url>
   <loc>https://docs.open-metadata.org/deployment/kubernetes</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.51</priority>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/pipeline/airflow/lineage-backend</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.51</priority>
+  <loc>https://docs.open-metadata.org/v1.2.x/deployment/security/enable-jwt-tokens</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/deployment/security/custom-oidc/bare-metal</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/deployment/security/custom-oidc/kubernetes</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/deployment/security/google/bare-metal</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/deployment/security/google/kubernetes</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/deployment/security/okta/bare-metal</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/deployment/security/okta/kubernetes</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/deployment/security/amazon-cognito/docker</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/deployment/security/amazon-cognito/bare-metal</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/deployment/security/amazon-cognito/kubernetes</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/deployment/security/one-login/docker</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/deployment/security/one-login/bare-metal</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/deployment/security/one-login/kubernetes</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/deployment/security/keycloak/docker</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/deployment/security/keycloak/bare-metal</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/deployment/security/keycloak/kubernetes</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/main-concepts/high-level-design</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.0.0/deployment/backup-restore-metadata</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.0.0/deployment/bare-metal</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/deployment/upgrade/versions/100-to-110</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/developers/bots</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.33</priority>
 </url>
 <url>
   <loc>https://docs.open-metadata.org/v1.0.0/connectors/database/snowflake/airflow</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.51</priority>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.33</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/deployment/security/auth0</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.51</priority>
+  <loc>https://docs.open-metadata.org/v1.2.x/deployment/security/enable-ssl/airflow</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.33</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/deployment/security/azure</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.51</priority>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/database</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.33</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/deployment/security/custom-oidc</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.51</priority>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/athena/yaml</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.33</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/deployment/security/google</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.51</priority>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/ingestion/workflows/data-quality</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.33</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/deployment/security/okta</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.51</priority>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/azuresql/yaml</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.33</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/deployment/security/amazon-cognito</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.51</priority>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/bigquery/yaml</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.33</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/deployment/security/one-login</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.51</priority>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/bigquery/roles</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.33</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/deployment/secrets-manager/supported-implementations/aws-secrets-manager</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/deployment/secrets-manager/supported-implementations/aws-ssm-parameter-store</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/deployment/upgrade/kubernetes</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/deployment/upgrade/docker</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/deployment/upgrade/bare-metal</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/dashboard/quicksight</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/pipeline/databricks-pipeline</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/sdk/python/build-connector/source</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/sdk/python/build-connector</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/sdk/python</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/connectors/database/athena/airflow</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/ingestion/workflows/metadata</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/ingestion/workflows/profiler</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/ingestion/workflows/data-quality</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/ingestion/workflows/usage</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/ingestion/workflows/lineage</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/ingestion/versioning</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/ingestion/best-practices</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/ingestion/deployment</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/database/athena/airflow</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/database/athena/cli</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/ingestion/workflows/dbt</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/database/azuresql/airflow</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/database/azuresql/cli</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/ingestion/lineage</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/database/bigquery/airflow</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/database/bigquery/cli</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/database/bigquery/roles</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/database/clickhouse/airflow</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/database/clickhouse/cli</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/clickhouse/yaml</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.33</priority>
 </url>
 <url>
   <loc>https://docs.open-metadata.org/connectors/ingestion/workflows/profiler</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.33</priority>
 </url>
 <url>
   <loc>https://docs.open-metadata.org/connectors/ingestion/workflows/data-quality</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.33</priority>
 </url>
 <url>
   <loc>https://docs.open-metadata.org/connectors/ingestion/workflows/usage</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.33</priority>
 </url>
 <url>
   <loc>https://docs.open-metadata.org/connectors/ingestion/workflows/lineage</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/database/databricks/airflow</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/database/databricks/cli</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/database/datalake/airflow</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/database/datalake/cli</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/database/db2/airflow</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/database/db2/cli</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/database/deltalake/airflow</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/database/deltalake/cli</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/database/druid/airflow</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/database/druid/cli</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/database/dynamodb/airflow</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/database/dynamodb/cli</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/database/glue/airflow</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/database/glue/cli</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/database/hive/airflow</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/database/hive/cli</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/database/mariadb/airflow</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/database/mariadb/cli</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/database/mssql/airflow</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/database/mssql/cli</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/database/oracle/airflow</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/database/oracle/cli</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/database/postgres/airflow</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/database/postgres/cli</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/database/presto/airflow</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/database/presto/cli</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/database/redshift/airflow</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/database/redshift/cli</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/database/salesforce/airflow</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/database/salesforce/cli</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/database/singlestore/airflow</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/database/singlestore/cli</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/database/snowflake/cli</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/database/sqlite/airflow</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/database/sqlite/cli</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/database/trino/airflow</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/database/trino/cli</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/database/vertica/airflow</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/database/vertica/cli</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/database/domo-database/airflow</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/database/domo-database/cli</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/dashboard/looker/airflow</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/dashboard/looker/cli</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/dashboard/metabase/airflow</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/dashboard/metabase/cli</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/dashboard/mode/airflow</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/dashboard/mode/cli</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/dashboard/powerbi/airflow</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/dashboard/powerbi/cli</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/dashboard/redash/airflow</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/dashboard/redash/cli</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/dashboard/superset/airflow</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/dashboard/superset/cli</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/dashboard/tableau/airflow</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/dashboard/tableau/cli</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/dashboard/domo-dashboard/airflow</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/dashboard/domo-dashboard/cli</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/pipeline/airflow/gcs</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/pipeline/airflow/cli</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/pipeline/domo-pipeline/airflow</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/pipeline/domo-pipeline/cli</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/ml-model/mlflow/airflow</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/ml-model/mlflow/cli</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/ml-model/sagemaker/airflow</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/ml-model/sagemaker/cli</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/storage/s3/airflow</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/storage/s3/cli</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/metadata/amundsen/airflow</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/metadata/amundsen/cli</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/deployment/security/enable-jwt-tokens</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/deployment/security/jwt-troubleshooting</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/metadata/atlas/airflow</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/metadata/atlas/cli</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/deployment/security/basic-auth</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/how-to-guides/feature-configurations/bots</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/features/integrations/great-expectations</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/features/integrations/prefect</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/main-concepts/metadata-standard/schemas/entity/data/table</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/sdk/python/entities/ml-model</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/developers/contribute/build-code-and-run-tests</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/deployment/security/auth0/docker</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/deployment/security/azure/docker</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/deployment/security/custom-oidc/docker</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/deployment/security/google/docker</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/deployment/security/okta/docker</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/deployment/security/ldap</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/deployment/security/keycloak</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/deployment/security/auth0/kubernetes</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/deployment/security/azure/kubernetes</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/deployment/security/custom-oidc/kubernetes</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/deployment/security/google/kubernetes</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/ingestion/workflows/metadata/filter-patterns/database</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/deployment/security/auth0/bare-metal</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/deployment/security/azure/bare-metal</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/deployment/security/custom-oidc/bare-metal</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/deployment/security/google/bare-metal</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/deployment/security/okta/bare-metal</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/deployment/security/okta/kubernetes</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/deployment/security/okta/troubleshoot</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/deployment/security/amazon-cognito/docker</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/deployment/security/amazon-cognito/bare-metal</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/deployment/security/amazon-cognito/kubernetes</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/deployment/security/one-login/docker</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/deployment/security/one-login/bare-metal</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/deployment/security/one-login/kubernetes</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/deployment/secrets-manager/supported-implementations</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/deployment/upgrade/versions/013-to-100</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/ingestion/workflows</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.33</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/ingestion/workflows/data-quality/tests</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/couchbase/yaml</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.33</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/ingestion/workflows/usage/usage-workflow-query-logs</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/datalake/yaml</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.33</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/ingestion/workflows/lineage/lineage-workflow-query-logs</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/databricks/yaml</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.33</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/connectors</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/db2/yaml</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.33</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/ingestion/workflows/dbt/ingest-dbt-ui</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/deltalake/yaml</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.33</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/ingestion/workflows/dbt/ingest-dbt-cli</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/domo-database/yaml</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.33</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/ingestion/workflows/dbt/ingest-dbt-lineage</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/dynamodb/yaml</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.33</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/ingestion/workflows/dbt/ingest-dbt-tags</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/greenplum/yaml</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.33</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/ingestion/workflows/dbt/ingest-dbt-owner</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/hive/yaml</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.33</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/ingestion/workflows/dbt/dbt-troubleshooting</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/impala/yaml</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/mariadb/yaml</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/mongodb/yaml</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/mssql/yaml</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/mysql/yaml</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/oracle/yaml</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/pinotdb/yaml</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/postgres/yaml</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/presto/yaml</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/redshift/yaml</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/salesforce/yaml</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/sap-hana/yaml</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/singlestore/yaml</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/snowflake/yaml</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/sqlite/yaml</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/trino/yaml</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/unity-catalog/yaml</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/vertica/yaml</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/dashboard</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/dashboard/domo-dashboard/yaml</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/dashboard/looker/yaml</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/dashboard/metabase/yaml</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/dashboard/mode/yaml</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/dashboard/powerbi/yaml</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/dashboard/qliksense/yaml</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/dashboard/quicksight/yaml</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/dashboard/redash/yaml</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/dashboard/superset/yaml</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/dashboard/tableau/yaml</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/messaging</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/messaging/kafka/yaml</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/messaging/kinesis/yaml</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/messaging/redpanda/yaml</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/pipeline</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/pipeline/airbyte/yaml</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/pipeline/airflow/yaml</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/pipeline/dagster/yaml</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/pipeline/databricks-pipeline/yaml</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/pipeline/domo-pipeline/yaml</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/pipeline/fivetran/yaml</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/pipeline/glue-pipeline/yaml</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/pipeline/nifi/yaml</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/pipeline/spline/yaml</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/ml-model</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/ml-model/mlflow/yaml</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/ml-model/sagemaker/yaml</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/storage</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/storage/s3/yaml</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/metadata</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/metadata/amundsen/yaml</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/metadata/atlas/yaml</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/search</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/search/elasticsearch/yaml</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/ingestion</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/ingestion/workflows</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/ingestion/workflows/dbt/setup-multiple-dbt-projects</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.33</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/ingestion/workflows/usage/usage-workflow-query-logs</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.33</priority>
 </url>
 <url>
   <loc>https://docs.open-metadata.org/connectors/pipeline/airflow/lineage-backend</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.33</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/ingestion/lineage/edit-lineage-manually</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/ingestion/lineage/edit-lineage-manually</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.33</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/connectors/pipeline/airflow/cli</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/features</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.33</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/main-concepts/metadata-standard/schemas/entity</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/ingestion/workflows/dbt/ingest-dbt-cli</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.33</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/main-concepts/metadata-standard/schemas/entity/data</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/ingestion/workflows/dbt/ingest-dbt-lineage</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.33</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/sdk/python/entities</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/ingestion/workflows/dbt/ingest-dbt-tags</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.33</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/developers/contribute/build-code-and-run-tests/prerequisites</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/ingestion/workflows/dbt/ingest-dbt-owner</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.33</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/developers/contribute/build-code-and-run-tests/openmetadata-server</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/ingestion/workflows/dbt/ingest-dbt-descriptions</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.33</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/developers/contribute/build-code-and-run-tests/ingestion-framework</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/ingestion/workflows/dbt/dbt-troubleshooting</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.33</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/developers/contribute/build-code-and-run-tests/generate-typescript-types-from-json-schema</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/how-to-guides/admin-guide/teams-and-users/add-team</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.33</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/developers/contribute/build-code-and-run-tests/openmetadata-ui</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/how-to-guides/admin-guide/teams-and-users/change-team-type</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.33</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/developers/contribute/build-code-and-run-tests/cypress-integration-tests</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/deployment/security/ldap/bare-metal</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.33</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/deployment/security/ldap/docker</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/main-concepts</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.33</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/deployment/security/ldap/bare-metal</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/deployment/upgrade/versions</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.33</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/deployment/security/keycloak/docker</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
+  <loc>https://docs.open-metadata.org/v1.2.x/deployment/secrets-manager/supported-implementations/aws-secrets-manager</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
   <priority>0.33</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/deployment/security/keycloak/bare-metal</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.33</priority>
+  <loc>https://docs.open-metadata.org/v1.2.x/developers</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.26</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/deployment/security/keycloak/kubernetes</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.33</priority>
+  <loc>https://docs.open-metadata.org/v1.2.x/deployment/security/enable-ssl</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.26</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/connectors/ingestion/workflows/metadata/filter-patterns</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.33</priority>
+  <loc>https://docs.open-metadata.org/v1.1.1/deployment/security/enable-ssl</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.26</priority>
 </url>
 <url>
-  <loc>https://docs.open-metadata.org/v1.0.0/deployment/upgrade/versions</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.33</priority>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/ingestion/workflows/metadata/filter-patterns/database</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.26</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/deployment/security/jwt-troubleshooting</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.26</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/deployment/security/enable-ssl/ssl-troubleshooting</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.26</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/ingestion/workflows/data-quality/tests</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.26</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/ingestion/workflows/metadata</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.26</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/ingestion/versioning</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.26</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/ingestion/deployment</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.26</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/main-concepts/metadata-standard/schemas</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.26</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/main-concepts/metadata-standard/apis</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.26</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/deployment/secrets-manager</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.26</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/deployment/secrets-manager/supported-implementations</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.26</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/developers/architecture</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.21</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/developers/open-source-community</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.21</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/developers/contribute</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.21</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/developers/webhooks</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.21</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/developers/how-to-add-language-support</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.21</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/developers/how-to-add-custom-property-to-an-entity</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.21</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/deployment/security/enable-ssl/nginx</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.21</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/deployment/security/enable-ssl/openmetadata-server</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.21</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/connectors/ingestion/workflows/metadata/filter-patterns</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.21</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/connectors</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.21</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/main-concepts/metadata-standard</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.21</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/deployment/secrets-manager/supported-implementations/aws-ssm-parameter-store</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.21</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/sdk/python/entities/ml-model</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.17</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/developers/contribute/build-code-and-run-tests</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.17</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/features/alerts-notifications</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.17</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/sdk</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.13</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/sdk/python</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.13</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/sdk/python/entities</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.13</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/developers/contribute/build-code-and-run-tests/prerequisites</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.13</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/developers/contribute/build-code-and-run-tests/openmetadata-server</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.13</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/developers/contribute/build-code-and-run-tests/ingestion-framework</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.13</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/developers/contribute/build-code-and-run-tests/generate-typescript-types-from-json-schema</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.13</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/developers/contribute/build-code-and-run-tests/openmetadata-ui</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.13</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/developers/contribute/build-code-and-run-tests/cypress-integration-tests</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.13</priority>
+</url>
+<url>
+  <loc>https://docs.open-metadata.org/v1.2.x/sdk/java</loc>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.11</priority>
 </url>
 <url>
   <loc>https://docs.open-metadata.org/connectors/dashboard/superset/cli</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.26</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/deployment/upgrade/versions/011-to-012</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.26</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/v1.0.0/deployment/upgrade/versions/012-to-013</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.26</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/deployment/docker</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.21</priority>
-</url>
-<url>
-  <loc>https://docs.open-metadata.org/deployment/upgrade/docker</loc>
-  <lastmod>2023-05-04T12:34:45+00:00</lastmod>
-  <priority>0.21</priority>
+  <lastmod>2024-01-03T16:41:40+00:00</lastmod>
+  <priority>0.11</priority>
 </url>
 
 
