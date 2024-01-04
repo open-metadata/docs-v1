@@ -1,16 +1,12 @@
-const DEFAULT_IMAGE = "./images/connectors/default-service-icon.png";
+import { ImgHTMLAttributes } from "react";
 
-interface ConnectorImageProps {
-  src: string;
-  alt: string;
-  className?: string;
-}
+const DEFAULT_IMAGE = "./images/connectors/default-service-icon.png";
 
 export default function ConnectorImage({
   src,
   alt,
   className = "",
-}: Readonly<ConnectorImageProps>) {
+}: Readonly<ImgHTMLAttributes<HTMLImageElement>>) {
   const replaceImgWithError = (e) => {
     e.target.onerror = null;
     e.target.src = DEFAULT_IMAGE;
