@@ -1,9 +1,9 @@
 import classNames from "classnames";
 import { useRouter } from "next/router";
-import Script from "next/script";
 import { useEffect, useState } from "react";
 import CategoriesNav from "../components/CategoriesNav/CategoriesNav";
 import Footer from "../components/Footer/Footer";
+import GoogleAnalytics from "../components/GoogleAnalytics/GoogleAnalytics";
 import { SelectOption } from "../components/SelectDropdown/SelectDropdown";
 import SideNav from "../components/SideNav/SideNav";
 import TopNav from "../components/TopNav/TopNav";
@@ -50,17 +50,7 @@ function ErrorComponent({ versionsList }: Props) {
 
   return (
     <div className="flex flex-col">
-      {/* Google tag (gtag.js) */}
-      <Script src="https://www.googletagmanager.com/gtag/js?id=G-2TW1XM6C89" />
-      <Script id="google-analytics">
-        {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
- 
-          gtag('config', 'G-2TW1XM6C89');
-        `}
-      </Script>
+      <GoogleAnalytics />
       <TopNav versionsList={versionsList} />
       <CategoriesNav menu={menuItems} />
       <div className="flex">

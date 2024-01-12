@@ -6,6 +6,7 @@ import Script from "next/script";
 import { basename } from "path";
 import { useMemo } from "react";
 import ErrorBoundary from "../../components/ErrorBoundary";
+import GoogleAnalytics from "../../components/GoogleAnalytics/GoogleAnalytics";
 import APIPageLayout from "../../components/PageLayouts/APIPageLayout/APIPageLayout";
 import DocsPageLayout from "../../components/PageLayouts/DocsPageLayout/DocsPageLayout";
 import { SelectOption } from "../../components/SelectDropdown/SelectDropdown";
@@ -80,17 +81,7 @@ export default function Article({
                 `,
         }}
       />
-      {/* Google tag (gtag.js) */}
-      <Script src="https://www.googletagmanager.com/gtag/js?id=G-2TW1XM6C89" />
-      <Script id="google-analytics">
-        {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
- 
-          gtag('config', 'G-2TW1XM6C89');
-        `}
-      </Script>
+      <GoogleAnalytics />
       <ErrorBoundary>
         {isAPIsPage.value ? (
           <APIPageLayout

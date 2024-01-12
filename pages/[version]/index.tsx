@@ -1,9 +1,9 @@
 import Link from "next/link";
-import Script from "next/script";
 import { useEffect } from "react";
 import CategoriesNav from "../../components/CategoriesNav/CategoriesNav";
 import ConnectorsInfo from "../../components/ConnectorsInfo/ConnectorsInfo";
 import Footer from "../../components/Footer/Footer";
+import GoogleAnalytics from "../../components/GoogleAnalytics/GoogleAnalytics";
 import NewsEntry from "../../components/NewsEntry/NewsEntry";
 import { SelectOption } from "../../components/SelectDropdown/SelectDropdown";
 import TopNav from "../../components/TopNav/TopNav";
@@ -46,17 +46,7 @@ export default function Index({ versionsList }: Readonly<Props>) {
 
   return (
     <>
-      {/* Google tag (gtag.js) */}
-      <Script src="https://www.googletagmanager.com/gtag/js?id=G-2TW1XM6C89" />
-      <Script id="google-analytics">
-        {`
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-2TW1XM6C89');
-    `}
-      </Script>
+      <GoogleAnalytics />
       <div className="nav-bar-container">
         <TopNav versionsList={versionsList} />
         <CategoriesNav menu={menuItems} />
