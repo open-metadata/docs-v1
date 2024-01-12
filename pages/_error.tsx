@@ -1,5 +1,6 @@
 import classNames from "classnames";
 import { useRouter } from "next/router";
+import Script from "next/script";
 import { useEffect, useState } from "react";
 import CategoriesNav from "../components/CategoriesNav/CategoriesNav";
 import Footer from "../components/Footer/Footer";
@@ -49,6 +50,17 @@ function ErrorComponent({ versionsList }: Props) {
 
   return (
     <div className="flex flex-col">
+      {/* Google tag (gtag.js) */}
+      <Script src="https://www.googletagmanager.com/gtag/js?id=G-2TW1XM6C89" />
+      <Script id="google-analytics">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+ 
+          gtag('config', 'G-2TW1XM6C89');
+        `}
+      </Script>
       <TopNav versionsList={versionsList} />
       <CategoriesNav menu={menuItems} />
       <div className="flex">

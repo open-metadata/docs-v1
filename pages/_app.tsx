@@ -1,6 +1,5 @@
-// @ts-nocheck
 import Head from "next/head";
-import React, { useEffect } from "react";
+import React from "react";
 
 import "prismjs";
 // Import other Prism themes here
@@ -23,15 +22,6 @@ const DESCRIPTION =
 export type MyAppProps = MarkdocNextJsPageProps;
 
 export default function MyApp({ Component, pageProps }: AppProps<MyAppProps>) {
-  useEffect(() => {
-    window.dataLayer = window.dataLayer || [];
-    function updateGoogleTag() {
-      dataLayer.push(arguments);
-    }
-    updateGoogleTag("js", new Date());
-    updateGoogleTag("config", "G-2TW1XM6C89");
-  }, []);
-
   return (
     <>
       <Head>
@@ -59,11 +49,6 @@ export default function MyApp({ Component, pageProps }: AppProps<MyAppProps>) {
           src="https://jiffygpt.com/embed.js"
           id={process.env.NEXT_PUBLIC_GIFFY_GPT_ID}
           defer
-        ></script>
-        {/* Google tag (gtag.js) */}
-        <script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=G-2TW1XM6C89"
         ></script>
       </Head>
       <ErrorBoundary>
