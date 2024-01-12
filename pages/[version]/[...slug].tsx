@@ -6,7 +6,7 @@ import Script from "next/script";
 import { basename } from "path";
 import { useMemo } from "react";
 import ErrorBoundary from "../../components/ErrorBoundary";
-import GoogleAnalytics from "../../components/GoogleAnalytics/GoogleAnalytics";
+import GoogleAnalyticsScript from "../../components/GoogleAnalyticsScript/GoogleAnalyticsScript";
 import APIPageLayout from "../../components/PageLayouts/APIPageLayout/APIPageLayout";
 import DocsPageLayout from "../../components/PageLayouts/DocsPageLayout/DocsPageLayout";
 import { SelectOption } from "../../components/SelectDropdown/SelectDropdown";
@@ -81,7 +81,7 @@ export default function Article({
                 `,
         }}
       />
-      <GoogleAnalytics />
+      <GoogleAnalyticsScript />
       <ErrorBoundary>
         {isAPIsPage.value ? (
           <APIPageLayout

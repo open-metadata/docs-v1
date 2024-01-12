@@ -1,6 +1,6 @@
 import Script from "next/script";
 
-function GoogleAnalytics() {
+function GoogleAnalyticsScript() {
   return (
     <>
       {/* Google tag (gtag.js) */}
@@ -18,4 +18,4 @@ function GoogleAnalytics() {
   );
 }
 
-export default GoogleAnalytics;
+export default GoogleAnalyticsScript;

@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import CategoriesNav from "../components/CategoriesNav/CategoriesNav";
 import Footer from "../components/Footer/Footer";
-import GoogleAnalytics from "../components/GoogleAnalytics/GoogleAnalytics";
+import GoogleAnalyticsScript from "../components/GoogleAnalyticsScript/GoogleAnalyticsScript";
 import { SelectOption } from "../components/SelectDropdown/SelectDropdown";
 import SideNav from "../components/SideNav/SideNav";
 import TopNav from "../components/TopNav/TopNav";
@@ -50,7 +50,7 @@ function ErrorComponent({ versionsList }: Props) {
 
   return (
     <div className="flex flex-col">
-      <GoogleAnalytics />
+      <GoogleAnalyticsScript />
       <TopNav versionsList={versionsList} />
       <CategoriesNav menu={menuItems} />
       <div className="flex">
