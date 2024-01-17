@@ -6,6 +6,11 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
+
+  <url>
+    <loc>https://docs.open-metadata.org/</loc>
+    <priority>1.00</priority>
+  </url>
   <url>
     <loc>https://docs.open-metadata.org/connectors/dashboard/domo-dashboard/airflow</loc>
     <priority>1.00</priority>
