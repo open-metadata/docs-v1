@@ -1,4 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+   <sitemap>
+      <loc>https://docs.open-metadata.org/sitemap1.xml</loc>
+   </sitemap>
+   <sitemap>
+      <loc>https://docs.open-metadata.org/sitemap2.xml</loc>
+   </sitemap>
+  <sitemap>
+      <loc>https://docs.open-metadata.org/sitemap3.xml</loc>
+   </sitemap>
+  <sitemap>
+      <loc>https://docs.open-metadata.org/sitemap4.xml</loc>
+   </sitemap>
+  <sitemap>
+      <loc>https://docs.open-metadata.org/sitemap5.xml</loc>
+   </sitemap>
+  <sitemap>
+      <loc>https://docs.open-metadata.org/sitemap6.xml</loc>
+   </sitemap>
+  <sitemap>
+      <loc>https://docs.open-metadata.org/sitemap7.xml</loc>
+   </sitemap>
+</sitemapindex>
+
 <urlset
   xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
