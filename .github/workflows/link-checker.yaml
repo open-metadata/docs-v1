@@ -22,9 +22,8 @@ jobs:
     steps:
       - name: Check out the Repo
         uses: actions/checkout@v4
-        ref: publish
         with:
-          ref: ${{ github.ref.GITHUB_REF_NAME }}
+          ref: publish
 
       - name: Set up Node 
         uses: actions/setup-node@v4
