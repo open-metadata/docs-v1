@@ -1,20 +1,17 @@
 import classNames from "classnames";
-import { sortBy } from "lodash";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import { useState } from "react";
+import { useDocVersionContext } from "../../context/DocVersionContext";
+import {
+  getConnectorURL,
+  getSortedServiceList,
+} from "../../utils/ConnectorsUtils";
 import Loader from "../common/Loader/Loader";
 import { CONNECTORS } from "./ConnectorsInfo.constants";
+import { ConnectorCategory } from "./ConnectorsInfo.interface";
 import styles from "./ConnectorsInfo.module.css";
 
-interface ConnectorCategory {
-  connector: string;
-  services: {
-    url: string;
-    icon: string;
-    name: string;
-  }[];
-}
 const ConnectorImage = dynamic(() => import("./ConnectorImage"), {
   ssr: false,
   loading: () => <Loader size={28} />,
@@ -23,14 +20,12 @@ const ConnectorImage = dynamic(() => import("./ConnectorImage"), {
 CONNECTORS.unshift({
   connector: "All connectors",
   services: CONNECTORS.reduce((prev, curr) => {
-    return sortBy(
-      [...prev, ...curr.services],
-      [(connector) => connector.name.toLowerCase()]
-    );
+    return [...prev, ...curr.services];
   }, [] as ConnectorCategory["services"]),
 });
 
 export default function ConnectorsInfo() {
+  const { docVersion, onChangeDocVersion } = useDocVersionContext();
   const [selectedTab, setSelectedTab] = useState<ConnectorCategory>(
     CONNECTORS[0]
   );
@@ -55,10 +50,10 @@ export default function ConnectorsInfo() {
       </div>
       <div className={styles.ConnectorsContainer}>
         <div className={styles.ConnectorsGridContainer}>
-          {selectedTab.services.map((connector) => (
+          {getSortedServiceList(selectedTab.services).map((connector) => (
             <Link
               className={styles.ConnectorItem}
-              href={connector.url}
+              href={getConnectorURL(docVersion, connector)}
               key={connector.name}
             >
               <ConnectorImage
