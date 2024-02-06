@@ -1,4 +1,6 @@
-export const CONNECTORS = [
+import { ConnectorCategory } from "./ConnectorsInfo.interface";
+
+export const CONNECTORS: Array<ConnectorCategory> = [
   {
     connector: "Database",
     services: [
@@ -161,6 +163,12 @@ export const CONNECTORS = [
         url: "/connectors/database/pinotdb",
         icon: "./images/connectors/pinot.png",
         name: "Pinot",
+      },
+      {
+        url: "/connectors/database/sas",
+        icon: "./images/connectors/sas.png",
+        name: "SAS",
+        supportedVersion: "v1.3.x",
       },
       {
         url: "/connectors/database/sqlite",
