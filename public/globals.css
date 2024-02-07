@@ -8,7 +8,7 @@
   --side-nav-width: 288px;
   --side-nav-collapsed-width: 42px;
   --select-dropdown-default-height: 28px;
-  --select-dropdown-default-width: 120px;
+  --select-dropdown-default-width: 130px;
   --side-nav-width: min(20%, 300px);
   --api-side-nav-width: max(14%, 220px);
   --content-div-width: min(17%, 250px);
@@ -39,6 +39,10 @@
   --purple-icon-color: #7147e8;
   --green-icon-color: #008376;
   --pink-icon-color: #b02aac;
+  --beta-label-color: #ff4d4f;
+  --beta-label-bg-color: #fff2f0;
+  --stable-label-color: #1890ff;
+  --stable-label-bg-color: #e6f7ff;
 }
 
 body {

@@ -28,7 +28,7 @@
 .DropdownContainer {
   display: none;
   position: absolute;
-  padding: 8px 0px;
+  padding: 4px 0px;
   left: 32px;
   border-radius: 4px;
   border: 0.5px solid var(--default-border-color);
@@ -48,17 +48,29 @@
 .SelectOptions {
   display: flex;
   gap: 8px;
-  padding: 4px 12px;
+  padding: 6px 12px;
 }
 
-.StableLabel {
-  font-size: 12px;
+.VersionLabel {
+  font-size: 11px;
   line-height: 15px;
   padding: 0px 6px;
   align-self: center;
+  border: 1px solid white;
   border-radius: 9px;
   color: white;
-  background-color: var(--primary-color);
+}
+
+.BetaLabel {
+  color: var(--beta-label-color);
+  background: var(--beta-label-bg-color);
+  border-color: var(--beta-label-color);
+}
+
+.StableLabel {
+  color: var(--stable-label-color);
+  background: var(--stable-label-bg-color);
+  border-color: var(--stable-label-color);
 }
 
 .SelectOptions:hover {
