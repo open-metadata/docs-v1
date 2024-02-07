@@ -1,10 +1,13 @@
-import React, { useEffect, useMemo, useRef, useState } from "react";
-import styles from "./SelectDropdown.module.css";
-import { ReactComponent as ArrowDownIcon } from "../../images/icons/arrow-down.svg";
 import classNames from "classnames";
-import { getSelectedOption } from "../../utils/SelectDropdownUtils";
 import { uniqueId } from "lodash";
-import { STABLE_VERSION } from "../../constants/version.constants";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import {
+  BETA_VERSION,
+  STABLE_VERSION,
+} from "../../constants/version.constants";
+import { ReactComponent as ArrowDownIcon } from "../../images/icons/arrow-down.svg";
+import { getSelectedOption } from "../../utils/SelectDropdownUtils";
+import styles from "./SelectDropdown.module.css";
 
 export interface SelectOption<V> {
   label: string;
@@ -22,14 +25,14 @@ interface SelectDropdownProps<T> {
 }
 
 function SelectDropdown<T>({
-  height,
+  height = "",
   isVisible,
   id,
   options,
   value,
-  width,
+  width = "",
   onChange,
-}: SelectDropdownProps<T>) {
+}: Readonly<SelectDropdownProps<T>>) {
   const [selectedOption, setSelectedOption] = useState<SelectOption<T>>(
     getSelectedOption<T>(options, value)
   );
@@ -45,11 +48,8 @@ function SelectDropdown<T>({
   };
 
   const handleKeyDown = (event: KeyboardEvent) => {
-    switch (event.key) {
-      case "Escape": {
-        setIsDropdownVisible(false);
-        break;
-      }
+    if (event.key === "Escape") {
+      setIsDropdownVisible(false);
     }
   };
 
@@ -64,6 +64,28 @@ function SelectDropdown<T>({
       setIsDropdownVisible(false);
     }
   };
+
+  const getVersionTag = useCallback(
+    (option: SelectOption<T>, showStableTag = true) => {
+      if (option.label === STABLE_VERSION && showStableTag) {
+        return (
+          <span className={classNames(styles.VersionLabel, styles.StableLabel)}>
+            Stable
+          </span>
+        );
+      }
+      if (option.label === BETA_VERSION) {
+        return (
+          <span className={classNames(styles.VersionLabel, styles.BetaLabel)}>
+            Beta
+          </span>
+        );
+      }
+
+      return null;
+    },
+    []
+  );
 
   useEffect(() => {
     setSelectedOption(getSelectedOption<T>(options, value));
@@ -86,18 +108,21 @@ function SelectDropdown<T>({
       id={`select-container-${idString}`}
       ref={dropdownContainerRef}
     >
-      <div
-        className={styles.Selector}
-        id={`select-dropdown-trigger-${idString}`}
-        style={{ height: height ?? "", width: width ?? "" }}
-        onClick={handleSelectorClick}
-      >
-        <span>
-          {selectedOption ? selectedOption.label : options[0].label ?? ""}
-        </span>
-        <span className={styles.ArrowIcon}>
-          <ArrowDownIcon />
-        </span>
+      <div className="flex gap-1 items-center">
+        <button
+          className={styles.Selector}
+          id={`select-dropdown-trigger-${idString}`}
+          style={{ height, width }}
+          onClick={handleSelectorClick}
+        >
+          <span>
+            {selectedOption ? selectedOption.label : options[0].label ?? ""}
+          </span>
+          <span className={styles.ArrowIcon}>
+            <ArrowDownIcon />
+          </span>
+        </button>
+        {getVersionTag(selectedOption, false)}
       </div>
       <div
         className={classNames(
@@ -105,19 +130,17 @@ function SelectDropdown<T>({
           isDropdownVisible ? styles.VisibleDropdown : ""
         )}
         id={`dropdown-container-${idString}`}
-        style={{ top: `calc(${height} + 4px)` ?? "", minWidth: width ?? "" }}
+        style={{ top: `calc(${height} + 4px)`, minWidth: width }}
       >
         {options.map((option) => (
-          <span
+          <button
             className={styles.SelectOptions}
             key={option.label}
             onClick={() => handleOptionClick(option)}
           >
             <span>{option.label}</span>
-            {option.label === STABLE_VERSION ? (
-              <span className={styles.StableLabel}>Stable</span>
-            ) : null}
-          </span>
+            {getVersionTag(option)}
+          </button>
         ))}
       </div>
     </div>
