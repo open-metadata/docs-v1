@@ -1,5 +1,6 @@
 import { Tag } from "@markdoc/markdoc";
 import { isEmpty, isString, toArray } from "lodash";
+import { getFormattedId } from "../../utils/CommonUtils";
 
 // Logic to extract texts from the inline nodes
 // Example: # This is a `Heading`
@@ -22,17 +23,11 @@ function getChildrenTexts(children): string[] {
   }, []);
 }
 
-function generateID(children, attributes) {
+function generateID(children: string[], attributes: { id: string }) {
   if (attributes.id && typeof attributes.id === "string") {
     return attributes.id;
   }
-  return children
-    .filter((child) => typeof child === "string")
-    .join(" ")
-    .replace(/[?:\-()%$#/@!;.,\/\\\[\]+=_]/g, "")
-    .trim()
-    .replace(/\s+/g, "-")
-    .toLowerCase();
+  return getFormattedId(children);
 }
 
 export const heading = {
