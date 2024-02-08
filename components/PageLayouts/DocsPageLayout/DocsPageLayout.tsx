@@ -67,12 +67,7 @@ function DocsPageLayout({
       const element = document.getElementById(hashElementId);
 
       setTimeout(() => {
-        !isEmpty(element) &&
-          element.scrollIntoView({
-            block: "center",
-            inline: "center",
-            behavior: "smooth",
-          });
+        !isEmpty(element) && element.scrollIntoView();
       }, 500);
     }
   }, [autoCollapsed.current]);

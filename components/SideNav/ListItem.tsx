@@ -17,9 +17,15 @@ export default function ListItem({ item, fontWeight }: Readonly<ListItemProps>) 
   const linkRef = useRef<HTMLAnchorElement>();
 
   const isDropdown = item.children && item.children.length > 0;
-  const isActive = router.asPath.includes(
-    `/${router.query.version}${item.url}`
-  );
+  const isActive = useMemo(() => {
+    const urlWithVersion = `/${router.query.version}${item.url}`;
+
+    // As we introduced ability to add hashes in menu.md,
+    // the url in menu.md for hashes include '/' before the '#'
+    // (which is necessary to have in menu.md for link separation)
+    // so removing the slash below to form the actual url with hash
+    return router.asPath.includes(urlWithVersion.replace("/#", "#"));
+  }, [router]);
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleOpen = () => {

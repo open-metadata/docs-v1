@@ -28,4 +28,9 @@
   visibility: hidden;
   text-decoration: none;
   pointer-events: none;
+  /* Using the bellow approach to add a scrolling margin, 
+     Taking this approach as scroll-margin-top is ineffective due to a possible CSS bug
+     for custom web components mentioned here https://developer.mozilla.org/en-US/docs/Web/CSS/:target#examples*/
+  margin-top: -300px !important;
+  padding-top: 300px;
 }
