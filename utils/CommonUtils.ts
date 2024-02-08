@@ -114,3 +114,25 @@ export const createNestedNodeStructure = (
 
   return root.children;
 };
+
+// Function to generate an id text from the child node texts
+export const getFormattedId = (children: Array<string | undefined>) => {
+  if (isEmpty(children)) {
+    return "";
+  }
+  
+  // Filter the strings and form a text
+  const itemText = children
+    .filter((child) => typeof child === "string")
+    .join(" ");
+
+  // Remove special characters and emojis from the text
+  const filteredText = itemText
+    .replace(
+      /([\u2700-\u27BF]|[\uE000-\uF8FF]|\uD83C[\uDC00-\uDFFF]|\uD83D[\uDC00-\uDFFF]|[\u2011-\u26FF]|\uD83E[\uDD10-\uDDFF])/g,
+      ""
+    ) // Remove all the emojis from the string
+    .replace(/[?:\-()%$#/@!;,\/\\\[\]+=_]/g, ""); // remove all the special characters from the string
+
+  return filteredText.trim().replace(/\s+/g, "-").toLowerCase();
+};
