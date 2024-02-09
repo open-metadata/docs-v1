@@ -1,0 +1,109 @@
+.Container {
+  padding: 56px 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.Heading {
+  font-style: normal;
+  font-size: 36px;
+  font-weight: 500;
+  line-height: 54px;
+  color: #2b2a36;
+}
+
+.SubHeading {
+  font-size: 22px;
+}
+
+.DescriptionText{
+  margin-top: 2px;
+}
+
+.BannerNavLinkContainer{
+  width: 100%;
+  padding: 0px 10%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.BannerNavLink{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30%;
+}
+
+.BannerNavLinkBorder{
+  padding-left: 20px;
+  border-left: 1px solid var(--default-border-color);
+}
+
+.Divider {
+  width: 200px;
+  height: 6px;
+  background-color: #ffc143;
+  margin: 6px 0px;
+}
+
+.Content {
+  width: 60%;
+}
+
+.Video {
+  width: 50%;
+  margin-bottom: 48px;
+}
+
+.BannerNavButton{
+  margin-top: 24px;
+  padding: 10px 24px;
+}
+
+.GreenButton{
+  border: 1px solid #008476;
+  background-color: #0084761a;
+  color: #008476
+}
+
+.PurpleButton{
+  border: 1px solid #7147E8;
+  background-color: #7147e81a;
+  color: #7147E8
+}
+
+.PinkButton{
+  border: 1px solid #B02AAC;
+  background-color: #B02AAC1a;
+  color: #B02AAC
+}
+
+@media (max-width: 900px) {
+  .Container {
+    padding: 20px 60px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .Content,
+  .Video {
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .BannerNavLinkContainer{
+    flex-direction: column;
+    gap: 24px;
+  }
+  .BannerNavLink{
+    width: 100%;
+    padding: 0px;
+  }
+  .BannerNavLinkBorder{
+    border-left: none;
+    padding-top: 20px;
+    border-top: 1px solid var(--default-border-color);
+  }
+}

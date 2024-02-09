@@ -1,5 +1,3 @@
-import React from "react";
-
 import styles from "./Youtube.module.css";
 
 interface YouTubeProps {
@@ -27,7 +25,7 @@ const YouTube = ({
         <section className={styles.IframeContainer}>
           <iframe
             allowFullScreen
-            src={`https://www.youtube-nocookie.com/embed/${videoId}?rel=0&start=${start}&end=${end}`}
+            src={`https://www.youtube-nocookie.com/embed/${videoId}?rel=0&start=${start}&end=${end}&rel=0`}
             className={styles.Iframe}
             title="YouTube video player"
             frameBorder="0"
@@ -45,7 +43,7 @@ const YouTube = ({
       <section className={styles.IframeContainer} style={{ height, width }}>
         <iframe
           allowFullScreen
-          src={`https://www.youtube-nocookie.com/embed/${videoId}?rel=0&start=${start}&end=${end}`}
+          src={`https://www.youtube-nocookie.com/embed/${videoId}?rel=0&start=${start}&end=${end}&rel=0`}
           className={styles.Iframe}
           title="YouTube video player"
           frameBorder="0"

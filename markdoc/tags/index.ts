@@ -10,7 +10,6 @@ export * from "./Steps/Step/step.markdoc";
 export * from "./Steps/StepsContainer/stepsContainer.markdoc";
 export * from "./Tiles/Tile/tile.markdoc";
 export * from "./Tiles/TilesContainer/tilesContainer.markdoc";
-export * from "./banner.markdoc";
 export * from "./codePreview/codeBlock.markdoc";
 export * from "./codePreview/codeInfo.markdoc";
 export * from "./codePreview/codeInfoContainer.markdoc";

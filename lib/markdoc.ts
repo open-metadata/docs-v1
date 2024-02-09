@@ -14,7 +14,6 @@ import Step from "../components/Steps/Step/Step";
 import StepDescription from "../components/Steps/Step/StepDescription/StepDescription";
 import StepVisualInfo from "../components/Steps/Step/StepVisualInfo/StepVisualInfo";
 import StepsContainer from "../components/Steps/StepsContainer/StepsContainer";
-import Banner from "../components/common/Banner/Banner";
 import Code from "../components/common/Code/Code";
 import InlineCode from "../components/common/Code/InlineCode";
 import CustomAnchorNode from "../components/common/CustomAnchorNode/CustomAnchorNode";
@@ -38,7 +37,6 @@ const nodes = allNodes as unknown as Partial<Record<NodeType, Schema>>;
 const functions = allFunctions as unknown as Record<string, ConfigFunction>;
 
 export const components = {
-  Banner,
   Divider,
   InlineCallout,
   InlineCalloutContainer,
