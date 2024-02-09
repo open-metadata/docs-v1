@@ -16,8 +16,11 @@
 }
 
 .Title {
-  @apply my-0 font-bold text-lg;
-  @apply text-gray-90 !important;
+  color: var(--default-text-color);
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  margin-bottom: 8px
 }
 
 .Text {

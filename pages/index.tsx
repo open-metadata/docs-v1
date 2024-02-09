@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { useEffect, useState } from "react";
 import CategoriesNav from "../components/CategoriesNav/CategoriesNav";
 import ConnectorsInfo from "../components/ConnectorsInfo/ConnectorsInfo";
@@ -7,15 +6,11 @@ import GoogleAnalyticsScript from "../components/GoogleAnalyticsScript/GoogleAna
 import NewsEntry from "../components/NewsEntry/NewsEntry";
 import { SelectOption } from "../components/SelectDropdown/SelectDropdown";
 import TopNav from "../components/TopNav/TopNav";
-import bannerStyles from "../components/common/Banner/Banner.module.css";
-import Button from "../components/common/Button/Button";
 import Card from "../components/common/Card/Card";
+import HomePageBanner from "../components/common/HomePageBanner/HomePageBanner";
 import SkeletonLoader from "../components/common/SkeletonLoader/SkeletonLoader";
-import YouTube from "../components/common/Youtube/Youtube";
 import {
-  BANNER_LINKS_INFO,
   BLOGS_INFO,
-  HOME_PAGE_BANNER_INFO,
   OVERVIEW_INFO,
   QUICK_LINK_CARDS,
 } from "../constants/homePage.constants";
@@ -23,10 +18,9 @@ import { useDocVersionContext } from "../context/DocVersionContext";
 import { useNavBarCollapsedContext } from "../context/NavBarCollapseContext";
 import { useRouteChangingContext } from "../context/RouteChangingContext";
 import { SkeletonWidth } from "../enums/SkeletonLoder.enum";
-import { ReactComponent as ArrowRight } from "../images/icons/arrow-right.svg";
 import { MenuItem } from "../interface/common.interface";
 import { getVersionsList } from "../lib/api";
-import { fetchMenuList, getUrlWithVersion } from "../utils/CommonUtils";
+import { fetchMenuList } from "../utils/CommonUtils";
 
 interface Props {
   versionsList: Array<SelectOption<string>>;
@@ -73,38 +67,7 @@ export default function Index({ versionsList }: Readonly<Props>) {
           </div>
         ) : (
           <>
-            <div className={bannerStyles.Container}>
-              <div className={bannerStyles.Content}>
-                <div className="mb-8">
-                  <div className={bannerStyles.Heading}>
-                    {HOME_PAGE_BANNER_INFO.title}
-                  </div>
-                  <section className={bannerStyles.Divider} />
-                  <p className="text-xl">{HOME_PAGE_BANNER_INFO.description}</p>
-                </div>
-                <div className="flex gap-8">
-                  {BANNER_LINKS_INFO.map(
-                    ({ title, description, linkTitle, href }) => (
-                      <div key={href}>
-                        <div className={bannerStyles.SubHeading}>{title}</div>
-                        <p className="tw-lg">{description}</p>
-                        <Link href={getUrlWithVersion(href, docVersion)}>
-                          <Button className="mt-4" type="button">
-                            <span>{linkTitle}</span>
-                            <span className="ml-2">
-                              <ArrowRight />
-                            </span>
-                          </Button>
-                        </Link>
-                      </div>
-                    )
-                  )}
-                </div>
-              </div>
-              <div className={bannerStyles.Video}>
-                <YouTube videoId="ld43_jafL9w" start="0:00" end="6:48" />
-              </div>
-            </div>
+            <HomePageBanner />
 
             <div className="overview-container">
               <div className="overview-heading">{OVERVIEW_INFO.title}</div>

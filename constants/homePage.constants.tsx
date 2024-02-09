@@ -5,7 +5,7 @@ import { ReactComponent as SaasIcon } from "../images/icons/saas.svg";
 export const HOME_PAGE_BANNER_INFO = {
   title: "OpenMetadata Documentation",
   description:
-    "Unlock the value of data a management solution that includes data discovery, governance, data quality, observability, and people collaboration.",
+    "Unlock the value of data assets with an end-to-end metadata management solution that includes data discovery, governance, data quality, observability, and people collaboration.",
 };
 
 export const BANNER_LINKS_INFO = [
@@ -14,12 +14,24 @@ export const BANNER_LINKS_INFO = [
     description: "Install OpenMetadata to explore its full potential.",
     linkTitle: "Get Started",
     href: "/quick-start",
+    theme: "green",
   },
   {
     title: "How-to Guides",
-    description: "Get a complete overview of OpenMetadata.",
+    description:
+      "Get a complete overview of the features in OpenMetadata from our How-to Guides",
     linkTitle: "Explore Features",
     href: "/how-to-guides",
+    theme: "purple",
+  },
+  {
+    title: "Join the OSS Community",
+    description:
+      "Connect with 1000s of OpenMetadata users. Get support for all your questions from data experts.",
+    linkTitle: "Join Slack Now!",
+    href: "https://slack.open-metadata.org",
+    theme: "pink",
+    externalURL: true,
   },
 ];
 
@@ -67,21 +79,21 @@ export const QUICK_LINK_CARDS = [
 
 export const BLOGS_INFO = [
   {
-    title: "Simple, Easy, and Efficient Data Quality with OpenMetadata",
-    text: "Data quality and reliability are two top priorities for organizations. We have a different take on how data quality should be done.",
-    link: "https://blog.open-metadata.org/simple-easy-and-efficient-data-quality-with-openmetadata-1c4e7d329364",
+    title: "OpenMetadata Release 1.3",
+    text: "Intuitive Lineage UI, Data Observability Alerts, Data Quality Incident Manager, Custom Metrics for Profiler, Knowledge Center Improvements, and lots more",
+    link: "https://blog.open-metadata.org/openmetadata-release-1-3-ac801834ee80",
+    image: <img src="./blogs/openmetadata-1.3.0-release.png" />,
+  },
+  {
+    title: "Leveraging the Power of OpenMetadata Data Quality Framework",
+    text: "OpenMetadata offers the possibility to execute data quality tests directly from the UI, making it a powerful tool for everyone in the company.",
+    link: "https://blog.open-metadata.org/leveraging-the-power-of-openmetadata-data-quality-framework-385ba2d8eaf",
     image: <img src="./blogs/simple-easy-data-quality.png" />,
   },
   {
-    title: "OpenMetadata 1.1.0 Release",
-    text: "UI Overhaul, New Connectors, Improved Lineage Parsing, PII Masking, and lots more",
-    link: "https://blog.open-metadata.org/openmetadata-1-1-0-release-97c1fb603bcf",
-    image: <img src="./blogs/openmetadata-1.1.0-release.png" />,
-  },
-  {
-    title: "Stuck with Amundsen? Here is how to migrate to OpenMetadata",
-    text: "And unlock Collaboration, Data Quality, Data Insights, and more!",
-    link: "https://blog.open-metadata.org/stuck-with-amundsen-here-is-how-to-migrate-to-openmetadata-6104cd2d5a71",
-    image: <img src="./blogs/stuck-with-amundsen.png" />,
+    title: "OpenMetadata Release 1.2",
+    text: "Domains, Data Products, Search Index, Stored Procedures, Glossary Approval Workflow, Customizable Landing Page, Applications, Knowledge Center, Cost Analysis, and lots more",
+    link: "https://blog.open-metadata.org/openmetadata-release-1-2-531f0e3c6d9a",
+    image: <img src="./blogs/openmetadata-1.2.0-release.png" />,
   },
 ];

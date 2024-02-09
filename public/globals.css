@@ -201,7 +201,7 @@ code::-webkit-scrollbar {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 50px 130px;
+  padding: 50px 10%;
   background: #f4f7ff;
 }
 
@@ -232,7 +232,7 @@ code::-webkit-scrollbar {
 }
 
 .homepage-containers {
-  padding: 0px 130px;
+  padding: 0px 10%;
   margin: 80px 0px 0px 0px;
 }
 
