@@ -1,0 +1,64 @@
+.Container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    cursor: pointer;
+    border: 1px solid var(--default-border-color);
+    border-radius: 4px;
+    padding: 12px;
+}
+
+.Container:hover{
+    border: 1px solid var(--primary-color);
+    box-shadow: 0px 4px 20px 0px var(--primary-shadow-color);
+}
+
+.ConnectorImage{
+    width: 32px;
+    height: 32px;
+}
+
+.PlatformDetails{
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 14px;
+    color: var(--gray-text-color);
+}
+
+.PlatformIcon{
+    padding: 4px;
+    background-color: var(--connector-icon-bg-color);
+    border: 1px solid var(--default-border-color);
+    border-radius: 12px;
+}
+
+.ImageContainer{
+    background-color: var(--connector-icon-bg-color);
+    padding: 12px;
+    border: 1px solid var(--default-border-color);
+    border-radius: 28px;
+}
+
+.StageLabel{
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    padding: 1px 6px;
+    font-size: 8px;
+    border-radius: 8px;
+    width: fit-content;
+}
+
+.ProdStage{
+    color: var(--prod-label-color);
+    border: 1px solid var(--prod-label-color);
+    background-color: var(--prod-label-bg-color);
+}
+
+.BetaStage{
+    color: var(--beta-label-color);
+    border: 1px solid var(--beta-label-color);
+    background-color: var(--beta-label-bg-color);
+}

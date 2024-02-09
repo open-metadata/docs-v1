@@ -8,6 +8,8 @@ import CodeInfo from "../components/CodePreview/CodeInfo/CodeInfo";
 import CodeInfoContainer from "../components/CodePreview/CodeInfoContainer/CodeInfoContainer";
 import CodePreview from "../components/CodePreview/CodePreview";
 import CodeWithLanguageSelector from "../components/CodeWithLanguageSelector/CodeWithLanguageSelector";
+import ConnectorInfoCard from "../components/ConnectorInfoCard/ConnectorInfoCard";
+import ConnectorsListContainer from "../components/ConnectorsListContainer/ConnectorsListContainer";
 import ExtraContent from "../components/ExtraContent/ExtraContent";
 import { Heading } from "../components/Heading/Heading";
 import Step from "../components/Steps/Step/Step";
@@ -68,6 +70,8 @@ export const components = {
   APIDescription,
   APIVisualInfo,
   CodeWithLanguageSelector,
+  ConnectorInfoCard,
+  ConnectorsListContainer,
 };
 
 export const configs: Config = {
