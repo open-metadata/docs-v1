@@ -34,6 +34,9 @@ Here are the custom markdoc tags to use for desired functionalities.
    - [2. note](#2-note)
    - [3. codeWithLanguageSelector](#3-codeWithLanguageSelector)
    - [4. extraContent](#4-extraContent)
+   - [5. connectorDetailsHeader](#5-connectorDetailsHeader)
+   - [6. connectorInfoCard](#6-connectorInfoCard)
+   - [7. connectorsListContainer](#7-connectorsListContainer)
 - [Tags for Code Preview Functionality](#tags-for-code-preview-functionality)
    - [1. codePreview](#1-codePreview)
    - [2. codeInfoContainer](#2-codeInfoContainer)
@@ -55,6 +58,8 @@ Here are the custom markdoc tags to use for desired functionalities.
 - [Tile](#tile)
    - [1. tilesContainer](#1-tilesContainer)
    - [2. tile](#2-tile)
+
+---
 
 ## Common Tags
 
@@ -214,6 +219,55 @@ Tag to add some extra information in between two steps. This tag can be used ins
 1. parentTagName (type - String)
    The name of the tag you are using it in. For example 'codePreview' or 'stepsContainer'
 
+### 5. connectorDetailsHeader
+
+Tag to show a styled heading for connectors with the connector Icon, development stage, platform availability and feature status.
+
+#### Attributes
+
+1. name (type - String)
+   The name of the container in startCase.
+
+2. stage (type - String)
+   The development stage of the connector.
+   It should be one of two values "PROD"(default value) or "BETA".
+
+3. platform (type - String)
+   The platform the connector is available in to.
+   It should be one of two values "OpenMetadata"(default value) or "Collate".
+
+4. availableFeatures (type - Array<string>)
+   The list of available features for the connector such as "Query Usage", "Lineage" etc.
+
+5. unavailableFeatures (type - Array<string>)
+   The list of unavailable features for the connector such as "DBT", "Owners" etc
+
+### 6. connectorInfoCard
+
+A styled card to show the links to navigate users to the connector details page with a little information about the connector. 
+
+#### Attributes
+
+1. name (type - String)
+   The name of the container in startCase.
+
+2. stage (type - String)
+   The development stage of the connector.
+   It should be one of two values "PROD"(default value) or "BETA".
+
+3. href (type - String)
+   The relative path of the connector details page.
+
+4. platform (type - String)
+   The platform the connector is available in to.
+   It should be one of two values "OpenMetadata"(default value) or "Collate".
+
+### 7. connectorsListContainer
+
+A wrapper tag to envelope the connectorInfoCard tags for a grid view.
+
+---
+
 ## Tags for Code Preview Functionality
 
 For showing code or commands with the explanations by side use following tags:-
@@ -321,6 +375,8 @@ print('This is block 3')
 
 <img width="2032" alt="code-preview-component-gif" src="./public/code-preview-component.gif">
 
+---
+
 ## Tags for Showing Step by Step Information
 
 - [1. stepsContainer](#1-stepsContainer)
@@ -411,6 +467,8 @@ caption="step2 caption" /%}
 ##### Here's the preview of the Stepper functionality
 
 <img width="2032" alt="steps-component-gif" src="./public/steps-component.gif">
+
+---
 
 ## APIs & SDKs page tags
 
@@ -518,6 +576,7 @@ This is a new code
 
 <img width="2032" alt="steps-component-gif" src="./public/code-lang-selector-preview.gif">
 
+---
 
 ## Inline Callout
 
@@ -577,6 +636,8 @@ The first description 3.
 #### Preview of Inline Callout 
 
 <img width="2032" alt="inline-callout" src="./public/inline-callout.png">
+
+---
 
 ## Tile
 
