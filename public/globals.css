@@ -14,6 +14,7 @@
   --content-div-width: min(17%, 250px);
   --default-border-color: #dce3ec;
   --primary-color: #5469d4;
+  --primary-shadow-color: #5469d433;
   --primary-background-color: rgba(84, 105, 212, 0.05);
   --select-background-color: #f4f7ff;
   --select-border-color: #e9eefc;
@@ -39,10 +40,13 @@
   --purple-icon-color: #7147e8;
   --green-icon-color: #008376;
   --pink-icon-color: #b02aac;
-  --beta-label-color: #ff4d4f;
-  --beta-label-bg-color: #fff2f0;
+  --beta-label-color: #0950C5;
+  --beta-label-bg-color: #E4EEFF;
+  --prod-label-color: #81C562;
+  --prod-label-bg-color: #EEFBE7;
   --stable-label-color: #1890ff;
   --stable-label-bg-color: #e6f7ff;
+  --connector-icon-bg-color: #F8F8F8;
 }
 
 body {
