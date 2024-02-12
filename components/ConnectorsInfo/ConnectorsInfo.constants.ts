@@ -80,6 +80,11 @@ export const CONNECTORS: Array<ConnectorCategory> = [
         name: "Hive",
       },
       {
+        url: "/connectors/database/iceberg",
+        icon: "./images/connectors/iceberg.png",
+        name: "Iceberg",
+      },
+      {
         url: "/connectors/database/db2",
         icon: "./images/connectors/ibmdb2.png",
         name: "IBM Db2",
@@ -155,6 +160,11 @@ export const CONNECTORS: Array<ConnectorCategory> = [
         name: "Trino",
       },
       {
+        url: "/connectors/database/unity-catalog",
+        icon: "./images/connectors/databrick.png",
+        name: "Unity Catalog",
+      },
+      {
         url: "/connectors/database/vertica",
         icon: "./images/connectors/vertica.png",
         name: "Vertica",
@@ -172,7 +182,7 @@ export const CONNECTORS: Array<ConnectorCategory> = [
       },
       {
         url: "/connectors/database/sqlite",
-        icon: "./images/connectors/sqllite.png",
+        icon: "./images/connectors/sqlite.png",
         name: "SQL Lite",
       },
     ],
@@ -202,7 +212,7 @@ export const CONNECTORS: Array<ConnectorCategory> = [
     services: [
       {
         url: "/main-concepts/metadata-standard/schemas/entity/services/connections/dashboard/lightdashconnection",
-        icon: "./images/connectors/light-dash.png",
+        icon: "./images/connectors/lightdash.png",
         name: "Lightdash",
       },
       {
@@ -239,6 +249,11 @@ export const CONNECTORS: Array<ConnectorCategory> = [
         url: "/connectors/dashboard/tableau",
         icon: "./images/connectors/tableau.png",
         name: "Tableau",
+      },
+      {
+        url: "/connectors/dashboard/qliksense",
+        icon: "./images/connectors/qlik-sense.png",
+        name: "Qlik Sense",
       },
       {
         url: "/connectors/dashboard/quicksight",
