@@ -43,7 +43,7 @@ export default function HomePageBanner() {
         </div>
       </div>
       <div className={styles.Video}>
-        <YouTube videoId="Mu7eq6OVtxk" />
+        <YouTube videoId="cVYP1HFXeRM" />
       </div>
       <div className={styles.BannerNavLinkContainer}>
         {BANNER_LINKS_INFO.map(
