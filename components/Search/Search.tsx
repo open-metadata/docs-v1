@@ -3,13 +3,12 @@ import { isEmpty, isNull, isUndefined } from "lodash";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { IoIosCloseCircleOutline } from "react-icons/io";
-import { Configure, Hits, useInstantSearch } from "react-instantsearch";
 import { useNavBarCollapsedContext } from "../../context/NavBarCollapseContext";
 import { useSearchContext } from "../../context/SearchContext";
 import { ReactComponent as Loader } from "../../images/icons/loader.svg";
 import { ReactComponent as SearchIcon } from "../../images/icons/search.svg";
 import CustomSearch from "./CustomSearch/CustomSearch";
-import HitComponent from "./HitComponent/HitComponent";
+import Results from "./Results/Results";
 import styles from "./Search.module.css";
 
 interface SearchProps {
@@ -28,12 +27,9 @@ export default function Search({
   const [searchText, setSearchText] = useState(""); // To manage search input value
   const [isSuggestionVisible, setIsSuggestionVisible] =
     useState<boolean>(false);
-  const [showNoDataPlaceHolder, setShowNoDataPlaceHolder] =
-    useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>();
+  const [results, setResults] = useState([]);
   const { navBarCollapsed } = useNavBarCollapsedContext();
-
-  const { status, results } = useInstantSearch();
 
   const { focusedSearchItem, onChangeFocusedSearchItem } = useSearchContext();
 
@@ -148,9 +144,21 @@ export default function Search({
     setIsLoading(status === "loading");
   }, [status]);
 
+  const handleSearch = async () => {
+    try {
+      if (window.pageFind) {
+        const search = await window.pageFind.search(searchValue);
+        setResults(search.results);
+      }
+    } catch {
+      //
+    }
+  };
+  console.log("first", results);
+
   useEffect(() => {
-    setShowNoDataPlaceHolder(isEmpty(results.hits));
-  }, [results]);
+    handleSearch();
+  }, [searchValue]);
 
   return (
     <div
@@ -195,20 +203,9 @@ export default function Search({
         )}
         id="search-modal"
       >
-        <Configure
-          attributesToSnippet={["content:10"]}
-          snippetEllipsisText={"..."}
-        />
-        {showNoDataPlaceHolder ? (
-          <div className={styles.NoDataPlaceholder}>No Results found</div>
-        ) : (
-          <Hits
-            classNames={{
-              item: styles.ListItem,
-            }}
-            hitComponent={HitComponent}
-          />
-        )}
+        {results.map((result) => (
+          <Results key={result.id} result={result} />
+        ))}
       </div>
     </div>
   );

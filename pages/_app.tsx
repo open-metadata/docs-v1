@@ -1,5 +1,5 @@
 import Head from "next/head";
-import React from "react";
+import React, { useEffect } from "react";
 
 import "prismjs";
 // Import other Prism themes here
@@ -22,6 +22,37 @@ const DESCRIPTION =
 export type MyAppProps = MarkdocNextJsPageProps;
 
 export default function MyApp({ Component, pageProps }: AppProps<MyAppProps>) {
+  const loadPageFind = async () => {
+    if (typeof window?.pageFind === "undefined") {
+      try {
+        window.pageFind = await import(
+          // @ts-expect-error pagefind.js generated after build
+          /* webpackIgnore: true */ "/pagefind/pagefind.js"
+        );
+        window.pageFind.options({
+          highlightParam: "highlight",
+          excerptLength: 15,
+        });
+      } catch (e) {
+        window.pageFind = {
+          search: () =>
+            Promise.resolve({
+              results: [
+                {
+                  id: "",
+                  data: () => Promise.resolve(),
+                },
+              ],
+            }),
+        };
+      }
+    }
+  };
+
+  useEffect(() => {
+    loadPageFind();
+  }, []);
+
   return (
     <>
       <Head>

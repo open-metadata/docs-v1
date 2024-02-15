@@ -1,6 +1,5 @@
 import { debounce } from "lodash";
 import { useCallback, useEffect, useRef } from "react";
-import { useSearchBox } from "react-instantsearch";
 import { useSearchContext } from "../../../context/SearchContext";
 import { isCommandKeyPress } from "../../../utils/SearchUtils";
 import styles from "./CustomSearch.module.css";
@@ -25,7 +24,6 @@ function CustomSearch({
   handleIsSuggestionVisible,
   handleSearchText,
 }: CustomSearchProps) {
-  const { refine } = useSearchBox();
   const searchInputRef = useRef<HTMLInputElement>();
   const { onChangeFocusedSearchItem } = useSearchContext();
 
@@ -100,10 +98,6 @@ function CustomSearch({
     document.body.addEventListener("keydown", handleGlobalSearchKeyDown);
     document.body.addEventListener("click", handleOutsideClick);
   }, []);
-
-  useEffect(() => {
-    refine(searchValue);
-  }, [searchValue]);
 
   return (
     <input
