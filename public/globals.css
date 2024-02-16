@@ -47,6 +47,10 @@
   --stable-label-color: #1890ff;
   --stable-label-bg-color: #e6f7ff;
   --connector-icon-bg-color: #F8F8F8;
+  --green-tag-color: #43A047;
+  --green-tag-bg-color: #43A0471A;
+  --orange-tag-color: #FF7C50;
+  --orange-tag-bg-color: #FF7C501A;
 }
 
 body {

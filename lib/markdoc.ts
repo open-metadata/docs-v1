@@ -8,6 +8,7 @@ import CodeInfo from "../components/CodePreview/CodeInfo/CodeInfo";
 import CodeInfoContainer from "../components/CodePreview/CodeInfoContainer/CodeInfoContainer";
 import CodePreview from "../components/CodePreview/CodePreview";
 import CodeWithLanguageSelector from "../components/CodeWithLanguageSelector/CodeWithLanguageSelector";
+import ConnectorDetailsHeader from "../components/ConnectorDetailsHeader/ConnectorDetailsHeader";
 import ConnectorInfoCard from "../components/ConnectorInfoCard/ConnectorInfoCard";
 import ConnectorsListContainer from "../components/ConnectorsListContainer/ConnectorsListContainer";
 import ExtraContent from "../components/ExtraContent/ExtraContent";
@@ -70,6 +71,7 @@ export const components = {
   CodeWithLanguageSelector,
   ConnectorInfoCard,
   ConnectorsListContainer,
+  ConnectorDetailsHeader,
 };
 
 export const configs: Config = {
