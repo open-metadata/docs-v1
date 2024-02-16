@@ -8,7 +8,7 @@ import { useSearchContext } from "../../context/SearchContext";
 import { ReactComponent as Loader } from "../../images/icons/loader.svg";
 import { ReactComponent as SearchIcon } from "../../images/icons/search.svg";
 import CustomSearch from "./CustomSearch/CustomSearch";
-import Results from "./Results/Results";
+import ResultItem from "./ResultItem/ResultItem";
 import styles from "./Search.module.css";
 
 interface SearchProps {
@@ -21,7 +21,7 @@ export default function Search({
   showHotKeys = true,
   className = "",
   resultsContainerClassName = "",
-}: SearchProps) {
+}: Readonly<SearchProps>) {
   const [hotKey, setHotKey] = useState("second");
   const [searchValue, setSearchValue] = useState(""); // To manage search value with debouncing
   const [searchText, setSearchText] = useState(""); // To manage search input value
@@ -77,7 +77,9 @@ export default function Search({
   const handleKey = (e: KeyboardEvent) => {
     e.stopPropagation();
     if (isSuggestionVisible) {
-      const searchResults = document.querySelectorAll(".ais-Hits-item");
+      const searchResults = document.querySelectorAll(
+        `[class^="search-result-"]`
+      );
 
       switch (e.key) {
         case "Enter": {
@@ -88,7 +90,7 @@ export default function Search({
         case "ArrowUp": {
           onChangeFocusedSearchItem((currentFocus) => {
             const focusedSearchItemNumber =
-              currentFocus > 1 ? currentFocus - 1 : 1;
+              currentFocus > 0 ? currentFocus - 1 : 1;
 
             bringElementIntoView(searchResults, focusedSearchItemNumber);
 
@@ -102,7 +104,7 @@ export default function Search({
 
           onChangeFocusedSearchItem((currentFocus) => {
             const focusedSearchItemNumber =
-              currentFocus < resultCount - 1 ? currentFocus + 1 : resultCount;
+              currentFocus < resultCount - 2 ? currentFocus + 1 : resultCount;
 
             bringElementIntoView(searchResults, focusedSearchItemNumber);
 
@@ -140,25 +142,36 @@ export default function Search({
     };
   }, [searchValue, focusedSearchItem, isSuggestionVisible]);
 
-  useEffect(() => {
-    setIsLoading(status === "loading");
-  }, [status]);
-
   const handleSearch = async () => {
     try {
+      setIsLoading(true);
       if (window.pageFind) {
-        const search = await window.pageFind.search(searchValue);
-        setResults(search.results);
+        const search = await window.pageFind.search(
+          isEmpty(searchValue) ? "releases" : searchValue
+        );
+
+        // Select only top 20 results
+        const topResults = search.results.slice(0, 20);
+
+        // The data for each search result should be loaded independently
+        // ref: https://pagefind.app/docs/api/#loading-a-result
+        const parsedResultsData = topResults.map(async (result) => {
+          const resultData = await result.data();
+          return { id: result.id, ...resultData };
+        });
+
+        setResults(await Promise.all(parsedResultsData));
       }
     } catch {
       //
+    } finally {
+      setIsLoading(false);
     }
   };
-  console.log("first", results);
 
   useEffect(() => {
     handleSearch();
-  }, [searchValue]);
+  }, [searchValue, window.pageFind]);
 
   return (
     <div
@@ -169,8 +182,6 @@ export default function Search({
       )}
     >
       <CustomSearch
-        bringElementIntoView={bringElementIntoView}
-        searchValue={searchValue}
         searchText={searchText}
         handleSearchValue={handleSearchValue}
         handleSearchText={handleSearchText}
@@ -203,9 +214,13 @@ export default function Search({
         )}
         id="search-modal"
       >
-        {results.map((result) => (
-          <Results key={result.id} result={result} />
-        ))}
+        {isEmpty(results) ? (
+          <div className={styles.NoDataPlaceholder}>No Results found</div>
+        ) : (
+          results.map((result, id) => (
+            <ResultItem key={result.id} id={id} result={result} />
+          ))
+        )}
       </div>
     </div>
   );

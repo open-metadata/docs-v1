@@ -1,4 +1,4 @@
-import { ResultData } from "../components/Search/Results/Results.interface";
+import { ResultData } from "../components/Search/ResultItem/ResultItem.interface";
 
 interface PageFindOptions {
   element?: string;
@@ -18,7 +18,8 @@ declare global {
     initial: any;
     pageFind: {
       options?: (PageFindOptions) => Promise<void>;
-      search: (text: string) => Promise<{
+      preload: (text: string) => void;
+      search?: (text: string) => Promise<{
         results: {
           id: string;
           data: () => Promise<ResultData | void>;

@@ -35,6 +35,7 @@ export default function MyApp({ Component, pageProps }: AppProps<MyAppProps>) {
         });
       } catch (e) {
         window.pageFind = {
+          preload: () => null,
           search: () =>
             Promise.resolve({
               results: [

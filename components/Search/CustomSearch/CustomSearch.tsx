@@ -5,32 +5,25 @@ import { isCommandKeyPress } from "../../../utils/SearchUtils";
 import styles from "./CustomSearch.module.css";
 
 interface CustomSearchProps {
-  searchValue: string;
   searchText: string;
-  bringElementIntoView: (
-    searchResults: NodeListOf<Element>,
-    focusedSearchItemNumber: number
-  ) => void;
   handleSearchValue: (value: string) => void;
   handleSearchText: (value: string) => void;
   handleIsSuggestionVisible: (value: boolean) => void;
 }
 
 function CustomSearch({
-  bringElementIntoView,
-  searchValue,
   searchText,
   handleSearchValue,
   handleIsSuggestionVisible,
   handleSearchText,
-}: CustomSearchProps) {
+}: Readonly<CustomSearchProps>) {
   const searchInputRef = useRef<HTMLInputElement>();
   const { onChangeFocusedSearchItem } = useSearchContext();
 
   const handleSearchValueChange = useCallback(
     (searchText: string) => {
       handleSearchValue(searchText);
-      onChangeFocusedSearchItem(1);
+      onChangeFocusedSearchItem(0);
 
       setTimeout(() => {
         const searchResults = document.getElementById("search-modal");
@@ -85,6 +78,7 @@ function CustomSearch({
   const handleInputChange = useCallback(
     (event: React.ChangeEvent<HTMLInputElement>) => {
       const { value } = event.target;
+      window.pageFind.preload(value);
       debouncedSearch(value);
       handleSearchText(value);
     },

@@ -1,5 +1,7 @@
 export interface ResultData {
+  id: string;
   url: string;
+  raw_url: string;
   excerpt: string;
   meta: {
     title: string;
@@ -7,7 +9,6 @@ export interface ResultData {
 }
 
 export interface ResultsProps {
-  result: {
-    data: () => Promise<ResultData>;
-  };
+  id: number;
+  result: ResultData;
 }
