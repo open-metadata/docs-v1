@@ -14,7 +14,6 @@ import {
   OVERVIEW_INFO,
   QUICK_LINK_CARDS,
 } from "../../constants/homePage.constants";
-import { useDocVersionContext } from "../../context/DocVersionContext";
 import { useMenuItemsContext } from "../../context/MenuItemsContext";
 import { useNavBarCollapsedContext } from "../../context/NavBarCollapseContext";
 import { useRouteChangingContext } from "../../context/RouteChangingContext";
@@ -27,7 +26,6 @@ interface Props {
 
 export default function Index({ versionsList }: Readonly<Props>) {
   const { isRouteChanging } = useRouteChangingContext();
-  const { docVersion } = useDocVersionContext();
   const { isMobileDevice } = useNavBarCollapsedContext();
   const { menuItems } = useMenuItemsContext();
 

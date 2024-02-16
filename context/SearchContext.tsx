@@ -1,7 +1,7 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useMemo, useState } from "react";
 
 export const SearchContext = React.createContext({
-  focusedSearchItem: 1,
+  focusedSearchItem: 0,
   onChangeFocusedSearchItem: (number: number | ((num: number) => number)) =>
     null,
 });
@@ -9,7 +9,7 @@ export const SearchContext = React.createContext({
 export const useSearchContext = () => useContext(SearchContext);
 
 export const SearchContextProvider = ({ children }) => {
-  const [focusedSearchItem, setFocusedSearchItem] = useState(1);
+  const [focusedSearchItem, setFocusedSearchItem] = useState(0);
 
   const onChangeFocusedSearchItem = (
     number: number | ((num: number) => number)
@@ -17,10 +17,13 @@ export const SearchContextProvider = ({ children }) => {
     setFocusedSearchItem(number);
   };
 
+  const contextValue = useMemo(
+    () => ({ focusedSearchItem, onChangeFocusedSearchItem }),
+    [focusedSearchItem, onChangeFocusedSearchItem]
+  );
+
   return (
-    <SearchContext.Provider
-      value={{ focusedSearchItem, onChangeFocusedSearchItem }}
-    >
+    <SearchContext.Provider value={contextValue}>
       {children}
     </SearchContext.Provider>
   );
