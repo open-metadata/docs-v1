@@ -22,6 +22,17 @@ function getAllFilesInDirectory(articleDirectory, files = []) {
   return files;
 }
 
+export const getVersionsList = () => {
+  try {
+    const versionsArray = fs.readdirSync(ARTICLES_DIRECTORY);
+    return versionsArray.filter((version) =>
+      /^v(\d+\.\d+\.\x)$/g.test(version)
+    );
+  } catch (error) {
+    return [];
+  }
+};
+
 const getPartialsConfigObject = () => {
   try {
     const allPartials = getAllFilesInDirectory(PARTIALS_DIRECTORY);
@@ -56,38 +67,47 @@ function getArticleSlugs() {
   return files;
 }
 
-const articlePaths = getArticleSlugs().filter(
-  (path) => !path.includes(PARTIALS_DIRECTORY)
-);
+const articlePaths = getArticleSlugs()
+  .filter((path) => !path.includes(PARTIALS_DIRECTORY))
+  .map((path) => path.split(ARTICLES_DIRECTORY)[1]);
 
 const partials = getFormattedPartials(getPartialsConfigObject());
 
-const { index } = await pagefind.createIndex({
-  rootSelector: "article",
-});
+const versionsList = getVersionsList();
 
-articlePaths.forEach(async (articlePath) => {
-  const fileContent = fs.readFileSync(articlePath, "utf8");
-  const contentURL = articlePath
-    .split(ARTICLES_DIRECTORY)[1]
-    ?.replace(/(\/index\.md)$|(\.md)$/, "");
+versionsList.forEach(async (version) => {
+  const versionArticles = articlePaths.filter((path) =>
+    path.startsWith(`/${version}`)
+  );
 
-  const { content } = matter(fileContent);
-
-  const ast = Markdoc.parse(content);
-
-  const markdocContent = Markdoc.transform(ast, {
-    partials,
+  const { index } = await pagefind.createIndex({
+    rootSelector: "article",
   });
 
-  const html = Markdoc.renderers.html(markdocContent);
+  versionArticles.forEach(async (articlePath) => {
+    const fileContent = fs.readFileSync(
+      `${ARTICLES_DIRECTORY}${articlePath}`,
+      "utf8"
+    );
+    const contentURL = articlePath.replace(/(\/index\.md)$|(\.md)$/, "");
 
-  await index.addHTMLFile({
-    url: contentURL,
-    content: html,
+    const { content, data } = matter(fileContent);
+
+    const ast = Markdoc.parse(content);
+
+    const markdocContent = Markdoc.transform(ast, {
+      partials,
+    });
+
+    const html = Markdoc.renderers.html(markdocContent);
+
+    await index.addHTMLFile({
+      url: `/${version}${data.slug?.toLowerCase() ?? contentURL.toLowerCase()}`,
+      content: html,
+    });
   });
-});
 
-await index.writeFiles({
-  outputPath: "./public/pagefind",
+  await index.writeFiles({
+    outputPath: `./public/search_indices/${version}`,
+  });
 });

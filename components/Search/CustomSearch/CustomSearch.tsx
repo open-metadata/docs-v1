@@ -1,5 +1,6 @@
 import { debounce } from "lodash";
 import { useCallback, useEffect, useRef } from "react";
+import { useDocVersionContext } from "../../../context/DocVersionContext";
 import { useSearchContext } from "../../../context/SearchContext";
 import { isCommandKeyPress } from "../../../utils/SearchUtils";
 import styles from "./CustomSearch.module.css";
@@ -17,6 +18,7 @@ function CustomSearch({
   handleIsSuggestionVisible,
   handleSearchText,
 }: Readonly<CustomSearchProps>) {
+  const { docVersion } = useDocVersionContext();
   const searchInputRef = useRef<HTMLInputElement>();
   const { onChangeFocusedSearchItem } = useSearchContext();
 
@@ -78,11 +80,11 @@ function CustomSearch({
   const handleInputChange = useCallback(
     (event: React.ChangeEvent<HTMLInputElement>) => {
       const { value } = event.target;
-      window.pageFind.preload(value);
+      window.pageFind[docVersion].preload(value);
       debouncedSearch(value);
       handleSearchText(value);
     },
-    [debouncedSearch, handleSearchText]
+    [debouncedSearch, handleSearchText, docVersion]
   );
 
   useEffect(() => {

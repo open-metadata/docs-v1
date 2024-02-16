@@ -3,6 +3,7 @@ import { isEmpty, isNull, isUndefined } from "lodash";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { IoIosCloseCircleOutline } from "react-icons/io";
+import { useDocVersionContext } from "../../context/DocVersionContext";
 import { useNavBarCollapsedContext } from "../../context/NavBarCollapseContext";
 import { useSearchContext } from "../../context/SearchContext";
 import { ReactComponent as Loader } from "../../images/icons/loader.svg";
@@ -22,6 +23,7 @@ export default function Search({
   className = "",
   resultsContainerClassName = "",
 }: Readonly<SearchProps>) {
+  const { docVersion } = useDocVersionContext();
   const [hotKey, setHotKey] = useState("second");
   const [searchValue, setSearchValue] = useState(""); // To manage search value with debouncing
   const [searchText, setSearchText] = useState(""); // To manage search input value
@@ -146,7 +148,7 @@ export default function Search({
     try {
       setIsLoading(true);
       if (window.pageFind) {
-        const search = await window.pageFind.search(
+        const search = await window.pageFind[docVersion].search(
           isEmpty(searchValue) ? "releases" : searchValue
         );
 
@@ -171,7 +173,7 @@ export default function Search({
 
   useEffect(() => {
     handleSearch();
-  }, [searchValue, window.pageFind]);
+  }, [searchValue, window.pageFind, docVersion]);
 
   return (
     <div
@@ -214,7 +216,7 @@ export default function Search({
         )}
         id="search-modal"
       >
-        {isEmpty(results) ? (
+        {isEmpty(results) || isUndefined(results) ? (
           <div className={styles.NoDataPlaceholder}>No Results found</div>
         ) : (
           results.map((result, id) => (
