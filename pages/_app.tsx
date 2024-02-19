@@ -34,7 +34,6 @@ export default function MyApp({ Component, pageProps }: AppProps<MyAppProps>) {
         }
         const importPageFindModules = versionsList.map(async ({ value }) => {
           window.pageFind[value] = await import(
-            // @ts-expect-error pagefind.js generated after build
             /* webpackIgnore: true */ `/search_indices/${value}/pagefind.js`
           );
           window.pageFind[value].options({
