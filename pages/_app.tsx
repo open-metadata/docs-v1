@@ -6,6 +6,7 @@ import "prismjs";
 import "../public/globals.css";
 
 import type { MarkdocNextJsPageProps } from "@markdoc/next.js";
+import { isUndefined } from "lodash";
 import type { AppProps } from "next/app";
 import ErrorBoundary from "../components/ErrorBoundary";
 import { CodeWithLanguageSelectorContextProvider } from "../context/CodeWithLanguageSelectorContext";
@@ -14,6 +15,7 @@ import { MenuItemsContextProvider } from "../context/MenuItemsContext";
 import { NavBarCollapseContextProvider } from "../context/NavBarCollapseContext";
 import { RouteChangingContextProvider } from "../context/RouteChangingContext";
 import { StepsContextProvider } from "../context/StepsContext";
+import { fetchVersionsList } from "../utils/CommonUtils";
 
 const TITLE = "OpenMetadata Documentation: Get Help Instantly";
 const DESCRIPTION =
@@ -24,28 +26,32 @@ export type MyAppProps = MarkdocNextJsPageProps;
 export default function MyApp({ Component, pageProps }: AppProps<MyAppProps>) {
   const loadPageFind = async () => {
     if (typeof window?.pageFind === "undefined") {
+      const versionsList = await fetchVersionsList();
       try {
-        window.pageFind = await import(
-          // @ts-expect-error pagefind.js generated after build
-          /* webpackIgnore: true */ "/pagefind/pagefind.js"
-        );
-        window.pageFind.options({
-          highlightParam: "highlight",
-          excerptLength: 15,
+        if (isUndefined(window.pageFind)) {
+          window.pageFind = {};
+        }
+        const importPageFindModules = versionsList.map(async ({ value }) => {
+          window.pageFind[value] = await import(
+            /* webpackIgnore: true */ `/search_indices/${value}/pagefind.js`
+          );
+          window.pageFind[value].options({
+            highlightParam: "highlight",
+            excerptLength: 20,
+          });
         });
+
+        await Promise.all(importPageFindModules);
       } catch (e) {
-        window.pageFind = {
-          preload: () => null,
-          search: () =>
-            Promise.resolve({
-              results: [
-                {
-                  id: "",
-                  data: () => Promise.resolve(),
-                },
-              ],
-            }),
-        };
+        versionsList.forEach(({ value }) => {
+          window.pageFind[value] = {
+            preload: () => null,
+            search: () =>
+              Promise.resolve({
+                results: [],
+              }),
+          };
+        });
       }
     }
   };

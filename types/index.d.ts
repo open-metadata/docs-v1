@@ -16,15 +16,18 @@ interface PageFindOptions {
 declare global {
   interface Window {
     initial: any;
-    pageFind: {
-      options?: (PageFindOptions) => Promise<void>;
-      preload: (text: string) => void;
-      search?: (text: string) => Promise<{
-        results: {
-          id: string;
-          data: () => Promise<ResultData | void>;
-        }[];
-      }>;
-    };
+    pageFind: Record<
+      string,
+      {
+        options?: (PageFindOptions) => Promise<void>;
+        preload: (text: string) => void;
+        search?: (text: string) => Promise<{
+          results: {
+            id: string;
+            data: () => Promise<ResultData | void>;
+          }[];
+        }>;
+      }
+    >;
   }
 }
