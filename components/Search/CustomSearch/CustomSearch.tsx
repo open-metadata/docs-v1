@@ -80,7 +80,7 @@ function CustomSearch({
   const handleInputChange = useCallback(
     (event: React.ChangeEvent<HTMLInputElement>) => {
       const { value } = event.target;
-      window.pageFind[docVersion].preload(value);
+      window[`pageFind${docVersion}`].preload(value);
       debouncedSearch(value);
       handleSearchText(value);
     },

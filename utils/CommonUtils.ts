@@ -1,4 +1,4 @@
-import Markdoc from "@markdoc/markdoc";
+import Markdoc, { Node } from "@markdoc/markdoc";
 import { isEmpty, startCase } from "lodash";
 import * as icons from "react-icons/md";
 import { HeadingObject } from "../components/PageLayouts/APIPageLayout/APIPageSideNav/APIPageSideNav";
@@ -83,7 +83,7 @@ export const getFormattedPartials = (
   if (isEmpty(partialsObject)) {
     return {};
   }
-  const formattedPartialsObj = {};
+  const formattedPartialsObj: Record<string, Node> = {};
 
   Object.entries(partialsObject).forEach(([key, value]) => {
     formattedPartialsObj[key] = Markdoc.parse(value);
@@ -139,7 +139,7 @@ export const getFormattedId = (children: Array<string | undefined>) => {
   if (isEmpty(children)) {
     return "";
   }
-  
+
   // Filter the strings and form a text
   const itemText = children
     .filter((child) => typeof child === "string")

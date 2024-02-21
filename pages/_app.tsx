@@ -6,7 +6,6 @@ import "prismjs";
 import "../public/globals.css";
 
 import type { MarkdocNextJsPageProps } from "@markdoc/next.js";
-import { isUndefined } from "lodash";
 import type { AppProps } from "next/app";
 import ErrorBoundary from "../components/ErrorBoundary";
 import { CodeWithLanguageSelectorContextProvider } from "../context/CodeWithLanguageSelectorContext";
@@ -28,14 +27,11 @@ export default function MyApp({ Component, pageProps }: AppProps<MyAppProps>) {
     if (typeof window?.pageFind === "undefined") {
       const versionsList = await fetchVersionsList();
       try {
-        if (isUndefined(window.pageFind)) {
-          window.pageFind = {};
-        }
         const importPageFindModules = versionsList.map(async ({ value }) => {
-          window.pageFind[value] = await import(
+          window[`pageFind${value}`] = await import(
             /* webpackIgnore: true */ `/search_indices/${value}/pagefind.js`
           );
-          window.pageFind[value].options({
+          window[`pageFind${value}`].options({
             highlightParam: "highlight",
             excerptLength: 20,
           });
@@ -44,7 +40,7 @@ export default function MyApp({ Component, pageProps }: AppProps<MyAppProps>) {
         await Promise.all(importPageFindModules);
       } catch (e) {
         versionsList.forEach(({ value }) => {
-          window.pageFind[value] = {
+          window[`pageFind${value}`] = {
             preload: () => null,
             search: () =>
               Promise.resolve({
