@@ -5,6 +5,7 @@ import { isEqual, isObject } from "lodash";
 import Script from "next/script";
 import { basename } from "path";
 import { useMemo } from "react";
+import searchIndexCreation from "../../app.config";
 import ErrorBoundary from "../../components/ErrorBoundary";
 import GoogleAnalyticsScript from "../../components/GoogleAnalyticsScript/GoogleAnalyticsScript";
 import APIPageLayout from "../../components/PageLayouts/APIPageLayout/APIPageLayout";
@@ -20,6 +21,7 @@ import {
 } from "../../lib/api";
 import { configs } from "../../lib/markdoc";
 import { getFormattedPartials } from "../../utils/CommonUtils";
+import { generateSearchIndices } from "../../utils/SearchIndexUtils";
 
 interface Props {
   content: string;
@@ -102,6 +104,9 @@ export default function Article({
 
 export async function getServerSideProps(context) {
   try {
+    if (!searchIndexCreation.getSearchIndexCreationStatus()) {
+      await generateSearchIndices();
+    }
     const paths = await getPaths();
     const props = { menu: [], content: "", slug: [] };
 

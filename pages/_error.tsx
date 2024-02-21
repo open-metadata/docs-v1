@@ -1,6 +1,7 @@
 import classNames from "classnames";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import searchIndexCreation from "../app.config";
 import CategoriesNav from "../components/CategoriesNav/CategoriesNav";
 import Footer from "../components/Footer/Footer";
 import GoogleAnalyticsScript from "../components/GoogleAnalyticsScript/GoogleAnalyticsScript";
@@ -18,12 +19,13 @@ import { useNavBarCollapsedContext } from "../context/NavBarCollapseContext";
 import { useRouteChangingContext } from "../context/RouteChangingContext";
 import { getVersionsList } from "../lib/api";
 import { getVersionFromUrl } from "../utils/CommonUtils";
+import { generateSearchIndices } from "../utils/SearchIndexUtils";
 
 interface Props {
   versionsList: Array<SelectOption<string>>;
 }
 
-function ErrorComponent({ versionsList }: Props) {
+function ErrorComponent({ versionsList }: Readonly<Props>) {
   const router = useRouter();
   const { docVersion, onChangeDocVersion } = useDocVersionContext();
   const { isRouteChanging } = useRouteChangingContext();
@@ -99,6 +101,9 @@ export default ErrorComponent;
 
 export async function getServerSideProps() {
   try {
+    if (!searchIndexCreation.getSearchIndexCreationStatus()) {
+      await generateSearchIndices();
+    }
     const versionsList: Array<SelectOption<string>> = getVersionsList();
 
     return {

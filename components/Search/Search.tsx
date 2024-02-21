@@ -29,7 +29,7 @@ export default function Search({
   const [searchText, setSearchText] = useState(""); // To manage search input value
   const [isSuggestionVisible, setIsSuggestionVisible] =
     useState<boolean>(false);
-  const [isLoading, setIsLoading] = useState<boolean>();
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const [results, setResults] = useState([]);
   const { navBarCollapsed } = useNavBarCollapsedContext();
 
@@ -147,8 +147,8 @@ export default function Search({
   const handleSearch = async () => {
     try {
       setIsLoading(true);
-      if (window.pageFind) {
-        const search = await window.pageFind[docVersion].search(
+      if (window[`pageFind${docVersion}`]) {
+        const search = await window[`pageFind${docVersion}`].search(
           isEmpty(searchValue) ? "releases" : searchValue
         );
 
@@ -173,7 +173,7 @@ export default function Search({
 
   useEffect(() => {
     handleSearch();
-  }, [searchValue, window.pageFind, docVersion]);
+  }, [searchValue, window[`pageFind${docVersion}`], docVersion]);
 
   return (
     <div
