@@ -84,6 +84,7 @@ export default function TopNav({ versionsList }: Readonly<TopNavProps>) {
         styles.NavBar,
         navBarCollapsed ? styles.CollapsedNavBar : ""
       )}
+      id="top-nav-container"
     >
       <div className={styles.CollapsedDivContainer}>
         <div className={styles.LogoContainer}>

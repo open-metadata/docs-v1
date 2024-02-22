@@ -29,7 +29,7 @@ export default function Breadcrumb({ slug }: { slug: string[] }) {
     });
 
   return slug ? (
-    <div className={styles.Container}>
+    <div className={styles.Container} id="breadcrumb-container">
       {breadcrumb.map((crumb, idx) => {
         const hrefString =
           crumb.path !== "/"

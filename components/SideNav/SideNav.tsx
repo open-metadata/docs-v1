@@ -86,6 +86,7 @@ export default forwardRef(function SideNav(
         styles.SideNav,
         sideNavCollapsed ? styles.CollapsedSideNav : styles.NonCollapsedSideNav
       )}
+      id="side-nav-container"
       style={
         isMobileDevice
           ? {

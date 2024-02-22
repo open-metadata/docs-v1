@@ -1,13 +1,21 @@
 import classNames from "classnames";
 import Link from "next/link";
-import { useRef } from "react";
+import { useMemo, useRef } from "react";
+import { useDocVersionContext } from "../../../context/DocVersionContext";
 import { useSearchContext } from "../../../context/SearchContext";
+import { getUrlWithVersion } from "../../../utils/CommonUtils";
 import { ResultsProps } from "./ResultItem.interface";
 import styles from "./ResultItem.module.css";
 
 export default function Results({ result, id }: Readonly<ResultsProps>) {
   const { focusedSearchItem, onChangeFocusedSearchItem } = useSearchContext();
+  const { docVersion } = useDocVersionContext();
   const resultItemRef = useRef<HTMLButtonElement>(null);
+  const url = useMemo(
+    () =>
+      (result.raw_url ?? result.url).replace(/(\/index\.html)$|(\.html)$/, ""),
+    [result]
+  );
 
   const handleHover = () => {
     const searchItems = document.querySelectorAll(`[class^="search-result-"]`);
@@ -23,7 +31,7 @@ export default function Results({ result, id }: Readonly<ResultsProps>) {
   };
 
   return (
-    <Link href={result.raw_url ?? result.url}>
+    <Link href={getUrlWithVersion(url, docVersion)}>
       <button
         className={classNames(
           `search-result-${id}`,

@@ -24,7 +24,7 @@ export function getAllFilesInDirectory(
 
 export function getArticleSlugs() {
   const files = getAllFilesInDirectory(ARTICLES_DIRECTORY);
-  return files;
+  return files.filter((path) => !path.includes(PARTIALS_DIRECTORY));
 }
 
 export function getArticleSlugFromString(pathname) {

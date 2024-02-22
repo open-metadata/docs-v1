@@ -1,11 +1,10 @@
 import Markdoc from "@markdoc/markdoc";
 import fs from "fs";
 import matter from "gray-matter";
-import { isEqual, isObject } from "lodash";
+import { isEqual, isObject, startCase } from "lodash";
 import Script from "next/script";
 import { basename } from "path";
 import { useMemo } from "react";
-import searchIndexCreation from "../../app.config";
 import ErrorBoundary from "../../components/ErrorBoundary";
 import GoogleAnalyticsScript from "../../components/GoogleAnalyticsScript/GoogleAnalyticsScript";
 import APIPageLayout from "../../components/PageLayouts/APIPageLayout/APIPageLayout";
@@ -21,13 +20,13 @@ import {
 } from "../../lib/api";
 import { configs } from "../../lib/markdoc";
 import { getFormattedPartials } from "../../utils/CommonUtils";
-import { generateSearchIndices } from "../../utils/SearchIndexUtils";
 
 interface Props {
   content: string;
   slug: string[];
   versionsList: Array<SelectOption<string>>;
   partials: Record<string, string>;
+  metaData: Record<string, string>;
 }
 
 export default function Article({
@@ -35,6 +34,7 @@ export default function Article({
   slug,
   versionsList,
   partials,
+  metaData,
 }: Readonly<Props>) {
   const ast = useMemo(() => Markdoc.parse(content), [content]);
 
@@ -85,6 +85,13 @@ export default function Article({
       />
       <GoogleAnalyticsScript />
       <ErrorBoundary>
+        <div
+          className="hidden"
+          data-pagefind-meta="title"
+          id="article-title-metadata"
+        >
+          {startCase(metaData.title)}
+        </div>
         {isAPIsPage.value ? (
           <APIPageLayout
             parsedContent={parsedContent}
@@ -102,13 +109,18 @@ export default function Article({
   );
 }
 
-export async function getServerSideProps(context) {
+export async function getStaticProps(context) {
   try {
-    if (!searchIndexCreation.getSearchIndexCreationStatus()) {
-      await generateSearchIndices();
-    }
-    const paths = await getPaths();
-    const props = { menu: [], content: "", slug: [] };
+    const paths = await getStaticPaths();
+    const props: Props = {
+      content: "",
+      slug: [],
+      versionsList: [],
+      partials: {},
+      metaData: {
+        title: "",
+      },
+    };
 
     // Check if the version field passed in context params is proper version format
     const versionFormat = /v\d+\.\d+\.x/;
@@ -127,7 +139,7 @@ export async function getServerSideProps(context) {
         let filename = "";
         let notFound = true;
 
-        for (const obj of paths) {
+        for (const obj of paths.paths) {
           if (`/${obj.params.version}${obj.params.location}` === location) {
             filename = obj.params.fileName;
             notFound = false;
@@ -141,12 +153,13 @@ export async function getServerSideProps(context) {
 
         // Get the last element of the array to find the MD file
         const fileContents = fs.readFileSync(filename, "utf8");
-        const { content } = matter(fileContents);
+        const { data, content } = matter(fileContents);
 
         props["content"] = content;
         props["slug"] = context.params.slug;
         props["versionsList"] = versionsList;
         props["partials"] = partials;
+        props["metaData"] = data;
       }
     }
 
@@ -158,7 +171,7 @@ export async function getServerSideProps(context) {
   }
 }
 
-async function getPaths() {
+export async function getStaticPaths() {
   // Build up paths based on slugified categories for all docs
   const articles = getArticleSlugs();
   const paths: PathObj[] = [];
@@ -200,5 +213,8 @@ async function getPaths() {
     paths.push(path);
   }
 
-  return paths;
+  return {
+    paths: paths,
+    fallback: false,
+  };
 }

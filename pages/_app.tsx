@@ -29,7 +29,7 @@ export default function MyApp({ Component, pageProps }: AppProps<MyAppProps>) {
       try {
         const importPageFindModules = versionsList.map(async ({ value }) => {
           window[`pageFind${value}`] = await import(
-            /* webpackIgnore: true */ `/search_indices/${value}/pagefind.js`
+            /* webpackIgnore: true */ `./pageFind${value}/pagefind.js`
           );
           window[`pageFind${value}`].options({
             highlightParam: "highlight",
