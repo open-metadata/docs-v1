@@ -2,7 +2,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && sh build_indices.sh",
+    "build": "next build && sh build_search_index.sh",
     "start": "next start",
     "export": "next build && next export"
   },
