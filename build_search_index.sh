@@ -5,6 +5,10 @@ for dir in content/*
     mydir="$(basename $dir)"
     if [ "$mydir" != "$partials" ]
       then
-        npx pagefind --site .next/server/pages/"$mydir" --output-path .next/static/chunks/pages/pageFind"$mydir";
+        { # try
+          npx pagefind --site .next/server/pages/"$mydir" --output-path .next/static/chunks/pages/pageFind"$mydir";
+        } || { # catch
+          echo "Search index creation for version $mydir FAILED!"
+        }
     fi
 done
