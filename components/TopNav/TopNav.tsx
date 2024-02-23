@@ -30,7 +30,7 @@ const searchClient = algoliasearch(
 );
 
 interface TopNavProps {
-  versionsList: Array<SelectOption<string>>;
+  versionsList?: Array<SelectOption<string>>;
 }
 
 export default function TopNav({ versionsList }: Readonly<TopNavProps>) {
