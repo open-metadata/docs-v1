@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import searchIndexCreation from "../../app.config";
 import CategoriesNav from "../../components/CategoriesNav/CategoriesNav";
 import ConnectorsInfo from "../../components/ConnectorsInfo/ConnectorsInfo";
 import Footer from "../../components/Footer/Footer";
@@ -20,7 +19,6 @@ import { useNavBarCollapsedContext } from "../../context/NavBarCollapseContext";
 import { useRouteChangingContext } from "../../context/RouteChangingContext";
 import { SkeletonWidth } from "../../enums/SkeletonLoder.enum";
 import { getVersionsList } from "../../lib/api";
-import { generateSearchIndices } from "../../utils/SearchIndexUtils";
 
 interface Props {
   versionsList: Array<SelectOption<string>>;
@@ -107,9 +105,6 @@ export default function Index({ versionsList }: Readonly<Props>) {
 
 export async function getStaticProps(context) {
   try {
-    if (!searchIndexCreation.getSearchIndexCreationStatus()) {
-      await generateSearchIndices();
-    }
     // Check if the version field passed in context params is proper version format
     const versionsList: Array<SelectOption<string>> = getVersionsList();
 
