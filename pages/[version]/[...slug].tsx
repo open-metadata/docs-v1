@@ -226,7 +226,7 @@ export async function getStaticPaths() {
   }
 
   return {
-    paths: paths,
+    paths: paths.filter((path) => path.params.slug.length < 2),
     fallback: false,
   };
 }
