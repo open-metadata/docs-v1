@@ -1,12 +1,14 @@
-import React from "react";
-
 interface Props {
   level: number;
-  className: string;
+  className?: string;
   children: any;
 }
 
-export default function HeadingElement({ level, className, children }: Props) {
+export default function HeadingElement({
+  level,
+  className = "",
+  children,
+}: Props) {
   switch (level) {
     case 1:
       return <h1 className={className}>{children}</h1>;

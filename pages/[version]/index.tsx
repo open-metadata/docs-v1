@@ -105,7 +105,7 @@ export default function Index({ versionsList }: Readonly<Props>) {
   );
 }
 
-export async function getServerSideProps(context) {
+export async function getStaticProps(context) {
   try {
     if (!searchIndexCreation.getSearchIndexCreationStatus()) {
       await generateSearchIndices();
@@ -121,4 +121,24 @@ export async function getServerSideProps(context) {
       notFound: true,
     };
   }
+}
+
+export async function getStaticPaths() {
+  const versionsList: Array<SelectOption<string>> = getVersionsList();
+
+  const paths = versionsList.map(({ value }) => ({
+    params: {
+      slug: [],
+      location: "/",
+      version: value,
+      fileName: "",
+      title: "",
+      description: "",
+    },
+  }));
+
+  return {
+    paths: paths,
+    fallback: false,
+  };
 }

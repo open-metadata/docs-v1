@@ -1,11 +1,9 @@
 import classNames from "classnames";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import searchIndexCreation from "../app.config";
 import CategoriesNav from "../components/CategoriesNav/CategoriesNav";
 import Footer from "../components/Footer/Footer";
 import GoogleAnalyticsScript from "../components/GoogleAnalyticsScript/GoogleAnalyticsScript";
-import { SelectOption } from "../components/SelectDropdown/SelectDropdown";
 import SideNav from "../components/SideNav/SideNav";
 import TopNav from "../components/TopNav/TopNav";
 import SkeletonLoader from "../components/common/SkeletonLoader/SkeletonLoader";
@@ -17,15 +15,9 @@ import { useDocVersionContext } from "../context/DocVersionContext";
 import { useMenuItemsContext } from "../context/MenuItemsContext";
 import { useNavBarCollapsedContext } from "../context/NavBarCollapseContext";
 import { useRouteChangingContext } from "../context/RouteChangingContext";
-import { getVersionsList } from "../lib/api";
 import { getVersionFromUrl } from "../utils/CommonUtils";
-import { generateSearchIndices } from "../utils/SearchIndexUtils";
 
-interface Props {
-  versionsList: Array<SelectOption<string>>;
-}
-
-function ErrorComponent({ versionsList }: Readonly<Props>) {
+function Error() {
   const router = useRouter();
   const { docVersion, onChangeDocVersion } = useDocVersionContext();
   const { isRouteChanging } = useRouteChangingContext();
@@ -51,9 +43,9 @@ function ErrorComponent({ versionsList }: Readonly<Props>) {
   }, [router.asPath]);
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col" id="error-page-container">
       <GoogleAnalyticsScript />
-      <TopNav versionsList={versionsList} />
+      <TopNav />
       <CategoriesNav menu={menuItems} />
       <div className="flex">
         <SideNav
@@ -97,21 +89,4 @@ function ErrorComponent({ versionsList }: Readonly<Props>) {
   );
 }
 
-export default ErrorComponent;
-
-export async function getServerSideProps() {
-  try {
-    if (!searchIndexCreation.getSearchIndexCreationStatus()) {
-      await generateSearchIndices();
-    }
-    const versionsList: Array<SelectOption<string>> = getVersionsList();
-
-    return {
-      props: { versionsList },
-    };
-  } catch {
-    return {
-      notFound: true,
-    };
-  }
-}
+export default Error;
