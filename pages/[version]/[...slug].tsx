@@ -1,7 +1,7 @@
 import Markdoc from "@markdoc/markdoc";
 import fs from "fs";
 import matter from "gray-matter";
-import { isEqual, isObject, startCase } from "lodash";
+import { isEmpty, isEqual, isObject, startCase } from "lodash";
 import Script from "next/script";
 import { basename } from "path";
 import { useMemo } from "react";
@@ -183,6 +183,9 @@ export async function getStaticPaths() {
     let realSlug = [slug];
     slug = `/${slug}`;
     const fileContents = fs.readFileSync(articles[index], "utf8");
+    if (isEmpty(fileContents)) {
+      continue;
+    }
     const { data } = matter(fileContents);
 
     // Use slug instead of Category if it's present
