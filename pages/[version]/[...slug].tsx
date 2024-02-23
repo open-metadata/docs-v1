@@ -27,6 +27,7 @@ interface Props {
   versionsList: Array<SelectOption<string>>;
   partials: Record<string, string>;
   metaData: Record<string, string>;
+  paths: PathObj[];
 }
 
 export default function Article({
@@ -35,6 +36,7 @@ export default function Article({
   versionsList,
   partials,
   metaData,
+  paths,
 }: Readonly<Props>) {
   const ast = useMemo(() => Markdoc.parse(content), [content]);
 
@@ -50,6 +52,11 @@ export default function Article({
         partials: formattedPartialsObj,
       }),
     [ast, configs, formattedPartialsObj]
+  );
+
+  console.log(
+    "paths",
+    paths.filter((path) => isEqual(path.params.slug, ["index"]))
   );
 
   const isAPIsPage = useMemo(() => {
@@ -120,6 +127,7 @@ export async function getStaticProps(context) {
       metaData: {
         title: "",
       },
+      paths: [],
     };
 
     // Check if the version field passed in context params is proper version format
@@ -160,6 +168,7 @@ export async function getStaticProps(context) {
         props["versionsList"] = versionsList;
         props["partials"] = partials;
         props["metaData"] = data;
+        props["paths"] = paths.paths;
       }
     }
 
