@@ -1,7 +1,7 @@
 import Markdoc from "@markdoc/markdoc";
 import fs from "fs";
 import matter from "gray-matter";
-import { isEmpty, isEqual, isObject, startCase } from "lodash";
+import { isEmpty, isEqual, isObject } from "lodash";
 import Script from "next/script";
 import { basename } from "path";
 import { useMemo } from "react";
@@ -90,7 +90,7 @@ export default function Article({
           data-pagefind-meta="title"
           id="article-title-metadata"
         >
-          {startCase(metaData.title)}
+          {metaData.title}
         </div>
         {isAPIsPage.value ? (
           <APIPageLayout
@@ -111,7 +111,7 @@ export default function Article({
 
 export async function getStaticProps(context) {
   try {
-    const paths = await getStaticPaths();
+    const paths = await getPaths();
     const props: Props = {
       content: "",
       slug: [],
@@ -172,6 +172,18 @@ export async function getStaticProps(context) {
 }
 
 export async function getStaticPaths() {
+  // Avoid page generation for dev server.
+  if (process.env.NODE_ENV === "development") {
+    return {
+      paths: [], // Indicates that no page needs be created at build time
+      fallback: "blocking", // Indicates the type of fallback
+    };
+  }
+
+  return await getPaths();
+}
+
+async function getPaths() {
   // Build up paths based on slugified categories for all docs
   const articles = getArticleSlugs();
   const paths: PathObj[] = [];
