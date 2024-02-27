@@ -149,7 +149,9 @@ export default function Search({
       setIsLoading(true);
       if (window[`pageFind${docVersion}`]) {
         const search = await window[`pageFind${docVersion}`].search(
-          isEmpty(searchValue) ? "releases" : searchValue
+          // To show results for "releases" as a default suggestions when no search text is present
+          isEmpty(searchValue) ? "releases" : searchValue,
+          { sort: { weight: "desc" } }
         );
 
         // Select only top 20 results
