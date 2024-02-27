@@ -1,6 +1,7 @@
-.IframeContainer {
-  position: relative;
-  margin-top: 16px;
+.Container{
+  display: flex;
+  justify-content: center;
+  margin: 32px 0px;
 }
 
 .Iframe {
