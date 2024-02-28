@@ -25,6 +25,12 @@ export const CONNECTORS: Array<ConnectorCategory> = [
         name: "BigQuery",
       },
       {
+        url: "/connectors/database/bigtable",
+        icon: "./images/connectors/big-table.png",
+        name: "BigTable",
+        supportedVersion: "v1.3.x",
+      },
+      {
         url: "/connectors/database/clickhouse",
         icon: "./images/connectors/clickhouse.png",
         name: "ClickHouse",
