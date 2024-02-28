@@ -72,6 +72,10 @@ export const getConnectorImage = (connector: string) => {
       iconSource = "athena";
       break;
 
+    case "Alation":
+      iconSource = "alation";
+      break;
+
     case "S3":
     case "Datalake":
       iconSource = "amazon-s3";
