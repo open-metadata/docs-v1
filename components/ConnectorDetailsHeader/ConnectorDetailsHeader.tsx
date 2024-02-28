@@ -1,4 +1,6 @@
 import classNames from "classnames";
+import { ReactComponent as CheckIcon } from "../../images/icons/check.svg";
+import { ReactComponent as CrossIcon } from "../../images/icons/cross.svg";
 import {
   getConnectorImage,
   getConnectorPlatformIcon,
@@ -30,22 +32,30 @@ function ConnectorDetailsHeader({
         </div>
       </div>
       <div className={styles.SubHeading}>
-        {availableFeatures.map((feature) => (
-          <div
-            className={classNames(styles.FeatureTag, styles.AvailableFeature)}
-            key={feature}
-          >
-            {feature}
-          </div>
-        ))}
-        {unavailableFeatures.map((feature) => (
-          <div
-            className={classNames(styles.FeatureTag, styles.UnavailableFeature)}
-            key={feature}
-          >
-            {feature}
-          </div>
-        ))}
+        <div className={styles.FeaturesHeading}>Feature List</div>
+        <div className={styles.FeaturesList}>
+          {availableFeatures.map((feature) => (
+            <div
+              className={classNames(styles.FeatureTag, styles.AvailableFeature)}
+              key={feature}
+            >
+              {feature}
+              <CheckIcon height={12} />
+            </div>
+          ))}
+          {unavailableFeatures.map((feature) => (
+            <div
+              className={classNames(
+                styles.FeatureTag,
+                styles.UnavailableFeature
+              )}
+              key={feature}
+            >
+              {feature}
+              <CrossIcon height={14} />
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
