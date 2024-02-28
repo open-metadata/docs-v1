@@ -15,6 +15,7 @@ export * from "./codePreview/codeInfo.markdoc";
 export * from "./codePreview/codeInfoContainer.markdoc";
 export * from "./codePreview/codePreview.markdoc";
 export * from "./codeWithLanguageSelector/codeWithLanguageSelector.markdoc";
+export * from "./connectorDetailsHeader.markdoc";
 export * from "./connectorInfoCard.markdoc";
 export * from "./connectorsListContainer.markdoc";
 export * from "./divider.markdoc";

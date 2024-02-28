@@ -2,7 +2,7 @@ export const youtube = {
   render: "YouTube",
   description: "Display youtube videos",
   attributes: {
-    caption: {
+    className: {
       type: String,
     },
     videoId: {
