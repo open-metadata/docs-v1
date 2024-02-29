@@ -52,7 +52,7 @@ jobs:
           pwd
           ls -la
           cd linkcheck
-          ./linkcheck :8000 -e --skip-file skip_links.txt | tee -a linkchecker.log
+          ./linkcheck :8000 -e --skip-file ../skip_links.txt | tee -a linkchecker.log
           echo "FILE_LOCATION=$(pwd)" >> $GITHUB_ENV
 
       - name: Output stats
