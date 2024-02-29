@@ -87,7 +87,9 @@ export default function Article({
       <ErrorBoundary>
         <div
           className="hidden"
+          data-pagefind-sort="weight[data-weight]"
           data-pagefind-meta="title"
+          data-weight={metaData.weight ?? "0"}
           id="article-title-metadata"
         >
           {metaData.title}
