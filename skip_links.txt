@@ -48,8 +48,20 @@ http://localhost:3000/v1.3.x/main-concepts/high-level-design#example-1---updatin
 
 https://stackoverflow.com/**
 
-https://twitter.com/**
+https://twitter.com/open_metadata
 
-https://oauth2.googleapis.com/**
+https://oauth2.googleapis.com/token
 
-https://sandbox.open-metadata.org/**
+https://oauth2.googleapis.com/token
+
+https://sandbox.open-metadata.org/docs#tag/Classifications
+
+https://sandbox.open-metadata.org/docs#tag/Glossaries
+
+https://oauth2.googleapis.com/token
+
+https://oauth2.googleapis.com/token
+
+https://sandbox.open-metadata.org/docs#tag/Classifications
+
+https://sandbox.open-metadata.org/docs#tag/Glossaries
