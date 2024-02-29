@@ -49,9 +49,10 @@ jobs:
         id: run-linkchecker
         continue-on-error: true
         run: |
-          cd linkcheck
+          cd src
           pwd
           ls -la
+          cd linkcheck
           ./linkcheck :8000 -e --skip-file /home/runner/work/docs-v1/docs-v1/skip_Links.txt | tee -a linkchecker.log
           echo "FILE_LOCATION=$(pwd)" >> $GITHUB_ENV
 
