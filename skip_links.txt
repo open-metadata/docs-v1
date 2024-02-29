@@ -46,3 +46,30 @@ http://localhost:3000/v1.3.x/deployment/security/okta#step-1-generate-publicpriv
 
 http://localhost:3000/v1.3.x/main-concepts/high-level-design#example-1---updating-columns-of-a-table
 
+https://stackoverflow.com/questions/71001110/power-bi-rest-api-requests-not-authorizing-as-expected
+
+https://stackoverflow.com/questions/71001110/power-bi-rest-api-requests-not-authorizing-as-expected
+
+https://stackoverflow.com/questions/38377188/how-to-get-rid-of-derby-log-metastore-db-from-spark-shell
+
+https://stackoverflow.com/questions/38377188/how-to-get-rid-of-derby-log-metastore-db-from-spark-shell
+
+https://stackoverflow.com/questions/50803147/what-is-the-timeframe-for-pg-stat-statements
+
+https://stackoverflow.com/questions/50803147/what-is-the-timeframe-for-pg-stat-statements
+
+https://stackoverflow.com/questions/47883769/how-to-enable-ssl-on-apache-airflow
+
+https://stackoverflow.com/questions/71001110/power-bi-rest-api-requests-not-authorizing-as-expected
+
+https://stackoverflow.com/questions/71001110/power-bi-rest-api-requests-not-authorizing-as-expected
+
+https://stackoverflow.com/questions/38377188/how-to-get-rid-of-derby-log-metastore-db-from-spark-shell
+
+https://stackoverflow.com/questions/38377188/how-to-get-rid-of-derby-log-metastore-db-from-spark-shell
+
+https://stackoverflow.com/questions/50803147/what-is-the-timeframe-for-pg-stat-statements
+
+https://stackoverflow.com/questions/50803147/what-is-the-timeframe-for-pg-stat-statements
+
+https://stackoverflow.com/questions/47883769/how-to-enable-ssl-on-apache-airflow
