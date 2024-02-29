@@ -1,93 +1,40 @@
-http://localhost:3000/v1.3.x/connectors/database/azuresql#azuresql
-
-http://localhost:3000/v1.3.x/connectors/database/clickhouse#clickhouse
-
-http://localhost:3000/v1.3.x/connectors/database/couchbase#requirements
-
-http://localhost:3000/v1.3.x/connectors/database/domo-database/yaml#data-profiler
-
-http://localhost:3000/v1.3.x/connectors/database/druid#requirements
-
-http://localhost:3000/v1.3.x/connectors/database/greenplum/yaml#query-usage
-
-http://localhost:3000/v1.3.x/connectors/database/iceberg#file-system
-
-http://localhost:3000/v1.3.x/connectors/database/iceberg#file-system
-
-http://localhost:3000/v1.3.x/connectors/database/impala#requirements
-
-http://localhost:3000/v1.3.x/connectors/database/pinotdb#requirements
-
-http://localhost:3000/v1.3.x/connectors/database/sqlite/yaml#query-usage
-
-http://localhost:3000/v1.3.x/connectors/database/unity-catalog#requirements
-
-http://localhost:3000/v1.3.x/connectors/metadata/amundsen#create-database-service
-
-http://localhost:3000/v1.3.x/connectors/metadata/atlas#create-database-service
-
-http://localhost:3000/v1.3.x/connectors/pipeline/airbyte#requirements
-
-http://localhost:3000/v1.3.x/connectors/pipeline/dagster#dagster
-
-http://localhost:3000/v1.3.x/connectors/pipeline/databricks-pipeline#requirements
-
-http://localhost:3000/v1.3.x/deployment/bare-metal#4-prepare-the-openmetadata-database-and-indexes
-
-http://localhost:3000/v1.3.x/deployment/docker#2-download-docker-compose-file-from-github-releases
-
-http://localhost:3000/v1.3.x/deployment/upgrade/kubernetes#backup-your-data
-
-http://localhost:3000/v1.3.x/deployment/upgrade/kubernetes#upgrade-openmetdata
-
-http://localhost:3000/v1.3.x/quick-start/local-docker-deployment#1-create-a-directory-for-openmetadata
-
-http://localhost:3000/v1.3.x/deployment/security/okta#step-1-generate-publicprivate-key-pair
-
-http://localhost:3000/v1.3.x/main-concepts/high-level-design#example-1---updating-columns-of-a-table
-
 https://stackoverflow.com/questions/71001110/power-bi-rest-api-requests-not-authorizing-as-expected
-
 https://stackoverflow.com/questions/71001110/power-bi-rest-api-requests-not-authorizing-as-expected
-
 https://stackoverflow.com/questions/38377188/how-to-get-rid-of-derby-log-metastore-db-from-spark-shell
-
 https://stackoverflow.com/questions/38377188/how-to-get-rid-of-derby-log-metastore-db-from-spark-shell
-
 https://stackoverflow.com/questions/50803147/what-is-the-timeframe-for-pg-stat-statements
-
 https://stackoverflow.com/questions/50803147/what-is-the-timeframe-for-pg-stat-statements
-
 https://stackoverflow.com/questions/47883769/how-to-enable-ssl-on-apache-airflow
-
 https://stackoverflow.com/questions/71001110/power-bi-rest-api-requests-not-authorizing-as-expected
-
 https://stackoverflow.com/questions/71001110/power-bi-rest-api-requests-not-authorizing-as-expected
-
 https://stackoverflow.com/questions/38377188/how-to-get-rid-of-derby-log-metastore-db-from-spark-shell
-
 https://stackoverflow.com/questions/38377188/how-to-get-rid-of-derby-log-metastore-db-from-spark-shell
-
 https://stackoverflow.com/questions/50803147/what-is-the-timeframe-for-pg-stat-statements
-
 https://stackoverflow.com/questions/50803147/what-is-the-timeframe-for-pg-stat-statements
-
 https://stackoverflow.com/questions/47883769/how-to-enable-ssl-on-apache-airflow
-
 https://twitter.com/open_metadata
-
 https://oauth2.googleapis.com/token
-
 https://oauth2.googleapis.com/token
-
 https://sandbox.open-metadata.org/docs#tag/Classifications
-
 https://sandbox.open-metadata.org/docs#tag/Glossaries
-
 https://oauth2.googleapis.com/token
-
 https://oauth2.googleapis.com/token
-
 https://sandbox.open-metadata.org/docs#tag/Classifications
-
 https://sandbox.open-metadata.org/docs#tag/Glossaries
+https://cloud.google.com/docs/authentication/getting-started (301)
+https://docs.confluent.io/5.5.1/clients/confluent-kafka-python/index.html (301)
+https://docs.confluent.io/platform/current/clients/confluent-kafka-python/index.html (302)
+https://docs.confluent.io/home/overview.html (200)
+https://docs.confluent.io/5.5.1/clients/confluent-kafka-python/index.html (301)
+https://docs.confluent.io/platform/current/clients/confluent-kafka-python/index.html (302)
+https://docs.confluent.io/home/overview.html (200)
+https://docs.confluent.io/5.5.1/clients/confluent-kafka-python/index.html (301)
+https://docs.confluent.io/platform/current/clients/confluent-kafka-python/index.html (302)
+https://docs.confluent.io/home/overview.html (200)
+https://docs.confluent.io/5.5.1/clients/confluent-kafka-python/index.html (301)
+https://docs.confluent.io/platform/current/clients/confluent-kafka-python/index.html (302)
+https://docs.confluent.io/home/overview.html (200)
+http://localhost:9001 (connection failed)
+https://java.com/en/download/help/download_options.html (302)
+https://docs.docker.com/compose/cli-command/ (301)
+https://docs.docker.com/compose/cli-command/ (301)
