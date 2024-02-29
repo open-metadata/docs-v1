@@ -23,7 +23,7 @@ jobs:
       - name: Check out the Repo
         uses: actions/checkout@v4
         with:
-          ref: publish
+          ref: linkcheck-skip-test
 
       - name: Set up Node 
         uses: actions/setup-node@v4
@@ -49,7 +49,6 @@ jobs:
         id: run-linkchecker
         continue-on-error: true
         run: |
-          cd src
           pwd
           ls -la
           cd linkcheck
