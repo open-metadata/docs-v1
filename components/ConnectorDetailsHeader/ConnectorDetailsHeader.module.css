@@ -2,7 +2,7 @@
     margin: 32px 0px;
     display:flex;
     flex-direction: column;
-    gap: 12px
+    gap: 6px
 }
 
 .Heading{
@@ -39,7 +39,18 @@
     border-radius: 28px;
 }
 
+.FeaturesHeading{
+    font-size: 14px;
+    color: var(--gray-text-color);
+}
+
 .SubHeading{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.FeaturesList{
     display: flex;
     flex-wrap: wrap;
     gap: 12px;
@@ -50,6 +61,9 @@
     font-size: 12px;
     border-radius: 14px;
     width: fit-content;
+    display: flex;
+    align-items: center;
+    gap: 4px
 }
 
 .AvailableFeature{

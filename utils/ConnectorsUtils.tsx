@@ -72,12 +72,16 @@ export const getConnectorImage = (connector: string) => {
       iconSource = "athena";
       break;
 
+    case "Alation":
+      iconSource = "alation";
+      break;
+
     case "S3":
-    case "Data lake":
+    case "Datalake":
       iconSource = "amazon-s3";
       break;
 
-    case "Azure SQL":
+    case "AzureSQL":
       iconSource = "azuresql";
       break;
 
@@ -85,7 +89,11 @@ export const getConnectorImage = (connector: string) => {
       iconSource = "bigquery";
       break;
 
-    case "ClickHouse":
+    case "BigTable":
+      iconSource = "big-table";
+      break;
+
+    case "Clickhouse":
       iconSource = "clickhouse";
       break;
 
@@ -93,6 +101,7 @@ export const getConnectorImage = (connector: string) => {
       iconSource = "couchbase";
       break;
 
+    case "Databricks":
     case "Databricks SQL":
     case "Unity Catalog":
     case "Databricks Pipeline":
@@ -107,6 +116,7 @@ export const getConnectorImage = (connector: string) => {
       iconSource = "delta-lake";
       break;
 
+    case "Domo":
     case "Domo Database":
     case "Domo Dashboard":
     case "Domo Pipeline":
