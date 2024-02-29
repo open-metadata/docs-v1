@@ -50,7 +50,8 @@ jobs:
         continue-on-error: true
         run: |
           cd linkcheck
-          ./linkcheck :8000 -e --skip-file ../configs/skip_Links.txt | tee -a linkchecker.log
+          pwd
+          ./linkcheck :8000 -e --skip-file ../skip_Links.txt | tee -a linkchecker.log
           echo "FILE_LOCATION=$(pwd)" >> $GITHUB_ENV
 
       - name: Output stats
