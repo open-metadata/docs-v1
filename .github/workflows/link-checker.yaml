@@ -51,6 +51,7 @@ jobs:
         run: |
           cd linkcheck
           pwd
+          ls -la
           ./linkcheck :8000 -e --skip-file /home/runner/work/docs-v1/docs-v1/skip_Links.txt | tee -a linkchecker.log
           echo "FILE_LOCATION=$(pwd)" >> $GITHUB_ENV
 
