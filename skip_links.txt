@@ -1,40 +1,22 @@
-https://stackoverflow.com/questions/71001110/power-bi-rest-api-requests-not-authorizing-as-expected
-https://stackoverflow.com/questions/71001110/power-bi-rest-api-requests-not-authorizing-as-expected
-https://stackoverflow.com/questions/38377188/how-to-get-rid-of-derby-log-metastore-db-from-spark-shell
-https://stackoverflow.com/questions/38377188/how-to-get-rid-of-derby-log-metastore-db-from-spark-shell
-https://stackoverflow.com/questions/50803147/what-is-the-timeframe-for-pg-stat-statements
-https://stackoverflow.com/questions/50803147/what-is-the-timeframe-for-pg-stat-statements
-https://stackoverflow.com/questions/47883769/how-to-enable-ssl-on-apache-airflow
-https://stackoverflow.com/questions/71001110/power-bi-rest-api-requests-not-authorizing-as-expected
-https://stackoverflow.com/questions/71001110/power-bi-rest-api-requests-not-authorizing-as-expected
-https://stackoverflow.com/questions/38377188/how-to-get-rid-of-derby-log-metastore-db-from-spark-shell
-https://stackoverflow.com/questions/38377188/how-to-get-rid-of-derby-log-metastore-db-from-spark-shell
-https://stackoverflow.com/questions/50803147/what-is-the-timeframe-for-pg-stat-statements
-https://stackoverflow.com/questions/50803147/what-is-the-timeframe-for-pg-stat-statements
-https://stackoverflow.com/questions/47883769/how-to-enable-ssl-on-apache-airflow
+http://localhost:8585
+https://localhost:8585
+http://localhost:8080
+https://stackoverflow.com/
 https://twitter.com/open_metadata
-https://oauth2.googleapis.com/token
-https://oauth2.googleapis.com/token
-https://sandbox.open-metadata.org/docs#tag/Classifications
-https://sandbox.open-metadata.org/docs#tag/Glossaries
-https://oauth2.googleapis.com/token
-https://oauth2.googleapis.com/token
-https://sandbox.open-metadata.org/docs#tag/Classifications
-https://sandbox.open-metadata.org/docs#tag/Glossaries
-https://cloud.google.com/docs/authentication/getting-started (301)
-https://docs.confluent.io/5.5.1/clients/confluent-kafka-python/index.html (301)
-https://docs.confluent.io/platform/current/clients/confluent-kafka-python/index.html (302)
-https://docs.confluent.io/home/overview.html (200)
-https://docs.confluent.io/5.5.1/clients/confluent-kafka-python/index.html (301)
-https://docs.confluent.io/platform/current/clients/confluent-kafka-python/index.html (302)
-https://docs.confluent.io/home/overview.html (200)
-https://docs.confluent.io/5.5.1/clients/confluent-kafka-python/index.html (301)
-https://docs.confluent.io/platform/current/clients/confluent-kafka-python/index.html (302)
-https://docs.confluent.io/home/overview.html (200)
-https://docs.confluent.io/5.5.1/clients/confluent-kafka-python/index.html (301)
-https://docs.confluent.io/platform/current/clients/confluent-kafka-python/index.html (302)
-https://docs.confluent.io/home/overview.html (200)
-http://localhost:9001 (connection failed)
-https://java.com/en/download/help/download_options.html (302)
-https://docs.docker.com/compose/cli-command/ (301)
-https://docs.docker.com/compose/cli-command/ (301)
+https://oauth2.googleapis.com/
+https://sandbox.open-metadata.org/
+https://cloud.google.com/docs/authentication/
+https://docs.confluent.io/
+http://localhost:9001
+https://java.com/en/download/help/
+https://docs.docker.com/compose/cli-command/
+https://developer.sas.com/apis/rest/DataManagement/
+https://ms.portal.azure.com/
+https://docs.aws.amazon.com/
+https://github.com/open-metadata/OpenMetadata/blob/
+https://chromewebstore.google.com/
+https://www.vertica.com/docs/
+https://docs.getdbt.com/
+https://www.mlflow.org/
+https://airflow.apache.org/
+https://www.postgresql.org/
