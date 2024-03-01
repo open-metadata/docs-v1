@@ -37,9 +37,13 @@ function ConnectorDetailsHeader({
       <div className={styles.Heading}>
         <div className="flex items-center gap-3">
           <div className={styles.ImageContainer}>{getConnectorImage(name)}</div>
-          <div className={styles.ConnectorName} {...otherProps}>
+          <h1
+            className={styles.ConnectorName}
+            data-pagefind-weight="10"
+            {...otherProps}
+          >
             {name}
-          </div>
+          </h1>
           {getStageBadge(stage)}
         </div>
         <div className={styles.PlatformDetails}>

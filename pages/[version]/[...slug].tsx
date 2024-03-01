@@ -87,15 +87,14 @@ export default function Article({
       />
       <GoogleAnalyticsScript />
       <ErrorBoundary>
-        <div
+        <h1
           className="hidden"
-          data-pagefind-sort="weight[data-weight]"
           data-pagefind-meta="title"
-          data-weight={metaData.weight ?? "0"}
+          data-pagefind-weight="10"
           id="article-title-metadata"
         >
           {metaData.title}
-        </div>
+        </h1>
         {isAPIsPage.value ? (
           <APIPageLayout
             parsedContent={parsedContent}
@@ -235,7 +234,7 @@ async function getPaths() {
   }
 
   return {
-    paths,
+    paths: paths.filter((path) => path.params.version === "v1.3.x"),
     fallback: false,
   };
 }

@@ -13,45 +13,45 @@ export default function HeadingElement({
   switch (level) {
     case 1:
       return (
-        <h1 className={className} {...otherProps}>
+        <h1 className={className} data-pagefind-weight="10" {...otherProps}>
           {children}
         </h1>
       );
+
     case 2:
       return (
-        <h2 className={className} {...otherProps}>
+        <h2 className={className} data-pagefind-weight="3.5" {...otherProps}>
           {children}
         </h2>
       );
+
     case 3:
       return (
-        <h3 className={className} {...otherProps}>
+        <h3 className={className} data-pagefind-weight="3" {...otherProps}>
           {children}
         </h3>
       );
+
     case 4:
       return (
-        <h4 className={className} {...otherProps}>
+        <h4 className={className} data-pagefind-weight="2.5" {...otherProps}>
           {children}
         </h4>
       );
+
     case 5:
       return (
-        <h5 className={className} {...otherProps}>
+        <h5 className={className} data-pagefind-weight="2" {...otherProps}>
           {children}
         </h5>
       );
-    case 6:
-      return (
-        <h6 className={className} {...otherProps}>
-          {children}
-        </h6>
-      );
+
     default:
       return (
-        <h6 className={className} {...otherProps}>
+        <h6 className={className} data-pagefind-weight="1.5" {...otherProps}>
           {children}
         </h6>
       );
+      
   }
 }
