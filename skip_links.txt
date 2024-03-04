@@ -22,3 +22,6 @@ https://www.mlflow.org/
 https://airflow.apache.org/
 https://www.postgresql.org/
 https://docs.snowflake.com/
+https://www.microsoft.com/
+https://jaceklaskowski.gitbooks.io/
+https://www.ibm.com/
