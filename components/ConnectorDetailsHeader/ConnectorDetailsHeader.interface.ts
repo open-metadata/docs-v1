@@ -4,4 +4,5 @@ export interface ConnectorDetailsHeaderProps {
   platform: string;
   availableFeatures: Array<string>;
   unavailableFeatures: Array<string>;
+  searchWeight: string;
 }

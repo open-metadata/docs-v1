@@ -1,15 +1,17 @@
 import classNames from "classnames";
 import Link from "next/link";
-import React from "react";
-import styles from "./Footer.module.css";
 import {
   footerIconItemsData,
   footerItemsData,
 } from "../../constants/footer.constants";
+import styles from "./Footer.module.css";
 
 export default function Footer() {
   return (
-    <footer className={classNames(styles.Container, "footer")}>
+    <footer
+      className={classNames(styles.Container, "footer")}
+      id="footer-container"
+    >
       <hr className={styles.Separator} />
       <section className={styles.InnerContainer}>
         <nav className={styles.Navigation}>

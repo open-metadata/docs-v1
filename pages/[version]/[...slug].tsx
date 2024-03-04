@@ -1,7 +1,7 @@
 import Markdoc from "@markdoc/markdoc";
 import fs from "fs";
 import matter from "gray-matter";
-import { isEqual, isObject } from "lodash";
+import { isEmpty, isEqual, isObject } from "lodash";
 import Script from "next/script";
 import { basename } from "path";
 import { useMemo } from "react";
@@ -26,6 +26,7 @@ interface Props {
   slug: string[];
   versionsList: Array<SelectOption<string>>;
   partials: Record<string, string>;
+  metaData: Record<string, string>;
 }
 
 export default function Article({
@@ -33,6 +34,7 @@ export default function Article({
   slug,
   versionsList,
   partials,
+  metaData,
 }: Readonly<Props>) {
   const ast = useMemo(() => Markdoc.parse(content), [content]);
 
@@ -83,6 +85,15 @@ export default function Article({
       />
       <GoogleAnalyticsScript />
       <ErrorBoundary>
+        <div
+          className="hidden"
+          data-pagefind-sort="weight[data-weight]"
+          data-pagefind-meta="title"
+          data-weight={metaData.weight ?? "0"}
+          id="article-title-metadata"
+        >
+          {metaData.title}
+        </div>
         {isAPIsPage.value ? (
           <APIPageLayout
             parsedContent={parsedContent}
@@ -100,10 +111,18 @@ export default function Article({
   );
 }
 
-export async function getServerSideProps(context) {
+export async function getStaticProps(context) {
   try {
     const paths = await getPaths();
-    const props = { menu: [], content: "", slug: [] };
+    const props: Props = {
+      content: "",
+      slug: [],
+      versionsList: [],
+      partials: {},
+      metaData: {
+        title: "",
+      },
+    };
 
     // Check if the version field passed in context params is proper version format
     const versionFormat = /v\d+\.\d+\.x/;
@@ -122,7 +141,7 @@ export async function getServerSideProps(context) {
         let filename = "";
         let notFound = true;
 
-        for (const obj of paths) {
+        for (const obj of paths.paths) {
           if (`/${obj.params.version}${obj.params.location}` === location) {
             filename = obj.params.fileName;
             notFound = false;
@@ -136,12 +155,13 @@ export async function getServerSideProps(context) {
 
         // Get the last element of the array to find the MD file
         const fileContents = fs.readFileSync(filename, "utf8");
-        const { content } = matter(fileContents);
+        const { data, content } = matter(fileContents);
 
         props["content"] = content;
         props["slug"] = context.params.slug;
         props["versionsList"] = versionsList;
         props["partials"] = partials;
+        props["metaData"] = data;
       }
     }
 
@@ -151,6 +171,18 @@ export async function getServerSideProps(context) {
       notFound: true,
     };
   }
+}
+
+export async function getStaticPaths() {
+  // Avoid page generation for dev server.
+  if (process.env.NODE_ENV === "development") {
+    return {
+      paths: [], // Indicates that no page needs be created at build time
+      fallback: "blocking", // Indicates the type of fallback
+    };
+  }
+
+  return await getPaths();
 }
 
 async function getPaths() {
@@ -165,6 +197,9 @@ async function getPaths() {
     let realSlug = [slug];
     slug = `/${slug}`;
     const fileContents = fs.readFileSync(articles[index], "utf8");
+    if (isEmpty(fileContents)) {
+      continue;
+    }
     const { data } = matter(fileContents);
 
     // Use slug instead of Category if it's present
@@ -195,5 +230,8 @@ async function getPaths() {
     paths.push(path);
   }
 
-  return paths;
+  return {
+    paths,
+    fallback: false,
+  };
 }

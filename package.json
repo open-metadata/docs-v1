@@ -2,7 +2,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && sh build_search_index.sh",
     "start": "next start",
     "export": "next build && next export"
   },
@@ -19,9 +19,10 @@
     "lodash": "^4.17.21",
     "next": "latest",
     "next-mdx-remote": "^4.1.0",
-    "prismjs": "latest",
-    "react": "latest",
-    "react-dom": "latest",
+    "pagefind": "^1.0.4",
+    "prismjs": "1.29.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "react-icons": "^4.8.0",
     "react-instantsearch": "^7.2.1",
     "rehype-slug": "^5.0.1",

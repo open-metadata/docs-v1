@@ -1,5 +1,5 @@
 import Head from "next/head";
-import React from "react";
+import React, { useEffect } from "react";
 
 import "prismjs";
 // Import other Prism themes here
@@ -14,6 +14,7 @@ import { MenuItemsContextProvider } from "../context/MenuItemsContext";
 import { NavBarCollapseContextProvider } from "../context/NavBarCollapseContext";
 import { RouteChangingContextProvider } from "../context/RouteChangingContext";
 import { StepsContextProvider } from "../context/StepsContext";
+import { fetchVersionsList } from "../utils/CommonUtils";
 
 const TITLE = "OpenMetadata Documentation: Get Help Instantly";
 const DESCRIPTION =
@@ -22,6 +23,40 @@ const DESCRIPTION =
 export type MyAppProps = MarkdocNextJsPageProps;
 
 export default function MyApp({ Component, pageProps }: AppProps<MyAppProps>) {
+  // Function to load search indices for all the versions
+  const loadPageFind = async () => {
+    if (typeof window?.pageFind === "undefined") {
+      const versionsList = await fetchVersionsList();
+      try {
+        const importPageFindModules = versionsList.map(async ({ value }) => {
+          window[`pageFind${value}`] = await import(
+            /* webpackIgnore: true */ `./pageFind${value}/pagefind.js`
+          );
+          window[`pageFind${value}`].options({
+            highlightParam: "highlight",
+            excerptLength: 20,
+          });
+        });
+
+        await Promise.all(importPageFindModules);
+      } catch (e) {
+        versionsList.forEach(({ value }) => {
+          window[`pageFind${value}`] = {
+            preload: () => null,
+            search: () =>
+              Promise.resolve({
+                results: [],
+              }),
+          };
+        });
+      }
+    }
+  };
+
+  useEffect(() => {
+    loadPageFind();
+  }, []);
+
   return (
     <>
       <Head>
