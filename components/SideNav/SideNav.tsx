@@ -80,6 +80,14 @@ export default forwardRef(function SideNav(
     }
   }, []);
 
+  useEffect(() => {
+    if (isEmpty(childItems)) {
+      handleSideNavCollapsed(true);
+    } else if(!isMenuLoading) {
+        handleSideNavCollapsed(false);
+    }
+  }, [childItems]);
+
   return (
     <div
       className={classNames(

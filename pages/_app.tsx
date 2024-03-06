@@ -4,6 +4,7 @@ import React from "react";
 import "prismjs";
 // Import other Prism themes here
 import "../public/globals.css";
+import "../public/modal.css";
 
 import type { MarkdocNextJsPageProps } from "@markdoc/next.js";
 import type { AppProps } from "next/app";
