@@ -21,7 +21,7 @@ function RoadmapFeatureItem({
   }, []);
 
   const handleHideModal = useCallback(
-    (e?: MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    (e?: MouseEvent<HTMLDivElement, globalThis.MouseEvent>) => {
       e?.stopPropagation();
       setShow(false);
     },
@@ -75,7 +75,7 @@ function RoadmapFeatureItem({
       </Tooltip>
 
       <RoadMapModal
-        data={feature}
+        feature={feature}
         onClose={handleHideModal}
         show={show}
         category={category}

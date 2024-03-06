@@ -4,10 +4,17 @@ import { MdClose } from "react-icons/md";
 import { CSSTransition } from "react-transition-group";
 import { ReactComponent as CollateIcon } from "../../../images/icons/ic-collate.svg";
 import { ReactComponent as OpenMetadataIcon } from "../../../images/icons/om-monogram.svg";
+import { RoadMapModalProps } from "./RoadMapModal.interface";
 import styles from "./RoadMapModal.module.css";
 
-export const RoadMapModal = ({ data, category, onClose, show, release }) => {
-  const { label, description, date } = data;
+export const RoadMapModal = ({
+  feature,
+  category,
+  onClose,
+  show,
+  release,
+}: RoadMapModalProps) => {
+  const { label, description, date, isCollate } = feature;
   const closeOnEscapeKeyDown = useCallback(
     (e) => {
       if ((e.charCode || e.keyCode) === 27) {
@@ -44,7 +51,7 @@ export const RoadMapModal = ({ data, category, onClose, show, release }) => {
           >
             <div className="flex items-center gap-4">
               <h2 className="modal-title font-medium text-lg">{label}</h2>
-              {data.isCollate ? (
+              {isCollate ? (
                 <CollateIcon className={styles.PlatformIcon} width={24} />
               ) : (
                 <OpenMetadataIcon className={styles.PlatformIcon} width={24} />

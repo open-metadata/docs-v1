@@ -11,9 +11,9 @@ import {
   generateIdFromHeading,
   getUrlWithVersion,
 } from "../../utils/CommonUtils";
+import { Heading } from "../Heading/Heading";
 import styles from "./Roadmap.module.css";
 import RoadmapFeatureItem from "./RoadmapFeatureItem/RoadmapFeatureItem";
-import RoadmapTableHeader from "./RoadmapTableHeader/RoadmapTableHeader";
 
 function Roadmap() {
   const { docVersion } = useDocVersionContext();
@@ -24,14 +24,14 @@ function Roadmap() {
   const rightShadowDivRef = useRef(null);
 
   const handleScroll = useCallback((e) => {
-    // Show the left inner box shadow only if the div is scrolled from initial position
+    // Show the left inner box shadow only if the container is scrolled from initial position
     if (e.target.scrollLeft > 0) {
       setShowLeftShadow(true);
     } else {
       setShowLeftShadow(false);
     }
 
-    // Show the right inner box shadow only if the div is not scrolled all the way to the right
+    // Show the right inner box shadow only if the container is not scrolled all the way to the right
     if (e.target.scrollWidth - e.target.clientWidth === e.target.scrollLeft) {
       setShowRightShadow(false);
     } else {
@@ -89,6 +89,7 @@ function Roadmap() {
           <div
             ref={leftShadowDivRef}
             className={classNames(
+              styles.Shadow,
               styles.LeftShadow,
               showLeftShadow ? "d-block" : "hidden"
             )}
@@ -96,11 +97,22 @@ function Roadmap() {
           <div
             ref={rightShadowDivRef}
             className={classNames(
+              styles.Shadow,
               styles.RightShadow,
               showRightShadow ? "d-block" : "hidden"
             )}
           />
-          <RoadmapTableHeader />
+          {ROADMAP_FEATURE_CATEGORY_LIST.map((category) => (
+            <div
+              className={classNames(
+                `${category.color} ${category.key !== 0 ? "w-[200px]" : ""}`,
+                styles.CategoryHeaderItem
+              )}
+              key={category.feature}
+            >
+              {category.feature}
+            </div>
+          ))}
           {Object.entries(ROADMAP_DATA).map(([release, releaseData]) =>
             ROADMAP_FEATURE_CATEGORY_LIST.map(
               ({ feature: featureCategory, color }) => (
@@ -110,11 +122,13 @@ function Roadmap() {
                 >
                   {isEmpty(featureCategory) ? (
                     <div className={styles.ReleaseNameContainer}>
-                      <a
+                      <Heading
+                        className={styles.ReleaseName}
                         id={generateIdFromHeading(release)}
-                        className="hash-link"
-                      />
-                      <h3 className={styles.ReleaseName}>{release}</h3>
+                        level={3}
+                      >
+                        {release}
+                      </Heading>
                     </div>
                   ) : (
                     <div
