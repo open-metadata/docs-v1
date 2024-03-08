@@ -26,6 +26,7 @@ import Image from "../components/common/Image/Image";
 import InlineCallout from "../components/common/InlineCallout/InlineCallout";
 import InlineCalloutContainer from "../components/common/InlineCallout/InlineCalloutContainer";
 import Note from "../components/common/Note/Note";
+import Paragraph from "../components/common/Paragraph/Paragraph";
 import MultiTablesWrapper from "../components/common/Table/MultiTablesWrapper";
 import Table from "../components/common/Table/Table";
 import Tile from "../components/common/Tiles/Tile/Tile";
@@ -51,6 +52,7 @@ export const components = {
   CodePreview,
   Code,
   Heading,
+  Paragraph,
   Image,
   Step,
   StepsContainer,

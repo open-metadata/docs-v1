@@ -17,18 +17,33 @@ function ConnectorDetailsHeader({
   platform,
   availableFeatures,
   unavailableFeatures,
+  searchWeight,
 }: Readonly<ConnectorDetailsHeaderProps>) {
   const showSubHeading = useMemo(
     () => !isEmpty(availableFeatures) || !isEmpty(unavailableFeatures),
     [availableFeatures, unavailableFeatures]
   );
 
+  let otherProps = {};
+
+  if (searchWeight) {
+    otherProps = {
+      ["data-pagefind-weight"]: searchWeight,
+    };
+  }
+
   return (
     <div className={styles.Container}>
       <div className={styles.Heading}>
         <div className="flex items-center gap-3">
           <div className={styles.ImageContainer}>{getConnectorImage(name)}</div>
-          <div className={styles.ConnectorName}>{name}</div>
+          <h1
+            className={styles.ConnectorName}
+            data-pagefind-weight="10"
+            {...otherProps}
+          >
+            {name}
+          </h1>
           {getStageBadge(stage)}
         </div>
         <div className={styles.PlatformDetails}>

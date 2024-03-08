@@ -30,7 +30,7 @@ const searchClient = algoliasearch(
 );
 
 interface TopNavProps {
-  versionsList: Array<SelectOption<string>>;
+  versionsList?: Array<SelectOption<string>>;
 }
 
 export default function TopNav({ versionsList }: Readonly<TopNavProps>) {
@@ -84,6 +84,7 @@ export default function TopNav({ versionsList }: Readonly<TopNavProps>) {
         styles.NavBar,
         navBarCollapsed ? styles.CollapsedNavBar : ""
       )}
+      id="top-nav-container"
     >
       <div className={styles.CollapsedDivContainer}>
         <div className={styles.LogoContainer}>

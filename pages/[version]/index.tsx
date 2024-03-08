@@ -14,7 +14,6 @@ import {
   OVERVIEW_INFO,
   QUICK_LINK_CARDS,
 } from "../../constants/homePage.constants";
-import { useDocVersionContext } from "../../context/DocVersionContext";
 import { useMenuItemsContext } from "../../context/MenuItemsContext";
 import { useNavBarCollapsedContext } from "../../context/NavBarCollapseContext";
 import { useRouteChangingContext } from "../../context/RouteChangingContext";
@@ -27,7 +26,6 @@ interface Props {
 
 export default function Index({ versionsList }: Readonly<Props>) {
   const { isRouteChanging } = useRouteChangingContext();
-  const { docVersion } = useDocVersionContext();
   const { isMobileDevice } = useNavBarCollapsedContext();
   const { menuItems } = useMenuItemsContext();
 
@@ -105,7 +103,7 @@ export default function Index({ versionsList }: Readonly<Props>) {
   );
 }
 
-export async function getServerSideProps(context) {
+export async function getStaticProps(context) {
   try {
     // Check if the version field passed in context params is proper version format
     const versionsList: Array<SelectOption<string>> = getVersionsList();
@@ -118,4 +116,24 @@ export async function getServerSideProps(context) {
       notFound: true,
     };
   }
+}
+
+export async function getStaticPaths() {
+  const versionsList: Array<SelectOption<string>> = getVersionsList();
+
+  const paths = versionsList.map(({ value }) => ({
+    params: {
+      slug: [],
+      location: "/",
+      version: value,
+      fileName: "",
+      title: "",
+      description: "",
+    },
+  }));
+
+  return {
+    paths: paths,
+    fallback: false,
+  };
 }
