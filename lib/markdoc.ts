@@ -13,6 +13,7 @@ import ConnectorInfoCard from "../components/ConnectorInfoCard/ConnectorInfoCard
 import ConnectorsListContainer from "../components/ConnectorsListContainer/ConnectorsListContainer";
 import ExtraContent from "../components/ExtraContent/ExtraContent";
 import { Heading } from "../components/Heading/Heading";
+import Roadmap from "../components/Roadmap/Roadmap";
 import Step from "../components/Steps/Step/Step";
 import StepDescription from "../components/Steps/Step/StepDescription/StepDescription";
 import StepVisualInfo from "../components/Steps/Step/StepVisualInfo/StepVisualInfo";
@@ -72,6 +73,7 @@ export const components = {
   ConnectorInfoCard,
   ConnectorsListContainer,
   ConnectorDetailsHeader,
+  Roadmap,
 };
 
 export const configs: Config = {
