@@ -1,4 +1,5 @@
 import classNames from "classnames";
+import { uniqBy } from "lodash";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import { useState } from "react";
@@ -20,12 +21,12 @@ const ConnectorImage = dynamic(() => import("./ConnectorImage"), {
 CONNECTORS.unshift({
   connector: "All connectors",
   services: CONNECTORS.reduce((prev, curr) => {
-    return [...prev, ...curr.services];
+    return uniqBy([...prev, ...curr.services], "name");
   }, [] as ConnectorCategory["services"]),
 });
 
 export default function ConnectorsInfo() {
-  const { docVersion, onChangeDocVersion } = useDocVersionContext();
+  const { docVersion } = useDocVersionContext();
   const [selectedTab, setSelectedTab] = useState<ConnectorCategory>(
     CONNECTORS[0]
   );

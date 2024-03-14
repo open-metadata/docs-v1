@@ -71,11 +71,6 @@ export const CONNECTORS: Array<ConnectorCategory> = [
         name: "Glue",
       },
       {
-        url: "/connectors/database/datalake",
-        icon: "./images/connectors/googleCloudService.png",
-        name: "GCS",
-      },
-      {
         url: "/connectors/database/greenplum",
         icon: "./images/connectors/greenplum.png",
         name: "Greenplum",
@@ -325,6 +320,28 @@ export const CONNECTORS: Array<ConnectorCategory> = [
         url: "/connectors/search/elasticsearch",
         icon: "./images/connectors/elasticsearch.png",
         name: "Elasticsearch",
+      },
+    ],
+  },
+  {
+    connector: "Storage",
+    services: [
+      {
+        url: "/connectors/storage/adls",
+        icon: "./images/connectors/adls.png",
+        name: "ADLS",
+        supportedVersion: "v1.3.x",
+      },
+      {
+        url: "/connectors/storage/gcs",
+        icon: "./images/connectors/gcs.png",
+        name: "GCS",
+        supportedVersion: "v1.3.x",
+      },
+      {
+        url: "/connectors/storage/s3",
+        icon: "./images/connectors/amazon-s3.png",
+        name: "S3",
       },
     ],
   },
