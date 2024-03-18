@@ -67,250 +67,79 @@ export const getConnectorPlatformIcon = (platform: string) => {
 export const getConnectorImage = (connector: string) => {
   let iconSource = "default-service-icon";
 
-  switch (connector) {
-    case "Athena":
-      iconSource = "athena";
-      break;
+  const connectorMappings = {
+    ADLS: "adls",
+    Airbyte: "airbyte",
+    Airflow: "airflow",
+    Alation: "alation",
+    Amundsen: "amundsen",
+    Athena: "athena",
+    Atlas: "atlas",
+    AzureSQL: "azuresql",
+    BigQuery: "bigquery",
+    BigTable: "big-table",
+    Clickhouse: "clickhouse",
+    Collate: "collate",
+    Couchbase: "couchbase",
+    Databricks: "databrick",
+    "Databricks Pipeline": "databrick",
+    "Databricks SQL": "databrick",
+    DB2: "ibmdb2",
+    Dagster: "dagster",
+    Datalake: "amazon-s3",
+    "Delta Lake": "delta-lake",
+    Domo: "domo",
+    "Domo Dashboard": "domo",
+    "Domo Database": "domo",
+    "Domo Pipeline": "domo",
+    Druid: "druid",
+    DynamoDB: "dynamodb",
+    Elasticsearch: "elasticsearch",
+    Fivetran: "fivetran",
+    GCS: "gcs",
+    Glue: "glue",
+    Greenplum: "greenplum",
+    Hive: "hive",
+    Iceberg: "iceberg",
+    Impala: "impala",
+    Kafka: "kafka",
+    Kinesis: "kinesis",
+    Looker: "looker",
+    MariaDB: "mariadb",
+    Metabase: "metabase",
+    MLflow: "mlflow",
+    Mode: "mode",
+    MongoDB: "mongodb",
+    MSSQL: "mssql",
+    MySQL: "sql",
+    NiFi: "apachenifi",
+    Oracle: "oracle",
+    PinotDB: "pinot",
+    Postgres: "post",
+    PowerBI: "power-bi",
+    Presto: "presto",
+    QuickSight: "quicksight",
+    "Qlik Sense": "qlik-sense",
+    Redash: "redash",
+    Redpanda: "redpanda",
+    Redshift: "redshift",
+    Salesforce: "salesforce",
+    "SAP Hana": "sap-hana",
+    SAS: "sas",
+    S3: "amazon-s3",
+    Sagemaker: "sagemaker",
+    SingleStore: "singlestore",
+    Snowflake: "snowflakes",
+    Spline: "spline",
+    SQLite: "sqlite",
+    Superset: "superset",
+    Tableau: "tableau",
+    Trino: "trino",
+    "Unity Catalog": "databrick",
+    Vertica: "vertica",
+  };
 
-    case "Alation":
-      iconSource = "alation";
-      break;
-
-    case "S3":
-    case "Datalake":
-      iconSource = "amazon-s3";
-      break;
-
-    case "AzureSQL":
-      iconSource = "azuresql";
-      break;
-
-    case "BigQuery":
-      iconSource = "bigquery";
-      break;
-
-    case "BigTable":
-      iconSource = "big-table";
-      break;
-
-    case "Clickhouse":
-      iconSource = "clickhouse";
-      break;
-
-    case "Couchbase":
-      iconSource = "couchbase";
-      break;
-
-    case "Databricks":
-    case "Databricks SQL":
-    case "Unity Catalog":
-    case "Databricks Pipeline":
-      iconSource = "databrick";
-      break;
-
-    case "DB2":
-      iconSource = "ibmdb2";
-      break;
-
-    case "Delta Lake":
-      iconSource = "delta-lake";
-      break;
-
-    case "Domo":
-    case "Domo Database":
-    case "Domo Dashboard":
-    case "Domo Pipeline":
-      iconSource = "domo";
-      break;
-
-    case "Druid":
-      iconSource = "druid";
-      break;
-
-    case "DynamoDB":
-      iconSource = "dynamodb";
-      break;
-
-    case "Glue":
-      iconSource = "glue";
-      break;
-
-    case "Greenplum":
-      iconSource = "greenplum";
-      break;
-
-    case "Hive":
-      iconSource = "hive";
-      break;
-
-    case "Iceberg":
-      iconSource = "iceberg";
-      break;
-
-    case "Impala":
-      iconSource = "impala";
-      break;
-
-    case "MariaDB":
-      iconSource = "mariadb";
-      break;
-
-    case "MongoDB":
-      iconSource = "mongodb";
-      break;
-
-    case "MSSQL":
-      iconSource = "mssql";
-      break;
-
-    case "MySQL":
-      iconSource = "sql";
-      break;
-
-    case "Oracle":
-      iconSource = "oracle";
-      break;
-
-    case "PinotDB":
-      iconSource = "pinot";
-      break;
-
-    case "Postgres":
-      iconSource = "post";
-      break;
-
-    case "Presto":
-      iconSource = "presto";
-      break;
-
-    case "Redshift":
-      iconSource = "redshift";
-      break;
-
-    case "Salesforce":
-      iconSource = "salesforce";
-      break;
-
-    case "SAP Hana":
-      iconSource = "sap-hana";
-      break;
-
-    case "SAS":
-      iconSource = "sas";
-      break;
-
-    case "SingleStore":
-      iconSource = "singlestore";
-      break;
-
-    case "Snowflake":
-      iconSource = "snowflakes";
-      break;
-
-    case "SQLite":
-      iconSource = "sqlite";
-      break;
-
-    case "Trino":
-      iconSource = "trino";
-      break;
-
-    case "Vertica":
-      iconSource = "vertica";
-      break;
-
-    case "Looker":
-      iconSource = "looker";
-      break;
-
-    case "Metabase":
-      iconSource = "metabase";
-      break;
-
-    case "Mode":
-      iconSource = "mode";
-      break;
-
-    case "PowerBI":
-      iconSource = "power-bi";
-      break;
-
-    case "Qlik Sense":
-      iconSource = "qlik-sense";
-      break;
-
-    case "QuickSight":
-      iconSource = "quicksight";
-      break;
-
-    case "Redash":
-      iconSource = "redash";
-      break;
-
-    case "Superset":
-      iconSource = "superset";
-      break;
-
-    case "Tableau":
-      iconSource = "tableau";
-      break;
-
-    case "Kafka":
-      iconSource = "kafka";
-      break;
-
-    case "Kinesis":
-      iconSource = "kinesis";
-      break;
-
-    case "Redpanda":
-      iconSource = "redpanda";
-      break;
-
-    case "Airbyte":
-      iconSource = "airbyte";
-      break;
-
-    case "Airflow":
-      iconSource = "airflow";
-      break;
-
-    case "Dagster":
-      iconSource = "dagster";
-      break;
-
-    case "Fivetran":
-      iconSource = "fivetran";
-      break;
-
-    case "NiFi":
-      iconSource = "apachenifi";
-      break;
-
-    case "Spline":
-      iconSource = "spline";
-      break;
-
-    case "MLflow":
-      iconSource = "mlflow";
-      break;
-
-    case "Sagemaker":
-      iconSource = "sagemaker";
-      break;
-
-    case "Amundsen":
-      iconSource = "amundsen";
-      break;
-
-    case "Atlas":
-      iconSource = "atlas";
-      break;
-
-    case "Elasticsearch":
-      iconSource = "elasticsearch";
-      break;
-  }
+  iconSource = connectorMappings[connector] || iconSource;
 
   return (
     <ConnectorImage
