@@ -112,6 +112,7 @@ export const BLOGS_INFO = [
     link: "https://blog.open-metadata.org/openmetadata-release-1-2-531f0e3c6d9a",
     image: (
       <Image
+        className="w-full h-full"
         width={1000}
         height={1000}
         src="/blogs/openmetadata-1.2.0-release.webp"
