@@ -26,7 +26,6 @@ export default function MyApp({Component, pageProps}: AppProps<MyAppProps>) {
   return (
     <>
       <Head>
-        <html lang="en" />
         <title>{TITLE}</title>
         <link rel="icon" href="/favicon.png" />
         <link rel="alternate icon" href="/favicon.png" />
