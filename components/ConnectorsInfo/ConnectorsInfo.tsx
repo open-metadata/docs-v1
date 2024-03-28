@@ -1,5 +1,7 @@
 import classNames from "classnames";
-import {uniqBy} from "lodash";
+
+import { uniqBy } from "lodash";
+
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import {useState} from "react";
@@ -26,7 +28,9 @@ CONNECTORS.unshift({
 });
 
 export default function ConnectorsInfo() {
-  const {docVersion} = useDocVersionContext();
+
+  const { docVersion } = useDocVersionContext();
+
   const [selectedTab, setSelectedTab] = useState<ConnectorCategory>(
     CONNECTORS[0]
   );
