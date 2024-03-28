@@ -70,7 +70,6 @@
 .ConnectorImg {
   max-height: 42px;
   max-width: 42px;
-  aspect-ratio: 1 / 1;
 }
 
 @media (max-width: 1200px) {
