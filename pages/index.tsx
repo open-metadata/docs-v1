@@ -1,6 +1,6 @@
-import {lazy, useEffect, useState} from "react";
+import {useEffect, useState} from "react";
 import CategoriesNav from "../components/CategoriesNav/CategoriesNav";
-// import ConnectorsInfo from "../components/ConnectorsInfo/ConnectorsInfo";
+import ConnectorsInfo from "../components/ConnectorsInfo/ConnectorsInfo";
 import Footer from "../components/Footer/Footer";
 import GoogleAnalyticsScript from "../components/GoogleAnalyticsScript/GoogleAnalyticsScript";
 import NewsEntry from "../components/NewsEntry/NewsEntry";
@@ -25,9 +25,7 @@ import {fetchMenuList} from "../utils/CommonUtils";
 interface Props {
   versionsList: Array<SelectOption<string>>;
 }
-const ConnectorsInfo = lazy(
-  () => import("../components/ConnectorsInfo/ConnectorsInfo")
-);
+
 export default function Index({versionsList}: Readonly<Props>) {
   const {docVersion} = useDocVersionContext();
   const {isRouteChanging} = useRouteChangingContext();
