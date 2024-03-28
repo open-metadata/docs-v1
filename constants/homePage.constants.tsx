@@ -1,3 +1,4 @@
+import Image from "next/image";
 import {ReactComponent as DeploymentIcon} from "../images/icons/deploymentTile.svg";
 import {ReactComponent as KnowledgeBaseIcon} from "../images/icons/knowledge.svg";
 import {ReactComponent as SaasIcon} from "../images/icons/saas.svg";
@@ -83,8 +84,11 @@ export const BLOGS_INFO = [
     text: "Intuitive Lineage UI, Data Observability Alerts, Data Quality Incident Manager, Custom Metrics for Profiler, Knowledge Center Improvements, and lots more",
     link: "https://blog.open-metadata.org/openmetadata-release-1-3-ac801834ee80",
     image: (
-      <img
-        src="./blogs/openmetadata-1.3.0-release.png"
+      <Image
+        style={{objectFit: "fill"}}
+        width={1000}
+        height={1000}
+        src="/blogs/openmetadata-1.3.0-release.png"
         alt="openmetadata-1.3.0-release"
       />
     ),
@@ -94,8 +98,11 @@ export const BLOGS_INFO = [
     text: "OpenMetadata offers the possibility to execute data quality tests directly from the UI, making it a powerful tool for everyone in the company.",
     link: "https://blog.open-metadata.org/leveraging-the-power-of-openmetadata-data-quality-framework-385ba2d8eaf",
     image: (
-      <img
-        src="./blogs/simple-easy-data-quality.png"
+      <Image
+        style={{objectFit: "fill"}}
+        width={1000}
+        height={1000}
+        src="/blogs/simple-easy-data-quality.png"
         alt="simple-easy-data-quality"
       />
     ),
@@ -105,8 +112,11 @@ export const BLOGS_INFO = [
     text: "Domains, Data Products, Search Index, Stored Procedures, Glossary Approval Workflow, Customizable Landing Page, Applications, Knowledge Center, Cost Analysis, and lots more",
     link: "https://blog.open-metadata.org/openmetadata-release-1-2-531f0e3c6d9a",
     image: (
-      <img
-        src="./blogs/openmetadata-1.2.0-release.png"
+      <Image
+        style={{objectFit: "fill"}}
+        width={1000}
+        height={1000}
+        src="/blogs/openmetadata-1.2.0-release.png"
         alt="openmetadata-1.2.0-release"
       />
     ),
