@@ -13,9 +13,9 @@ export default function ConnectorImage(
 
   return (
     <Image
-      width={42}
-      height={42}
-      className="w-42 h-42"
+      width={1000}
+      height={1000}
+      className="w-[42px] h-[42px]"
       src={props.src}
       alt={props.alt}
       onError={replaceImgWithError}
