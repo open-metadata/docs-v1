@@ -6,15 +6,15 @@ import "prismjs";
 import "../public/globals.css";
 import "../public/modal.css";
 
-import type { MarkdocNextJsPageProps } from "@markdoc/next.js";
-import type { AppProps } from "next/app";
+import type {MarkdocNextJsPageProps} from "@markdoc/next.js";
+import type {AppProps} from "next/app";
 import ErrorBoundary from "../components/ErrorBoundary";
-import { CodeWithLanguageSelectorContextProvider } from "../context/CodeWithLanguageSelectorContext";
-import { DocVersionContextProvider } from "../context/DocVersionContext";
-import { MenuItemsContextProvider } from "../context/MenuItemsContext";
-import { NavBarCollapseContextProvider } from "../context/NavBarCollapseContext";
-import { RouteChangingContextProvider } from "../context/RouteChangingContext";
-import { StepsContextProvider } from "../context/StepsContext";
+import {CodeWithLanguageSelectorContextProvider} from "../context/CodeWithLanguageSelectorContext";
+import {DocVersionContextProvider} from "../context/DocVersionContext";
+import {MenuItemsContextProvider} from "../context/MenuItemsContext";
+import {NavBarCollapseContextProvider} from "../context/NavBarCollapseContext";
+import {RouteChangingContextProvider} from "../context/RouteChangingContext";
+import {StepsContextProvider} from "../context/StepsContext";
 
 const TITLE = "OpenMetadata Documentation: Get Help Instantly";
 const DESCRIPTION =
@@ -22,10 +22,11 @@ const DESCRIPTION =
 
 export type MyAppProps = MarkdocNextJsPageProps;
 
-export default function MyApp({ Component, pageProps }: AppProps<MyAppProps>) {
+export default function MyApp({Component, pageProps}: AppProps<MyAppProps>) {
   return (
     <>
       <Head>
+        <html lang="en" />
         <title>{TITLE}</title>
         <link rel="icon" href="/favicon.png" />
         <link rel="alternate icon" href="/favicon.png" />
