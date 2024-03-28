@@ -11,7 +11,11 @@ const YouTube = ({videoId}: YouTubeProps) => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <div className={`youtube-video ${styles.Iframe}`}>
-        <LiteYouTubeEmbed id={videoId} title="YouTube Video Player" />
+        <LiteYouTubeEmbed
+          thumbnail="/blogs/openmetadata-1.3.0-release.webp"
+          id={videoId}
+          title="YouTube Video Player"
+        />
       </div>
     </div>
   );
