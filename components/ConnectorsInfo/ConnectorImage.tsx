@@ -1,7 +1,7 @@
 import Image from "next/image";
 import {ImgHTMLAttributes} from "react";
 
-const DEFAULT_IMAGE = "./images/connectors/default-service-icon.png";
+const DEFAULT_IMAGE = "./images/connectors/default-service-icon.webp";
 
 export default function ConnectorImage(
   props: Readonly<ImgHTMLAttributes<HTMLImageElement>>

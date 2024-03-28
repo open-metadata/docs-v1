@@ -87,7 +87,7 @@ export const BLOGS_INFO = [
       <Image
         width={1000}
         height={1000}
-        src="/blogs/openmetadata-1.3.0-release.png"
+        src="/blogs/openmetadata-1.3.0-release.webp"
         alt="openmetadata-1.3.0-release"
       />
     ),
@@ -100,7 +100,7 @@ export const BLOGS_INFO = [
       <Image
         width={1000}
         height={1000}
-        src="/blogs/simple-easy-data-quality.png"
+        src="/blogs/simple-easy-data-quality.webp"
         alt="simple-easy-data-quality"
       />
     ),
@@ -113,7 +113,7 @@ export const BLOGS_INFO = [
       <Image
         width={1000}
         height={1000}
-        src="/blogs/openmetadata-1.2.0-release.png"
+        src="/blogs/openmetadata-1.2.0-release.webp"
         alt="openmetadata-1.2.0-release"
       />
     ),
