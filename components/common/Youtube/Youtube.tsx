@@ -6,19 +6,17 @@ import "react-lite-youtube-embed/dist/LiteYouTubeEmbed.css";
 
 const YouTube = ({videoId}: YouTubeProps) => {
   return (
-    <div className="youtube-video-container">
+    <>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
-      <div className={`youtube-video ${styles.Iframe}`}>
-        <LiteYouTubeEmbed
-          containerElement="div"
-          thumbnail="/blogs/openmetadata-1.3.0-release.webp"
-          id={videoId}
-          title="YouTube Video Player"
-        />
-      </div>
-    </div>
+
+      <LiteYouTubeEmbed
+        thumbnail="/blogs/openmetadata-1.3.0-release.webp"
+        id={videoId}
+        title="YouTube Video Player"
+      />
+    </>
   );
 };
 
