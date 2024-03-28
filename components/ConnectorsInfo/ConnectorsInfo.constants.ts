@@ -1,4 +1,4 @@
-import { ConnectorCategory } from "./ConnectorsInfo.interface";
+import {ConnectorCategory} from "./ConnectorsInfo.interface";
 
 export const CONNECTORS: Array<ConnectorCategory> = [
   {
@@ -6,184 +6,184 @@ export const CONNECTORS: Array<ConnectorCategory> = [
     services: [
       {
         url: "/connectors/database/athena",
-        icon: "./images/connectors/athena.png",
+        icon: "/images/connectors/athena.webp",
         name: "Athena",
       },
       {
         url: "/connectors/database/datalake",
-        icon: "./images/connectors/amazon-s3.png",
+        icon: "/images/connectors/amazon-s3.webp",
         name: "S3",
       },
       {
         url: "/connectors/database/azuresql",
-        icon: "./images/connectors/azuresql.png",
+        icon: "/images/connectors/azuresql.webp",
         name: "Azure SQL",
       },
       {
         url: "/connectors/database/bigquery",
-        icon: "./images/connectors/bigquery.png",
+        icon: "/images/connectors/bigquery.webp",
         name: "BigQuery",
       },
       {
         url: "/connectors/database/bigtable",
-        icon: "./images/connectors/big-table.png",
+        icon: "/images/connectors/big-table.webp",
         name: "BigTable",
         supportedVersion: "v1.3.x",
       },
       {
         url: "/connectors/database/clickhouse",
-        icon: "./images/connectors/clickhouse.png",
+        icon: "/images/connectors/clickhouse.webp",
         name: "ClickHouse",
       },
       {
         url: "/connectors/database/couchbase",
-        icon: "./images/connectors/couchbase.png",
+        icon: "/images/connectors/couchbase.webp",
         name: "Couchbase",
       },
       {
         url: "/connectors/database/deltalake",
-        icon: "./images/connectors/delta-lake.png",
+        icon: "/images/connectors/delta-lake.webp",
         name: "Delta Lake",
       },
       {
         url: "/connectors/database/druid",
-        icon: "./images/connectors/druid.png",
+        icon: "/images/connectors/druid.webp",
         name: "Druid",
       },
       {
         url: "/connectors/database/databricks",
-        icon: "./images/connectors/databrick.png",
+        icon: "/images/connectors/databrick.webp",
         name: "Databricks",
       },
       {
         url: "/connectors/database/domo-database",
-        icon: "./images/connectors/domo.png",
+        icon: "/images/connectors/domo.webp",
         name: "Domo",
       },
       {
         url: "/connectors/database/dynamodb",
-        icon: "./images/connectors/dynamodb.png",
+        icon: "/images/connectors/dynamodb.webp",
         name: "DynamoDB",
       },
       {
         url: "/connectors/database/glue",
-        icon: "./images/connectors/glue.png",
+        icon: "/images/connectors/glue.webp",
         name: "Glue",
       },
       {
         url: "/connectors/database/greenplum",
-        icon: "./images/connectors/greenplum.png",
+        icon: "/images/connectors/greenplum.webp",
         name: "Greenplum",
       },
       {
         url: "/connectors/database/hive",
-        icon: "./images/connectors/hive.png",
+        icon: "/images/connectors/hive.webp",
         name: "Hive",
       },
       {
         url: "/connectors/database/iceberg",
-        icon: "./images/connectors/iceberg.png",
+        icon: "/images/connectors/iceberg.webp",
         name: "Iceberg",
       },
       {
         url: "/connectors/database/db2",
-        icon: "./images/connectors/ibmdb2.png",
+        icon: "/images/connectors/ibmdb2.webp",
         name: "IBM Db2",
       },
       {
         url: "/connectors/database/impala",
-        icon: "./images/connectors/impala.png",
+        icon: "/images/connectors/impala.webp",
         name: "Impala",
       },
       {
         url: "/connectors/database/mariadb",
-        icon: "./images/connectors/mariadb.png",
+        icon: "/images/connectors/mariadb.webp",
         name: "MariaDB",
       },
       {
         url: "/connectors/database/mongodb",
-        icon: "./images/connectors/mongodb.png",
+        icon: "/images/connectors/mongodb.webp",
         name: "MongoDB",
       },
       {
         url: "/connectors/database/mssql",
-        icon: "./images/connectors/mssql.png",
+        icon: "/images/connectors/mssql.webp",
         name: "MSSQL",
       },
       {
         url: "/connectors/database/mysql",
-        icon: "./images/connectors/sql.png",
+        icon: "/images/connectors/sql.webp",
         name: "MySQL",
       },
       {
         url: "/connectors/database/oracle",
-        icon: "./images/connectors/oracle.png",
+        icon: "/images/connectors/oracle.webp",
         name: "Oracle",
       },
       {
         url: "/connectors/database/postgres",
-        icon: "./images/connectors/post.png",
+        icon: "/images/connectors/post.webp",
         name: "Postgres",
       },
       {
         url: "/connectors/database/presto",
-        icon: "./images/connectors/presto.png",
+        icon: "/images/connectors/presto.webp",
         name: "Presto",
       },
       {
         url: "/connectors/database/redshift",
-        icon: "./images/connectors/redshift.png",
+        icon: "/images/connectors/redshift.webp",
         name: "Redshift",
       },
       {
         url: "/connectors/database/salesforce",
-        icon: "./images/connectors/salesforce.png",
+        icon: "/images/connectors/salesforce.webp",
         name: "Salesforce",
       },
       {
         url: "/connectors/database/sap-hana",
-        icon: "./images/connectors/sap-hana.png",
+        icon: "/images/connectors/sap-hana.webp",
         name: "SAP HANA",
       },
       {
         url: "/connectors/database/snowflake",
-        icon: "./images/connectors/snowflakes.png",
+        icon: "/images/connectors/snowflakes.webp",
         name: "Snowflake",
       },
       {
         url: "/connectors/database/singlestore",
-        icon: "./images/connectors/singlestore.png",
+        icon: "/images/connectors/singlestore.webp",
         name: "SingleStore",
       },
       {
         url: "/connectors/database/trino",
-        icon: "./images/connectors/trino.png",
+        icon: "/images/connectors/trino.webp",
         name: "Trino",
       },
       {
         url: "/connectors/database/unity-catalog",
-        icon: "./images/connectors/databrick.png",
+        icon: "/images/connectors/databrick.webp",
         name: "Unity Catalog",
       },
       {
         url: "/connectors/database/vertica",
-        icon: "./images/connectors/vertica.png",
+        icon: "/images/connectors/vertica.webp",
         name: "Vertica",
       },
       {
         url: "/connectors/database/pinotdb",
-        icon: "./images/connectors/pinot.png",
+        icon: "/images/connectors/pinot.webp",
         name: "Pinot",
       },
       {
         url: "/connectors/database/sas",
-        icon: "./images/connectors/sas.png",
+        icon: "/images/connectors/sas.webp",
         name: "SAS",
         supportedVersion: "v1.3.x",
       },
       {
         url: "/connectors/database/sqlite",
-        icon: "./images/connectors/sqlite.png",
+        icon: "/images/connectors/sqlite.webp",
         name: "SQL Lite",
       },
     ],
@@ -193,17 +193,17 @@ export const CONNECTORS: Array<ConnectorCategory> = [
     services: [
       {
         url: "/connectors/messaging/kafka",
-        icon: "./images/connectors/kafka.png",
+        icon: "/images/connectors/kafka.webp",
         name: "Kafka",
       },
       {
         url: "/connectors/messaging/redpanda",
-        icon: "./images/connectors/redpanda.png",
+        icon: "/images/connectors/redpanda.webp",
         name: "Redpanda",
       },
       {
         url: "/connectors/messaging/kinesis",
-        icon: "./images/connectors/kinesis.png",
+        icon: "/images/connectors/kinesis.webp",
         name: "Kinesis",
       },
     ],
@@ -213,52 +213,52 @@ export const CONNECTORS: Array<ConnectorCategory> = [
     services: [
       {
         url: "/main-concepts/metadata-standard/schemas/entity/services/connections/dashboard/lightdashconnection",
-        icon: "./images/connectors/lightdash.png",
+        icon: "/images/connectors/lightdash.webp",
         name: "Lightdash",
       },
       {
         url: "/connectors/dashboard/looker",
-        icon: "./images/connectors/looker.png",
+        icon: "/images/connectors/looker.webp",
         name: "Looker",
       },
       {
         url: "/connectors/dashboard/metabase",
-        icon: "./images/connectors/metabase.png",
+        icon: "/images/connectors/metabase.webp",
         name: "Metabase",
       },
       {
         url: "/connectors/dashboard/mode",
-        icon: "./images/connectors/mode.png",
+        icon: "/images/connectors/mode.webp",
         name: "Mode",
       },
       {
         url: "/connectors/dashboard/powerbi",
-        icon: "./images/connectors/power-bi.png",
+        icon: "/images/connectors/power-bi.webp",
         name: "Power BI",
       },
       {
         url: "/connectors/dashboard/redash",
-        icon: "./images/connectors/redash.png",
+        icon: "/images/connectors/redash.webp",
         name: "Redash",
       },
       {
         url: "/connectors/dashboard/superset",
-        icon: "./images/connectors/superset.png",
+        icon: "/images/connectors/superset.webp",
         name: "Superset",
       },
       {
         url: "/connectors/dashboard/tableau",
-        icon: "./images/connectors/tableau.png",
+        icon: "/images/connectors/tableau.webp",
         name: "Tableau",
       },
       {
         url: "/connectors/dashboard/qliksense",
-        icon: "./images/connectors/qlik-sense.png",
+        icon: "/images/connectors/qlik-sense.webp",
         name: "Qlik Sense",
       },
       {
         url: "/connectors/dashboard/quicksight",
-        icon: "./images/connectors/quicksight.png",
+        icon: "/images/connectors/quicksight.webp",
         name: "QuickSight",
       },
     ],
@@ -268,32 +268,32 @@ export const CONNECTORS: Array<ConnectorCategory> = [
     services: [
       {
         url: "/connectors/pipeline/airflow",
-        icon: "./images/connectors/airflow.png",
+        icon: "/images/connectors/airflow.webp",
         name: "Airflow",
       },
       {
         url: "/connectors/pipeline/airbyte",
-        icon: "./images/connectors/airbyte.png",
+        icon: "/images/connectors/airbyte.webp",
         name: "Airbyte",
       },
       {
         url: "/connectors/pipeline/dagster",
-        icon: "./images/connectors/dagster.png",
+        icon: "/images/connectors/dagster.webp",
         name: "Dagster",
       },
       {
         url: "/connectors/pipeline/fivetran",
-        icon: "./images/connectors/fivetran.png",
+        icon: "/images/connectors/fivetran.webp",
         name: "Fivetran",
       },
       {
         url: "/connectors/pipeline/nifi",
-        icon: "./images/connectors/apachenifi.png",
+        icon: "/images/connectors/apachenifi.webp",
         name: "NiFi",
       },
       {
         url: "/connectors/pipeline/spline",
-        icon: "./images/connectors/spline.png",
+        icon: "/images/connectors/spline.webp",
         name: "Spline",
       },
     ],
@@ -303,12 +303,12 @@ export const CONNECTORS: Array<ConnectorCategory> = [
     services: [
       {
         url: "/connectors/ml-model/mlflow",
-        icon: "./images/connectors/mlflow.png",
+        icon: "/images/connectors/mlflow.webp",
         name: "MLflow",
       },
       {
         url: "/connectors/ml-model/sagemaker",
-        icon: "./images/connectors/sagemaker.png",
+        icon: "/images/connectors/sagemaker.webp",
         name: "SageMaker",
       },
     ],
@@ -318,7 +318,7 @@ export const CONNECTORS: Array<ConnectorCategory> = [
     services: [
       {
         url: "/connectors/search/elasticsearch",
-        icon: "./images/connectors/elasticsearch.png",
+        icon: "/images/connectors/elasticsearch.webp",
         name: "Elasticsearch",
       },
     ],
@@ -328,19 +328,19 @@ export const CONNECTORS: Array<ConnectorCategory> = [
     services: [
       {
         url: "/connectors/storage/adls",
-        icon: "./images/connectors/adls.png",
+        icon: "/images/connectors/adls.webp",
         name: "ADLS",
         supportedVersion: "v1.3.x",
       },
       {
         url: "/connectors/storage/gcs",
-        icon: "./images/connectors/gcs.png",
+        icon: "/images/connectors/gcs.webp",
         name: "GCS",
         supportedVersion: "v1.3.x",
       },
       {
         url: "/connectors/storage/s3",
-        icon: "./images/connectors/amazon-s3.png",
+        icon: "/images/connectors/amazon-s3.webp",
         name: "S3",
       },
     ],
@@ -350,12 +350,12 @@ export const CONNECTORS: Array<ConnectorCategory> = [
     services: [
       {
         url: "/connectors/metadata/amundsen",
-        icon: "./images/connectors/amundsen.png",
+        icon: "/images/connectors/amundsen.webp",
         name: "Amundsen",
       },
       {
         url: "/connectors/metadata/atlas",
-        icon: "./images/connectors/atlas.png",
+        icon: "/images/connectors/atlas.webp",
         name: "Atlas",
       },
     ],

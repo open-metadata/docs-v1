@@ -1,6 +1,7 @@
-import { ImgHTMLAttributes } from "react";
+import Image from "next/image";
+import {ImgHTMLAttributes} from "react";
 
-const DEFAULT_IMAGE = "./images/connectors/default-service-icon.png";
+const DEFAULT_IMAGE = "./images/connectors/default-service-icon.webp";
 
 export default function ConnectorImage(
   props: Readonly<ImgHTMLAttributes<HTMLImageElement>>
@@ -10,5 +11,14 @@ export default function ConnectorImage(
     e.target.src = DEFAULT_IMAGE;
   };
 
-  return <img onError={replaceImgWithError} {...props} />;
+  return (
+    <Image
+      width={42}
+      height={42}
+      className="w-42 h-42"
+      src={props.src}
+      alt={props.alt}
+      onError={replaceImgWithError}
+    />
+  );
 }

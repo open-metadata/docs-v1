@@ -1,17 +1,17 @@
 import classNames from "classnames";
-import { sortBy } from "lodash";
+import {sortBy} from "lodash";
 import connectorInfoStyles from "../components/ConnectorInfoCard/ConnectorInfoCard.module.css";
 import ConnectorImage from "../components/ConnectorsInfo/ConnectorImage";
 import {
   ConnectorCategory,
   ConnectorServiceDetails,
 } from "../components/ConnectorsInfo/ConnectorsInfo.interface";
-import { REGEX_TO_EXTRACT_VERSION_NUMBER } from "../constants/version.constants";
-import { ReactComponent as BetaIcon } from "../images/icons/beta-icon.svg";
-import { ReactComponent as CollateIcon } from "../images/icons/ic-collate.svg";
-import { ReactComponent as OpenMetadataIcon } from "../images/icons/om-monogram.svg";
-import { ReactComponent as ProdIcon } from "../images/icons/prod-icon.svg";
-import { getUrlWithVersion } from "./CommonUtils";
+import {REGEX_TO_EXTRACT_VERSION_NUMBER} from "../constants/version.constants";
+import {ReactComponent as BetaIcon} from "../images/icons/beta-icon.svg";
+import {ReactComponent as CollateIcon} from "../images/icons/ic-collate.svg";
+import {ReactComponent as OpenMetadataIcon} from "../images/icons/om-monogram.svg";
+import {ReactComponent as ProdIcon} from "../images/icons/prod-icon.svg";
+import {getUrlWithVersion} from "./CommonUtils";
 
 export const getSortedServiceList = (services: ConnectorCategory["services"]) =>
   sortBy(services, (service) => service.name.toLowerCase());
@@ -145,7 +145,7 @@ export const getConnectorImage = (connector: string) => {
     <ConnectorImage
       alt={connector}
       className={connectorInfoStyles.ConnectorImage}
-      src={`/images/connectors/${iconSource}.png`}
+      src={`/images/connectors/${iconSource}.webp`}
     />
   );
 };
