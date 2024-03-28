@@ -13,8 +13,8 @@ export default function ConnectorImage(
 
   return (
     <Image
-      width={1000}
-      height={1000}
+      width={42}
+      height={42}
       className={props.className}
       src={props.src}
       alt={props.alt}
