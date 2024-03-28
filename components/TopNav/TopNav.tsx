@@ -105,6 +105,7 @@ export default function TopNav({versionsList}: Readonly<TopNavProps>) {
           <button
             className={styles.CollapseButton}
             onClick={handleCollapseButtonClick}
+            aria-label="menu-icon"
           >
             {navBarCollapsed ? <MdMenu size={32} /> : <MdMenuOpen size={32} />}
           </button>
