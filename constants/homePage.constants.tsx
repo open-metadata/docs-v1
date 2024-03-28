@@ -1,4 +1,5 @@
 import Image from "next/image";
+
 import {ReactComponent as DeploymentIcon} from "../images/icons/deploymentTile.svg";
 import {ReactComponent as KnowledgeBaseIcon} from "../images/icons/knowledge.svg";
 import {ReactComponent as SaasIcon} from "../images/icons/saas.svg";
