@@ -12,7 +12,8 @@ const YouTube = ({videoId}: YouTubeProps) => {
       </Head>
 
       <LiteYouTubeEmbed
-        thumbnail="/blogs/openmetadata-1.3.0-release.webp"
+        webp={true}
+        // thumbnail="/blogs/openmetadata-1.3.0-release.webp"
         id={videoId}
         title="YouTube Video Player"
       />
