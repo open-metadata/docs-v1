@@ -58,7 +58,7 @@ export default function ConnectorsInfo() {
               key={connector.name}
             >
               <ConnectorImage
-                className={styles.ConnectorImg}
+                className="w-[42px] h-[42px]"
                 src={connector.icon}
                 alt={`${connector.name}-icon`}
               />

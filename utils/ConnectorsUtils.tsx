@@ -144,7 +144,6 @@ export const getConnectorImage = (connector: string) => {
   return (
     <ConnectorImage
       alt={connector}
-      className={connectorInfoStyles.ConnectorImage}
       src={`/images/connectors/${iconSource}.webp`}
     />
   );
