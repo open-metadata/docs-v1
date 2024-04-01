@@ -1,9 +1,9 @@
 import classNames from "classnames";
-import Image from "next/image";
+import Image, {ImageProps} from "next/image";
 import {ImgHTMLAttributes} from "react";
 
 const DEFAULT_IMAGE = "./images/connectors/default-service-icon.webp";
-interface ConnectorImageProps extends ImgHTMLAttributes<HTMLImageElement> {
+interface ConnectorImageProps extends ImageProps {
   width?: number;
   height?: number;
 }
@@ -18,8 +18,6 @@ export default function ConnectorImage(props: ConnectorImageProps) {
       width={32}
       height={32}
       className={classNames("w-8 h-8 object-contain", className)}
-      src={props.src}
-      alt={props.alt}
       onError={replaceImgWithError}
       {...rest}
     />
