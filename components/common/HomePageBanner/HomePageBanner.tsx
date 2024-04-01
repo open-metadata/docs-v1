@@ -1,19 +1,19 @@
 import classNames from "classnames";
 import Link from "next/link";
-import { useCallback } from "react";
+import {useCallback} from "react";
 import {
   BANNER_LINKS_INFO,
   HOME_PAGE_BANNER_INFO,
 } from "../../../constants/homePage.constants";
-import { useDocVersionContext } from "../../../context/DocVersionContext";
-import { ReactComponent as ArrowRight } from "../../../images/icons/arrow-right.svg";
-import { getUrlWithVersion } from "../../../utils/CommonUtils";
+import {useDocVersionContext} from "../../../context/DocVersionContext";
+import {ReactComponent as ArrowRight} from "../../../images/icons/arrow-right.svg";
+import {getUrlWithVersion} from "../../../utils/CommonUtils";
 import Button from "../Button/Button";
 import YouTube from "../Youtube/Youtube";
 import styles from "./HomePageBanner.module.css";
 
 export default function HomePageBanner() {
-  const { docVersion } = useDocVersionContext();
+  const {docVersion} = useDocVersionContext();
 
   const getLinkButtonStyleFromTheme = useCallback(
     (theme: string) => {
@@ -48,7 +48,7 @@ export default function HomePageBanner() {
       <div className={styles.BannerNavLinkContainer}>
         {BANNER_LINKS_INFO.map(
           (
-            { title, description, linkTitle, href, theme, externalURL },
+            {title, description, linkTitle, href, theme, externalURL},
             index
           ) => (
             <div
@@ -72,7 +72,7 @@ export default function HomePageBanner() {
                   )}
                   type="button"
                 >
-                  <span>{linkTitle}</span>
+                  <span className="font-semibold">{linkTitle}</span>
                   <span className="ml-2">
                     <ArrowRight />
                   </span>
