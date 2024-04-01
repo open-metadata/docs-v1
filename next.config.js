@@ -27,4 +27,8 @@ module.exports =
       };
     },
     pageExtensions: ["js", "jsx", "ts", "tsx", "md", "mdoc"],
+    i18n: {
+      locales: ["en"],
+      defaultLocale: "en",
+    },
   });
