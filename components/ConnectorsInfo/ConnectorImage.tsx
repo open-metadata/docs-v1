@@ -12,7 +12,7 @@ export default function ConnectorImage(props: ConnectorImageProps) {
     e.target.onerror = null;
     e.target.src = DEFAULT_IMAGE;
   };
-  const {className} = props;
+  const {className, ...rest} = props;
   return (
     <Image
       width={32}
@@ -21,7 +21,7 @@ export default function ConnectorImage(props: ConnectorImageProps) {
       src={props.src}
       alt={props.alt}
       onError={replaceImgWithError}
-      {...props}
+      {...rest}
     />
   );
 }
