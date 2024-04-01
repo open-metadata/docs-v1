@@ -7,3 +7,22 @@
   border-radius: 6px;
 }
 
+.Container{
+  display: flex;
+  justify-content: center;
+  margin: 32px 0px;
+}
+.CaptionContainer {
+  margin-top: 16px;
+}
+
+.Caption {
+  font-style: italic;
+  color: gray;
+  padding-top: 8px;
+  font-size: 14px;
+}
+
+:global(.dark) .Caption {
+  color: white;
+}
