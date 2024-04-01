@@ -1,16 +1,16 @@
 import classNames from "classnames";
-import { uniqBy } from "lodash";
+import {uniqBy} from "lodash";
 import dynamic from "next/dynamic";
 import Link from "next/link";
-import { useState } from "react";
-import { useDocVersionContext } from "../../context/DocVersionContext";
+import {useState} from "react";
+import {useDocVersionContext} from "../../context/DocVersionContext";
 import {
   getConnectorURL,
   getSortedServiceList,
 } from "../../utils/ConnectorsUtils";
 import Loader from "../common/Loader/Loader";
-import { CONNECTORS } from "./ConnectorsInfo.constants";
-import { ConnectorCategory } from "./ConnectorsInfo.interface";
+import {CONNECTORS} from "./ConnectorsInfo.constants";
+import {ConnectorCategory} from "./ConnectorsInfo.interface";
 import styles from "./ConnectorsInfo.module.css";
 
 const ConnectorImage = dynamic(() => import("./ConnectorImage"), {
@@ -26,7 +26,7 @@ CONNECTORS.unshift({
 });
 
 export default function ConnectorsInfo() {
-  const { docVersion } = useDocVersionContext();
+  const {docVersion} = useDocVersionContext();
   const [selectedTab, setSelectedTab] = useState<ConnectorCategory>(
     CONNECTORS[0]
   );
@@ -60,7 +60,7 @@ export default function ConnectorsInfo() {
               <ConnectorImage
                 className={styles.ConnectorImg}
                 src={connector.icon}
-                alt={connector.name}
+                alt={`${connector.name}-icon`}
               />
               <p>{connector.name}</p>
             </Link>
