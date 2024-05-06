@@ -1,8 +1,8 @@
 import Image from "next/image";
 
-import {ReactComponent as DeploymentIcon} from "../images/icons/deploymentTile.svg";
-import {ReactComponent as KnowledgeBaseIcon} from "../images/icons/knowledge.svg";
-import {ReactComponent as SaasIcon} from "../images/icons/saas.svg";
+import { ReactComponent as DeploymentIcon } from "../images/icons/deploymentTile.svg";
+import { ReactComponent as KnowledgeBaseIcon } from "../images/icons/knowledge.svg";
+import { ReactComponent as SaasIcon } from "../images/icons/saas.svg";
 
 export const HOME_PAGE_BANNER_INFO = {
   title: "OpenMetadata Documentation",
@@ -58,7 +58,7 @@ export const QUICK_LINK_CARDS = [
   {
     heading: "SaaS",
     content: "Enjoy 100% of OpenMetadata with 0% of the hassle 🚀",
-    url: "https://cloud.getcollate.io",
+    url: "https://getcollate.io",
     isExternalLink: true,
     icon: (
       <span className="card-icon-container card-purple-icon">
