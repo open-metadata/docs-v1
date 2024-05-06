@@ -1,27 +1,27 @@
 import algoliasearch from "algoliasearch/lite";
 import classNames from "classnames";
-import {isEmpty, isString} from "lodash";
+import { isEmpty, isString } from "lodash";
 import Link from "next/link";
-import {useRouter} from "next/router";
-import {useCallback, useEffect, useState} from "react";
-import {MdMenu, MdMenuOpen} from "react-icons/md";
-import {InstantSearch} from "react-instantsearch";
+import { useRouter } from "next/router";
+import { useCallback, useEffect, useState } from "react";
+import { MdMenu, MdMenuOpen } from "react-icons/md";
+import { InstantSearch } from "react-instantsearch";
 import {
   DEFAULT_VERSION,
   REGEX_VERSION_MATCH,
   REGEX_VERSION_MATCH_WITH_SLASH_AT_START,
 } from "../../constants/version.constants";
-import {useDocVersionContext} from "../../context/DocVersionContext";
-import {useNavBarCollapsedContext} from "../../context/NavBarCollapseContext";
-import {SearchContextProvider} from "../../context/SearchContext";
-import {ReactComponent as ApiIcon} from "../../images/icons/api.svg";
-import {ReactComponent as CloudIcon} from "../../images/icons/cloud.svg";
-import {ReactComponent as GithubIcon} from "../../images/icons/github.svg";
-import {ReactComponent as OMDIcon} from "../../images/icons/omd.svg";
-import {ReactComponent as SlackIcon} from "../../images/icons/slack.svg";
-import {getUrlWithVersion} from "../../utils/CommonUtils";
+import { useDocVersionContext } from "../../context/DocVersionContext";
+import { useNavBarCollapsedContext } from "../../context/NavBarCollapseContext";
+import { SearchContextProvider } from "../../context/SearchContext";
+import { ReactComponent as ApiIcon } from "../../images/icons/api.svg";
+import { ReactComponent as CloudIcon } from "../../images/icons/cloud.svg";
+import { ReactComponent as GithubIcon } from "../../images/icons/github.svg";
+import { ReactComponent as OMDIcon } from "../../images/icons/omd.svg";
+import { ReactComponent as SlackIcon } from "../../images/icons/slack.svg";
+import { getUrlWithVersion } from "../../utils/CommonUtils";
 import Search from "../Search/Search";
-import SelectDropdown, {SelectOption} from "../SelectDropdown/SelectDropdown";
+import SelectDropdown, { SelectOption } from "../SelectDropdown/SelectDropdown";
 import styles from "./TopNav.module.css";
 
 const searchClient = algoliasearch(
@@ -33,12 +33,12 @@ interface TopNavProps {
   versionsList: Array<SelectOption<string>>;
 }
 
-export default function TopNav({versionsList}: Readonly<TopNavProps>) {
+export default function TopNav({ versionsList }: Readonly<TopNavProps>) {
   const router = useRouter();
   const [displayNavBarCollapseButton, setDisplayNavBarCollapseButton] =
     useState(false);
-  const {docVersion, onChangeDocVersion} = useDocVersionContext();
-  const {navBarCollapsed, onChangeNavBarCollapsed} =
+  const { docVersion, onChangeDocVersion } = useDocVersionContext();
+  const { navBarCollapsed, onChangeNavBarCollapsed } =
     useNavBarCollapsedContext();
 
   const handleVersionChange = (value: string) => {
@@ -149,7 +149,7 @@ export default function TopNav({versionsList}: Readonly<TopNavProps>) {
         </a>
         <a
           className="btn fw-500 btn-primary rounded-pill"
-          href="https://cloud.getcollate.io"
+          href="https://getcollate.io"
           target="_blank"
           aria-label="cloud-icon"
         >
