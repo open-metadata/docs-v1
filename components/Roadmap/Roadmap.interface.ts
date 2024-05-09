@@ -3,7 +3,6 @@ import { RoadmapCategories } from "../../enums/Roadmap.enum";
 export interface FeatureDetails {
   label: string;
   description: string;
-  isCollate?: boolean;
 }
 
 export type RoadmapCategoriesList =

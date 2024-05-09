@@ -66,7 +66,6 @@ export const ROADMAP_DATA: RoadmapData = {
           label: "Bulk Import/Edit of Metadata",
           description:
             "Allow Users to bulk edit and update the metadata using APIs & UI.",
-          isCollate: true,
         },
         {
           label: "Data LifeCycle - Certification",
@@ -87,7 +86,6 @@ export const ROADMAP_DATA: RoadmapData = {
           label: "Data Access Request Workflow",
           description:
             "Users can request access by opening a task against the owners of data assets in OpenMetadata.",
-          isCollate: true,
         },
         {
           label: "Suggestions – Allow users to add suggestions.",
@@ -98,7 +96,6 @@ export const ROADMAP_DATA: RoadmapData = {
           label: "Glossary Terms Relations",
           description:
             "Users can define relationships and associate realtionship between entities and terms. ",
-          isCollate: true,
         },
       ],
       release: 1.4,
@@ -108,7 +105,6 @@ export const ROADMAP_DATA: RoadmapData = {
       features: [
         {
           label: "Cost Analysis Report - Improvements",
-          isCollate: true,
           description:
             "Add support for additional data warehouses and improve the coverage.",
         },
@@ -122,11 +118,9 @@ export const ROADMAP_DATA: RoadmapData = {
           label: "Anomaly Detection",
           description:
             "Anomaly Detection to identify issues in Table Freshness, Completeness etc.",
-          isCollate: true,
         },
         {
           label: "Column Profile Based on the column data type",
-          isCollate: true,
           description:
             "Based on the Column data type run metrics that are applicable to the data type.",
         },
@@ -138,13 +132,11 @@ export const ROADMAP_DATA: RoadmapData = {
       features: [
         {
           label: "Metadata Actions",
-          isCollate: true,
           description:
             "Build quick and easy workflows with rules and schedule them to propagate tags, update entities etc..",
         },
         {
           label: "MetaPilot - GenAI",
-          isCollate: true,
           description:
             "Collate GenAI Implementation to automate the documentation generation and tags application. Bringing cutting-edge GenAI is our continuous effort and help data teams to be productive.",
         },
@@ -175,7 +167,6 @@ export const ROADMAP_DATA: RoadmapData = {
         },
         {
           label: "Kafka Connect",
-          isCollate: true,
           description: "Kafka Connect Integration.",
         },
       ],
@@ -186,13 +177,11 @@ export const ROADMAP_DATA: RoadmapData = {
       features: [
         {
           label: "Azure Secret Store Integration ",
-          isCollate: true,
           description:
             "Implement Azure Secret Store to store any secrets from services.",
         },
         {
           label: "Manage Roles/Groups in SSO ",
-          isCollate: true,
           description:
             "Admins can manage the Roles/Groups with SSO such as Okta and propagate these roles for users into OpenMetadata.",
         },
@@ -206,12 +195,10 @@ export const ROADMAP_DATA: RoadmapData = {
       features: [
         {
           label: "Low Cardinality Columns Documentation",
-          isCollate: true,
           description: "",
         },
         {
           label: "Support for Uploading Images",
-          isCollate: true,
           description: "Upload images to description and knowledge articles",
         },
         {
@@ -236,13 +223,11 @@ export const ROADMAP_DATA: RoadmapData = {
       features: [
         {
           label: "Allow Users to create custom dashboards using Data Insights",
-          isCollate: true,
           description:
             "Users will be able to explore all of the data analytics based on their metadata and create custom dashboards for CDOs and data leaders.",
         },
         {
           label: "Data Quality Dashboard",
-          isCollate: true,
           description:
             "Data Quality Dashboard - Show the no.of tables in Tiers and their DQ coverage.",
         },
@@ -254,13 +239,11 @@ export const ROADMAP_DATA: RoadmapData = {
       features: [
         {
           label: "Data Asset SLAs",
-          isCollate: true,
           description:
             "Allow data asset owners to provide SLAs around Completeness & Freshness.",
         },
         {
           label: "Capture Rows failed for DQ Tests",
-          isCollate: true,
           description:
             "Based on the Column data type run metrics that are applicable to the data type.",
         },
@@ -272,13 +255,11 @@ export const ROADMAP_DATA: RoadmapData = {
       features: [
         {
           label: "Slack Application to interact with OpenMetadata",
-          isCollate: true,
           description:
             "Slack application will allow users to interact with OpenMetadata.",
         },
         {
           label: "MetaPilot - Query Rewriting",
-          isCollate: true,
           description:
             "Supporting Query rewrite to enhance the and optimize queries running in an organization",
         },
@@ -306,19 +287,16 @@ export const ROADMAP_DATA: RoadmapData = {
       features: [
         {
           label: "Data Diff - Showing diff between tables",
-          isCollate: true,
           description:
             "Users can run the queries against the data source and generate reports using our SQL editor.",
         },
         {
           label: "Anomaly Detection",
-          isCollate: true,
           description:
             "ML Based Anomaly detection and improvements to the feature delivered in 1.4",
         },
         {
           label: "ER Diagram tool at schema level.",
-          isCollate: true,
           description: "ADD ER Diagram tool at schema level.",
         },
       ],
@@ -329,19 +307,16 @@ export const ROADMAP_DATA: RoadmapData = {
       features: [
         {
           label: "SQL Query Editor",
-          isCollate: true,
           description:
             "Users can run the queries against the data source and generate reports using our SQL editor.",
         },
         {
           label: "Data Asset Naming Conventions",
-          isCollate: true,
           description:
             "Define Data Asset naming convetions and use this app to enforce and send a report to teams.",
         },
         {
           label: "Reverse Metadata Applications",
-          isCollate: true,
           description:
             "Pushing Metadata such as description/tags to data sources.",
         },
@@ -353,7 +328,6 @@ export const ROADMAP_DATA: RoadmapData = {
       features: [
         {
           label: "Root Cause Analysis",
-          isCollate: true,
           description: "RCA of incidents and test failures.",
         },
       ],
@@ -380,7 +354,6 @@ export const ROADMAP_DATA: RoadmapData = {
       features: [
         {
           label: "NLP Search using LLMs",
-          isCollate: true,
           description: "Support NLP querying for Search.",
         },
       ],
@@ -391,7 +364,6 @@ export const ROADMAP_DATA: RoadmapData = {
       features: [
         {
           label: "Pipeline Dashboard",
-          isCollate: true,
           description:
             "Pipeline Dashboard - Show all ETL pipelines in an organization and how many succesful/failed/aborted/paused.",
         },
@@ -403,7 +375,6 @@ export const ROADMAP_DATA: RoadmapData = {
       features: [
         {
           label: "ML based DQ tests",
-          isCollate: true,
           description: "Auto Suggest DQ Tests.",
         },
       ],
