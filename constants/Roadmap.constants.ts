@@ -37,7 +37,7 @@ export const ROADMAP_FEATURE_CATEGORY_LIST: Array<RoadmapCategoriesList> = [
   },
   {
     key: 4,
-    feature: RoadmapCategories["APPLICATIONS"],
+    feature: RoadmapCategories["LINEAGE"],
     color: CATEGORY_COLOR.APPLICATIONS,
   },
   {
@@ -63,49 +63,20 @@ export const ROADMAP_DATA: RoadmapData = {
       category: RoadmapCategories["DATA_DISCOVERY & COLLABORATION"],
       features: [
         {
-          label: "Bulk Import/Edit of Metadata",
-          date: "Feb 7, 2024 – Apr 7, 2024",
-          description:
-            "Allow Users to bulk edit and update the metadata using APIs & UI.",
-          isCollate: true,
-        },
-        {
-          label: "Data LifeCycle - Certification",
-          date: "Feb 7, 2024 – Apr 7, 2024",
-          description:
-            "Introduce Badges as concept to allow users to Certifiy Data Assets.",
-        },
-        {
           label:
             "Custom Properties - Additional Types, ENUMs, References to Users/Teams/Assets",
-          date: "Feb 7, 2024 – Apr 7, 2024",
-          description: "Additional Custom Properties to extend Metadata.",
+          description:
+            "Additional Custom Properties to extend Metadata. Users can add ENUMs, References to Users/Teams/Assets. This allows users to add more context to the metadata.",
         },
         {
-          label: "Add Application Metadata Model",
-          date: "Feb 7, 2024 – Apr 7, 2024",
+          label: "Schema Definition for Tables.",
           description:
-            "Add Application Metadata Model to capture micro services and REST APIs as Metadata.",
-        },
-        {
-          label: "Data Access Request Workflow",
-          date: "Feb 7, 2024 – Apr 7, 2024",
-          description:
-            "Users can request access by opening a task against the owners of data assets in OpenMetadata.",
-          isCollate: true,
+            "Users can view the create table statement for the table. This metadata is automatically colleced from the source.",
         },
         {
           label: "Suggestions – Allow users to add suggestions.",
-          date: "Feb 7, 2024 – Apr 7, 2024",
           description:
             "Users to improve Descriptions or Tagging by providing Suggestions. This makes it easy for users to update the documentation without opening Tasks.",
-        },
-        {
-          label: "Glossary Terms Relations",
-          date: "Feb 7, 2024 – Apr 7, 2024",
-          description:
-            "Users can define relationships and associate realtionship between entities and terms. ",
-          isCollate: true,
         },
       ],
       release: 1.4,
@@ -114,11 +85,9 @@ export const ROADMAP_DATA: RoadmapData = {
       category: RoadmapCategories["DATA INSIGHTS"],
       features: [
         {
-          label: "Cost Analysis Report - Improvements",
-          date: "Feb 7, 2024 – Apr 7, 2024",
-          isCollate: true,
+          label: "Data Insights Improvements",
           description:
-            "Add support for additional data warehouses and improve the coverage.",
+            "Users can drill down to view data assets without descriptions or ownership.",
         },
       ],
       release: 1.4,
@@ -127,38 +96,77 @@ export const ROADMAP_DATA: RoadmapData = {
       category: RoadmapCategories["DATA QUALITY"],
       features: [
         {
-          label: "Anomaly Detection",
-          date: "Feb 7, 2024 – Apr 7, 2024",
+          label: "Show data quality tests for each column.",
           description:
-            "Anomaly Detection to identify issues in Table Freshness, Completeness etc.",
-          isCollate: true,
+            "Data quality tests are visible in schema tab and in data quality tab.",
         },
         {
-          label: "Column Profile Based on the column data type",
-          date: "Feb 7, 2024 – Apr 7, 2024",
-          isCollate: true,
+          label: "Data Profiler Improvements",
           description:
-            "Based on the Column data type run metrics that are applicable to the data type.",
+            "We now compute Unique and Count in the same query to avoid inconsistency due to the high frequency of data insertion.",
+        },
+        {
+          label: "UI performance improvements",
+          description:
+            "UI performance improvements for Data Quality tests results.",
+        },
+        {
+          label: "Global Data Profiler Configuration.",
+          description:
+            "Admins can configure the global data profiler settings and exclude/include certain metrics calculation across the tables.",
+        },
+        {
+          label: "Support for complex types in Redshift & DynamoDB.",
+          description: "Support for complex types in Redshift & DynamoDB.",
+        },
+        {
+          label: "Incident Manager Improvements",
+          description:
+            "Notifications are sent for the tasks created by the Incident Manager.",
         },
       ],
       release: 1.4,
     },
     {
-      category: RoadmapCategories["APPLICATIONS"],
+      category: RoadmapCategories["LINEAGE"],
       features: [
         {
-          label: "Metadata Actions",
-          date: "Feb 7th, 2024 – April 7th, 2024",
-          isCollate: true,
+          label:
+            "Field Level Lineage for Containers/Topics/MlModels/Dashboards",
           description:
-            "Build quick and easy workflows with rules and schedule them to propagate tags, update entities etc..",
+            "OpenMetadata already supports Column-level lineage, and now we have introduced Task-level lineage for Pipelines, Chart-level lineage for Dashboards, Feature-level lineage for ML Models, Field-level lineage for Topics, and columns for dashboard Data Models.",
         },
         {
-          label: "MetaPilot - GenAI",
-          date: "Feb 7th, 2024 – March 7th, 2024",
-          isCollate: true,
+          label:
+            "Automated Column Level Lineage Tableau, Superset, QlikCloud, and QlikSense",
           description:
-            "Collate GenAI Implementation to automate the documentation generation and tags application. Bringing cutting-edge GenAI is our continuous effort and help data teams to be productive.",
+            "Automated column-level lineage is now supported for Tableau, Superset, QlikCloud, and QlikSense between Data Models and Tables.",
+        },
+        {
+          label: "Lineage - Introducing Layers.",
+          description:
+            "Layers in lineage allows users to add incrementally critical information to lineage. For example, a user can add a layer to show the lineage with Data Observability information.",
+        },
+        {
+          label: "Lineage - Export the Lineage data.",
+          description:
+            "Export the lineage data in CSV format for further analysis.",
+        },
+        {
+          label:
+            "Lineage - Support for PowerBI DAX files & Snowflake Dynamic tables.",
+          description:
+            "We now parse PowerBi DAX files for lineage and support Snowflake Dynamic tables.",
+        },
+        {
+          label: "Lineage - Improvements to Spark Agent.",
+          description:
+            "OpenMetadata spark agent now supports automated lineage between tables and their origin storage container.",
+        },
+        {
+          label: "Lineage - UX Improvements.",
+          description:
+            "The child nodes in a lineage graph are sorted in alphabetical order.",
         },
       ],
       release: 1.4,
@@ -167,15 +175,14 @@ export const ROADMAP_DATA: RoadmapData = {
       category: RoadmapCategories["DATA OBSERVABILITY"],
       features: [
         {
-          label: "Data quality specific alerts",
-          date: "Feb 7th, 2024 – April 4, 2024",
-          description: "Create specific alerts for DQ such as schema change.",
+          label: "Activity Feed Improvements",
+          description:
+            "The Activity Feed provides more contextual information, removing the need to move to entity pages.",
         },
         {
-          label: "Incident Manager Improvements",
-          date: "Feb 7, 2023 – April 7, 2023",
+          label: "Alert Improvements",
           description:
-            "Allow users to file incident not just for DQ failures but for pipelines or Table schema change etc.",
+            "Alerts give more accurate information about the entity, as well as conversations and tasks associated with the alert.",
         },
       ],
       release: 1.4,
@@ -184,15 +191,30 @@ export const ROADMAP_DATA: RoadmapData = {
       category: RoadmapCategories["INTEGRATIONS"],
       features: [
         {
-          label: "SAP ERP Connector",
-          date: "Feb 7th, 2024 – March 7th, 2024",
-          description: "SAP ERP Connector support.",
+          label: "QilkCloud Connector.",
+          description: "QilkCloud Connector.",
         },
         {
           label: "Kafka Connect",
-          date: "Feb 7th, 2024 – March 7th, 2024",
-          isCollate: true,
           description: "Kafka Connect Integration.",
+        },
+        {
+          label: "Complex Protobuf Parsing support",
+          description: "Complex Protobuf Parsing support.",
+        },
+        {
+          label: "Improved Model storage ingestion in Sagemaker and MlFlow.",
+          description:
+            "Improved Model storage ingestion in Sagemaker and MlFlow.",
+        },
+        {
+          label: "Revamped SSL support for all connectors.",
+          description:
+            "Revamped SSL support to allow users to upload the required certificates directly in the UI.",
+        },
+        {
+          label: "Added support for Azure Auth in Trino",
+          description: "Added support for Azure Auth in Trino.",
         },
       ],
       release: 1.4,
@@ -202,15 +224,11 @@ export const ROADMAP_DATA: RoadmapData = {
       features: [
         {
           label: "Azure Secret Store Integration ",
-          date: "Feb 7, 2024 – March 7, 2024",
-          isCollate: true,
           description:
             "Implement Azure Secret Store to store any secrets from services.",
         },
         {
           label: "Manage Roles/Groups in SSO ",
-          date: "Feb 7, 2024 – March 7, 2024",
-          isCollate: true,
           description:
             "Admins can manage the Roles/Groups with SSO such as Okta and propagate these roles for users into OpenMetadata.",
         },
@@ -223,33 +241,28 @@ export const ROADMAP_DATA: RoadmapData = {
       category: RoadmapCategories["DATA_DISCOVERY & COLLABORATION"],
       features: [
         {
-          label: "Low Cardinality Columns Documentation",
-          date: "April 10, 2024 – Jun 10, 2024",
-          isCollate: true,
-          description: "",
-        },
-        {
-          label: "Support for Uploading Images",
-          date: "April 10, 2024 – Jun 10, 2024",
-          isCollate: true,
-          description: "Upload images to description and knowledge articles",
-        },
-        {
           label: "Search/Explore Integrate with RBAC.",
-          date: "April 10, 2024 – Jun 10, 2024",
           description:
             "Roles & Policies Integration into search and list the entities that are only available for users based on their role.",
         },
         {
           label: "Data Mesh - Sub Domains.",
-          date: "April 10, 2024 – Jun 10, 2024",
           description: "Data Mesh , support for sub domains.",
         },
         {
           label: "Data Products Independent of Domains",
-          date: "April 10, 2024 – Jun 10, 2024",
           description:
             "Allow users to tag Data Products without using the Domains.",
+        },
+        {
+          label: "Add Application Metadata Model",
+          description:
+            "Add Application Metadata Model to capture micro services and REST APIs as Metadata.",
+        },
+        {
+          label: "Glossary Terms Relations",
+          description:
+            "Users can define relationships and associate realtionship between entities and terms. ",
         },
       ],
       release: 1.5,
@@ -258,18 +271,13 @@ export const ROADMAP_DATA: RoadmapData = {
       category: RoadmapCategories["DATA INSIGHTS"],
       features: [
         {
-          label: "Allow Users to create custom dashboards using Data Insights",
-          date: "April 10, 2024 – Jun 10, 2024",
-          isCollate: true,
+          label: "Data Insights Improvements",
           description:
-            "Users will be able to explore all of the data analytics based on their metadata and create custom dashboards for CDOs and data leaders.",
+            "Improved data insights collection in backend and using search to provide multiple insights.",
         },
         {
-          label: "Data Quality Dashboard",
-          date: "April 10, 2024 – Jun 10, 2024",
-          isCollate: true,
-          description:
-            "Data Quality Dashboard - Show the no.of tables in Tiers and their DQ coverage.",
+          label: "Add custom KPIs.",
+          description: "Support for custom KPIs.",
         },
       ],
       release: 1.5,
@@ -279,39 +287,15 @@ export const ROADMAP_DATA: RoadmapData = {
       features: [
         {
           label: "Data Asset SLAs",
-          date: "April 10, 2024 – Jun 7, 2024",
-          isCollate: true,
           description:
             "Allow data asset owners to provide SLAs around Completeness & Freshness.",
-        },
-        {
-          label: "Capture Rows failed for DQ Tests",
-          date: "April 10, 2024 – Jun 7, 2024",
-          isCollate: true,
-          description:
-            "Based on the Column data type run metrics that are applicable to the data type.",
         },
       ],
       release: 1.5,
     },
     {
       category: RoadmapCategories["APPLICATIONS"],
-      features: [
-        {
-          label: "Slack Application to interact with OpenMetadata",
-          date: "April 10, 2024 – Jun 10, 2024",
-          isCollate: true,
-          description:
-            "Slack application will allow users to interact with OpenMetadata.",
-        },
-        {
-          label: "MetaPilot - Query Rewriting",
-          date: "April 10th, 2024 – Jun 10th, 2024",
-          isCollate: true,
-          description:
-            "Supporting Query rewrite to enhance the and optimize queries running in an organization",
-        },
-      ],
+      features: [],
       release: 1.5,
     },
     {
@@ -319,12 +303,10 @@ export const ROADMAP_DATA: RoadmapData = {
       features: [
         {
           label: "Teradata",
-          date: "April 7th, 2024 – June 7th, 2024",
           description: "Teradata Connector support.",
         },
         {
           label: "Azure Synapse",
-          date: "April 7th, 2024 – June 7th, 2024",
           description: "Azure Synapse Integration.",
         },
       ],
@@ -334,51 +316,19 @@ export const ROADMAP_DATA: RoadmapData = {
   "RELEASE 1.6": [
     {
       category: RoadmapCategories["DATA QUALITY"],
-      features: [
-        {
-          label: "Data Diff - Showing diff between tables",
-          date: "Aug 10, 2024 – Oct 10, 2024",
-          isCollate: true,
-          description:
-            "Users can run the queries against the data source and generate reports using our SQL editor.",
-        },
-        {
-          label: "Anomaly Detection",
-          date: "April 10, 2024 – Jun 7, 2024",
-          isCollate: true,
-          description:
-            "ML Based Anomaly detection and improvements to the feature delivered in 1.4",
-        },
-        {
-          label: "ER Diagram tool at schema level.",
-          isCollate: true,
-          date: "April 10 2024 - Jun 7, 2024",
-          description: "ADD ER Diagram tool at schema level.",
-        },
-      ],
+      features: [],
       release: 1.6,
     },
     {
       category: RoadmapCategories["APPLICATIONS"],
       features: [
         {
-          label: "SQL Query Editor",
-          date: "Aug 10, 2024 – Oct 10, 2024",
-          isCollate: true,
-          description:
-            "Users can run the queries against the data source and generate reports using our SQL editor.",
-        },
-        {
           label: "Data Asset Naming Conventions",
-          date: "Aug 10, 2024 – Oct 10, 2024",
-          isCollate: true,
           description:
             "Define Data Asset naming convetions and use this app to enforce and send a report to teams.",
         },
         {
           label: "Reverse Metadata Applications",
-          date: "Aug 10, 2024 – Oct 10, 2024",
-          isCollate: true,
           description:
             "Pushing Metadata such as description/tags to data sources.",
         },
@@ -390,8 +340,6 @@ export const ROADMAP_DATA: RoadmapData = {
       features: [
         {
           label: "Root Cause Analysis",
-          date: "Aug 10, 2024 – Oct 10, 2024",
-          isCollate: true,
           description: "RCA of incidents and test failures.",
         },
       ],
@@ -401,13 +349,11 @@ export const ROADMAP_DATA: RoadmapData = {
       category: RoadmapCategories["INTEGRATIONS"],
       features: [
         {
-          label: "KSQL",
-          date: "Aug 10th, 2024 – Oct 10th, 2024",
-          description: "KSQL Connector support.",
+          label: "Flink",
+          description: "Flink Connector support.",
         },
         {
           label: "Vertex AI",
-          date: "Aug 10th, 2024 – Oct 10th, 2024",
           description: "Vertex AI support.",
         },
       ],
@@ -417,14 +363,7 @@ export const ROADMAP_DATA: RoadmapData = {
   "RELEASE 1.7": [
     {
       category: RoadmapCategories["DATA_DISCOVERY & COLLABORATION"],
-      features: [
-        {
-          label: "NLP Search using LLMs",
-          date: "Oct 10, 2024 – Dec 10, 2024",
-          isCollate: true,
-          description: "Support NLP querying for Search.",
-        },
-      ],
+      features: [],
       release: 1.7,
     },
     {
@@ -432,8 +371,6 @@ export const ROADMAP_DATA: RoadmapData = {
       features: [
         {
           label: "Pipeline Dashboard",
-          date: "Oct 10, 2024 – Dec 10, 2024",
-          isCollate: true,
           description:
             "Pipeline Dashboard - Show all ETL pipelines in an organization and how many succesful/failed/aborted/paused.",
         },
@@ -442,14 +379,7 @@ export const ROADMAP_DATA: RoadmapData = {
     },
     {
       category: RoadmapCategories["DATA QUALITY"],
-      features: [
-        {
-          label: "ML based DQ tests",
-          date: "Oct 10, 2024 – Dec 10, 2024",
-          isCollate: true,
-          description: "Auto Suggest DQ Tests.",
-        },
-      ],
+      features: [],
       release: 1.7,
     },
     {
@@ -457,7 +387,6 @@ export const ROADMAP_DATA: RoadmapData = {
       features: [
         {
           label: "Salesforce Dashboard",
-          date: "Oct 10th, 2024 – Dec 10th, 2024",
           description: "Salesforce Dashboard support.",
         },
       ],

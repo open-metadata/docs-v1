@@ -2,8 +2,6 @@ import classNames from "classnames";
 import { MouseEvent, useCallback, useEffect } from "react";
 import { MdClose } from "react-icons/md";
 import { CSSTransition } from "react-transition-group";
-import { ReactComponent as CollateIcon } from "../../../images/icons/ic-collate.svg";
-import { ReactComponent as OpenMetadataIcon } from "../../../images/icons/om-monogram.svg";
 import { RoadMapModalProps } from "./RoadMapModal.interface";
 import styles from "./RoadMapModal.module.css";
 
@@ -14,7 +12,7 @@ export const RoadMapModal = ({
   show,
   release,
 }: RoadMapModalProps) => {
-  const { label, description, date, isCollate } = feature;
+  const { label, description } = feature;
   const closeOnEscapeKeyDown = useCallback(
     (e) => {
       if ((e.charCode || e.keyCode) === 27) {
@@ -51,11 +49,6 @@ export const RoadMapModal = ({
           >
             <div className="flex items-center gap-4">
               <h2 className="modal-title font-medium text-lg">{label}</h2>
-              {isCollate ? (
-                <CollateIcon className={styles.PlatformIcon} width={24} />
-              ) : (
-                <OpenMetadataIcon className={styles.PlatformIcon} width={24} />
-              )}
             </div>
 
             <button onClick={onClose} className="button">
@@ -71,17 +64,15 @@ export const RoadMapModal = ({
 
             {/* Right panel */}
             <div className={classNames("col-span-4 p-3", styles.RightPanel)}>
-              <p className={styles.RightPanelInfoHeader}>Date</p>
-
-              <p className={styles.RightPanelInfoData}>{date}</p>
-
               <p className={styles.RightPanelInfoHeader}>
-                Collate SaaS Roadmap
+                OpenMetadata Roadmap
               </p>
 
               <p className={styles.RightPanelInfoData}>{category}</p>
 
-              <p className={styles.RightPanelInfoHeader}>Collate Releases</p>
+              <p className={styles.RightPanelInfoHeader}>
+                OpenMetadata Releases
+              </p>
 
               <p className={styles.RightPanelInfoData}>Release {release}</p>
             </div>

@@ -1,8 +1,6 @@
 import classNames from "classnames";
 import { MouseEvent, useCallback, useMemo, useState } from "react";
 import { Tooltip } from "react-tooltip";
-import { ReactComponent as CollateIcon } from "../../../images/icons/ic-collate.svg";
-import { ReactComponent as OpenMetadataIcon } from "../../../images/icons/om-monogram.svg";
 import { generateIdFromHeading } from "../../../utils/CommonUtils";
 import RoadMapModal from "../../modals/RoadMapModal/RoadMapModal";
 import { RoadmapFeatureItemProps } from "./RoadmapFeatureItem.interface";
@@ -34,9 +32,6 @@ function RoadmapFeatureItem({
         <div className="text-base font-medium text-heading">
           {feature.label}
         </div>
-        <div className="text-xs font-medium text-para-light">
-          {feature.date}
-        </div>
         {feature.description ? (
           <p className="mt-1 text-xs font-medium text-para-light">
             {feature.description.slice(0, 150)}...
@@ -57,11 +52,6 @@ function RoadmapFeatureItem({
       <div className={classNames(color, styles.FeatureLeftBorder)}></div>
       <div className={styles.FeatureItemContent}>
         <div>{feature.label}</div>
-        {feature.isCollate ? (
-          <CollateIcon className={styles.PlatformIcon} width={16} />
-        ) : (
-          <OpenMetadataIcon className={styles.PlatformIcon} width={16} />
-        )}
       </div>
 
       <Tooltip
