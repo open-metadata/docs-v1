@@ -294,7 +294,7 @@ export const ROADMAP_DATA: RoadmapData = {
       release: 1.5,
     },
     {
-      category: RoadmapCategories["APPLICATIONS"],
+      category: RoadmapCategories["LINEAGE"],
       features: [],
       release: 1.5,
     },
@@ -320,7 +320,7 @@ export const ROADMAP_DATA: RoadmapData = {
       release: 1.6,
     },
     {
-      category: RoadmapCategories["APPLICATIONS"],
+      category: RoadmapCategories["LINEAGE"],
       features: [
         {
           label: "Data Asset Naming Conventions",
