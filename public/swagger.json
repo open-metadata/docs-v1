@@ -12,7 +12,7 @@
       "name" : "Apache 2.0",
       "url" : "https://www.apache.org/licenses/LICENSE-2.0"
     },
-    "version" : "1.3.3"
+    "version" : "1.4.0"
   },
   "servers" : [ {
     "url" : "/api",
@@ -373,7 +373,7 @@
                       "type" : "string",
                       "format" : "date-time"
                     },
-                    "headers" : {
+                    "metadata" : {
                       "type" : "object",
                       "additionalProperties" : {
                         "type" : "array",
@@ -385,15 +385,6 @@
                     "status" : {
                       "type" : "integer",
                       "format" : "int32"
-                    },
-                    "metadata" : {
-                      "type" : "object",
-                      "additionalProperties" : {
-                        "type" : "array",
-                        "items" : {
-                          "type" : "object"
-                        }
-                      }
                     },
                     "entity" : {
                       "type" : "object"
@@ -462,43 +453,6 @@
                         }
                       }
                     },
-                    "links" : {
-                      "uniqueItems" : true,
-                      "type" : "array",
-                      "items" : {
-                        "type" : "object",
-                        "properties" : {
-                          "type" : {
-                            "type" : "string"
-                          },
-                          "params" : {
-                            "type" : "object",
-                            "additionalProperties" : {
-                              "type" : "string"
-                            }
-                          },
-                          "uri" : {
-                            "type" : "string",
-                            "format" : "uri"
-                          },
-                          "title" : {
-                            "type" : "string"
-                          },
-                          "uriBuilder" : {
-                            "type" : "object"
-                          },
-                          "rel" : {
-                            "type" : "string"
-                          },
-                          "rels" : {
-                            "type" : "array",
-                            "items" : {
-                              "type" : "string"
-                            }
-                          }
-                        }
-                      }
-                    },
                     "statusInfo" : {
                       "type" : "object",
                       "properties" : {
@@ -539,6 +493,52 @@
                         "type" : "array",
                         "items" : {
                           "type" : "string"
+                        }
+                      }
+                    },
+                    "links" : {
+                      "uniqueItems" : true,
+                      "type" : "array",
+                      "items" : {
+                        "type" : "object",
+                        "properties" : {
+                          "type" : {
+                            "type" : "string"
+                          },
+                          "params" : {
+                            "type" : "object",
+                            "additionalProperties" : {
+                              "type" : "string"
+                            }
+                          },
+                          "uri" : {
+                            "type" : "string",
+                            "format" : "uri"
+                          },
+                          "uriBuilder" : {
+                            "type" : "object"
+                          },
+                          "rel" : {
+                            "type" : "string"
+                          },
+                          "rels" : {
+                            "type" : "array",
+                            "items" : {
+                              "type" : "string"
+                            }
+                          },
+                          "title" : {
+                            "type" : "string"
+                          }
+                        }
+                      }
+                    },
+                    "headers" : {
+                      "type" : "object",
+                      "additionalProperties" : {
+                        "type" : "array",
+                        "items" : {
+                          "type" : "object"
                         }
                       }
                     }
@@ -697,6 +697,46 @@
           },
           "400" : {
             "description" : "Bad request"
+          }
+        }
+      }
+    },
+    "/v1/apps/marketplace/name/{fqn}" : {
+      "patch" : {
+        "tags" : [ "Apps" ],
+        "summary" : "Updates an App by name.",
+        "description" : "Update an existing App using JsonPatch.",
+        "externalDocs" : {
+          "description" : "JsonPatch RFC",
+          "url" : "https://tools.ietf.org/html/rfc6902"
+        },
+        "operationId" : "patchApplication",
+        "parameters" : [ {
+          "name" : "fqn",
+          "in" : "path",
+          "description" : "Name of the App",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "description" : "JsonPatch with array of operations",
+          "content" : {
+            "application/json-patch+json" : {
+              "schema" : {
+                "type" : "object"
+              },
+              "example" : "[{op:remove, path:/a},{op:add, path: /b, value: val}]"
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
           }
         }
       }
@@ -899,7 +939,7 @@
           "description" : "JsonPatch RFC",
           "url" : "https://tools.ietf.org/html/rfc6902"
         },
-        "operationId" : "patchApplication",
+        "operationId" : "patchApplication_1",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
@@ -999,6 +1039,46 @@
           },
           "404" : {
             "description" : "App for instance {id} and version {version} is not found"
+          }
+        }
+      }
+    },
+    "/v1/apps/name/{fqn}" : {
+      "patch" : {
+        "tags" : [ "Apps" ],
+        "summary" : "Updates a App by name.",
+        "description" : "Update an existing App using JsonPatch.",
+        "externalDocs" : {
+          "description" : "JsonPatch RFC",
+          "url" : "https://tools.ietf.org/html/rfc6902"
+        },
+        "operationId" : "patchApplication_2",
+        "parameters" : [ {
+          "name" : "fqn",
+          "in" : "path",
+          "description" : "Name of the App",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "description" : "JsonPatch with array of operations",
+          "content" : {
+            "application/json-patch+json" : {
+              "schema" : {
+                "type" : "object"
+              },
+              "example" : "[{op:remove, path:/a},{op:add, path: /b, value: val}]"
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
           }
         }
       }
@@ -1351,7 +1431,7 @@
                       "type" : "string",
                       "format" : "date-time"
                     },
-                    "headers" : {
+                    "metadata" : {
                       "type" : "object",
                       "additionalProperties" : {
                         "type" : "array",
@@ -1363,15 +1443,6 @@
                     "status" : {
                       "type" : "integer",
                       "format" : "int32"
-                    },
-                    "metadata" : {
-                      "type" : "object",
-                      "additionalProperties" : {
-                        "type" : "array",
-                        "items" : {
-                          "type" : "object"
-                        }
-                      }
                     },
                     "entity" : {
                       "type" : "object"
@@ -1440,43 +1511,6 @@
                         }
                       }
                     },
-                    "links" : {
-                      "uniqueItems" : true,
-                      "type" : "array",
-                      "items" : {
-                        "type" : "object",
-                        "properties" : {
-                          "type" : {
-                            "type" : "string"
-                          },
-                          "params" : {
-                            "type" : "object",
-                            "additionalProperties" : {
-                              "type" : "string"
-                            }
-                          },
-                          "uri" : {
-                            "type" : "string",
-                            "format" : "uri"
-                          },
-                          "title" : {
-                            "type" : "string"
-                          },
-                          "uriBuilder" : {
-                            "type" : "object"
-                          },
-                          "rel" : {
-                            "type" : "string"
-                          },
-                          "rels" : {
-                            "type" : "array",
-                            "items" : {
-                              "type" : "string"
-                            }
-                          }
-                        }
-                      }
-                    },
                     "statusInfo" : {
                       "type" : "object",
                       "properties" : {
@@ -1517,6 +1551,52 @@
                         "type" : "array",
                         "items" : {
                           "type" : "string"
+                        }
+                      }
+                    },
+                    "links" : {
+                      "uniqueItems" : true,
+                      "type" : "array",
+                      "items" : {
+                        "type" : "object",
+                        "properties" : {
+                          "type" : {
+                            "type" : "string"
+                          },
+                          "params" : {
+                            "type" : "object",
+                            "additionalProperties" : {
+                              "type" : "string"
+                            }
+                          },
+                          "uri" : {
+                            "type" : "string",
+                            "format" : "uri"
+                          },
+                          "uriBuilder" : {
+                            "type" : "object"
+                          },
+                          "rel" : {
+                            "type" : "string"
+                          },
+                          "rels" : {
+                            "type" : "array",
+                            "items" : {
+                              "type" : "string"
+                            }
+                          },
+                          "title" : {
+                            "type" : "string"
+                          }
+                        }
+                      }
+                    },
+                    "headers" : {
+                      "type" : "object",
+                      "additionalProperties" : {
+                        "type" : "array",
+                        "items" : {
+                          "type" : "object"
                         }
                       }
                     }
@@ -1651,7 +1731,7 @@
           "description" : "JsonPatch RFC",
           "url" : "https://tools.ietf.org/html/rfc6902"
         },
-        "operationId" : "patchApplication_1",
+        "operationId" : "patchApplication_3",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
@@ -1869,6 +1949,46 @@
         }
       }
     },
+    "/v1/bots/name/{fqn}" : {
+      "patch" : {
+        "tags" : [ "Bots" ],
+        "summary" : "Update a bot by name.",
+        "description" : "Update an existing bot using JsonPatch.",
+        "externalDocs" : {
+          "description" : "JsonPatch RFC",
+          "url" : "https://tools.ietf.org/html/rfc6902"
+        },
+        "operationId" : "patchBot",
+        "parameters" : [ {
+          "name" : "fqn",
+          "in" : "path",
+          "description" : "Name of the bot",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "description" : "JsonPatch with array of operations",
+          "content" : {
+            "application/json-patch+json" : {
+              "schema" : {
+                "type" : "object"
+              },
+              "example" : "[{op:remove, path:/a},{op:add, path: /b, value: val}]"
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
     "/v1/bots/name/{name}" : {
       "get" : {
         "tags" : [ "Bots" ],
@@ -2050,7 +2170,7 @@
           "description" : "JsonPatch RFC",
           "url" : "https://tools.ietf.org/html/rfc6902"
         },
-        "operationId" : "patchBot",
+        "operationId" : "patchBot_1",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
@@ -2360,6 +2480,44 @@
             "description" : "Chart for instance {fqn} is not found"
           }
         }
+      },
+      "patch" : {
+        "tags" : [ "Charts" ],
+        "summary" : "Update a chart by name.",
+        "description" : "Update an existing chart using JsonPatch.",
+        "externalDocs" : {
+          "description" : "JsonPatch RFC",
+          "url" : "https://tools.ietf.org/html/rfc6902"
+        },
+        "operationId" : "patchChart",
+        "parameters" : [ {
+          "name" : "fqn",
+          "in" : "path",
+          "description" : "Name of the chart",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "description" : "JsonPatch with array of operations",
+          "content" : {
+            "application/json-patch+json" : {
+              "schema" : {
+                "type" : "object"
+              },
+              "example" : "[{op:remove, path:/a},{op:add, path: /b, value: val}]"
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
       }
     },
     "/v1/charts/restore" : {
@@ -2480,7 +2638,7 @@
           "description" : "JsonPatch RFC",
           "url" : "https://tools.ietf.org/html/rfc6902"
         },
-        "operationId" : "patchChart",
+        "operationId" : "patchChart_1",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
@@ -2821,6 +2979,46 @@
         }
       }
     },
+    "/v1/classifications/name/{fqn}" : {
+      "patch" : {
+        "tags" : [ "Classifications" ],
+        "summary" : "Update a classification using name.",
+        "description" : "Update an existing classification using JsonPatch.",
+        "externalDocs" : {
+          "description" : "JsonPatch RFC",
+          "url" : "https://tools.ietf.org/html/rfc6902"
+        },
+        "operationId" : "patchClassification",
+        "parameters" : [ {
+          "name" : "fqn",
+          "in" : "path",
+          "description" : "Name of the classification",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "description" : "JsonPatch with array of operations",
+          "content" : {
+            "application/json-patch+json" : {
+              "schema" : {
+                "type" : "object"
+              },
+              "example" : "[{op:remove, path:/a},{op:add, path: /b, value: val}]"
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
     "/v1/classifications/name/{name}" : {
       "get" : {
         "tags" : [ "Classifications" ],
@@ -3027,7 +3225,7 @@
           "description" : "JsonPatch RFC",
           "url" : "https://tools.ietf.org/html/rfc6902"
         },
-        "operationId" : "patchClassification",
+        "operationId" : "patchClassification_1",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
@@ -3348,6 +3546,44 @@
             "description" : "container for instance {fqn} is not found"
           }
         }
+      },
+      "patch" : {
+        "tags" : [ "Containers" ],
+        "summary" : "Update a Container using name.",
+        "description" : "Update an existing Container using JsonPatch.",
+        "externalDocs" : {
+          "description" : "JsonPatch RFC",
+          "url" : "https://tools.ietf.org/html/rfc6902"
+        },
+        "operationId" : "patchContainer",
+        "parameters" : [ {
+          "name" : "fqn",
+          "in" : "path",
+          "description" : "Name of the Container",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "description" : "JsonPatch with array of operations",
+          "content" : {
+            "application/json-patch+json" : {
+              "schema" : {
+                "type" : "object"
+              },
+              "example" : "[{op:remove, path:/a},{op:add, path: /b, value: val}]"
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
       }
     },
     "/v1/containers/restore" : {
@@ -3475,7 +3711,7 @@
           "description" : "JsonPatch RFC",
           "url" : "https://tools.ietf.org/html/rfc6902"
         },
-        "operationId" : "patchContainer",
+        "operationId" : "patchContainer_1",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
@@ -3913,6 +4149,44 @@
             "description" : "DataModel for instance {fqn} is not found"
           }
         }
+      },
+      "patch" : {
+        "tags" : [ "Dashboard Data Models" ],
+        "summary" : "Update a dashboard datamodel by name.",
+        "description" : "Update an existing dashboard datamodel using JsonPatch.",
+        "externalDocs" : {
+          "description" : "JsonPatch RFC",
+          "url" : "https://tools.ietf.org/html/rfc6902"
+        },
+        "operationId" : "patchDataModel",
+        "parameters" : [ {
+          "name" : "fqn",
+          "in" : "path",
+          "description" : "Name of the dashboard datamodel",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "description" : "JsonPatch with array of operations",
+          "content" : {
+            "application/json-patch+json" : {
+              "schema" : {
+                "type" : "object"
+              },
+              "example" : "[{op:remove, path:/a},{op:add, path: /b, value: val}]"
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
       }
     },
     "/v1/dashboard/datamodels/restore" : {
@@ -4041,7 +4315,7 @@
           "description" : "JsonPatch RFC",
           "url" : "https://tools.ietf.org/html/rfc6902"
         },
-        "operationId" : "patchDataModel",
+        "operationId" : "patchDataModel_1",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
@@ -4476,6 +4750,44 @@
             "description" : "Dashboard for instance {fqn} is not found"
           }
         }
+      },
+      "patch" : {
+        "tags" : [ "Dashboards" ],
+        "summary" : "Update a dashboard by name.",
+        "description" : "Update an existing dashboard using JsonPatch.",
+        "externalDocs" : {
+          "description" : "JsonPatch RFC",
+          "url" : "https://tools.ietf.org/html/rfc6902"
+        },
+        "operationId" : "patchDashboard",
+        "parameters" : [ {
+          "name" : "fqn",
+          "in" : "path",
+          "description" : "Name of the dashboard",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "description" : "JsonPatch with array of operations",
+          "content" : {
+            "application/json-patch+json" : {
+              "schema" : {
+                "type" : "object"
+              },
+              "example" : "[{op:remove, path:/a},{op:add, path: /b, value: val}]"
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
       }
     },
     "/v1/dashboards/restore" : {
@@ -4596,7 +4908,7 @@
           "description" : "JsonPatch RFC",
           "url" : "https://tools.ietf.org/html/rfc6902"
         },
-        "operationId" : "patchDashboard",
+        "operationId" : "patchDashboard_1",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
@@ -4935,6 +5247,46 @@
         }
       }
     },
+    "/v1/dataProducts/name/{fqn}" : {
+      "patch" : {
+        "tags" : [ "Domains" ],
+        "summary" : "Update a dataProduct by name.",
+        "description" : "Update an existing dataProduct using JsonPatch.",
+        "externalDocs" : {
+          "description" : "JsonPatch RFC",
+          "url" : "https://tools.ietf.org/html/rfc6902"
+        },
+        "operationId" : "patchDataProduct",
+        "parameters" : [ {
+          "name" : "fqn",
+          "in" : "path",
+          "description" : "Name of the dataProduct",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "description" : "JsonPatch with array of operations",
+          "content" : {
+            "application/json-patch+json" : {
+              "schema" : {
+                "type" : "object"
+              },
+              "example" : "[{op:remove, path:/a},{op:add, path: /b, value: val}]"
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
     "/v1/dataProducts/name/{name}" : {
       "get" : {
         "tags" : [ "Domains" ],
@@ -5070,7 +5422,7 @@
           "description" : "JsonPatch RFC",
           "url" : "https://tools.ietf.org/html/rfc6902"
         },
-        "operationId" : "patchDataProduct",
+        "operationId" : "patchDataProduct_1",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
@@ -5268,7 +5620,7 @@
           "description" : "Fields requested in the returned resource",
           "schema" : {
             "type" : "string",
-            "example" : "owner,testSuite,testDefinition,testSuites,incidentId"
+            "example" : "owner,testSuite,testDefinition,testSuites,incidentId,domain"
           }
         }, {
           "name" : "limit",
@@ -5309,14 +5661,6 @@
           "description" : "Returns list of tests filtered by the testSuite id",
           "schema" : {
             "type" : "string"
-          }
-        }, {
-          "name" : "orderByLastExecutionDate",
-          "in" : "query",
-          "description" : "Returns the list of tests ordered by the most recent execution date",
-          "schema" : {
-            "type" : "boolean",
-            "default" : false
           }
         }, {
           "name" : "includeAllTests",
@@ -5506,7 +5850,7 @@
           "description" : "Fields requested in the returned resource",
           "schema" : {
             "type" : "string",
-            "example" : "owner,testSuite,testDefinition,testSuites,incidentId"
+            "example" : "owner,testSuite,testDefinition,testSuites,incidentId,domain"
           }
         }, {
           "name" : "include",
@@ -5543,6 +5887,14 @@
           "name" : "hardDelete",
           "in" : "query",
           "description" : "Hard delete the entity. (Default = `false`)",
+          "schema" : {
+            "type" : "boolean",
+            "default" : false
+          }
+        }, {
+          "name" : "recursive",
+          "in" : "query",
+          "description" : "Recursively delete this entity and it's children. (Default `false`)",
           "schema" : {
             "type" : "boolean",
             "default" : false
@@ -5588,6 +5940,178 @@
               "application/json" : {
                 "schema" : {
                   "$ref" : "#/components/schemas/TestCase"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/dataQuality/testCases/search/list" : {
+      "get" : {
+        "tags" : [ "Test Cases" ],
+        "summary" : "List test cases using search service",
+        "description" : "Get a list of test cases using the search service. Use `fields` parameter to get only necessary fields. Use offset/limit pagination to limit the number entries in the list using `limit` and `offset` query params.Use the `testSuite` field to get the executable Test Suite linked to this test case or use the `testSuites` field to list test suites (executable and logical) linked.",
+        "operationId" : "listTestCasesFromSearchService",
+        "parameters" : [ {
+          "name" : "fields",
+          "in" : "query",
+          "description" : "Fields requested in the returned resource",
+          "schema" : {
+            "type" : "string",
+            "example" : "owner,testSuite,testDefinition,testSuites,incidentId,domain"
+          }
+        }, {
+          "name" : "limit",
+          "in" : "query",
+          "description" : "Limit the number tests returned. (1 to 1000000, default = 10)",
+          "schema" : {
+            "maximum" : 1000000,
+            "minimum" : 0,
+            "type" : "integer",
+            "format" : "int32",
+            "default" : 10
+          }
+        }, {
+          "name" : "offset",
+          "in" : "query",
+          "description" : "Returns list of tests after this offset",
+          "schema" : {
+            "type" : "string",
+            "default" : "0"
+          }
+        }, {
+          "name" : "entityLink",
+          "in" : "query",
+          "description" : "Return list of tests by entity link",
+          "schema" : {
+            "type" : "string",
+            "example" : "<E#/{entityType}/{entityFQN}/{fieldName}>"
+          }
+        }, {
+          "name" : "testSuiteId",
+          "in" : "query",
+          "description" : "Returns list of tests filtered by a testSuite id",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "includeAllTests",
+          "in" : "query",
+          "description" : "Include all the tests at the entity level",
+          "schema" : {
+            "type" : "boolean",
+            "default" : false
+          }
+        }, {
+          "name" : "include",
+          "in" : "query",
+          "description" : "Include all, deleted, or non-deleted entities.",
+          "schema" : {
+            "type" : "string",
+            "default" : "non-deleted",
+            "enum" : [ "all", "deleted", "non-deleted" ]
+          }
+        }, {
+          "name" : "testCaseStatus",
+          "in" : "query",
+          "description" : "Filter test case by status",
+          "schema" : {
+            "type" : "string",
+            "enum" : [ "Success", "Failed", "Aborted", "Queued" ]
+          }
+        }, {
+          "name" : "testCaseType",
+          "in" : "query",
+          "description" : "Filter for test case type (e.g. column, table, all)",
+          "schema" : {
+            "type" : "string",
+            "default" : "all",
+            "enum" : [ "column", "table", "all" ]
+          }
+        }, {
+          "name" : "testPlatforms",
+          "in" : "query",
+          "description" : "Filter for test case by source (e.g. OpenMetadata, dbt, etc.)",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "startTimestamp",
+          "in" : "query",
+          "description" : "Parameter used to filter (inclusive) the test cases by the last execution timestamp (in milliseconds). Must be used in conjunction with `endTimestamp`",
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        }, {
+          "name" : "endTimestamp",
+          "in" : "query",
+          "description" : "Parameter used to filter (inclusive) the test cases by the last execution timestamp (in milliseconds). Must be used in conjunction with `startTimestamp`",
+          "schema" : {
+            "type" : "integer",
+            "format" : "int64"
+          }
+        }, {
+          "name" : "sortField",
+          "in" : "query",
+          "description" : "Field used to sort the test cases listing",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "sortNestedPath",
+          "in" : "query",
+          "description" : "Set this field if your mapping is nested and you want to sort on a nested field",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "sortNestedMode",
+          "in" : "query",
+          "description" : "Set this field if your mapping is nested and you want to sort on a nested field",
+          "schema" : {
+            "type" : "string",
+            "example" : "min,max,avg,sum,median"
+          }
+        }, {
+          "name" : "sortType",
+          "in" : "query",
+          "description" : "Sort type",
+          "schema" : {
+            "type" : "string",
+            "default" : "desc",
+            "enum" : [ "asc", "desc" ]
+          }
+        }, {
+          "name" : "domain",
+          "in" : "query",
+          "description" : "domain filter to use in list",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "owner",
+          "in" : "query",
+          "description" : "owner filter to use in list",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "q",
+          "in" : "query",
+          "description" : "search query term to use in list",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "List of test cases",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/TestCaseList"
                 }
               }
             }
@@ -5997,7 +6521,7 @@
           "description" : "Fields requested in the returned resource",
           "schema" : {
             "type" : "string",
-            "example" : "owner,testSuite,testDefinition,testSuites,incidentId"
+            "example" : "owner,testSuite,testDefinition,testSuites,incidentId,domain"
           }
         }, {
           "name" : "include",
@@ -6034,6 +6558,14 @@
           "name" : "hardDelete",
           "in" : "query",
           "description" : "Hard delete the entity. (Default = `false`)",
+          "schema" : {
+            "type" : "boolean",
+            "default" : false
+          }
+        }, {
+          "name" : "recursive",
+          "in" : "query",
+          "description" : "Recursively delete this entity and it's children. (Default `false`)",
           "schema" : {
             "type" : "boolean",
             "default" : false
@@ -6092,6 +6624,139 @@
             "description" : "default response",
             "content" : {
               "application/json" : { }
+            }
+          }
+        }
+      }
+    },
+    "/v1/dataQuality/testCases/{id}/failedRowsSample" : {
+      "get" : {
+        "tags" : [ "Test Cases" ],
+        "summary" : "Get failed rows sample data",
+        "description" : "Get a sample of failed rows for this test case.",
+        "operationId" : "getFailedRowsSample",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "Id of the table",
+          "required" : true,
+          "schema" : {
+            "type" : "string",
+            "format" : "uuid"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Successfully retrieved the test case with failed rows sample data.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/TableData"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put" : {
+        "tags" : [ "Test Cases" ],
+        "summary" : "Add failed rows sample data",
+        "description" : "Add a sample of failed rows for this test case.",
+        "operationId" : "addFailedRowsSample",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "Id of the test case",
+          "required" : true,
+          "schema" : {
+            "type" : "string",
+            "format" : "uuid"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/TableData"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Successfully update the test case with failed rows sample data.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/TestCase"
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Failed rows can only be added to a failed test case."
+          }
+        }
+      },
+      "delete" : {
+        "tags" : [ "Test Cases" ],
+        "summary" : "Delete failed rows sample data",
+        "description" : "Delete a sample of failed rows for this test case.",
+        "operationId" : "deleteFailedRowsSample",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "Id of the table",
+          "required" : true,
+          "schema" : {
+            "type" : "string",
+            "format" : "uuid"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "OK"
+          },
+          "404" : {
+            "description" : "Failed rows sample data for test case {id} is not found."
+          }
+        }
+      }
+    },
+    "/v1/dataQuality/testCases/{id}/inspectionQuery" : {
+      "put" : {
+        "tags" : [ "Test Cases" ],
+        "summary" : "Add inspection query data",
+        "description" : "Add an inspection query for this test case.",
+        "operationId" : "addInspectionQuery",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "Id of the test case",
+          "required" : true,
+          "schema" : {
+            "type" : "string",
+            "format" : "uuid"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "string"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Successfully update the test case with an inspection query.",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/TestCase"
+                }
+              }
             }
           }
         }
@@ -7048,6 +7713,132 @@
         }
       }
     },
+    "/v1/dataQuality/testSuites/search/list" : {
+      "get" : {
+        "tags" : [ "Test Suites" ],
+        "summary" : "List test suite using search service",
+        "description" : "Get a list of test suite using the search service. Use `fields` parameter to get only necessary fields. Use offset/limit pagination to limit the number entries in the list using `limit` and `offset` query params.Use the `tests` field to get the test cases linked to the test suite and/or use the `summary` field to get a summary of test case executions.",
+        "operationId" : "listTestSuiteFromSearchService",
+        "parameters" : [ {
+          "name" : "fields",
+          "in" : "query",
+          "description" : "Fields requested in the returned resource",
+          "schema" : {
+            "type" : "string",
+            "example" : "owner,tests,summary"
+          }
+        }, {
+          "name" : "limit",
+          "in" : "query",
+          "description" : "Limit the number test suite returned. (1 to 1000000, default = 10)",
+          "schema" : {
+            "maximum" : 1000000,
+            "minimum" : 0,
+            "type" : "integer",
+            "format" : "int32",
+            "default" : 10
+          }
+        }, {
+          "name" : "offset",
+          "in" : "query",
+          "description" : "Returns list of test suite after this offset (default = 0)",
+          "schema" : {
+            "type" : "string",
+            "default" : "0"
+          }
+        }, {
+          "name" : "testSuiteType",
+          "in" : "query",
+          "description" : "Returns executable or logical test suites. If omitted, returns all test suites.",
+          "schema" : {
+            "type" : "string",
+            "example" : "executable"
+          }
+        }, {
+          "name" : "includeEmptyTestSuites",
+          "in" : "query",
+          "description" : "Include empty test suite in the response.",
+          "schema" : {
+            "type" : "boolean",
+            "example" : true,
+            "default" : true
+          }
+        }, {
+          "name" : "fullyQualifiedName",
+          "in" : "query",
+          "description" : "Filter a test suite by fully qualified name.",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "owner",
+          "in" : "query",
+          "description" : "Filter test suites by owner.",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "include",
+          "in" : "query",
+          "description" : "Include all, deleted, or non-deleted entities.",
+          "schema" : {
+            "type" : "string",
+            "default" : "non-deleted",
+            "enum" : [ "all", "deleted", "non-deleted" ]
+          }
+        }, {
+          "name" : "sortField",
+          "in" : "query",
+          "description" : "Field used to sort the test cases listing",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "sortNestedPath",
+          "in" : "query",
+          "description" : "Set this field if your mapping is nested and you want to sort on a nested field",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "sortNestedMode",
+          "in" : "query",
+          "description" : "Set this field if your mapping is nested and you want to sort on a nested field",
+          "schema" : {
+            "type" : "string",
+            "example" : "min,max,avg,sum,median"
+          }
+        }, {
+          "name" : "sortType",
+          "in" : "query",
+          "description" : "Sort type",
+          "schema" : {
+            "type" : "string",
+            "default" : "desc",
+            "enum" : [ "asc", "desc" ]
+          }
+        }, {
+          "name" : "q",
+          "in" : "query",
+          "description" : "search query term to use in list",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "List of test suites",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/TestSuiteList"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/v1/dataQuality/testSuites/{id}" : {
       "get" : {
         "tags" : [ "Test Suites" ],
@@ -7455,6 +8246,44 @@
             "description" : "Schema for instance {fqn} is not found"
           }
         }
+      },
+      "patch" : {
+        "tags" : [ "Database Schemas" ],
+        "summary" : "Update a database schema by name.",
+        "description" : "Update an existing database schema using JsonPatch.",
+        "externalDocs" : {
+          "description" : "JsonPatch RFC",
+          "url" : "https://tools.ietf.org/html/rfc6902"
+        },
+        "operationId" : "patchDBSchema",
+        "parameters" : [ {
+          "name" : "fqn",
+          "in" : "path",
+          "description" : "Database schema name",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "description" : "JsonPatch with array of operations",
+          "content" : {
+            "application/json-patch+json" : {
+              "schema" : {
+                "type" : "object"
+              },
+              "example" : "[{op:remove, path:/a},{op:add, path: /b, value: val}]"
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
       }
     },
     "/v1/databaseSchemas/name/{name}/export" : {
@@ -7656,7 +8485,7 @@
           "description" : "JsonPatch RFC",
           "url" : "https://tools.ietf.org/html/rfc6902"
         },
-        "operationId" : "patchDBSchema",
+        "operationId" : "patchDBSchema_1",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
@@ -8111,6 +8940,44 @@
             "description" : "Database for instance {fqn} is not found"
           }
         }
+      },
+      "patch" : {
+        "tags" : [ "Databases" ],
+        "summary" : "Update a database by name.",
+        "description" : "Update an existing database using JsonPatch.",
+        "externalDocs" : {
+          "description" : "JsonPatch RFC",
+          "url" : "https://tools.ietf.org/html/rfc6902"
+        },
+        "operationId" : "patchDatabase",
+        "parameters" : [ {
+          "name" : "fqn",
+          "in" : "path",
+          "description" : "Name of the database",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "description" : "JsonPatch with array of operations",
+          "content" : {
+            "application/json-patch+json" : {
+              "schema" : {
+                "type" : "object"
+              },
+              "example" : "[{op:remove, path:/a},{op:add, path: /b, value: val}]"
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
       }
     },
     "/v1/databases/name/{name}/export" : {
@@ -8312,7 +9179,7 @@
           "description" : "JsonPatch RFC",
           "url" : "https://tools.ietf.org/html/rfc6902"
         },
-        "operationId" : "patchDatabase",
+        "operationId" : "patchDatabase_1",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
@@ -8675,6 +9542,46 @@
         }
       }
     },
+    "/v1/docStore/name/{fqn}" : {
+      "patch" : {
+        "tags" : [ "Document Store" ],
+        "summary" : "Update a Document by name.",
+        "description" : "Update an existing Document with JsonPatch.",
+        "externalDocs" : {
+          "description" : "JsonPatch RFC",
+          "url" : "https://tools.ietf.org/html/rfc6902"
+        },
+        "operationId" : "patchDocument",
+        "parameters" : [ {
+          "name" : "fqn",
+          "in" : "path",
+          "description" : "Name of the Document",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "description" : "JsonPatch with array of operations",
+          "content" : {
+            "application/json-patch+json" : {
+              "schema" : {
+                "type" : "object"
+              },
+              "example" : "[{op:remove, path:/a},{op:add, path: /b, value: val}]"
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
     "/v1/docStore/name/{name}" : {
       "get" : {
         "tags" : [ "Document Store" ],
@@ -8812,7 +9719,7 @@
           "description" : "JsonPatch RFC",
           "url" : "https://tools.ietf.org/html/rfc6902"
         },
-        "operationId" : "patchDocument",
+        "operationId" : "patchDocument_1",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
@@ -9029,6 +9936,46 @@
         }
       }
     },
+    "/v1/domains/name/{fqn}" : {
+      "patch" : {
+        "tags" : [ "Domains" ],
+        "summary" : "Update a domain by name.",
+        "description" : "Update an existing domain using JsonPatch.",
+        "externalDocs" : {
+          "description" : "JsonPatch RFC",
+          "url" : "https://tools.ietf.org/html/rfc6902"
+        },
+        "operationId" : "patchDomain",
+        "parameters" : [ {
+          "name" : "fqn",
+          "in" : "path",
+          "description" : "Name of the domain",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "description" : "JsonPatch with array of operations",
+          "content" : {
+            "application/json-patch+json" : {
+              "schema" : {
+                "type" : "object"
+              },
+              "example" : "[{op:remove, path:/a},{op:add, path: /b, value: val}]"
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
     "/v1/domains/name/{name}" : {
       "get" : {
         "tags" : [ "Domains" ],
@@ -9164,7 +10111,7 @@
           "description" : "JsonPatch RFC",
           "url" : "https://tools.ietf.org/html/rfc6902"
         },
-        "operationId" : "patchDomain",
+        "operationId" : "patchDomain_1",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
@@ -9618,6 +10565,46 @@
         }
       }
     },
+    "/v1/events/subscriptions/name/{fqn}" : {
+      "patch" : {
+        "tags" : [ "Events" ],
+        "summary" : "Update an Event Subscriptions by name.",
+        "description" : "Update an existing Event Subscriptions using JsonPatch.",
+        "externalDocs" : {
+          "description" : "JsonPatch RFC",
+          "url" : "https://tools.ietf.org/html/rfc6902"
+        },
+        "operationId" : "patchEventSubscription",
+        "parameters" : [ {
+          "name" : "fqn",
+          "in" : "path",
+          "description" : "Name of the event Subscription",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "description" : "JsonPatch with array of operations",
+          "content" : {
+            "application/json-patch+json" : {
+              "schema" : {
+                "type" : "object"
+              },
+              "example" : "[{op:remove, path:/a},{op:add, path: /b, value: val}]"
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
     "/v1/events/subscriptions/name/{name}" : {
       "delete" : {
         "tags" : [ "Events" ],
@@ -9818,7 +10805,7 @@
           "description" : "JsonPatch RFC",
           "url" : "https://tools.ietf.org/html/rfc6902"
         },
-        "operationId" : "patchEventSubscription",
+        "operationId" : "patchEventSubscription_1",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
@@ -10643,6 +11630,46 @@
         }
       }
     },
+    "/v1/glossaries/name/{fqn}" : {
+      "patch" : {
+        "tags" : [ "Glossaries" ],
+        "summary" : "Update a glossary using name.",
+        "description" : "Update an existing glossary using JsonPatch.",
+        "externalDocs" : {
+          "description" : "JsonPatch RFC",
+          "url" : "https://tools.ietf.org/html/rfc6902"
+        },
+        "operationId" : "patchGlossary",
+        "parameters" : [ {
+          "name" : "fqn",
+          "in" : "path",
+          "description" : "Name of the glossary",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "description" : "JsonPatch with array of operations",
+          "content" : {
+            "application/json-patch+json" : {
+              "schema" : {
+                "type" : "object"
+              },
+              "example" : "[{op:remove, path:/a},{op:add, path: /b, value: val}]"
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
     "/v1/glossaries/name/{name}" : {
       "get" : {
         "tags" : [ "Glossaries" ],
@@ -10930,7 +11957,7 @@
           "description" : "JsonPatch RFC",
           "url" : "https://tools.ietf.org/html/rfc6902"
         },
-        "operationId" : "patchGlossary",
+        "operationId" : "patchGlossary_1",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
@@ -11088,7 +12115,7 @@
           "description" : "List glossary terms filtered by glossary identified by Id given in `glossary` parameter.",
           "schema" : {
             "type" : "string",
-            "example" : "children,relatedTerms,reviewers,owner,tags,usageCount,domain,extension"
+            "example" : "children,relatedTerms,reviewers,owner,tags,usageCount,domain,extension,childrenCount"
           }
         }, {
           "name" : "parent",
@@ -11096,7 +12123,7 @@
           "description" : "List glossary terms filtered by children of glossary term identified by Id given in `parent` parameter.",
           "schema" : {
             "type" : "string",
-            "example" : "children,relatedTerms,reviewers,owner,tags,usageCount,domain,extension"
+            "example" : "children,relatedTerms,reviewers,owner,tags,usageCount,domain,extension,childrenCount"
           }
         }, {
           "name" : "fields",
@@ -11104,7 +12131,7 @@
           "description" : "Fields requested in the returned resource",
           "schema" : {
             "type" : "string",
-            "example" : "children,relatedTerms,reviewers,owner,tags,usageCount,domain,extension"
+            "example" : "children,relatedTerms,reviewers,owner,tags,usageCount,domain,extension,childrenCount"
           }
         }, {
           "name" : "limit",
@@ -11139,6 +12166,13 @@
             "type" : "string",
             "default" : "non-deleted",
             "enum" : [ "all", "deleted", "non-deleted" ]
+          }
+        }, {
+          "name" : "directChildrenOf",
+          "in" : "query",
+          "description" : "List glossary terms filtered to retrieve the first level/immediate children of the glossary term `directChildrenOf` parameter.",
+          "schema" : {
+            "type" : "string"
           }
         } ],
         "responses" : {
@@ -11235,7 +12269,7 @@
           "description" : "Fields requested in the returned resource",
           "schema" : {
             "type" : "string",
-            "example" : "children,relatedTerms,reviewers,owner,tags,usageCount,domain,extension"
+            "example" : "children,relatedTerms,reviewers,owner,tags,usageCount,domain,extension,childrenCount"
           }
         }, {
           "name" : "include",
@@ -11301,6 +12335,44 @@
             "description" : "glossaryTerm for instance {fqn} is not found"
           }
         }
+      },
+      "patch" : {
+        "tags" : [ "Glossaries" ],
+        "summary" : "Update a glossary term by name.",
+        "description" : "Update an existing glossary term using JsonPatch.",
+        "externalDocs" : {
+          "description" : "JsonPatch RFC",
+          "url" : "https://tools.ietf.org/html/rfc6902"
+        },
+        "operationId" : "patchGlossaryTerm",
+        "parameters" : [ {
+          "name" : "fqn",
+          "in" : "path",
+          "description" : "Name of the glossary term",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "description" : "JsonPatch with array of operations",
+          "content" : {
+            "application/json-patch+json" : {
+              "schema" : {
+                "type" : "object"
+              },
+              "example" : "[{op:remove, path:/a},{op:add, path: /b, value: val}]"
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
       }
     },
     "/v1/glossaryTerms/restore" : {
@@ -11353,7 +12425,7 @@
           "description" : "Fields requested in the returned resource",
           "schema" : {
             "type" : "string",
-            "example" : "children,relatedTerms,reviewers,owner,tags,usageCount,domain,extension"
+            "example" : "children,relatedTerms,reviewers,owner,tags,usageCount,domain,extension,childrenCount"
           }
         }, {
           "name" : "include",
@@ -11429,7 +12501,7 @@
           "description" : "JsonPatch RFC",
           "url" : "https://tools.ietf.org/html/rfc6902"
         },
-        "operationId" : "patchGlossaryTerm",
+        "operationId" : "patchGlossaryTerm_1",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
@@ -11723,6 +12795,70 @@
         }
       }
     },
+    "/v1/lineage/export" : {
+      "get" : {
+        "tags" : [ "Lineage" ],
+        "summary" : "Export lineage",
+        "operationId" : "exportLineage",
+        "parameters" : [ {
+          "name" : "fqn",
+          "in" : "query",
+          "description" : "fqn",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "upstreamDepth",
+          "in" : "query",
+          "description" : "upstreamDepth",
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }, {
+          "name" : "downstreamDepth",
+          "in" : "query",
+          "description" : "downstreamDepth",
+          "schema" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }, {
+          "name" : "query_filter",
+          "in" : "query",
+          "description" : "Elasticsearch query that will be combined with the query_string query generator from the `query` argument",
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "includeDeleted",
+          "in" : "query",
+          "description" : "Filter documents by deleted param. By default deleted is false",
+          "schema" : {
+            "type" : "boolean"
+          }
+        }, {
+          "name" : "type",
+          "in" : "query",
+          "description" : "entity type",
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "search response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/SearchResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/v1/lineage/getLineage" : {
       "get" : {
         "tags" : [ "Lineage" ],
@@ -11783,6 +12919,36 @@
                 }
               }
             }
+          }
+        }
+      }
+    },
+    "/v1/lineage/getLineageEdge/{fromId}/{toId}" : {
+      "get" : {
+        "tags" : [ "Lineage" ],
+        "summary" : "Get  a lineage edge",
+        "description" : "Get a lineage edge with from entity as upstream node and to entity as downstream node.",
+        "operationId" : "getLineageEdge",
+        "parameters" : [ {
+          "name" : "fromId",
+          "in" : "path",
+          "description" : "Entity FQN",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "toId",
+          "in" : "path",
+          "description" : "Entity FQN",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "404" : {
+            "description" : "Entity for instance {fromId} is not found"
           }
         }
       }
@@ -12007,6 +13173,63 @@
             "description" : "Entity for instance {fromId} is not found"
           }
         }
+      },
+      "patch" : {
+        "tags" : [ "Lineage" ],
+        "summary" : "Patch a lineage edge",
+        "description" : "Patch a lineage edge with from entity as upstream node and to entity as downstream node.",
+        "operationId" : "patchLineageEdge",
+        "parameters" : [ {
+          "name" : "fromEntity",
+          "in" : "path",
+          "description" : "Entity type of upstream entity of the edge",
+          "required" : true,
+          "schema" : {
+            "type" : "string",
+            "example" : "table, report, metrics, or dashboard"
+          }
+        }, {
+          "name" : "fromId",
+          "in" : "path",
+          "description" : "Entity id",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "toEntity",
+          "in" : "path",
+          "description" : "Entity type for downstream entity of the edge",
+          "required" : true,
+          "schema" : {
+            "type" : "string",
+            "example" : "table, report, metrics, or dashboard"
+          }
+        }, {
+          "name" : "toId",
+          "in" : "path",
+          "description" : "Entity id",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "description" : "JsonPatch with array of operations",
+          "content" : {
+            "application/json-patch+json" : {
+              "schema" : {
+                "type" : "object"
+              },
+              "example" : "[{op:remove, path:/a},{op:add, path: /b, value: val}]"
+            }
+          }
+        },
+        "responses" : {
+          "404" : {
+            "description" : "Entity for instance {fromId} is not found"
+          }
+        }
       }
     },
     "/v1/metadata/types" : {
@@ -12119,6 +13342,46 @@
           },
           "400" : {
             "description" : "Bad request"
+          }
+        }
+      }
+    },
+    "/v1/metadata/types/name/{fqn}" : {
+      "patch" : {
+        "tags" : [ "Metadata" ],
+        "summary" : "Update a type using name.",
+        "description" : "Update an existing type using JsonPatch.",
+        "externalDocs" : {
+          "description" : "JsonPatch RFC",
+          "url" : "https://tools.ietf.org/html/rfc6902"
+        },
+        "operationId" : "patchType",
+        "parameters" : [ {
+          "name" : "fqn",
+          "in" : "path",
+          "description" : "Name of the type",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "description" : "JsonPatch with array of operations",
+          "content" : {
+            "application/json-patch+json" : {
+              "schema" : {
+                "type" : "object"
+              },
+              "example" : "[{op:remove, path:/a},{op:add, path: /b, value: val}]"
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
           }
         }
       }
@@ -12309,7 +13572,7 @@
           "description" : "JsonPatch RFC",
           "url" : "https://tools.ietf.org/html/rfc6902"
         },
-        "operationId" : "patchType",
+        "operationId" : "patchType_1",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
@@ -12835,6 +14098,44 @@
             "description" : "model for instance {fqn} is not found"
           }
         }
+      },
+      "patch" : {
+        "tags" : [ "ML Models" ],
+        "summary" : "Update an ML model by name.",
+        "description" : "Update an existing ML model using JsonPatch.",
+        "externalDocs" : {
+          "description" : "JsonPatch RFC",
+          "url" : "https://tools.ietf.org/html/rfc6902"
+        },
+        "operationId" : "patchMlModel",
+        "parameters" : [ {
+          "name" : "fqn",
+          "in" : "path",
+          "description" : "Name of the ML Model",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "description" : "JsonPatch with array of operations",
+          "content" : {
+            "application/json-patch+json" : {
+              "schema" : {
+                "type" : "object"
+              },
+              "example" : "[{op:remove, path:/a},{op:add, path: /b, value: val}]"
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
       }
     },
     "/v1/mlmodels/restore" : {
@@ -12955,7 +14256,7 @@
           "description" : "JsonPatch RFC",
           "url" : "https://tools.ietf.org/html/rfc6902"
         },
-        "operationId" : "patchMlModel",
+        "operationId" : "patchMlModel_1",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
@@ -13482,6 +14783,46 @@
         }
       }
     },
+    "/v1/personas/name/{fqn}" : {
+      "patch" : {
+        "tags" : [ "Personas" ],
+        "summary" : "Update a Persona using name.",
+        "description" : "Update an existing persona with JsonPatch.",
+        "externalDocs" : {
+          "description" : "JsonPatch RFC",
+          "url" : "https://tools.ietf.org/html/rfc6902"
+        },
+        "operationId" : "patchPersona",
+        "parameters" : [ {
+          "name" : "fqn",
+          "in" : "path",
+          "description" : "Name of the Persona",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "description" : "JsonPatch with array of operations",
+          "content" : {
+            "application/json-patch+json" : {
+              "schema" : {
+                "type" : "object"
+              },
+              "example" : "[{op:remove, path:/a},{op:add, path: /b, value: val}]"
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
     "/v1/personas/name/{name}" : {
       "get" : {
         "tags" : [ "Personas" ],
@@ -13635,7 +14976,7 @@
           "description" : "JsonPatch RFC",
           "url" : "https://tools.ietf.org/html/rfc6902"
         },
-        "operationId" : "patchPersona",
+        "operationId" : "patchPersona_1",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
@@ -13956,6 +15297,44 @@
             "description" : "Pipeline for instance {fqn} is not found"
           }
         }
+      },
+      "patch" : {
+        "tags" : [ "Pipelines" ],
+        "summary" : "Update a pipeline by name.",
+        "description" : "Update an existing pipeline using JsonPatch.",
+        "externalDocs" : {
+          "description" : "JsonPatch RFC",
+          "url" : "https://tools.ietf.org/html/rfc6902"
+        },
+        "operationId" : "patchPipeline",
+        "parameters" : [ {
+          "name" : "fqn",
+          "in" : "path",
+          "description" : "Name of the pipeline",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "description" : "JsonPatch with array of operations",
+          "content" : {
+            "application/json-patch+json" : {
+              "schema" : {
+                "type" : "object"
+              },
+              "example" : "[{op:remove, path:/a},{op:add, path: /b, value: val}]"
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
       }
     },
     "/v1/pipelines/restore" : {
@@ -14206,7 +15585,7 @@
           "description" : "JsonPatch RFC",
           "url" : "https://tools.ietf.org/html/rfc6902"
         },
-        "operationId" : "patchPipeline",
+        "operationId" : "patchPipeline_1",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
@@ -14655,6 +16034,44 @@
             "description" : "policy for instance {fqn} is not found"
           }
         }
+      },
+      "patch" : {
+        "tags" : [ "Policies" ],
+        "summary" : "Update a policy by name.",
+        "description" : "Update an existing policy using JsonPatch.",
+        "externalDocs" : {
+          "description" : "JsonPatch RFC",
+          "url" : "https://tools.ietf.org/html/rfc6902"
+        },
+        "operationId" : "patchPolicy",
+        "parameters" : [ {
+          "name" : "fqn",
+          "in" : "path",
+          "description" : "Name of the policy",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "description" : "JsonPatch with array of operations",
+          "content" : {
+            "application/json-patch+json" : {
+              "schema" : {
+                "type" : "object"
+              },
+              "example" : "[{op:remove, path:/a},{op:add, path: /b, value: val}]"
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
       }
     },
     "/v1/policies/resources" : {
@@ -14820,7 +16237,7 @@
           "description" : "JsonPatch RFC",
           "url" : "https://tools.ietf.org/html/rfc6902"
         },
-        "operationId" : "patchPolicy",
+        "operationId" : "patchPolicy_1",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
@@ -15114,6 +16531,44 @@
             "description" : "Query for instance {fqn} is not found"
           }
         }
+      },
+      "patch" : {
+        "tags" : [ "Queries" ],
+        "summary" : "Update a query using name.",
+        "description" : "Update an existing query using JsonPatch.",
+        "externalDocs" : {
+          "description" : "JsonPatch RFC",
+          "url" : "https://tools.ietf.org/html/rfc6902"
+        },
+        "operationId" : "patchQuery",
+        "parameters" : [ {
+          "name" : "fqn",
+          "in" : "path",
+          "description" : "Name of the query",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "description" : "JsonPatch with array of operations",
+          "content" : {
+            "application/json-patch+json" : {
+              "schema" : {
+                "type" : "object"
+              },
+              "example" : "[{op:remove, path:/a},{op:add, path: /b, value: val}]"
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
       }
     },
     "/v1/queries/restore" : {
@@ -15217,7 +16672,7 @@
           "description" : "JsonPatch RFC",
           "url" : "https://tools.ietf.org/html/rfc6902"
         },
-        "operationId" : "patchQuery",
+        "operationId" : "patchQuery_1",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
@@ -15923,6 +17378,46 @@
         }
       }
     },
+    "/v1/roles/name/{fqn}" : {
+      "patch" : {
+        "tags" : [ "Roles" ],
+        "summary" : "Update a role using name.",
+        "description" : "Update an existing role with JsonPatch.",
+        "externalDocs" : {
+          "description" : "JsonPatch RFC",
+          "url" : "https://tools.ietf.org/html/rfc6902"
+        },
+        "operationId" : "patchRole",
+        "parameters" : [ {
+          "name" : "fqn",
+          "in" : "path",
+          "description" : "Name of the role",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "description" : "JsonPatch with array of operations",
+          "content" : {
+            "application/json-patch+json" : {
+              "schema" : {
+                "type" : "object"
+              },
+              "example" : "[{op:remove, path:/a},{op:add, path: /b, value: val}]"
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
     "/v1/roles/name/{name}" : {
       "get" : {
         "tags" : [ "Roles" ],
@@ -16121,7 +17616,7 @@
           "description" : "JsonPatch RFC",
           "url" : "https://tools.ietf.org/html/rfc6902"
         },
-        "operationId" : "patchRole",
+        "operationId" : "patchRole_1",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
@@ -16335,6 +17830,43 @@
         }
       }
     },
+    "/v1/search/get/{index}/doc/{id}" : {
+      "get" : {
+        "tags" : [ "Search" ],
+        "summary" : "Search entities in ES index with Id",
+        "operationId" : "searchEntityInEsIndexWithId",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "document Id",
+          "required" : true,
+          "schema" : {
+            "type" : "string",
+            "format" : "uuid"
+          }
+        }, {
+          "name" : "index",
+          "in" : "path",
+          "description" : "Index Name",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "search response",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/SearchResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/v1/search/query" : {
       "get" : {
         "tags" : [ "Search" ],
@@ -16439,6 +17971,14 @@
             "items" : {
               "type" : "string"
             }
+          }
+        }, {
+          "name" : "getHierarchy",
+          "in" : "query",
+          "description" : "Fetch search results in hierarchical order of children elements. By default hierarchy is not fetched.",
+          "schema" : {
+            "type" : "boolean",
+            "default" : false
           }
         } ],
         "responses" : {
@@ -16790,6 +18330,44 @@
             "description" : "SearchIndex for instance {fqn} is not found"
           }
         }
+      },
+      "patch" : {
+        "tags" : [ "SearchIndex" ],
+        "summary" : "Update a SearchIndex using name.",
+        "description" : "Update an existing SearchIndex using JsonPatch.",
+        "externalDocs" : {
+          "description" : "JsonPatch RFC",
+          "url" : "https://tools.ietf.org/html/rfc6902"
+        },
+        "operationId" : "patchSearchIndex",
+        "parameters" : [ {
+          "name" : "fqn",
+          "in" : "path",
+          "description" : "Name of the SearchIndex",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "description" : "JsonPatch with array of operations",
+          "content" : {
+            "application/json-patch+json" : {
+              "schema" : {
+                "type" : "object"
+              },
+              "example" : "[{op:remove, path:/a},{op:add, path: /b, value: val}]"
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
       }
     },
     "/v1/searchIndexes/restore" : {
@@ -16918,7 +18496,7 @@
           "description" : "JsonPatch RFC",
           "url" : "https://tools.ietf.org/html/rfc6902"
         },
-        "operationId" : "patchSearchIndex",
+        "operationId" : "patchSearchIndex_1",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
@@ -17349,6 +18927,46 @@
         }
       }
     },
+    "/v1/services/dashboardServices/name/{fqn}" : {
+      "patch" : {
+        "tags" : [ "Dashboard Services" ],
+        "summary" : "Update a dashboard service using name.",
+        "description" : "Update an existing dashboard service using JsonPatch.",
+        "externalDocs" : {
+          "description" : "JsonPatch RFC",
+          "url" : "https://tools.ietf.org/html/rfc6902"
+        },
+        "operationId" : "patchDashboardService",
+        "parameters" : [ {
+          "name" : "fqn",
+          "in" : "path",
+          "description" : "Name of the dashboard service",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "description" : "JsonPatch with array of operations",
+          "content" : {
+            "application/json-patch+json" : {
+              "schema" : {
+                "type" : "object"
+              },
+              "example" : "[{op:remove, path:/a},{op:add, path: /b, value: val}]"
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
     "/v1/services/dashboardServices/name/{name}" : {
       "get" : {
         "tags" : [ "Dashboard Services" ],
@@ -17563,7 +19181,7 @@
           "description" : "JsonPatch RFC",
           "url" : "https://tools.ietf.org/html/rfc6902"
         },
-        "operationId" : "patchDashboardService",
+        "operationId" : "patchDashboardService_1",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
@@ -17836,6 +19454,46 @@
         }
       }
     },
+    "/v1/services/databaseServices/name/{fqn}" : {
+      "patch" : {
+        "tags" : [ "Database Services" ],
+        "summary" : "Update a database service using name.",
+        "description" : "Update an existing database service using JsonPatch.",
+        "externalDocs" : {
+          "description" : "JsonPatch RFC",
+          "url" : "https://tools.ietf.org/html/rfc6902"
+        },
+        "operationId" : "patchDatabaseService",
+        "parameters" : [ {
+          "name" : "fqn",
+          "in" : "path",
+          "description" : "Name of the database service",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "description" : "JsonPatch with array of operations",
+          "content" : {
+            "application/json-patch+json" : {
+              "schema" : {
+                "type" : "object"
+              },
+              "example" : "[{op:remove, path:/a},{op:add, path: /b, value: val}]"
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
     "/v1/services/databaseServices/name/{name}" : {
       "get" : {
         "tags" : [ "Database Services" ],
@@ -17920,6 +19578,79 @@
           },
           "404" : {
             "description" : "DatabaseService service for instance {name} is not found"
+          }
+        }
+      }
+    },
+    "/v1/services/databaseServices/name/{name}/export" : {
+      "get" : {
+        "tags" : [ "Database Services" ],
+        "summary" : "Export database service in CSV format",
+        "operationId" : "exportDatabaseServices",
+        "parameters" : [ {
+          "name" : "name",
+          "in" : "path",
+          "description" : "Name of the Database Service",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Exported csv with services from the database services",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/services/databaseServices/name/{name}/import" : {
+      "put" : {
+        "tags" : [ "Database Services" ],
+        "summary" : "Import service from CSV to update database service (no creation allowed)",
+        "operationId" : "importDatabaseService",
+        "parameters" : [ {
+          "name" : "name",
+          "in" : "path",
+          "description" : "Name of the Database Service",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "dryRun",
+          "in" : "query",
+          "description" : "Dry-run when true is used for validating the CSV without really importing it. (default=true)",
+          "schema" : {
+            "type" : "boolean",
+            "default" : true
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "text/plain" : {
+              "schema" : {
+                "type" : "string"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Import result",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/CsvImportResult"
+                }
+              }
+            }
           }
         }
       }
@@ -18050,7 +19781,7 @@
           "description" : "JsonPatch RFC",
           "url" : "https://tools.ietf.org/html/rfc6902"
         },
-        "operationId" : "patchDatabaseService",
+        "operationId" : "patchDatabaseService_1",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
@@ -18324,6 +20055,46 @@
         }
       }
     },
+    "/v1/services/messagingServices/name/{fqn}" : {
+      "patch" : {
+        "tags" : [ "Messaging Services" ],
+        "summary" : "Update a messaging service using name.",
+        "description" : "Update an existing messaging service using JsonPatch.",
+        "externalDocs" : {
+          "description" : "JsonPatch RFC",
+          "url" : "https://tools.ietf.org/html/rfc6902"
+        },
+        "operationId" : "patchMessagingService",
+        "parameters" : [ {
+          "name" : "fqn",
+          "in" : "path",
+          "description" : "Name of the messaging service",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "description" : "JsonPatch with array of operations",
+          "content" : {
+            "application/json-patch+json" : {
+              "schema" : {
+                "type" : "object"
+              },
+              "example" : "[{op:remove, path:/a},{op:add, path: /b, value: val}]"
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
     "/v1/services/messagingServices/name/{name}" : {
       "get" : {
         "tags" : [ "Messaging Services" ],
@@ -18538,7 +20309,7 @@
           "description" : "JsonPatch RFC",
           "url" : "https://tools.ietf.org/html/rfc6902"
         },
-        "operationId" : "patchMessagingService",
+        "operationId" : "patchMessagingService_1",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
@@ -18803,6 +20574,46 @@
         }
       }
     },
+    "/v1/services/metadataServices/name/{fqn}" : {
+      "patch" : {
+        "tags" : [ "Metadata Services" ],
+        "summary" : "Update a metadata service using name.",
+        "description" : "Update an existing Metadata service using JsonPatch.",
+        "externalDocs" : {
+          "description" : "JsonPatch RFC",
+          "url" : "https://tools.ietf.org/html/rfc6902"
+        },
+        "operationId" : "patchMetadataService",
+        "parameters" : [ {
+          "name" : "fqn",
+          "in" : "path",
+          "description" : "Name of the metadata service",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "description" : "JsonPatch with array of operations",
+          "content" : {
+            "application/json-patch+json" : {
+              "schema" : {
+                "type" : "object"
+              },
+              "example" : "[{op:remove, path:/a},{op:add, path: /b, value: val}]"
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
     "/v1/services/metadataServices/name/{name}" : {
       "get" : {
         "tags" : [ "Metadata Services" ],
@@ -19017,7 +20828,7 @@
           "description" : "JsonPatch RFC",
           "url" : "https://tools.ietf.org/html/rfc6902"
         },
-        "operationId" : "patchMetadataService",
+        "operationId" : "patchMetadataService_1",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
@@ -19291,6 +21102,46 @@
         }
       }
     },
+    "/v1/services/mlmodelServices/name/{fqn}" : {
+      "patch" : {
+        "tags" : [ "ML Model Services" ],
+        "summary" : "Update an ML model service using name.",
+        "description" : "Update an existing MlModelService service using JsonPatch.",
+        "externalDocs" : {
+          "description" : "JsonPatch RFC",
+          "url" : "https://tools.ietf.org/html/rfc6902"
+        },
+        "operationId" : "patchMlModelService",
+        "parameters" : [ {
+          "name" : "fqn",
+          "in" : "path",
+          "description" : "Name of the ML Model service",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "description" : "JsonPatch with array of operations",
+          "content" : {
+            "application/json-patch+json" : {
+              "schema" : {
+                "type" : "object"
+              },
+              "example" : "[{op:remove, path:/a},{op:add, path: /b, value: val}]"
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
     "/v1/services/mlmodelServices/name/{name}" : {
       "get" : {
         "tags" : [ "ML Model Services" ],
@@ -19505,7 +21356,7 @@
           "description" : "JsonPatch RFC",
           "url" : "https://tools.ietf.org/html/rfc6902"
         },
-        "operationId" : "patchMlModelService",
+        "operationId" : "patchMlModelService_1",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
@@ -19865,6 +21716,44 @@
             "description" : "Pipeline service for instance {fqn} is not found"
           }
         }
+      },
+      "patch" : {
+        "tags" : [ "Pipeline Services" ],
+        "summary" : "Update a pipeline service using name.",
+        "description" : "Update an existing pipeline service using JsonPatch.",
+        "externalDocs" : {
+          "description" : "JsonPatch RFC",
+          "url" : "https://tools.ietf.org/html/rfc6902"
+        },
+        "operationId" : "patchPipelineService",
+        "parameters" : [ {
+          "name" : "fqn",
+          "in" : "path",
+          "description" : "Name of the pipeline service",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "description" : "JsonPatch with array of operations",
+          "content" : {
+            "application/json-patch+json" : {
+              "schema" : {
+                "type" : "object"
+              },
+              "example" : "[{op:remove, path:/a},{op:add, path: /b, value: val}]"
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
       }
     },
     "/v1/services/pipelineServices/restore" : {
@@ -19993,7 +21882,7 @@
           "description" : "JsonPatch RFC",
           "url" : "https://tools.ietf.org/html/rfc6902"
         },
-        "operationId" : "patchPipelineService",
+        "operationId" : "patchPipelineService_1",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
@@ -20305,6 +22194,43 @@
             "description" : "SearchService for instance {fqn} is not found"
           }
         }
+      },
+      "patch" : {
+        "tags" : [ "Search Services" ],
+        "summary" : "Update an search service using name.",
+        "description" : "Update an existing search service using JsonPatch.",
+        "externalDocs" : {
+          "description" : "JsonPatch RFC",
+          "url" : "https://tools.ietf.org/html/rfc6902"
+        },
+        "operationId" : "patchSearchService",
+        "parameters" : [ {
+          "name" : "fqn",
+          "in" : "path",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "description" : "JsonPatch with array of operations",
+          "content" : {
+            "application/json-patch+json" : {
+              "schema" : {
+                "type" : "object"
+              },
+              "example" : "[{op:remove, path:/a},{op:add, path: /b, value: val}]"
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
       }
     },
     "/v1/services/searchServices/name/{name}" : {
@@ -20479,7 +22405,7 @@
           "description" : "JsonPatch RFC",
           "url" : "https://tools.ietf.org/html/rfc6902"
         },
-        "operationId" : "patchSearchService",
+        "operationId" : "patchSearchService_1",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
@@ -21316,6 +23242,44 @@
             "description" : "Schema for instance {fqn} is not found"
           }
         }
+      },
+      "patch" : {
+        "tags" : [ "Stored Procedures" ],
+        "summary" : "Update a Stored Procedure by name.",
+        "description" : "Update an existing StoredProcedure using JsonPatch.",
+        "externalDocs" : {
+          "description" : "JsonPatch RFC",
+          "url" : "https://tools.ietf.org/html/rfc6902"
+        },
+        "operationId" : "patchStoredProcedure",
+        "parameters" : [ {
+          "name" : "fqn",
+          "in" : "path",
+          "description" : "Stored Procedure name",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "description" : "JsonPatch with array of operations",
+          "content" : {
+            "application/json-patch+json" : {
+              "schema" : {
+                "type" : "object"
+              },
+              "example" : "[{op:remove, path:/a},{op:add, path: /b, value: val}]"
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
       }
     },
     "/v1/storedProcedures/restore" : {
@@ -21444,7 +23408,7 @@
           "description" : "JsonPatch RFC",
           "url" : "https://tools.ietf.org/html/rfc6902"
         },
-        "operationId" : "patchStoredProcedure",
+        "operationId" : "patchStoredProcedure_1",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
@@ -22090,7 +24054,7 @@
           "description" : "Fields requested in the returned resource",
           "schema" : {
             "type" : "string",
-            "example" : "tableConstraints,tablePartition,usageSummary,owner,customMetrics,columns,tags,followers,joins,viewDefinition,dataModel,extension,testSuite,domain,dataProducts,lifeCycle,sourceHash"
+            "example" : "tableConstraints,tablePartition,usageSummary,owner,customMetrics,columns,tags,followers,joins,schemaDefinition,dataModel,extension,testSuite,domain,dataProducts,lifeCycle,sourceHash"
           }
         }, {
           "name" : "database",
@@ -22246,7 +24210,7 @@
           "description" : "Fields requested in the returned resource",
           "schema" : {
             "type" : "string",
-            "example" : "tableConstraints,tablePartition,usageSummary,owner,customMetrics,columns,tags,followers,joins,viewDefinition,dataModel,extension,testSuite,domain,dataProducts,lifeCycle,sourceHash"
+            "example" : "tableConstraints,tablePartition,usageSummary,owner,customMetrics,columns,tags,followers,joins,schemaDefinition,dataModel,extension,testSuite,domain,dataProducts,lifeCycle,sourceHash"
           }
         }, {
           "name" : "include",
@@ -22310,6 +24274,44 @@
           },
           "404" : {
             "description" : "Table for instance {fqn} is not found"
+          }
+        }
+      },
+      "patch" : {
+        "tags" : [ "Tables" ],
+        "summary" : "Update a table by name.",
+        "description" : "Update an existing table using JsonPatch.",
+        "externalDocs" : {
+          "description" : "JsonPatch RFC",
+          "url" : "https://tools.ietf.org/html/rfc6902"
+        },
+        "operationId" : "patchTable",
+        "parameters" : [ {
+          "name" : "fqn",
+          "in" : "path",
+          "description" : "Name of the table",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "description" : "JsonPatch with array of operations",
+          "content" : {
+            "application/json-patch+json" : {
+              "schema" : {
+                "type" : "object"
+              },
+              "example" : "[{op:remove, path:/a},{op:add, path: /b, value: val}]"
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
           }
         }
       }
@@ -22645,7 +24647,7 @@
           "description" : "Fields requested in the returned resource",
           "schema" : {
             "type" : "string",
-            "example" : "tableConstraints,tablePartition,usageSummary,owner,customMetrics,columns,tags,followers,joins,viewDefinition,dataModel,extension,testSuite,domain,dataProducts,lifeCycle,sourceHash"
+            "example" : "tableConstraints,tablePartition,usageSummary,owner,customMetrics,columns,tags,followers,joins,schemaDefinition,dataModel,extension,testSuite,domain,dataProducts,lifeCycle,sourceHash"
           }
         }, {
           "name" : "include",
@@ -22721,7 +24723,7 @@
           "description" : "JsonPatch RFC",
           "url" : "https://tools.ietf.org/html/rfc6902"
         },
-        "operationId" : "patchTable",
+        "operationId" : "patchTable_1",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
@@ -23600,6 +25602,44 @@
             "description" : "tag for instance {fqn} is not found"
           }
         }
+      },
+      "patch" : {
+        "tags" : [ "Classifications" ],
+        "summary" : "Update a tag using name.",
+        "description" : "Update an existing tag using JsonPatch.",
+        "externalDocs" : {
+          "description" : "JsonPatch RFC",
+          "url" : "https://tools.ietf.org/html/rfc6902"
+        },
+        "operationId" : "patchTag",
+        "parameters" : [ {
+          "name" : "fqn",
+          "in" : "path",
+          "description" : "Name of the tag",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "description" : "JsonPatch with array of operations",
+          "content" : {
+            "application/json-patch+json" : {
+              "schema" : {
+                "type" : "object"
+              },
+              "example" : "[{op:remove, path:/a},{op:add, path: /b, value: val}]"
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
       }
     },
     "/v1/tags/restore" : {
@@ -23728,7 +25768,7 @@
           "description" : "JsonPatch RFC",
           "url" : "https://tools.ietf.org/html/rfc6902"
         },
-        "operationId" : "patchTag",
+        "operationId" : "patchTag_1",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
@@ -24035,6 +26075,46 @@
         }
       }
     },
+    "/v1/teams/name/{fqn}" : {
+      "patch" : {
+        "tags" : [ "Teams" ],
+        "summary" : "Update a team using name.",
+        "description" : "Update an existing team with JsonPatch.",
+        "externalDocs" : {
+          "description" : "JsonPatch RFC",
+          "url" : "https://tools.ietf.org/html/rfc6902"
+        },
+        "operationId" : "patchTeam",
+        "parameters" : [ {
+          "name" : "fqn",
+          "in" : "path",
+          "description" : "Name of the team",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "description" : "JsonPatch with array of operations",
+          "content" : {
+            "application/json-patch+json" : {
+              "schema" : {
+                "type" : "object"
+              },
+              "example" : "[{op:remove, path:/a},{op:add, path: /b, value: val}]"
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
+      }
+    },
     "/v1/teams/name/{name}" : {
       "get" : {
         "tags" : [ "Teams" ],
@@ -24312,7 +26392,7 @@
           "description" : "JsonPatch RFC",
           "url" : "https://tools.ietf.org/html/rfc6902"
         },
-        "operationId" : "patchTeam",
+        "operationId" : "patchTeam_1",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
@@ -24704,6 +26784,44 @@
             "description" : "Topic for instance {fqn} is not found"
           }
         }
+      },
+      "patch" : {
+        "tags" : [ "Topics" ],
+        "summary" : "Update a topic using name.",
+        "description" : "Update an existing topic using JsonPatch.",
+        "externalDocs" : {
+          "description" : "JsonPatch RFC",
+          "url" : "https://tools.ietf.org/html/rfc6902"
+        },
+        "operationId" : "patchTopic",
+        "parameters" : [ {
+          "name" : "fqn",
+          "in" : "path",
+          "description" : "Name of the topic",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "requestBody" : {
+          "description" : "JsonPatch with array of operations",
+          "content" : {
+            "application/json-patch+json" : {
+              "schema" : {
+                "type" : "object"
+              },
+              "example" : "[{op:remove, path:/a},{op:add, path: /b, value: val}]"
+            }
+          }
+        },
+        "responses" : {
+          "default" : {
+            "description" : "default response",
+            "content" : {
+              "application/json" : { }
+            }
+          }
+        }
       }
     },
     "/v1/topics/restore" : {
@@ -24824,7 +26942,7 @@
           "description" : "JsonPatch RFC",
           "url" : "https://tools.ietf.org/html/rfc6902"
         },
-        "operationId" : "patchTopic",
+        "operationId" : "patchTopic_1",
         "parameters" : [ {
           "name" : "id",
           "in" : "path",
@@ -27230,6 +29348,10 @@
           },
           "name" : {
             "type" : "string"
+          },
+          "prefixCondition" : {
+            "type" : "string",
+            "enum" : [ "AND", "OR" ]
           }
         }
       },
@@ -27628,7 +29750,7 @@
           },
           "serviceType" : {
             "type" : "string",
-            "enum" : [ "Superset", "Looker", "Tableau", "Redash", "Metabase", "PowerBI", "Mode", "CustomDashboard", "DomoDashboard", "QuickSight", "QlikSense", "Lightdash", "Mstr" ]
+            "enum" : [ "Superset", "Looker", "Tableau", "Redash", "Metabase", "PowerBI", "Mode", "CustomDashboard", "DomoDashboard", "QuickSight", "QlikSense", "Lightdash", "Mstr", "QlikCloud" ]
           },
           "sourceHash" : {
             "maxLength" : 32,
@@ -27764,9 +29886,9 @@
             "type" : "boolean"
           },
           "name" : {
-            "maxLength" : 64,
-            "minLength" : 2,
-            "pattern" : "(?U)^[\\w'\\- .&()]+$",
+            "maxLength" : 256,
+            "minLength" : 1,
+            "pattern" : "^((?!::).)*$",
             "type" : "string"
           },
           "owner" : {
@@ -28163,6 +30285,35 @@
           }
         }
       },
+      "ColumnTestSummaryDefinition" : {
+        "type" : "object",
+        "properties" : {
+          "aborted" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "entityLink" : {
+            "pattern" : "(?U)^<#E::\\w+::[\\w'\\- .&/:+\"\\\\()$#%]+>$",
+            "type" : "string"
+          },
+          "failed" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "queued" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "success" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
+          "total" : {
+            "type" : "integer",
+            "format" : "int32"
+          }
+        }
+      },
       "ComponentConfig" : {
         "type" : "object"
       },
@@ -28221,6 +30372,9 @@
             "items" : {
               "$ref" : "#/components/schemas/EntityReference"
             }
+          },
+          "fullPath" : {
+            "type" : "string"
           },
           "fullyQualifiedName" : {
             "maxLength" : 3072,
@@ -28639,9 +30793,9 @@
             "type" : "boolean"
           },
           "name" : {
-            "maxLength" : 64,
-            "minLength" : 2,
-            "pattern" : "(?U)^[\\w'\\- .&()]+$",
+            "maxLength" : 256,
+            "minLength" : 1,
+            "pattern" : "^((?!::).)*$",
             "type" : "string"
           },
           "owner" : {
@@ -28690,6 +30844,9 @@
               "type" : "string",
               "enum" : [ "zip", "gz", "zstd", "csv", "tsv", "json", "parquet", "avro" ]
             }
+          },
+          "fullPath" : {
+            "type" : "string"
           },
           "lifeCycle" : {
             "$ref" : "#/components/schemas/LifeCycle"
@@ -28857,7 +31014,7 @@
           },
           "dataModelType" : {
             "type" : "string",
-            "enum" : [ "TableauDataModel", "SupersetDataModel", "MetabaseDataModel", "LookMlView", "LookMlExplore", "PowerBIDataModel", "QlikSenseDataModel" ]
+            "enum" : [ "TableauDataModel", "SupersetDataModel", "MetabaseDataModel", "LookMlView", "LookMlExplore", "PowerBIDataModel", "QlikDataModel" ]
           },
           "dataProducts" : {
             "type" : "array",
@@ -28899,7 +31056,7 @@
           },
           "serviceType" : {
             "type" : "string",
-            "enum" : [ "Superset", "Looker", "Tableau", "Redash", "Metabase", "PowerBI", "Mode", "CustomDashboard", "DomoDashboard", "QuickSight", "QlikSense", "Lightdash", "Mstr" ]
+            "enum" : [ "Superset", "Looker", "Tableau", "Redash", "Metabase", "PowerBI", "Mode", "CustomDashboard", "DomoDashboard", "QuickSight", "QlikSense", "Lightdash", "Mstr", "QlikCloud" ]
           },
           "sourceHash" : {
             "maxLength" : 32,
@@ -28956,7 +31113,7 @@
           },
           "serviceType" : {
             "type" : "string",
-            "enum" : [ "Superset", "Looker", "Tableau", "Redash", "Metabase", "PowerBI", "Mode", "CustomDashboard", "DomoDashboard", "QuickSight", "QlikSense", "Lightdash", "Mstr" ]
+            "enum" : [ "Superset", "Looker", "Tableau", "Redash", "Metabase", "PowerBI", "Mode", "CustomDashboard", "DomoDashboard", "QuickSight", "QlikSense", "Lightdash", "Mstr", "QlikCloud" ]
           },
           "tags" : {
             "type" : "array",
@@ -29969,7 +32126,7 @@
           },
           "serviceType" : {
             "type" : "string",
-            "enum" : [ "Airflow", "GluePipeline", "Airbyte", "Fivetran", "Dagster", "Nifi", "DomoPipeline", "CustomPipeline", "DatabricksPipeline", "Spline", "Spark" ]
+            "enum" : [ "Airflow", "GluePipeline", "Airbyte", "Fivetran", "Dagster", "Nifi", "DomoPipeline", "CustomPipeline", "DatabricksPipeline", "Spline", "Spark", "OpenLineage", "KafkaConnect" ]
           },
           "tags" : {
             "type" : "array",
@@ -30434,6 +32591,9 @@
               "$ref" : "#/components/schemas/Column"
             }
           },
+          "dataModel" : {
+            "$ref" : "#/components/schemas/DataModel"
+          },
           "dataProducts" : {
             "type" : "array",
             "items" : {
@@ -30476,6 +32636,9 @@
           "retentionPeriod" : {
             "type" : "string"
           },
+          "schemaDefinition" : {
+            "type" : "string"
+          },
           "sourceHash" : {
             "maxLength" : 32,
             "minLength" : 1,
@@ -30498,16 +32661,13 @@
           },
           "tableType" : {
             "type" : "string",
-            "enum" : [ "Regular", "External", "View", "SecureView", "MaterializedView", "Iceberg", "Local", "Partitioned", "Foreign", "Transient" ]
+            "enum" : [ "Regular", "External", "Dynamic", "View", "SecureView", "MaterializedView", "Iceberg", "Local", "Partitioned", "Foreign", "Transient" ]
           },
           "tags" : {
             "type" : "array",
             "items" : {
               "$ref" : "#/components/schemas/TagLabel"
             }
-          },
-          "viewDefinition" : {
-            "type" : "string"
           }
         }
       },
@@ -30572,9 +32732,9 @@
             "type" : "boolean"
           },
           "name" : {
-            "maxLength" : 64,
-            "minLength" : 2,
-            "pattern" : "(?U)^[\\w'\\- .&()]+$",
+            "maxLength" : 256,
+            "minLength" : 1,
+            "pattern" : "^((?!::).)*$",
             "type" : "string"
           },
           "owner" : {
@@ -30748,7 +32908,7 @@
             "$ref" : "#/components/schemas/LifeCycle"
           },
           "name" : {
-            "maxLength" : 256,
+            "maxLength" : 2147483647,
             "minLength" : 1,
             "pattern" : "^((?!::).)*$",
             "type" : "string"
@@ -30832,7 +32992,7 @@
             "$ref" : "#/components/schemas/LifeCycle"
           },
           "name" : {
-            "maxLength" : 256,
+            "maxLength" : 2147483647,
             "minLength" : 1,
             "pattern" : "^((?!::).)*$",
             "type" : "string"
@@ -31418,7 +33578,7 @@
           },
           "serviceType" : {
             "type" : "string",
-            "enum" : [ "Superset", "Looker", "Tableau", "Redash", "Metabase", "PowerBI", "Mode", "CustomDashboard", "DomoDashboard", "QuickSight", "QlikSense", "Lightdash", "Mstr" ]
+            "enum" : [ "Superset", "Looker", "Tableau", "Redash", "Metabase", "PowerBI", "Mode", "CustomDashboard", "DomoDashboard", "QuickSight", "QlikSense", "Lightdash", "Mstr", "QlikCloud" ]
           },
           "sourceHash" : {
             "maxLength" : 32,
@@ -31485,7 +33645,7 @@
           },
           "dataModelType" : {
             "type" : "string",
-            "enum" : [ "TableauDataModel", "SupersetDataModel", "MetabaseDataModel", "LookMlView", "LookMlExplore", "PowerBIDataModel", "QlikSenseDataModel" ]
+            "enum" : [ "TableauDataModel", "SupersetDataModel", "MetabaseDataModel", "LookMlView", "LookMlExplore", "PowerBIDataModel", "QlikDataModel" ]
           },
           "dataProducts" : {
             "type" : "array",
@@ -31563,7 +33723,7 @@
           },
           "serviceType" : {
             "type" : "string",
-            "enum" : [ "Superset", "Looker", "Tableau", "Redash", "Metabase", "PowerBI", "Mode", "CustomDashboard", "DomoDashboard", "QuickSight", "QlikSense", "Lightdash", "Mstr" ]
+            "enum" : [ "Superset", "Looker", "Tableau", "Redash", "Metabase", "PowerBI", "Mode", "CustomDashboard", "DomoDashboard", "QuickSight", "QlikSense", "Lightdash", "Mstr", "QlikCloud" ]
           },
           "sourceHash" : {
             "maxLength" : 32,
@@ -31732,7 +33892,7 @@
           },
           "serviceType" : {
             "type" : "string",
-            "enum" : [ "Superset", "Looker", "Tableau", "Redash", "Metabase", "PowerBI", "Mode", "CustomDashboard", "DomoDashboard", "QuickSight", "QlikSense", "Lightdash", "Mstr" ]
+            "enum" : [ "Superset", "Looker", "Tableau", "Redash", "Metabase", "PowerBI", "Mode", "CustomDashboard", "DomoDashboard", "QuickSight", "QlikSense", "Lightdash", "Mstr", "QlikCloud" ]
           },
           "style" : {
             "$ref" : "#/components/schemas/Style"
@@ -31805,7 +33965,7 @@
           },
           "modelType" : {
             "type" : "string",
-            "enum" : [ "DBT" ]
+            "enum" : [ "DBT", "DDL" ]
           },
           "owner" : {
             "$ref" : "#/components/schemas/EntityReference"
@@ -32978,6 +35138,10 @@
           },
           "name" : {
             "type" : "string"
+          },
+          "prefixCondition" : {
+            "type" : "string",
+            "enum" : [ "AND", "OR" ]
           }
         }
       },
@@ -33188,6 +35352,20 @@
       },
       "FailureContext" : {
         "type" : "object"
+      },
+      "FeedInfo" : {
+        "type" : "object",
+        "properties" : {
+          "entitySpecificInfo" : {
+            "type" : "object"
+          },
+          "fieldName" : {
+            "type" : "string"
+          },
+          "headerMessage" : {
+            "type" : "string"
+          }
+        }
       },
       "Field" : {
         "required" : [ "dataType", "name" ],
@@ -33481,6 +35659,10 @@
             "items" : {
               "$ref" : "#/components/schemas/EntityReference"
             }
+          },
+          "childrenCount" : {
+            "type" : "integer",
+            "format" : "int32"
           },
           "dataProducts" : {
             "type" : "array",
@@ -33804,7 +35986,7 @@
           },
           "source" : {
             "type" : "string",
-            "enum" : [ "Manual", "ViewLineage", "QueryLineage", "PipelineLineage", "DashboardLineage", "DbtLineage", "SparkLineage" ]
+            "enum" : [ "Manual", "ViewLineage", "QueryLineage", "PipelineLineage", "DashboardLineage", "DbtLineage", "SparkLineage", "OpenLineage", "ExternalTableLineage" ]
           },
           "sqlQuery" : {
             "type" : "string"
@@ -34713,8 +36895,7 @@
             "type" : "string"
           },
           "storage" : {
-            "type" : "string",
-            "format" : "uri"
+            "type" : "string"
           }
         }
       },
@@ -34875,6 +37056,10 @@
           "before" : {
             "type" : "string"
           },
+          "limit" : {
+            "type" : "integer",
+            "format" : "int32"
+          },
           "offset" : {
             "type" : "integer",
             "format" : "int32"
@@ -34890,6 +37075,21 @@
         "properties" : {
           "data" : {
             "type" : "object"
+          }
+        }
+      },
+      "PartitionColumnDetails" : {
+        "type" : "object",
+        "properties" : {
+          "columnName" : {
+            "type" : "string"
+          },
+          "interval" : {
+            "type" : "string"
+          },
+          "intervalType" : {
+            "type" : "string",
+            "enum" : [ "TIME-UNIT", "INTEGER-RANGE", "INGESTION-TIME", "COLUMN-VALUE", "INJECTED", "ENUM", "OTHER" ]
           }
         }
       },
@@ -34916,7 +37116,7 @@
           },
           "partitionIntervalType" : {
             "type" : "string",
-            "enum" : [ "TIME-UNIT", "INTEGER-RANGE", "INGESTION-TIME", "COLUMN-VALUE" ]
+            "enum" : [ "TIME-UNIT", "INTEGER-RANGE", "INGESTION-TIME", "COLUMN-VALUE", "INJECTED", "ENUM", "OTHER" ]
           },
           "partitionIntervalUnit" : {
             "type" : "string",
@@ -34961,7 +37161,7 @@
           },
           "operation" : {
             "type" : "string",
-            "enum" : [ "All", "Create", "Delete", "ViewAll", "ViewBasic", "ViewUsage", "ViewTests", "ViewQueries", "ViewDataProfile", "ViewSampleData", "EditAll", "EditCustomFields", "EditDataProfile", "EditDescription", "EditDisplayName", "EditLineage", "EditPolicy", "EditOwner", "EditQueries", "EditReviewers", "EditRole", "EditSampleData", "EditStatus", "EditTags", "EditTeams", "EditTier", "EditTests", "EditUsage", "EditUsers", "EditLifeCycle", "EditKnowledgePanel", "EditPage" ]
+            "enum" : [ "All", "Create", "Delete", "ViewAll", "ViewBasic", "ViewUsage", "ViewTests", "ViewQueries", "ViewDataProfile", "ViewSampleData", "ViewTestCaseFailedRowsSample", "EditAll", "EditCustomFields", "EditDataProfile", "EditDescription", "EditDisplayName", "EditLineage", "EditPolicy", "EditOwner", "EditQueries", "EditReviewers", "EditRole", "EditSampleData", "EditStatus", "EditTags", "EditTeams", "EditTier", "EditTests", "EditUsage", "EditUsers", "EditLifeCycle", "EditKnowledgePanel", "EditPage", "DeleteTestCaseFailedRowsSample" ]
           },
           "policy" : {
             "type" : "string"
@@ -35255,7 +37455,7 @@
           },
           "serviceType" : {
             "type" : "string",
-            "enum" : [ "Airflow", "GluePipeline", "Airbyte", "Fivetran", "Dagster", "Nifi", "DomoPipeline", "CustomPipeline", "DatabricksPipeline", "Spline", "Spark" ]
+            "enum" : [ "Airflow", "GluePipeline", "Airbyte", "Fivetran", "Dagster", "Nifi", "DomoPipeline", "CustomPipeline", "DatabricksPipeline", "Spline", "Spark", "OpenLineage", "KafkaConnect" ]
           },
           "sourceHash" : {
             "maxLength" : 32,
@@ -35421,7 +37621,7 @@
           },
           "serviceType" : {
             "type" : "string",
-            "enum" : [ "Airflow", "GluePipeline", "Airbyte", "Fivetran", "Dagster", "Nifi", "DomoPipeline", "CustomPipeline", "DatabricksPipeline", "Spline", "Spark" ]
+            "enum" : [ "Airflow", "GluePipeline", "Airbyte", "Fivetran", "Dagster", "Nifi", "DomoPipeline", "CustomPipeline", "DatabricksPipeline", "Spline", "Spark", "OpenLineage", "KafkaConnect" ]
           },
           "style" : {
             "$ref" : "#/components/schemas/Style"
@@ -36156,7 +38356,7 @@
             "type" : "array",
             "items" : {
               "type" : "string",
-              "enum" : [ "All", "Create", "Delete", "ViewAll", "ViewBasic", "ViewUsage", "ViewTests", "ViewQueries", "ViewDataProfile", "ViewSampleData", "EditAll", "EditCustomFields", "EditDataProfile", "EditDescription", "EditDisplayName", "EditLineage", "EditPolicy", "EditOwner", "EditQueries", "EditReviewers", "EditRole", "EditSampleData", "EditStatus", "EditTags", "EditTeams", "EditTier", "EditTests", "EditUsage", "EditUsers", "EditLifeCycle", "EditKnowledgePanel", "EditPage" ]
+              "enum" : [ "All", "Create", "Delete", "ViewAll", "ViewBasic", "ViewUsage", "ViewTests", "ViewQueries", "ViewDataProfile", "ViewSampleData", "ViewTestCaseFailedRowsSample", "EditAll", "EditCustomFields", "EditDataProfile", "EditDescription", "EditDisplayName", "EditLineage", "EditPolicy", "EditOwner", "EditQueries", "EditReviewers", "EditRole", "EditSampleData", "EditStatus", "EditTags", "EditTeams", "EditTier", "EditTests", "EditUsage", "EditUsers", "EditLifeCycle", "EditKnowledgePanel", "EditPage", "DeleteTestCaseFailedRowsSample" ]
             }
           }
         }
@@ -37645,7 +39845,7 @@
             "type" : "array",
             "items" : {
               "type" : "string",
-              "enum" : [ "All", "Create", "Delete", "ViewAll", "ViewBasic", "ViewUsage", "ViewTests", "ViewQueries", "ViewDataProfile", "ViewSampleData", "EditAll", "EditCustomFields", "EditDataProfile", "EditDescription", "EditDisplayName", "EditLineage", "EditPolicy", "EditOwner", "EditQueries", "EditReviewers", "EditRole", "EditSampleData", "EditStatus", "EditTags", "EditTeams", "EditTier", "EditTests", "EditUsage", "EditUsers", "EditLifeCycle", "EditKnowledgePanel", "EditPage" ]
+              "enum" : [ "All", "Create", "Delete", "ViewAll", "ViewBasic", "ViewUsage", "ViewTests", "ViewQueries", "ViewDataProfile", "ViewSampleData", "ViewTestCaseFailedRowsSample", "EditAll", "EditCustomFields", "EditDataProfile", "EditDescription", "EditDisplayName", "EditLineage", "EditPolicy", "EditOwner", "EditQueries", "EditReviewers", "EditRole", "EditSampleData", "EditStatus", "EditTags", "EditTeams", "EditTier", "EditTests", "EditUsage", "EditUsers", "EditLifeCycle", "EditKnowledgePanel", "EditPage", "DeleteTestCaseFailedRowsSample" ]
             }
           },
           "resources" : {
@@ -38936,7 +41136,7 @@
           },
           "type" : {
             "type" : "string",
-            "enum" : [ "Generic", "Slack", "MsTeams", "GChat", "Email", "ActivityFeed" ]
+            "enum" : [ "Webhook", "Slack", "MsTeams", "GChat", "Email", "ActivityFeed" ]
           }
         }
       },
@@ -39211,6 +41411,9 @@
           "sampleData" : {
             "$ref" : "#/components/schemas/TableData"
           },
+          "schemaDefinition" : {
+            "type" : "string"
+          },
           "service" : {
             "$ref" : "#/components/schemas/EntityReference"
           },
@@ -39243,7 +41446,7 @@
           },
           "tableType" : {
             "type" : "string",
-            "enum" : [ "Regular", "External", "View", "SecureView", "MaterializedView", "Iceberg", "Local", "Partitioned", "Foreign", "Transient" ]
+            "enum" : [ "Regular", "External", "Dynamic", "View", "SecureView", "MaterializedView", "Iceberg", "Local", "Partitioned", "Foreign", "Transient" ]
           },
           "tags" : {
             "type" : "array",
@@ -39252,7 +41455,7 @@
             }
           },
           "testSuite" : {
-            "$ref" : "#/components/schemas/TestSuite"
+            "$ref" : "#/components/schemas/EntityReference"
           },
           "updatedAt" : {
             "type" : "integer",
@@ -39267,9 +41470,6 @@
           "version" : {
             "type" : "number",
             "format" : "double"
-          },
-          "viewDefinition" : {
-            "type" : "string"
           },
           "votes" : {
             "$ref" : "#/components/schemas/Votes"
@@ -39368,15 +41568,8 @@
           "columns" : {
             "type" : "array",
             "items" : {
-              "type" : "string"
+              "$ref" : "#/components/schemas/PartitionColumnDetails"
             }
-          },
-          "interval" : {
-            "type" : "string"
-          },
-          "intervalType" : {
-            "type" : "string",
-            "enum" : [ "TIME-UNIT", "INTEGER-RANGE", "INGESTION-TIME", "COLUMN-VALUE", "OTHER" ]
           }
         }
       },
@@ -39549,9 +41742,9 @@
             "type" : "boolean"
           },
           "name" : {
-            "maxLength" : 64,
-            "minLength" : 2,
-            "pattern" : "(?U)^[\\w'\\- .&()]+$",
+            "maxLength" : 256,
+            "minLength" : 1,
+            "pattern" : "^((?!::).)*$",
             "type" : "string"
           },
           "owner" : {
@@ -40044,6 +42237,9 @@
           "extension" : {
             "type" : "object"
           },
+          "failedRowsSample" : {
+            "$ref" : "#/components/schemas/TableData"
+          },
           "followers" : {
             "type" : "array",
             "items" : {
@@ -40067,11 +42263,14 @@
             "type" : "string",
             "format" : "uuid"
           },
+          "inspectionQuery" : {
+            "type" : "string"
+          },
           "lifeCycle" : {
             "$ref" : "#/components/schemas/LifeCycle"
           },
           "name" : {
-            "maxLength" : 256,
+            "maxLength" : 2147483647,
             "minLength" : 1,
             "pattern" : "^((?!::).)*$",
             "type" : "string"
@@ -40180,6 +42379,21 @@
           },
           "required" : {
             "type" : "boolean"
+          },
+          "validationRule" : {
+            "$ref" : "#/components/schemas/TestCaseParameterValidationRule"
+          }
+        }
+      },
+      "TestCaseParameterValidationRule" : {
+        "type" : "object",
+        "properties" : {
+          "parameterField" : {
+            "type" : "string"
+          },
+          "rule" : {
+            "type" : "string",
+            "enum" : [ "EQUALS", "NOT_EQUALS", "GREATER_THAN_OR_EQUALS", "LESS_THAN_OR_EQUALS" ]
           }
         }
       },
@@ -40428,7 +42642,7 @@
             "$ref" : "#/components/schemas/LifeCycle"
           },
           "name" : {
-            "maxLength" : 256,
+            "maxLength" : 2147483647,
             "minLength" : 1,
             "pattern" : "^((?!::).)*$",
             "type" : "string"
@@ -40704,6 +42918,12 @@
             "type" : "integer",
             "format" : "int32"
           },
+          "columnTestSummary" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "#/components/schemas/ColumnTestSummaryDefinition"
+            }
+          },
           "failed" : {
             "type" : "integer",
             "format" : "int32"
@@ -40745,6 +42965,10 @@
           "announcement" : {
             "$ref" : "#/components/schemas/AnnouncementDetails"
           },
+          "cardStyle" : {
+            "type" : "string",
+            "enum" : [ "default", "logicalTestCaseAdded", "entityCreated", "entityDeleted", "entitySoftDeleted", "description", "tags", "owner", "testCaseResult", "customProperties", "assets", "domain" ]
+          },
           "chatbot" : {
             "$ref" : "#/components/schemas/ChatbotDetails"
           },
@@ -40754,6 +42978,23 @@
           "entityId" : {
             "type" : "string",
             "format" : "uuid"
+          },
+          "entityType" : {
+            "type" : "string"
+          },
+          "entityUrlLink" : {
+            "type" : "string"
+          },
+          "feedInfo" : {
+            "$ref" : "#/components/schemas/FeedInfo"
+          },
+          "fieldOperation" : {
+            "type" : "string",
+            "enum" : [ "added", "updated", "deleted", "none" ]
+          },
+          "generatedBy" : {
+            "type" : "string",
+            "enum" : [ "user", "system" ]
           },
           "href" : {
             "type" : "string",

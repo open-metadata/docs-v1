@@ -1,8 +1,8 @@
 import { SelectOption } from "../components/SelectDropdown/SelectDropdown";
 
-export const DEFAULT_VERSION = "v1.3.x";
-export const STABLE_VERSION = "v1.3.x";
-export const BETA_VERSION = "v1.4.x";  // Keep the constant empty when there is no BETA version
+export const DEFAULT_VERSION = "v1.4.x";
+export const STABLE_VERSION = "v1.4.x";
+export const BETA_VERSION = "";  // Keep the constant empty when there is no BETA version
 
 export const VERSION_SELECT_DEFAULT_OPTIONS: Array<SelectOption<string>> = [
   {
