@@ -29,6 +29,8 @@ This is content inside tag.
 
 Here are the custom markdoc tags to use for desired functionalities.
 
+- [Modified Default Nodes](#modified-default-nodes)
+   - [1. fence](#1-fence)
 - [Common Tags](#common-tags)
    - [1. partial](#1-partial)
    - [2. note](#2-note)
@@ -60,6 +62,20 @@ Here are the custom markdoc tags to use for desired functionalities.
    - [2. tile](#2-tile)
 
 ---
+
+## Modified Default Nodes
+
+### 1. fence
+
+The fence node used for multi line code display with indentation has following additional attributes apart from the default markdown attributes.
+
+#### Additional Attributes
+
+1. srNumber (type - String)
+   The code number, to highlight the code when the codeInfo container of the same srNumber is selected.
+
+1. isCodeBlock (type - Boolean)
+   To determine if the code is used inside a 'codeBlock'. Must set true if used inside a 'codeBlock' tag without srNumber. This is essential for the copy to clipboard functionality to work with accurate indentations for the code inside the 'codeBlock'.
 
 ## Common Tags
 
@@ -292,7 +308,7 @@ It's a tag for which will contain explanation or information about a chuck of co
 #### Attributes -
 
 1. srNumber (type - Number)
-   It is the step number and the code chunk number you want to highlight for the given information.
+   It is the code info number and the corresponding code block number you want to highlight for the given information.
    
 **Note: srNumber is also a unique id to identify a code block. Make sure that you have srNumber values unique on a single page. That is even if multiple codePreview components are used in a page, the srNumbers should all be unique and should not repeat on a single page.**
 
