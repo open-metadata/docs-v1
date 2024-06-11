@@ -18,17 +18,37 @@ import "prismjs/plugins/line-highlight/prism-line-highlight.css";
 import "prismjs/plugins/line-numbers/prism-line-numbers";
 import "prismjs/plugins/normalize-whitespace/prism-normalize-whitespace";
 import "prismjs/plugins/toolbar/prism-toolbar";
-import { ReactNode, useCallback, useEffect, useRef, useState } from "react";
+import {
+  ReactNode,
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import { ReactComponent as ClipboardIcon } from "../../../images/icons/clipboard.svg";
 import Image from "../Image/Image";
 import styles from "./Code.module.css";
 
-export default function Code({ code, children, language, img, srNumber }) {
+export default function Code({
+  code,
+  children,
+  language,
+  img,
+  isCodeBlock = false,
+  srNumber,
+}) {
   const [codeElement, setCodeElement] = useState<JSX.Element>();
   const [copyText, setCopyText] = useState<ReactNode>(
     <ClipboardIcon className={styles.ClipboardIcon} />
   );
   const preTag = useRef<HTMLPreElement>();
+
+  // Consider it as a code block if either srNumber is provided or isCodeBlock is true
+  const isInsideCodeBlock = useMemo(
+    () => srNumber || isCodeBlock,
+    [srNumber, isCodeBlock]
+  );
 
   useEffect(() => {
     if (window) {
@@ -42,7 +62,9 @@ export default function Code({ code, children, language, img, srNumber }) {
   }, [codeElement]);
 
   const getWrappedCodeElement = (codeElement: ReactNode) => {
-    if (srNumber) {
+    if (isInsideCodeBlock) {
+      // No need to wrap it up with <pre> tag if it's inside a code block
+      // Since the code block will be wrapped with <pre> tag
       return codeElement;
     } else {
       return (
@@ -79,39 +101,22 @@ export default function Code({ code, children, language, img, srNumber }) {
       languageClass = children.props.className;
     }
 
-    if (img) {
-      setCodeElement(
-        <div
-          id={srNumber ? `code-block-${srNumber}` : null}
-          className={classNames(
-            `code-container-${language}`,
-            styles.CodeContainer,
-            srNumber ? styles.CodeWithSrNumber : ""
-          )}
-        >
-          <Image src={img} clean={true} />
+    setCodeElement(
+      <div
+        id={srNumber ? `code-block-${srNumber}` : null}
+        className={classNames(
+          `code-container-${language}`,
+          styles.CodeContainer,
+          isInsideCodeBlock ? styles.CodeWithSrNumber : ""
+        )}
+      >
+        {img && <Image src={img} clean={true} />}
 
-          {getWrappedCodeElement(
-            <code className={languageClass}>{customCode}</code>
-          )}
-        </div>
-      );
-    } else {
-      setCodeElement(
-        <div
-          id={srNumber ? `code-block-${srNumber}` : null}
-          className={classNames(
-            `code-container-${language}`,
-            styles.CodeContainer,
-            srNumber ? styles.CodeWithSrNumber : ""
-          )}
-        >
-          {getWrappedCodeElement(
-            <code className={languageClass}>{customCode}</code>
-          )}
-        </div>
-      );
-    }
+        {getWrappedCodeElement(
+          <code className={languageClass}>{customCode}</code>
+        )}
+      </div>
+    );
   }, [img, code, children, language, copyText]);
 
   return codeElement;
