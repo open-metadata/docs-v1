@@ -3,6 +3,7 @@ import classNames from "classnames";
 import { has, isEmpty } from "lodash";
 import { useRouter } from "next/router";
 import React, {
+  ReactNode,
   useCallback,
   useEffect,
   useMemo,
@@ -24,16 +25,18 @@ import TopNav from "../../TopNav/TopNav";
 import SkeletonLoader from "../../common/SkeletonLoader/SkeletonLoader";
 
 interface DocsPageLayoutProps {
+  logo?: ReactNode;
   parsedContent: RenderableTreeNode;
   slug: string[];
   versionsList: SelectOption<string>[];
 }
 
 function DocsPageLayout({
+  logo,
   parsedContent,
   slug,
   versionsList,
-}: DocsPageLayoutProps) {
+}: Readonly<DocsPageLayoutProps>) {
   const router = useRouter();
   const { isRouteChanging } = useRouteChangingContext();
   const { isMobileDevice } = useNavBarCollapsedContext();
@@ -84,7 +87,7 @@ function DocsPageLayout({
   return (
     <div className="flex flex-col">
       <div className="nav-bar-container">
-        <TopNav versionsList={versionsList} />
+        <TopNav logo={logo} versionsList={versionsList} />
         <CategoriesNav menu={menuItems} />
       </div>
       <div className="flex">

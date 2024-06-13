@@ -1,9 +1,9 @@
 import algoliasearch from "algoliasearch/lite";
 import classNames from "classnames";
-import { isEmpty, isString } from "lodash";
+import { isEmpty, isString, isUndefined } from "lodash";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useCallback, useEffect, useState } from "react";
+import { ReactNode, useCallback, useEffect, useState } from "react";
 import { MdMenu, MdMenuOpen } from "react-icons/md";
 import { InstantSearch } from "react-instantsearch";
 import {
@@ -30,10 +30,11 @@ const searchClient = algoliasearch(
 );
 
 interface TopNavProps {
+  logo?: ReactNode;
   versionsList: Array<SelectOption<string>>;
 }
 
-export default function TopNav({ versionsList }: Readonly<TopNavProps>) {
+export default function TopNav({ versionsList, logo }: Readonly<TopNavProps>) {
   const router = useRouter();
   const [displayNavBarCollapseButton, setDisplayNavBarCollapseButton] =
     useState(false);
@@ -91,7 +92,7 @@ export default function TopNav({ versionsList }: Readonly<TopNavProps>) {
             href={docVersion ? getUrlWithVersion("/", docVersion) : "/"}
             aria-label="omd-icon"
           >
-            <OMDIcon />
+            {isUndefined(logo) ? <OMDIcon /> : logo}
           </Link>
           {!isEmpty(versionsList) && (
             <SelectDropdown
