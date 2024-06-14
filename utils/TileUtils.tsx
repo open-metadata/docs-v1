@@ -6,6 +6,7 @@ import { ReactComponent as InsightIcon } from "../images/icons/insight.svg";
 import { ReactComponent as LineageIcon } from "../images/icons/lineage.svg";
 import { ReactComponent as QualityIcon } from "../images/icons/quality.svg";
 import { ReactComponent as StewardIcon } from "../images/icons/steward.svg";
+import { ReactComponent as ObservabilityIcon } from "../images/icons/observability.svg";
 import { materialDesignIcon } from "./CommonUtils";
 
 export const getTileIcons = (iconName: string) => {
@@ -26,6 +27,8 @@ export const getTileIcons = (iconName: string) => {
       return <InsightIcon width={32} height={32} />;
     case "lineage":
       return <LineageIcon width={32} height={32} />;
+    case "observability":
+      return <ObservabilityIcon width={32} height={32} />;
     default: {
       const getIcon = materialDesignIcon(iconName);
       return getIcon ? getIcon({ size: 32 }) : null;
