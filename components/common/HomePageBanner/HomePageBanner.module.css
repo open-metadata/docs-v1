@@ -26,7 +26,7 @@
   width: 100%;
   padding: 0px 10%;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .BannerNavLink{
