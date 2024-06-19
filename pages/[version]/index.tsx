@@ -10,7 +10,9 @@ import Card from "../../components/common/Card/Card";
 import HomePageBanner from "../../components/common/HomePageBanner/HomePageBanner";
 import SkeletonLoader from "../../components/common/SkeletonLoader/SkeletonLoader";
 import {
+  BANNER_LINKS_INFO,
   BLOGS_INFO,
+  HOME_PAGE_BANNER_INFO,
   OVERVIEW_INFO,
   QUICK_LINK_CARDS,
 } from "../../constants/homePage.constants";
@@ -57,7 +59,10 @@ export default function Index({ versionsList }: Readonly<Props>) {
           </div>
         ) : (
           <>
-            <HomePageBanner />
+            <HomePageBanner
+              bannerInfo={HOME_PAGE_BANNER_INFO}
+              quickLinks={BANNER_LINKS_INFO}
+            />
 
             <div className="overview-container">
               <div className="overview-heading">{OVERVIEW_INFO.title}</div>
