@@ -138,6 +138,7 @@ export const getConnectorImage = (connector: string) => {
     Trino: "trino",
     "Unity Catalog": "databrick",
     Vertica: "vertica",
+    Teradata: "teradata",
   };
 
   iconSource = connectorMappings[connector] || iconSource;
