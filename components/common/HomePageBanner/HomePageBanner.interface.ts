@@ -9,8 +9,8 @@ export interface QuickLinksInfo {
   linkTitle: string;
   href: string;
   theme?: string;
-  externalURL?: boolean;
   icon?: string;
+  externalURL?: boolean;
 }
 
 export interface BannerInfo {
