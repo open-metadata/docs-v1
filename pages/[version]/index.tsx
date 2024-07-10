@@ -22,6 +22,7 @@ import { useNavBarCollapsedContext } from "../../context/NavBarCollapseContext";
 import { useRouteChangingContext } from "../../context/RouteChangingContext";
 import { SkeletonWidth } from "../../enums/SkeletonLoder.enum";
 import { getVersionsList } from "../../lib/api";
+import styles from "../../components/ConnectorsInfo/ConnectorsInfo.module.css"
 
 interface Props {
   versionsList: Array<SelectOption<string>>;
@@ -85,7 +86,7 @@ export default function Index({ versionsList }: Readonly<Props>) {
             </div>
             <div className="homepage-containers">
               <div className="container-heading">Connectors</div>
-              <ConnectorsInfo />
+              <ConnectorsInfo tabStyle={styles.TabItem} activeTabStyle={styles.SelectedTab} />
             </div>
             <div className="homepage-containers">
               <div className="container-heading">Blogs</div>
