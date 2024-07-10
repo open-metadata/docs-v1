@@ -8,8 +8,7 @@ export interface QuickLinksInfo {
   description: string;
   linkTitle: string;
   href: string;
-  theme?: string;
-  icon?: string;
+  theme: string;
   externalURL?: boolean;
 }
 
