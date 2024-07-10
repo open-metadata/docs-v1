@@ -23,7 +23,6 @@ import { SkeletonWidth } from "../enums/SkeletonLoder.enum";
 import { MenuItem } from "../interface/common.interface";
 import { getVersionsList } from "../lib/api";
 import { fetchMenuList } from "../utils/CommonUtils";
-import styles from "../../components/ConnectorsInfo/ConnectorsInfo.module.css"
 
 interface Props {
   versionsList: Array<SelectOption<string>>;
@@ -96,7 +95,7 @@ export default function Index({ versionsList }: Readonly<Props>) {
             </div>
             <div className="homepage-containers">
               <div className="container-heading">Connectors</div>
-              <ConnectorsInfo tabStyle={styles.TabItem} activeTabStyle={styles.SelectedTab} />
+              <ConnectorsInfo tabStyle="connector-tab" activeTabStyle="active-connector" />
             </div>
             <div className="homepage-containers">
               <div className="container-heading">Blogs</div>
