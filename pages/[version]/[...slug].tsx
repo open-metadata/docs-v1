@@ -20,6 +20,7 @@ import {
 } from "../../lib/api";
 import { configs } from "../../lib/markdoc";
 import { getFormattedPartials } from "../../utils/CommonUtils";
+import Footer from "../../components/Footer/Footer";
 
 interface Props {
   content: string;
@@ -93,6 +94,7 @@ export default function Article({
             parsedContent={parsedContent}
             slug={slug}
             versionsList={versionsList}
+            footer={<Footer />}
           />
         )}
       </ErrorBoundary>

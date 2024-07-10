@@ -29,6 +29,7 @@ interface DocsPageLayoutProps {
   parsedContent: RenderableTreeNode;
   slug: string[];
   versionsList: SelectOption<string>[];
+  footer: ReactNode
 }
 
 function DocsPageLayout({
@@ -36,6 +37,7 @@ function DocsPageLayout({
   parsedContent,
   slug,
   versionsList,
+  footer,
 }: Readonly<DocsPageLayoutProps>) {
   const router = useRouter();
   const { isRouteChanging } = useRouteChangingContext();
@@ -133,7 +135,7 @@ function DocsPageLayout({
               </>
             )}
           </main>
-          <Footer />
+          {footer}
         </div>
       </div>
     </div>
