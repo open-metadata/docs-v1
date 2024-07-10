@@ -1,16 +1,16 @@
 import classNames from "classnames";
-import {uniqBy} from "lodash";
+import { uniqBy } from "lodash";
 import dynamic from "next/dynamic";
 import Link from "next/link";
-import {useState} from "react";
-import {useDocVersionContext} from "../../context/DocVersionContext";
+import { useState } from "react";
+import { useDocVersionContext } from "../../context/DocVersionContext";
 import {
   getConnectorURL,
   getSortedServiceList,
 } from "../../utils/ConnectorsUtils";
 import Loader from "../common/Loader/Loader";
-import {CONNECTORS} from "./ConnectorsInfo.constants";
-import {ConnectorCategory} from "./ConnectorsInfo.interface";
+import { CONNECTORS } from "./ConnectorsInfo.constants";
+import { ConnectorCategory } from "./ConnectorsInfo.interface";
 import styles from "./ConnectorsInfo.module.css";
 
 const ConnectorImage = dynamic(() => import("./ConnectorImage"), {
@@ -25,8 +25,8 @@ CONNECTORS.unshift({
   }, [] as ConnectorCategory["services"]),
 });
 
-export default function ConnectorsInfo() {
-  const {docVersion} = useDocVersionContext();
+export default function ConnectorsInfo({ tabStyle, activeTabStyle }) {
+  const { docVersion } = useDocVersionContext();
   const [selectedTab, setSelectedTab] = useState<ConnectorCategory>(
     CONNECTORS[0]
   );
@@ -37,9 +37,9 @@ export default function ConnectorsInfo() {
         {CONNECTORS.map((connectorCategory) => (
           <button
             className={classNames(
-              styles.TabItem,
+              tabStyle,
               connectorCategory.connector === selectedTab.connector
-                ? styles.SelectedTab
+                ? activeTabStyle
                 : ""
             )}
             key={connectorCategory.connector}
