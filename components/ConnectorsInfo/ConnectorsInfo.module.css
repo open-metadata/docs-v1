@@ -12,26 +12,6 @@
   border-right: 1px solid var(--default-border-color);
 }
 
-.TabItem{
-  display: block;
-  width: 100%;
-  text-align: start;
-  padding: 8px;
-  cursor: pointer;
-  border-radius: 4px;
-}
-
-.TabItem:hover{
-  background-color: var(--primary-background-color);
-}
-
-.SelectedTab{
-  border: 0.5px solid var(--select-border-color);
-  background-color: var(--primary-background-color);
-  color: var(--primary-color);
-  font-weight: 600;
-}
-
 .ConnectorsContainer{
   max-height: 100%;
   overflow-y: scroll;

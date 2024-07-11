@@ -173,6 +173,10 @@ code::-webkit-scrollbar {
   border-radius: 4px;
 }
 
+.connector-tab:hover {
+  background-color: var(--primary-background-color);
+}
+
 .active-connector {
   border: 0.5px solid var(--select-border-color);
   background-color: var(--primary-background-color);
