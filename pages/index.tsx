@@ -95,7 +95,7 @@ export default function Index({ versionsList }: Readonly<Props>) {
             </div>
             <div className="homepage-containers">
               <div className="container-heading">Connectors</div>
-              <ConnectorsInfo />
+              <ConnectorsInfo tabStyle="connector-tab" activeTabStyle="active-connector" />
             </div>
             <div className="homepage-containers">
               <div className="container-heading">Blogs</div>

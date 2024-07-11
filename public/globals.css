@@ -164,6 +164,26 @@ code::-webkit-scrollbar {
   display: none;
 }
 
+.connector-tab {
+  display: block;
+  width: 100%;
+  text-align: start;
+  padding: 8px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.connector-tab:hover {
+  background-color: var(--primary-background-color);
+}
+
+.active-connector {
+  border: 0.5px solid var(--select-border-color);
+  background-color: var(--primary-background-color);
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
 .divider {
   color: var(--default-border-color);
 }
