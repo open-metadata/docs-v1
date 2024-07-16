@@ -26,3 +26,8 @@ https://www.microsoft.com/
 https://jaceklaskowski.gitbooks.io/
 https://www.ibm.com/
 https://developers.google.com/
+https://docs.databricks.com/
+https://docs.kafkaconnect.io/
+https://libraries.io/
+https://api.slack.com/
+https://open-metadata.org/
