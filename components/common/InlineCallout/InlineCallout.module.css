@@ -14,15 +14,8 @@
   padding: 16px;
   display: flex;
   align-items: center;
+  background-color: var(--icon-background-color);
   border-radius: 8px;
-}
-
-.OMBgColor {
-  background-color: #f1f3fe;
-}
-
-.CollateBgColor {
-  background-color: #FFF5F6;
 }
  
 .Text {

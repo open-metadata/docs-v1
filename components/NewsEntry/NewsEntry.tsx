@@ -2,6 +2,7 @@ import Link from "next/link";
 import styles from "./NewsEntry.module.css";
 import { ReactNode } from "react";
 import Image from "next/image";
+import { isEmpty } from "lodash";
 
 interface NewsEntryProps {
   title?: string;
@@ -14,7 +15,7 @@ interface NewsEntryProps {
 const NewsEntry = ({ title, text, link, image, children }: NewsEntryProps) => {
   return (
     <Link className={styles.Container} href={link} target="_blank">
-      {image && (
+      {!isEmpty(image) && (
         <Image
           src={image}
           alt={title}

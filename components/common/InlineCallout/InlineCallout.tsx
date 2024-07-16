@@ -7,7 +7,7 @@ import {
   materialDesignIcon,
   getUrlWithVersion,
 } from "../../../utils/CommonUtils";
-import { ReactNode, useEffect, useMemo, useState } from "react";
+import { ReactNode, useMemo } from "react";
 import { useDocVersionContext } from "../../../context/DocVersionContext";
 import styles from "./InlineCallout.module.css";
 
@@ -27,13 +27,6 @@ const InlineCallout = ({
   isExternalLink = false,
 }: InlineCalloutProps) => {
   const { docVersion } = useDocVersionContext();
-  const [isOMWebsite, setIsOMWebsite] = useState(true);
-
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      setIsOMWebsite(window.location.hostname.includes("docsv1"));
-    }
-  }, []);
 
   const iconComponent = useMemo(() => {
     switch (icon) {
@@ -53,14 +46,7 @@ const InlineCallout = ({
       className={classNames(styles.Container)}
       href={isExternalLink ? href : getUrlWithVersion(href, docVersion)}
     >
-      <span
-        className={classNames(
-          styles.IconContainer,
-          isOMWebsite ? styles.OMBgColor : styles.CollateBgColor
-        )}
-      >
-        {iconComponent}
-      </span>
+      <span className={classNames(styles.IconContainer)}>{iconComponent}</span>
       <span className={styles.Text}>
         <span className={classNames(styles.Link)}>{bold}</span> {children}
       </span>
