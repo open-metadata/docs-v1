@@ -21,6 +21,7 @@ import {
 import { configs } from "../../lib/markdoc";
 import { getFormattedPartials } from "../../utils/CommonUtils";
 import Footer from "../../components/Footer/Footer";
+import TopNav from "../../components/TopNav/TopNav";
 
 interface Props {
   content: string;
@@ -91,9 +92,9 @@ export default function Article({
           />
         ) : (
           <DocsPageLayout
+            navbar={<TopNav versionsList={versionsList} isOMD />}
             parsedContent={parsedContent}
             slug={slug}
-            versionsList={versionsList}
             footer={<Footer />}
           />
         )}

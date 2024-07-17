@@ -43,7 +43,7 @@ export default function Index({ versionsList }: Readonly<Props>) {
     <>
       <GoogleAnalyticsScript />
       <div className="nav-bar-container">
-        <TopNav versionsList={versionsList} />
+        <TopNav versionsList={versionsList} isOMD />
         <CategoriesNav menu={menuItems} />
       </div>
       <div className="home-page">
