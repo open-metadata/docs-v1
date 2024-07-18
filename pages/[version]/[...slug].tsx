@@ -92,10 +92,11 @@ export default function Article({
           />
         ) : (
           <DocsPageLayout
-            navbar={<TopNav versionsList={versionsList} isOMD />}
+            navbar={<TopNav versionsList={versionsList} />}
             parsedContent={parsedContent}
             slug={slug}
             footer={<Footer />}
+            isOMD
           />
         )}
       </ErrorBoundary>

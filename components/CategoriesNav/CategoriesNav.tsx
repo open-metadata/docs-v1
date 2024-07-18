@@ -10,13 +10,14 @@ import styles from "./CategoriesNav.module.css";
 
 interface Props {
   menu: MenuItem[];
+  isOMD?: boolean
 }
 
-export default function CategoriesNav({ menu }: Props) {
+export default function CategoriesNav({ menu, isOMD }: Props) {
   const router = useRouter();
   const { docVersion } = useDocVersionContext();
   const { navBarCollapsed } = useNavBarCollapsedContext();
-  const category = getCategoryByIndex(router.asPath, 2) ?? "";
+  const category = getCategoryByIndex(router.asPath, isOMD ? 2 : 1) ?? "";
 
   const handleMenuItemClick = (item: {
     label: string;
@@ -43,7 +44,7 @@ export default function CategoriesNav({ menu }: Props) {
           const active = category === getCategoryByIndex(item.url, 1);
           return (
             <Link
-              href={getUrlWithVersion(item.url, docVersion)}
+              href={isOMD ? getUrlWithVersion(item.url, docVersion) : item.url}
               key={item.url}
               className={classNames(
                 styles.NavItem,

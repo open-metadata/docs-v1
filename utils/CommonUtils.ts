@@ -25,11 +25,14 @@ export const getVersionFromUrl = (url: string) => {
   return versionString;
 };
 
-export const fetchMenuList = async (version: string) => {
+export const fetchMenuList = async (version?: string) => {
   try {
-    const response = await fetch(`/api/getMenu?version=${version}`, {
-      method: "GET",
-    });
+    const response = await fetch(
+      version ? `/api/getMenu?version=${version}` : `/api/getMenu`,
+      {
+        method: "GET",
+      }
+    );
 
     const parsedResponse: Array<MenuItem> = await response.json();
 
@@ -120,7 +123,7 @@ export const getFormattedId = (children: Array<string | undefined>) => {
   if (isEmpty(children)) {
     return "";
   }
-  
+
   // Filter the strings and form a text
   const itemText = children
     .filter((child) => typeof child === "string")

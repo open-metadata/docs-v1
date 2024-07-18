@@ -26,6 +26,7 @@ interface DocsPageLayoutProps {
   parsedContent: RenderableTreeNode;
   slug: string[];
   footer: ReactNode
+  isOMD?: boolean
 }
 
 function DocsPageLayout({
@@ -33,6 +34,7 @@ function DocsPageLayout({
   parsedContent,
   slug,
   footer,
+  isOMD,
 }: Readonly<DocsPageLayoutProps>) {
   const router = useRouter();
   const { isRouteChanging } = useRouteChangingContext();
@@ -85,7 +87,7 @@ function DocsPageLayout({
     <div className="flex flex-col">
       <div className="nav-bar-container">
         {navbar}
-        <CategoriesNav menu={menuItems} />
+        <CategoriesNav menu={menuItems} isOMD={isOMD} />
       </div>
       <div className="flex">
         {!isHowToGuidesHomePagePath && (
