@@ -32,14 +32,9 @@ const searchClient = algoliasearch(
 interface TopNavProps {
   logo?: ReactNode;
   versionsList: Array<SelectOption<string>>;
-  isOMD?: boolean;
 }
 
-export default function TopNav({
-  versionsList,
-  logo,
-  isOMD,
-}: Readonly<TopNavProps>) {
+export default function TopNav({ versionsList, logo }: Readonly<TopNavProps>) {
   const router = useRouter();
   const [displayNavBarCollapseButton, setDisplayNavBarCollapseButton] =
     useState(false);
@@ -99,7 +94,7 @@ export default function TopNav({
           >
             {isUndefined(logo) ? <OMDIcon /> : logo}
           </Link>
-          {isOMD && !isEmpty(versionsList) && (
+          {!isEmpty(versionsList) && (
             <SelectDropdown
               value={docVersion}
               options={versionsList}
@@ -128,44 +123,24 @@ export default function TopNav({
           <Search />
         </InstantSearch>
       </SearchContextProvider>
-      {isOMD ? (
-        <div className={styles.IconContainer}>
-          <a
-            href="https://slack.open-metadata.org"
-            target="_blank"
-            title="Slack"
-            aria-label="slack-icon"
-          >
-            <SlackIcon />
-          </a>
-          <a
-            href="https://github.com/open-metadata/OpenMetadata"
-            target="_blank"
-            title="Github"
-            aria-label="github-icon"
-          >
-            <GithubIcon />
-          </a>
-          <a
-            href="/swagger.html"
-            target="_blank"
-            title="Swagger"
-            aria-label="api-icon"
-          >
-            <ApiIcon />
-          </a>
-          <a
-            className="btn fw-500 btn-primary rounded-pill"
-            href="https://getcollate.io"
-            target="_blank"
-            aria-label="cloud-icon"
-          >
-            <button className={styles.CloudBtn} aria-label="cloud-icon">
-              <CloudIcon />
-            </button>
-          </a>
-        </div>
-      ) : (
+
+      <div className={styles.IconContainer}>
+        <a
+          href="https://slack.open-metadata.org"
+          target="_blank"
+          title="Slack"
+          aria-label="slack-icon"
+        >
+          <SlackIcon />
+        </a>
+        <a
+          href="https://github.com/open-metadata/OpenMetadata"
+          target="_blank"
+          title="Github"
+          aria-label="github-icon"
+        >
+          <GithubIcon />
+        </a>
         <a
           href="/swagger.html"
           target="_blank"
@@ -174,7 +149,17 @@ export default function TopNav({
         >
           <ApiIcon />
         </a>
-      )}
+        <a
+          className="btn fw-500 btn-primary rounded-pill"
+          href="https://getcollate.io"
+          target="_blank"
+          aria-label="cloud-icon"
+        >
+          <button className={styles.CloudBtn} aria-label="cloud-icon">
+            <CloudIcon />
+          </button>
+        </a>
+      </div>
     </nav>
   );
 }
