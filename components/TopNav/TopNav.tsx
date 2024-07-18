@@ -123,7 +123,6 @@ export default function TopNav({ versionsList, logo }: Readonly<TopNavProps>) {
           <Search />
         </InstantSearch>
       </SearchContextProvider>
-
       <div className={styles.IconContainer}>
         <a
           href="https://slack.open-metadata.org"
