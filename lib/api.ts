@@ -34,7 +34,6 @@ export function getArticleSlugFromString(pathname) {
 export const getVersionsList = () => {
   try {
     const versionsArray = fs.readdirSync(ARTICLES_DIRECTORY);
-    console.log("Array", versionsArray)
     const versionsList = versionsArray
       // content folder now also has other folders like partial or the next release snapshot content with the versions folders
       // this check is to select only versions folders
@@ -43,8 +42,6 @@ export const getVersionsList = () => {
         label: version,
         value: version,
       }));
-    console.log("List", versionsList)
-
 
     versionsList.sort();
     versionsList.reverse();
