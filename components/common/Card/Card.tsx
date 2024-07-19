@@ -21,12 +21,18 @@ export default function Card({
   isExternalLink = false,
   icon,
 }: Props) {
-  const { docVersion } = useDocVersionContext();
+  const { docVersion, enableVersion } = useDocVersionContext();
 
   return (
     <Link
       className={styles.Container}
-      href={isExternalLink ? url : getUrlWithVersion(url, docVersion)}
+      href={
+        isExternalLink
+          ? url
+          : enableVersion
+          ? getUrlWithVersion(url, docVersion)
+          : url
+      }
     >
       {icon ? icon : <Puzzle />}
       <div className={styles.Heading}>{heading}</div>

@@ -26,7 +26,7 @@ const InlineCallout = ({
   href,
   isExternalLink = false,
 }: InlineCalloutProps) => {
-  const { docVersion } = useDocVersionContext();
+  const { docVersion, enableVersion } = useDocVersionContext();
 
   const iconComponent = useMemo(() => {
     switch (icon) {
@@ -44,7 +44,13 @@ const InlineCallout = ({
   return (
     <Link
       className={classNames(styles.Container)}
-      href={isExternalLink ? href : getUrlWithVersion(href, docVersion)}
+      href={
+        isExternalLink
+          ? href
+          : enableVersion
+          ? getUrlWithVersion(href, docVersion)
+          : href
+      }
     >
       <span className={classNames(styles.IconContainer)}>{iconComponent}</span>
       <span className={styles.Text}>

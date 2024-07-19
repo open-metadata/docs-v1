@@ -15,12 +15,12 @@ function ConnectorInfoCard({
   platform,
   href,
 }: Readonly<ConnectorInfoCardProps>) {
-  const { docVersion } = useDocVersionContext();
+  const { docVersion, enableVersion } = useDocVersionContext();
 
   return (
     <Link
       className={styles.Container}
-      href={getUrlWithVersion(href, docVersion)}
+      href={enableVersion ? getUrlWithVersion(href, docVersion) : href}
     >
       <div className="flex items-center gap-2">
         <div className={styles.ImageContainer}>{getConnectorImage(name)}</div>

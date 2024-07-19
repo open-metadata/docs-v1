@@ -9,7 +9,7 @@ import styles from "../Search.module.css";
 
 function HitComponent(props) {
   const { focusedSearchItem, onChangeFocusedSearchItem } = useSearchContext();
-  const { docVersion } = useDocVersionContext();
+  const { docVersion, enableVersion } = useDocVersionContext();
   const articleItemRef = useRef<HTMLElement>();
 
   const category = props.hit.categories
@@ -38,7 +38,11 @@ function HitComponent(props) {
   return (
     <Link
       className={classNames(styles.HitLink)}
-      href={getUrlWithVersion(props.hit.objectID, docVersion)}
+      href={
+        enableVersion
+          ? getUrlWithVersion(props.hit.objectID, docVersion)
+          : props.hit.objectID
+      }
     >
       <article
         className={classNames(

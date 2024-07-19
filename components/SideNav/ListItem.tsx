@@ -13,12 +13,12 @@ import styles from "./SideNav.module.css";
 
 export default function ListItem({ item, fontWeight }: Readonly<ListItemProps>) {
   const router = useRouter();
-  const { docVersion } = useDocVersionContext();
+  const { docVersion, enableVersion } = useDocVersionContext();
   const linkRef = useRef<HTMLAnchorElement>();
 
   const isDropdown = item.children && item.children.length > 0;
   const isActive = useMemo(() => {
-    const urlWithVersion = `/${router.query.version}${item.url}`;
+    const urlWithVersion = enableVersion ? `/${router.query.version}${item.url}` : `${item.url}`;
 
     // As we introduced ability to add hashes in menu.md,
     // the url in menu.md for hashes include '/' before the '#'
@@ -32,7 +32,7 @@ export default function ListItem({ item, fontWeight }: Readonly<ListItemProps>) 
     setIsOpen((open) => !open);
   };
 
-  const urlWithVersion = getUrlWithVersion(item.url, docVersion);
+  const urlWithVersion = enableVersion ? getUrlWithVersion(item.url, docVersion) : item.url;
 
   const linkItem = useMemo(() => {
     return (

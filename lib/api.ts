@@ -5,7 +5,7 @@ import {
   ARTICLES_DIRECTORY,
   PARTIALS_DIRECTORY,
 } from "../constants/common.constants";
-import { VERSION_SELECT_DEFAULT_OPTIONS } from "./../constants/version.constants";
+import { REGEX_VERSION_MATCH_WITH_SLASH_AT_START, VERSION_SELECT_DEFAULT_OPTIONS } from "./../constants/version.constants";
 
 export function getAllFilesInDirectory(
   articleDirectory: string,
@@ -37,7 +37,7 @@ export const getVersionsList = () => {
     const versionsList = versionsArray
       // content folder now also has other folders like partial or the next release snapshot content with the versions folders
       // this check is to select only versions folders
-      .filter((version) => /^v(\d+\.\d+\.\x)$/g.test(version))
+      .filter((version) => REGEX_VERSION_MATCH_WITH_SLASH_AT_START.test(version))
       .map((version) => ({
         label: version,
         value: version,

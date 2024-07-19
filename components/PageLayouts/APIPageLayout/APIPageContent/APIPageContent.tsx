@@ -23,10 +23,14 @@ function APIsPageContent({
   pageInfoObject,
 }: APIsPageContentProps) {
   const router = useRouter();
-  const { docVersion } = useDocVersionContext();
+  const { docVersion, enableVersion } = useDocVersionContext();
   const handleMenuItemClick = (item: DropdownMenuItem) => {
     if (item.value.startsWith("/")) {
-      router.push(getUrlWithVersion(item.value, docVersion));
+      router.push(
+        enableVersion
+          ? getUrlWithVersion(item.value, docVersion)
+          : item.value
+      );
     } else {
       window.open(item.value, "_blank").focus();
     }

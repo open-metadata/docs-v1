@@ -20,12 +20,18 @@ export default function Button({
   style,
   isExternalLink = false,
 }: Props) {
-  const { docVersion } = useDocVersionContext();
+  const { docVersion, enableVersion } = useDocVersionContext();
 
   return type === "link" ? (
     <a
       className={classNames(styles.Container, className)}
-      href={isExternalLink ? href : getUrlWithVersion(href, docVersion)}
+      href={
+        isExternalLink
+          ? href
+          : enableVersion
+          ? getUrlWithVersion(href, docVersion)
+          : href
+      }
       id={id}
       style={style}
     >

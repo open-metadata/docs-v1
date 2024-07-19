@@ -52,7 +52,7 @@ function ErrorComponent({ versionsList }: Props) {
     <div className="flex flex-col">
       <GoogleAnalyticsScript />
       <TopNav versionsList={versionsList} />
-      <CategoriesNav menu={menuItems} isOMD />
+      <CategoriesNav menu={menuItems} />
       <div className="flex">
         <SideNav
           sideNavCollapsed={sideNavCollapsed}

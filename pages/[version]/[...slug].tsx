@@ -96,7 +96,6 @@ export default function Article({
             parsedContent={parsedContent}
             slug={slug}
             footer={<Footer />}
-            isOMD
           />
         )}
       </ErrorBoundary>

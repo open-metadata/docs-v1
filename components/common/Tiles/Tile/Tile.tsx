@@ -16,14 +16,20 @@ function Tile({
   icon,
   children,
 }: TileProps) {
-  const { docVersion } = useDocVersionContext();
+  const { docVersion, enableVersion } = useDocVersionContext();
 
   const getWrappedTile = useCallback(
     (tileContainer: JSX.Element): JSX.Element =>
       link ? (
         <Link
           target={isExternalLink ? "_blank" : "_self"}
-          href={isExternalLink ? link : getUrlWithVersion(link, docVersion)}
+          href={
+            isExternalLink
+              ? link
+              : enableVersion
+              ? getUrlWithVersion(link, docVersion)
+              : link
+          }
         >
           {tileContainer}
         </Link>

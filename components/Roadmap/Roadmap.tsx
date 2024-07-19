@@ -16,7 +16,7 @@ import styles from "./Roadmap.module.css";
 import RoadmapFeatureItem from "./RoadmapFeatureItem/RoadmapFeatureItem";
 
 function Roadmap() {
-  const { docVersion } = useDocVersionContext();
+  const { docVersion, enableVersion } = useDocVersionContext();
   const [showLeftShadow, setShowLeftShadow] = useState(false);
   const [showRightShadow, setShowRightShadow] = useState(true);
   const tableRef = useRef(null);
@@ -72,7 +72,13 @@ function Roadmap() {
       </p>
       <p>
         You can check the latest release{" "}
-        <Link href={getUrlWithVersion("/releases/all-releases", docVersion)}>
+        <Link
+          href={
+            enableVersion
+              ? getUrlWithVersion("/releases/all-releases", docVersion)
+              : "/releases/all-releases"
+          }
+        >
           here
         </Link>
         .

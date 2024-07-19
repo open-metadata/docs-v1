@@ -12,7 +12,7 @@ interface Crumb {
 }
 
 export default function Breadcrumb({ slug }: { slug: string[] }) {
-  const { docVersion } = useDocVersionContext();
+  const { docVersion, enableVersion } = useDocVersionContext();
   const breadcrumb: Crumb[] = [
     {
       title: "Home",
@@ -31,10 +31,11 @@ export default function Breadcrumb({ slug }: { slug: string[] }) {
   return slug ? (
     <div className={styles.Container}>
       {breadcrumb.map((crumb, idx) => {
-        const hrefString =
-          crumb.path !== "/"
+        const hrefString = enableVersion
+          ? crumb.path !== "/"
             ? `/${docVersion}/${crumb.path}`
-            : `/${docVersion}`;
+            : `/${docVersion}`
+          : `/${crumb.path}`;
         return (
           <React.Fragment key={crumb.path}>
             <Link

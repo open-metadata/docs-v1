@@ -10,7 +10,7 @@ interface Props {
 }
 
 function CustomAnchorNode({ href, children }: Props) {
-  const { docVersion } = useDocVersionContext();
+  const { docVersion, enableVersion } = useDocVersionContext();
   const regexToIdentifyLink = /^(http|https|ftp|www)/g;
 
   const isExternalLink = href.search(regexToIdentifyLink) !== -1;
@@ -21,7 +21,13 @@ function CustomAnchorNode({ href, children }: Props) {
     </a>
   ) : (
     <Link
-      href={href.startsWith("#") ? href : getUrlWithVersion(href, docVersion)}
+      href={
+        href.startsWith("#")
+          ? href
+          : enableVersion
+          ? getUrlWithVersion(href, docVersion)
+          : href
+      }
     >
       {children}
     </Link>

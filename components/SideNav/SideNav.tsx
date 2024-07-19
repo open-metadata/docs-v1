@@ -13,6 +13,7 @@ import { getSideNavItems } from "../../utils/SideNavUtils";
 import SkeletonLoader from "../common/SkeletonLoader/SkeletonLoader";
 import ListItem from "./ListItem";
 import styles from "./SideNav.module.css";
+import { useDocVersionContext } from "../../context/DocVersionContext";
 
 export const componentKey = "manual";
 
@@ -26,6 +27,7 @@ export default forwardRef(function SideNav(
   ref: React.MutableRefObject<boolean>
 ) {
   const router = useRouter();
+  const { enableVersion } = useDocVersionContext();
   const { navBarCollapsed, isMobileDevice } = useNavBarCollapsedContext();
   const toggleSideNavCollapsed = () => {
     handleSideNavCollapsed(!sideNavCollapsed);
@@ -33,7 +35,7 @@ export default forwardRef(function SideNav(
   const { menuItems, isMenuLoading } = useMenuItemsContext();
 
   const category = useMemo(
-    () => getCategoryByIndex(router.asPath, 2),
+    () => getCategoryByIndex(router.asPath, enableVersion ? 2 : 1),
     [router.asPath]
   );
 
@@ -44,7 +46,7 @@ export default forwardRef(function SideNav(
   );
 
   const childItems = useMemo(
-    () => getSideNavItems(item, router.asPath),
+    () => getSideNavItems(item, router.asPath, enableVersion),
     [item, router.asPath]
   );
 
@@ -83,8 +85,8 @@ export default forwardRef(function SideNav(
   useEffect(() => {
     if (isEmpty(childItems)) {
       handleSideNavCollapsed(true);
-    } else if(!isMenuLoading) {
-        handleSideNavCollapsed(false);
+    } else if (!isMenuLoading) {
+      handleSideNavCollapsed(false);
     }
   }, [childItems]);
 

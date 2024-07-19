@@ -44,7 +44,7 @@ export default function Index({ versionsList }: Readonly<Props>) {
       <GoogleAnalyticsScript />
       <div className="nav-bar-container">
         <TopNav versionsList={versionsList} />
-        <CategoriesNav menu={menuItems} isOMD />
+        <CategoriesNav menu={menuItems} />
       </div>
       <div className="home-page">
         {isRouteChanging ? (
