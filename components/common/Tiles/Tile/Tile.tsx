@@ -3,7 +3,7 @@ import { isEmpty } from "lodash";
 import Link from "next/link";
 import { useCallback, useMemo } from "react";
 import { useDocVersionContext } from "../../../../context/DocVersionContext";
-import { getUrlWithVersion } from "../../../../utils/CommonUtils";
+import { getUrl } from "../../../../utils/CommonUtils";
 import { getTileIcons } from "../../../../utils/TileUtils";
 import { TileProps } from "./Tile.interface";
 import styles from "./Tile.module.css";
@@ -16,14 +16,14 @@ function Tile({
   icon,
   children,
 }: TileProps) {
-  const { docVersion } = useDocVersionContext();
+  const { docVersion, enableVersion } = useDocVersionContext();
 
   const getWrappedTile = useCallback(
     (tileContainer: JSX.Element): JSX.Element =>
       link ? (
         <Link
           target={isExternalLink ? "_blank" : "_self"}
-          href={isExternalLink ? link : getUrlWithVersion(link, docVersion)}
+          href={getUrl({ url: link, docVersion, enableVersion, isExternalLink })}
         >
           {tileContainer}
         </Link>

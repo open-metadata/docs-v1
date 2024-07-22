@@ -18,25 +18,20 @@ import { components } from "../../../lib/markdoc";
 import { checkIsHowToGuidesPaths } from "../../../utils/PathUtils";
 import Breadcrumb from "../../Breadcrumb/Breadcrumb";
 import CategoriesNav from "../../CategoriesNav/CategoriesNav";
-import Footer from "../../Footer/Footer";
-import { SelectOption } from "../../SelectDropdown/SelectDropdown";
 import SideNav from "../../SideNav/SideNav";
-import TopNav from "../../TopNav/TopNav";
 import SkeletonLoader from "../../common/SkeletonLoader/SkeletonLoader";
 
 interface DocsPageLayoutProps {
-  logo?: ReactNode;
+  navbar: ReactNode;
   parsedContent: RenderableTreeNode;
   slug: string[];
-  versionsList: SelectOption<string>[];
   footer: ReactNode
 }
 
 function DocsPageLayout({
-  logo,
+  navbar,
   parsedContent,
   slug,
-  versionsList,
   footer,
 }: Readonly<DocsPageLayoutProps>) {
   const router = useRouter();
@@ -89,7 +84,7 @@ function DocsPageLayout({
   return (
     <div className="flex flex-col">
       <div className="nav-bar-container">
-        <TopNav logo={logo} versionsList={versionsList} />
+        {navbar}
         <CategoriesNav menu={menuItems} />
       </div>
       <div className="flex">

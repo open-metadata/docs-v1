@@ -84,40 +84,18 @@ export const BLOGS_INFO = [
     title: "OpenMetadata Release 1.3",
     text: "Intuitive Lineage UI, Data Observability Alerts, Data Quality Incident Manager, Custom Metrics for Profiler, Knowledge Center Improvements, and lots more",
     link: "https://blog.open-metadata.org/openmetadata-release-1-3-ac801834ee80",
-    image: (
-      <Image
-        width={1000}
-        height={1000}
-        src="/blogs/openmetadata-1.3.0-release.webp"
-        alt="openmetadata-1.3.0-release"
-      />
-    ),
+    image: "/blogs/openmetadata-1.3.0-release.webp",
   },
   {
     title: "Leveraging the Power of OpenMetadata Data Quality Framework",
     text: "OpenMetadata offers the possibility to execute data quality tests directly from the UI, making it a powerful tool for everyone in the company.",
     link: "https://blog.open-metadata.org/leveraging-the-power-of-openmetadata-data-quality-framework-385ba2d8eaf",
-    image: (
-      <Image
-        width={1000}
-        height={1000}
-        src="/blogs/simple-easy-data-quality.webp"
-        alt="simple-easy-data-quality"
-      />
-    ),
+    image: "/blogs/simple-easy-data-quality.webp",
   },
   {
     title: "OpenMetadata Release 1.2",
     text: "Domains, Data Products, Search Index, Stored Procedures, Glossary Approval Workflow, Customizable Landing Page, Applications, Knowledge Center, Cost Analysis, and lots more",
     link: "https://blog.open-metadata.org/openmetadata-release-1-2-531f0e3c6d9a",
-    image: (
-      <Image
-        className="w-full h-full"
-        width={1000}
-        height={1000}
-        src="/blogs/openmetadata-1.2.0-release.webp"
-        alt="openmetadata-1.2.0-release"
-      />
-    ),
+    image: "/blogs/openmetadata-1.2.0-release.webp",
   },
 ];

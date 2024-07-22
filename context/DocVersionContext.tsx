@@ -4,11 +4,12 @@ import { DEFAULT_VERSION } from "../constants/version.constants";
 export const DocVersionContext = React.createContext({
   docVersion: DEFAULT_VERSION,
   onChangeDocVersion: (version: string) => null,
+  enableVersion: true
 });
 
 export const useDocVersionContext = () => useContext(DocVersionContext);
 
-export const DocVersionContextProvider = ({ children }) => {
+export const DocVersionContextProvider = ({ children, enableVersion = true }) => {
   const [docVersion, setDocVersion] = useState(DEFAULT_VERSION);
 
   const onChangeDocVersion = (version: string) => {
@@ -16,8 +17,12 @@ export const DocVersionContextProvider = ({ children }) => {
   };
 
   const contextValue = useMemo(
-    () => ({ docVersion, onChangeDocVersion }),
-    [docVersion, onChangeDocVersion]
+    () => ({
+      docVersion,
+      onChangeDocVersion,
+      enableVersion,
+    }),
+    [docVersion, onChangeDocVersion, enableVersion]
   );
 
   return (

@@ -5,7 +5,7 @@ import { useDocVersionContext } from "../../context/DocVersionContext";
 import { useNavBarCollapsedContext } from "../../context/NavBarCollapseContext";
 import { MenuItem } from "../../interface/common.interface";
 import { getCategoryByIndex } from "../../lib/utils";
-import { getUrlWithVersion } from "../../utils/CommonUtils";
+import { getUrl, getUrlWithVersion } from "../../utils/CommonUtils";
 import styles from "./CategoriesNav.module.css";
 
 interface Props {
@@ -14,9 +14,10 @@ interface Props {
 
 export default function CategoriesNav({ menu }: Props) {
   const router = useRouter();
-  const { docVersion } = useDocVersionContext();
+  const { docVersion, enableVersion } = useDocVersionContext();
   const { navBarCollapsed } = useNavBarCollapsedContext();
-  const category = getCategoryByIndex(router.asPath, 2) ?? "";
+  const category =
+    getCategoryByIndex(router.asPath, enableVersion ? 2 : 1) ?? "";
 
   const handleMenuItemClick = (item: {
     label: string;
@@ -43,7 +44,7 @@ export default function CategoriesNav({ menu }: Props) {
           const active = category === getCategoryByIndex(item.url, 1);
           return (
             <Link
-              href={getUrlWithVersion(item.url, docVersion)}
+              href={getUrl({ url: item.url, docVersion, enableVersion })}
               key={item.url}
               className={classNames(
                 styles.NavItem,

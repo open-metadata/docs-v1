@@ -3,6 +3,15 @@ const fs = require("fs");
 
 module.exports =
   withMarkdoc(/* config: https://markdoc.io/docs/nextjs#options */)({
+    images: {
+      remotePatterns: [
+        {
+          protocol: "https",
+          hostname: "cdn.hashnode.com",
+          port: "",
+        },
+      ],
+    },
     webpack: (configuration) => {
       configuration.module.rules.push(
         {

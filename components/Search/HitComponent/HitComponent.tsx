@@ -4,12 +4,12 @@ import { useEffect, useRef } from "react";
 import { Highlight, Snippet } from "react-instantsearch";
 import { useDocVersionContext } from "../../../context/DocVersionContext";
 import { useSearchContext } from "../../../context/SearchContext";
-import { getUrlWithVersion } from "../../../utils/CommonUtils";
+import { getUrl } from "../../../utils/CommonUtils";
 import styles from "../Search.module.css";
 
 function HitComponent(props) {
   const { focusedSearchItem, onChangeFocusedSearchItem } = useSearchContext();
-  const { docVersion } = useDocVersionContext();
+  const { docVersion, enableVersion } = useDocVersionContext();
   const articleItemRef = useRef<HTMLElement>();
 
   const category = props.hit.categories
@@ -38,7 +38,7 @@ function HitComponent(props) {
   return (
     <Link
       className={classNames(styles.HitLink)}
-      href={getUrlWithVersion(props.hit.objectID, docVersion)}
+      href={getUrl({ url: props.hit.objectID, docVersion, enableVersion })}
     >
       <article
         className={classNames(
