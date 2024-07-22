@@ -61,6 +61,11 @@ export const CONNECTORS: Array<ConnectorCategory> = [
         name: "Domo",
       },
       {
+        url: "/connectors/database/doris",
+        icon: "/images/connectors/doris.webp",
+        name: "Doris",
+      },
+      {
         url: "/connectors/database/dynamodb",
         icon: "/images/connectors/dynamodb.webp",
         name: "DynamoDB",
