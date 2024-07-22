@@ -39,11 +39,6 @@
   max-width: 200px;
 }
 
-.Icon {
-  justify-content: end;
-  max-width: auto;
-}
-
 .CloudBtn {
   background-color: var(--primary-color);
   padding: 0px 12px;
@@ -74,10 +69,5 @@
     max-width: 80%;
     width: 80%;
     align-self: center;
-  }
-  .Icon {
-    justify-content: start;
-    width: 100%;
-    max-width: 90%;
   }
 }
