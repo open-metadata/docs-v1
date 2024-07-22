@@ -32,9 +32,7 @@ export default function Breadcrumb({ slug }: { slug: string[] }) {
     <div className={styles.Container}>
       {breadcrumb.map((crumb, idx) => {
         const hrefString = enableVersion
-          ? crumb.path !== "/"
-            ? `/${docVersion}/${crumb.path}`
-            : `/${docVersion}`
+          ? `/${docVersion}/${crumb.path}`
           : `/${crumb.path}`;
         return (
           <React.Fragment key={crumb.path}>

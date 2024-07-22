@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Fragment, useCallback } from "react";
 import { useDocVersionContext } from "../../../context/DocVersionContext";
 import { ReactComponent as ArrowRight } from "../../../images/icons/arrow-right.svg";
-import { getUrlWithVersion } from "../../../utils/CommonUtils";
+import { getUrl } from "../../../utils/CommonUtils";
 import Button from "../Button/Button";
 import YouTube from "../Youtube/Youtube";
 import { HomePageBannerProps } from "./HomePageBanner.interface";
@@ -13,7 +13,7 @@ export default function HomePageBanner({
   quickLinks,
   bannerInfo,
 }: Readonly<HomePageBannerProps>) {
-  const { docVersion } = useDocVersionContext();
+  const { docVersion, enableVersion } = useDocVersionContext();
 
   const getLinkButtonStyleFromTheme = useCallback(
     (theme: string) => {
@@ -56,9 +56,7 @@ export default function HomePageBanner({
                   <p className={styles.DescriptionText}>{description}</p>
                 </div>
                 <Link
-                  href={
-                    externalURL ? href : getUrlWithVersion(href, docVersion)
-                  }
+                  href={getUrl(href, docVersion, externalURL, enableVersion)}
                   target={externalURL ? "_blank" : "_self"}
                 >
                   <Button

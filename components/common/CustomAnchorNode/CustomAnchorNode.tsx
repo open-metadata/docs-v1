@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React, { ReactNode } from "react";
-import { getUrlWithVersion } from "../../../utils/CommonUtils";
+import { getUrl } from "../../../utils/CommonUtils";
 import { PAGES_WITHOUT_VERSION } from "../../../constants/pagesWithoutVersion.constants";
 import { useDocVersionContext } from "../../../context/DocVersionContext";
 
@@ -15,22 +15,20 @@ function CustomAnchorNode({ href, children }: Props) {
 
   const isExternalLink = href.search(regexToIdentifyLink) !== -1;
 
+  let url: string;
+
+  if (href.startsWith("#")) {
+    url = href;
+  } else {
+    url = getUrl(href, docVersion, enableVersion);
+  }
+
   return isExternalLink || PAGES_WITHOUT_VERSION.includes(href) ? (
     <a href={href} target="_blank">
       {children}
     </a>
   ) : (
-    <Link
-      href={
-        href.startsWith("#")
-          ? href
-          : enableVersion
-          ? getUrlWithVersion(href, docVersion)
-          : href
-      }
-    >
-      {children}
-    </Link>
+    <Link href={url}>{children}</Link>
   );
 }
 

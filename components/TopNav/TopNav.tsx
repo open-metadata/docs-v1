@@ -19,7 +19,7 @@ import { ReactComponent as CloudIcon } from "../../images/icons/cloud.svg";
 import { ReactComponent as GithubIcon } from "../../images/icons/github.svg";
 import { ReactComponent as OMDIcon } from "../../images/icons/omd.svg";
 import { ReactComponent as SlackIcon } from "../../images/icons/slack.svg";
-import { getUrlWithVersion } from "../../utils/CommonUtils";
+import { getUrl } from "../../utils/CommonUtils";
 import Search from "../Search/Search";
 import SelectDropdown, { SelectOption } from "../SelectDropdown/SelectDropdown";
 import styles from "./TopNav.module.css";
@@ -38,7 +38,7 @@ export default function TopNav({ versionsList, logo }: Readonly<TopNavProps>) {
   const router = useRouter();
   const [displayNavBarCollapseButton, setDisplayNavBarCollapseButton] =
     useState(false);
-  const { docVersion, onChangeDocVersion } = useDocVersionContext();
+  const { docVersion, onChangeDocVersion, enableVersion } = useDocVersionContext();
   const { navBarCollapsed, onChangeNavBarCollapsed } =
     useNavBarCollapsedContext();
 
@@ -89,7 +89,7 @@ export default function TopNav({ versionsList, logo }: Readonly<TopNavProps>) {
       <div className={styles.CollapsedDivContainer}>
         <div className={styles.LogoContainer}>
           <Link
-            href={docVersion ? getUrlWithVersion("/", docVersion) : "/"}
+            href={getUrl("/", docVersion, enableVersion)}
             aria-label="omd-icon"
           >
             {isUndefined(logo) ? <OMDIcon /> : logo}

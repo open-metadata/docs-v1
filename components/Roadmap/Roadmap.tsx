@@ -7,10 +7,7 @@ import {
   ROADMAP_FEATURE_CATEGORY_LIST,
 } from "../../constants/Roadmap.constants";
 import { useDocVersionContext } from "../../context/DocVersionContext";
-import {
-  generateIdFromHeading,
-  getUrlWithVersion,
-} from "../../utils/CommonUtils";
+import { generateIdFromHeading, getUrl } from "../../utils/CommonUtils";
 import { Heading } from "../Heading/Heading";
 import styles from "./Roadmap.module.css";
 import RoadmapFeatureItem from "./RoadmapFeatureItem/RoadmapFeatureItem";
@@ -22,6 +19,8 @@ function Roadmap() {
   const tableRef = useRef(null);
   const leftShadowDivRef = useRef(null);
   const rightShadowDivRef = useRef(null);
+
+  const allReleasesUrl = "/releases/all-releases";
 
   const handleScroll = useCallback((e) => {
     // Show the left inner box shadow only if the container is scrolled from initial position
@@ -72,13 +71,7 @@ function Roadmap() {
       </p>
       <p>
         You can check the latest release{" "}
-        <Link
-          href={
-            enableVersion
-              ? getUrlWithVersion("/releases/all-releases", docVersion)
-              : "/releases/all-releases"
-          }
-        >
+        <Link href={getUrl(allReleasesUrl, docVersion, enableVersion)}>
           here
         </Link>
         .

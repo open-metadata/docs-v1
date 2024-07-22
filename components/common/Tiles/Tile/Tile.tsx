@@ -3,7 +3,7 @@ import { isEmpty } from "lodash";
 import Link from "next/link";
 import { useCallback, useMemo } from "react";
 import { useDocVersionContext } from "../../../../context/DocVersionContext";
-import { getUrlWithVersion } from "../../../../utils/CommonUtils";
+import { getUrl } from "../../../../utils/CommonUtils";
 import { getTileIcons } from "../../../../utils/TileUtils";
 import { TileProps } from "./Tile.interface";
 import styles from "./Tile.module.css";
@@ -23,13 +23,7 @@ function Tile({
       link ? (
         <Link
           target={isExternalLink ? "_blank" : "_self"}
-          href={
-            isExternalLink
-              ? link
-              : enableVersion
-              ? getUrlWithVersion(link, docVersion)
-              : link
-          }
+          href={getUrl(link, docVersion, isExternalLink, enableVersion)}
         >
           {tileContainer}
         </Link>

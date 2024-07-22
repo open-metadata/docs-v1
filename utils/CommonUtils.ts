@@ -17,6 +17,19 @@ export const getUrlWithVersion = (url: string, docVersion: string) => {
   return `/${docVersion}${url}`;
 };
 
+export const getUrl = (
+  url: string,
+  docVersion: string,
+  isExternalLink?: boolean,
+  enableVersion?: boolean
+) => {
+  if (isExternalLink || !enableVersion) {
+    return url;
+  } else {
+    return getUrlWithVersion(url, docVersion);
+  }
+};
+
 export const getVersionFromUrl = (url: string) => {
   const versionStringArray = url.match(/v\d+\.\d+\.x/);
   const versionString = versionStringArray

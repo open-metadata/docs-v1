@@ -55,7 +55,7 @@ export default function MyApp({ Component, pageProps }: AppProps<MyAppProps>) {
       </Head>
       <ErrorBoundary>
         <RouteChangingContextProvider>
-          <DocVersionContextProvider enableVersion={true}>
+          <DocVersionContextProvider>
             <MenuItemsContextProvider>
               <NavBarCollapseContextProvider>
                 <StepsContextProvider>

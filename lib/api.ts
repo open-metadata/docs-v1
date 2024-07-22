@@ -5,7 +5,7 @@ import {
   ARTICLES_DIRECTORY,
   PARTIALS_DIRECTORY,
 } from "../constants/common.constants";
-import { REGEX_VERSION_MATCH, REGEX_VERSION_MATCH_WITH_SLASH_AT_START, VERSION_SELECT_DEFAULT_OPTIONS } from "./../constants/version.constants";
+import { REGEX_VERSION_MATCH, VERSION_SELECT_DEFAULT_OPTIONS } from "./../constants/version.constants";
 
 export function getAllFilesInDirectory(
   articleDirectory: string,

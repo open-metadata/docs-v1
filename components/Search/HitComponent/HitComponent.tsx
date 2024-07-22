@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 import { Highlight, Snippet } from "react-instantsearch";
 import { useDocVersionContext } from "../../../context/DocVersionContext";
 import { useSearchContext } from "../../../context/SearchContext";
-import { getUrlWithVersion } from "../../../utils/CommonUtils";
+import { getUrl } from "../../../utils/CommonUtils";
 import styles from "../Search.module.css";
 
 function HitComponent(props) {
@@ -38,11 +38,7 @@ function HitComponent(props) {
   return (
     <Link
       className={classNames(styles.HitLink)}
-      href={
-        enableVersion
-          ? getUrlWithVersion(props.hit.objectID, docVersion)
-          : props.hit.objectID
-      }
+      href={getUrl(props.hit.objectID, docVersion, enableVersion)}
     >
       <article
         className={classNames(

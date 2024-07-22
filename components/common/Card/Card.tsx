@@ -3,7 +3,7 @@ import { ReactComponent as Puzzle } from "../../../images/icons/puzzle.svg";
 import { ReactComponent as ArrowRight } from "../../../images/icons/arrow-right.svg";
 import styles from "./Card.module.css";
 import Link from "next/link";
-import { getUrlWithVersion } from "../../../utils/CommonUtils";
+import { getUrl } from "../../../utils/CommonUtils";
 import { useDocVersionContext } from "../../../context/DocVersionContext";
 
 interface Props {
@@ -26,13 +26,7 @@ export default function Card({
   return (
     <Link
       className={styles.Container}
-      href={
-        isExternalLink
-          ? url
-          : enableVersion
-          ? getUrlWithVersion(url, docVersion)
-          : url
-      }
+      href={getUrl(url, docVersion, isExternalLink, enableVersion)}
     >
       {icon ? icon : <Puzzle />}
       <div className={styles.Heading}>{heading}</div>

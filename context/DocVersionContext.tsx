@@ -9,7 +9,7 @@ export const DocVersionContext = React.createContext({
 
 export const useDocVersionContext = () => useContext(DocVersionContext);
 
-export const DocVersionContextProvider = ({ children, enableVersion }) => {
+export const DocVersionContextProvider = ({ children, enableVersion = true }) => {
   const [docVersion, setDocVersion] = useState(DEFAULT_VERSION);
 
   const onChangeDocVersion = (version: string) => {

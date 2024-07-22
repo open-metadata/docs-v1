@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { useDocVersionContext } from "../../context/DocVersionContext";
-import { getUrlWithVersion } from "../../utils/CommonUtils";
+import { getUrl } from "../../utils/CommonUtils";
 import {
   getConnectorImage,
   getConnectorPlatformIcon,
@@ -20,7 +20,7 @@ function ConnectorInfoCard({
   return (
     <Link
       className={styles.Container}
-      href={enableVersion ? getUrlWithVersion(href, docVersion) : href}
+      href={getUrl(href, docVersion, enableVersion)}
     >
       <div className="flex items-center gap-2">
         <div className={styles.ImageContainer}>{getConnectorImage(name)}</div>

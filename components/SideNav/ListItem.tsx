@@ -7,18 +7,23 @@ import { useDocVersionContext } from "../../context/DocVersionContext";
 import { ReactComponent as ArrowDown } from "../../images/icons/drop-arrow-down.svg";
 import { ReactComponent as ArrowRight } from "../../images/icons/drop-arrow-right.svg";
 import { ReactComponent as CollateIcon } from "../../images/icons/ic-collate.svg";
-import { getUrlWithVersion } from "../../utils/CommonUtils";
+import { getUrl } from "../../utils/CommonUtils";
 import { ListItemProps } from "./ListItem.interface";
 import styles from "./SideNav.module.css";
 
-export default function ListItem({ item, fontWeight }: Readonly<ListItemProps>) {
+export default function ListItem({
+  item,
+  fontWeight,
+}: Readonly<ListItemProps>) {
   const router = useRouter();
   const { docVersion, enableVersion } = useDocVersionContext();
   const linkRef = useRef<HTMLAnchorElement>();
 
   const isDropdown = item.children && item.children.length > 0;
   const isActive = useMemo(() => {
-    const urlWithVersion = enableVersion ? `/${router.query.version}${item.url}` : `${item.url}`;
+    const urlWithVersion = enableVersion
+      ? `/${router.query.version}${item.url}`
+      : `${item.url}`;
 
     // As we introduced ability to add hashes in menu.md,
     // the url in menu.md for hashes include '/' before the '#'
@@ -32,7 +37,7 @@ export default function ListItem({ item, fontWeight }: Readonly<ListItemProps>) 
     setIsOpen((open) => !open);
   };
 
-  const urlWithVersion = enableVersion ? getUrlWithVersion(item.url, docVersion) : item.url;
+  const urlWithVersion = getUrl(item.url, docVersion, enableVersion);
 
   const linkItem = useMemo(() => {
     return (
