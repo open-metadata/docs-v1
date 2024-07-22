@@ -92,6 +92,7 @@ export const getConnectorImage = (connector: string) => {
     "Domo Dashboard": "domo",
     "Domo Database": "domo",
     "Domo Pipeline": "domo",
+    Doris: "doris",
     Druid: "druid",
     DynamoDB: "dynamodb",
     Elasticsearch: "elasticsearch",
