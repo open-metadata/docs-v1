@@ -3,7 +3,7 @@ import { isEmpty, startCase } from "lodash";
 import * as icons from "react-icons/md";
 import { HeadingObject } from "../components/PageLayouts/APIPageLayout/APIPageSideNav/APIPageSideNav";
 import { DEFAULT_VERSION } from "../constants/version.constants";
-import { MenuItem } from "../interface/common.interface";
+import { MenuItem, UrlParams } from "../interface/common.interface";
 
 export const getDivIndexFromId = (id: string) => {
   return Number(id.split("-").reverse()[0]);
@@ -17,12 +17,12 @@ export const getUrlWithVersion = (url: string, docVersion: string) => {
   return `/${docVersion}${url}`;
 };
 
-export const getUrl = (
-  url: string,
-  docVersion: string,
-  isExternalLink?: boolean,
-  enableVersion?: boolean
-) => {
+export const getUrl = ({
+  url,
+  docVersion,
+  enableVersion,
+  isExternalLink = false,
+}: UrlParams) => {
   if (isExternalLink || !enableVersion) {
     return url;
   } else {

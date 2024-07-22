@@ -20,7 +20,7 @@ function CustomAnchorNode({ href, children }: Props) {
   if (href.startsWith("#")) {
     url = href;
   } else {
-    url = getUrl(href, docVersion, enableVersion);
+    url = getUrl({ url: href, docVersion, enableVersion });
   }
 
   return isExternalLink || PAGES_WITHOUT_VERSION.includes(href) ? (

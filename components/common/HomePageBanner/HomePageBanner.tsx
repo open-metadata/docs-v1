@@ -56,7 +56,12 @@ export default function HomePageBanner({
                   <p className={styles.DescriptionText}>{description}</p>
                 </div>
                 <Link
-                  href={getUrl(href, docVersion, externalURL, enableVersion)}
+                  href={getUrl({
+                    url: href,
+                    docVersion,
+                    enableVersion,
+                    isExternalLink: externalURL,
+                  })}
                   target={externalURL ? "_blank" : "_self"}
                 >
                   <Button

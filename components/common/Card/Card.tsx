@@ -26,7 +26,7 @@ export default function Card({
   return (
     <Link
       className={styles.Container}
-      href={getUrl(url, docVersion, isExternalLink, enableVersion)}
+      href={getUrl({ url, docVersion, enableVersion, isExternalLink })}
     >
       {icon ? icon : <Puzzle />}
       <div className={styles.Heading}>{heading}</div>

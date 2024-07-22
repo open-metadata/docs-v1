@@ -16,7 +16,8 @@ export default function CategoriesNav({ menu }: Props) {
   const router = useRouter();
   const { docVersion, enableVersion } = useDocVersionContext();
   const { navBarCollapsed } = useNavBarCollapsedContext();
-  const category = getCategoryByIndex(router.asPath, enableVersion ? 2 : 1) ?? "";
+  const category =
+    getCategoryByIndex(router.asPath, enableVersion ? 2 : 1) ?? "";
 
   const handleMenuItemClick = (item: {
     label: string;
@@ -43,7 +44,7 @@ export default function CategoriesNav({ menu }: Props) {
           const active = category === getCategoryByIndex(item.url, 1);
           return (
             <Link
-              href={getUrl(item.url, docVersion, enableVersion)}
+              href={getUrl({ url: item.url, docVersion, enableVersion })}
               key={item.url}
               className={classNames(
                 styles.NavItem,

@@ -41,7 +41,7 @@ const InlineCallout = ({
   return (
     <Link
       className={classNames(styles.Container)}
-      href={getUrl(href, docVersion, isExternalLink, enableVersion)}
+      href={getUrl({ url: href, docVersion, enableVersion, isExternalLink })}
     >
       <span className={classNames(styles.IconContainer)}>{iconComponent}</span>
       <span className={styles.Text}>

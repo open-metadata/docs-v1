@@ -38,7 +38,7 @@ function HitComponent(props) {
   return (
     <Link
       className={classNames(styles.HitLink)}
-      href={getUrl(props.hit.objectID, docVersion, enableVersion)}
+      href={getUrl({ url: props.hit.objectID, docVersion, enableVersion })}
     >
       <article
         className={classNames(

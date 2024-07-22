@@ -26,7 +26,7 @@ function APIsPageContent({
   const { docVersion, enableVersion } = useDocVersionContext();
   const handleMenuItemClick = (item: DropdownMenuItem) => {
     if (item.value.startsWith("/")) {
-      router.push(getUrl(item.value, docVersion, enableVersion));
+      router.push(getUrl({ url: item.value, docVersion, enableVersion }));
     } else {
       window.open(item.value, "_blank").focus();
     }

@@ -25,7 +25,7 @@ export default function Button({
   return type === "link" ? (
     <a
       className={classNames(styles.Container, className)}
-      href={getUrl(href, docVersion, isExternalLink, enableVersion)}
+      href={getUrl({ url: href, docVersion, enableVersion, isExternalLink })}
       id={id}
       style={style}
     >

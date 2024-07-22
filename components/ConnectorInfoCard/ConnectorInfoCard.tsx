@@ -20,7 +20,7 @@ function ConnectorInfoCard({
   return (
     <Link
       className={styles.Container}
-      href={getUrl(href, docVersion, enableVersion)}
+      href={getUrl({ url: href, docVersion, enableVersion })}
     >
       <div className="flex items-center gap-2">
         <div className={styles.ImageContainer}>{getConnectorImage(name)}</div>

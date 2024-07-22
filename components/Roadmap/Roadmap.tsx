@@ -71,7 +71,7 @@ function Roadmap() {
       </p>
       <p>
         You can check the latest release{" "}
-        <Link href={getUrl(allReleasesUrl, docVersion, enableVersion)}>
+        <Link href={getUrl({ url: allReleasesUrl, docVersion, enableVersion })}>
           here
         </Link>
         .
