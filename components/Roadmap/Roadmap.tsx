@@ -3,6 +3,7 @@ import { isEmpty } from "lodash";
 import Link from "next/link";
 import { useCallback, useMemo, useRef, useState } from "react";
 import {
+  ALL_RELEASES_URL,
   ROADMAP_DATA,
   ROADMAP_FEATURE_CATEGORY_LIST,
 } from "../../constants/Roadmap.constants";
@@ -19,8 +20,6 @@ function Roadmap() {
   const tableRef = useRef(null);
   const leftShadowDivRef = useRef(null);
   const rightShadowDivRef = useRef(null);
-
-  const allReleasesUrl = "/releases/all-releases";
 
   const handleScroll = useCallback((e) => {
     // Show the left inner box shadow only if the container is scrolled from initial position
@@ -71,7 +70,7 @@ function Roadmap() {
       </p>
       <p>
         You can check the latest release{" "}
-        <Link href={getUrl({ url: allReleasesUrl, docVersion, enableVersion })}>
+        <Link href={getUrl({ url: ALL_RELEASES_URL, docVersion, enableVersion })}>
           here
         </Link>
         .

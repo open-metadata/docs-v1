@@ -15,20 +15,22 @@ function CustomAnchorNode({ href, children }: Props) {
 
   const isExternalLink = href.search(regexToIdentifyLink) !== -1;
 
-  let url: string;
+  const isNewTabUrl = isExternalLink || PAGES_WITHOUT_VERSION.includes(href);
 
-  if (href.startsWith("#")) {
-    url = href;
-  } else {
-    url = getUrl({ url: href, docVersion, enableVersion });
-  }
+  const disableVersion = isNewTabUrl || href.startsWith("#");
 
-  return isExternalLink || PAGES_WITHOUT_VERSION.includes(href) ? (
-    <a href={href} target="_blank">
+  return (
+    <Link
+      href={getUrl({
+        url: href,
+        docVersion,
+        enableVersion,
+        isExternalLink: disableVersion,
+      })}
+      target={isNewTabUrl ? "_blank" : "_self"}
+    >
       {children}
-    </a>
-  ) : (
-    <Link href={url}>{children}</Link>
+    </Link>
   );
 }
 

@@ -14,6 +14,8 @@ export const CATEGORY_COLOR = {
   SECURITY: "bg-[#D7C3AD]",
 };
 
+export const ALL_RELEASES_URL = "/releases/all-releases";
+
 export const ROADMAP_FEATURE_CATEGORY_LIST: Array<RoadmapCategoriesList> = [
   {
     key: 0,
