@@ -257,6 +257,11 @@ export const CONNECTORS: Array<ConnectorCategory> = [
         name: "Tableau",
       },
       {
+        url: "/connectors/dashboard/qlikcloud",
+        icon: "/images/connectors/qlikcloud.webp",
+        name: "Qlik Cloud",
+      },
+      {
         url: "/connectors/dashboard/qliksense",
         icon: "/images/connectors/qlik-sense.webp",
         name: "Qlik Sense",
@@ -295,6 +300,11 @@ export const CONNECTORS: Array<ConnectorCategory> = [
         url: "/connectors/pipeline/nifi",
         icon: "/images/connectors/apachenifi.webp",
         name: "NiFi",
+      },
+      {
+        url: "/connectors/pipeline/openlineage",
+        icon: "/images/connectors/openlineage.webp",
+        name: "OpenLineage",
       },
       {
         url: "/connectors/pipeline/spline",
