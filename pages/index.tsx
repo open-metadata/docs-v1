@@ -23,6 +23,7 @@ import { SkeletonWidth } from "../enums/SkeletonLoder.enum";
 import { MenuItem } from "../interface/common.interface";
 import { getVersionsList } from "../lib/api";
 import { fetchMenuList } from "../utils/CommonUtils";
+import RunLLMWidgetScript from "../components/RunLLMWidgetScript/RunLLMWidgetScript";
 
 interface Props {
   versionsList: Array<SelectOption<string>>;
@@ -52,6 +53,7 @@ export default function Index({ versionsList }: Readonly<Props>) {
   return (
     <>
       <GoogleAnalyticsScript />
+      <RunLLMWidgetScript />
       <div className="nav-bar-container">
         <TopNav versionsList={versionsList} />
         <CategoriesNav menu={menu} />
