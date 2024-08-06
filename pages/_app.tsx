@@ -15,6 +15,7 @@ import { MenuItemsContextProvider } from "../context/MenuItemsContext";
 import { NavBarCollapseContextProvider } from "../context/NavBarCollapseContext";
 import { RouteChangingContextProvider } from "../context/RouteChangingContext";
 import { StepsContextProvider } from "../context/StepsContext";
+import { RunLLMWidgetScript } from "../components/RunLLMWidgetScript/RunLLMWidgetScript";
 
 const TITLE = "OpenMetadata Documentation: Get Help Instantly";
 const DESCRIPTION =
@@ -46,6 +47,7 @@ export default function MyApp({ Component, pageProps }: AppProps<MyAppProps>) {
         )}
         <meta property="og:type" content="website" />
         <meta content="summary_large_image" name="twitter:card" />
+        <RunLLMWidgetScript />
         {/* Temporarily commenting out the GiffyGPT code as it is giving 404 */}
         {/* <script
           src="https://jiffygpt.com/embed.js"
