@@ -5,23 +5,39 @@ import "prismjs";
 import "../public/globals.css";
 import "../public/modal.css";
 
-import type { MarkdocNextJsPageProps } from "@markdoc/next.js";
+import { isEmpty } from "lodash";
 import type { AppProps } from "next/app";
 import ErrorBoundary from "../components/ErrorBoundary";
+import GoogleAnalyticsScript from "../components/GoogleAnalyticsScript/GoogleAnalyticsScript";
 import { RunLLMWidgetScript } from "../components/RunLLMWidgetScript/RunLLMWidgetScript";
+import TrackingPixelScript from "../components/TrackingPixelScript/TrackingPixelScript";
 import { CodeWithLanguageSelectorContextProvider } from "../context/CodeWithLanguageSelectorContext";
 import { DocVersionContextProvider } from "../context/DocVersionContext";
 import { MenuItemsContextProvider } from "../context/MenuItemsContext";
 import { NavBarCollapseContextProvider } from "../context/NavBarCollapseContext";
 import { RouteChangingContextProvider } from "../context/RouteChangingContext";
 import { StepsContextProvider } from "../context/StepsContext";
+import { SlugProps } from "./[version]/[...slug]";
 
-export type MyAppProps = MarkdocNextJsPageProps;
+const TITLE = "OpenMetadata Documentation: Get Help Instantly";
+const DESCRIPTION =
+  "Follow the step-by-step guides to get started with OpenMetadata, the #1 open source data catalog tool. Get discovery, collaboration, governance, observability, quality tools all in one place.";
 
-export default function MyApp({ Component, pageProps }: AppProps<MyAppProps>) {
+export default function MyApp({ Component, pageProps }: AppProps<SlugProps>) {
+  const title = isEmpty(pageProps.pageTitle) ? TITLE : pageProps.pageTitle;
+  const description = isEmpty(pageProps.pageDescription)
+    ? DESCRIPTION
+    : pageProps.pageDescription;
+
   return (
     <>
       <Head>
+        <title>{title}</title>
+        <meta property="og:title" content={title} />
+        <meta name="twitter:title" content={title} />
+        <meta name="description" content={description} />
+        <meta property="og:description" content={description} />
+        <meta name="twitter:description" content={description} />
         <link rel="icon" href="/favicon.png" />
         <link rel="alternate icon" href="/favicon.png" />
         <link rel="shortcut icon" href="/favicon180.png" />
@@ -32,8 +48,10 @@ export default function MyApp({ Component, pageProps }: AppProps<MyAppProps>) {
         />
         <meta property="og:type" content="website" />
         <meta content="summary_large_image" name="twitter:card" />
-        <RunLLMWidgetScript />
       </Head>
+      <RunLLMWidgetScript />
+      <GoogleAnalyticsScript />
+      <TrackingPixelScript />
       <ErrorBoundary>
         <RouteChangingContextProvider>
           <DocVersionContextProvider>

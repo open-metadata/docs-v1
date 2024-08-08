@@ -1,9 +1,7 @@
-import Head from "next/head";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import CategoriesNav from "../components/CategoriesNav/CategoriesNav";
 import ConnectorsInfo from "../components/ConnectorsInfo/ConnectorsInfo";
 import Footer from "../components/Footer/Footer";
-import GoogleAnalyticsScript from "../components/GoogleAnalyticsScript/GoogleAnalyticsScript";
 import NewsEntry from "../components/NewsEntry/NewsEntry";
 import { SelectOption } from "../components/SelectDropdown/SelectDropdown";
 import TopNav from "../components/TopNav/TopNav";
@@ -56,19 +54,6 @@ export default function Index({ versionsList }: Readonly<Props>) {
 
   return (
     <>
-      <Head>
-        <title>{TITLE}</title>
-        <meta content={TITLE} property="og:title" />
-        <meta content={TITLE} name="twitter:title" />
-        {DESCRIPTION && (
-          <React.Fragment>
-            <meta content={DESCRIPTION} name="description" />
-            <meta content={DESCRIPTION} property="og:description" />
-            <meta content={DESCRIPTION} name="twitter:description" />
-          </React.Fragment>
-        )}
-        <GoogleAnalyticsScript />
-      </Head>
       <div className="nav-bar-container">
         <TopNav versionsList={versionsList} />
         <CategoriesNav menu={menu} />
