@@ -75,6 +75,7 @@ export default function Article({
     <>
       <Head>
         <title>{pageTitle}</title>
+        <meta content={pageTitle} property="og:title" />
         <meta content={pageTitle} name="twitter:title" />
         {pageDescription && (
           <React.Fragment>
