@@ -67,14 +67,14 @@ function SelectDropdown<T>({
 
   const getVersionTag = useCallback(
     (option: SelectOption<T>, showStableTag = true) => {
-      if (option.label === STABLE_VERSION && showStableTag) {
+      if (option?.label === STABLE_VERSION && showStableTag) {
         return (
           <span className={classNames(styles.VersionLabel, styles.StableLabel)}>
             Stable
           </span>
         );
       }
-      if (option.label === BETA_VERSION) {
+      if (option?.label === BETA_VERSION) {
         return (
           <span className={classNames(styles.VersionLabel, styles.BetaLabel)}>
             Beta

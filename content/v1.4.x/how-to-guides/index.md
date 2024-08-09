@@ -1,6 +1,7 @@
 ---
 title: How-to Guides
 slug: /how-to-guides
+description: Get a complete overview of the features in OpenMetadata from our How-to Guides.
 ---
 
 # How-to Guides

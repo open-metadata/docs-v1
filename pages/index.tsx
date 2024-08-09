@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import CategoriesNav from "../components/CategoriesNav/CategoriesNav";
 import ConnectorsInfo from "../components/ConnectorsInfo/ConnectorsInfo";
 import Footer from "../components/Footer/Footer";
-import GoogleAnalyticsScript from "../components/GoogleAnalyticsScript/GoogleAnalyticsScript";
 import NewsEntry from "../components/NewsEntry/NewsEntry";
 import { SelectOption } from "../components/SelectDropdown/SelectDropdown";
 import TopNav from "../components/TopNav/TopNav";
@@ -23,7 +22,10 @@ import { SkeletonWidth } from "../enums/SkeletonLoder.enum";
 import { MenuItem } from "../interface/common.interface";
 import { getVersionsList } from "../lib/api";
 import { fetchMenuList } from "../utils/CommonUtils";
-import RunLLMWidgetScript from "../components/RunLLMWidgetScript/RunLLMWidgetScript";
+
+const TITLE = "OpenMetadata Documentation: Get Help Instantly";
+const DESCRIPTION =
+  "Follow the step-by-step guides to get started with OpenMetadata, the #1 open source data catalog tool. Get discovery, collaboration, governance, observability, quality tools all in one place.";
 
 interface Props {
   versionsList: Array<SelectOption<string>>;
@@ -52,8 +54,6 @@ export default function Index({ versionsList }: Readonly<Props>) {
 
   return (
     <>
-      <GoogleAnalyticsScript />
-      <RunLLMWidgetScript />
       <div className="nav-bar-container">
         <TopNav versionsList={versionsList} />
         <CategoriesNav menu={menu} />
@@ -97,7 +97,10 @@ export default function Index({ versionsList }: Readonly<Props>) {
             </div>
             <div className="homepage-containers">
               <div className="container-heading">Connectors</div>
-              <ConnectorsInfo tabStyle="connector-tab" activeTabStyle="active-connector" />
+              <ConnectorsInfo
+                tabStyle="connector-tab"
+                activeTabStyle="active-connector"
+              />
             </div>
             <div className="homepage-containers">
               <div className="container-heading">Blogs</div>
