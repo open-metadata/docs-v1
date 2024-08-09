@@ -7,7 +7,6 @@ import { ReactNode, useCallback, useEffect, useState } from "react";
 import { MdMenu, MdMenuOpen } from "react-icons/md";
 import { InstantSearch } from "react-instantsearch";
 import {
-  DEFAULT_VERSION,
   REGEX_VERSION_MATCH,
   REGEX_VERSION_MATCH_WITH_SLASH_AT_START,
 } from "../../constants/version.constants";
@@ -70,7 +69,7 @@ export default function TopNav({ versionsList, logo }: Readonly<TopNavProps>) {
         onChangeDocVersion(router.query.version);
       } else {
         router.push(
-          `/${DEFAULT_VERSION}${router.asPath.replace(
+          `/latest${router.asPath.replace(
             REGEX_VERSION_MATCH_WITH_SLASH_AT_START,
             ""
           )}`

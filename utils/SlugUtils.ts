@@ -3,7 +3,10 @@ import matter from "gray-matter";
 import { GetServerSidePropsContext, GetServerSidePropsResult } from "next";
 import { basename } from "path";
 import { SelectOption } from "../components/SelectDropdown/SelectDropdown";
-import { DEFAULT_VERSION } from "../constants/version.constants";
+import {
+  DEFAULT_VERSION,
+  REGEX_TO_EXTRACT_VERSION_NUMBER,
+} from "../constants/version.constants";
 import { PathObj } from "../interface/common.interface";
 import {
   getArticleSlugFromString,
@@ -99,12 +102,27 @@ export const getReturnObjectForValidVersion = ({
         return { notFound };
       }
 
-      // If the version is not present in versions list, redirect to the latest version
-      // Instead of showing 404
+      // If the version is not present in versions list,
+      // check if the major version is present.
+      // Ex. If v1.4.8 is in the URL and v1.4.8 is not in versions list but v1.4.x is so match the 1.4
+      // and redirect to the respective version URL in this case to v1.4.x
+      const majorVersionMatch = versionsList.find((versionOption) => {
+        // Extract the major version number from the version option
+        const versionOptionNumber = REGEX_TO_EXTRACT_VERSION_NUMBER.exec(
+          versionOption.label
+        )[0];
+        // Extract the major version number from the version in the URL
+        const versionNumber = REGEX_TO_EXTRACT_VERSION_NUMBER.exec(version)[0];
+
+        return versionOptionNumber === versionNumber;
+      });
+
       return {
         redirect: {
           permanent: false,
-          destination: `/latest/${pathWithoutVersion}`,
+          destination: `/${
+            majorVersionMatch?.value ?? "latest" // If major version match is not present, redirect to latest
+          }/${pathWithoutVersion}`,
         },
       };
     }
