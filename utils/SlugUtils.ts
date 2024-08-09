@@ -60,6 +60,21 @@ export async function getPaths() {
   return paths;
 }
 
+export const getMajorVersionMatch = (
+  versionsList: SelectOption<string>[],
+  version: string
+) =>
+  versionsList.find((versionOption) => {
+    // Extract the major version number from the version option
+    const versionOptionNumber = REGEX_TO_EXTRACT_VERSION_NUMBER.exec(
+      versionOption.label
+    )[0];
+    // Extract the major version number from the version in the URL
+    const versionNumber = REGEX_TO_EXTRACT_VERSION_NUMBER.exec(version)[0];
+
+    return versionOptionNumber === versionNumber;
+  });
+
 export const getReturnObjectForValidVersion = ({
   context,
   paths,
@@ -106,16 +121,7 @@ export const getReturnObjectForValidVersion = ({
       // check if the major version is present.
       // Ex. If v1.4.8 is in the URL and v1.4.8 is not in versions list but v1.4.x is so match the 1.4
       // and redirect to the respective version URL in this case to v1.4.x
-      const majorVersionMatch = versionsList.find((versionOption) => {
-        // Extract the major version number from the version option
-        const versionOptionNumber = REGEX_TO_EXTRACT_VERSION_NUMBER.exec(
-          versionOption.label
-        )[0];
-        // Extract the major version number from the version in the URL
-        const versionNumber = REGEX_TO_EXTRACT_VERSION_NUMBER.exec(version)[0];
-
-        return versionOptionNumber === versionNumber;
-      });
+      const majorVersionMatch = getMajorVersionMatch(versionsList, version);
 
       return {
         redirect: {
