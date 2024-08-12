@@ -137,6 +137,13 @@ export const getReturnObjectForValidVersion = ({
     const fileContents = fs.readFileSync(filename, "utf8");
     const { content, data } = matter(fileContents);
 
+    // If the file is a collate only file, return 404
+    if (data.collate) {
+      return {
+        notFound: true,
+      };
+    }
+
     return {
       props: {
         content,

@@ -25,7 +25,8 @@ interface DocsPageLayoutProps {
   navbar: ReactNode;
   parsedContent: RenderableTreeNode;
   slug: string[];
-  footer: ReactNode
+  footer: ReactNode;
+  componentsList?: Record<string, React.ComponentType>;
 }
 
 function DocsPageLayout({
@@ -33,6 +34,7 @@ function DocsPageLayout({
   parsedContent,
   slug,
   footer,
+  componentsList = {},
 }: Readonly<DocsPageLayoutProps>) {
   const router = useRouter();
   const { isRouteChanging } = useRouteChangingContext();
@@ -125,7 +127,7 @@ function DocsPageLayout({
               <>
                 <Breadcrumb slug={slug} />
                 {Markdoc.renderers.react(parsedContent, React, {
-                  components,
+                  components: { ...components, ...componentsList },
                 })}
               </>
             )}

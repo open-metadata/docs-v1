@@ -34,8 +34,6 @@ export default function Article({
   slug,
   versionsList,
   partials,
-  pageTitle,
-  pageDescription,
 }: Readonly<SlugProps>) {
   const ast = useMemo(() => Markdoc.parse(content), [content]);
 
