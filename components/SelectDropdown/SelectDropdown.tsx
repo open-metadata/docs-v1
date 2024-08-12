@@ -3,8 +3,10 @@ import { uniqueId } from "lodash";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import {
   BETA_VERSION,
-  STABLE_VERSION,
+  LATEST_VERSION,
 } from "../../constants/version.constants";
+import { useMenuItemsContext } from "../../context/MenuItemsContext";
+import { useRouteChangingContext } from "../../context/RouteChangingContext";
 import { ReactComponent as ArrowDownIcon } from "../../images/icons/arrow-down.svg";
 import { getSelectedOption } from "../../utils/SelectDropdownUtils";
 import styles from "./SelectDropdown.module.css";
@@ -39,7 +41,10 @@ function SelectDropdown<T>({
   const [isDropdownVisible, setIsDropdownVisible] = useState<boolean>(
     isVisible ?? false
   );
+  const isMounting = useRef(true);
   const dropdownContainerRef = useRef<HTMLDivElement>();
+  const { isRouteChanging } = useRouteChangingContext();
+  const { isMenuLoading } = useMenuItemsContext();
 
   const idString = useMemo(() => id ?? uniqueId(), [id]);
 
@@ -65,26 +70,31 @@ function SelectDropdown<T>({
     }
   };
 
-  const getVersionTag = useCallback(
-    (option: SelectOption<T>, showStableTag = true) => {
-      if (option?.label === STABLE_VERSION && showStableTag) {
-        return (
-          <span className={classNames(styles.VersionLabel, styles.StableLabel)}>
-            Stable
-          </span>
-        );
-      }
-      if (option?.label === BETA_VERSION) {
-        return (
-          <span className={classNames(styles.VersionLabel, styles.BetaLabel)}>
-            Beta
-          </span>
-        );
-      }
+  const getVersionTag = useCallback((option: SelectOption<T>) => {
+    if (option?.label === LATEST_VERSION) {
+      return (
+        <span className={classNames(styles.VersionLabel, styles.LatestLabel)}>
+          Latest
+        </span>
+      );
+    }
+    if (option?.label === BETA_VERSION) {
+      return (
+        <span className={classNames(styles.VersionLabel, styles.BetaLabel)}>
+          Beta
+        </span>
+      );
+    }
 
-      return null;
-    },
-    []
+    return null;
+  }, []);
+
+  // To avoid flickering of version tag on initial load
+  // If default value is not in the URL, the tag for the default value should not be shown
+  // till we set the final value from the URL as selected version
+  const showVersionTag = useMemo(
+    () => !isMounting.current && !isRouteChanging && !isMenuLoading,
+    [isMounting.current, isRouteChanging, isMenuLoading]
   );
 
   useEffect(() => {
@@ -101,6 +111,10 @@ function SelectDropdown<T>({
       document.body.removeEventListener("click", handleOutsideClick);
     };
   }, [dropdownContainerRef.current]);
+
+  useEffect(() => {
+    isMounting.current = false;
+  }, []);
 
   return (
     <div
@@ -122,7 +136,7 @@ function SelectDropdown<T>({
             <ArrowDownIcon />
           </span>
         </button>
-        {getVersionTag(selectedOption, false)}
+        {showVersionTag && getVersionTag(selectedOption)}
       </div>
       <div
         className={classNames(
