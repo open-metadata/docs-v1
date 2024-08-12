@@ -67,7 +67,7 @@
   border-color: var(--beta-label-color);
 }
 
-.StableLabel {
+.LatestLabel {
   color: var(--stable-label-color);
   background: var(--stable-label-bg-color);
   border-color: var(--stable-label-color);
