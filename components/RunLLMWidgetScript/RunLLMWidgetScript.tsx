@@ -13,7 +13,6 @@ export function RunLLMWidgetScript() {
       runllm-brand-logo="https://avatars.githubusercontent.com/u/86132257?s=200&v=4"
       runllm-community-type="slack"
       runllm-community-url="https://slack.open-metadata.org"
-      runllm-disable-ask-a-person="true"
     ></script>
   );
 }
