@@ -9,7 +9,6 @@ import { isEmpty } from "lodash";
 import type { AppProps } from "next/app";
 import ErrorBoundary from "../components/ErrorBoundary";
 import GoogleAnalyticsScript from "../components/GoogleAnalyticsScript/GoogleAnalyticsScript";
-import { RunLLMWidgetScript } from "../components/RunLLMWidgetScript/RunLLMWidgetScript";
 import TrackingPixelScript from "../components/TrackingPixelScript/TrackingPixelScript";
 import { CodeWithLanguageSelectorContextProvider } from "../context/CodeWithLanguageSelectorContext";
 import { DocVersionContextProvider } from "../context/DocVersionContext";
@@ -49,7 +48,6 @@ export default function MyApp({ Component, pageProps }: AppProps<SlugProps>) {
         <meta property="og:type" content="website" />
         <meta content="summary_large_image" name="twitter:card" />
       </Head>
-      <RunLLMWidgetScript />
       <GoogleAnalyticsScript />
       <TrackingPixelScript />
       <ErrorBoundary>
