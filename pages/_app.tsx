@@ -9,7 +9,6 @@ import { isEmpty } from 'lodash';
 import type { AppProps } from 'next/app';
 import ErrorBoundary from '../components/ErrorBoundary';
 import GoogleAnalyticsScript from '../components/GoogleAnalyticsScript/GoogleAnalyticsScript';
-import TrackingPixelScript from '../components/TrackingPixelScript/TrackingPixelScript';
 import { CodeWithLanguageSelectorContextProvider } from '../context/CodeWithLanguageSelectorContext';
 import { DocVersionContextProvider } from '../context/DocVersionContext';
 import { MenuItemsContextProvider } from '../context/MenuItemsContext';
