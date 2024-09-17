@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import { isBoolean, isNumber, isString } from "lodash";
+import { isBoolean, isNumber, isString, uniqueId } from "lodash";
 import { Fragment, ReactNode } from "react";
 import { SkeletonLoaderParagraphProp } from "../components/common/SkeletonLoader/SkeletonLoader.interface";
 import styles from "../components/common/SkeletonLoader/SkeletonLoader.module.css";
@@ -30,7 +30,7 @@ export const getSkeletonBreadcrumbs = () => {
   return (
     <div className={classNames(styles.BreadCrumb)}>
       {arr.map((key, idx) => (
-        <Fragment key={key}>
+        <Fragment key={`${key}-${uniqueId()}`}>
           <div className={classNames(styles.BreadCrumbItem)}>
             <div className={styles.InsideDiv} />
           </div>
@@ -92,7 +92,7 @@ export const getParagraphs = (paragraph: SkeletonLoaderParagraphProp) => {
             styles.Paragraph,
             widthClass
           )}
-          key={widthClass}
+          key={`${widthClass}-${uniqueId()}`}
         >
           <div className={styles.InsideDiv} />
         </div>
@@ -102,7 +102,7 @@ export const getParagraphs = (paragraph: SkeletonLoaderParagraphProp) => {
         <div
           className={classNames(styles.OutsideDiv, styles.Paragraph)}
           style={{ width: `${width}px` }}
-          key={widthClass}
+          key={`${widthClass}-${uniqueId()}`}
         >
           <div className={styles.InsideDiv} />
         </div>

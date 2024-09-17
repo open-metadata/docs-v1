@@ -16,7 +16,7 @@ export default function Breadcrumb({ slug }: { slug: string[] }) {
   const breadcrumb: Crumb[] = [
     {
       title: "Home",
-      path: "/",
+      path: "",
     },
   ];
 

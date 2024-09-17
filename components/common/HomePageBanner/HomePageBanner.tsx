@@ -41,7 +41,7 @@ export default function HomePageBanner({
         </div>
       </div>
       <div className={styles.Video}>
-        <YouTube videoId="oGFWjj_2gM4" />
+        <YouTube videoId="45ekUIRO1Ec" />
       </div>
       <div className={styles.BannerNavLinkContainer}>
         {quickLinks.map(

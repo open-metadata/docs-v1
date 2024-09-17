@@ -96,6 +96,7 @@ export const getConnectorImage = (connector: string) => {
     Druid: "druid",
     DynamoDB: "dynamodb",
     Elasticsearch: "elasticsearch",
+    Flink: "flink",
     Fivetran: "fivetran",
     GCS: "gcs",
     Glue: "glue",
@@ -115,7 +116,7 @@ export const getConnectorImage = (connector: string) => {
     MSSQL: "mssql",
     MySQL: "sql",
     NiFi: "apachenifi",
-    OpenLineage:"openlineage",
+    OpenLineage: "openlineage",
     Oracle: "oracle",
     PinotDB: "pinot",
     Postgres: "post",
@@ -138,10 +139,10 @@ export const getConnectorImage = (connector: string) => {
     SQLite: "sqlite",
     Superset: "superset",
     Tableau: "tableau",
+    Teradata: "teradata",
     Trino: "trino",
     "Unity Catalog": "databrick",
     Vertica: "vertica",
-    Teradata: "teradata",
   };
 
   iconSource = connectorMappings[connector] || iconSource;
