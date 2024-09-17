@@ -1,11 +1,11 @@
-import React, { ReactNode, useEffect, useMemo, useState } from "react";
+import { ReactNode, useEffect, useState } from "react";
 
 import styles from "./Note.module.css";
 
+import classNames from "classnames";
 import { ReactComponent as Pin } from "../../../images/icons/pin.svg";
 import { ReactComponent as Tip } from "../../../images/icons/tip.svg";
 import { ReactComponent as Warning } from "../../../images/icons/warning.svg";
-import classNames from "classnames";
 
 interface NoteProps {
   children: ReactNode;
@@ -45,10 +45,10 @@ const Note = ({ children, noteType = "note" }: NoteProps) => {
   }, [noteType]);
 
   return (
-    <section className={classNames(styles.Container, noteDetails.className)}>
+    <span className={classNames(styles.Container, noteDetails.className)}>
       <span>{noteDetails.icon}</span>
-      <div className={styles.NoteContent}>{children}</div>
-    </section>
+      <span className={styles.NoteContent}>{children}</span>
+    </span>
   );
 };
 
