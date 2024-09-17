@@ -1,7 +1,8 @@
 import classNames from "classnames";
 import { isEmpty } from "lodash";
 import { useRouter } from "next/router";
-import React, { forwardRef, useEffect, useMemo } from "react";
+import React, { forwardRef, useEffect, useMemo, useRef } from "react";
+import { useDocVersionContext } from "../../context/DocVersionContext";
 import { useMenuItemsContext } from "../../context/MenuItemsContext";
 import { useNavBarCollapsedContext } from "../../context/NavBarCollapseContext";
 import { SkeletonWidth } from "../../enums/SkeletonLoder.enum";
@@ -13,7 +14,6 @@ import { getSideNavItems } from "../../utils/SideNavUtils";
 import SkeletonLoader from "../common/SkeletonLoader/SkeletonLoader";
 import ListItem from "./ListItem";
 import styles from "./SideNav.module.css";
-import { useDocVersionContext } from "../../context/DocVersionContext";
 
 export const componentKey = "manual";
 
@@ -27,6 +27,7 @@ export default forwardRef(function SideNav(
   ref: React.MutableRefObject<boolean>
 ) {
   const router = useRouter();
+  const isMounting = useRef(true);
   const { enableVersion } = useDocVersionContext();
   const { navBarCollapsed, isMobileDevice } = useNavBarCollapsedContext();
   const toggleSideNavCollapsed = () => {
@@ -90,12 +91,34 @@ export default forwardRef(function SideNav(
     }
   }, [childItems]);
 
+  useEffect(() => {
+    const handleActiveLinkScroll = () => {
+      // Get nav bar container and active link element
+      const nabBarContainer = document?.getElementById("side-nav-container");
+      const activeLink: HTMLAnchorElement = document?.querySelector(
+        `a[href*="${router.asPath}"]`
+      );
+      if (!isMounting.current && nabBarContainer && activeLink) {
+        nabBarContainer.scrollTop =
+          activeLink.offsetTop - nabBarContainer.offsetTop;
+      }
+    };
+
+    // Setting timeout to avoid scrolling to the active link while page is loading
+    setTimeout(handleActiveLinkScroll, 200);
+  }, [isMounting.current]);
+
+  useEffect(() => {
+    isMounting.current = false;
+  }, []);
+
   return (
     <div
       className={classNames(
         styles.SideNav,
         sideNavCollapsed ? styles.CollapsedSideNav : styles.NonCollapsedSideNav
       )}
+      id="side-nav-container"
       style={
         isMobileDevice
           ? {
@@ -129,7 +152,10 @@ export default forwardRef(function SideNav(
               No menu items for this category
             </div>
           ) : (
-            <div className={classNames(styles.LinkContainer)}>
+            <div
+              className={classNames(styles.LinkContainer)}
+              style={{ position: "relative" }}
+            >
               {childItems.map((item) => (
                 <ListItem
                   item={item}
