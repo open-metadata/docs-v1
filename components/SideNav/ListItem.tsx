@@ -1,5 +1,4 @@
 import classNames from "classnames";
-import { isNil } from "lodash";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useMemo, useRef, useState } from "react";
@@ -68,16 +67,6 @@ export default function ListItem({
     // Check if category name is present in pathname
     setIsOpen(router.asPath.includes(menuKey));
   }, [router.asPath, item]);
-
-  useEffect(() => {
-    // Logic to get the selected side nav item into view after page load
-    if (
-      !isNil(linkRef.current) &&
-      linkRef.current.className.includes("ActiveLink")
-    ) {
-      linkRef.current.scrollIntoView({ block: "center", inline: "center" });
-    }
-  }, [isActive, linkRef]);
 
   return (
     <>
