@@ -1,4 +1,4 @@
-import {ConnectorCategory} from "./ConnectorsInfo.interface";
+import { ConnectorCategory } from "./ConnectorsInfo.interface";
 
 export const CONNECTORS: Array<ConnectorCategory> = [
   {
@@ -8,11 +8,6 @@ export const CONNECTORS: Array<ConnectorCategory> = [
         url: "/connectors/database/athena",
         icon: "/images/connectors/athena.webp",
         name: "Athena",
-      },
-      {
-        url: "/connectors/database/datalake",
-        icon: "/images/connectors/amazon-s3.webp",
-        name: "S3",
       },
       {
         url: "/connectors/database/azuresql",
@@ -51,9 +46,19 @@ export const CONNECTORS: Array<ConnectorCategory> = [
         name: "Druid",
       },
       {
+        url: "/connectors/database/datalake",
+        icon: "/images/connectors/amazon-s3.webp",
+        name: "Datalake",
+      },
+      {
         url: "/connectors/database/databricks",
         icon: "/images/connectors/databrick.webp",
         name: "Databricks",
+      },
+      {
+        url: "/connectors/database/db2",
+        icon: "/images/connectors/ibmdb2.webp",
+        name: "DB2",
       },
       {
         url: "/connectors/database/domo-database",
@@ -89,11 +94,6 @@ export const CONNECTORS: Array<ConnectorCategory> = [
         url: "/connectors/database/iceberg",
         icon: "/images/connectors/iceberg.webp",
         name: "Iceberg",
-      },
-      {
-        url: "/connectors/database/db2",
-        icon: "/images/connectors/ibmdb2.webp",
-        name: "IBM Db2",
       },
       {
         url: "/connectors/database/impala",
@@ -159,6 +159,11 @@ export const CONNECTORS: Array<ConnectorCategory> = [
         url: "/connectors/database/singlestore",
         icon: "/images/connectors/singlestore.webp",
         name: "SingleStore",
+      },
+      {
+        url: "/connectors/database/teradata",
+        icon: "/images/connectors/teradata.webp",
+        name: "Teradata",
       },
       {
         url: "/connectors/database/trino",
@@ -297,6 +302,11 @@ export const CONNECTORS: Array<ConnectorCategory> = [
         name: "Fivetran",
       },
       {
+        url: "/connectors/pipeline/flink",
+        icon: "/images/connectors/flink.webp",
+        name: "Flink",
+      },
+      {
         url: "/connectors/pipeline/nifi",
         icon: "/images/connectors/apachenifi.webp",
         name: "NiFi",
@@ -364,9 +374,14 @@ export const CONNECTORS: Array<ConnectorCategory> = [
     connector: "Metadata",
     services: [
       {
-        url: "/connectors/metadata/amundsen",
-        icon: "/images/connectors/amundsen.webp",
-        name: "Amundsen",
+        url: "/connectors/metadata/alation",
+        icon: "/images/connectors/alation.webp",
+        name: "Alation",
+      },
+      {
+        url: "/connectors/metadata/atlas",
+        icon: "/images/connectors/atlas.webp",
+        name: "Atlas",
       },
       {
         url: "/connectors/metadata/atlas",
