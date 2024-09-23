@@ -252,19 +252,9 @@ export const ROADMAP_DATA: RoadmapData = {
           description: "Data Mesh , support for sub domains.",
         },
         {
-          label: "Data Products Independent of Domains",
-          description:
-            "Allow users to tag Data Products without using the Domains.",
-        },
-        {
           label: "Add Application Metadata Model",
           description:
             "Add Application Metadata Model to capture micro services and REST APIs as Metadata.",
-        },
-        {
-          label: "Glossary Terms Relations",
-          description:
-            "Users can define relationships and associate realtionship between entities and terms. ",
         },
       ],
       release: 1.5,
@@ -277,22 +267,12 @@ export const ROADMAP_DATA: RoadmapData = {
           description:
             "Improved data insights collection in backend and using search to provide multiple insights.",
         },
-        {
-          label: "Add custom KPIs.",
-          description: "Support for custom KPIs.",
-        },
       ],
       release: 1.5,
     },
     {
       category: RoadmapCategories["DATA QUALITY"],
-      features: [
-        {
-          label: "Data Asset SLAs",
-          description:
-            "Allow data asset owners to provide SLAs around Completeness & Freshness.",
-        },
-      ],
+      features: [],
       release: 1.5,
     },
     {
@@ -318,21 +298,41 @@ export const ROADMAP_DATA: RoadmapData = {
   "RELEASE 1.6": [
     {
       category: RoadmapCategories["DATA QUALITY"],
-      features: [],
+      features: [
+        {
+          label: "Search/Explore Integrate with RBAC.",
+          description:
+            "Roles & Policies Integration into search and list the entities that are only available for users based on their role.",
+        },
+        {
+          label: "Add Metrics Model",
+          description:
+            "Add Metrics Metadata Model to capture definitions and code to capture organization-wide Metrics.",
+        },
+        {
+          label: "Import/Export support for Custom properties",
+          description:
+            "Allow users to import/export custom properties for Glossaries and Other data assets.",
+        },
+      ],
       release: 1.6,
     },
     {
       category: RoadmapCategories["LINEAGE"],
       features: [
         {
-          label: "Data Asset Naming Conventions",
+          label: "Import/Export of lineage data though APIs",
           description:
-            "Define Data Asset naming convetions and use this app to enforce and send a report to teams.",
+            "Allow import/export of lineage data through APIs and CSV format.",
         },
         {
-          label: "Reverse Metadata Applications",
+          label: "Improved Processing of Lineage Queries",
+          description: "Performance Improvements to Lineage queries.",
+        },
+        {
+          label: "Show Column Functions in the UI",
           description:
-            "Pushing Metadata such as description/tags to data sources.",
+            "Show the column functions to compute a column in the UI.",
         },
       ],
       release: 1.6,
@@ -341,8 +341,9 @@ export const ROADMAP_DATA: RoadmapData = {
       category: RoadmapCategories["DATA OBSERVABILITY"],
       features: [
         {
-          label: "Root Cause Analysis",
-          description: "RCA of incidents and test failures.",
+          label: "Alerts & Notifications",
+          description:
+            "Improvements to Alerts & Notifications and ability to debug the notifications delivery.",
         },
       ],
       release: 1.6,
@@ -351,12 +352,12 @@ export const ROADMAP_DATA: RoadmapData = {
       category: RoadmapCategories["INTEGRATIONS"],
       features: [
         {
-          label: "Flink",
-          description: "Flink Connector support.",
+          label: "Sigma",
+          description: "Sigma Dashboard Connector support.",
         },
         {
-          label: "Vertex AI",
-          description: "Vertex AI support.",
+          label: "OpenAPI ",
+          description: "OpenAPI connector support for API Services.",
         },
       ],
       release: 1.6,
@@ -365,33 +366,43 @@ export const ROADMAP_DATA: RoadmapData = {
   "RELEASE 1.7": [
     {
       category: RoadmapCategories["DATA_DISCOVERY & COLLABORATION"],
-      features: [],
+      features: [
+        {
+          label: "Glossary Terms Relations",
+          description:
+            "Users can define relationships and associate realtionship between entities and terms. ",
+        },
+        {
+          label: "Data Products Independent of Domains",
+          description:
+            "Allow users to tag Data Products without using the Domains.",
+        },
+      ],
       release: 1.7,
     },
     {
       category: RoadmapCategories["DATA INSIGHTS"],
-      features: [
-        {
-          label: "Pipeline Dashboard",
-          description:
-            "Pipeline Dashboard - Show all ETL pipelines in an organization and how many succesful/failed/aborted/paused.",
-        },
-      ],
-      release: 1.7,
-    },
-    {
-      category: RoadmapCategories["DATA QUALITY"],
       features: [],
       release: 1.7,
     },
     {
-      category: RoadmapCategories["INTEGRATIONS"],
+      category: RoadmapCategories["DATA OBSERVABILITY"],
       features: [
         {
-          label: "Salesforce Dashboard",
-          description: "Salesforce Dashboard support.",
+          label: "Root Cause Analysis",
+          description: "RCA of incidents and test failures.",
+        },
+        {
+          label: "Data Asset SLAs",
+          description:
+            "Allow data asset owners to provide SLAs around Completeness & Freshness.",
         },
       ],
+      release: 1.7,
+    },
+    {
+      category: RoadmapCategories["INTEGRATIONS"],
+      features: [],
       release: 1.7,
     },
   ],
