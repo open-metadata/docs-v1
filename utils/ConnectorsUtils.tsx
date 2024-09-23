@@ -87,6 +87,7 @@ export const getConnectorImage = (connector: string) => {
     DB2: "ibmdb2",
     Dagster: "dagster",
     Datalake: "amazon-s3",
+    "dbt Cloud": "dbtcloud",
     "Delta Lake": "delta-lake",
     Domo: "domo",
     "Domo Dashboard": "domo",

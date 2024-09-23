@@ -297,6 +297,11 @@ export const CONNECTORS: Array<ConnectorCategory> = [
         name: "Dagster",
       },
       {
+        url: "/connectors/pipeline/dbtcloud",
+        icon: "/images/connectors/dbtcloud.webp",
+        name: "dbt Cloud",
+      },
+      {
         url: "/connectors/pipeline/fivetran",
         icon: "/images/connectors/fivetran.webp",
         name: "Fivetran",
