@@ -11,9 +11,10 @@
 
 name: Link-checker
 on:
-  schedule:
-    # Every night at 00:00
-    - cron:  '0 0 * * *'
+  push:
+    branches: [main]
+    paths:
+      - content/**
   workflow_dispatch:
 
 jobs:
