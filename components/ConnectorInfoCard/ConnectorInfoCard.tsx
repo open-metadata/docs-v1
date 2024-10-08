@@ -17,6 +17,12 @@ function ConnectorInfoCard({
 }: Readonly<ConnectorInfoCardProps>) {
   const { docVersion, enableVersion } = useDocVersionContext();
 
+  // Return null if version is disabled and the connector is not collate only
+  // This is to prevent showing the collate only connectors on OSS documentation
+  if (platform == "Collate" && enableVersion) {
+    return null;
+  }
+
   return (
     <Link
       className={styles.Container}
