@@ -31,3 +31,5 @@ https://docs.kafkaconnect.io/
 https://libraries.io/
 https://api.slack.com/
 https://open-metadata.org/
+https://getcollate.io/
+https://fonts.gstatic.com/

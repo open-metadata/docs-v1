@@ -11,11 +11,9 @@
 
 name: Link-checker
 on:
-  push:
-    branches: [main]
-    paths:
-      - content/**
-      - public/images/**
+  schedule:
+    # Every night at 00:00
+    - cron:  '0 0 * * *'
   workflow_dispatch:
 
 jobs:
