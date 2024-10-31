@@ -156,6 +156,11 @@ export const CONNECTORS: Array<ConnectorCategory> = [
         name: "Salesforce",
       },
       {
+        url: "/connectors/database/sap-erp",
+        icon: "/images/connectors/sap-erp.webp",
+        name: "SAP ERP",
+      },
+      {
         url: "/connectors/database/sap-hana",
         icon: "/images/connectors/sap-hana.webp",
         name: "SAP HANA",
