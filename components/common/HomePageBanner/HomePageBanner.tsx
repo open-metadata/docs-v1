@@ -1,6 +1,7 @@
 import classNames from "classnames";
 import Link from "next/link";
 import { Fragment, useCallback } from "react";
+import { HOME_PAGE_BANNER_VIDEO_ID } from "../../../constants/homePage.constants";
 import { useDocVersionContext } from "../../../context/DocVersionContext";
 import { ReactComponent as ArrowRight } from "../../../images/icons/arrow-right.svg";
 import { getUrl } from "../../../utils/CommonUtils";
@@ -41,7 +42,7 @@ export default function HomePageBanner({
         </div>
       </div>
       <div className={styles.Video}>
-        <YouTube videoId="45ekUIRO1Ec" />
+        <YouTube videoId={HOME_PAGE_BANNER_VIDEO_ID} />
       </div>
       <div className={styles.BannerNavLinkContainer}>
         {quickLinks.map(

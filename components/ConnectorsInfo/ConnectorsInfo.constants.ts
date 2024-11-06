@@ -46,9 +46,19 @@ export const CONNECTORS: Array<ConnectorCategory> = [
         name: "Druid",
       },
       {
-        url: "/connectors/database/datalake",
+        url: "/connectors/database/s3-datalake",
         icon: "/images/connectors/amazon-s3.webp",
-        name: "Datalake",
+        name: "S3 Datalake",
+      },
+      {
+        url: "/connectors/database/adls-datalake",
+        icon: "/images/connectors/adls.webp",
+        name: "ADLS Datalake",
+      },
+      {
+        url: "/connectors/database/gcs-datalake",
+        icon: "/images/connectors/gcs.webp",
+        name: "GCS Datalake",
       },
       {
         url: "/connectors/database/databricks",
@@ -144,6 +154,11 @@ export const CONNECTORS: Array<ConnectorCategory> = [
         url: "/connectors/database/salesforce",
         icon: "/images/connectors/salesforce.webp",
         name: "Salesforce",
+      },
+      {
+        url: "/connectors/database/sap-erp",
+        icon: "/images/connectors/sap-erp.webp",
+        name: "SAP ERP",
       },
       {
         url: "/connectors/database/sap-hana",
@@ -376,7 +391,7 @@ export const CONNECTORS: Array<ConnectorCategory> = [
       {
         url: "/connectors/storage/s3",
         icon: "/images/connectors/amazon-s3.webp",
-        name: "S3",
+        name: "S3 Storage",
       },
     ],
   },
