@@ -237,7 +237,7 @@ export const CONNECTORS: Array<ConnectorCategory> = [
     connector: "Dashboard",
     services: [
       {
-        url: "/main-concepts/metadata-standard/schemas/entity/services/connections/dashboard/lightdashconnection",
+        url: "/connectors/dashboard/lightdash",
         icon: "/images/connectors/lightdash.webp",
         name: "Lightdash",
       },
@@ -250,6 +250,11 @@ export const CONNECTORS: Array<ConnectorCategory> = [
         url: "/connectors/dashboard/metabase",
         icon: "/images/connectors/metabase.webp",
         name: "Metabase",
+      },
+      {
+        url: "/connectors/dashboard/microstrategy",
+        icon: "/images/connectors/microstrategy.webp",
+        name: "MicroStrategy",
       },
       {
         url: "/connectors/dashboard/mode",
