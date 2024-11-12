@@ -406,7 +406,7 @@ export const CONNECTORS: Array<ConnectorCategory> = [
       {
         url: "/connectors/metadata/alationsink",
         icon: "/images/connectors/alation.webp",
-        name: "Alation Sink",
+        name: "AlationSink",
       },
       {
         url: "/connectors/metadata/atlas",
