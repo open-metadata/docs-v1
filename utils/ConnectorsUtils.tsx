@@ -72,7 +72,7 @@ export const getConnectorImage = (connector: string) => {
     Airbyte: "airbyte",
     Airflow: "airflow",
     Alation: "alation",
-    "Alation Sink": "alation",
+    "AlationSink": "alation",
     Amundsen: "amundsen",
     Athena: "athena",
     Atlas: "atlas",
