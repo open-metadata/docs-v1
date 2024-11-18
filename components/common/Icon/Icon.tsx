@@ -8,10 +8,11 @@ function Icon({ iconName }: { iconName: string }) {
   switch (iconName) {
     case "check":
       IconComponent = CheckIcon;
+      iconColor = "#43A047";
       break;
     case "cross":
       IconComponent = CrossIcon;
-      iconColor = "#CB2431";
+      iconColor = "#FF7C50";
       break;
     default:
       return <></>;
