@@ -152,6 +152,7 @@ export const getReturnObjectForValidVersion = ({
         partials,
         pageTitle: data.title,
         pageDescription: data.description ?? "",
+        weight: data.weight,
       },
     };
   }
