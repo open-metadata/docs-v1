@@ -1,13 +1,12 @@
 import algoliasearch from "algoliasearch/lite";
 import classNames from "classnames";
-import { isEmpty, isString } from "lodash";
+import { isEmpty, isString, isUndefined } from "lodash";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useCallback, useEffect, useState } from "react";
+import { ReactNode, useCallback, useEffect, useState } from "react";
 import { MdMenu, MdMenuOpen } from "react-icons/md";
 import { InstantSearch } from "react-instantsearch";
 import {
-  DEFAULT_VERSION,
   REGEX_VERSION_MATCH,
   REGEX_VERSION_MATCH_WITH_SLASH_AT_START,
 } from "../../constants/version.constants";
@@ -19,7 +18,7 @@ import { ReactComponent as CloudIcon } from "../../images/icons/cloud.svg";
 import { ReactComponent as GithubIcon } from "../../images/icons/github.svg";
 import { ReactComponent as OMDIcon } from "../../images/icons/omd.svg";
 import { ReactComponent as SlackIcon } from "../../images/icons/slack.svg";
-import { getUrlWithVersion } from "../../utils/CommonUtils";
+import { getUrl } from "../../utils/CommonUtils";
 import Search from "../Search/Search";
 import SelectDropdown, { SelectOption } from "../SelectDropdown/SelectDropdown";
 import styles from "./TopNav.module.css";
@@ -30,14 +29,16 @@ const searchClient = algoliasearch(
 );
 
 interface TopNavProps {
-  versionsList?: Array<SelectOption<string>>;
+  logo?: ReactNode;
+  versionsList: Array<SelectOption<string>>;
 }
 
-export default function TopNav({ versionsList }: Readonly<TopNavProps>) {
+export default function TopNav({ versionsList, logo }: Readonly<TopNavProps>) {
   const router = useRouter();
   const [displayNavBarCollapseButton, setDisplayNavBarCollapseButton] =
     useState(false);
-  const { docVersion, onChangeDocVersion } = useDocVersionContext();
+  const { docVersion, onChangeDocVersion, enableVersion } =
+    useDocVersionContext();
   const { navBarCollapsed, onChangeNavBarCollapsed } =
     useNavBarCollapsedContext();
 
@@ -69,7 +70,7 @@ export default function TopNav({ versionsList }: Readonly<TopNavProps>) {
         onChangeDocVersion(router.query.version);
       } else {
         router.push(
-          `/${DEFAULT_VERSION}${router.asPath.replace(
+          `/latest${router.asPath.replace(
             REGEX_VERSION_MATCH_WITH_SLASH_AT_START,
             ""
           )}`
@@ -88,8 +89,11 @@ export default function TopNav({ versionsList }: Readonly<TopNavProps>) {
     >
       <div className={styles.CollapsedDivContainer}>
         <div className={styles.LogoContainer}>
-          <Link href={docVersion ? getUrlWithVersion("/", docVersion) : "/"}>
-            <OMDIcon />
+          <Link
+            href={getUrl({ url: "/", docVersion, enableVersion })}
+            aria-label="omd-icon"
+          >
+            {isUndefined(logo) ? <OMDIcon /> : logo}
           </Link>
           {!isEmpty(versionsList) && (
             <SelectDropdown
@@ -103,6 +107,7 @@ export default function TopNav({ versionsList }: Readonly<TopNavProps>) {
           <button
             className={styles.CollapseButton}
             onClick={handleCollapseButtonClick}
+            aria-label="menu-icon"
           >
             {navBarCollapsed ? <MdMenu size={32} /> : <MdMenuOpen size={32} />}
           </button>
@@ -120,25 +125,37 @@ export default function TopNav({ versionsList }: Readonly<TopNavProps>) {
         </InstantSearch>
       </SearchContextProvider>
       <div className={styles.IconContainer}>
-        <a href="https://slack.open-metadata.org" target="_blank" title="Slack">
+        <a
+          href="https://slack.open-metadata.org"
+          target="_blank"
+          title="Slack"
+          aria-label="slack-icon"
+        >
           <SlackIcon />
         </a>
         <a
           href="https://github.com/open-metadata/OpenMetadata"
           target="_blank"
           title="Github"
+          aria-label="github-icon"
         >
           <GithubIcon />
         </a>
-        <a href="/swagger.html" target="_blank" title="Swagger">
+        <a
+          href="/swagger.html"
+          target="_blank"
+          title="Swagger"
+          aria-label="api-icon"
+        >
           <ApiIcon />
         </a>
         <a
           className="btn fw-500 btn-primary rounded-pill"
-          href="https://cloud.getcollate.io"
+          href="https://getcollate.io"
           target="_blank"
+          aria-label="cloud-icon"
         >
-          <button className={styles.CloudBtn}>
+          <button className={styles.CloudBtn} aria-label="cloud-icon">
             <CloudIcon />
           </button>
         </a>

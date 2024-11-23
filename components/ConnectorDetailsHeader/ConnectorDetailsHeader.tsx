@@ -74,7 +74,7 @@ function ConnectorDetailsHeader({
                 key={feature}
               >
                 {feature}
-                <CrossIcon height={14} />
+                <CrossIcon height={12} />
               </div>
             ))}
           </div>

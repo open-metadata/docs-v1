@@ -1,4 +1,5 @@
 import classNames from "classnames";
+import { uniqBy } from "lodash";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import { useState } from "react";
@@ -20,12 +21,12 @@ const ConnectorImage = dynamic(() => import("./ConnectorImage"), {
 CONNECTORS.unshift({
   connector: "All connectors",
   services: CONNECTORS.reduce((prev, curr) => {
-    return [...prev, ...curr.services];
+    return uniqBy([...prev, ...curr.services], "name");
   }, [] as ConnectorCategory["services"]),
 });
 
-export default function ConnectorsInfo() {
-  const { docVersion, onChangeDocVersion } = useDocVersionContext();
+export default function ConnectorsInfo({ tabStyle, activeTabStyle }) {
+  const { docVersion } = useDocVersionContext();
   const [selectedTab, setSelectedTab] = useState<ConnectorCategory>(
     CONNECTORS[0]
   );
@@ -36,9 +37,9 @@ export default function ConnectorsInfo() {
         {CONNECTORS.map((connectorCategory) => (
           <button
             className={classNames(
-              styles.TabItem,
+              tabStyle,
               connectorCategory.connector === selectedTab.connector
-                ? styles.SelectedTab
+                ? activeTabStyle
                 : ""
             )}
             key={connectorCategory.connector}
@@ -57,9 +58,9 @@ export default function ConnectorsInfo() {
               key={connector.name}
             >
               <ConnectorImage
-                className={styles.ConnectorImg}
+                className={classNames(styles.ConnectorImg)}
                 src={connector.icon}
-                alt={connector.name}
+                alt={`${connector.name}-icon`}
               />
               <p>{connector.name}</p>
             </Link>

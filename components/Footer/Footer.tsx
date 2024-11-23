@@ -29,7 +29,12 @@ export default function Footer() {
         </nav>
         <section className={styles.SocialNetworks}>
           {footerIconItemsData.map((item) => (
-            <Link href={item.href} key={item.href} target="_blank">
+            <Link
+              href={item.href}
+              key={item.href}
+              target="_blank"
+              aria-label={item.href}
+            >
               {item.icon}
             </Link>
           ))}

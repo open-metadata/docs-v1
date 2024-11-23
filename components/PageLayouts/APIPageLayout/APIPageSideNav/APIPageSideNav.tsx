@@ -6,7 +6,7 @@ import { ReactComponent as OmLogo } from "../../../../images/icons/om-monogram.s
 import { ReactComponent as SearchIcon } from "../../../../images/icons/search.svg";
 import {
   createNestedNodeStructure,
-  getUrlWithVersion,
+  getUrl,
 } from "../../../../utils/CommonUtils";
 import APILeftPanelItem from "../../../APILeftPanelItem/APILeftPanelItem";
 import APISearchModal from "../../../modals/APISearchModal/APISearchModal";
@@ -31,7 +31,7 @@ function APIPageSideNav({ pageInfoObject }: APIPageSideNavProps) {
   const [nestedHeadings, setNestedHeadings] = useState<Array<HeadingObject>>(
     []
   );
-  const { docVersion } = useDocVersionContext();
+  const { docVersion, enableVersion } = useDocVersionContext();
   const [searchModalVisibility, setSearchModalVisibility] =
     useState<boolean>(false);
 
@@ -101,7 +101,7 @@ function APIPageSideNav({ pageInfoObject }: APIPageSideNavProps) {
     <div className={styles.APIPageSideNavContainer}>
       <Link
         className={styles.Heading}
-        href={getUrlWithVersion(pageInfoObject.value, docVersion)}
+        href={getUrl({ url: pageInfoObject.value, docVersion, enableVersion })}
       >
         <OmLogo className={styles.OpenMetadataLogo} />
         <span className={styles.Api}>{pageInfoObject.label}</span>

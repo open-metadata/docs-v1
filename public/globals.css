@@ -17,6 +17,7 @@
   --primary-shadow-color: #5469d433;
   --primary-background-color: rgba(84, 105, 212, 0.05);
   --select-background-color: #f4f7ff;
+  --icon-background-color: #f1f3fe;
   --select-border-color: #e9eefc;
   --homepage-container-px: 130px;
   --default-text-color: rgb(60, 66, 87);
@@ -160,6 +161,26 @@ code {
 pre::-webkit-scrollbar,
 code::-webkit-scrollbar {
   display: none;
+}
+
+.connector-tab {
+  display: block;
+  width: 100%;
+  text-align: start;
+  padding: 8px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.connector-tab:hover {
+  background-color: var(--primary-background-color);
+}
+
+.active-connector {
+  border: 0.5px solid var(--select-border-color);
+  background-color: var(--primary-background-color);
+  color: var(--primary-color);
+  font-weight: 600;
 }
 
 .divider {
@@ -357,4 +378,19 @@ code::-webkit-scrollbar {
   grid-template-columns: var(--api-side-nav-width) calc(
       100vw - var(--api-side-nav-width)
     );
+}
+
+.hash-link {
+  overflow: hidden;
+  width: 0px;
+  height: 0px;
+  display: block;
+  visibility: hidden;
+  text-decoration: none;
+  pointer-events: none;
+  /* Using the bellow approach to add a scrolling margin, 
+     Taking this approach as scroll-margin-top is ineffective due to a possible CSS bug
+     for custom web components mentioned here https://developer.mozilla.org/en-US/docs/Web/CSS/:target#examples*/
+  margin-top: -300px !important;
+  padding-top: 300px;
 }

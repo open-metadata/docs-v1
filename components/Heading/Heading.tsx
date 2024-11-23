@@ -30,19 +30,13 @@ export function Heading({
   }
 
   return (
-    <div
-      className={classNames(className, styles.HeaderLink, {
-        [styles.H1Element]: level === 1,
-      })}
+    <HeadingElement
+      className={classNames(className, styles.HeaderLink)}
+      level={level}
+      {...otherProps}
     >
-      <a id={id} className={styles.HashLink} />
-      <HeadingElement
-        className={styles.HeaderElement}
-        level={level}
-        {...otherProps}
-      >
-        {children}
-      </HeadingElement>
+      <a id={id} className="hash-link" />
+      <span>{children}</span>
       {copied ? (
         <span className={styles.CopiedText}>Copied</span>
       ) : (
@@ -67,6 +61,6 @@ export function Heading({
           </svg>
         </span>
       )}
-    </div>
+    </HeadingElement>
   );
 }

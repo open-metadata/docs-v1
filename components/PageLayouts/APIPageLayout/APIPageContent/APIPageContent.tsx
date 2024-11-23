@@ -5,7 +5,7 @@ import React from "react";
 import { API_AND_SDK_MENU_ITEMS } from "../../../../constants/categoriesNav.constants";
 import { useDocVersionContext } from "../../../../context/DocVersionContext";
 import { components } from "../../../../lib/markdoc";
-import { getUrlWithVersion } from "../../../../utils/CommonUtils";
+import { getUrl } from "../../../../utils/CommonUtils";
 import Dropdown from "../../../Dropdown/Dropdown";
 import DropdownMenu, { DropdownMenuItem } from "../../../Dropdown/DropdownMenu";
 import styles from "./APIPageContent.module.css";
@@ -23,10 +23,10 @@ function APIsPageContent({
   pageInfoObject,
 }: APIsPageContentProps) {
   const router = useRouter();
-  const { docVersion } = useDocVersionContext();
+  const { docVersion, enableVersion } = useDocVersionContext();
   const handleMenuItemClick = (item: DropdownMenuItem) => {
     if (item.value.startsWith("/")) {
-      router.push(getUrlWithVersion(item.value, docVersion));
+      router.push(getUrl({ url: item.value, docVersion, enableVersion }));
     } else {
       window.open(item.value, "_blank").focus();
     }

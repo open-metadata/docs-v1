@@ -26,7 +26,7 @@
   width: 100%;
   padding: 0px 10%;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .BannerNavLink{
@@ -64,8 +64,8 @@
 
 .GreenButton{
   border: 1px solid #008476;
-  background-color: #0084761a;
-  color: #008476
+  background-color:#f1f4f1;
+  color: #4d6b53
 }
 
 .PurpleButton{

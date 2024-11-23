@@ -14,10 +14,10 @@
   padding: 16px;
   display: flex;
   align-items: center;
-  background-color: #f1f3fe;
+  background-color: var(--icon-background-color);
   border-radius: 8px;
 }
-
+ 
 .Text {
   margin: 0px;
   color: var(--default-text-color);

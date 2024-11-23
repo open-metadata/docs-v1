@@ -3,10 +3,7 @@ import classNames from "classnames";
 import { ReactComponent as SvgCelebration } from "../../../images/icons/celebration.svg";
 import { ReactComponent as SvgFitScreen } from "../../../images/icons/fitScreen.svg";
 import { ReactComponent as SvgList } from "../../../images/icons/list.svg";
-import {
-  materialDesignIcon,
-  getUrlWithVersion,
-} from "../../../utils/CommonUtils";
+import { materialDesignIcon, getUrl } from "../../../utils/CommonUtils";
 import { ReactNode, useMemo } from "react";
 import { useDocVersionContext } from "../../../context/DocVersionContext";
 import styles from "./InlineCallout.module.css";
@@ -26,7 +23,7 @@ const InlineCallout = ({
   href,
   isExternalLink = false,
 }: InlineCalloutProps) => {
-  const { docVersion } = useDocVersionContext();
+  const { docVersion, enableVersion } = useDocVersionContext();
 
   const iconComponent = useMemo(() => {
     switch (icon) {
@@ -44,7 +41,8 @@ const InlineCallout = ({
   return (
     <Link
       className={classNames(styles.Container)}
-      href={isExternalLink ? href : getUrlWithVersion(href, docVersion)}
+      href={getUrl({ url: href, docVersion, enableVersion, isExternalLink })}
+      target={isExternalLink ? "_blank" : "_self"}
     >
       <span className={classNames(styles.IconContainer)}>{iconComponent}</span>
       <span className={styles.Text}>

@@ -25,5 +25,6 @@ export * from "./inlineCallout.markdoc";
 export * from "./inlineCalloutContainer.markdoc";
 export * from "./multiTablesWrapper.markdoc";
 export * from "./note.markdoc";
+export * from "./roadmap.markdoc";
 export * from "./youtube.markdoc";
 

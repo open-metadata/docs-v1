@@ -23,7 +23,7 @@ jobs:
       - name: Check out the Repo
         uses: actions/checkout@v4
         with:
-          ref: publish
+          ref: main
 
       - name: Set up Node 
         uses: actions/setup-node@v4
@@ -50,7 +50,7 @@ jobs:
         continue-on-error: true
         run: |
           cd linkcheck
-          ./linkcheck :8000 -e | tee -a linkchecker.log
+          ./linkcheck :8000 -e --skip-file ../skip_links.txt | tee -a linkchecker.log
           echo "FILE_LOCATION=$(pwd)" >> $GITHUB_ENV
 
       - name: Output stats

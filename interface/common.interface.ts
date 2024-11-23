@@ -19,3 +19,10 @@ export interface PathObj {
     description: string;
   };
 }
+
+export interface UrlParams {
+  url: string;
+  docVersion: string;
+  enableVersion: boolean;
+  isExternalLink?: boolean;
+}

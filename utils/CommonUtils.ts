@@ -4,7 +4,7 @@ import * as icons from "react-icons/md";
 import { HeadingObject } from "../components/PageLayouts/APIPageLayout/APIPageSideNav/APIPageSideNav";
 import { SelectOption } from "../components/SelectDropdown/SelectDropdown";
 import { DEFAULT_VERSION } from "../constants/version.constants";
-import { MenuItem } from "../interface/common.interface";
+import { MenuItem, UrlParams } from "../interface/common.interface";
 
 export const getDivIndexFromId = (id: string) => {
   return Number(id.split("-").reverse()[0]);
@@ -15,7 +15,20 @@ export const generateIdFromHeading = (heading: string) => {
 };
 
 export const getUrlWithVersion = (url: string, docVersion: string) => {
-  return `/${docVersion}${url}`;
+  return `/${docVersion === DEFAULT_VERSION ? "latest" : docVersion}${url}`;
+};
+
+export const getUrl = ({
+  url,
+  docVersion,
+  enableVersion,
+  isExternalLink = false,
+}: UrlParams) => {
+  if (isExternalLink || !enableVersion) {
+    return url;
+  } else {
+    return getUrlWithVersion(url, docVersion);
+  }
 };
 
 export const getVersionFromUrl = (url: string) => {
@@ -26,11 +39,14 @@ export const getVersionFromUrl = (url: string) => {
   return versionString;
 };
 
-export const fetchMenuList = async (version: string) => {
+export const fetchMenuList = async (version?: string) => {
   try {
-    const response = await fetch(`/api/getMenu?version=${version}`, {
-      method: "GET",
-    });
+    const response = await fetch(
+      version ? `/api/getMenu?version=${version}` : `/api/getMenu`,
+      {
+        method: "GET",
+      }
+    );
 
     const parsedResponse: Array<MenuItem> = await response.json();
 

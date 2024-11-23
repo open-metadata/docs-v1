@@ -1,0 +1,39 @@
+.FeatureItem{
+    display: flex;
+    gap:8px;
+    border: 1px solid var(--default-border-color);
+    border-radius: 4px;
+    overflow: hidden;
+    background-color: #f8fafb;
+    cursor: pointer;
+}
+
+.FeatureItem:hover{
+    border-color: var(--primary-color);
+}
+
+.FeatureLeftBorder{
+    width: 4px;
+    height: 100%;
+    flex-shrink: 0;
+}
+
+.FeatureItemContent{
+    padding: 12px 0px;
+    padding-right: 12px;
+    width: 97%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--gray-text-color);
+    font-weight: 500;
+    font-size:14px;
+}
+
+.PlatformIcon{
+    flex-shrink: 0;
+}
+
+.Tooltip{
+    box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.4) 0px 4px 20px 0px;
+}

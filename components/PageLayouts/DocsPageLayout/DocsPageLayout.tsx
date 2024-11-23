@@ -3,6 +3,7 @@ import classNames from "classnames";
 import { has, isEmpty } from "lodash";
 import { useRouter } from "next/router";
 import React, {
+  ReactNode,
   useCallback,
   useEffect,
   useMemo,
@@ -17,23 +18,24 @@ import { components } from "../../../lib/markdoc";
 import { checkIsHowToGuidesPaths } from "../../../utils/PathUtils";
 import Breadcrumb from "../../Breadcrumb/Breadcrumb";
 import CategoriesNav from "../../CategoriesNav/CategoriesNav";
-import Footer from "../../Footer/Footer";
-import { SelectOption } from "../../SelectDropdown/SelectDropdown";
 import SideNav from "../../SideNav/SideNav";
-import TopNav from "../../TopNav/TopNav";
 import SkeletonLoader from "../../common/SkeletonLoader/SkeletonLoader";
 
 interface DocsPageLayoutProps {
+  navbar: ReactNode;
   parsedContent: RenderableTreeNode;
   slug: string[];
-  versionsList: SelectOption<string>[];
+  footer: ReactNode;
+  componentsList?: Record<string, React.ComponentType>;
 }
 
 function DocsPageLayout({
+  navbar,
   parsedContent,
   slug,
-  versionsList,
-}: DocsPageLayoutProps) {
+  footer,
+  componentsList = {},
+}: Readonly<DocsPageLayoutProps>) {
   const router = useRouter();
   const { isRouteChanging } = useRouteChangingContext();
   const { isMobileDevice } = useNavBarCollapsedContext();
@@ -84,7 +86,7 @@ function DocsPageLayout({
   return (
     <div className="flex flex-col">
       <div className="nav-bar-container">
-        <TopNav versionsList={versionsList} />
+        {navbar}
         <CategoriesNav menu={menuItems} />
       </div>
       <div className="flex">
@@ -125,12 +127,12 @@ function DocsPageLayout({
               <>
                 <Breadcrumb slug={slug} />
                 {Markdoc.renderers.react(parsedContent, React, {
-                  components,
+                  components: { ...components, ...componentsList },
                 })}
               </>
             )}
           </main>
-          <Footer />
+          {footer}
         </div>
       </div>
     </div>

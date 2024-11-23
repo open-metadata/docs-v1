@@ -1,11 +1,16 @@
 import fs from "fs";
+import { sortBy } from "lodash";
 import { join } from "path";
 import slugify from "slugify";
 import {
   ARTICLES_DIRECTORY,
   PARTIALS_DIRECTORY,
 } from "../constants/common.constants";
-import { VERSION_SELECT_DEFAULT_OPTIONS } from "./../constants/version.constants";
+import {
+  DEFAULT_VERSION,
+  REGEX_VERSION_MATCH,
+  VERSION_SELECT_DEFAULT_OPTIONS,
+} from "./../constants/version.constants";
 
 export function getAllFilesInDirectory(
   articleDirectory: string,
@@ -44,16 +49,15 @@ export const getVersionsList = () => {
     const versionsList = versionsArray
       // content folder now also has other folders like partial or the next release snapshot content with the versions folders
       // this check is to select only versions folders
-      .filter((version) => /^v(\d+\.\d+\.\x)$/g.test(version))
+      .filter((version) => REGEX_VERSION_MATCH.test(version))
       .map((version) => ({
         label: version,
-        value: version,
+        value: version === DEFAULT_VERSION ? "latest" : version,
       }));
 
-    versionsList.sort();
-    versionsList.reverse();
+    const sortedVersion = sortBy(versionsList, "label").reverse();
 
-    return versionsList;
+    return sortedVersion;
   } catch (error) {
     return VERSION_SELECT_DEFAULT_OPTIONS;
   }
