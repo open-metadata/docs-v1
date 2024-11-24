@@ -105,34 +105,6 @@ export const getReturnObjectForValidVersion = ({
       }
     }
 
-    // If the file is not found in the content folder
-    if (notFound) {
-      // Check if the version is present in the existing versions list
-      const isVersionPresent = versionsList.some(
-        (versionOption) => versionOption.value === version
-      );
-
-      // If the version is present in versions list, return 404
-      if (isVersionPresent) {
-        return { notFound };
-      }
-
-      // If the version is not present in versions list,
-      // check if the major version is present.
-      // Ex. If v1.4.8 is in the URL and v1.4.8 is not in versions list but v1.4.x is so match the 1.4
-      // and redirect to the respective version URL in this case to v1.4.x
-      const majorVersionMatch = getMajorVersionMatch(versionsList, version);
-
-      return {
-        redirect: {
-          permanent: false,
-          destination: `/${
-            majorVersionMatch?.value ?? "latest" // If major version match is not present, redirect to latest
-          }/${pathWithoutVersion}`,
-        },
-      };
-    }
-
     // Get the last element of the array to find the MD file
     const fileContents = fs.readFileSync(filename, "utf8");
     const { content, data } = matter(fileContents);
@@ -150,9 +122,9 @@ export const getReturnObjectForValidVersion = ({
         slug,
         versionsList,
         partials,
-        pageTitle: data.title,
+        pageTitle: data.title ?? "",
         pageDescription: data.description ?? "",
-        weight: data.weight,
+        weight: data.weight ?? "0",
       },
     };
   }

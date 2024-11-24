@@ -115,7 +115,7 @@ export default function Index({ versionsList }: Readonly<Props>) {
   );
 }
 
-export async function getServerSideProps(context: GetServerSidePropsContext) {
+export async function getStaticProps(context: GetServerSidePropsContext) {
   try {
     const version = context.params.version as string;
 

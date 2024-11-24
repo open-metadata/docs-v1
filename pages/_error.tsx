@@ -1,9 +1,11 @@
 import classNames from "classnames";
+import { GetServerSidePropsContext } from "next";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import CategoriesNav from "../components/CategoriesNav/CategoriesNav";
 import Footer from "../components/Footer/Footer";
 import GoogleAnalyticsScript from "../components/GoogleAnalyticsScript/GoogleAnalyticsScript";
+import { SelectOption } from "../components/SelectDropdown/SelectDropdown";
 import SideNav from "../components/SideNav/SideNav";
 import TopNav from "../components/TopNav/TopNav";
 import SkeletonLoader from "../components/common/SkeletonLoader/SkeletonLoader";
@@ -15,9 +17,14 @@ import { useDocVersionContext } from "../context/DocVersionContext";
 import { useMenuItemsContext } from "../context/MenuItemsContext";
 import { useNavBarCollapsedContext } from "../context/NavBarCollapseContext";
 import { useRouteChangingContext } from "../context/RouteChangingContext";
+import { getVersionsList } from "../lib/api";
 import { getVersionFromUrl } from "../utils/CommonUtils";
 
-function Error() {
+interface Props {
+  versionsList: Array<SelectOption<string>>;
+}
+
+function Error({ versionsList }: Readonly<Props>) {
   const router = useRouter();
   const { docVersion, onChangeDocVersion } = useDocVersionContext();
   const { isRouteChanging } = useRouteChangingContext();
@@ -45,7 +52,7 @@ function Error() {
   return (
     <div className="flex flex-col" id="error-page-container">
       <GoogleAnalyticsScript />
-      <TopNav />
+      <TopNav versionsList={versionsList} />
       <CategoriesNav menu={menuItems} />
       <div className="flex">
         <SideNav
@@ -90,3 +97,19 @@ function Error() {
 }
 
 export default Error;
+
+export async function getStaticProps(context: GetServerSidePropsContext) {
+  try {
+    const version = context.params.version as string;
+
+    const versionsList: Array<SelectOption<string>> = getVersionsList();
+
+    return {
+      props: { versionsList },
+    };
+  } catch {
+    return {
+      notFound: true,
+    };
+  }
+}
