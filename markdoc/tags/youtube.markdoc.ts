@@ -20,5 +20,8 @@ export const youtube = {
     width: {
       type: Boolean,
     },
+    url: {
+      type: String,
+    },
   },
 };
