@@ -10,7 +10,7 @@ This installation doc will help you start a OpenMetadata standalone instance on 
 If you'd rather see the steps in a guided tutorial, we've got you covered! Otherwise, feel free to read the
 content below 👇
 
-{%  youtube url="https://drive.google.com/file/d/16-2l9EYBE9DjlHepPKTpVFvashMy1buu/view?pli=1" start="0:00" end="6:47" width="560px" height="315px" /%}
+{%  youtube videoId="ld43_jafL9w" start="0:00" end="6:47" width="560px" height="315px" /%}
 
 # Requirements (OSX, Linux and Windows)
 

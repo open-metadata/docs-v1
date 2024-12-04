@@ -17,7 +17,7 @@ const YouTube = ({
         loading="lazy"
         allowFullScreen
         src={
-          url ??
+          url ||
           `https://www.youtube-nocookie.com/embed/${videoId}?rel=0&start=${start}&end=${end}&rel=0`
         }
         className={styles.Iframe}
