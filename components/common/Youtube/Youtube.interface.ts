@@ -5,4 +5,5 @@ export interface YouTubeProps {
   end?: string;
   height?: string;
   width?: string;
+  url?: string;
 }
