@@ -37,7 +37,8 @@ export default function TopNav({ versionsList, logo }: Readonly<TopNavProps>) {
   const router = useRouter();
   const [displayNavBarCollapseButton, setDisplayNavBarCollapseButton] =
     useState(false);
-  const { docVersion, onChangeDocVersion, enableVersion } = useDocVersionContext();
+  const { docVersion, onChangeDocVersion, enableVersion } =
+    useDocVersionContext();
   const { navBarCollapsed, onChangeNavBarCollapsed } =
     useNavBarCollapsedContext();
 
@@ -84,6 +85,7 @@ export default function TopNav({ versionsList, logo }: Readonly<TopNavProps>) {
         styles.NavBar,
         navBarCollapsed ? styles.CollapsedNavBar : ""
       )}
+      id="top-nav-container"
     >
       <div className={styles.CollapsedDivContainer}>
         <div className={styles.LogoContainer}>
