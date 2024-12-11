@@ -11,7 +11,16 @@ export const VERSION_SELECT_DEFAULT_OPTIONS: Array<SelectOption<string>> = [
   },
 ];
 
-export const REGEX_VERSION_MATCH = /(v\d+\.\d+\.\w+)|latest/;
+// The regex will match all the following:
+// v1.6.x-SNAPSHOT, v1.6.x, latest
+export const REGEX_VERSION_MATCH =
+  /(v\d+\.\d+\.\w+-SNAPSHOT)|latest|(v\d+\.\d+\.\w+)/;
+
+// The regex will match all the following:
+// /v1.6.x-SNAPSHOT, /v1.6.x, /latest
 export const REGEX_VERSION_MATCH_WITH_SLASH_AT_START =
-  /^\/((v\d+\.\d+\.\w+)|latest)/g;
+  /^\/((v\d+\.\d+\.\w+-SNAPSHOT)|latest|(v\d+\.\d+\.\w+))/g;
+
+// The regex will match all the following:
+// 1.6
 export const REGEX_TO_EXTRACT_VERSION_NUMBER = /\d+\.\d+/;

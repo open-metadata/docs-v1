@@ -100,7 +100,9 @@ function DocsPageLayout({
         <div
           className={classNames(
             "content",
-            sideNavCollapsed ? "collapsed-content" : "non-collapsed-content",
+            sideNavCollapsed || isHowToGuidesHomePagePath
+              ? "collapsed-content"
+              : "non-collapsed-content",
             { "mx-auto": isHowToGuidesHomePagePath }
           )}
         >
