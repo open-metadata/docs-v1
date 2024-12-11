@@ -2,6 +2,16 @@ import { ConnectorCategory } from "./ConnectorsInfo.interface";
 
 export const CONNECTORS: Array<ConnectorCategory> = [
   {
+    connector: "API",
+    services: [
+      {
+        url: "/connectors/api/rest",
+        icon: "/images/connectors/rest.webp",
+        name: "REST",
+      },
+    ],
+  },
+  {
     connector: "Database",
     services: [
       {
@@ -272,6 +282,11 @@ export const CONNECTORS: Array<ConnectorCategory> = [
         name: "Redash",
       },
       {
+        url: "/connectors/dashboard/sigma",
+        icon: "/images/connectors/sigma.webp",
+        name: "Sigma",
+      },
+      {
         url: "/connectors/dashboard/superset",
         icon: "/images/connectors/superset.webp",
         name: "Superset",
@@ -317,6 +332,12 @@ export const CONNECTORS: Array<ConnectorCategory> = [
         name: "Dagster",
       },
       {
+        url: "/connectors/pipeline/datafactory",
+        icon: "/images/connectors/datafactory.webp",
+        name: "DataFactory",
+        collate: true,
+      },
+      {
         url: "/connectors/pipeline/dbtcloud",
         icon: "/images/connectors/dbtcloud.webp",
         name: "dbt Cloud",
@@ -330,6 +351,12 @@ export const CONNECTORS: Array<ConnectorCategory> = [
         url: "/connectors/pipeline/flink",
         icon: "/images/connectors/flink.webp",
         name: "Flink",
+      },
+      {
+        url: "/connectors/pipeline/matillion",
+        icon: "/images/connectors/matillion.webp",
+        name: "Matillion",
+        collate: true,
       },
       {
         url: "/connectors/pipeline/nifi",
@@ -346,6 +373,12 @@ export const CONNECTORS: Array<ConnectorCategory> = [
         icon: "/images/connectors/spline.webp",
         name: "Spline",
       },
+      {
+        url: "/connectors/pipeline/stitch",
+        icon: "/images/connectors/stitch.webp",
+        name: "Stitch",
+        collate: true,
+      },
     ],
   },
   {
@@ -360,6 +393,12 @@ export const CONNECTORS: Array<ConnectorCategory> = [
         url: "/connectors/ml-model/sagemaker",
         icon: "/images/connectors/sagemaker.webp",
         name: "SageMaker",
+      },
+      {
+        url: "/connectors/ml-model/vertexai",
+        icon: "/images/connectors/vertexai.webp",
+        name: "VertexAI",
+        collate: true,
       },
     ],
   },
