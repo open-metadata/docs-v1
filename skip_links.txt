@@ -32,4 +32,7 @@ https://libraries.io/
 https://api.slack.com/
 https://open-metadata.org/
 https://getcollate.io/
-https://fonts.gstatic.com/
+https://fonts.gstatic.com
+https://tools.hana.ondemand.com/
+https://developer.alation.com/
+https://docs.matillion.io/
