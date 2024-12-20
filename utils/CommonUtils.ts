@@ -1,7 +1,8 @@
-import Markdoc from "@markdoc/markdoc";
+import Markdoc, { Node } from "@markdoc/markdoc";
 import { isEmpty, startCase } from "lodash";
 import * as icons from "react-icons/md";
 import { HeadingObject } from "../components/PageLayouts/APIPageLayout/APIPageSideNav/APIPageSideNav";
+import { SelectOption } from "../components/SelectDropdown/SelectDropdown";
 import { DEFAULT_VERSION } from "../constants/version.constants";
 import { MenuItem, UrlParams } from "../interface/common.interface";
 
@@ -59,6 +60,24 @@ export const fetchMenuList = async (version?: string) => {
   }
 };
 
+export const fetchVersionsList = async () => {
+  try {
+    const response = await fetch(`/api/getVersionsList`, {
+      method: "GET",
+    });
+
+    const parsedResponse: Array<SelectOption<string>> = await response.json();
+
+    if (response.status === 200) {
+      return parsedResponse;
+    } else {
+      return [];
+    }
+  } catch (error) {
+    return [];
+  }
+};
+
 export const materialDesignIcon = (icon: string) => {
   // Checking whether the icon name passed has prefix 'Md' applied already
   // i.e. 'MdCircle' for 'circle' icon
@@ -80,7 +99,7 @@ export const getFormattedPartials = (
   if (isEmpty(partialsObject)) {
     return {};
   }
-  const formattedPartialsObj = {};
+  const formattedPartialsObj: Record<string, Node> = {};
 
   Object.entries(partialsObject).forEach(([key, value]) => {
     formattedPartialsObj[key] = Markdoc.parse(value);
