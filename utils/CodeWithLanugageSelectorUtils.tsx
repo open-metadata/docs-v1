@@ -20,7 +20,7 @@ export const getLanguageIcon = (language: string) => {
       return <PythonIcon />;
     case "ruby":
       return <RubyIcon />;
-    case "implict":
+    case "implicit":
       return <YamlIcon />;
     case "authcode":
       return <YamlIcon />;
