@@ -3,13 +3,13 @@ import { isEmpty, isNull, isUndefined } from "lodash";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { IoIosCloseCircleOutline } from "react-icons/io";
-import { Configure, Hits, useInstantSearch } from "react-instantsearch";
+import { useDocVersionContext } from "../../context/DocVersionContext";
 import { useNavBarCollapsedContext } from "../../context/NavBarCollapseContext";
 import { useSearchContext } from "../../context/SearchContext";
 import { ReactComponent as Loader } from "../../images/icons/loader.svg";
 import { ReactComponent as SearchIcon } from "../../images/icons/search.svg";
 import CustomSearch from "./CustomSearch/CustomSearch";
-import HitComponent from "./HitComponent/HitComponent";
+import ResultItem from "./ResultItem/ResultItem";
 import styles from "./Search.module.css";
 
 interface SearchProps {
@@ -22,18 +22,16 @@ export default function Search({
   showHotKeys = true,
   className = "",
   resultsContainerClassName = "",
-}: SearchProps) {
+}: Readonly<SearchProps>) {
+  const { docVersion } = useDocVersionContext();
   const [hotKey, setHotKey] = useState("second");
   const [searchValue, setSearchValue] = useState(""); // To manage search value with debouncing
   const [searchText, setSearchText] = useState(""); // To manage search input value
   const [isSuggestionVisible, setIsSuggestionVisible] =
     useState<boolean>(false);
-  const [showNoDataPlaceHolder, setShowNoDataPlaceHolder] =
-    useState<boolean>(false);
-  const [isLoading, setIsLoading] = useState<boolean>();
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [results, setResults] = useState([]);
   const { navBarCollapsed } = useNavBarCollapsedContext();
-
-  const { status, results } = useInstantSearch();
 
   const { focusedSearchItem, onChangeFocusedSearchItem } = useSearchContext();
 
@@ -81,7 +79,9 @@ export default function Search({
   const handleKey = (e: KeyboardEvent) => {
     e.stopPropagation();
     if (isSuggestionVisible) {
-      const searchResults = document.querySelectorAll(".ais-Hits-item");
+      const searchResults = document.querySelectorAll(
+        `[class^="search-result-"]`
+      );
 
       switch (e.key) {
         case "Enter": {
@@ -92,7 +92,7 @@ export default function Search({
         case "ArrowUp": {
           onChangeFocusedSearchItem((currentFocus) => {
             const focusedSearchItemNumber =
-              currentFocus > 1 ? currentFocus - 1 : 1;
+              currentFocus > 0 ? currentFocus - 1 : 1;
 
             bringElementIntoView(searchResults, focusedSearchItemNumber);
 
@@ -106,7 +106,7 @@ export default function Search({
 
           onChangeFocusedSearchItem((currentFocus) => {
             const focusedSearchItemNumber =
-              currentFocus < resultCount - 1 ? currentFocus + 1 : resultCount;
+              currentFocus < resultCount - 2 ? currentFocus + 1 : resultCount;
 
             bringElementIntoView(searchResults, focusedSearchItemNumber);
 
@@ -144,13 +144,38 @@ export default function Search({
     };
   }, [searchValue, focusedSearchItem, isSuggestionVisible]);
 
-  useEffect(() => {
-    setIsLoading(status === "loading");
-  }, [status]);
+  const handleSearch = async () => {
+    try {
+      setIsLoading(true);
+      if (window[`pageFind${docVersion}`]) {
+        const search = await window[`pageFind${docVersion}`].search(
+          // To show results for "releases" as a default suggestions when no search text is present
+          isEmpty(searchValue) ? "releases" : searchValue,
+          { sort: { weight: "desc" } }
+        );
+
+        // Select only top 20 results
+        const topResults = search.results.slice(0, 20);
+
+        // The data for each search result should be loaded independently
+        // ref: https://pagefind.app/docs/api/#loading-a-result
+        const parsedResultsData = topResults.map(async (result) => {
+          const resultData = await result.data();
+          return { id: result.id, ...resultData };
+        });
+
+        setResults(await Promise.all(parsedResultsData));
+      }
+    } catch {
+      //
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   useEffect(() => {
-    setShowNoDataPlaceHolder(isEmpty(results.hits));
-  }, [results]);
+    handleSearch();
+  }, [searchValue, window[`pageFind${docVersion}`], docVersion]);
 
   return (
     <div
@@ -161,8 +186,6 @@ export default function Search({
       )}
     >
       <CustomSearch
-        bringElementIntoView={bringElementIntoView}
-        searchValue={searchValue}
         searchText={searchText}
         handleSearchValue={handleSearchValue}
         handleSearchText={handleSearchText}
@@ -195,19 +218,12 @@ export default function Search({
         )}
         id="search-modal"
       >
-        <Configure
-          attributesToSnippet={["content:10"]}
-          snippetEllipsisText={"..."}
-        />
-        {showNoDataPlaceHolder ? (
+        {isEmpty(results) || isUndefined(results) ? (
           <div className={styles.NoDataPlaceholder}>No Results found</div>
         ) : (
-          <Hits
-            classNames={{
-              item: styles.ListItem,
-            }}
-            hitComponent={HitComponent}
-          />
+          results.map((result, id) => (
+            <ResultItem key={result.id} id={id} result={result} />
+          ))
         )}
       </div>
     </div>

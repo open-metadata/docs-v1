@@ -38,6 +38,7 @@ export default function CategoriesNav({ menu }: Props) {
         styles.Container,
         navBarCollapsed ? styles.CollapsedNav : ""
       )}
+      id="categories-nav-container"
     >
       <div className={styles.CategoriesContainer}>
         {menu.map((item) => {
