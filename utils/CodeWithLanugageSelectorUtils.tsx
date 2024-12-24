@@ -20,7 +20,9 @@ export const getLanguageIcon = (language: string) => {
       return <PythonIcon />;
     case "ruby":
       return <RubyIcon />;
-    case "yaml":
+    case "implict":
+      return <YamlIcon />;
+    case "authcode":
       return <YamlIcon />;
     case "json":
       return <VscJson size={24} />;
