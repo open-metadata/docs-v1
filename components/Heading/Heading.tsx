@@ -1,9 +1,16 @@
 import classNames from "classnames";
 import { useState } from "react";
+import { HeadingProps } from "./Heading.interface";
 import styles from "./Heading.module.css";
 import HeadingElement from "./HeadingElement";
 
-export function Heading({ id = "", level = 1, children, className }) {
+export function Heading({
+  id = "",
+  level = 1,
+  children,
+  className = "",
+  searchWeight,
+}: Readonly<HeadingProps>) {
   const [copied, setCopied] = useState(false);
 
   const copyLinkUnbound = async () => {
@@ -14,10 +21,19 @@ export function Heading({ id = "", level = 1, children, className }) {
     window.setTimeout(() => setCopied(false), 2000);
   };
 
+  let otherProps = {};
+
+  if (searchWeight) {
+    otherProps = {
+      ["data-pagefind-weight"]: searchWeight,
+    };
+  }
+
   return (
     <HeadingElement
       className={classNames(className, styles.HeaderLink)}
       level={level}
+      {...otherProps}
     >
       <a id={id} className="hash-link" />
       <span>{children}</span>

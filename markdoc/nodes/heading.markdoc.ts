@@ -38,6 +38,7 @@ export const heading = {
     level: { type: Number, required: true, default: 1 },
     className: { type: String },
     children: { type: String },
+    searchWeight: { type: String },
   },
   transform(node, config) {
     const attributes = node.transformAttributes(config);
