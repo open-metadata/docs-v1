@@ -25,5 +25,6 @@ export const connectorDetailsHeader = {
       type: Array<string>,
       description: "List of unavailable features for the connector.",
     },
+    searchWeight: { type: String },
   },
 };
