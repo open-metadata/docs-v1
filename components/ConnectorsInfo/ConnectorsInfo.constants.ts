@@ -81,6 +81,11 @@ export const CONNECTORS: Array<ConnectorCategory> = [
         name: "DB2",
       },
       {
+        url: "/connectors/pipeline/dbtcloud",
+        icon: "/images/connectors/dbtcloud.webp",
+        name: "dbt",
+      },
+      {
         url: "/connectors/database/domo-database",
         icon: "/images/connectors/domo.webp",
         name: "Domo",
@@ -334,7 +339,7 @@ export const CONNECTORS: Array<ConnectorCategory> = [
       {
         url: "/connectors/pipeline/datafactory",
         icon: "/images/connectors/datafactory.webp",
-        name: "DataFactory",
+        name: "Azure Data Factory",
         collate: true,
       },
       {
