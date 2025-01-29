@@ -158,7 +158,7 @@ export const CONNECTORS: Array<ConnectorCategory> = [
       {
         url: "/connectors/database/postgres",
         icon: "/images/connectors/post.webp",
-        name: "Postgres",
+        name: "PostgreSQL",
       },
       {
         url: "/connectors/database/presto",
