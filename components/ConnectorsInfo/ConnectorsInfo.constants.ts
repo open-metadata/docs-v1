@@ -196,6 +196,11 @@ export const CONNECTORS: Array<ConnectorCategory> = [
         name: "SingleStore",
       },
       {
+        url: "/connectors/database/synapse",
+        icon: "/images/connectors/synapse.webp",
+        name: "Synapse",
+      },
+      {
         url: "/connectors/database/teradata",
         icon: "/images/connectors/teradata.webp",
         name: "Teradata",
@@ -285,6 +290,11 @@ export const CONNECTORS: Array<ConnectorCategory> = [
         url: "/connectors/dashboard/powerbi",
         icon: "/images/connectors/power-bi.webp",
         name: "Power BI",
+      },
+      {
+        url: "/connectors/dashboard/powerbireportserver",
+        icon: "/images/connectors/power-bi.webp",
+        name: "PowerBI Report Server",
       },
       {
         url: "/connectors/dashboard/redash",
