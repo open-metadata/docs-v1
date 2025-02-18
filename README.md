@@ -39,6 +39,9 @@ Here are the custom markdoc tags to use for desired functionalities.
    - [5. connectorDetailsHeader](#5-connectorDetailsHeader)
    - [6. connectorInfoCard](#6-connectorInfoCard)
    - [7. connectorsListContainer](#7-connectorsListContainer)
+- [Conditional Content](#conditional-content)
+   - [1. collateContent](#1-collateContent)
+   - [2. ossContent](#2-ossContent)
 - [Tags for Code Preview Functionality](#tags-for-code-preview-functionality)
    - [1. codePreview](#1-codePreview)
    - [2. codeInfoContainer](#2-codeInfoContainer)
@@ -281,6 +284,37 @@ A styled card to show the links to navigate users to the connector details page 
 ### 7. connectorsListContainer
 
 A wrapper tag to envelope the connectorInfoCard tags for a grid view.
+
+---
+
+## Conditional Content
+
+- [1. collateContent](#1-collateContent)
+- [2. ossContent](#2-ossContent)
+
+### 1. collateContent
+
+A tag to conditionally render content only on collate documentation.
+
+### 2. ossContent
+
+A tag to conditionally render content only on open source documentation.
+
+Example:
+
+This is {% collateContent %}Collate{% /collateContent %}{% ossContent %}OSS{% /ossContent %} documentation.
+
+**The above content will be shown on collate documentation as:**
+
+```
+This is Collate documentation.
+```
+
+**And will be shown on open source documentation as:**
+
+```
+This is OSS documentation.
+```
 
 ---
 
