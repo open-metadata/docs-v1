@@ -12,7 +12,7 @@
       "name" : "Apache 2.0",
       "url" : "https://www.apache.org/licenses/LICENSE-2.0"
     },
-    "version" : "1.6.4"
+    "version" : "1.6.5"
   },
   "servers" : [ {
     "url" : "/api",
@@ -1539,6 +1539,43 @@
                     "entity" : {
                       "type" : "object"
                     },
+                    "links" : {
+                      "uniqueItems" : true,
+                      "type" : "array",
+                      "items" : {
+                        "type" : "object",
+                        "properties" : {
+                          "type" : {
+                            "type" : "string"
+                          },
+                          "params" : {
+                            "type" : "object",
+                            "additionalProperties" : {
+                              "type" : "string"
+                            }
+                          },
+                          "title" : {
+                            "type" : "string"
+                          },
+                          "uri" : {
+                            "type" : "string",
+                            "format" : "uri"
+                          },
+                          "uriBuilder" : {
+                            "type" : "object"
+                          },
+                          "rel" : {
+                            "type" : "string"
+                          },
+                          "rels" : {
+                            "type" : "array",
+                            "items" : {
+                              "type" : "string"
+                            }
+                          }
+                        }
+                      }
+                    },
                     "mediaType" : {
                       "type" : "object",
                       "properties" : {
@@ -1559,43 +1596,6 @@
                         },
                         "wildcardSubtype" : {
                           "type" : "boolean"
-                        }
-                      }
-                    },
-                    "links" : {
-                      "uniqueItems" : true,
-                      "type" : "array",
-                      "items" : {
-                        "type" : "object",
-                        "properties" : {
-                          "type" : {
-                            "type" : "string"
-                          },
-                          "params" : {
-                            "type" : "object",
-                            "additionalProperties" : {
-                              "type" : "string"
-                            }
-                          },
-                          "uri" : {
-                            "type" : "string",
-                            "format" : "uri"
-                          },
-                          "uriBuilder" : {
-                            "type" : "object"
-                          },
-                          "rel" : {
-                            "type" : "string"
-                          },
-                          "rels" : {
-                            "type" : "array",
-                            "items" : {
-                              "type" : "string"
-                            }
-                          },
-                          "title" : {
-                            "type" : "string"
-                          }
                         }
                       }
                     },
@@ -2670,6 +2670,43 @@
                     "entity" : {
                       "type" : "object"
                     },
+                    "links" : {
+                      "uniqueItems" : true,
+                      "type" : "array",
+                      "items" : {
+                        "type" : "object",
+                        "properties" : {
+                          "type" : {
+                            "type" : "string"
+                          },
+                          "params" : {
+                            "type" : "object",
+                            "additionalProperties" : {
+                              "type" : "string"
+                            }
+                          },
+                          "title" : {
+                            "type" : "string"
+                          },
+                          "uri" : {
+                            "type" : "string",
+                            "format" : "uri"
+                          },
+                          "uriBuilder" : {
+                            "type" : "object"
+                          },
+                          "rel" : {
+                            "type" : "string"
+                          },
+                          "rels" : {
+                            "type" : "array",
+                            "items" : {
+                              "type" : "string"
+                            }
+                          }
+                        }
+                      }
+                    },
                     "mediaType" : {
                       "type" : "object",
                       "properties" : {
@@ -2690,43 +2727,6 @@
                         },
                         "wildcardSubtype" : {
                           "type" : "boolean"
-                        }
-                      }
-                    },
-                    "links" : {
-                      "uniqueItems" : true,
-                      "type" : "array",
-                      "items" : {
-                        "type" : "object",
-                        "properties" : {
-                          "type" : {
-                            "type" : "string"
-                          },
-                          "params" : {
-                            "type" : "object",
-                            "additionalProperties" : {
-                              "type" : "string"
-                            }
-                          },
-                          "uri" : {
-                            "type" : "string",
-                            "format" : "uri"
-                          },
-                          "uriBuilder" : {
-                            "type" : "object"
-                          },
-                          "rel" : {
-                            "type" : "string"
-                          },
-                          "rels" : {
-                            "type" : "array",
-                            "items" : {
-                              "type" : "string"
-                            }
-                          },
-                          "title" : {
-                            "type" : "string"
-                          }
                         }
                       }
                     },
@@ -4837,6 +4837,56 @@
         }
       }
     },
+    "/v1/containers/name/{fqn}/children" : {
+      "get" : {
+        "tags" : [ "Containers" ],
+        "summary" : "List children containers",
+        "description" : "Get a list of children containers with pagination.",
+        "operationId" : "listContainerChildren",
+        "parameters" : [ {
+          "name" : "fqn",
+          "in" : "path",
+          "description" : "Fully qualified name of the container",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "name" : "limit",
+          "in" : "query",
+          "description" : "Limit the number of children returned. (1 to 1000000, default = 10)",
+          "schema" : {
+            "maximum" : 1000000,
+            "minimum" : 0,
+            "type" : "integer",
+            "format" : "int32",
+            "default" : 10
+          }
+        }, {
+          "name" : "offset",
+          "in" : "query",
+          "description" : "Returns list of children after the given offset",
+          "schema" : {
+            "minimum" : 0,
+            "type" : "integer",
+            "format" : "int32",
+            "default" : 0
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "List of children containers",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "$ref" : "#/components/schemas/ContainerList"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/v1/containers/restore" : {
       "put" : {
         "tags" : [ "Containers" ],
@@ -6389,7 +6439,7 @@
           "description" : "Fields requested in the returned resource",
           "schema" : {
             "type" : "string",
-            "example" : "domain,owners,experts,assets,extension"
+            "example" : "domain,owners,experts,assets,extension,tags"
           }
         }, {
           "name" : "domain",
@@ -6558,7 +6608,7 @@
           "description" : "Fields requested in the returned resource",
           "schema" : {
             "type" : "string",
-            "example" : "domain,owners,experts,assets,extension"
+            "example" : "domain,owners,experts,assets,extension,tags"
           }
         } ],
         "responses" : {
@@ -6613,7 +6663,7 @@
           "description" : "Fields requested in the returned resource",
           "schema" : {
             "type" : "string",
-            "example" : "domain,owners,experts,assets,extension"
+            "example" : "domain,owners,experts,assets,extension,tags"
           }
         }, {
           "name" : "id",
@@ -11950,7 +12000,7 @@
           "description" : "Fields requested in the returned resource",
           "schema" : {
             "type" : "string",
-            "example" : "children,owners,experts"
+            "example" : "tags,children,owners,experts"
           }
         }, {
           "name" : "limit",
@@ -12063,7 +12113,7 @@
           "description" : "Fields requested in the returned resource",
           "schema" : {
             "type" : "string",
-            "example" : "children,owners,experts"
+            "example" : "tags,children,owners,experts"
           }
         }, {
           "name" : "limit",
@@ -12150,7 +12200,7 @@
           "description" : "Fields requested in the returned resource",
           "schema" : {
             "type" : "string",
-            "example" : "children,owners,experts"
+            "example" : "tags,children,owners,experts"
           }
         } ],
         "responses" : {
@@ -12205,7 +12255,7 @@
           "description" : "Fields requested in the returned resource",
           "schema" : {
             "type" : "string",
-            "example" : "children,owners,experts"
+            "example" : "tags,children,owners,experts"
           }
         }, {
           "name" : "id",
@@ -13532,6 +13582,43 @@
                     "entity" : {
                       "type" : "object"
                     },
+                    "links" : {
+                      "uniqueItems" : true,
+                      "type" : "array",
+                      "items" : {
+                        "type" : "object",
+                        "properties" : {
+                          "type" : {
+                            "type" : "string"
+                          },
+                          "params" : {
+                            "type" : "object",
+                            "additionalProperties" : {
+                              "type" : "string"
+                            }
+                          },
+                          "title" : {
+                            "type" : "string"
+                          },
+                          "uri" : {
+                            "type" : "string",
+                            "format" : "uri"
+                          },
+                          "uriBuilder" : {
+                            "type" : "object"
+                          },
+                          "rel" : {
+                            "type" : "string"
+                          },
+                          "rels" : {
+                            "type" : "array",
+                            "items" : {
+                              "type" : "string"
+                            }
+                          }
+                        }
+                      }
+                    },
                     "mediaType" : {
                       "type" : "object",
                       "properties" : {
@@ -13552,43 +13639,6 @@
                         },
                         "wildcardSubtype" : {
                           "type" : "boolean"
-                        }
-                      }
-                    },
-                    "links" : {
-                      "uniqueItems" : true,
-                      "type" : "array",
-                      "items" : {
-                        "type" : "object",
-                        "properties" : {
-                          "type" : {
-                            "type" : "string"
-                          },
-                          "params" : {
-                            "type" : "object",
-                            "additionalProperties" : {
-                              "type" : "string"
-                            }
-                          },
-                          "uri" : {
-                            "type" : "string",
-                            "format" : "uri"
-                          },
-                          "uriBuilder" : {
-                            "type" : "object"
-                          },
-                          "rel" : {
-                            "type" : "string"
-                          },
-                          "rels" : {
-                            "type" : "array",
-                            "items" : {
-                              "type" : "string"
-                            }
-                          },
-                          "title" : {
-                            "type" : "string"
-                          }
                         }
                       }
                     },
@@ -35173,6 +35223,9 @@
             "type" : "string",
             "format" : "uuid"
           },
+          "incrementalChangeDescription" : {
+            "$ref" : "#/components/schemas/ChangeDescription"
+          },
           "lifeCycle" : {
             "$ref" : "#/components/schemas/LifeCycle"
           },
@@ -35324,6 +35377,9 @@
           "id" : {
             "type" : "string",
             "format" : "uuid"
+          },
+          "incrementalChangeDescription" : {
+            "$ref" : "#/components/schemas/ChangeDescription"
           },
           "lifeCycle" : {
             "$ref" : "#/components/schemas/LifeCycle"
@@ -35733,6 +35789,9 @@
             "type" : "string",
             "format" : "uuid"
           },
+          "incrementalChangeDescription" : {
+            "$ref" : "#/components/schemas/ChangeDescription"
+          },
           "lifeCycle" : {
             "$ref" : "#/components/schemas/LifeCycle"
           },
@@ -35896,6 +35955,9 @@
           "id" : {
             "type" : "string",
             "format" : "uuid"
+          },
+          "incrementalChangeDescription" : {
+            "$ref" : "#/components/schemas/ChangeDescription"
           },
           "lifeCycle" : {
             "$ref" : "#/components/schemas/LifeCycle"
@@ -36127,6 +36189,9 @@
           "id" : {
             "type" : "string",
             "format" : "uuid"
+          },
+          "incrementalChangeDescription" : {
+            "$ref" : "#/components/schemas/ChangeDescription"
           },
           "lifeCycle" : {
             "$ref" : "#/components/schemas/LifeCycle"
@@ -36448,6 +36513,9 @@
             "type" : "string",
             "format" : "uuid"
           },
+          "incrementalChangeDescription" : {
+            "$ref" : "#/components/schemas/ChangeDescription"
+          },
           "lifeCycle" : {
             "$ref" : "#/components/schemas/LifeCycle"
           },
@@ -36679,6 +36747,9 @@
             "type" : "string",
             "format" : "uuid"
           },
+          "incrementalChangeDescription" : {
+            "$ref" : "#/components/schemas/ChangeDescription"
+          },
           "previousVersion" : {
             "type" : "number",
             "format" : "double"
@@ -36785,6 +36856,9 @@
           "id" : {
             "type" : "string",
             "format" : "uuid"
+          },
+          "incrementalChangeDescription" : {
+            "$ref" : "#/components/schemas/ChangeDescription"
           },
           "lifeCycle" : {
             "$ref" : "#/components/schemas/LifeCycle"
@@ -36947,6 +37021,9 @@
           "id" : {
             "type" : "string",
             "format" : "uuid"
+          },
+          "incrementalChangeDescription" : {
+            "$ref" : "#/components/schemas/ChangeDescription"
           },
           "lifeCycle" : {
             "$ref" : "#/components/schemas/LifeCycle"
@@ -37463,6 +37540,9 @@
           "id" : {
             "type" : "string",
             "format" : "uuid"
+          },
+          "incrementalChangeDescription" : {
+            "$ref" : "#/components/schemas/ChangeDescription"
           },
           "lifeCycle" : {
             "$ref" : "#/components/schemas/LifeCycle"
@@ -41519,6 +41599,9 @@
             "type" : "string",
             "format" : "uuid"
           },
+          "incrementalChangeDescription" : {
+            "$ref" : "#/components/schemas/ChangeDescription"
+          },
           "lifeCycle" : {
             "$ref" : "#/components/schemas/LifeCycle"
           },
@@ -41669,6 +41752,9 @@
           "id" : {
             "type" : "string",
             "format" : "uuid"
+          },
+          "incrementalChangeDescription" : {
+            "$ref" : "#/components/schemas/ChangeDescription"
           },
           "lifeCycle" : {
             "$ref" : "#/components/schemas/LifeCycle"
@@ -41844,6 +41930,9 @@
           "id" : {
             "type" : "string",
             "format" : "uuid"
+          },
+          "incrementalChangeDescription" : {
+            "$ref" : "#/components/schemas/ChangeDescription"
           },
           "lifeCycle" : {
             "$ref" : "#/components/schemas/LifeCycle"
@@ -42053,6 +42142,9 @@
             "type" : "string",
             "format" : "uuid"
           },
+          "incrementalChangeDescription" : {
+            "$ref" : "#/components/schemas/ChangeDescription"
+          },
           "lifeCycle" : {
             "$ref" : "#/components/schemas/LifeCycle"
           },
@@ -42235,6 +42327,9 @@
           "id" : {
             "type" : "string",
             "format" : "uuid"
+          },
+          "incrementalChangeDescription" : {
+            "$ref" : "#/components/schemas/ChangeDescription"
           },
           "lifeCycle" : {
             "$ref" : "#/components/schemas/LifeCycle"
@@ -42431,6 +42526,9 @@
             "type" : "string",
             "format" : "uuid"
           },
+          "incrementalChangeDescription" : {
+            "$ref" : "#/components/schemas/ChangeDescription"
+          },
           "lifeCycle" : {
             "$ref" : "#/components/schemas/LifeCycle"
           },
@@ -42618,6 +42716,9 @@
             "type" : "string",
             "format" : "uuid"
           },
+          "incrementalChangeDescription" : {
+            "$ref" : "#/components/schemas/ChangeDescription"
+          },
           "lifeCycle" : {
             "$ref" : "#/components/schemas/LifeCycle"
           },
@@ -42772,6 +42873,9 @@
           "id" : {
             "type" : "string",
             "format" : "uuid"
+          },
+          "incrementalChangeDescription" : {
+            "$ref" : "#/components/schemas/ChangeDescription"
           },
           "lifeCycle" : {
             "$ref" : "#/components/schemas/LifeCycle"
@@ -42944,6 +43048,9 @@
           "id" : {
             "type" : "string",
             "format" : "uuid"
+          },
+          "incrementalChangeDescription" : {
+            "$ref" : "#/components/schemas/ChangeDescription"
           },
           "lifeCycle" : {
             "$ref" : "#/components/schemas/LifeCycle"
@@ -43425,6 +43532,9 @@
             "type" : "string",
             "format" : "uuid"
           },
+          "incrementalChangeDescription" : {
+            "$ref" : "#/components/schemas/ChangeDescription"
+          },
           "input" : {
             "$ref" : "#/components/schemas/AlertFilteringInput"
           },
@@ -43834,6 +43944,9 @@
             "type" : "string",
             "format" : "uuid"
           },
+          "incrementalChangeDescription" : {
+            "$ref" : "#/components/schemas/ChangeDescription"
+          },
           "lifeCycle" : {
             "$ref" : "#/components/schemas/LifeCycle"
           },
@@ -43987,6 +44100,9 @@
           "id" : {
             "type" : "string",
             "format" : "uuid"
+          },
+          "incrementalChangeDescription" : {
+            "$ref" : "#/components/schemas/ChangeDescription"
           },
           "lifeCycle" : {
             "$ref" : "#/components/schemas/LifeCycle"
@@ -44253,6 +44369,9 @@
           "id" : {
             "type" : "string",
             "format" : "uuid"
+          },
+          "incrementalChangeDescription" : {
+            "$ref" : "#/components/schemas/ChangeDescription"
           },
           "lifeCycle" : {
             "$ref" : "#/components/schemas/LifeCycle"
@@ -44534,6 +44653,9 @@
             "type" : "string",
             "format" : "uuid"
           },
+          "incrementalChangeDescription" : {
+            "$ref" : "#/components/schemas/ChangeDescription"
+          },
           "lifeCycle" : {
             "$ref" : "#/components/schemas/LifeCycle"
           },
@@ -44691,6 +44813,9 @@
             "type" : "string",
             "format" : "uuid"
           },
+          "incrementalChangeDescription" : {
+            "$ref" : "#/components/schemas/ChangeDescription"
+          },
           "lifeCycle" : {
             "$ref" : "#/components/schemas/LifeCycle"
           },
@@ -44840,6 +44965,9 @@
           "id" : {
             "type" : "string",
             "format" : "uuid"
+          },
+          "incrementalChangeDescription" : {
+            "$ref" : "#/components/schemas/ChangeDescription"
           },
           "lifeCycle" : {
             "$ref" : "#/components/schemas/LifeCycle"
@@ -45093,6 +45221,9 @@
             "type" : "string",
             "format" : "uuid"
           },
+          "incrementalChangeDescription" : {
+            "$ref" : "#/components/schemas/ChangeDescription"
+          },
           "lifeCycle" : {
             "$ref" : "#/components/schemas/LifeCycle"
           },
@@ -45279,6 +45410,9 @@
           "id" : {
             "type" : "string",
             "format" : "uuid"
+          },
+          "incrementalChangeDescription" : {
+            "$ref" : "#/components/schemas/ChangeDescription"
           },
           "lifeCycle" : {
             "$ref" : "#/components/schemas/LifeCycle"
@@ -45712,6 +45846,9 @@
             "type" : "string",
             "format" : "uuid"
           },
+          "incrementalChangeDescription" : {
+            "$ref" : "#/components/schemas/ChangeDescription"
+          },
           "lifeCycle" : {
             "$ref" : "#/components/schemas/LifeCycle"
           },
@@ -45904,6 +46041,9 @@
             "type" : "string",
             "format" : "uuid"
           },
+          "incrementalChangeDescription" : {
+            "$ref" : "#/components/schemas/ChangeDescription"
+          },
           "lifeCycle" : {
             "$ref" : "#/components/schemas/LifeCycle"
           },
@@ -46081,6 +46221,9 @@
           "id" : {
             "type" : "string",
             "format" : "uuid"
+          },
+          "incrementalChangeDescription" : {
+            "$ref" : "#/components/schemas/ChangeDescription"
           },
           "lifeCycle" : {
             "$ref" : "#/components/schemas/LifeCycle"
@@ -46316,6 +46459,9 @@
           "id" : {
             "type" : "string",
             "format" : "uuid"
+          },
+          "incrementalChangeDescription" : {
+            "$ref" : "#/components/schemas/ChangeDescription"
           },
           "lifeCycle" : {
             "$ref" : "#/components/schemas/LifeCycle"
@@ -46595,6 +46741,9 @@
             "type" : "string",
             "format" : "uuid"
           },
+          "incrementalChangeDescription" : {
+            "$ref" : "#/components/schemas/ChangeDescription"
+          },
           "lifeCycle" : {
             "$ref" : "#/components/schemas/LifeCycle"
           },
@@ -46822,6 +46971,9 @@
           "id" : {
             "type" : "string",
             "format" : "uuid"
+          },
+          "incrementalChangeDescription" : {
+            "$ref" : "#/components/schemas/ChangeDescription"
           },
           "lifeCycle" : {
             "$ref" : "#/components/schemas/LifeCycle"
@@ -48497,6 +48649,9 @@
             "type" : "string",
             "format" : "uuid"
           },
+          "incrementalChangeDescription" : {
+            "$ref" : "#/components/schemas/ChangeDescription"
+          },
           "lifeCycle" : {
             "$ref" : "#/components/schemas/LifeCycle"
           },
@@ -48848,6 +49003,9 @@
             "type" : "string",
             "format" : "uuid"
           },
+          "incrementalChangeDescription" : {
+            "$ref" : "#/components/schemas/ChangeDescription"
+          },
           "indexType" : {
             "type" : "string",
             "enum" : [ "Index", "IndexTemplate" ]
@@ -49177,6 +49335,9 @@
           "id" : {
             "type" : "string",
             "format" : "uuid"
+          },
+          "incrementalChangeDescription" : {
+            "$ref" : "#/components/schemas/ChangeDescription"
           },
           "lifeCycle" : {
             "$ref" : "#/components/schemas/LifeCycle"
@@ -49706,6 +49867,9 @@
             "type" : "string",
             "format" : "uuid"
           },
+          "incrementalChangeDescription" : {
+            "$ref" : "#/components/schemas/ChangeDescription"
+          },
           "lifeCycle" : {
             "$ref" : "#/components/schemas/LifeCycle"
           },
@@ -49860,6 +50024,9 @@
           "id" : {
             "type" : "string",
             "format" : "uuid"
+          },
+          "incrementalChangeDescription" : {
+            "$ref" : "#/components/schemas/ChangeDescription"
           },
           "lifeCycle" : {
             "$ref" : "#/components/schemas/LifeCycle"
@@ -50266,6 +50433,9 @@
             "type" : "string",
             "format" : "uuid"
           },
+          "incrementalChangeDescription" : {
+            "$ref" : "#/components/schemas/ChangeDescription"
+          },
           "joins" : {
             "$ref" : "#/components/schemas/TableJoins"
           },
@@ -50654,6 +50824,9 @@
             "type" : "string",
             "format" : "uuid"
           },
+          "incrementalChangeDescription" : {
+            "$ref" : "#/components/schemas/ChangeDescription"
+          },
           "lifeCycle" : {
             "$ref" : "#/components/schemas/LifeCycle"
           },
@@ -50951,6 +51124,9 @@
             "type" : "string",
             "format" : "uuid"
           },
+          "incrementalChangeDescription" : {
+            "$ref" : "#/components/schemas/ChangeDescription"
+          },
           "inheritedRoles" : {
             "type" : "array",
             "items" : {
@@ -51225,6 +51401,9 @@
           "incidentId" : {
             "type" : "string",
             "format" : "uuid"
+          },
+          "incrementalChangeDescription" : {
+            "$ref" : "#/components/schemas/ChangeDescription"
           },
           "inspectionQuery" : {
             "type" : "string"
@@ -51648,6 +51827,9 @@
             "type" : "string",
             "format" : "uuid"
           },
+          "incrementalChangeDescription" : {
+            "$ref" : "#/components/schemas/ChangeDescription"
+          },
           "lifeCycle" : {
             "$ref" : "#/components/schemas/LifeCycle"
           },
@@ -51835,6 +52017,9 @@
           "id" : {
             "type" : "string",
             "format" : "uuid"
+          },
+          "incrementalChangeDescription" : {
+            "$ref" : "#/components/schemas/ChangeDescription"
           },
           "inherited" : {
             "type" : "boolean"
@@ -52297,6 +52482,9 @@
             "type" : "string",
             "format" : "uuid"
           },
+          "incrementalChangeDescription" : {
+            "$ref" : "#/components/schemas/ChangeDescription"
+          },
           "lifeCycle" : {
             "$ref" : "#/components/schemas/LifeCycle"
           },
@@ -52532,6 +52720,9 @@
             "type" : "string",
             "format" : "uuid"
           },
+          "incrementalChangeDescription" : {
+            "$ref" : "#/components/schemas/ChangeDescription"
+          },
           "lifeCycle" : {
             "$ref" : "#/components/schemas/LifeCycle"
           },
@@ -52724,6 +52915,9 @@
           "id" : {
             "type" : "string",
             "format" : "uuid"
+          },
+          "incrementalChangeDescription" : {
+            "$ref" : "#/components/schemas/ChangeDescription"
           },
           "inheritedRoles" : {
             "type" : "array",
@@ -52980,6 +53174,9 @@
           "id" : {
             "type" : "string",
             "format" : "uuid"
+          },
+          "incrementalChangeDescription" : {
+            "$ref" : "#/components/schemas/ChangeDescription"
           },
           "lifeCycle" : {
             "$ref" : "#/components/schemas/LifeCycle"
