@@ -33,7 +33,7 @@ CONTENT_REGEX = re.compile(r"<(.*?)>", re.DOTALL | re.MULTILINE)
 
 STABLE_VERSION = "1.2.x"
 
-EXCLUDED_FILES = {"gdpr-banner", "menu"}
+EXCLUDED_FILES = {"gdpr-banner", "menu", "main-concepts"}
 
 
 class AlgoliaDoc(BaseModel):
