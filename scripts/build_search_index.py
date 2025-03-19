@@ -31,9 +31,8 @@ ALGOLIA_INDEX = os.environ.get("ALGOLIA_INDEX")
 
 CONTENT_REGEX = re.compile(r"<(.*?)>", re.DOTALL | re.MULTILINE)
 
-STABLE_VERSION = "1.2.x"
-
-EXCLUDED_FILES = {"gdpr-banner", "menu", "main-concepts"}
+EXCLUDED_FILES = {"gdpr-banner", "menu"}
+EXCLUDED_DIRS = {"main-concepts"}
 
 
 class AlgoliaDoc(BaseModel):
@@ -101,7 +100,10 @@ def build_index(version: Path):
         file
         for file in version.rglob("*.[mM][dD]")
         if file.stem not in EXCLUDED_FILES
+        and file.parent.name not in EXCLUDED_DIRS
+        and not any(substring in str(file.parent) for substring in EXCLUDED_DIRS)
     ]
+    
 
     algolia_docs = (get_algolia_doc_from_file(page) for page in results)
     docs = [json.loads(doc.json()) for doc in algolia_docs if doc]
