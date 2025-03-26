@@ -1,0 +1,8 @@
+exclude_selectors:
+  - "#side-nav-container"
+  - "#top-nav-container"
+  - "#categories-nav-container"
+  - "#footer-container"
+  - "#breadcrumb-container"
+  - "#article-title-metadata"
+  - "#error-page-container"

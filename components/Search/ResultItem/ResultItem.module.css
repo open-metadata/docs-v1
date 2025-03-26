@@ -1,0 +1,26 @@
+.Container{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 14px;
+    color: var(--default-text-color);
+    padding: 8px;
+    border-radius: 4px;
+    font-weight: 400;
+    text-align: left;
+    width: 100%
+}
+
+.Container mark{
+    background-color: white;
+    font-weight: 600;
+}
+
+.ActiveContainer, .ActiveContainer mark{
+    background-color: var(--primary-color);
+    color: white
+}
+
+.ResultTitle{
+    font-weight: 700;
+}

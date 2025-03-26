@@ -1,4 +1,5 @@
 import classNames from "classnames";
+import { GetServerSidePropsContext } from "next";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import CategoriesNav from "../components/CategoriesNav/CategoriesNav";
@@ -23,7 +24,7 @@ interface Props {
   versionsList: Array<SelectOption<string>>;
 }
 
-function ErrorComponent({ versionsList }: Props) {
+function Error({ versionsList }: Readonly<Props>) {
   const router = useRouter();
   const { docVersion, onChangeDocVersion } = useDocVersionContext();
   const { isRouteChanging } = useRouteChangingContext();
@@ -49,7 +50,7 @@ function ErrorComponent({ versionsList }: Props) {
   }, [router.asPath]);
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col" id="error-page-container">
       <GoogleAnalyticsScript />
       <TopNav versionsList={versionsList} />
       <CategoriesNav menu={menuItems} />
@@ -95,10 +96,12 @@ function ErrorComponent({ versionsList }: Props) {
   );
 }
 
-export default ErrorComponent;
+export default Error;
 
-export async function getServerSideProps() {
+export async function getStaticProps(context: GetServerSidePropsContext) {
   try {
+    const version = context.params.version as string;
+
     const versionsList: Array<SelectOption<string>> = getVersionsList();
 
     return {

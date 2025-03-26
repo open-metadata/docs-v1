@@ -5,6 +5,11 @@
   margin-top: 32px;
 }
 
+.H1Element{
+  border-bottom: 1px solid var(--default-border-color);
+  padding-bottom: 16px;
+}
+
 .CopiedText {
   margin-left: 16px;
   font-size: 12px;

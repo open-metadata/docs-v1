@@ -28,8 +28,15 @@ export function getAllFilesInDirectory(
 }
 
 export function getArticleSlugs() {
-  const files = getAllFilesInDirectory(ARTICLES_DIRECTORY);
-  return files;
+  const paths = getAllFilesInDirectory(ARTICLES_DIRECTORY);
+  const partialsFilteredPaths = paths.filter(
+    (path) => !path.includes(PARTIALS_DIRECTORY)
+  );
+  const homepageFilteredPaths = partialsFilteredPaths.filter((path) => {
+    const isHomepagePath = /(v\d+\.\d+\.x\/index.md)$/.test(path);
+    return !isHomepagePath;
+  });
+  return homepageFilteredPaths;
 }
 
 export function getArticleSlugFromString(pathname) {

@@ -8,10 +8,7 @@ import DocsPageLayout from "../../components/PageLayouts/DocsPageLayout/DocsPage
 import { SelectOption } from "../../components/SelectDropdown/SelectDropdown";
 import TopNav from "../../components/TopNav/TopNav";
 import { API_AND_SDK_MENU_ITEMS } from "../../constants/categoriesNav.constants";
-import {
-  DEFAULT_VERSION,
-  REGEX_VERSION_MATCH,
-} from "../../constants/version.constants";
+import { REGEX_VERSION_MATCH } from "../../constants/version.constants";
 import { getVersionsList } from "../../lib/api";
 import { configs } from "../../lib/markdoc";
 import { getFormattedPartials } from "../../utils/CommonUtils";
@@ -27,6 +24,7 @@ export interface SlugProps {
   partials: Record<string, string>;
   pageTitle: string;
   pageDescription: string;
+  weight?: string;
 }
 
 export default function Article({
@@ -34,6 +32,8 @@ export default function Article({
   slug,
   versionsList,
   partials,
+  weight,
+  pageTitle,
 }: Readonly<SlugProps>) {
   const ast = useMemo(() => Markdoc.parse(content), [content]);
 
@@ -65,38 +65,41 @@ export default function Article({
       : { value: false, pageInfoObject: { label: "", value: "" } };
   }, [slug]);
 
-  return isAPIsPage.value ? (
-    <APIPageLayout
-      parsedContent={parsedContent}
-      pageInfoObject={isAPIsPage.pageInfoObject}
-    />
-  ) : (
-    <DocsPageLayout
-      navbar={<TopNav versionsList={versionsList} />}
-      parsedContent={parsedContent}
-      slug={slug}
-      footer={<Footer />}
-    />
+  return (
+    <>
+      <div
+        className="hidden"
+        data-pagefind-sort="weight[data-weight]"
+        data-pagefind-meta="title"
+        data-weight={weight ?? "0"}
+        id="article-title-metadata"
+      >
+        {pageTitle}
+      </div>
+      {isAPIsPage.value ? (
+        <APIPageLayout
+          parsedContent={parsedContent}
+          pageInfoObject={isAPIsPage.pageInfoObject}
+        />
+      ) : (
+        <DocsPageLayout
+          navbar={<TopNav versionsList={versionsList} />}
+          parsedContent={parsedContent}
+          slug={slug}
+          footer={<Footer />}
+        />
+      )}
+    </>
   );
 }
 
-export async function getServerSideProps(
+export async function getStaticProps(
   context: GetServerSidePropsContext
 ): Promise<GetServerSidePropsResult<SlugProps>> {
   try {
     const version = context.params.version as string;
     const slug = context.params.slug as string[];
     const pathWithoutVersion = slug.join("/");
-
-    // If the version in the URL is the default version, change the path to /latest
-    if (version === DEFAULT_VERSION) {
-      return {
-        redirect: {
-          permanent: false,
-          destination: `/latest/${pathWithoutVersion}`,
-        },
-      };
-    }
 
     // Get all paths for the docs
     const paths = await getPaths();
@@ -135,4 +138,19 @@ export async function getServerSideProps(
       notFound: true,
     };
   }
+}
+
+export async function getStaticPaths() {
+  // Avoid page generation for dev server.
+  if (process.env.NODE_ENV === "development") {
+    return {
+      paths: [], // Indicates that no page needs be created at build time
+      fallback: "blocking", // Indicates the type of fallback
+    };
+  }
+
+  return {
+    paths: await getPaths(),
+    fallback: false,
+  };
 }

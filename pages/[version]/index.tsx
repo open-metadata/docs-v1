@@ -115,7 +115,7 @@ export default function Index({ versionsList }: Readonly<Props>) {
   );
 }
 
-export async function getServerSideProps(context: GetServerSidePropsContext) {
+export async function getStaticProps(context: GetServerSidePropsContext) {
   try {
     const version = context.params.version as string;
 
@@ -177,4 +177,24 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
       notFound: true,
     };
   }
+}
+
+export async function getStaticPaths() {
+  const versionsList: Array<SelectOption<string>> = getVersionsList();
+
+  const paths = versionsList.map(({ value }) => ({
+    params: {
+      slug: [],
+      location: "/",
+      version: value,
+      fileName: "",
+      title: "",
+      description: "",
+    },
+  }));
+
+  return {
+    paths: paths,
+    fallback: false,
+  };
 }
