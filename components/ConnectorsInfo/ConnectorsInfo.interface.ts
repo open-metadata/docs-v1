@@ -3,6 +3,7 @@ export interface ConnectorServiceDetails {
   icon: string;
   name: string;
   supportedVersion?: string;
+  collate?: boolean;
 }
 export interface ConnectorCategory {
   connector: string;

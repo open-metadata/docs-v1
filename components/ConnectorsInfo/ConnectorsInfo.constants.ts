@@ -2,6 +2,16 @@ import { ConnectorCategory } from "./ConnectorsInfo.interface";
 
 export const CONNECTORS: Array<ConnectorCategory> = [
   {
+    connector: "API",
+    services: [
+      {
+        url: "/connectors/api/rest",
+        icon: "/images/connectors/rest.webp",
+        name: "REST",
+      },
+    ],
+  },
+  {
     connector: "Database",
     services: [
       {
@@ -71,6 +81,11 @@ export const CONNECTORS: Array<ConnectorCategory> = [
         name: "DB2",
       },
       {
+        url: "/connectors/pipeline/dbtcloud",
+        icon: "/images/connectors/dbtcloud.webp",
+        name: "dbt",
+      },
+      {
         url: "/connectors/database/domo-database",
         icon: "/images/connectors/domo.webp",
         name: "Domo",
@@ -84,6 +99,11 @@ export const CONNECTORS: Array<ConnectorCategory> = [
         url: "/connectors/database/dynamodb",
         icon: "/images/connectors/dynamodb.webp",
         name: "DynamoDB",
+      },
+      {
+        url: "/connectors/database/exasol",
+        icon: "/images/connectors/exasol.webp",
+        name: "Exasol",
       },
       {
         url: "/connectors/database/glue",
@@ -138,7 +158,7 @@ export const CONNECTORS: Array<ConnectorCategory> = [
       {
         url: "/connectors/database/postgres",
         icon: "/images/connectors/post.webp",
-        name: "Postgres",
+        name: "PostgreSQL",
       },
       {
         url: "/connectors/database/presto",
@@ -174,6 +194,11 @@ export const CONNECTORS: Array<ConnectorCategory> = [
         url: "/connectors/database/singlestore",
         icon: "/images/connectors/singlestore.webp",
         name: "SingleStore",
+      },
+      {
+        url: "/connectors/database/synapse",
+        icon: "/images/connectors/synapse.webp",
+        name: "Synapse",
       },
       {
         url: "/connectors/database/teradata",
@@ -267,9 +292,19 @@ export const CONNECTORS: Array<ConnectorCategory> = [
         name: "Power BI",
       },
       {
+        url: "/connectors/dashboard/powerbireportserver",
+        icon: "/images/connectors/power-bi.webp",
+        name: "PowerBI Report Server",
+      },
+      {
         url: "/connectors/dashboard/redash",
         icon: "/images/connectors/redash.webp",
         name: "Redash",
+      },
+      {
+        url: "/connectors/dashboard/sigma",
+        icon: "/images/connectors/sigma.webp",
+        name: "Sigma",
       },
       {
         url: "/connectors/dashboard/superset",
@@ -317,6 +352,12 @@ export const CONNECTORS: Array<ConnectorCategory> = [
         name: "Dagster",
       },
       {
+        url: "/connectors/pipeline/datafactory",
+        icon: "/images/connectors/datafactory.webp",
+        name: "Azure Data Factory",
+        collate: true,
+      },
+      {
         url: "/connectors/pipeline/dbtcloud",
         icon: "/images/connectors/dbtcloud.webp",
         name: "dbt Cloud",
@@ -330,6 +371,12 @@ export const CONNECTORS: Array<ConnectorCategory> = [
         url: "/connectors/pipeline/flink",
         icon: "/images/connectors/flink.webp",
         name: "Flink",
+      },
+      {
+        url: "/connectors/pipeline/matillion",
+        icon: "/images/connectors/matillion.webp",
+        name: "Matillion",
+        collate: true,
       },
       {
         url: "/connectors/pipeline/nifi",
@@ -346,6 +393,12 @@ export const CONNECTORS: Array<ConnectorCategory> = [
         icon: "/images/connectors/spline.webp",
         name: "Spline",
       },
+      {
+        url: "/connectors/pipeline/stitch",
+        icon: "/images/connectors/stitch.webp",
+        name: "Stitch",
+        collate: true,
+      },
     ],
   },
   {
@@ -360,6 +413,12 @@ export const CONNECTORS: Array<ConnectorCategory> = [
         url: "/connectors/ml-model/sagemaker",
         icon: "/images/connectors/sagemaker.webp",
         name: "SageMaker",
+      },
+      {
+        url: "/connectors/ml-model/vertexai",
+        icon: "/images/connectors/vertexai.webp",
+        name: "VertexAI",
+        collate: true,
       },
     ],
   },

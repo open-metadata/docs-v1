@@ -1,10 +1,10 @@
 import classNames from "classnames";
-import { uniqBy } from "lodash";
 import dynamic from "next/dynamic";
 import Link from "next/link";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { useDocVersionContext } from "../../context/DocVersionContext";
 import {
+  getConnectorsList,
   getConnectorURL,
   getSortedServiceList,
 } from "../../utils/ConnectorsUtils";
@@ -18,23 +18,22 @@ const ConnectorImage = dynamic(() => import("./ConnectorImage"), {
   loading: () => <Loader size={28} />,
 });
 
-CONNECTORS.unshift({
-  connector: "All connectors",
-  services: CONNECTORS.reduce((prev, curr) => {
-    return uniqBy([...prev, ...curr.services], "name");
-  }, [] as ConnectorCategory["services"]),
-});
-
 export default function ConnectorsInfo({ tabStyle, activeTabStyle }) {
-  const { docVersion } = useDocVersionContext();
+  const { docVersion, enableVersion } = useDocVersionContext();
+
+  const connectorsList = useMemo(
+    () => getConnectorsList(CONNECTORS, enableVersion),
+    [enableVersion]
+  );
+
   const [selectedTab, setSelectedTab] = useState<ConnectorCategory>(
-    CONNECTORS[0]
+    connectorsList[0]
   );
 
   return (
     <div className={styles.Container}>
       <div className={styles.TabsContainer}>
-        {CONNECTORS.map((connectorCategory) => (
+        {connectorsList.map((connectorCategory) => (
           <button
             className={classNames(
               tabStyle,

@@ -8,16 +8,6 @@ import CodeInfo from "../components/CodePreview/CodeInfo/CodeInfo";
 import CodeInfoContainer from "../components/CodePreview/CodeInfoContainer/CodeInfoContainer";
 import CodePreview from "../components/CodePreview/CodePreview";
 import CodeWithLanguageSelector from "../components/CodeWithLanguageSelector/CodeWithLanguageSelector";
-import ConnectorDetailsHeader from "../components/ConnectorDetailsHeader/ConnectorDetailsHeader";
-import ConnectorInfoCard from "../components/ConnectorInfoCard/ConnectorInfoCard";
-import ConnectorsListContainer from "../components/ConnectorsListContainer/ConnectorsListContainer";
-import ExtraContent from "../components/ExtraContent/ExtraContent";
-import { Heading } from "../components/Heading/Heading";
-import Roadmap from "../components/Roadmap/Roadmap";
-import Step from "../components/Steps/Step/Step";
-import StepDescription from "../components/Steps/Step/StepDescription/StepDescription";
-import StepVisualInfo from "../components/Steps/Step/StepVisualInfo/StepVisualInfo";
-import StepsContainer from "../components/Steps/StepsContainer/StepsContainer";
 import Code from "../components/common/Code/Code";
 import InlineCode from "../components/common/Code/InlineCode";
 import CustomAnchorNode from "../components/common/CustomAnchorNode/CustomAnchorNode";
@@ -33,6 +23,18 @@ import Table from "../components/common/Table/Table";
 import Tile from "../components/common/Tiles/Tile/Tile";
 import TilesContainer from "../components/common/Tiles/TilesContainer/TilesContainer";
 import YouTube from "../components/common/Youtube/Youtube";
+import CollateContent from "../components/ConditionalContent/CollateContent";
+import OSSContent from "../components/ConditionalContent/OSSContent";
+import ConnectorDetailsHeader from "../components/ConnectorDetailsHeader/ConnectorDetailsHeader";
+import ConnectorInfoCard from "../components/ConnectorInfoCard/ConnectorInfoCard";
+import ConnectorsListContainer from "../components/ConnectorsListContainer/ConnectorsListContainer";
+import ExtraContent from "../components/ExtraContent/ExtraContent";
+import { Heading } from "../components/Heading/Heading";
+import Roadmap from "../components/Roadmap/Roadmap";
+import Step from "../components/Steps/Step/Step";
+import StepDescription from "../components/Steps/Step/StepDescription/StepDescription";
+import StepVisualInfo from "../components/Steps/Step/StepVisualInfo/StepVisualInfo";
+import StepsContainer from "../components/Steps/StepsContainer/StepsContainer";
 import * as allFunctions from "../markdoc/functions";
 import * as allNodes from "../markdoc/nodes";
 import * as allTags from "../markdoc/tags";
@@ -76,6 +78,8 @@ export const components = {
   ConnectorsListContainer,
   ConnectorDetailsHeader,
   Roadmap,
+  CollateContent,
+  OSSContent,
 };
 
 export const configs: Config = {

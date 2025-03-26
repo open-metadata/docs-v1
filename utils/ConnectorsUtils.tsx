@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import { sortBy } from "lodash";
+import { sortBy, uniqBy } from "lodash";
 import connectorInfoStyles from "../components/ConnectorInfoCard/ConnectorInfoCard.module.css";
 import ConnectorImage from "../components/ConnectorsInfo/ConnectorImage";
 import {
@@ -72,7 +72,7 @@ export const getConnectorImage = (connector: string) => {
     Airbyte: "airbyte",
     Airflow: "airflow",
     Alation: "alation",
-    "AlationSink": "alation",
+    AlationSink: "alation",
     Amundsen: "amundsen",
     Athena: "athena",
     Atlas: "atlas",
@@ -85,11 +85,13 @@ export const getConnectorImage = (connector: string) => {
     Databricks: "databrick",
     "Databricks Pipeline": "databrick",
     "Databricks SQL": "databrick",
+    "Azure Data Factory": "datafactory",
     DB2: "ibmdb2",
     Dagster: "dagster",
     "S3 Datalake": "amazon-s3",
     "ADLS Datalake": "adls",
     "GCS Datalake": "gcs",
+    "dbt": "dbtcloud",
     "dbt Cloud": "dbtcloud",
     "Delta Lake": "delta-lake",
     Domo: "domo",
@@ -100,6 +102,7 @@ export const getConnectorImage = (connector: string) => {
     Druid: "druid",
     DynamoDB: "dynamodb",
     Elasticsearch: "elasticsearch",
+    Exasol: "exasol",
     Flink: "flink",
     Fivetran: "fivetran",
     GCS: "gcs",
@@ -114,6 +117,7 @@ export const getConnectorImage = (connector: string) => {
     Lightdash: "lightdash",
     Looker: "looker",
     MariaDB: "mariadb",
+    Matillion: "matillion",
     Metabase: "metabase",
     MicroStrategy: "microstrategy",
     MLflow: "mlflow",
@@ -125,8 +129,9 @@ export const getConnectorImage = (connector: string) => {
     OpenLineage: "openlineage",
     Oracle: "oracle",
     PinotDB: "pinot",
-    Postgres: "post",
+    PostgreSQL: "post",
     PowerBI: "power-bi",
+    "PowerBI Report Server": "power-bi",
     Presto: "presto",
     QuickSight: "quicksight",
     "Qlik Cloud": "qlikcloud",
@@ -134,22 +139,27 @@ export const getConnectorImage = (connector: string) => {
     Redash: "redash",
     Redpanda: "redpanda",
     Redshift: "redshift",
+    REST: "rest",
     Salesforce: "salesforce",
     "SAP ERP": "sap-erp",
-    "SAP Hana": "sap-hana",
+    "SAP HANA": "sap-hana",
     SAS: "sas",
     "S3 Storage": "amazon-s3",
     Sagemaker: "sagemaker",
+    Sigma: "sigma",
     SingleStore: "singlestore",
     Snowflake: "snowflakes",
     Spline: "spline",
     SQLite: "sqlite",
+    Stitch: "stitch",
     Superset: "superset",
+    Synapse: "synapse",
     Tableau: "tableau",
     Teradata: "teradata",
     Trino: "trino",
     "Unity Catalog": "databrick",
     Vertica: "vertica",
+    VertexAI: "vertexai",
   };
 
   iconSource = connectorMappings[connector] || iconSource;
@@ -160,4 +170,31 @@ export const getConnectorImage = (connector: string) => {
       src={`/images/connectors/${iconSource}.webp`}
     />
   );
+};
+
+export const getConnectorsList = (
+  connectors: ConnectorCategory[],
+  enableVersion: boolean
+) => {
+  let connectorsList = connectors;
+
+  if (enableVersion) {
+    connectorsList = connectors.map((connectorCategory) => ({
+      ...connectorCategory,
+      services: connectorCategory.services.filter(
+        (service) => !service.collate
+      ),
+    }));
+  }
+
+  if (connectorsList[0].connector !== "All connectors") {
+    connectorsList.unshift({
+      connector: "All connectors",
+      services: connectorsList.reduce((prev, curr) => {
+        return uniqBy([...prev, ...curr.services], "name");
+      }, [] as ConnectorCategory["services"]),
+    });
+  }
+
+  return connectorsList;
 };

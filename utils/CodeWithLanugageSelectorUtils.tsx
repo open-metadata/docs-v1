@@ -6,6 +6,7 @@ import { ReactComponent as GoIcon } from "../images/icons/go-lang.svg";
 import { ReactComponent as JavaIcon } from "../images/icons/java-lang.svg";
 import { ReactComponent as PythonIcon } from "../images/icons/python-lang.svg";
 import { ReactComponent as RubyIcon } from "../images/icons/ruby-lang.svg";
+import { ReactComponent as YamlIcon } from "../images/icons/yaml-lang.svg";
 
 export const getLanguageIcon = (language: string) => {
   switch (language) {
@@ -19,6 +20,10 @@ export const getLanguageIcon = (language: string) => {
       return <PythonIcon />;
     case "ruby":
       return <RubyIcon />;
+    case "implicit":
+      return <YamlIcon />;
+    case "authcode":
+      return <YamlIcon />;
     case "json":
       return <VscJson size={24} />;
     default:
