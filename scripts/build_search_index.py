@@ -96,14 +96,14 @@ def build_index(version: Path):
     menu or index.
     """
 
-    results = [
-        file
-        for file in version.rglob("*.[mM][dD]")
-        if file.stem not in EXCLUDED_FILES
-        and file.parent.name not in EXCLUDED_DIRS
-        and not any(substring in str(file.parent) for substring in EXCLUDED_DIRS)
-    ]
-    
+    results = []
+    for file in version.rglob("*.[mM][dD]"):
+        if file.stem not in EXCLUDED_FILES:
+            if not any(substring in str(file) for substring in EXCLUDED_DIRS):
+                if file.stat().st_size > 100000:  # Check file size
+                    with open(file, "r+b") as f:  # Open file for reading and writing
+                        f.truncate(100000)
+                results.append(file)
 
     algolia_docs = (get_algolia_doc_from_file(page) for page in results)
     docs = [json.loads(doc.json()) for doc in algolia_docs if doc]
