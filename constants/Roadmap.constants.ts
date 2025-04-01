@@ -394,5 +394,96 @@ export const ROADMAP_DATA: RoadmapData = {
       ],
       release: 1.7,
     },
-  ],
-};
+    {
+        category: 'DATA OBSERVABILITY',
+        features: [
+        ],
+        release: 1.7,
+    },
+    {
+        category: 'INTEGRATIONS',
+        features: [
+        ],
+        release: 1.7,
+    },
+    {
+        category: 'GOVERNANCE',
+        features: [
+            {
+                label: 'SCIM Integration.',
+                description:
+                    'SSO integration with SCIM to import users/groups.',
+            },
+            {
+                label: 'Certification Workflow',
+                description:
+                    'Allow Data Stewards to specify automated certification of data assets into Bronze/Silver/Gold.',
+            },
+            {
+                label: 'Data Access Request Workflow',
+                description:
+                    'Allow users to request access to data assets and go through the approval process to gain access to data assets.',
+            },
+        ],
+        release: 1.7,
+    },
+]
+
+export const RELEASE_1_8 = [
+    {
+        category: 'release',
+        version: '1.8',
+    },
+    {
+        category: 'DATA_DISCOVERY & COLLABORATION',
+        features: [
+            {
+                label: 'Discussions',
+                description:
+                    'Allow users to have asset/team/org wide discussions on data.',
+            },
+        ],
+        release: 1.8,
+    },
+    {
+        category: 'DATA INSIGHTS',
+        features: [
+        ],
+        release: 1.8,
+    },
+    {
+        category: 'DATA QUALITY',
+        features: [
+        ],
+        release: 1.8,
+    },
+    {
+        category: 'APPLICATIONS',
+        features: [
+        ],
+        release: 1.8,
+    },
+    {
+        category: 'DATA OBSERVABILITY',
+        features: [
+        ],
+        release: 1.8,
+    },
+    {
+        category: 'INTEGRATIONS',
+        features: [
+        ],
+        release: 1.8,
+    },
+    {
+        category: 'GOVERNANCE',
+        features: [
+             {
+                label: 'Glossary Terms Relations',
+                description:
+                    'Customizable Relations between the Glossary Terms and Assets.',
+            },
+        ],
+        release: 1.8,
+    },
+]
