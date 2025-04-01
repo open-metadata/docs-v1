@@ -365,7 +365,22 @@ export const ROADMAP_DATA: RoadmapData = {
   "RELEASE 1.7": [
     {
       category: RoadmapCategories["DATA_DISCOVERY & COLLABORATION"],
-      features: [],
+      features: [
+       {
+          label: 'Data Products Independent of Domains',
+          description:
+              'Allow users to tag Data Products without using the Domains.',
+       },
+       {
+          label: 'Improvements to Data Collaboration, Tasks, Activity Feed.',
+          description: 'Data Collaboration feature improvements.',
+       },
+       {
+          label: 'Customize Search Relevancy',
+          description:
+              'Allow admins to customize the search relevancy and boosting algorithms.',
+       },
+      ],
       release: 1.7,
     },
     {
@@ -393,6 +408,62 @@ export const ROADMAP_DATA: RoadmapData = {
         },
       ],
       release: 1.7,
+    },
+    {
+      category: RoadmapCategories["GOVERNANCE"],
+      features: [
+        {
+          label: 'Certification Workflow',
+          description:
+              'Allow Data Stewards to specify automated certification of data assets into Bronze/Silver/Gold.',
+        },
+        {
+          label: 'Data Access Request Workflow',
+          description:
+              'Allow users to request access to data assets and go through the approval process to gain access to data assets.',
+        },
+      ],
+      release: 1.7,
+    },
+  ],
+  "RELEASE 1.8": [
+    {
+      category: RoadmapCategories["DATA_DISCOVERY & COLLABORATION"],
+      features: [
+        {
+          label: 'Discussions',
+          description:
+              'Allow users to have asset/team/org wide discussions on data.',
+      },
+      ],
+      release: 1.8,
+    },
+    {
+      category: RoadmapCategories["DATA INSIGHTS"],
+      features: [
+        {
+          label: "Pipeline Dashboard",
+          description:
+            "Pipeline Dashboard - Show all ETL pipelines in an organization and how many succesful/failed/aborted/paused.",
+        },
+      ],
+      release: 1.8,
+    },
+    {
+      category: RoadmapCategories["DATA QUALITY"],
+      features: [],
+      release: 1.8,
+    },
+    {
+      category: 'GOVERNANCE',
+      features: [
+        {
+          label: 'Glossary Terms Relations',
+          description:
+              'Customizable Relations between the Glossary Terms and Assets.',
+      },
+      ],
+      release: 1.8,
     },
   ],
 };
