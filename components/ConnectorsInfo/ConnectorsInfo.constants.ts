@@ -399,6 +399,12 @@ export const CONNECTORS: Array<ConnectorCategory> = [
         name: "Stitch",
         collate: true,
       },
+      {
+        url: "/connectors/pipeline/wherescape",
+        icon: "/images/connectors/wherescape.webp",
+        name: "Wherescape",
+        collate: true,
+      },
     ],
   },
   {
