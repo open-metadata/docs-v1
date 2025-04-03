@@ -12,6 +12,7 @@ export const CATEGORY_COLOR = {
   "DATA OBSERVABILITY": "bg-[#E1E49E]",
   INTEGRATIONS: "bg-[#ACD6D6]",
   SECURITY: "bg-[#D7C3AD]",
+  GOVERNANCE: "bg-[#4880E0]",
 };
 
 export const ALL_RELEASES_URL = "/releases/all-releases";
@@ -56,6 +57,11 @@ export const ROADMAP_FEATURE_CATEGORY_LIST: Array<RoadmapCategoriesList> = [
     key: 7,
     feature: RoadmapCategories["SECURITY"],
     color: CATEGORY_COLOR.SECURITY,
+  },
+  {
+    key: 8,
+    feature: RoadmapCategories["GOVERNANCE"],
+    color: CATEGORY_COLOR.GOVERNANCE,
   },
 ];
 

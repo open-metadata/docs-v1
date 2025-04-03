@@ -11,7 +11,7 @@
     margin: 24px 0px;
     max-width: 100%;
     display: grid;
-    grid-template-columns: 64px repeat(7,  240px);
+    grid-template-columns: 64px repeat(8,  240px);
     gap: 1.25rem;
     overflow-x: scroll;
 }
