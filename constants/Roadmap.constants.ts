@@ -455,7 +455,7 @@ export const ROADMAP_DATA: RoadmapData = {
       release: 1.8,
     },
     {
-      category: 'GOVERNANCE',
+      category: RoadmapCategories["GOVERNANCE"],
       features: [
         {
           label: 'Glossary Terms Relations',
