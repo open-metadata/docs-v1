@@ -160,6 +160,7 @@ export const getConnectorImage = (connector: string) => {
     "Unity Catalog": "databrick",
     Vertica: "vertica",
     VertexAI: "vertexai",
+    Wherescape: "wherescape",
   };
 
   iconSource = connectorMappings[connector] || iconSource;
