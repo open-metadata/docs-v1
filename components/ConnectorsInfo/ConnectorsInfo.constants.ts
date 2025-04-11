@@ -436,6 +436,11 @@ export const CONNECTORS: Array<ConnectorCategory> = [
         icon: "/images/connectors/elasticsearch.webp",
         name: "Elasticsearch",
       },
+      {
+        url: "/connectors/search/opensearch",
+        icon: "/images/connectors/opensearch.webp",
+        name: "OpenSearch",
+      },
     ],
   },
   {
