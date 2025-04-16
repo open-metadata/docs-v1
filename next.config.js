@@ -40,4 +40,28 @@ module.exports =
       locales: ["en"],
       defaultLocale: "en",
     },
+    async redirects() {
+      return [
+        {
+          source: '/how-to-guides/data-governance/classification/auto',
+          destination: '/how-to-guides/data-governance/classification/auto-classification',
+          permanent: true,
+        },
+        {
+          source: '/how-to-guides/data-governance/classification/auto/workflow',
+          destination: '/how-to-guides/data-governance/classification/auto-classification/workflow',
+          permanent: true,
+        },
+        {
+          source: '/how-to-guides/data-governance/classification/auto/external-workflow',
+          destination: '/how-to-guides/data-governance/classification/auto-classification/external-workflow',
+          permanent: true,
+        },
+        {
+          source: '/how-to-guides/data-governance/classification/auto/auto-pii-tagging',
+          destination: '/how-to-guides/data-governance/classification/auto-classification/auto-pii-tagging',
+          permanent: true,
+        }
+      ]
+    },
   });
