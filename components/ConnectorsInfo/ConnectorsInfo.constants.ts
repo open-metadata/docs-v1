@@ -36,9 +36,19 @@ export const CONNECTORS: Array<ConnectorCategory> = [
         supportedVersion: "v1.3.x",
       },
       {
+        url: "/connectors/database/cassandra",
+        icon: "/images/connectors/cassandra.webp",
+        name: "Cassandra",
+      },
+      {
         url: "/connectors/database/clickhouse",
         icon: "/images/connectors/clickhouse.webp",
         name: "ClickHouse",
+      },
+      {
+        url: "/connectors/database/cockroach",
+        icon: "/images/connectors/cockroach.webp",
+        name: "Cockroach",
       },
       {
         url: "/connectors/database/couchbase",
