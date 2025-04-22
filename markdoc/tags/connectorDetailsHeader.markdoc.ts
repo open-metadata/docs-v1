@@ -25,5 +25,9 @@ export const connectorDetailsHeader = {
       type: Array<string>,
       description: "List of unavailable features for the connector.",
     },
+    availableFeaturesCollate: {
+      type: Array<string>,
+      description: "List of available features for the connector in Collate.",
+    },
   },
 };
