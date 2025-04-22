@@ -1,6 +1,7 @@
 import classNames from "classnames";
 import { isEmpty } from "lodash";
 import { useMemo } from "react";
+import { useDocVersionContext } from "../../context/DocVersionContext";
 import { ReactComponent as CheckIcon } from "../../images/icons/check.svg";
 import { ReactComponent as CrossIcon } from "../../images/icons/cross.svg";
 import {
@@ -17,10 +18,29 @@ function ConnectorDetailsHeader({
   platform,
   availableFeatures,
   unavailableFeatures,
+  availableFeaturesCollate = [],
 }: Readonly<ConnectorDetailsHeaderProps>) {
-  const showSubHeading = useMemo(
-    () => !isEmpty(availableFeatures) || !isEmpty(unavailableFeatures),
-    [availableFeatures, unavailableFeatures]
+  const { enableVersion } = useDocVersionContext();
+
+  const { showSubHeading, totalAvailableFeatures } = useMemo(
+    () => ({
+      // show sub heading if there are available features or unavailable features in either collate or openmetadata
+      showSubHeading:
+        !isEmpty(availableFeatures) ||
+        !isEmpty(unavailableFeatures) ||
+        (!enableVersion && !isEmpty(availableFeaturesCollate)),
+      // show all available features in openmetadata and collate if version is not enabled
+      totalAvailableFeatures: [
+        ...availableFeatures,
+        ...(enableVersion ? [] : availableFeaturesCollate),
+      ],
+    }),
+    [
+      availableFeatures,
+      unavailableFeatures,
+      availableFeaturesCollate,
+      enableVersion,
+    ]
   );
 
   return (
@@ -42,7 +62,7 @@ function ConnectorDetailsHeader({
         <div className={styles.SubHeading}>
           <div className={styles.FeaturesHeading}>Feature List</div>
           <div className={styles.FeaturesList}>
-            {availableFeatures.map((feature) => (
+            {totalAvailableFeatures.map((feature) => (
               <div
                 className={classNames(
                   styles.FeatureTag,

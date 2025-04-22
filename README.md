@@ -261,6 +261,9 @@ Tag to show a styled heading for connectors with the connector Icon, development
 5. unavailableFeatures (type - Array<string>)
    The list of unavailable features for the connector such as "DBT", "Owners" etc
 
+6. availableFeaturesCollate (type - Array<string>)
+   This is an optional argument to pass the list of available features for the connector that are Collate only.
+
 ### 6. connectorInfoCard
 
 A styled card to show the links to navigate users to the connector details page with a little information about the connector. 
