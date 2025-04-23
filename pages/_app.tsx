@@ -1,25 +1,26 @@
-import Head from 'next/head';
+import Head from "next/head";
 
-import 'prismjs';
+import "prismjs";
 // Import other Prism themes here
-import '../public/globals.css';
-import '../public/modal.css';
+import "../public/globals.css";
+import "../public/modal.css";
 
-import { isEmpty } from 'lodash';
-import type { AppProps } from 'next/app';
-import ErrorBoundary from '../components/ErrorBoundary';
-import GoogleAnalyticsScript from '../components/GoogleAnalyticsScript/GoogleAnalyticsScript';
-import { CodeWithLanguageSelectorContextProvider } from '../context/CodeWithLanguageSelectorContext';
-import { DocVersionContextProvider } from '../context/DocVersionContext';
-import { MenuItemsContextProvider } from '../context/MenuItemsContext';
-import { NavBarCollapseContextProvider } from '../context/NavBarCollapseContext';
-import { RouteChangingContextProvider } from '../context/RouteChangingContext';
-import { StepsContextProvider } from '../context/StepsContext';
-import { SlugProps } from './[version]/[...slug]';
+import { isEmpty } from "lodash";
+import type { AppProps } from "next/app";
+import ErrorBoundary from "../components/ErrorBoundary";
+import GoogleAnalyticsScript from "../components/GoogleAnalyticsScript/GoogleAnalyticsScript";
+import { CodeWithLanguageSelectorContextProvider } from "../context/CodeWithLanguageSelectorContext";
+import { DocVersionContextProvider } from "../context/DocVersionContext";
+import { MenuItemsContextProvider } from "../context/MenuItemsContext";
+import { NavBarCollapseContextProvider } from "../context/NavBarCollapseContext";
+import { RouteChangingContextProvider } from "../context/RouteChangingContext";
+import { StepsContextProvider } from "../context/StepsContext";
+import { SlugProps } from "./[version]/[...slug]";
+import Script from "next/script";
 
-const TITLE = 'OpenMetadata Documentation: Get Help Instantly';
+const TITLE = "OpenMetadata Documentation: Get Help Instantly";
 const DESCRIPTION =
-  'Follow the step-by-step guides to get started with OpenMetadata, the #1 open source data catalog tool. Get discovery, collaboration, governance, observability, quality tools all in one place.';
+  "Follow the step-by-step guides to get started with OpenMetadata, the #1 open source data catalog tool. Get discovery, collaboration, governance, observability, quality tools all in one place.";
 
 export default function MyApp({ Component, pageProps }: AppProps<SlugProps>) {
   const title = isEmpty(pageProps.pageTitle) ? TITLE : pageProps.pageTitle;
@@ -46,8 +47,17 @@ export default function MyApp({ Component, pageProps }: AppProps<SlugProps>) {
         />
         <meta property="og:type" content="website" />
         <meta content="summary_large_image" name="twitter:card" />
+        <GoogleAnalyticsScript />
+        <Script
+          dangerouslySetInnerHTML={{
+            __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+              new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+              j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+              'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+              })(window,document,'script','dataLayer','GTM-554C968W');`,
+          }}
+        />
       </Head>
-      <GoogleAnalyticsScript />
       <ErrorBoundary>
         <RouteChangingContextProvider>
           <DocVersionContextProvider>
