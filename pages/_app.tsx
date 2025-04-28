@@ -8,7 +8,6 @@ import "../public/modal.css";
 import { isEmpty } from "lodash";
 import type { AppProps } from "next/app";
 import ErrorBoundary from "../components/ErrorBoundary";
-import GoogleAnalyticsScript from "../components/GoogleAnalyticsScript/GoogleAnalyticsScript";
 import { CodeWithLanguageSelectorContextProvider } from "../context/CodeWithLanguageSelectorContext";
 import { DocVersionContextProvider } from "../context/DocVersionContext";
 import { MenuItemsContextProvider } from "../context/MenuItemsContext";
@@ -16,6 +15,14 @@ import { NavBarCollapseContextProvider } from "../context/NavBarCollapseContext"
 import { RouteChangingContextProvider } from "../context/RouteChangingContext";
 import { StepsContextProvider } from "../context/StepsContext";
 import { SlugProps } from "./[version]/[...slug]";
+import { useEffect, useState } from "react";
+import CookieModal from "../components/CookieModal/CookieModal";
+
+declare global {
+  interface Window {
+      dataLayer: Record<string, any>[];
+  }
+}
 
 const TITLE = "OpenMetadata Documentation: Get Help Instantly";
 const DESCRIPTION =
@@ -26,6 +33,43 @@ export default function MyApp({ Component, pageProps }: AppProps<SlugProps>) {
   const description = isEmpty(pageProps.pageDescription)
     ? DESCRIPTION
     : pageProps.pageDescription;
+
+    const [storedCookie, setStoredCookie] = useState<string | null>(null);
+
+  const handleButtonClick = (choice: string) => {
+    localStorage.setItem("docsOmCookie", choice);
+    setStoredCookie(choice); 
+  };
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const userCookie = window.localStorage.getItem("docsOmCookie");
+      setStoredCookie(userCookie);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (!storedCookie || storedCookie === 'Accept') {
+        // Google Tag Manager
+        const gtmTagScript = document.createElement('script')
+        gtmTagScript.innerHTML = `
+            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-554C968W');
+        `
+        gtmTagScript.id = 'gtm-init'
+        document.head.appendChild(gtmTagScript)
+    } else {
+        window.dataLayer = []
+
+        const scriptTags = document.querySelectorAll(
+            'script[src*="googletagmanager"], script#gtm-init'
+        )
+        scriptTags.forEach((tag) => tag.remove())
+    }
+}, [storedCookie])
 
   return (
     <>
@@ -47,7 +91,6 @@ export default function MyApp({ Component, pageProps }: AppProps<SlugProps>) {
         <meta property="og:type" content="website" />
         <meta content="summary_large_image" name="twitter:card" />
       </Head>
-      <GoogleAnalyticsScript />
       <ErrorBoundary>
         <RouteChangingContextProvider>
           <DocVersionContextProvider>
@@ -55,6 +98,9 @@ export default function MyApp({ Component, pageProps }: AppProps<SlugProps>) {
               <NavBarCollapseContextProvider>
                 <StepsContextProvider>
                   <CodeWithLanguageSelectorContextProvider>
+                  {!storedCookie && (
+                        <CookieModal handleButtonClick={handleButtonClick} />
+                      )}
                     <Component {...pageProps} />
                   </CodeWithLanguageSelectorContextProvider>
                 </StepsContextProvider>
