@@ -77,7 +77,7 @@ export default function MyApp({ Component, pageProps }: AppProps<SlugProps>) {
         <meta property="og:type" content="website" />
         <meta content="summary_large_image" name="twitter:card" />
       </Head>
-      <GoogleAnalyticsScript />
+      {!storedCookie || storedCookie === 'Accept' && <GoogleAnalyticsScript />}
       <ErrorBoundary>
         <RouteChangingContextProvider>
           <DocVersionContextProvider>
