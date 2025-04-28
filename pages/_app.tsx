@@ -8,7 +8,6 @@ import "../public/modal.css";
 import { isEmpty } from "lodash";
 import type { AppProps } from "next/app";
 import ErrorBoundary from "../components/ErrorBoundary";
-import GoogleAnalyticsScript from "../components/GoogleAnalyticsScript/GoogleAnalyticsScript";
 import { CodeWithLanguageSelectorContextProvider } from "../context/CodeWithLanguageSelectorContext";
 import { DocVersionContextProvider } from "../context/DocVersionContext";
 import { MenuItemsContextProvider } from "../context/MenuItemsContext";
@@ -18,6 +17,12 @@ import { StepsContextProvider } from "../context/StepsContext";
 import { SlugProps } from "./[version]/[...slug]";
 import { useEffect, useState } from "react";
 import CookieModal from "../components/CookieModal/CookieModal";
+
+declare global {
+  interface Window {
+      dataLayer: Record<string, any>[];
+  }
+}
 
 const TITLE = "OpenMetadata Documentation: Get Help Instantly";
 const DESCRIPTION =
@@ -44,18 +49,27 @@ export default function MyApp({ Component, pageProps }: AppProps<SlugProps>) {
   }, []);
 
   useEffect(() => {
-    if (storedCookie === "Decline") {
-      const scriptTags = document.querySelectorAll(
-        'script[src*="googletagmanager"], script#gtag-init, script#tag-manager'
-      );
-      scriptTags.forEach((tag) => tag.remove());
+    if (!storedCookie || storedCookie === 'Accept') {
+        // Google Tag Manager
+        const gtmTagScript = document.createElement('script')
+        gtmTagScript.innerHTML = `
+            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-554C968W');
+        `
+        gtmTagScript.id = 'gtm-init'
+        document.head.appendChild(gtmTagScript)
+    } else {
+        window.dataLayer = []
 
-      const iframes = document.querySelectorAll(
-        'iframe[src*="googletagmanager"]'
-      );
-      iframes.forEach((iframe) => iframe.remove());
+        const scriptTags = document.querySelectorAll(
+            'script[src*="googletagmanager"], script#gtm-init'
+        )
+        scriptTags.forEach((tag) => tag.remove())
     }
-  }, [storedCookie]);
+}, [storedCookie])
 
   return (
     <>
@@ -77,7 +91,6 @@ export default function MyApp({ Component, pageProps }: AppProps<SlugProps>) {
         <meta property="og:type" content="website" />
         <meta content="summary_large_image" name="twitter:card" />
       </Head>
-      {!storedCookie || storedCookie === 'Accept' && <GoogleAnalyticsScript />}
       <ErrorBoundary>
         <RouteChangingContextProvider>
           <DocVersionContextProvider>
