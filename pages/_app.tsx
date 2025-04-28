@@ -16,6 +16,8 @@ import { NavBarCollapseContextProvider } from "../context/NavBarCollapseContext"
 import { RouteChangingContextProvider } from "../context/RouteChangingContext";
 import { StepsContextProvider } from "../context/StepsContext";
 import { SlugProps } from "./[version]/[...slug]";
+import { useEffect, useState } from "react";
+import CookieModal from "../components/CookieModal/CookieModal";
 
 const TITLE = "OpenMetadata Documentation: Get Help Instantly";
 const DESCRIPTION =
@@ -26,6 +28,34 @@ export default function MyApp({ Component, pageProps }: AppProps<SlugProps>) {
   const description = isEmpty(pageProps.pageDescription)
     ? DESCRIPTION
     : pageProps.pageDescription;
+
+    const [storedCookie, setStoredCookie] = useState<string | null>(null);
+
+  const handleButtonClick = (choice: string) => {
+    localStorage.setItem("docsOmCookie", choice);
+    setStoredCookie(choice); 
+  };
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const userCookie = window.localStorage.getItem("docsOmCookie");
+      setStoredCookie(userCookie);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (storedCookie === "Decline") {
+      const scriptTags = document.querySelectorAll(
+        'script[src*="googletagmanager"], script#gtag-init, script#tag-manager'
+      );
+      scriptTags.forEach((tag) => tag.remove());
+
+      const iframes = document.querySelectorAll(
+        'iframe[src*="googletagmanager"]'
+      );
+      iframes.forEach((iframe) => iframe.remove());
+    }
+  }, [storedCookie]);
 
   return (
     <>
@@ -55,6 +85,9 @@ export default function MyApp({ Component, pageProps }: AppProps<SlugProps>) {
               <NavBarCollapseContextProvider>
                 <StepsContextProvider>
                   <CodeWithLanguageSelectorContextProvider>
+                  {!storedCookie && (
+                        <CookieModal handleButtonClick={handleButtonClick} />
+                      )}
                     <Component {...pageProps} />
                   </CodeWithLanguageSelectorContextProvider>
                 </StepsContextProvider>

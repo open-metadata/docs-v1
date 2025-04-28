@@ -396,3 +396,66 @@ code::-webkit-scrollbar {
   margin-top: -300px !important;
   padding-top: 300px;
 }
+
+.cookie-modal {
+  position: fixed;
+  bottom: 0;
+  background-color: #F8FBFC;
+  z-index: 20;
+  padding: 1rem;
+  box-shadow: var(--shadow-card); 
+  transform: translateY(100%); 
+  transition: transform 1.2s ease-in-out, visibility 1.2s ease-in-out;
+  visibility: hidden;
+  border: 1px solid rgb(201, 196, 196);
+  border-radius: 10px;
+}
+
+.cookie-modal p {
+  color: #292929;
+  font-weight: 300;
+}
+
+.cookie-modal-buttons {
+  margin-top: 2rem;
+  display: flex;
+  gap: 0.75rem;
+  justify-content: flex-end;
+}
+
+.button {
+  border-radius: 1.5rem;
+  padding: 0.5rem 2rem;
+  font-size: 0.875rem;
+  cursor: pointer;
+  border: none;
+}
+
+.button-accept {
+  background-color: #7147E8;
+  color: white;
+}
+
+.button-reject {
+  background-color: white;
+  color: #7147E8;
+  border: 1px solid #7147E8;
+}
+
+@media (min-width: 640px) {
+  .cookie-modal {
+    margin: 1.25rem;
+    max-width: 36rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .cookie-modal {
+    max-width: 48rem;
+  }
+}
+
+.cookie-modal.visible {
+  transform: translateY(0); 
+  visibility: visible;
+}
