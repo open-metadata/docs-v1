@@ -154,6 +154,7 @@ export const getConnectorImage = (connector: string) => {
     Snowflake: "snowflakes",
     Spline: "spline",
     SQLite: "sqlite",
+    SSIS: "ssis",
     Stitch: "stitch",
     Superset: "superset",
     Synapse: "synapse",
@@ -164,7 +165,6 @@ export const getConnectorImage = (connector: string) => {
     Vertica: "vertica",
     VertexAI: "vertexai",
     Wherescape: "wherescape",
-    Ssis: "ssis",
   };
 
   iconSource = connectorMappings[connector] || iconSource;
