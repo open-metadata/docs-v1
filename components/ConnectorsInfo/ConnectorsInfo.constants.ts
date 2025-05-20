@@ -418,7 +418,7 @@ export const CONNECTORS: Array<ConnectorCategory> = [
       {
         url: "/connectors/pipeline/ssis",
         icon: "/images/connectors/ssis.webp",
-        name: "Ssis",
+        name: "SSIS",
         collate: true,
       },
     ],
