@@ -164,6 +164,7 @@ export const getConnectorImage = (connector: string) => {
     Vertica: "vertica",
     VertexAI: "vertexai",
     Wherescape: "wherescape",
+    Ssis: "ssis",
   };
 
   iconSource = connectorMappings[connector] || iconSource;

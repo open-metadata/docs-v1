@@ -415,6 +415,12 @@ export const CONNECTORS: Array<ConnectorCategory> = [
         name: "Wherescape",
         collate: true,
       },
+      {
+        url: "/connectors/pipeline/ssis",
+        icon: "/images/connectors/ssis.webp",
+        name: "Ssis",
+        collate: true,
+      },
     ],
   },
   {
