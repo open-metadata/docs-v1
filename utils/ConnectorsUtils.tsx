@@ -154,6 +154,7 @@ export const getConnectorImage = (connector: string) => {
     Snowflake: "snowflakes",
     Spline: "spline",
     SQLite: "sqlite",
+    SSIS: "ssis",
     Stitch: "stitch",
     Superset: "superset",
     Synapse: "synapse",
