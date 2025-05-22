@@ -1,8 +1,8 @@
-import Link from "next/link";
 import styles from "./NewsEntry.module.css";
 import { ReactNode } from "react";
 import Image from "next/image";
 import { isEmpty } from "lodash";
+import ParamLink from "../ParamLink";
 
 interface NewsEntryProps {
   title?: string;
@@ -14,7 +14,7 @@ interface NewsEntryProps {
 
 const NewsEntry = ({ title, text, link, image, children }: NewsEntryProps) => {
   return (
-    <Link className={styles.Container} href={link} target="_blank">
+    <ParamLink className={styles.Container} link={link} target="_blank">
       {!isEmpty(image) && (
         <Image
           src={image}
@@ -29,7 +29,7 @@ const NewsEntry = ({ title, text, link, image, children }: NewsEntryProps) => {
         <p className={styles.Text}>{text}</p>
       </div>
       <div>{children}</div>
-    </Link>
+    </ParamLink>
   );
 };
 

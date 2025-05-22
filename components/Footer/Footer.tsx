@@ -1,11 +1,11 @@
 import classNames from "classnames";
-import Link from "next/link";
 import React from "react";
 import styles from "./Footer.module.css";
 import {
   footerIconItemsData,
   footerItemsData,
 } from "../../constants/footer.constants";
+import ParamLink from "../ParamLink";
 
 export default function Footer() {
   return (
@@ -14,27 +14,27 @@ export default function Footer() {
       <section className={styles.InnerContainer}>
         <nav className={styles.Navigation}>
           {footerItemsData.map((item) => (
-            <Link
+            <ParamLink
               className={styles.Link}
-              href={item.href}
+              link={item.href}
               key={item.href}
               target={item.target}
-              rel={item.rel}
             >
               {item.name}
-            </Link>
+            </ParamLink>
           ))}
         </nav>
         <section className={styles.SocialNetworks}>
           {footerIconItemsData.map((item) => (
-            <Link
-              href={item.href}
+            <ParamLink
+              className={styles.Link}
+              link={item.href}
               key={item.href}
               target="_blank"
               aria-label={item.href}
             >
               {item.icon}
-            </Link>
+            </ParamLink>
           ))}
         </section>
       </section>
