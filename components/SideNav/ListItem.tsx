@@ -1,5 +1,4 @@
 import classNames from "classnames";
-import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useDocVersionContext } from "../../context/DocVersionContext";
@@ -9,6 +8,7 @@ import { ReactComponent as CollateIcon } from "../../images/icons/ic-collate.svg
 import { getUrl } from "../../utils/CommonUtils";
 import { ListItemProps } from "./ListItem.interface";
 import styles from "./SideNav.module.css";
+import ParamLink from "../ParamLink";
 
 export default function ListItem({
   item,
@@ -41,21 +41,17 @@ export default function ListItem({
   const linkItem = useMemo(() => {
     return (
       <span className=" ml-4 mb-2 flex items-center gap-2">
-        <Link legacyBehavior href={urlWithVersion}>
-          <a
-            className={classNames(
-              styles.Link,
-              Number(item.depth) >= 3 ? styles.TextGray : "",
-              isActive ? styles.ActiveLink : ""
-            )}
-            ref={linkRef}
-            style={{
-              fontWeight,
-            }}
-          >
-            {item.name}
-          </a>
-        </Link>
+        <ParamLink
+          link={urlWithVersion}
+          className={classNames(
+            styles.Link,
+            Number(item.depth) >= 3 ? styles.TextGray : "",
+            isActive ? styles.ActiveLink : ""
+          )}
+          style={{ fontWeight }}
+          name={item.name}
+        />
+
         {item.isCollateOnly && <CollateIcon width={14} height={14} />}
       </span>
     );

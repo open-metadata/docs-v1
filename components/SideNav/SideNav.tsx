@@ -36,7 +36,7 @@ export default forwardRef(function SideNav(
   const { menuItems, isMenuLoading } = useMenuItemsContext();
 
   const category = useMemo(
-    () => getCategoryByIndex(router.asPath, enableVersion ? 2 : 1),
+    () => getCategoryByIndex(router.asPath.split('?')[0], enableVersion ? 2 : 1),
     [router.asPath]
   );
 
@@ -47,7 +47,7 @@ export default forwardRef(function SideNav(
   );
 
   const childItems = useMemo(
-    () => getSideNavItems(item, router.asPath, enableVersion),
+    () => getSideNavItems(item, router.asPath.split('?')[0], enableVersion),
     [item, router.asPath]
   );
 

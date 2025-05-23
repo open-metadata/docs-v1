@@ -1,12 +1,12 @@
 import classNames from "classnames";
 import { isEmpty } from "lodash";
-import Link from "next/link";
 import { useCallback, useMemo } from "react";
 import { useDocVersionContext } from "../../../../context/DocVersionContext";
 import { getUrl } from "../../../../utils/CommonUtils";
 import { getTileIcons } from "../../../../utils/TileUtils";
 import { TileProps } from "./Tile.interface";
 import styles from "./Tile.module.css";
+import ParamLink from "../../../ParamLink";
 
 function Tile({
   description,
@@ -21,12 +21,12 @@ function Tile({
   const getWrappedTile = useCallback(
     (tileContainer: JSX.Element): JSX.Element =>
       link ? (
-        <Link
+        <ParamLink
           target={isExternalLink ? "_blank" : "_self"}
-          href={getUrl({ url: link, docVersion, enableVersion, isExternalLink })}
+          link={getUrl({ url: link, docVersion, enableVersion, isExternalLink })}
         >
           {tileContainer}
-        </Link>
+        </ParamLink>
       ) : (
         tileContainer
       ),
