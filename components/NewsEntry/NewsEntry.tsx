@@ -14,7 +14,7 @@ interface NewsEntryProps {
 
 const NewsEntry = ({ title, text, link, image, children }: NewsEntryProps) => {
   return (
-    <ParamLink className={styles.Container} link={link} target="_blank">
+    <ParamLink className={styles.Container} href={link} target="_blank">
       {!isEmpty(image) && (
         <Image
           src={image}

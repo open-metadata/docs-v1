@@ -57,7 +57,7 @@ export default function HomePageBanner({
                   <p className={styles.DescriptionText}>{description}</p>
                 </div>
                 <ParamLink
-                  link={getUrl({
+                  href={getUrl({
                     url: href,
                     docVersion,
                     enableVersion,

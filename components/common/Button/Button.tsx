@@ -26,7 +26,7 @@ export default function Button({
   return type === "link" ? (
     <ParamLink
       className={classNames(styles.Container, className)}
-      link={getUrl({ url: href, docVersion, enableVersion, isExternalLink })}
+      href={getUrl({ url: href, docVersion, enableVersion, isExternalLink })}
       id={id}
       style={style}
     >

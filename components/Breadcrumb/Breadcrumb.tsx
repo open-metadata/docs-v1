@@ -38,7 +38,7 @@ export default function Breadcrumb({ slug }: { slug: string[] }) {
           <React.Fragment key={crumb.path}>
             <ParamLink
               className={classNames(styles.LinkItem, "flex align-center")}
-              link={hrefString}
+              href={hrefString}
             >
               <span className={styles.BreadcumbLink}>
                 <span>{crumb.icon}</span>

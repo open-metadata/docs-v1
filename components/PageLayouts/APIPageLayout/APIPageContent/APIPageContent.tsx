@@ -48,7 +48,7 @@ function APIsPageContent({
             />
           }
         />
-        <ParamLink link="/" name="Docs" />
+        <ParamLink href="/" name="Docs" />
       </div>
       <div className={styles.Content}>
         {Markdoc.renderers.react(parsedContent, React, {

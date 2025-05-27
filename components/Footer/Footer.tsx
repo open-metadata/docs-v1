@@ -16,7 +16,7 @@ export default function Footer() {
           {footerItemsData.map((item) => (
             <ParamLink
               className={styles.Link}
-              link={item.href}
+              href={item.href}
               key={item.href}
               target={item.target}
             >
@@ -28,7 +28,7 @@ export default function Footer() {
           {footerIconItemsData.map((item) => (
             <ParamLink
               className={styles.Link}
-              link={item.href}
+              href={item.href}
               key={item.href}
               target="_blank"
               aria-label={item.href}

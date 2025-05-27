@@ -23,7 +23,7 @@ function Tile({
       link ? (
         <ParamLink
           target={isExternalLink ? "_blank" : "_self"}
-          link={getUrl({ url: link, docVersion, enableVersion, isExternalLink })}
+          href={getUrl({ url: link, docVersion, enableVersion, isExternalLink })}
         >
           {tileContainer}
         </ParamLink>

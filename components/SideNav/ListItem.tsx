@@ -42,7 +42,7 @@ export default function ListItem({
     return (
       <span className=" ml-4 mb-2 flex items-center gap-2">
         <ParamLink
-          link={urlWithVersion}
+          href={urlWithVersion}
           className={classNames(
             styles.Link,
             Number(item.depth) >= 3 ? styles.TextGray : "",

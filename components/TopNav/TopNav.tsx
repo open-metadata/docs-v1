@@ -88,7 +88,7 @@ export default function TopNav({ versionsList, logo }: Readonly<TopNavProps>) {
       <div className={styles.CollapsedDivContainer}>
         <div className={styles.LogoContainer}>
           <ParamLink
-            link={getUrl({ url: "/", docVersion, enableVersion })}
+            href={getUrl({ url: "/", docVersion, enableVersion })}
             aria-label="omd-icon"
           >
             {isUndefined(logo) ? <OMDIcon /> : logo}
@@ -124,28 +124,28 @@ export default function TopNav({ versionsList, logo }: Readonly<TopNavProps>) {
       </SearchContextProvider>
       <div className={styles.IconContainer}>
         <ParamLink
-          link="https://slack.open-metadata.org"
+          href="https://slack.open-metadata.org"
           target="_blank"
           aria-label="slack-icon"
         >
           <SlackIcon />
         </ParamLink>
         <ParamLink
-          link="https://github.com/open-metadata/OpenMetadata"
+          href="https://github.com/open-metadata/OpenMetadata"
           target="_blank"
           aria-label="github-icon"
         >
           <GithubIcon />
         </ParamLink>
         <ParamLink
-          link="/swagger.html"
+          href="/swagger.html"
           target="_blank"
           aria-label="api-icon"
         >
           <ApiIcon />
         </ParamLink>
         <ParamLink
-          link="https://getcollate.io"
+          href="https://getcollate.io"
           target="_blank"
           aria-label="cloud-icon"
         >

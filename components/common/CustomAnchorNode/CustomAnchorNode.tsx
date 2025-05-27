@@ -21,7 +21,7 @@ function CustomAnchorNode({ href, children }: Props) {
 
   return (
     <ParamLink
-      link={getUrl({
+      href={getUrl({
         url: href,
         docVersion,
         enableVersion,

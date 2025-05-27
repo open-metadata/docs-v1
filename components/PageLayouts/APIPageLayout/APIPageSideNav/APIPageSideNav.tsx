@@ -101,7 +101,7 @@ function APIPageSideNav({ pageInfoObject }: APIPageSideNavProps) {
     <div className={styles.APIPageSideNavContainer}>
       <ParamLink
         className={styles.Heading}
-        link={getUrl({ url: pageInfoObject.value, docVersion, enableVersion })}
+        href={getUrl({ url: pageInfoObject.value, docVersion, enableVersion })}
       >
         <OmLogo className={styles.OpenMetadataLogo} />
         <span className={styles.Api}>{pageInfoObject.label}</span>

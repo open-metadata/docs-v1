@@ -3,7 +3,7 @@ import useQueryParams from '../hooks/useQueryParams'
 
 interface ParamLinkProps {
     name?: string;
-    link: string;
+    href: string;
     target?: string;
     className?: string;
     children?: React.ReactNode;
@@ -11,11 +11,11 @@ interface ParamLinkProps {
     style?: React.CSSProperties;
 }
 
-const ParamLink = ({ name, link, target, className, children, id, style }: ParamLinkProps) => {
+const ParamLink = ({ name, href, target, className, children, id, style }: ParamLinkProps) => {
     const params = useQueryParams();
 
     return (
-        <Link passHref legacyBehavior href={`${link}?${params}`} prefetch={false} id={id}>
+        <Link passHref legacyBehavior href={`${href}?${params}`} prefetch={false} id={id}>
             <a target={target} rel="noopener noreferrer" aria-label={name} className={className} style={style}>
                 {name ?? children}
             </a>

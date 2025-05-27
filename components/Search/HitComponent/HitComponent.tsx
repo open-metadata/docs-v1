@@ -38,7 +38,7 @@ function HitComponent(props) {
   return (
     <ParamLink
       className={classNames(styles.HitLink)}
-      link={getUrl({ url: props.hit.objectID, docVersion, enableVersion })}
+      href={getUrl({ url: props.hit.objectID, docVersion, enableVersion })}
     >
       <article
         className={classNames(
