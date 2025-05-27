@@ -12,12 +12,10 @@ interface ParamLinkProps {
 }
 
 const ParamLink = ({ name, link, target, className, children, id, style }: ParamLinkProps) => {
-    const params = useQueryParams()
-    const searchString = new URLSearchParams(params).toString()
-    const href = searchString ? `${link}?${searchString}` : link
+    const params = useQueryParams();
 
     return (
-        <Link passHref legacyBehavior href={href} prefetch={false} id={id}>
+        <Link passHref legacyBehavior href={`${link}?${params}`} prefetch={false} id={id}>
             <a target={target} rel="noopener noreferrer" aria-label={name} className={className} style={style}>
                 {name ?? children}
             </a>
