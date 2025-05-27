@@ -1,15 +1,22 @@
 import { useEffect, useState } from 'react';
 
 const useQueryParams = () => {
-  const [search, setSearch] = useState('');
+  const [queryParams, setQueryParams] = useState<Record<string, string>>({});
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      setSearch(window.location.search);
+      const searchParams = new URLSearchParams(window.location.search);
+      const params: Record<string, string> = {};
+      
+      searchParams.forEach((value, key) => {
+        params[key] = value;
+      });
+      
+      setQueryParams(params);
     }
   }, []);
 
-  return search;
+  return queryParams;
 };
 
 export default useQueryParams;

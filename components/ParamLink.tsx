@@ -13,7 +13,8 @@ interface ParamLinkProps {
 
 const ParamLink = ({ name, link, target, className, children, id, style }: ParamLinkProps) => {
     const params = useQueryParams()
-    const href = params ? `${link}${params}` : link
+    const searchString = new URLSearchParams(params).toString()
+    const href = searchString ? `${link}?${searchString}` : link
 
     return (
         <Link passHref legacyBehavior href={href} prefetch={false} id={id}>
