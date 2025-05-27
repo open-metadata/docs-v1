@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import useQueryParams from '../hooks/useQueryParams'
+import { useEffect, useState } from 'react'
 
 interface ParamLinkProps {
     name?: string;
@@ -12,10 +12,14 @@ interface ParamLinkProps {
 }
 
 const ParamLink = ({ name, href, target, className, children, id, style }: ParamLinkProps) => {
-    const params = useQueryParams();
+    const [searchParams, setSearchParams] = useState('')
+
+    useEffect(() => {
+        setSearchParams(window.location.search)
+    }, [])
 
     return (
-        <Link passHref legacyBehavior href={`${href}?${params}`} prefetch={false} id={id}>
+        <Link passHref legacyBehavior href={`${href}${searchParams}`} prefetch={false} id={id}>
             <a target={target} rel="noopener noreferrer" aria-label={name} className={className} style={style}>
                 {name ?? children}
             </a>
