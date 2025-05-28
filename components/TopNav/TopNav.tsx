@@ -1,7 +1,6 @@
 import algoliasearch from "algoliasearch/lite";
 import classNames from "classnames";
 import { isEmpty, isString, isUndefined } from "lodash";
-import Link from "next/link";
 import { useRouter } from "next/router";
 import { ReactNode, useCallback, useEffect, useState } from "react";
 import { MdMenu, MdMenuOpen } from "react-icons/md";
@@ -22,6 +21,7 @@ import { getUrl } from "../../utils/CommonUtils";
 import Search from "../Search/Search";
 import SelectDropdown, { SelectOption } from "../SelectDropdown/SelectDropdown";
 import styles from "./TopNav.module.css";
+import ParamLink from "../ParamLink";
 
 const searchClient = algoliasearch(
   process.env.NEXT_PUBLIC_ALGOLIA_APP_ID,
@@ -87,12 +87,12 @@ export default function TopNav({ versionsList, logo }: Readonly<TopNavProps>) {
     >
       <div className={styles.CollapsedDivContainer}>
         <div className={styles.LogoContainer}>
-          <Link
+          <ParamLink
             href={getUrl({ url: "/", docVersion, enableVersion })}
             aria-label="omd-icon"
           >
             {isUndefined(logo) ? <OMDIcon /> : logo}
-          </Link>
+          </ParamLink>
           {!isEmpty(versionsList) && (
             <SelectDropdown
               value={docVersion}
@@ -123,32 +123,28 @@ export default function TopNav({ versionsList, logo }: Readonly<TopNavProps>) {
         </InstantSearch>
       </SearchContextProvider>
       <div className={styles.IconContainer}>
-        <a
+        <ParamLink
           href="https://slack.open-metadata.org"
           target="_blank"
-          title="Slack"
           aria-label="slack-icon"
         >
           <SlackIcon />
-        </a>
-        <a
+        </ParamLink>
+        <ParamLink
           href="https://github.com/open-metadata/OpenMetadata"
           target="_blank"
-          title="Github"
           aria-label="github-icon"
         >
           <GithubIcon />
-        </a>
-        <a
+        </ParamLink>
+        <ParamLink
           href="/swagger.html"
           target="_blank"
-          title="Swagger"
           aria-label="api-icon"
         >
           <ApiIcon />
-        </a>
-        <a
-          className="btn fw-500 btn-primary rounded-pill"
+        </ParamLink>
+        <ParamLink
           href="https://getcollate.io"
           target="_blank"
           aria-label="cloud-icon"
@@ -156,7 +152,7 @@ export default function TopNav({ versionsList, logo }: Readonly<TopNavProps>) {
           <button className={styles.CloudBtn} aria-label="cloud-icon">
             <CloudIcon />
           </button>
-        </a>
+        </ParamLink>
       </div>
     </nav>
   );

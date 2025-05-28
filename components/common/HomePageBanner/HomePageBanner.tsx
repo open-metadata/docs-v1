@@ -1,5 +1,4 @@
 import classNames from "classnames";
-import Link from "next/link";
 import { Fragment, useCallback } from "react";
 import { HOME_PAGE_BANNER_VIDEO_ID } from "../../../constants/homePage.constants";
 import { useDocVersionContext } from "../../../context/DocVersionContext";
@@ -9,6 +8,7 @@ import Button from "../Button/Button";
 import YouTube from "../Youtube/Youtube";
 import { HomePageBannerProps } from "./HomePageBanner.interface";
 import styles from "./HomePageBanner.module.css";
+import ParamLink from "../../ParamLink";
 
 export default function HomePageBanner({
   quickLinks,
@@ -56,7 +56,7 @@ export default function HomePageBanner({
                   <div className={styles.SubHeading}>{title}</div>
                   <p className={styles.DescriptionText}>{description}</p>
                 </div>
-                <Link
+                <ParamLink
                   href={getUrl({
                     url: href,
                     docVersion,
@@ -77,7 +77,7 @@ export default function HomePageBanner({
                       <ArrowRight />
                     </span>
                   </Button>
-                </Link>
+                </ParamLink>
               </div>
               {index < quickLinks.length - 1 && (
                 <div className={styles.BannerNavLinkBorder} />

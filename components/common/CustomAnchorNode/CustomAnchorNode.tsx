@@ -1,8 +1,8 @@
-import Link from "next/link";
 import React, { ReactNode } from "react";
 import { getUrl } from "../../../utils/CommonUtils";
 import { PAGES_WITHOUT_VERSION } from "../../../constants/pagesWithoutVersion.constants";
 import { useDocVersionContext } from "../../../context/DocVersionContext";
+import ParamLink from "../../ParamLink";
 
 interface Props {
   href: string;
@@ -20,7 +20,7 @@ function CustomAnchorNode({ href, children }: Props) {
   const disableVersion = isNewTabUrl || href.startsWith("#");
 
   return (
-    <Link
+    <ParamLink
       href={getUrl({
         url: href,
         docVersion,
@@ -30,7 +30,7 @@ function CustomAnchorNode({ href, children }: Props) {
       target={isNewTabUrl ? "_blank" : "_self"}
     >
       {children}
-    </Link>
+    </ParamLink>
   );
 }
 

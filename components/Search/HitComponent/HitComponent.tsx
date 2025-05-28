@@ -1,11 +1,11 @@
 import classNames from "classnames";
-import Link from "next/link";
 import { useEffect, useRef } from "react";
 import { Highlight, Snippet } from "react-instantsearch";
 import { useDocVersionContext } from "../../../context/DocVersionContext";
 import { useSearchContext } from "../../../context/SearchContext";
 import { getUrl } from "../../../utils/CommonUtils";
 import styles from "../Search.module.css";
+import ParamLink from "../../ParamLink";
 
 function HitComponent(props) {
   const { focusedSearchItem, onChangeFocusedSearchItem } = useSearchContext();
@@ -36,7 +36,7 @@ function HitComponent(props) {
   }, []);
 
   return (
-    <Link
+    <ParamLink
       className={classNames(styles.HitLink)}
       href={getUrl({ url: props.hit.objectID, docVersion, enableVersion })}
     >
@@ -74,7 +74,7 @@ function HitComponent(props) {
 
         <p className={styles.HitCategory}>{category}</p>
       </article>
-    </Link>
+    </ParamLink>
   );
 }
 

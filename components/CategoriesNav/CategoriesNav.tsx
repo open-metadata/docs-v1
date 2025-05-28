@@ -1,5 +1,4 @@
 import classNames from "classnames";
-import Link from "next/link";
 import { useRouter } from "next/router";
 import { useDocVersionContext } from "../../context/DocVersionContext";
 import { useNavBarCollapsedContext } from "../../context/NavBarCollapseContext";
@@ -7,6 +6,7 @@ import { MenuItem } from "../../interface/common.interface";
 import { getCategoryByIndex } from "../../lib/utils";
 import { getUrl, getUrlWithVersion } from "../../utils/CommonUtils";
 import styles from "./CategoriesNav.module.css";
+import ParamLink from "../ParamLink";
 
 interface Props {
   menu: MenuItem[];
@@ -17,7 +17,7 @@ export default function CategoriesNav({ menu }: Props) {
   const { docVersion, enableVersion } = useDocVersionContext();
   const { navBarCollapsed } = useNavBarCollapsedContext();
   const category =
-    getCategoryByIndex(router.asPath, enableVersion ? 2 : 1) ?? "";
+    getCategoryByIndex(router.asPath.split('?')[0], enableVersion ? 2 : 1) ?? "";
 
   const handleMenuItemClick = (item: {
     label: string;
@@ -42,17 +42,17 @@ export default function CategoriesNav({ menu }: Props) {
       <div className={styles.CategoriesContainer}>
         {menu.map((item) => {
           const active = category === getCategoryByIndex(item.url, 1);
+
           return (
-            <Link
+            <ParamLink
               href={getUrl({ url: item.url, docVersion, enableVersion })}
               key={item.url}
               className={classNames(
                 styles.NavItem,
                 active ? styles.Active : ""
               )}
-            >
-              {item.name}
-            </Link>
+              name={item.name}
+            />
           );
         })}
       </div>

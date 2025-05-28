@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { useDocVersionContext } from "../../context/DocVersionContext";
 import { getUrl } from "../../utils/CommonUtils";
 import {
@@ -8,6 +7,7 @@ import {
 } from "../../utils/ConnectorsUtils";
 import { ConnectorInfoCardProps } from "./ConnectorInfoCard.interface";
 import styles from "./ConnectorInfoCard.module.css";
+import ParamLink from "../ParamLink";
 
 function ConnectorInfoCard({
   name,
@@ -24,7 +24,7 @@ function ConnectorInfoCard({
   }
 
   return (
-    <Link
+    <ParamLink
       className={styles.Container}
       href={getUrl({ url: href, docVersion, enableVersion })}
     >
@@ -41,7 +41,7 @@ function ConnectorInfoCard({
           {getConnectorPlatformIcon(platform)}
         </div>
       </div>
-    </Link>
+    </ParamLink>
   );
 }
 

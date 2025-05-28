@@ -3,6 +3,7 @@ import { HTMLAttributes } from "react";
 import { useDocVersionContext } from "../../../context/DocVersionContext";
 import { getUrl } from "../../../utils/CommonUtils";
 import styles from "./Button.module.css";
+import ParamLink from "../../ParamLink";
 
 interface Props extends HTMLAttributes<HTMLButtonElement> {
   href?: string;
@@ -23,14 +24,14 @@ export default function Button({
   const { docVersion, enableVersion } = useDocVersionContext();
 
   return type === "link" ? (
-    <a
+    <ParamLink
       className={classNames(styles.Container, className)}
       href={getUrl({ url: href, docVersion, enableVersion, isExternalLink })}
       id={id}
       style={style}
     >
       {children}
-    </a>
+    </ParamLink>
   ) : (
     <button
       className={classNames(styles.Container, className)}

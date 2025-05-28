@@ -1,5 +1,4 @@
 import { isEmpty } from "lodash";
-import Link from "next/link";
 import { useCallback, useEffect, useState } from "react";
 import { useDocVersionContext } from "../../../../context/DocVersionContext";
 import { ReactComponent as OmLogo } from "../../../../images/icons/om-monogram.svg";
@@ -11,6 +10,7 @@ import {
 import APILeftPanelItem from "../../../APILeftPanelItem/APILeftPanelItem";
 import APISearchModal from "../../../modals/APISearchModal/APISearchModal";
 import styles from "./APIPageSideNav.module.css";
+import ParamLink from "../../../ParamLink";
 
 export interface HeadingObject {
   label: string;
@@ -99,7 +99,7 @@ function APIPageSideNav({ pageInfoObject }: APIPageSideNavProps) {
 
   return (
     <div className={styles.APIPageSideNavContainer}>
-      <Link
+      <ParamLink
         className={styles.Heading}
         href={getUrl({ url: pageInfoObject.value, docVersion, enableVersion })}
       >
@@ -108,7 +108,7 @@ function APIPageSideNav({ pageInfoObject }: APIPageSideNavProps) {
         {pageInfoObject.category && (
           <span className={styles.Api}>{pageInfoObject.category}</span>
         )}
-      </Link>
+      </ParamLink>
       <div className={styles.Search} onClick={handleSearchClick}>
         <div className="flex items-center gap-2">
           <SearchIcon className={styles.SearchIcon} />

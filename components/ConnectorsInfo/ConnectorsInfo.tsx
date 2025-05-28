@@ -1,6 +1,5 @@
 import classNames from "classnames";
 import dynamic from "next/dynamic";
-import Link from "next/link";
 import { useMemo, useState } from "react";
 import { useDocVersionContext } from "../../context/DocVersionContext";
 import {
@@ -12,6 +11,7 @@ import Loader from "../common/Loader/Loader";
 import { CONNECTORS } from "./ConnectorsInfo.constants";
 import { ConnectorCategory } from "./ConnectorsInfo.interface";
 import styles from "./ConnectorsInfo.module.css";
+import ParamLink from "../ParamLink";
 
 const ConnectorImage = dynamic(() => import("./ConnectorImage"), {
   ssr: false,
@@ -51,7 +51,7 @@ export default function ConnectorsInfo({ tabStyle, activeTabStyle }) {
       <div className={styles.ConnectorsContainer}>
         <div className={styles.ConnectorsGridContainer}>
           {getSortedServiceList(selectedTab.services).map((connector) => (
-            <Link
+            <ParamLink
               className={styles.ConnectorItem}
               href={getConnectorURL(docVersion, connector)}
               key={connector.name}
@@ -62,7 +62,7 @@ export default function ConnectorsInfo({ tabStyle, activeTabStyle }) {
                 alt={`${connector.name}-icon`}
               />
               <p>{connector.name}</p>
-            </Link>
+            </ParamLink>
           ))}
         </div>
       </div>
