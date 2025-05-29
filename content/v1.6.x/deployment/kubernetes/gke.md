@@ -396,9 +396,9 @@ Once the openmetadata dependencies helm chart deployed, you can then run the bel
 helm install openmetadata open-metadata/openmetadata --values <path-to-values-file>
 ```
 
-# Troubleshooting
+## Troubleshooting
 
-## Pods are stuck in Pending State due to Persistent Volume Creation Failure
+### Pods are stuck in Pending State due to Persistent Volume Creation Failure
 
 If you came across `invalid access type while creating the pvc`, and the permission pod is stuck in "pending" state.
 
@@ -417,6 +417,6 @@ Please validate:
 - the configuration of `dags_pv_pvc.yml` file
 - `storageClassName` field in YAML file
 
-# FAQs
+## FAQs
 
 {% partial file="/v1.6/deployment/faqs.md" /%}
