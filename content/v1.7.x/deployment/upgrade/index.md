@@ -10,7 +10,7 @@ In this guide, you will find all the necessary information to safely upgrade you
 
 {% partial file="/v1.7/deployment/upgrade/upgrade-prerequisites.md" /%}
 
-# Upgrade your installation
+## Upgrade your installation
 
 Once your metadata is safe, follow the required upgrade instructions based on your environment:
 

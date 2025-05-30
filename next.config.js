@@ -67,6 +67,11 @@ module.exports =
           destination: '/connectors/pipeline/airflow/troubleshooting',
           permanent: true,
         },
+        {
+          source: '/:prefix*/how-to-guides/admin-guide/roles-policies/overviewg',
+          destination: '/how-to-guides/admin-guide/roles-policies/authorization',
+          permanent: true,
+        },
       ]
     },
   });

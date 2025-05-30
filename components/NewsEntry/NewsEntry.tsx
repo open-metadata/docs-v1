@@ -25,7 +25,7 @@ const NewsEntry = ({ title, text, link, image, children }: NewsEntryProps) => {
         />
       )}
       <div className={styles.blogContent}>
-        <h4 className={styles.Title}>{title}</h4>
+        <h2 className={styles.Title}>{title}</h2>
         <p className={styles.Text}>{text}</p>
       </div>
       <div>{children}</div>

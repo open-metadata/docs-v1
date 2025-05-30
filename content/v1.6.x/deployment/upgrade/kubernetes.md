@@ -17,15 +17,15 @@ We also assume that your helm chart release names are `openmetadata` and `openme
 
 {% partial file="/v1.6/deployment/upgrade/upgrade-prerequisites.md" /%}
 
-# Upgrade Process
+## Upgrade Process
 
-## Step 1: Get an overview of what has changed in Helm Values
+### Step 1: Get an overview of what has changed in Helm Values
 
 You can get changes from artifact hub of [openmetadata helm chart](https://artifacthub.io/packages/helm/open-metadata/openmetadata) release. Click on Default Values >> Compare to Version.
 
 {% image src="/images/v1.6/deployment/upgrade/artifact-hub-compare-to-version.png" alt="Helm Chart Release Comparison" /%}
 
-## Step 2: Upgrade Helm Repository with a new release
+### Step 2: Upgrade Helm Repository with a new release
 
 Update Helm Chart Locally for OpenMetadata with the below command:
 
@@ -55,7 +55,7 @@ open-metadata/openmetadata-dependencies 1.2.8           1.2.5           Helm Dep
 ...
 ```
 
-## Step 3: Upgrade OpenMetadata Dependencies
+### Step 3: Upgrade OpenMetadata Dependencies
 
 You can run the below command to upgrade the dependencies with the new chart
 
@@ -75,7 +75,7 @@ If you are running into any issues, double-check what are the default values of 
 
 {% /note %}
 
-## Step 4: Upgrade OpenMetadata
+### Step 4: Upgrade OpenMetadata
 
 Finally, we upgrade OpenMetadata with the below command:
 
@@ -97,7 +97,7 @@ You can learn more about how the migration process works [here](/deployment/upgr
 
 {% partial file="/v1.6/deployment/upgrade/post-upgrade-steps.md" /%}
 
-# Troubleshooting
+## Troubleshooting
 
 ### Helm Upgrade fails with additional property airflow not allowed
 

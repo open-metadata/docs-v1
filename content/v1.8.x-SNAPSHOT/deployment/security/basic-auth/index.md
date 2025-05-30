@@ -33,13 +33,13 @@ Security requirements for your **production** environment:
 
 {%/important%}
 
-# Setting up Basic Auth Manually
+## Setting up Basic Auth Manually
 
 Below are the required steps to set up the Basic Login:
 
-## Set up Configurations in openmetadata.yaml
+### Set up Configurations in openmetadata.yaml
 
-### Authentication Configuration
+#### Authentication Configuration
 
 The following configuration controls the auth mechanism for OpenMetadata. Update the mentioned fields as required.
 
@@ -58,7 +58,7 @@ For the Basic auth we need to set:
 -  `authority`: {your_domain}
 -  `enableSelfSignup`: This flag indicates if users can come and signup by themselves on the OM
 
-### Authorizer Configuration
+#### Authorizer Configuration
 
 This configuration controls the authorizer for OpenMetadata:
 
@@ -87,7 +87,7 @@ After logging into the OpenMetadata UI, admin users can change their default pas
 
 {%/note%}
 
-## Metadata Ingestion
+### Metadata Ingestion
 
 For ingesting metadata when Basic Auth is enabled, it is mandatory to configure the `ingestion-bot` account with the JWT 
 configuration. To know how to enable it, you can follow the documentation of [Enable JWT Tokens](/deployment/security/enable-jwt-tokens).

@@ -3,20 +3,20 @@ title:  How to Use Domains
 slug: /how-to-guides/data-governance/domains-&-data-products/domains
 ---
 
-## How to Guide to Adding Domains in Open Metadata
+# How to Guide to Adding Domains in Open Metadata
 
 This guide will walk you through the steps to add and configure a Domain in Open Metadata. Follow these steps to organize your data assets effectively.
 
-### Step 1: Provide a Name & Display Name for the Domain
+## Step 1: Provide a Name & Display Name for the Domain
 
 - **Name**: Enter a unique identifier for your domain. This will be used internally within the system.
 - **Display Name**: Enter a user-friendly name that will be displayed in the user interface. This should be easily recognizable and descriptive.
 
-### Step 2: Provide a Description for the Domain
+## Step 2: Provide a Description for the Domain
 
 - **Description**: Write a detailed description of the domain. This should explain the purpose of the domain, the types of data it contains, and any other relevant information that will help users understand its context and usage.
 
-### Step 3: Select Your Domain Type
+## Step 3: Select Your Domain Type
 
 - Open Metadata provides three types of domains:
   - **Source-aligned**: Domains closer to online services and transactional databases, including events and transactional data.
@@ -25,16 +25,16 @@ This guide will walk you through the steps to add and configure a Domain in Open
 
 - **Selecting a Domain Type**: Choose the type that best fits the purpose and structure of your domain.
 
-### Step 4: Select the Owner/Experts of the Domain
+## Step 4: Select the Owner/Experts of the Domain
 
 - **Owner/Experts**: Assign ownership and expertise to the domain by selecting users or teams responsible for it. This helps in managing the domain and provides a point of contact for queries and maintenance.
 
-### Step 5: Add Data Assets to the Domain
+## Step 5: Add Data Assets to the Domain
 
 - Once the domain is created, you can start adding data assets to it. This includes datasets, tables, dashboards, and other relevant assets.
 - **Adding Data Assets**: Navigate to the domain and use the interface to add and categorize your data assets appropriately.
 
-### Step 6: Filter Data Assets by Domain on the Explore Page
+## Step 6: Filter Data Assets by Domain on the Explore Page
 
 - **Explore Page**: Use the Explore page to filter and view data assets assigned to different domains. This helps in easily locating and accessing data assets within specific domains.
 
