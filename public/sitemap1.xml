@@ -12,31 +12,7 @@
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/connectors/dashboard/domo-dashboard/airflow</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/connectors/dashboard/domo-dashboard/cli</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/connectors/dashboard/looker/airflow</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/connectors/dashboard/looker/cli</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
     <loc>https://docs.open-metadata.org/connectors/dashboard/looker</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/connectors/dashboard/metabase/airflow</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/connectors/dashboard/metabase/cli</loc>
     <priority>1.00</priority>
   </url>
   <url>
@@ -44,23 +20,7 @@
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/connectors/dashboard/mode/airflow</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/connectors/dashboard/mode/cli</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
     <loc>https://docs.open-metadata.org/connectors/dashboard/mode</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/connectors/dashboard/powerbi/airflow</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/connectors/dashboard/powerbi/cli</loc>
     <priority>1.00</priority>
   </url>
   <url>
@@ -68,23 +28,7 @@
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/connectors/dashboard/quicksight/airflow</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/connectors/dashboard/quicksight/cli</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
     <loc>https://docs.open-metadata.org/connectors/dashboard/quicksight</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/connectors/dashboard/redash/airflow</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/connectors/dashboard/redash/cli</loc>
     <priority>1.00</priority>
   </url>
   <url>
@@ -92,23 +36,7 @@
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/connectors/dashboard/superset/airflow</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/connectors/dashboard/superset/cli</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
     <loc>https://docs.open-metadata.org/connectors/dashboard/superset</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/connectors/dashboard/tableau/airflow</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/connectors/dashboard/tableau/cli</loc>
     <priority>1.00</priority>
   </url>
   <url>
@@ -116,23 +44,7 @@
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/connectors/database/athena/airflow</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/connectors/database/athena/cli</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
     <loc>https://docs.open-metadata.org/connectors/database/athena</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/connectors/database/azuresql/airflow</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/connectors/database/azuresql/cli</loc>
     <priority>1.00</priority>
   </url>
   <url>
@@ -140,27 +52,7 @@
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/connectors/database/bigquery/airflow</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/connectors/database/bigquery/cli</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/connectors/database/bigquery/roles</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
     <loc>https://docs.open-metadata.org/connectors/database/bigquery</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/connectors/database/clickhouse/airflow</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/connectors/database/clickhouse/cli</loc>
     <priority>1.00</priority>
   </url>
   <url>
@@ -168,23 +60,7 @@
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/connectors/database/databricks/airflow</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/connectors/database/databricks/cli</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
     <loc>https://docs.open-metadata.org/connectors/database/databricks</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/connectors/database/datalake/airflow</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/connectors/database/datalake/cli</loc>
     <priority>1.00</priority>
   </url>
   <url>
@@ -192,23 +68,7 @@
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/connectors/database/db2/airflow</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/connectors/database/db2/cli</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
     <loc>https://docs.open-metadata.org/connectors/database/db2</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/connectors/database/deltalake/airflow</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/connectors/database/deltalake/cli</loc>
     <priority>1.00</priority>
   </url>
   <url>
@@ -216,23 +76,7 @@
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/connectors/database/domo-database/airflow</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/connectors/database/domo-database/cli</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
     <loc>https://docs.open-metadata.org/connectors/database/domo-database</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/connectors/database/druid/airflow</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/connectors/database/druid/cli</loc>
     <priority>1.00</priority>
   </url>
   <url>
@@ -240,23 +84,7 @@
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/connectors/database/dynamodb/airflow</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/connectors/database/dynamodb/cli</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
     <loc>https://docs.open-metadata.org/connectors/database/dynamodb</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/connectors/database/glue/airflow</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/connectors/database/glue/cli</loc>
     <priority>1.00</priority>
   </url>
   <url>
@@ -264,23 +92,7 @@
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/connectors/database/hive/airflow</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/connectors/database/hive/cli</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
     <loc>https://docs.open-metadata.org/connectors/database/hive</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/connectors/database/impala/airflow</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/connectors/database/impala/cli</loc>
     <priority>1.00</priority>
   </url>
   <url>
@@ -288,23 +100,7 @@
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/connectors/database/mariadb/airflow</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/connectors/database/mariadb/cli</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
     <loc>https://docs.open-metadata.org/connectors/database/mariadb</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/connectors/database/mssql/airflow</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/connectors/database/mssql/cli</loc>
     <priority>1.00</priority>
   </url>
   <url>
@@ -312,23 +108,7 @@
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/connectors/database/mysql/airflow</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/connectors/database/mysql/cli</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
     <loc>https://docs.open-metadata.org/connectors/database/mysql</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/connectors/database/oracle/airflow</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/connectors/database/oracle/cli</loc>
     <priority>1.00</priority>
   </url>
   <url>
@@ -336,23 +116,7 @@
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/connectors/database/pinotdb/airflow</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/connectors/database/pinotdb/cli</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
     <loc>https://docs.open-metadata.org/connectors/database/pinotdb</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/connectors/database/postgres/airflow</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/connectors/database/postgres/cli</loc>
     <priority>1.00</priority>
   </url>
   <url>
@@ -360,23 +124,7 @@
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/connectors/database/presto/airflow</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/connectors/database/presto/cli</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
     <loc>https://docs.open-metadata.org/connectors/database/presto</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/connectors/database/redshift/airflow</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/connectors/database/redshift/cli</loc>
     <priority>1.00</priority>
   </url>
   <url>
@@ -384,23 +132,7 @@
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/connectors/database/salesforce/airflow</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/connectors/database/salesforce/cli</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
     <loc>https://docs.open-metadata.org/connectors/database/salesforce</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/connectors/database/singlestore/airflow</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/connectors/database/singlestore/cli</loc>
     <priority>1.00</priority>
   </url>
   <url>
@@ -408,23 +140,7 @@
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/connectors/database/snowflake/airflow</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/connectors/database/snowflake/cli</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
     <loc>https://docs.open-metadata.org/connectors/database/snowflake</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/connectors/database/sqlite/airflow</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/connectors/database/sqlite/cli</loc>
     <priority>1.00</priority>
   </url>
   <url>
@@ -432,23 +148,7 @@
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/connectors/database/trino/airflow</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/connectors/database/trino/cli</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
     <loc>https://docs.open-metadata.org/connectors/database/trino</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/connectors/database/vertica/airflow</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/connectors/database/vertica/cli</loc>
     <priority>1.00</priority>
   </url>
   <url>
@@ -523,23 +223,7 @@
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/connectors/messaging/kafka/airflow</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/connectors/messaging/kafka/cli</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
     <loc>https://docs.open-metadata.org/connectors/messaging/kafka</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/connectors/messaging/kinesis/airflow</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/connectors/messaging/kinesis/cli</loc>
     <priority>1.00</priority>
   </url>
   <url>
@@ -547,23 +231,7 @@
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/connectors/messaging/redpanda/airflow</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/connectors/messaging/redpanda/cli</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
     <loc>https://docs.open-metadata.org/connectors/messaging/redpanda</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/connectors/metadata/amundsen/airflow</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/connectors/metadata/amundsen/cli</loc>
     <priority>1.00</priority>
   </url>
   <url>
@@ -571,23 +239,7 @@
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/connectors/metadata/atlas/airflow</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/connectors/metadata/atlas/cli</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
     <loc>https://docs.open-metadata.org/connectors/metadata/atlas</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/connectors/ml-model/mlflow/airflow</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/connectors/ml-model/mlflow/cli</loc>
     <priority>1.00</priority>
   </url>
   <url>
@@ -595,35 +247,11 @@
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/connectors/ml-model/sagemaker/airflow</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/connectors/ml-model/sagemaker/cli</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
     <loc>https://docs.open-metadata.org/connectors/ml-model/sagemaker</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/connectors/pipeline/airbyte/airflow</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/connectors/pipeline/airbyte/cli</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
     <loc>https://docs.open-metadata.org/connectors/pipeline/airbyte</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/connectors/pipeline/airflow/cli</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/connectors/pipeline/airflow/gcs</loc>
     <priority>1.00</priority>
   </url>
   <url>
@@ -635,39 +263,7 @@
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/connectors/pipeline/dagster/airflow</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/connectors/pipeline/dagster/cli</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
     <loc>https://docs.open-metadata.org/connectors/pipeline/dagster</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/connectors/pipeline/databrickspipeline/airflow</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/connectors/pipeline/databrickspipeline/cli</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/connectors/pipeline/domo-pipeline/airflow</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/connectors/pipeline/domo-pipeline/cli</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/connectors/pipeline/fivetran/airflow</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/connectors/pipeline/fivetran/cli</loc>
     <priority>1.00</priority>
   </url>
   <url>
@@ -675,31 +271,7 @@
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/connectors/pipeline/glue-pipeline/airflow</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/connectors/pipeline/glue-pipeline/cli</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/connectors/pipeline/nifi/airflow</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/connectors/pipeline/nifi/cli</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
     <loc>https://docs.open-metadata.org/connectors/pipeline/nifi</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/connectors/storage/s3/airflow</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/connectors/storage/s3/cli</loc>
     <priority>1.00</priority>
   </url>
   <url>
@@ -913,10 +485,6 @@
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/deployment/security/okta/troubleshoot</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
     <loc>https://docs.open-metadata.org/deployment/security/okta</loc>
     <priority>1.00</priority>
   </url>
@@ -973,22 +541,6 @@
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/deployment/upgrade/versions/011-to-012</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/deployment/upgrade/versions/012-to-013</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/deployment/upgrade/versions/013-to-100</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/deployment/upgrade/versions/100-to-110</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
     <loc>https://docs.open-metadata.org/deployment/upgrade</loc>
     <priority>1.00</priority>
   </url>
@@ -1025,30 +577,6 @@
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/ecs/ingest</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/etc/openmetadata/jwtkeys/private_key.der</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/etc/openmetadata/jwtkeys/public_key.der</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/features/integrations/great-expectations</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/features/integrations/prefect</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/how-to-guides/admin-guide/bots</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
     <loc>https://docs.open-metadata.org/how-to-guides/admin-guide/cli-ingestion-with-basic-auth</loc>
     <priority>1.00</priority>
   </url>
@@ -1061,20 +589,7 @@
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>
-      https://docs.open-metadata.org/how-to-guides/admin-guide/how-to-add-custom-property-to-an-entity</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/how-to-guides/admin-guide/how-to-add-language-support</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
     <loc>https://docs.open-metadata.org/how-to-guides/admin-guide/how-to-ingest-metadata</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/how-to-guides/admin-guide/how-to-organise-teams-and-users</loc>
     <priority>1.00</priority>
   </url>
   <url>
@@ -1188,53 +703,6 @@
   </url>
   <url>
     <loc>https://docs.open-metadata.org/how-to-guides/data-governance/classification</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/how-to-guides/data-governance/glossary-classification/assets</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>
-      https://docs.open-metadata.org/how-to-guides/data-governance/glossary-classification/best-practices</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>
-      https://docs.open-metadata.org/how-to-guides/data-governance/glossary-classification/classification</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>
-      https://docs.open-metadata.org/how-to-guides/data-governance/glossary-classification/classify-assets</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>
-      https://docs.open-metadata.org/how-to-guides/data-governance/glossary-classification/glossary-terms</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>
-      https://docs.open-metadata.org/how-to-guides/data-governance/glossary-classification/glossary</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>
-      https://docs.open-metadata.org/how-to-guides/data-governance/glossary-classification/import-glossary</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>
-      https://docs.open-metadata.org/how-to-guides/data-governance/glossary-classification/setup-glossary</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/how-to-guides/data-governance/glossary-classification/tiers</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/how-to-guides/data-governance/glossary-classification</loc>
     <priority>1.00</priority>
   </url>
   <url>
@@ -1522,336 +990,4 @@
     <loc>https://docs.open-metadata.org/how-to-guides/user-guide-for-data-stewards</loc>
     <priority>1.00</priority>
   </url>
-  <url>
-    <loc>
-      https://docs.open-metadata.org/images/v1.0//features/ingestion/workflows/dbt/dbt-features/dbt-tags.png</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/images/v1.0/cli-ingestion-with-basic-auth/bot-list.png</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/images/v1.0/cli-ingestion-with-basic-auth/bot-token.png</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/images/v1.0/connectors/add-service-metadata.png</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/images/v1.0/connectors/airbyte/add-new-service.png</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/images/v1.0/connectors/airbyte/select-service.png</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/images/v1.0/connectors/airbyte/service-connection.png</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/images/v1.0/connectors/airflow/add-new-service.png</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/images/v1.0/connectors/airflow/airflow-connection.png</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/images/v1.0/connectors/airflow/lineage-backend-dag.png</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/images/v1.0/connectors/airflow/lineage-backend-lineage.png</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/images/v1.0/connectors/airflow/select-service.png</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/images/v1.0/connectors/airflow/service-connection.png</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/images/v1.0/connectors/amundsen/create-service-6.png</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/images/v1.0/connectors/amundsen/create-service-7.png</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/images/v1.0/connectors/amundsen/create-service-8.png</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/images/v1.0/connectors/athena/add-new-service.png</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/images/v1.0/connectors/athena/select-service.png</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/images/v1.0/connectors/athena/service-connection.png</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/images/v1.0/connectors/atlas/add-service.png</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/images/v1.0/connectors/atlas/atlas-service.png</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/images/v1.0/connectors/atlas/connection-options.png</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/images/v1.0/connectors/atlas/service-name.png</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/images/v1.0/connectors/atlas/ui-service-name.png</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/images/v1.0/connectors/azuresql/add-new-service.png</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/images/v1.0/connectors/azuresql/autocommit.png</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/images/v1.0/connectors/azuresql/azure-firewall.png</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/images/v1.0/connectors/azuresql/select-service.png</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/images/v1.0/connectors/azuresql/service-connection.png</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/images/v1.0/connectors/bigquery/add-new-service.png</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/images/v1.0/connectors/bigquery/create-role-1.png</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/images/v1.0/connectors/bigquery/create-role-2.png</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/images/v1.0/connectors/bigquery/create-role-3.png</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/images/v1.0/connectors/bigquery/create-role-4.png</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/images/v1.0/connectors/bigquery/create-role-5.png</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/images/v1.0/connectors/bigquery/create-role-6.png</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/images/v1.0/connectors/bigquery/select-service.png</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/images/v1.0/connectors/bigquery/service-connection.png</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/images/v1.0/connectors/clickhouse/add-new-service.png</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/images/v1.0/connectors/clickhouse/select-service.png</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/images/v1.0/connectors/clickhouse/service-connection.png</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>
-      https://docs.open-metadata.org/images/v1.0/connectors/configure-metadata-ingestion-dashboard.png</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>
-      https://docs.open-metadata.org/images/v1.0/connectors/configure-metadata-ingestion-database.png</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>
-      https://docs.open-metadata.org/images/v1.0/connectors/configure-metadata-ingestion-messaging.png</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>
-      https://docs.open-metadata.org/images/v1.0/connectors/configure-metadata-ingestion-storage.png</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/images/v1.0/connectors/create-database-service.png</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/images/v1.0/connectors/create-service.png</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/images/v1.0/connectors/credentials/airflow-connection.png</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/images/v1.0/connectors/custom-connector.png</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/images/v1.0/connectors/dagster/add-new-service.png</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/images/v1.0/connectors/dagster/select-service.png</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/images/v1.0/connectors/dagster/service-connection.png</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/images/v1.0/connectors/dashboard/add-new-service.png</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/images/v1.0/connectors/dashboard/select-service.png</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/images/v1.0/connectors/dashboard/service-connection.png</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/images/v1.0/connectors/databricks/Connection-details.png</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/images/v1.0/connectors/databricks/Generate-token.png</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>
-      https://docs.open-metadata.org/images/v1.0/connectors/databricks/Open-create-tocken-page.png</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/images/v1.0/connectors/databricks/Open-sql-warehouse.png</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/images/v1.0/connectors/databricks/add-new-service.png</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/images/v1.0/connectors/databricks/select-service.png</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/images/v1.0/connectors/databricks/select-sql-warehouse.png</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/images/v1.0/connectors/databricks/service-connection.png</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>
-      https://docs.open-metadata.org/images/v1.0/connectors/databrickspipeline/add-new-service.png</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/images/v1.0/connectors/databrickspipeline/select-service.png</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>
-      https://docs.open-metadata.org/images/v1.0/connectors/databrickspipeline/service-connection.png</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/images/v1.0/connectors/datalake/add-new-service.png</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/images/v1.0/connectors/datalake/select-service.png</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>
-      https://docs.open-metadata.org/images/v1.0/connectors/datalake/service-connection-using-aws-s3.png</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>
-      https://docs.open-metadata.org/images/v1.0/connectors/datalake/service-connection-using-azure.png</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>
-      https://docs.open-metadata.org/images/v1.0/connectors/datalake/service-connection-using-gcs.png</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/images/v1.0/connectors/datalake/service-connection.png</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/images/v1.0/connectors/datalake/troubleshoot-clientId.png</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/images/v1.0/connectors/db2/add-new-service.png</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/images/v1.0/connectors/db2/select-service.png</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/images/v1.0/connectors/db2/service-connection.png</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/images/v1.0/connectors/deltalake/add-new-service.png</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/images/v1.0/connectors/deltalake/select-service.png</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/images/v1.0/connectors/deltalake/service-connection.png</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/images/v1.0/connectors/domodashboard/add-new-service.png</loc>
-    <priority>1.00</priority>
-  </url>
-
 </urlset>

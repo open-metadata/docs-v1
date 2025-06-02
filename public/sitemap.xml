@@ -4,22 +4,10 @@
    <sitemap>
       <loc>https://docs.open-metadata.org/sitemap1.xml</loc>
    </sitemap>
-   <sitemap>
+  <sitemap>
       <loc>https://docs.open-metadata.org/sitemap2.xml</loc>
    </sitemap>
   <sitemap>
       <loc>https://docs.open-metadata.org/sitemap3.xml</loc>
-   </sitemap>
-  <sitemap>
-      <loc>https://docs.open-metadata.org/sitemap4.xml</loc>
-   </sitemap>
-  <sitemap>
-      <loc>https://docs.open-metadata.org/sitemap5.xml</loc>
-   </sitemap>
-  <sitemap>
-      <loc>https://docs.open-metadata.org/sitemap6.xml</loc>
-   </sitemap>
-  <sitemap>
-      <loc>https://docs.open-metadata.org/sitemap7.xml</loc>
    </sitemap>
 </sitemapindex>
