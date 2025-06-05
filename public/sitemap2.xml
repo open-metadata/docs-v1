@@ -7,39 +7,6 @@
   xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
   <url>
-    <loc>https://docs.open-metadata.org/main-concepts/high-level-design</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/main-concepts/metadata-standard/apis</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>
-      https://docs.open-metadata.org/main-concepts/metadata-standard/schemas/entity/services/connections/messaging/pulsarconnection</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/main-concepts/metadata-standard/schemas</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/quick-start/local-docker-deployment</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/quick-start/local-kubernetes-deployment</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/quick-start/sandbox</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/sdk/java</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
     <loc>https://docs.open-metadata.org/sdk/python/build-connector/bulk-sink</loc>
     <priority>1.00</priority>
   </url>
@@ -56,15 +23,7 @@
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/sdk/python/entities/ml-model</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
     <loc>https://docs.open-metadata.org/sdk/python/ingestion/lineage</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/sdk/python</loc>
     <priority>1.00</priority>
   </url>
   <url>
@@ -72,538 +31,454 @@
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/v1.0.0/deployment/backup-restore-metadata</loc>
+    <loc>https://docs.open-metadata.org/connectors/dashboard/domo-dashboard/yaml</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/v1.0.0/deployment/bare-metal</loc>
+    <loc>https://docs.open-metadata.org/connectors/dashboard/domo-dashboard</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/v1.1.1/deployment/security/enable-ssl</loc>
+    <loc>https://docs.open-metadata.org/connectors/dashboard/looker/yaml</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/dashboard/domo-dashboard/yaml</loc>
+    <loc>https://docs.open-metadata.org/connectors/dashboard/looker</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/dashboard/domo-dashboard</loc>
+    <loc>https://docs.open-metadata.org/connectors/dashboard/metabase/yaml</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/dashboard/looker/yaml</loc>
+    <loc>https://docs.open-metadata.org/connectors/dashboard/metabase</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/dashboard/looker</loc>
+    <loc>https://docs.open-metadata.org/connectors/dashboard/mode/yaml</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/dashboard/metabase/yaml</loc>
+    <loc>https://docs.open-metadata.org/connectors/dashboard/mode</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/dashboard/metabase</loc>
+    <loc>https://docs.open-metadata.org/connectors/dashboard/powerbi/yaml</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/dashboard/mode/yaml</loc>
+    <loc>https://docs.open-metadata.org/connectors/dashboard/powerbi</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/dashboard/mode</loc>
+    <loc>https://docs.open-metadata.org/connectors/dashboard/qliksense/yaml</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/dashboard/powerbi/yaml</loc>
+    <loc>https://docs.open-metadata.org/connectors/dashboard/qliksense</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/dashboard/powerbi</loc>
+    <loc>https://docs.open-metadata.org/connectors/dashboard/quicksight/yaml</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/dashboard/qliksense/yaml</loc>
+    <loc>https://docs.open-metadata.org/connectors/dashboard/quicksight</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/dashboard/qliksense</loc>
+    <loc>https://docs.open-metadata.org/connectors/dashboard/redash/yaml</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/dashboard/quicksight/yaml</loc>
+    <loc>https://docs.open-metadata.org/connectors/dashboard/redash</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/dashboard/quicksight</loc>
+    <loc>https://docs.open-metadata.org/connectors/dashboard/superset/yaml</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/dashboard/redash/yaml</loc>
+    <loc>https://docs.open-metadata.org/connectors/dashboard/superset</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/dashboard/redash</loc>
+    <loc>https://docs.open-metadata.org/connectors/dashboard/tableau/yaml</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/dashboard/superset/yaml</loc>
+    <loc>https://docs.open-metadata.org/connectors/dashboard/tableau</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/dashboard/superset</loc>
+    <loc>https://docs.open-metadata.org/connectors/dashboard</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/dashboard/tableau/yaml</loc>
+    <loc>https://docs.open-metadata.org/connectors/database/athena/yaml</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/dashboard/tableau</loc>
+    <loc>https://docs.open-metadata.org/connectors/database/athena</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/dashboard</loc>
+    <loc>https://docs.open-metadata.org/connectors/database/azuresql/yaml</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/athena/yaml</loc>
+    <loc>https://docs.open-metadata.org/connectors/database/azuresql</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/athena</loc>
+    <loc>https://docs.open-metadata.org/connectors/database/bigquery/yaml</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/azuresql/yaml</loc>
+    <loc>https://docs.open-metadata.org/connectors/database/bigquery</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/azuresql</loc>
+    <loc>https://docs.open-metadata.org/connectors/database/clickhouse/yaml</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/bigquery/yaml</loc>
+    <loc>https://docs.open-metadata.org/connectors/database/clickhouse</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/bigquery</loc>
+    <loc>https://docs.open-metadata.org/connectors/database/couchbase/yaml</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/clickhouse/yaml</loc>
+    <loc>https://docs.open-metadata.org/connectors/database/couchbase</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/clickhouse</loc>
+    <loc>https://docs.open-metadata.org/connectors/database/databricks/yaml</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/couchbase/yaml</loc>
+    <loc>https://docs.open-metadata.org/connectors/database/databricks</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/couchbase</loc>
+    <loc>https://docs.open-metadata.org/connectors/database/db2/yaml</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/databricks/yaml</loc>
+    <loc>https://docs.open-metadata.org/connectors/database/db2</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/databricks</loc>
+    <loc>https://docs.open-metadata.org/connectors/database/deltalake/yaml</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/datalake/yaml</loc>
+    <loc>https://docs.open-metadata.org/connectors/database/deltalake</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/datalake</loc>
+    <loc>https://docs.open-metadata.org/connectors/database/domo-database/yaml</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/db2/yaml</loc>
+    <loc>https://docs.open-metadata.org/connectors/database/domo-database</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/db2</loc>
+    <loc>https://docs.open-metadata.org/connectors/database/druid</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/deltalake/yaml</loc>
+    <loc>https://docs.open-metadata.org/connectors/database/dynamodb/yaml</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/deltalake</loc>
+    <loc>https://docs.open-metadata.org/connectors/database/dynamodb</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/domo-database/yaml</loc>
+    <loc>https://docs.open-metadata.org/connectors/database/glue</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/domo-database</loc>
+    <loc>https://docs.open-metadata.org/connectors/database/greenplum/yaml</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/druid</loc>
+    <loc>https://docs.open-metadata.org/connectors/database/greenplum</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/dynamodb/yaml</loc>
+    <loc>https://docs.open-metadata.org/connectors/database/hive/yaml</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/dynamodb</loc>
+    <loc>https://docs.open-metadata.org/connectors/database/hive</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/glue</loc>
+    <loc>https://docs.open-metadata.org/connectors/database/impala/yaml</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/greenplum/yaml</loc>
+    <loc>https://docs.open-metadata.org/connectors/database/impala</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/greenplum</loc>
+    <loc>https://docs.open-metadata.org/connectors/database/mariadb/yaml</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/hive/yaml</loc>
+    <loc>https://docs.open-metadata.org/connectors/database/mariadb</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/hive</loc>
+    <loc>https://docs.open-metadata.org/connectors/database/mongodb/yaml</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/impala/yaml</loc>
+    <loc>https://docs.open-metadata.org/connectors/database/mongodb</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/impala</loc>
+    <loc>https://docs.open-metadata.org/connectors/database/mssql/yaml</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/mariadb/yaml</loc>
+    <loc>https://docs.open-metadata.org/connectors/database/mssql</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/mariadb</loc>
+    <loc>https://docs.open-metadata.org/connectors/database/mysql/yaml</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/mongodb/yaml</loc>
+    <loc>https://docs.open-metadata.org/connectors/database/mysql</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/mongodb</loc>
+    <loc>https://docs.open-metadata.org/connectors/database/oracle/yaml</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/mssql/yaml</loc>
+    <loc>https://docs.open-metadata.org/connectors/database/oracle</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/mssql</loc>
+    <loc>https://docs.open-metadata.org/connectors/database/pinotdb/yaml</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/mysql/yaml</loc>
+    <loc>https://docs.open-metadata.org/connectors/database/pinotdb</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/mysql</loc>
+    <loc>https://docs.open-metadata.org/connectors/database/postgres/yaml</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/oracle/yaml</loc>
+    <loc>https://docs.open-metadata.org/connectors/database/postgres</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/oracle</loc>
+    <loc>https://docs.open-metadata.org/connectors/database/presto/yaml</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/pinotdb/yaml</loc>
+    <loc>https://docs.open-metadata.org/connectors/database/presto</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/pinotdb</loc>
+    <loc>https://docs.open-metadata.org/connectors/database/redshift/yaml</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/postgres/yaml</loc>
+    <loc>https://docs.open-metadata.org/connectors/database/redshift</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/postgres</loc>
+    <loc>https://docs.open-metadata.org/connectors/database/salesforce/yaml</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/presto/yaml</loc>
+    <loc>https://docs.open-metadata.org/connectors/database/salesforce</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/presto</loc>
+    <loc>https://docs.open-metadata.org/connectors/database/sap-hana/yaml</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/redshift/yaml</loc>
+    <loc>https://docs.open-metadata.org/connectors/database/sap-hana</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/redshift</loc>
+    <loc>https://docs.open-metadata.org/connectors/database/singlestore/yaml</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/salesforce/yaml</loc>
+    <loc>https://docs.open-metadata.org/connectors/database/singlestore</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/salesforce</loc>
+    <loc>https://docs.open-metadata.org/connectors/database/snowflake/yaml</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/sap-hana/yaml</loc>
+    <loc>https://docs.open-metadata.org/connectors/database/snowflake</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/sap-hana</loc>
+    <loc>https://docs.open-metadata.org/connectors/database/sqlite/yaml</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/singlestore/yaml</loc>
+    <loc>https://docs.open-metadata.org/connectors/database/sqlite</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/singlestore</loc>
+    <loc>https://docs.open-metadata.org/connectors/database/trino/yaml</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/snowflake/yaml</loc>
+    <loc>https://docs.open-metadata.org/connectors/database/trino</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/snowflake</loc>
+    <loc>https://docs.open-metadata.org/connectors/database/unity-catalog/yaml</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/sqlite/yaml</loc>
+    <loc>https://docs.open-metadata.org/connectors/database/unity-catalog</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/sqlite</loc>
+    <loc>https://docs.open-metadata.org/connectors/database/vertica/yaml</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/trino/yaml</loc>
+    <loc>https://docs.open-metadata.org/connectors/database/vertica</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/trino</loc>
+    <loc>https://docs.open-metadata.org/connectors/database</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/unity-catalog/yaml</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/unity-catalog</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/vertica/yaml</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/database/vertica</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/database</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/ingestion/best-practices</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/ingestion/deployment</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/ingestion/lineage/edit-lineage-manually</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/ingestion/lineage</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/ingestion/versioning</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/ingestion/workflows/data-quality/tests</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/ingestion/workflows/data-quality</loc>
+    <loc>https://docs.open-metadata.org/connectors/ingestion/lineage</loc>
     <priority>1.00</priority>
   </url>
   <url>
     <loc>
-      https://docs.open-metadata.org/v1.2.x/connectors/ingestion/workflows/dbt/dbt-troubleshooting</loc>
+      https://docs.open-metadata.org/connectors/ingestion/workflows/dbt/dbt-troubleshooting</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/ingestion/workflows/dbt/ingest-dbt-cli</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>
-      https://docs.open-metadata.org/v1.2.x/connectors/ingestion/workflows/dbt/ingest-dbt-descriptions</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/ingestion/workflows/dbt/ingest-dbt-lineage</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/ingestion/workflows/dbt/ingest-dbt-owner</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/ingestion/workflows/dbt/ingest-dbt-tags</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/ingestion/workflows/dbt/ingest-dbt-ui</loc>
+    <loc>https://docs.open-metadata.org/connectors/ingestion/workflows/dbt/ingest-dbt-cli</loc>
     <priority>1.00</priority>
   </url>
   <url>
     <loc>
-      https://docs.open-metadata.org/v1.2.x/connectors/ingestion/workflows/dbt/setup-multiple-dbt-projects</loc>
+      https://docs.open-metadata.org/connectors/ingestion/workflows/dbt/ingest-dbt-descriptions</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/ingestion/workflows/dbt</loc>
+    <loc>https://docs.open-metadata.org/connectors/ingestion/workflows/dbt/ingest-dbt-lineage</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>
-      https://docs.open-metadata.org/v1.2.x/connectors/ingestion/workflows/lineage/lineage-workflow-query-logs</loc>
+    <loc>https://docs.open-metadata.org/connectors/ingestion/workflows/dbt/ingest-dbt-owner</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/ingestion/workflows/lineage</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>
-      https://docs.open-metadata.org/v1.2.x/connectors/ingestion/workflows/metadata/filter-patterns/database</loc>
+    <loc>https://docs.open-metadata.org/connectors/ingestion/workflows/dbt/ingest-dbt-tags</loc>
     <priority>1.00</priority>
   </url>
   <url>
     <loc>
-      https://docs.open-metadata.org/v1.2.x/connectors/ingestion/workflows/metadata/filter-patterns</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/ingestion/workflows/metadata</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/ingestion/workflows/profiler</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/ingestion/workflows/usage/filter-query-set</loc>
+      https://docs.open-metadata.org/connectors/ingestion/workflows/dbt/setup-multiple-dbt-projects</loc>
     <priority>1.00</priority>
   </url>
   <url>
     <loc>
-      https://docs.open-metadata.org/v1.2.x/connectors/ingestion/workflows/usage/usage-workflow-query-logs</loc>
+      https://docs.open-metadata.org/connectors/ingestion/workflows/lineage/lineage-workflow-query-logs</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/ingestion/workflows/usage</loc>
+    <loc>https://docs.open-metadata.org/connectors/ingestion/workflows/lineage</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/ingestion/workflows</loc>
+    <loc>
+      https://docs.open-metadata.org/connectors/ingestion/workflows/metadata/filter-patterns/database</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/ingestion</loc>
+    <loc>
+      https://docs.open-metadata.org/connectors/ingestion/workflows/metadata/filter-patterns</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/messaging/kafka/yaml</loc>
+    <loc>https://docs.open-metadata.org/connectors/ingestion/workflows/metadata</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/messaging/kafka</loc>
+    <loc>https://docs.open-metadata.org/connectors/ingestion/workflows/usage/filter-query-set</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/messaging/kinesis/yaml</loc>
+    <loc>
+      https://docs.open-metadata.org/connectors/ingestion/workflows/usage/usage-workflow-query-logs</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/messaging/kinesis</loc>
+    <loc>https://docs.open-metadata.org/connectors/ingestion/workflows/usage</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/messaging/redpanda/yaml</loc>
+    <loc>https://docs.open-metadata.org/connectors/ingestion/workflows</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/messaging/redpanda</loc>
+    <loc>https://docs.open-metadata.org/connectors/ingestion</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/messaging</loc>
+    <loc>https://docs.open-metadata.org/connectors/messaging/kafka/yaml</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/metadata/amundsen/yaml</loc>
+    <loc>https://docs.open-metadata.org/connectors/messaging/kinesis/yaml</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/metadata/amundsen</loc>
+    <loc>https://docs.open-metadata.org/connectors/messaging/redpanda/yaml</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/metadata/atlas/yaml</loc>
+    <loc>https://docs.open-metadata.org/connectors/messaging</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/metadata/atlas</loc>
+    <loc>https://docs.open-metadata.org/connectors/metadata/amundsen/yaml</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/metadata</loc>
+    <loc>https://docs.open-metadata.org/connectors/metadata/atlas/yaml</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/ml-model/mlflow/yaml</loc>
+    <loc>https://docs.open-metadata.org/connectors/metadata</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/ml-model/mlflow</loc>
+    <loc>https://docs.open-metadata.org/connectors/ml-model/mlflow/yaml</loc>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/ml-model/sagemaker/yaml</loc>
-    <priority>1.00</priority>
-  </url>
-  <url>
-    <loc>https://docs.open-metadata.org/v1.2.x/connectors/ml-model/sagemaker</loc>
+    <loc>https://docs.open-metadata.org/connectors/ml-model/sagemaker/yaml</loc>
     <priority>1.00</priority>
   </url>
 
