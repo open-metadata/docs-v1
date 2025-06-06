@@ -101,16 +101,6 @@ export async function getServerSideProps(
     // Get all paths for the docs
     const paths = await getPaths();
 
-    // Default props
-    const props: SlugProps = {
-      content: "",
-      slug: [],
-      versionsList: [],
-      partials: {},
-      pageTitle: "",
-      pageDescription: "",
-    };
-
     // Check if the version field passed in context params is proper version format
     const isVersionValid = REGEX_VERSION_MATCH.test(version);
 
@@ -131,9 +121,11 @@ export async function getServerSideProps(
           notFound: true,
         };
       }
+    } else {
+      return {
+        notFound: true,
+      };
     }
-
-    return { props };
   } catch {
     return {
       notFound: true,
