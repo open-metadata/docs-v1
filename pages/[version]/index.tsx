@@ -147,14 +147,20 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
         // and redirect to the respective version URL in this case to v1.4.x
         const majorVersionMatch = getMajorVersionMatch(versionsList, version);
 
-        return {
-          redirect: {
-            permanent: false,
-            destination: `/${
-              majorVersionMatch?.value ?? "latest" // If major version match is not present, redirect to latest
-            }`,
-          },
-        };
+        if (majorVersionMatch) {
+          return {
+            redirect: {
+              permanent: false,
+              destination: `/${
+                majorVersionMatch?.value ?? "latest" // If major version match is not present, redirect to latest
+              }`,
+            },
+          };
+        } else {
+          return {
+            notFound: true,
+          };
+        }
       }
     } else {
       // If the version value is not of accepted version format, redirect to the latest version page

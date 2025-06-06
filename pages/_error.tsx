@@ -99,6 +99,12 @@ export async function getServerSideProps() {
   try {
     const versionsList: Array<SelectOption<string>> = getVersionsList();
 
+    if (!versionsList.length) {
+      return {
+        notFound: true,
+      };
+    }
+
     return {
       props: { versionsList },
     };

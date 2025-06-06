@@ -126,6 +126,10 @@ export async function getServerSideProps(
 
       if (!isUndefined(returnObj)) {
         return returnObj;
+      } else {
+        return {
+          notFound: true,
+        };
       }
     }
 
