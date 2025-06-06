@@ -84,28 +84,28 @@ p {
 }
 
 h1 {
-  font-size: 32px;
-  line-height: 38px;
+  font-size: 36px;
+  line-height: 44px;
 }
 
 h2 {
-  font-size: 21px;
+  font-size: 30px;
 }
 
 h3 {
-  font-size: 18px;
+  font-size: 24px;
 }
 
 h4 {
-  font-size: 16px;
+  font-size: 20px;
 }
 
 h5 {
-  font-size: 12px;
+  font-size: 18px;
 }
 
 h6 {
-  font-size: 8px;
+  font-size: 16px;
 }
 
 a {
