@@ -52,13 +52,13 @@ You can check these two examples on how to:
 - Use pipes to stream the result directly to S3 (or AWS blob storage) ([link](https://devcoops.com/pg_dump-to-s3-directly/?utm_content=cmp-true)).
 - Dump to a file and copy to storage ([link](https://gist.github.com/bbcoimbra/0914c7e0f96e8ad53dfad79c64863c87)).
 
-# Example with Docker
+## Example with Docker
 
 Start a local instance of OpenMetadata using the `docker-compose` file provided in the repository. Then, we can use the following commands to backup the metadata:
 
-## MySQL
+### MySQL
 
-### 1. Start a local docker deployment
+#### 1. Start a local docker deployment
 
 ```shell
 docker/run_local_docker.sh
@@ -66,7 +66,7 @@ docker/run_local_docker.sh
 
 Ingest some data...
 
-### 2. Backup and Restore
+#### 2. Backup and Restore
 
 ```shell
 BACKUP_FILE="backup_$(date +%Y%m%d%H%M).sql"
@@ -82,16 +82,16 @@ docker compose exec mysql  mysql -u root -ppassword -e "flush privileges;"
 docker compose exec -T ingestion mysql -u openmetadata_user -popenmetadata_password -h mysql -P 3306 restore < $BACKUP_FILE
 ```
 
-### 3. Restart the docker deployment with the restored database
+#### 3. Restart the docker deployment with the restored database
 
 ```shell
 export OM_DATABASE=restore
 docker compose -f $DOCKER_COMPOSE_FILE up -d
 ```
 
-## PostgreSQL
+### PostgreSQL
 
-### 1. Start a local docker deployment
+#### 1. Start a local docker deployment
 
 ```shell
 docker/run_local_docker.sh -d postgres
@@ -99,7 +99,7 @@ docker/run_local_docker.sh -d postgres
 
 Ingest some data...
 
-### 2. Backup and Restore
+#### 2. Backup and Restore
 
 ```shell
 BACKUP_FILE="backup_$(date +%Y%m%d%H%M).sql"
@@ -113,7 +113,7 @@ docker compose exec -e PGPASSWORD=openmetadata_password postgresql psql -U postg
 docker compose exec -e PGPASSWORD=openmetadata_password -T ingestion psql -U openmetadata_user -h postgresql -d restore < $BACKUP_FILE
 ```
 
-### 3. Restart the docker deployment with the restored database
+#### 3. Restart the docker deployment with the restored database
 
 ```shell
 export OM_DATABASE=restore

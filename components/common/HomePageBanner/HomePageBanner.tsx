@@ -36,7 +36,7 @@ export default function HomePageBanner({
     <div className={styles.Container}>
       <div className={styles.Content}>
         <div className="mb-8 flex flex-col items-center">
-          <div className={styles.Heading}>{bannerInfo.title}</div>
+          <h1 className={styles.Heading}>{bannerInfo.title}</h1>
           <section className={styles.Divider} />
           <p className="text-xl text-center">{bannerInfo.description}</p>
         </div>

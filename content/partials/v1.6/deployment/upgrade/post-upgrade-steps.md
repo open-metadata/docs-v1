@@ -1,4 +1,4 @@
-# Post-Upgrade Steps
+## Post-Upgrade Steps
 
 ### Reindex
 
@@ -132,13 +132,13 @@ kubectl logs job/<job_name>
 
 If you are seeing broken dags select all the pipelines from all the services and re deploy the pipelines.
 
-# Openmetadata-ops Script
+## Openmetadata-ops Script
 
-## Overview
+### Overview
 
 The `openmetadata-ops` script is designed to manage and migrate databases and search indexes, reindex existing data into Elastic Search or OpenSearch, and redeploy service pipelines.
 
-## Usage
+### Usage
 
 ``` bash
 sh openmetadata-ops.sh [-dhV] [COMMAND]

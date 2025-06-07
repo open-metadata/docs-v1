@@ -84,30 +84,33 @@ p {
 }
 
 h1 {
-  font-size: 32px;
-  padding-bottom: 16px;
-  border-bottom: 1px solid var(--default-border-color);
-  line-height: 38px;
+  font-size: 36px;
+  line-height: 44px;
 }
 
 h2 {
-  font-size: 21px;
+  font-size: 30px;
+  line-height: 38px;
 }
 
 h3 {
-  font-size: 18px;
+  font-size: 24px;
+  line-height: 32px;
 }
 
 h4 {
-  font-size: 16px;
+  font-size: 20px;
+  line-height: 30px;
 }
 
 h5 {
-  font-size: 12px;
+  font-size: 18px;
+  line-height: 28px;
 }
 
 h6 {
-  font-size: 8px;
+  font-size: 16px;
+  line-height: 24px;
 }
 
 a {
