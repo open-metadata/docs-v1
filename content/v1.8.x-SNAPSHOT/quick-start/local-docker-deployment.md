@@ -12,14 +12,14 @@ content below 👇
 
 {%  youtube videoId="ld43_jafL9w" start="0:00" end="6:47" width="800px" height="450px" /%}
 
-## Requirements (OSX, Linux and Windows)
+# Requirements (OSX, Linux and Windows)
 
 Please ensure your host system meets the requirements listed below. Then continue to the Procedure for installing
 OpenMetadata.
 
-### OSX and Linux
+## OSX and Linux
 
-#### Docker (version 20.10.0 or greater)
+### Docker (version 20.10.0 or greater)
 
 [Docker](https://docs.docker.com/get-started/overview/) is an open-source platform for developing, shipping, and running applications. It enables you to separate your applications from your infrastructure, so you can deliver software quickly using OS-level virtualization. It helps
 deliver software in packages called Containers.
@@ -38,7 +38,7 @@ You must allocate at least `6 GiB` of memory and `4 vCPUs` to Docker in order to
 
 {% /note %}
 
-#### Docker Compose (version v2.1.1 or greater)
+### Docker Compose (version v2.1.1 or greater)
 
 The Docker `compose` package enables you to define and run multi-container Docker applications. The compose command
 integrates compose functions into the Docker platform, making them available from the Docker command-line interface (
@@ -60,7 +60,7 @@ Upon running this command you should see output similar to the following.
 Docker Compose version v2.1.1
 ```
 
-#### Install Docker Compose Version 2.0.0 on Linux
+### Install Docker Compose Version 2.0.0 on Linux
 
 Follow the instructions [here](https://docs.docker.com/compose/cli-command/#install-on-linux) to install docker compose version 2.0.0
 
@@ -86,9 +86,9 @@ Follow the instructions [here](https://docs.docker.com/compose/cli-command/#inst
     > Docker Compose version v2.2.3
     ```
 
-### Windows
+## Windows
 
-#### WSL2, Ubuntu 20.04, and Docker for Windows
+### WSL2, Ubuntu 20.04, and Docker for Windows
 
 - Install [WSL2](https://ubuntu.com/wsl)
 - Install [Ubuntu 20.04](https://www.microsoft.com/en-us/p/ubuntu-2004-lts/9n6svws3rx71)

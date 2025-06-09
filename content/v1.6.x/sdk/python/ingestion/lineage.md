@@ -269,7 +269,7 @@ You can also get lineage by ID using the `get_lineage_by_id` method, which accep
 
 {% /note %}
 
-## Lineage Details
+# Lineage Details
 
 Note how when adding lineage information we give to the API an [AddLineage](https://github.com/open-metadata/OpenMetadata/blob/main/openmetadata-spec/src/main/resources/json/schema/api/lineage/addLineage.json)
 Request. This is composed of an Entity Edge, whose definition you can find [here](https://github.com/open-metadata/OpenMetadata/blob/main/openmetadata-spec/src/main/resources/json/schema/type/entityLineage.json#L75).
@@ -306,7 +306,7 @@ table_c = CreateTableRequest(
 table_c_entity = metadata.create_or_update(data=table_c)
 ```
 
-### Column Level Lineage
+## Column Level Lineage
 
 We can start by linking our columns together. For that we are going to create:
 
@@ -339,7 +339,7 @@ This information will now be reflected in the UI as well:
 
 {% image src="/images/v1.6/sdk/python/ingestion/lineage/lineage-col.png" alt="lineage-col" /%}
 
-#### Adding a Pipeline Reference
+### Adding a Pipeline Reference
 
 We can as well pass the reference to the pipeline used to create the lineage (e.g., the ETL feeding the tables).
 
@@ -400,7 +400,7 @@ will be surfaced soon. Thanks!
 
 {% /note %}
 
-## Automated SQL lineage
+# Automated SQL lineage
 
 In case you want OpenMetadata to identify the lineage based on the sql query, then you can make use of the method `add_lineage_by_query` of the python SDK to parser the sql and generate the lineage in OpenMetadata.
 
@@ -424,7 +424,7 @@ metadata.add_lineage_by_query(
 Above example would create a lineage between `target_table` and `source_table` within `my_service` database service.
 
 
-### Automated SQL lineage via CLI
+## Automated SQL lineage via CLI
 
 To create the automated sql lineage via CLI, you need to make sure that you have installed the openmetadata-ingestion package in your local environment using command `pip install openmetadata-ingestion`.
 

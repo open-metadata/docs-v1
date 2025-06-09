@@ -35,7 +35,7 @@ Note that the `PIPELINE_SERVICE_CLIENT_SSL_CERT_PATH` should be the path to the 
 in your Airflow deployment.
 
 
-## Enable SSL in Airflow
+# Enable SSL in Airflow
 
 {% note %}
 
@@ -51,7 +51,7 @@ Airflow has two [configurations](https://airflow.apache.org/docs/apache-airflow/
 
 Those are files that will need to be local to the Airflow deployment.
 
-### Generate Certs
+## Generate Certs
 
 We can generate these files following this [SO](https://stackoverflow.com/questions/47883769/how-to-enable-ssl-on-apache-airflow) thread:
 
@@ -81,7 +81,7 @@ It is important that the `Common Name` is the host name that will be hosting Air
 
 This command will generate the pair `airflow.key` and `airflow.crt`.
 
-### Include Certificates
+## Include Certificates
 
 Once the files are generated we need to add them to the Airflow deployment. For example, if using the `openmetadata-ingestion`
 image, you can update it to add the following lines:
@@ -96,7 +96,7 @@ ENV AIRFLOW__WEBSERVER__WEB_SERVER_SSL_KEY=/opt/airflow/airflow.key
 
 If you now start Airflow with these changes, it will be running at `https://localhost:8080`.
 
-### Update the OpenMetadata configuration
+## Update the OpenMetadata configuration
 
 Since Airflow will be using SSL, we need to update the OpenMetadata Server configuration to use the certificates
 when preparing the connection to the Airflow Webserver.

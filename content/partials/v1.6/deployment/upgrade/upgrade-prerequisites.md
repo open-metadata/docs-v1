@@ -1,4 +1,4 @@
-## Prerequisites
+# Prerequisites
 
 Everytime that you plan on upgrading OpenMetadata to a newer version, make sure to go over all these steps:
 
@@ -46,7 +46,7 @@ You can refer to the following guide to get more details about the backup and re
   {% /inlineCallout %}
 {% /inlineCalloutContainer %}
 
-### Understanding the "Running" State in OpenMetadata
+## Understanding the "Running" State in OpenMetadata
 
 In OpenMetadata, the **"Running"** state indicates that the OpenMetadata server has received a response from Airflow confirming that a workflow is in progress. However, if Airflow unexpectedly stops or crashes before it can send a failure status update through the **Failure Callback**, OpenMetadata remains unaware of the workflow’s actual state. As a result, the workflow may appear to be stuck in **"Running"** even though it is no longer executing.  
 
@@ -57,13 +57,13 @@ This situation can also occur during an OpenMetadata upgrade. If an ingestion pi
   alt="Running State in OpenMetadata"
   caption="Running State in OpenMetadata" /%}
 
-#### Expected Steps to Resolve  
+### Expected Steps to Resolve  
 To resolve this issue:  
 - Ensure that Airflow is restarted properly after an unexpected shutdown.  
 - Manually update the pipeline status if necessary.  
 - Check Airflow logs to verify if the DAG execution was interrupted.  
 
-#### Update `sort_buffer_size` (MySQL) or `work_mem` (Postgres)
+### Update `sort_buffer_size` (MySQL) or `work_mem` (Postgres)
 
 Before running the migrations, it is important to update these parameters to ensure there are no runtime errors.
 A safe value would be setting them to 20MB.
@@ -101,11 +101,11 @@ during the migration after bumping this value, you can increase them further.
 
 After the migration is finished, you can revert this changes.
 
-## Backward Incompatible Changes
+# Backward Incompatible Changes
 
-### 1.6.5
+## 1.6.5
 
-#### Airflow 2.10.5
+### Airflow 2.10.5
 
 We are upgrading the Ingestion Airflow version to 2.10.5.
 
@@ -115,9 +115,9 @@ on your end the `DB_SCHEME` environment variable in the ingestion image, make su
 
 We have updated the default values accordingly.
 
-### 1.6.4
+## 1.6.4
 
-#### Airflow 2.9.3
+### Airflow 2.9.3
 
 We are upgrading the Ingestion Airflow version to 2.9.3.
 
@@ -128,9 +128,9 @@ on your end the `DB_SCHEME` environment variable in the ingestion image, make su
 We have updated the default values accordingly.
 
 
-### 1.6.2
+## 1.6.2
 
-#### Executable Logical Test Suites
+### Executable Logical Test Suites
 
 We are introducing a new feature that allows users to execute logical test suites. This feature will allow users to run
 groups of Data Quality tests, even if they belong to different tables (or even services!). Note that before, you could
@@ -141,7 +141,7 @@ From the UI, you can now create a new Test Suite, add any tests you want and cre
 This change, however, requires some adjustments if you are directly interacting with the OpenMetadata API or if you
 are running the ingestions externally:
 
-##### `/executable` endpoints Changes
+#### `/executable` endpoints Changes
 
 CRUD operations around "executable" Test Suites - the ones directly related to a single table - were managed by the
 `/executable` endpoints, e.g., `POST /v1/dataQuality/testSuites/executable`. We'll keep this endpoints until the next release,
@@ -154,7 +154,7 @@ In the meantime, you can use the `/executable` endpoints to create and manage th
 headers in the response. We recommend migrating to the new endpoints as soon as possible to avoid any issues when the `/executable`
 endpoints get completely removed.
 
-##### YAML Changes
+#### YAML Changes
 
 If you're running the DQ Workflows externally AND YOU ARE NOT STORING THE SERVICE INFORMATION IN OPENMETADATA, this is how they'll change:
 
@@ -244,9 +244,9 @@ there's nothing you need to do. The ingestion will automatically pick up the con
 
 {% /note %}
 
-### 1.6.0
+## 1.6.0
 
-#### Ingestion Workflow Status
+### Ingestion Workflow Status
 
 We are updating how we compute the success percentage. Previously, we took into account for partial success the results
 of the Source (e.g., the tables we were able to properly retrieve from Snowflake, Redshift, etc.). This means that we had 
@@ -256,13 +256,13 @@ workflow as successful. However, any errors when sending the information to Open
 Now, we're changing this behavior to consider the success rate of all the steps involved in the workflow. The UI will
 then show more `Partial Success` statuses rather than `Failed`, properly reflecting the real state of the workflow.
 
-#### Database Metadata & Lineage Workflow
+### Database Metadata & Lineage Workflow
 
 With 1.6 Release we are moving the `View Lineage` & `Stored Procedure Lineage` computation from metadata workflow to lineage workflow.
 
 This means that we are removing the `overrideViewLineage` property from the `DatabaseServiceMetadataPipeline` schema which will be moved to the `DatabaseServiceQueryLineagePipeline` schema.
 
-#### Profiler & Auto Classification Workflow
+### Profiler & Auto Classification Workflow
 
 We are creating a new `Auto Classification` workflow that will take care of managing the sample data and PII classification,
 which was previously done by the Profiler workflow. This change will allow us to have a more modular and scalable system.
@@ -282,7 +282,7 @@ removing these properties as well.
 - If you still want to use the Auto PII Classification and sampling features, you can create the new workflow
 from the UI.
 
-#### RBAC Policy Updates for `EditTags`
+### RBAC Policy Updates for `EditTags`
 
 We have given more granularity to the `EditTags` policy. Previously, it was a single policy that allowed the user to manage
 any kind of tagging to the assets, including adding tags, glossary terms, and Tiers. 
@@ -294,14 +294,14 @@ split into:
 - `EditGlossaryTerms`: to add Glossary Terms.
 - `EditTier`: to add Tier tags.
 
-#### Collate - Metadata Actions for ML Tagging - Deprecation Notice
+### Collate - Metadata Actions for ML Tagging - Deprecation Notice
 
 Since we are introducing the `Auto Classification` workflow, **we are going to remove in 1.7 the `ML Tagging` action**
 from the Metadata Actions. That feature will be covered already by the `Auto Classification` workflow, which even brings
 more flexibility allow the on-the-fly usage of the sample data for classification purposes without having to store
 it in the database.
 
-#### Service Spec for the Ingestion Framework
+### Service Spec for the Ingestion Framework
 
 This impacts users who maintain their own connectors for the ingestion framework that are **NOT** part of the
 [OpenMetadata python library (openmetadata-ingestion)](https://github.com/open-metadata/OpenMetadata/tree/ff261fb3738f3a56af1c31f7151af9eca7a602d5/ingestion/src/metadata/ingestion/source).
@@ -312,15 +312,15 @@ You can see [postgres](https://github.com/open-metadata/OpenMetadata/blob/main/i
 implementation example.
 
 
-#### Fivetran
+### Fivetran
 
 The filtering of Fivetran pipelines now supports using their names instead of IDs. This change may affect existing configurations that rely on pipeline IDs for filtering.
 
-#### DBT Cloud Pipeline Service
+### DBT Cloud Pipeline Service
 
 We are removing the field `jobId` which we required to ingest dbt metadata from a specific job, instead of this we added a new field called `jobIds` which will accept multiple job ids to ingest metadata from multiple jobs.
 
-#### MicroStrategy
+### MicroStrategy
 
 The `serviceType` for MicroStrategy connector is renamed from `Mstr` to `MicroStrategy`.
 

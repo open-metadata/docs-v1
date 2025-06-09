@@ -13,7 +13,7 @@ alt="Overview of Data Assets"
 caption="Overview of Data Assets"
 /%}
 
-## Data Asset Tabs
+# Data Asset Tabs
 
 The data asset details page displays the Source, Owner (Team/User), Tier, Type, Usage, and Description on the top panel. There are separate tabs each for Schema, Activity Feeds & Tasks, Sample Data, Queries, Profiler & Data Quality, Lineage, Custom Properties, Config, Details, Features, Children, and Executions based on the type of data asset selected. Let's take a look at each of the tabs.
 
@@ -32,7 +32,7 @@ The data asset details page displays the Source, Owner (Team/User), Tier, Type, 
 | **Features** | {% icon iconName="cross" /%} | {% icon iconName="cross" /%} | {% icon iconName="cross" /%} | {% icon iconName="cross" /%} | {% icon iconName="check" /%} | {% icon iconName="cross" /%} |
 | **Children** | {% icon iconName="cross" /%} | {% icon iconName="cross" /%} | {% icon iconName="cross" /%} | {% icon iconName="cross" /%} | {% icon iconName="cross" /%} | {% icon iconName="check" /%} |
 
-### Schema Tab
+## Schema Tab
 
 The Schema Data tab is displayed only for Tables, Topics, and Containers. Schema will display the columns, type of column, and description, alongwith the tags, and glossary terms associated with each column. The table also displays details on the **Frequently Joined Tables, Tags, and Glossary Terms** associated with it.
 
@@ -42,7 +42,7 @@ alt="Schema Tab"
 caption="Schema Tab"
 /%}
 
-### Activity Feeds & Tasks Tab
+## Activity Feeds & Tasks Tab
 
 The Activity Feeds & Task tab is displayed for all types of data assets. It displays all the tasks and mentions for a particular data asset.
 
@@ -52,7 +52,7 @@ alt="Activity Feeds & Tasks Tab"
 caption="Activity Feeds & Tasks Tab"
 /%}
 
-### Sample Data Tab
+## Sample Data Tab
 
 During metadata ingestion, you can opt to bring in sample data. If sample data is enabled, the same is displayed here. The Sample Data tab is displayed only for Tables and Topics.
 
@@ -62,7 +62,7 @@ alt="Sample Data Tab"
 caption="Sample Data Tab"
 /%}
 
-### Queries Tab
+## Queries Tab
 
 The Queries tab is displayed only for Tables. It displays the SQL queries run against a particular table. It provides the details on when the query was run and the amount of time taken. It also displays if the query was used by other tables. You can also add new queries.
 
@@ -72,7 +72,7 @@ alt="Queries Tab"
 caption="Queries Tab"
 /%}
 
-### Profiler & Data Quality Tab
+## Profiler & Data Quality Tab
 
 The Profiler & Data Quality tab is displayed only for Tables. It has three sub-tabs for **Table Profile, Column Profile, and Data Quality**. The Profiler brings in details like number of rows and columns for the table profile alongwith the details of the data volume, table updates, and volume change. For the column profile, it brings in the details of the type of each column, the value count, null value %, distinct value %, unique %, etc. Data quality tests can be run on this sample data. We can add tests at the table and column level.
 
@@ -90,7 +90,7 @@ caption="Column Profile of a Table"
 
 Check for more detailed information on the [Profiler and Data Quality Tab](/how-to-guides/data-quality-observability/profiler/tab).
 
-### Lineage Tab
+## Lineage Tab
 
 The lineage tab is displayed for all types of data assets. The lineage view displays comprehensive lineage to capture the relation between the data assets. OpenMetadata UI displays end-to-end lineage traceability for the table and column levels. It displays both the upstream and downstream dependencies for each node.
 
@@ -108,7 +108,7 @@ alt="Data Asset Preview in Lineage Tab"
 caption="Data Asset Preview in Lineage Tab"
 /%}
 
-### Custom Properties Tab
+## Custom Properties Tab
 
 OpenMetadata uses a schema-first approach. We also support custom properties for all types of data assets. Organizations can extend the attributes as required to capture custom metadata. The Custom Properties tab shows up for all types of data assets. User can add or edit the custom property values for the data assets from this tab. Learn [How to Create a Custom Property for a Data Asset](/how-to-guides/guide-for-data-users/custom)
 
@@ -118,11 +118,11 @@ alt="Enter the Value for a Custom Property"
 caption="Enter the Value for a Custom Property"
 /%}
 
-### Config Tab
+## Config Tab
 
 The Config tab is displayed only for Topics.
 
-### Details Tab
+## Details Tab
 
 The Details tab is displayed only for Dashboards and ML Models. In case of Dashboards, the Details tab displays the chart name, type of chart, and description of the chart. It also displays the associated tags for each chart.
 {% image
@@ -138,7 +138,7 @@ alt="ML Models: Details Tab"
 caption="ML Models: Details Tab"
 /%}
 
-### Executions Tab
+## Executions Tab
 
 The Executions tab is displayed only for Pipelines. It displays the Date, Time, and Status of the pipelines. You can get a quick glance of the status in terms of Success, Failure, Pending, and Aborted. The status can be viewed as a Chronological list or as a tree. You can filter by status as well as by date.
 
@@ -148,7 +148,7 @@ alt="Pipelines: Executions Tab"
 caption="Pipelines: Executions Tab"
 /%}
 
-### Features Tab
+## Features Tab
 
 The Features tab is displayed only for ML Models. It displays a Description of the ML Model, and the features that have been used. Each feature will have further details on the Type of feature, Algorithm, Description, Sources, and the associated Glossary Terms and Tags.
 
@@ -158,11 +158,11 @@ alt="ML Models: Features Tab"
 caption="ML Models: Features Tab"
 /%}
  
-### Children Tab
+## Children Tab
 
 The Children tab is displayed only for Containers.
 
-## Version History and Other Details
+# Version History and Other Details
 
 On the top right of the data asset details page, we can view details on:
 - **Tasks:** The circular icon displays the number of open tasks.

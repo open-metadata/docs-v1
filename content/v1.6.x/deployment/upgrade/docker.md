@@ -19,9 +19,9 @@ Below we have highlighted the steps needed to upgrade to the latest version with
 
 {% partial file="/v1.6/deployment/upgrade/upgrade-prerequisites.md" /%}
 
-## Upgrade Process
+# Upgrade Process
 
-### Replace the docker compose file
+## Replace the docker compose file
 
 - Stop the running compose deployment with below command 
 ```
@@ -39,7 +39,7 @@ docker compose -f docker-compose.yml up -d
 {% partial file="/v1.6/deployment/upgrade/post-upgrade-steps.md" /%}
 
 
-## Troubleshooting
+# Troubleshooting
 
 #### Permission Denied when running  ```metadata openmetadata-imports-migration```
 If you have a `Permission Denied` error thrown when running ```metadata openmetadata-imports-migration --change-config-file-path``` you might need to change the permission on the `/opt/airflow/dags` folder. SSH into the ingestion container and check the permission on the folder running the below commands

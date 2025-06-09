@@ -3,11 +3,11 @@ title: Database service setup
 slug: /quick-start/getting-started/day-1/database-service-setup
 ---
 
-# Setting Up a Database Service for Metadata Extraction
+## Setting Up a Database Service for Metadata Extraction
 
 You can quickly set up a database service for metadata extraction in OpenMetadata SaaS. Below is an example of how to configure a connection using the `Snowflake` Connector:
 
-## 1. Log in to OpenMetadata SaaS 
+1. ### Log in to OpenMetadata SaaS 
 - Navigate to **Settings > Services > Databases**.
 - Click on **Add New Service**.
 
@@ -16,7 +16,7 @@ You can quickly set up a database service for metadata extraction in OpenMetadat
   alt="Adding Database Service"
   caption="Adding Database Service" /%}
 
-## 2. Select Database Type
+2. ### Select Database Type
 
 - Choose the database type for your service. In this example, select `Snowflake`.
 - Enter the required details, such as the **Name** and **Description**, to identify the database.
@@ -26,7 +26,7 @@ You can quickly set up a database service for metadata extraction in OpenMetadat
   alt="Selecting Database Service"
   caption="Selecting Database Service" /%}
 
-## 3. Enter Connection Details
+3. ### Enter Connection Details
 - Provide the necessary connection parameters, such as hostname, port, credentials, etc.
 - The side panel offers guidance with available documentation, and you can also refer to the specific `Snowflake` Connector [documentation](/connectors)for more information.
 
@@ -40,7 +40,7 @@ You can quickly set up a database service for metadata extraction in OpenMetadat
   alt="Updating Connection Details"
   caption="Updating Connection Details" /%}
 
-## 4. Test the Connection
+4. ### Test the Connection
 Click Test Connection to verify the setup. This will check if OpenMetadata can reach the Snowflake service.
 
 {% image
@@ -48,19 +48,19 @@ Click Test Connection to verify the setup. This will check if OpenMetadata can r
   alt="Verifying the Test Connection"
   caption="Verifying the Test Connection" /%}
 
-## 5. Set Default Data Filters
+5. ### Set Default Data Filters
 
 Configure default filters to control which databases, schemas, and tables are included or excluded during ingestion.
 
-### Default Database Filter Pattern
+#### Default Database Filter Pattern
 - **Includes / Excludes**:  
   To add a filter pattern, simply type it in and press `Enter`.
 
-### Default Schema Filter Pattern
+#### Default Schema Filter Pattern
 - **Includes / Excludes**:  
   To add a filter pattern, simply type it in and press `Enter`.
 
-### Default Table Filter Pattern
+#### Default Table Filter Pattern
 - **Includes / Excludes**:  
   To add a filter pattern, simply type it in and press `Enter`.
 

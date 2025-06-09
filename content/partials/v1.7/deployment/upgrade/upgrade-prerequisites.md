@@ -1,4 +1,4 @@
-## Prerequisites
+# Prerequisites
 
 Everytime that you plan on upgrading OpenMetadata to a newer version, make sure to go over all these steps:
 
@@ -46,7 +46,7 @@ You can refer to the following guide to get more details about the backup and re
   {% /inlineCallout %}
 {% /inlineCalloutContainer %}
 
-### Understanding the "Running" State in OpenMetadata
+## Understanding the "Running" State in OpenMetadata
 
 In OpenMetadata, the **"Running"** state indicates that the OpenMetadata server has received a response from Airflow confirming that a workflow is in progress. However, if Airflow unexpectedly stops or crashes before it can send a failure status update through the **Failure Callback**, OpenMetadata remains unaware of the workflow’s actual state. As a result, the workflow may appear to be stuck in **"Running"** even though it is no longer executing.  
 
@@ -57,13 +57,13 @@ This situation can also occur during an OpenMetadata upgrade. If an ingestion pi
   alt="Running State in OpenMetadata"
   caption="Running State in OpenMetadata" /%}
 
-#### Expected Steps to Resolve
+### Expected Steps to Resolve
 To resolve this issue:  
 - Ensure that Airflow is restarted properly after an unexpected shutdown.  
 - Manually update the pipeline status if necessary.  
 - Check Airflow logs to verify if the DAG execution was interrupted.
 
-#### Update `sort_buffer_size` (MySQL) or `work_mem` (Postgres)
+### Update `sort_buffer_size` (MySQL) or `work_mem` (Postgres)
 
 Before running the migrations, it is important to update these parameters to ensure there are no runtime errors.
 A safe value would be setting them to 20MB.
@@ -101,11 +101,11 @@ during the migration after bumping this value, you can increase them further.
 
 After the migration is finished, you can revert this changes.
 
-## Backward Incompatible Changes
+# Backward Incompatible Changes
 
-### 1.7.0
+## 1.7.0
 
-#### Removing support for Python 3.8
+### Removing support for Python 3.8
 
 Python 3.8 was [officially EOL on 2024-10-07](https://devguide.python.org/versions/). Some of our dependencies have already
 started removing support for higher versions, and are following suit to ensure we are using the latest and most stable
@@ -116,7 +116,7 @@ This means that for Release 1.7, the supported Python versions for the Ingestion
 We were already shipping our Docker images with Python 3.10, so this change should not affect you if you are using our Docker images.
 However, if you installed the `openmetadata-ingestion` package directly, please make sure to update your Python version to 3.9 or higher.
 
-#### OpenSearch Settings Update
+### OpenSearch Settings Update
 
 OpenSearch has a different default value of `max_clause_count` than Elasticsearch. This means that if you are using OpenSearch, 
 you will need to update the `max_clause_count` setting in your OpenSearch configuration:

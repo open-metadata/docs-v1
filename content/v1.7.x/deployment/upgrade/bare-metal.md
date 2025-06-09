@@ -15,9 +15,9 @@ This guide assumes that you have an OpenMetadata deployment that you installed a
 
 {% partial file="/v1.7/deployment/upgrade/upgrade-prerequisites.md" /%}
 
-## Upgrade process
+# Upgrade process
 
-### Step 1: Download the binaries for the release you want to install
+## Step 1: Download the binaries for the release you want to install
 
 OpenMetadata release binaries are maintained as GitHub releases.
 
@@ -29,7 +29,7 @@ To download a specific release binary:
 - Download the release binaries. The release binaries will be in a compressed tar file named using the following 
   convention, `openmetadata-x.y.z.tar.gz` Where `x`, `y`, `z` are the major, minor, and patch release numbers, respectively.
 
-### Step 2: Extract the release binaries from the download file
+## Step 2: Extract the release binaries from the download file
 
 Using the command-line tool or application of your choice, extract the release binaries. 
 
@@ -41,7 +41,7 @@ tar xfz openmetadata-*.tar.gz
 
 This will create a directory with the same name as the download file minus the `.tar` and `.gz` extensions.
 
-### Step 3: Navigate into the directory created by extracting the release binaries
+## Step 3: Navigate into the directory created by extracting the release binaries
 
 Change into the new directory by issuing a command similar to the following.
 
@@ -56,7 +56,7 @@ command.
 cd openmetadata-1.1.0
 ```
 
-### Step 4: Stop the OpenMetadata server
+## Step 4: Stop the OpenMetadata server
 
 OpenMetadata ships with a few control scripts. One is `openmetadata.sh`. This script enables you to start, stop, and
 perform other deployment operations on the OpenMetadata server. 
@@ -70,7 +70,7 @@ directory of your current installation by running the following command:
 ./bin/openmetadata.sh stop
 ```
 
-### Step 5: Migrate the database schemas and ElasticSearch indexes
+## Step 5: Migrate the database schemas and ElasticSearch indexes
 
 The `bootstrap/openmetadata-ops.sh` script enables you to perform a number of operations on the OpenMetadata database (in
 MySQL) and index (in Elasticsearch).
@@ -80,7 +80,7 @@ MySQL) and index (in Elasticsearch).
 ```
 
 
-### Step 6: Restart the OpenMetadata server
+## Step 6: Restart the OpenMetadata server
 
 Once you've dropped and recreated your data in the new version, restart the OpenMetadata server using the new release
 binaries. You may restart the server by running the following command.

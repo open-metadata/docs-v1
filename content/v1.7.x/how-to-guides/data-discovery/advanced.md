@@ -34,7 +34,7 @@ For example, we can set up a complex query as follows:
 - Group one set of conditions together by defining the `Owner`. You can add multiple conditions to define different owners and use the `OR` condition to ensure that the owner is any one among them.
 
 {% note noteType="Tip" %} 
-## Note on Custom Properties in Elasticsearch Search
+### Note on Custom Properties in Elasticsearch Search
 
 Elasticsearch does not support searching for custom properties with the following formats: 
 

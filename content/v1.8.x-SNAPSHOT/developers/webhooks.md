@@ -16,7 +16,7 @@ Please use the same webhook config that you had saved from previous version to c
 
 {% /note %}
 
-## Webhooks
+# Webhooks
 
 A webhook is a way for an app to provide other applications with real-time information.
 A webhook delivers data to other applications as it happens, meaning you get data immediately.

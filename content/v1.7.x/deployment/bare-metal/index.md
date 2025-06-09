@@ -76,16 +76,16 @@ OpenMetadata versions have specific Airflow compatibility requirements to ensure
 
 These settings apply as well when using managed instances, such as RDS or AWS OpenSearch.
 
-## Procedure
+# Procedure
 
-### 1. Download the distribution
+## 1. Download the distribution
 
 Visit the [releases page](https://github.com/open-metadata/OpenMetadata/releases/latest) and download the latest binary release.
 
 Release binaries follow the naming convention of `openmetadata-x.y.z.tar.gz`. Where `x`, `y`, and `z` represent the 
 major, minor, and patch release numbers.
 
-### 2. Untar the release download
+## 2. Untar the release download
 
 Once the tar file has downloaded, run the following command, updated if necessary for the version of OpenMetadata that you downloaded.
 
@@ -93,7 +93,7 @@ Once the tar file has downloaded, run the following command, updated if necessar
 tar -zxvf openmetadata-*.tar.gz
 ```
 
-### 3. Navigate to the directory created
+## 3. Navigate to the directory created
 
 ```commandline
 cd openmetadata-*
@@ -103,7 +103,7 @@ Review and update the `openmetadata.yaml` configurations to match your environme
 as the connection to the MySQL database or ElasticSearch. You can find more information about these configurations
 [here](/deployment/configuration).
 
-### 4. Prepare the OpenMetadata Database and Indexes
+## 4. Prepare the OpenMetadata Database and Indexes
 
 The command below will generate all the necessary tables and indexes in ElasticSearch.
 
@@ -117,7 +117,7 @@ Note that if there's any data in that database, this command will drop it!
 ./bootstrap/openmetadata-ops.sh drop-create
 ```
 
-### 5. Start OpenMetadata
+## 5. Start OpenMetadata
 
 ```commandline
 ./bin/openmetadata.sh start
@@ -125,12 +125,12 @@ Note that if there's any data in that database, this command will drop it!
 
 We recommend configuring `serviced` to monitor the OpenMetadata command to restart in case of any failures.
 
-### Run OpenMetadata with a load balancer
+## Run OpenMetadata with a load balancer
 
 You may put one or more OpenMetadata instances behind a load balancer for reverse proxying.
 To do this you will need to add one or more entries to the configuration file for your reverse proxy.
 
-#### Apache mod_proxy
+### Apache mod_proxy
 
 To use the Apache mod_proxy module as a reverse proxy for load balancing, update the VirtualHost tag in your
 Apache config file to resemble the following.
@@ -149,7 +149,7 @@ Apache config file to resemble the following.
 </VirtualHost>
 ```
 
-#### Nginx
+### Nginx
 
 To use OpenMetadata behind an Nginx reverse proxy, add an entry resembling the following the http context of your Nginx
 configuration file for each OpenMetadata instance.
@@ -165,7 +165,7 @@ server {
 }
 ```
 
-### Run OpenMetadata with AWS Services or your hosted DB/ElasticSearch
+## Run OpenMetadata with AWS Services or your hosted DB/ElasticSearch
 
 If you are running OpenMetadata in AWS, it is recommended to use [Amazon RDS](https://docs.aws.amazon.com/rds/index.html) and [Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/?id=docs_gateway).
 
@@ -182,7 +182,7 @@ Once you have the RDS and OpenSearch Services Setup, you can update the environm
 
 Below are the environment variables for OpenMetadata Server
 
-#### Configure MySQL connection
+### Configure MySQL connection
 
 ```
 # MySQL Environment Variables
@@ -196,7 +196,7 @@ DB_PORT='<YOUR_MYSQL_PORT>'
 OM_DATABASE='<YOUR_MYSQL_DATABASE_NAME>'
 ```
 
-#### Configure Postgres Connection
+### Configure Postgres Connection
 
 ```
 # Postgres Environment Variables
@@ -210,7 +210,7 @@ DB_PORT='<YOUR_POSTGRES_PORT>'
 OM_DATABASE='<YOUR_POSTGRES_DATABASE_NAME>'
 ```
 
-#### Configure ElasticSearch Connection
+### Configure ElasticSearch Connection
 ```
 ELASTICSEARCH_SOCKET_TIMEOUT_SECS='60'
 ELASTICSEARCH_USER='<ES_USERNAME>'
@@ -223,7 +223,7 @@ ELASTICSEARCH_PASSWORD='<ES_PASSWORD>'
 ELASTICSEARCH_CLUSTER_ALIAS='<clusterAlias>'
 ```
 
-#### Configure OpenSearch
+### Configure OpenSearch
 ```
 # ElasticSearch Configurations
 SEARCH_TYPE="opensearch"
@@ -240,7 +240,7 @@ If you want to separate indexes for production and non-production environments, 
 
 {% /note %}
 
-#### Configure Ingestion
+### Configure Ingestion
 
 ```
 PIPELINE_SERVICE_CLIENT_ENDPOINT="<INGESTION_ENDPOINT_URL_WITH_SCHEME>"
@@ -265,9 +265,9 @@ When setting up environment file if your custom password includes any special ch
 
 {% /note %}
 
-### Troubleshooting
+## Troubleshooting
 
-#### Java Memory Heap Issue
+### Java Memory Heap Issue
 
 If your openmetadata application logs speaks about the below issue -
 
@@ -290,7 +290,7 @@ The flag `Xmx` specifies the maximum memory allocation pool for a Java virtual m
 
 Restart the OpenMetadata Application using `./bin/openmetadata.sh start` which will start the service using a linux process.
 
-### Enable Security
+## Enable Security
 
 Please follow our [Enable Security Guide](/deployment/bare-metal/security) to configure security for your OpenMetadata
 installation.

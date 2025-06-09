@@ -339,11 +339,11 @@ Learn how to configure Airflow with SSL.
 {% /inlineCallout %}
 {% /inlineCalloutContainer %}
 
-## Troubleshooting
+# Troubleshooting
 
-### Ingestion Pipeline deployment issues
+## Ingestion Pipeline deployment issues
 
-#### Airflow APIs Not Found
+### Airflow APIs Not Found
 
 Validate the installation, making sure that from the OpenMetadata server you can reach the Airflow host, and the
 call to `/health` gives us the proper response:
@@ -355,7 +355,7 @@ $ curl -XGET ${PIPELINE_SERVICE_CLIENT_ENDPOINT}/api/v1/openmetadata/health
 
 Also, make sure that the version of your OpenMetadata server matches the `openmetadata-ingestion` client version installed in Airflow.
 
-#### GetServiceException: Could not get service from type XYZ
+### GetServiceException: Could not get service from type XYZ
 
 In this case, the OpenMetadata client running in the Airflow host had issues getting the service you are trying to
 deploy from the API. Note that once pipelines are deployed, the auth happens via the `ingestion-bot`. Here there are
@@ -376,7 +376,7 @@ a couple of points to validate:
     {"code":403,"message":"Principal: CatalogPrincipal{name='ingestion-bot'} operations [ViewAll] not allowed"}
     ```
 
-#### AirflowException: Dag 'XYZ' could not be found
+### AirflowException: Dag 'XYZ' could not be found
 
 If you're seeing a similar error to
 
@@ -395,7 +395,7 @@ in your distributed environment.
 We have specific instructions on how to set up the shared volumes in Kubernetes depending on your cloud deployment [here](/deployment/kubernetes).
 
 
-#### ClientInitializationError
+### ClientInitializationError
 
 The main root cause here is a version mismatch between the server and the client. Make sure that the `openmetadata-ingestion`
 python package you installed on the Airflow host has the same version as the OpenMetadata server. For example, to set up
@@ -403,7 +403,7 @@ OpenMetadata server 0.13.2 you will need to install `openmetadata-ingestion~=0.1
 the version as in `x.y.z`. Any differences after the PATCH versioning are not taken into account, as they are usually
 small bugfixes on existing functionalities.
 
-#### 401 Unauthorized
+### 401 Unauthorized
 
 If you get this response during a `Test Connection` or `Deploy`:
 
@@ -426,7 +426,7 @@ pipelineServiceClientConfiguration:
 You should validate if the content of the environment variables `AIRFLOW_USERNAME` and `AIRFLOW_PASSWORD` allow you to
 authenticate to the instance.
 
-#### CentOS / Debian - The name 'template_blueprint' is already registered
+### CentOS / Debian - The name 'template_blueprint' is already registered
 
 If you are using a CentOS / Debian system to install the `openmetadata-managed-apis` you might encounter the following issue
 when starting Airflow:
