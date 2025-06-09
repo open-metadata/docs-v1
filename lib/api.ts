@@ -45,7 +45,7 @@ export const getVersionsList = () => {
       .filter((version) => REGEX_VERSION_MATCH.test(version))
       .map((version) => ({
         label: version,
-        value: version === DEFAULT_VERSION ? "latest" : version,
+        value: version,
       }));
 
     const sortedVersion = sortBy(versionsList, "label").reverse();

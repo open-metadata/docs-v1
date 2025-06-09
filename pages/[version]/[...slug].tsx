@@ -9,7 +9,6 @@ import { SelectOption } from "../../components/SelectDropdown/SelectDropdown";
 import TopNav from "../../components/TopNav/TopNav";
 import { API_AND_SDK_MENU_ITEMS } from "../../constants/categoriesNav.constants";
 import {
-  DEFAULT_VERSION,
   REGEX_VERSION_MATCH,
 } from "../../constants/version.constants";
 import { getVersionsList } from "../../lib/api";
@@ -85,18 +84,6 @@ export async function getServerSideProps(
 ): Promise<GetServerSidePropsResult<SlugProps>> {
   try {
     const version = context.params.version as string;
-    const slug = context.params.slug as string[];
-    const pathWithoutVersion = slug.join("/");
-
-    // If the version in the URL is the default version, change the path to /latest
-    if (version === DEFAULT_VERSION) {
-      return {
-        redirect: {
-          permanent: false,
-          destination: `/latest/${pathWithoutVersion}`,
-        },
-      };
-    }
 
     // Get all paths for the docs
     const paths = await getPaths();

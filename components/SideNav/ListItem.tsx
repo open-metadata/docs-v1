@@ -15,7 +15,7 @@ export default function ListItem({
   fontWeight,
 }: Readonly<ListItemProps>) {
   const router = useRouter();
-  const { docVersion, enableVersion } = useDocVersionContext();
+  const { enableVersion } = useDocVersionContext();
   const linkRef = useRef<HTMLAnchorElement>();
 
   const isDropdown = item.children && item.children.length > 0;
@@ -36,7 +36,7 @@ export default function ListItem({
     setIsOpen((open) => !open);
   };
 
-  const urlWithVersion = getUrl({ url: item.url, docVersion, enableVersion });
+  const urlWithVersion = getUrl({ url: item.url, docVersion: router.query.version as string, enableVersion });
 
   const linkItem = useMemo(() => {
     return (

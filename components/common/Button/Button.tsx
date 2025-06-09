@@ -4,6 +4,7 @@ import { useDocVersionContext } from "../../../context/DocVersionContext";
 import { getUrl } from "../../../utils/CommonUtils";
 import styles from "./Button.module.css";
 import ParamLink from "../../ParamLink";
+import { useRouter } from "next/router";
 
 interface Props extends HTMLAttributes<HTMLButtonElement> {
   href?: string;
@@ -21,12 +22,12 @@ export default function Button({
   style,
   isExternalLink = false,
 }: Props) {
-  const { docVersion, enableVersion } = useDocVersionContext();
-
+  const { enableVersion } = useDocVersionContext();
+  const router = useRouter();
   return type === "link" ? (
     <ParamLink
       className={classNames(styles.Container, className)}
-      href={getUrl({ url: href, docVersion, enableVersion, isExternalLink })}
+      href={getUrl({ url: href, docVersion: router.query.version as string, enableVersion, isExternalLink })}
       id={id}
       style={style}
     >

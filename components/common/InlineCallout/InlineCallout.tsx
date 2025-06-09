@@ -7,6 +7,7 @@ import { ReactNode, useMemo } from "react";
 import { useDocVersionContext } from "../../../context/DocVersionContext";
 import styles from "./InlineCallout.module.css";
 import ParamLink from "../../ParamLink";
+import { useRouter } from "next/router";
 
 interface InlineCalloutProps {
   icon: string;
@@ -23,8 +24,8 @@ const InlineCallout = ({
   href,
   isExternalLink = false,
 }: InlineCalloutProps) => {
-  const { docVersion, enableVersion } = useDocVersionContext();
-
+  const { enableVersion } = useDocVersionContext();
+  const router = useRouter();
   const iconComponent = useMemo(() => {
     switch (icon) {
       case "celebration":
@@ -41,7 +42,7 @@ const InlineCallout = ({
   return (
     <ParamLink
       className={classNames(styles.Container)}
-      href={getUrl({ url: href, docVersion, enableVersion, isExternalLink })}
+      href={getUrl({ url: href, docVersion: router.query.version as string, enableVersion, isExternalLink })}
       target={isExternalLink ? "_blank" : "_self"}
     >
       <span className={classNames(styles.IconContainer)}>{iconComponent}</span>

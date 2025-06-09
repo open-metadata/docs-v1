@@ -12,9 +12,11 @@ import { Heading } from "../Heading/Heading";
 import styles from "./Roadmap.module.css";
 import RoadmapFeatureItem from "./RoadmapFeatureItem/RoadmapFeatureItem";
 import ParamLink from "../ParamLink";
+import { useRouter } from "next/router";
 
 function Roadmap() {
-  const { docVersion, enableVersion } = useDocVersionContext();
+  const router = useRouter();
+  const { enableVersion } = useDocVersionContext();
   const [showLeftShadow, setShowLeftShadow] = useState(false);
   const [showRightShadow, setShowRightShadow] = useState(true);
   const tableRef = useRef(null);
@@ -72,7 +74,7 @@ function Roadmap() {
       <p>
         You can check the latest release{" "}
         <ParamLink
-          href={getUrl({ url: ALL_RELEASES_URL, docVersion, enableVersion })}
+          href={getUrl({ url: ALL_RELEASES_URL, docVersion: router.query.version as string, enableVersion })}
           name="here"
         />
         .

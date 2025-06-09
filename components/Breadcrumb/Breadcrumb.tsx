@@ -5,6 +5,7 @@ import { useDocVersionContext } from "../../context/DocVersionContext";
 import styles from "./Breadcrumb.module.css";
 import ParamLink from "../ParamLink";
 import { getUrl } from "../../utils/CommonUtils";
+import { useRouter } from "next/router";
 
 interface Crumb {
   title: string;
@@ -13,7 +14,8 @@ interface Crumb {
 }
 
 export default function Breadcrumb({ slug }: { slug: string[] }) {
-  const { docVersion, enableVersion } = useDocVersionContext();
+  const router = useRouter();
+  const { enableVersion } = useDocVersionContext();
   const breadcrumb: Crumb[] = [
     {
       title: "Home",
@@ -34,7 +36,7 @@ export default function Breadcrumb({ slug }: { slug: string[] }) {
       {breadcrumb.map((crumb, idx) => {
         const hrefString = getUrl({
           url: crumb.path,
-          docVersion,
+          docVersion: router.query.version as string,
           enableVersion,
         });
         return (

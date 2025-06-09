@@ -5,6 +5,7 @@ import styles from "./Card.module.css";
 import { getUrl } from "../../../utils/CommonUtils";
 import { useDocVersionContext } from "../../../context/DocVersionContext";
 import ParamLink from "../../ParamLink";
+import { useRouter } from "next/router";
 
 interface Props {
   heading: string;
@@ -21,12 +22,12 @@ export default function Card({
   isExternalLink = false,
   icon,
 }: Props) {
-  const { docVersion, enableVersion } = useDocVersionContext();
-
+  const { enableVersion } = useDocVersionContext();
+  const router = useRouter();
   return (
     <ParamLink
       className={styles.Container}
-      href={getUrl({ url, docVersion, enableVersion, isExternalLink })}
+      href={getUrl({ url, docVersion: router.query.version as string, enableVersion, isExternalLink })}
     >
       {icon ? icon : <Puzzle />}
       <div className={styles.Heading}>{heading}</div>

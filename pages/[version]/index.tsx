@@ -125,19 +125,9 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
     const versionsList: Array<SelectOption<string>> = getVersionsList();
 
     if (isVersionValid) {
-      // If the version in the URL is the default version number, change the path to /latest
-      if (version === DEFAULT_VERSION) {
-        return {
-          redirect: {
-            permanent: false,
-            destination: `/latest`,
-          },
-        };
-      }
-
       // Check if the version is present in the existing versions list
       const isVersionPresent = versionsList.some(
-        (versionOption) => versionOption.value === version
+        (versionOption) => versionOption.value === version || version === 'latest'
       );
 
       if (!isVersionPresent) {
@@ -147,20 +137,14 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
         // and redirect to the respective version URL in this case to v1.4.x
         const majorVersionMatch = getMajorVersionMatch(versionsList, version);
 
-        if (majorVersionMatch) {
-          return {
-            redirect: {
-              permanent: false,
-              destination: `/${
-                majorVersionMatch?.value ?? "latest" // If major version match is not present, redirect to latest
-              }`,
-            },
-          };
-        } else {
-          return {
-            notFound: true,
-          };
-        }
+        return {
+          redirect: {
+            permanent: false,
+            destination: `/${
+              majorVersionMatch?.value ?? "latest" // If major version match is not present, redirect to latest
+            }`,
+          },
+        };
       }
     } else {
       // If the version value is not of accepted version format, redirect to the latest version page

@@ -8,6 +8,7 @@ import {
 import { ConnectorInfoCardProps } from "./ConnectorInfoCard.interface";
 import styles from "./ConnectorInfoCard.module.css";
 import ParamLink from "../ParamLink";
+import { useRouter } from "next/router";
 
 function ConnectorInfoCard({
   name,
@@ -15,7 +16,8 @@ function ConnectorInfoCard({
   platform,
   href,
 }: Readonly<ConnectorInfoCardProps>) {
-  const { docVersion, enableVersion } = useDocVersionContext();
+  const router = useRouter();
+  const { enableVersion } = useDocVersionContext();
 
   // Return null if version is disabled and the connector is not collate only
   // This is to prevent showing the collate only connectors on OSS documentation
@@ -26,7 +28,7 @@ function ConnectorInfoCard({
   return (
     <ParamLink
       className={styles.Container}
-      href={getUrl({ url: href, docVersion, enableVersion })}
+      href={getUrl({ url: href, docVersion: router.query.version as string, enableVersion })}
     >
       <div className="flex items-center gap-2">
         <div className={styles.ImageContainer}>{getConnectorImage(name)}</div>
