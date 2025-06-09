@@ -485,11 +485,6 @@ export const CONNECTORS: Array<ConnectorCategory> = [
     connector: "Metadata",
     services: [
       {
-        url: "/connectors/metadata/alation",
-        icon: "/images/connectors/alation.webp",
-        name: "Alation",
-      },
-      {
         url: "/connectors/metadata/alationsink",
         icon: "/images/connectors/alation.webp",
         name: "AlationSink",
