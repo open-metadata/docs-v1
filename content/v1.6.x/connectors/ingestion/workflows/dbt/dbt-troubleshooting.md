@@ -1,5 +1,5 @@
 ---
-title: dbt Troubleshooting
+title: dbt Troubleshooting for OpenMetadata | Documentation for Setup, Ingestion & Troubleshooting
 slug: /connectors/ingestion/workflows/dbt/dbt-troubleshooting
 ---
 

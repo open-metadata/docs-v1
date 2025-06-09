@@ -1,5 +1,5 @@
 ---
-title: Presto
+title: Presto Connector for OpenMetadata | Documentation for Setup, Ingestion & Troubleshooting
 slug: /connectors/database/presto
 ---
 

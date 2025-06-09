@@ -1,5 +1,5 @@
 ---
-title: SAP HANA
+title: SAP HANA Connector for OpenMetadata | Documentation for Setup, Ingestion & Troubleshooting
 slug: /connectors/database/sap-hana
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: Iceberg
+title: Iceberg Connector for OpenMetadata | Documentation for Setup, Ingestion & Troubleshooting
 slug: /connectors/database/iceberg
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: Salesforce
+title: Salesforce Connector for OpenMetadata | Documentation for Setup, Ingestion & Troubleshooting
 slug: /connectors/database/salesforce
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: Snowflake
+title: Snowflake Connector for OpenMetadata | Documentation for Setup, Ingestion & Troubleshooting
 slug: /connectors/database/snowflake
 ---
 

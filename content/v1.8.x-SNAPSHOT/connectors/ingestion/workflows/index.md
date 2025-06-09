@@ -1,5 +1,5 @@
 ---
-title: Ingestion Workflows
+title: Ingestion Workflows for OpenMetadata | Documentation for Setup, Ingestion & Troubleshooting
 slug: /connectors/ingestion/workflows
 ---
 

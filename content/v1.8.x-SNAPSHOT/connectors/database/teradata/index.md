@@ -1,5 +1,5 @@
 ---
-title: Teradata
+title: Teradata Connector for OpenMetadata | Documentation for Setup, Ingestion & Troubleshooting
 slug: /connectors/database/teradata
 ---
 

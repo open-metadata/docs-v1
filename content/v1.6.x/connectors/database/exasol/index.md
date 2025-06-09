@@ -1,5 +1,5 @@
 ---
-title: Exasol
+title: Exasol Connector for OpenMetadata | Documentation for Setup, Ingestion & Troubleshooting
 slug: /connectors/database/exasol
 ---
 

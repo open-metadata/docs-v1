@@ -1,5 +1,5 @@
 ---
-title: Glue
+title: Glue Connector for OpenMetadata | Documentation for Setup, Ingestion & Troubleshooting
 slug: /connectors/database/glue
 ---
 

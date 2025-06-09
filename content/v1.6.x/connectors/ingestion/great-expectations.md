@@ -1,5 +1,5 @@
 ---
-title: Great Expectations
+title: Great Expectations for OpenMetadata | Documentation for Setup, Ingestion & Troubleshooting
 slug: /connectors/ingestion/great-expectations
 ---
 

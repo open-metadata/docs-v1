@@ -1,5 +1,5 @@
 ---
-title: SAP ERP
+title: SAP ERP Connector for OpenMetadata | Documentation for Setup, Ingestion & Troubleshooting
 slug: /connectors/database/sap-erp
 ---
 

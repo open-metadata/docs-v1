@@ -1,5 +1,5 @@
 ---
-title: Lineage Workflow
+title: Lineage Workflow for OpenMetadata | Documentation for Setup, Ingestion & Troubleshooting
 slug: /connectors/ingestion/workflows/lineage
 ---
 

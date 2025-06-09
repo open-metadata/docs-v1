@@ -1,5 +1,5 @@
 ---
-title: S3 Datalake
+title: S3 Datalake Connector for OpenMetadata | Documentation for Setup, Ingestion & Troubleshooting
 slug: /connectors/database/s3-datalake
 ---
 

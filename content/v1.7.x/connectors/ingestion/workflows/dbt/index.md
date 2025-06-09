@@ -1,5 +1,5 @@
 ---
-title: dbt Workflow
+title: dbt Workflow for OpenMetadata | Documentation for Setup, Ingestion & Troubleshooting
 slug: /connectors/ingestion/workflows/dbt
 ---
 

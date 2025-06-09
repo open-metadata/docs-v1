@@ -1,5 +1,5 @@
 ---
-title: Metadata Versioning
+title: Metadata Versioning for OpenMetadata | Documentation for Setup, Ingestion & Troubleshooting
 slug: /connectors/ingestion/versioning
 ---
 
