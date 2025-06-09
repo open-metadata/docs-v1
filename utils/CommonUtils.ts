@@ -14,7 +14,7 @@ export const generateIdFromHeading = (heading: string) => {
 };
 
 export const getUrlWithVersion = (url: string, docVersion: string) => {
-  return `/${docVersion === DEFAULT_VERSION ? "latest" : docVersion}${url}`;
+  return `/${docVersion}${url}`;
 };
 
 export const getUrl = ({

@@ -11,6 +11,7 @@ import APILeftPanelItem from "../../../APILeftPanelItem/APILeftPanelItem";
 import APISearchModal from "../../../modals/APISearchModal/APISearchModal";
 import styles from "./APIPageSideNav.module.css";
 import ParamLink from "../../../ParamLink";
+import { useRouter } from "next/router";
 
 export interface HeadingObject {
   label: string;
@@ -31,7 +32,8 @@ function APIPageSideNav({ pageInfoObject }: APIPageSideNavProps) {
   const [nestedHeadings, setNestedHeadings] = useState<Array<HeadingObject>>(
     []
   );
-  const { docVersion, enableVersion } = useDocVersionContext();
+  const router = useRouter();
+  const { enableVersion } = useDocVersionContext();
   const [searchModalVisibility, setSearchModalVisibility] =
     useState<boolean>(false);
 
@@ -101,7 +103,7 @@ function APIPageSideNav({ pageInfoObject }: APIPageSideNavProps) {
     <div className={styles.APIPageSideNavContainer}>
       <ParamLink
         className={styles.Heading}
-        href={getUrl({ url: pageInfoObject.value, docVersion, enableVersion })}
+        href={getUrl({ url: pageInfoObject.value, docVersion: router.query.version as string, enableVersion })}
       >
         <OmLogo className={styles.OpenMetadataLogo} />
         <span className={styles.Api}>{pageInfoObject.label}</span>

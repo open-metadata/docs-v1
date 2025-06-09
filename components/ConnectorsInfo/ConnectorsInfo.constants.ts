@@ -488,6 +488,7 @@ export const CONNECTORS: Array<ConnectorCategory> = [
         url: "/connectors/metadata/alation",
         icon: "/images/connectors/alation.webp",
         name: "Alation",
+        collate: true,
       },
       {
         url: "/connectors/metadata/alationsink",

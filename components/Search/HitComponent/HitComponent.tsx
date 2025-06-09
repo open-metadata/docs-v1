@@ -6,10 +6,12 @@ import { useSearchContext } from "../../../context/SearchContext";
 import { getUrl } from "../../../utils/CommonUtils";
 import styles from "../Search.module.css";
 import ParamLink from "../../ParamLink";
+import { useRouter } from "next/router";
 
 function HitComponent(props) {
   const { focusedSearchItem, onChangeFocusedSearchItem } = useSearchContext();
-  const { docVersion, enableVersion } = useDocVersionContext();
+  const { enableVersion } = useDocVersionContext();
+  const router = useRouter();
   const articleItemRef = useRef<HTMLElement>();
 
   const category = props.hit.categories
@@ -38,7 +40,7 @@ function HitComponent(props) {
   return (
     <ParamLink
       className={classNames(styles.HitLink)}
-      href={getUrl({ url: props.hit.objectID, docVersion, enableVersion })}
+      href={getUrl({ url: props.hit.objectID, docVersion: router.query.version as string, enableVersion })}
     >
       <article
         className={classNames(

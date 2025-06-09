@@ -9,12 +9,14 @@ import YouTube from "../Youtube/Youtube";
 import { HomePageBannerProps } from "./HomePageBanner.interface";
 import styles from "./HomePageBanner.module.css";
 import ParamLink from "../../ParamLink";
+import { useRouter } from "next/router";
 
 export default function HomePageBanner({
   quickLinks,
   bannerInfo,
 }: Readonly<HomePageBannerProps>) {
-  const { docVersion, enableVersion } = useDocVersionContext();
+  const { enableVersion } = useDocVersionContext();
+  const router = useRouter();
 
   const getLinkButtonStyleFromTheme = useCallback(
     (theme: string) => {
@@ -59,7 +61,7 @@ export default function HomePageBanner({
                 <ParamLink
                   href={getUrl({
                     url: href,
-                    docVersion,
+                    docVersion: router.query.version as string,
                     enableVersion,
                     isExternalLink: externalURL,
                   })}

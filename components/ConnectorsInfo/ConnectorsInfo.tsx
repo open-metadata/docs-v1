@@ -4,7 +4,6 @@ import { useMemo, useState } from "react";
 import { useDocVersionContext } from "../../context/DocVersionContext";
 import {
   getConnectorsList,
-  getConnectorURL,
   getSortedServiceList,
 } from "../../utils/ConnectorsUtils";
 import Loader from "../common/Loader/Loader";
@@ -12,6 +11,8 @@ import { CONNECTORS } from "./ConnectorsInfo.constants";
 import { ConnectorCategory } from "./ConnectorsInfo.interface";
 import styles from "./ConnectorsInfo.module.css";
 import ParamLink from "../ParamLink";
+import { getUrl } from "../../utils/CommonUtils";
+import { useRouter } from "next/router";
 
 const ConnectorImage = dynamic(() => import("./ConnectorImage"), {
   ssr: false,
@@ -19,7 +20,8 @@ const ConnectorImage = dynamic(() => import("./ConnectorImage"), {
 });
 
 export default function ConnectorsInfo({ tabStyle, activeTabStyle }) {
-  const { docVersion, enableVersion } = useDocVersionContext();
+  const { enableVersion } = useDocVersionContext();
+  const router = useRouter();
 
   const connectorsList = useMemo(
     () => getConnectorsList(CONNECTORS, enableVersion),
@@ -53,7 +55,7 @@ export default function ConnectorsInfo({ tabStyle, activeTabStyle }) {
           {getSortedServiceList(selectedTab.services).map((connector) => (
             <ParamLink
               className={styles.ConnectorItem}
-              href={getConnectorURL(docVersion, connector)}
+              href={getUrl({ url: connector.url, docVersion: router.query.version as string, enableVersion })}
               key={connector.name}
             >
               <ConnectorImage

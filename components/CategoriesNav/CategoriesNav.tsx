@@ -14,7 +14,7 @@ interface Props {
 
 export default function CategoriesNav({ menu }: Props) {
   const router = useRouter();
-  const { docVersion, enableVersion } = useDocVersionContext();
+  const { enableVersion } = useDocVersionContext();
   const { navBarCollapsed } = useNavBarCollapsedContext();
   const category =
     getCategoryByIndex(router.asPath.split('?')[0], enableVersion ? 2 : 1) ?? "";
@@ -26,7 +26,7 @@ export default function CategoriesNav({ menu }: Props) {
     withoutVersionPath?: boolean;
   }) => {
     if (item.value.startsWith("/") && !item.withoutVersionPath) {
-      router.push(getUrlWithVersion(item.value, docVersion));
+      router.push(getUrlWithVersion(item.value, router.query.version as string));
     } else {
       window.open(item.value, "_blank").focus();
     }
@@ -45,7 +45,7 @@ export default function CategoriesNav({ menu }: Props) {
 
           return (
             <ParamLink
-              href={getUrl({ url: item.url, docVersion, enableVersion })}
+              href={getUrl({ url: item.url, docVersion: router.query.version as string, enableVersion })}
               key={item.url}
               className={classNames(
                 styles.NavItem,

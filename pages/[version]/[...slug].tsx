@@ -9,7 +9,6 @@ import { SelectOption } from "../../components/SelectDropdown/SelectDropdown";
 import TopNav from "../../components/TopNav/TopNav";
 import { API_AND_SDK_MENU_ITEMS } from "../../constants/categoriesNav.constants";
 import {
-  DEFAULT_VERSION,
   REGEX_VERSION_MATCH,
 } from "../../constants/version.constants";
 import { getVersionsList } from "../../lib/api";
@@ -85,31 +84,9 @@ export async function getServerSideProps(
 ): Promise<GetServerSidePropsResult<SlugProps>> {
   try {
     const version = context.params.version as string;
-    const slug = context.params.slug as string[];
-    const pathWithoutVersion = slug.join("/");
-
-    // If the version in the URL is the default version, change the path to /latest
-    if (version === DEFAULT_VERSION) {
-      return {
-        redirect: {
-          permanent: false,
-          destination: `/latest/${pathWithoutVersion}`,
-        },
-      };
-    }
 
     // Get all paths for the docs
     const paths = await getPaths();
-
-    // Default props
-    const props: SlugProps = {
-      content: "",
-      slug: [],
-      versionsList: [],
-      partials: {},
-      pageTitle: "",
-      pageDescription: "",
-    };
 
     // Check if the version field passed in context params is proper version format
     const isVersionValid = REGEX_VERSION_MATCH.test(version);
@@ -131,9 +108,11 @@ export async function getServerSideProps(
           notFound: true,
         };
       }
+    } else {
+      return {
+        notFound: true,
+      };
     }
-
-    return { props };
   } catch {
     return {
       notFound: true,

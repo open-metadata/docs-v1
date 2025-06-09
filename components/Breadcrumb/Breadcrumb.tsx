@@ -4,6 +4,8 @@ import React, { ReactNode } from "react";
 import { useDocVersionContext } from "../../context/DocVersionContext";
 import styles from "./Breadcrumb.module.css";
 import ParamLink from "../ParamLink";
+import { getUrl } from "../../utils/CommonUtils";
+import { useRouter } from "next/router";
 
 interface Crumb {
   title: string;
@@ -12,11 +14,12 @@ interface Crumb {
 }
 
 export default function Breadcrumb({ slug }: { slug: string[] }) {
-  const { docVersion, enableVersion } = useDocVersionContext();
+  const router = useRouter();
+  const { enableVersion } = useDocVersionContext();
   const breadcrumb: Crumb[] = [
     {
       title: "Home",
-      path: "",
+      path: "/",
     },
   ];
 
@@ -24,16 +27,18 @@ export default function Breadcrumb({ slug }: { slug: string[] }) {
     slug.forEach((element, idx) => {
       breadcrumb.push({
         title: element,
-        path: slug.slice(0, idx + 1).join("/"),
+        path: `/${slug.slice(0, idx + 1).join("/")}`,
       });
     });
 
   return slug ? (
     <div className={styles.Container}>
       {breadcrumb.map((crumb, idx) => {
-        const hrefString = enableVersion
-          ? `/${docVersion}/${crumb.path}`
-          : `/${crumb.path}`;
+        const hrefString = getUrl({
+          url: crumb.path,
+          docVersion: router.query.version as string,
+          enableVersion,
+        });
         return (
           <React.Fragment key={crumb.path}>
             <ParamLink

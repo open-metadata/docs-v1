@@ -6,6 +6,7 @@ import { ReactNode, useCallback, useEffect, useState } from "react";
 import { MdMenu, MdMenuOpen } from "react-icons/md";
 import { InstantSearch } from "react-instantsearch";
 import {
+  DEFAULT_VERSION,
   REGEX_VERSION_MATCH,
   REGEX_VERSION_MATCH_WITH_SLASH_AT_START,
 } from "../../constants/version.constants";
@@ -42,10 +43,11 @@ export default function TopNav({ versionsList, logo }: Readonly<TopNavProps>) {
     useNavBarCollapsedContext();
 
   const handleVersionChange = (value: string) => {
+    const updatedValue = value === DEFAULT_VERSION ? "latest" : value;
     const path =
       router.asPath === "/"
-        ? `/${value}`
-        : router.asPath.replace(REGEX_VERSION_MATCH, value);
+        ? `/${updatedValue}`
+        : router.asPath.replace(REGEX_VERSION_MATCH, updatedValue);
 
     router.push(path);
   };
@@ -88,7 +90,7 @@ export default function TopNav({ versionsList, logo }: Readonly<TopNavProps>) {
       <div className={styles.CollapsedDivContainer}>
         <div className={styles.LogoContainer}>
           <ParamLink
-            href={getUrl({ url: "/", docVersion, enableVersion })}
+            href={getUrl({ url: "/", docVersion: router.query.version as string, enableVersion })}
             aria-label="omd-icon"
           >
             {isUndefined(logo) ? <OMDIcon /> : logo}

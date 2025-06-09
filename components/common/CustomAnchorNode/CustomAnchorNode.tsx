@@ -3,6 +3,7 @@ import { getUrl } from "../../../utils/CommonUtils";
 import { PAGES_WITHOUT_VERSION } from "../../../constants/pagesWithoutVersion.constants";
 import { useDocVersionContext } from "../../../context/DocVersionContext";
 import ParamLink from "../../ParamLink";
+import { useRouter } from "next/router";
 
 interface Props {
   href: string;
@@ -10,7 +11,8 @@ interface Props {
 }
 
 function CustomAnchorNode({ href, children }: Props) {
-  const { docVersion, enableVersion } = useDocVersionContext();
+  const { enableVersion } = useDocVersionContext();
+  const router = useRouter();
   const regexToIdentifyLink = /^(http|https|ftp|www)/g;
 
   const isExternalLink = href.search(regexToIdentifyLink) !== -1;
@@ -23,7 +25,7 @@ function CustomAnchorNode({ href, children }: Props) {
     <ParamLink
       href={getUrl({
         url: href,
-        docVersion,
+        docVersion: router.query.version as string,
         enableVersion,
         isExternalLink: disableVersion,
       })}

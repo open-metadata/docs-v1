@@ -7,6 +7,7 @@ import { getTileIcons } from "../../../../utils/TileUtils";
 import { TileProps } from "./Tile.interface";
 import styles from "./Tile.module.css";
 import ParamLink from "../../../ParamLink";
+import { useRouter } from "next/router";
 
 function Tile({
   description,
@@ -16,14 +17,14 @@ function Tile({
   icon,
   children,
 }: TileProps) {
-  const { docVersion, enableVersion } = useDocVersionContext();
-
+  const { enableVersion } = useDocVersionContext();
+  const router = useRouter();
   const getWrappedTile = useCallback(
     (tileContainer: JSX.Element): JSX.Element =>
       link ? (
         <ParamLink
           target={isExternalLink ? "_blank" : "_self"}
-          href={getUrl({ url: link, docVersion, enableVersion, isExternalLink })}
+          href={getUrl({ url: link, docVersion: router.query.version as string, enableVersion, isExternalLink })}
         >
           {tileContainer}
         </ParamLink>
