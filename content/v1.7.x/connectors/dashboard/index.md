@@ -1,5 +1,5 @@
 ---
-title: Dashboard Services
+title: Dashboard Service Connectors for OpenMetadata | Documentation for Setup, Ingestion & Troubleshooting
 slug: /connectors/dashboard
 ---
 

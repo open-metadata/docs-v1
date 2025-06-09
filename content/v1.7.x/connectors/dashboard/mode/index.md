@@ -1,5 +1,5 @@
 ---
-title: Mode
+title: Mode Connector for OpenMetadata | Documentation for Setup, Ingestion & Troubleshooting
 slug: /connectors/dashboard/mode
 ---
 

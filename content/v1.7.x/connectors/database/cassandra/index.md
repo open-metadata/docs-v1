@@ -1,5 +1,5 @@
 ---
-title: Cassandra
+title: Cassandra Connector for OpenMetadata | Documentation for Setup, Ingestion & Troubleshooting
 slug: /connectors/database/cassandra
 ---
 

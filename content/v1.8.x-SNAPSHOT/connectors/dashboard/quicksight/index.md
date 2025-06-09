@@ -1,5 +1,5 @@
 ---
-title: QuickSight
+title: QuickSight Connector for OpenMetadata | Documentation for Setup, Ingestion & Troubleshooting
 slug: /connectors/dashboard/quicksight
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: Connectors
+title: Connectors for OpenMetadata | Documentation for Setup, Ingestion & Troubleshooting
 slug: /connectors
 ---
 

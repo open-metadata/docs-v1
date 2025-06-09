@@ -1,5 +1,5 @@
 ---
-title: Superset
+title: Superset Connector for OpenMetadata | Documentation for Setup, Ingestion & Troubleshooting
 slug: /connectors/dashboard/superset
 ---
 
