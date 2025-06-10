@@ -1,5 +1,5 @@
 ---
-title: Lightdash
+title: Lightdash Connector for OpenMetadata | Documentation for Setup, Ingestion & Troubleshooting
 slug: /connectors/dashboard/lightdash
 ---
 

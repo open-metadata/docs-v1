@@ -1,5 +1,5 @@
 ---
-title: Trino
+title: Trino Connector for OpenMetadata | Documentation for Setup, Ingestion & Troubleshooting
 slug: /connectors/database/trino
 ---
 

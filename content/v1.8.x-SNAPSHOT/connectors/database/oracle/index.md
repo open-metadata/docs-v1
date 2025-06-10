@@ -1,5 +1,5 @@
 ---
-title: Oracle
+title: Oracle Connector for OpenMetadata | Documentation for Setup, Ingestion & Troubleshooting
 slug: /connectors/database/oracle
 ---
 

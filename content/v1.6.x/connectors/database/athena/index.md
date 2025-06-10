@@ -1,5 +1,5 @@
 ---
-title: Athena
+title: Athena Connector for OpenMetadata | Documentation for Setup, Ingestion & Troubleshooting
 slug: /connectors/database/athena
 ---
 

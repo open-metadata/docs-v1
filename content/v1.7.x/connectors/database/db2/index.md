@@ -1,5 +1,5 @@
 ---
-title: DB2
+title: DB2 Connector for OpenMetadata | Documentation for Setup, Ingestion & Troubleshooting
 slug: /connectors/database/db2
 ---
 

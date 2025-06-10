@@ -1,5 +1,5 @@
 ---
-title: Qlik Cloud
+title: Qlik Cloud Connector for OpenMetadata | Documentation for Setup, Ingestion & Troubleshooting
 slug: /connectors/dashboard/qlikcloud
 ---
 

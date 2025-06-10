@@ -1,5 +1,5 @@
 ---
-title: Qlik Sense
+title: Qlik Sense Connector for OpenMetadata | Documentation for Setup, Ingestion & Troubleshooting
 slug: /connectors/dashboard/qliksense/certificates
 ---
 

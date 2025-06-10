@@ -1,5 +1,5 @@
 ---
-title: Unity Catalog
+title: Unity Catalog Connector for OpenMetadata | Documentation for Setup, Ingestion & Troubleshooting
 slug: /connectors/database/unity-catalog
 ---
 

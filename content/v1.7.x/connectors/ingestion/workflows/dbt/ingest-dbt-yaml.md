@@ -1,5 +1,5 @@
 ---
-title: Run Externally
+title: Run the DBT Workflow Externally to ingest DBT data
 slug: /connectors/ingestion/workflows/dbt/run-dbt-workflow-externally
 ---
 

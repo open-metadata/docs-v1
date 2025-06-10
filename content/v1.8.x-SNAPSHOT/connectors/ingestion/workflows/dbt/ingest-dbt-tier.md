@@ -1,5 +1,5 @@
 ---
-title: Ingest Tiers from dbt
+title: Ingest Tiers from dbt for OpenMetadata | Documentation for Setup, Ingestion & Troubleshooting
 slug: /connectors/ingestion/workflows/dbt/ingest-dbt-tier
 ---
 

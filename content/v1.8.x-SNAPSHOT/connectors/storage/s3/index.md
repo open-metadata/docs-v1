@@ -1,5 +1,5 @@
 ---
-title: S3 Storage
+title: S3 Storage Connector for OpenMetadata | Documentation for Setup, Ingestion & Troubleshooting
 slug: /connectors/storage/s3
 ---
 

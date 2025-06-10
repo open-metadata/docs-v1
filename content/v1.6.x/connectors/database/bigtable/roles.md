@@ -1,5 +1,5 @@
 ---
-title: BigTable
+title: BigTable Connector for OpenMetadata | Documentation for Setup, Ingestion & Troubleshooting
 slug: /connectors/database/bigtable/roles
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: Custom Connectors
+title: Custom Connectors for OpenMetadata | Documentation for Setup, Ingestion & Troubleshooting
 slug: /connectors/custom-connectors
 ---
 

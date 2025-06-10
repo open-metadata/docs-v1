@@ -1,5 +1,5 @@
 ---
-title: AzureSQL
+title: AzureSQL Connector for OpenMetadata | Documentation for Setup, Ingestion & Troubleshooting
 slug: /connectors/database/azuresql
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: SQLite
+title: SQLite Connector for OpenMetadata | Documentation for Setup, Ingestion & Troubleshooting
 slug: /connectors/database/sqlite
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: Tableau
+title: Tableau Connector for OpenMetadata | Documentation for Setup, Ingestion & Troubleshooting
 slug: /connectors/dashboard/tableau
 ---
 

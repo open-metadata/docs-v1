@@ -1,5 +1,5 @@
 ---
-title: API Services
+title: API Service Connectors for OpenMetadata | Documentation for Setup, Ingestion & Troubleshooting
 slug: /connectors/api
 ---
 

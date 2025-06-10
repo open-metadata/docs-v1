@@ -1,5 +1,5 @@
 ---
-title: Usage Query Filtering
+title: Usage Query Filtering for OpenMetadata | Documentation for Setup, Ingestion & Troubleshooting
 slug: /connectors/ingestion/workflows/usage/filter-query-set
 ---
 

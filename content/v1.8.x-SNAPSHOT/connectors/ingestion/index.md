@@ -1,5 +1,5 @@
 ---
-title: Metadata Ingestion
+title: Metadata Ingestion Services for OpenMetadata | Documentation for Setup, Ingestion & Troubleshooting
 slug: /connectors/ingestion
 ---
 

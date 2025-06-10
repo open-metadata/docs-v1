@@ -1,5 +1,5 @@
 ---
-title: Databricks
+title: Databricks Connector for OpenMetadata | Documentation for Setup, Ingestion & Troubleshooting
 slug: /connectors/database/databricks
 ---
 

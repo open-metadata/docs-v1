@@ -1,5 +1,5 @@
 ---
-title: MongoDB
+title: MongoDB Connector for OpenMetadata | Documentation for Setup, Ingestion & Troubleshooting
 slug: /connectors/database/mongodb
 ---
 

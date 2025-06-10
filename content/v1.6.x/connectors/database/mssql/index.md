@@ -1,5 +1,5 @@
 ---
-title: MSSQL
+title: MSSQL Connector for OpenMetadata | Documentation for Setup, Ingestion & Troubleshooting
 slug: /connectors/database/mssql
 ---
 

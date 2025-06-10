@@ -1,5 +1,5 @@
 ---
-title: SingleStore
+title: SingleStore Connector for OpenMetadata | Documentation for Setup, Ingestion & Troubleshooting
 slug: /connectors/database/singlestore
 ---
 

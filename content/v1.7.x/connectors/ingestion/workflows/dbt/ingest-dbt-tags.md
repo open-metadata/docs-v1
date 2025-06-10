@@ -1,5 +1,5 @@
 ---
-title: Ingest Tags from dbt
+title: Ingest Tags from dbt for OpenMetadata | Documentation for Setup, Ingestion & Troubleshooting
 slug: /connectors/ingestion/workflows/dbt/ingest-dbt-tags
 ---
 

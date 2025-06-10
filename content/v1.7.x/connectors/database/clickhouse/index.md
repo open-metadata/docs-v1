@@ -1,5 +1,5 @@
 ---
-title: Clickhouse
+title: Clickhouse Connector for OpenMetadata | Documentation for Setup, Ingestion & Troubleshooting
 slug: /connectors/database/clickhouse
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: GCS Datalake
+title: GCS Datalake Connector for OpenMetadata | Documentation for Setup, Ingestion & Troubleshooting
 slug: /connectors/database/gcs-datalake
 ---
 

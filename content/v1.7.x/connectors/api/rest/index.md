@@ -1,5 +1,5 @@
 ---
-title: REST
+title: REST Connector for OpenMetadata | Documentation for Setup, Ingestion & Troubleshooting
 slug: /connectors/api/rest
 ---
 
