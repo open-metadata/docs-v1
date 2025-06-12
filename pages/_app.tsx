@@ -17,6 +17,8 @@ import { StepsContextProvider } from "../context/StepsContext";
 import { SlugProps } from "./[version]/[...slug]";
 import { useEffect, useState } from "react";
 import CookieModal from "../components/CookieModal/CookieModal";
+import { useRouter } from "next/router";
+import { HOST_NAME } from "../constants/common.constants";
 
 declare global {
   interface Window {
@@ -29,12 +31,16 @@ const DESCRIPTION =
   "Follow the step-by-step guides to get started with OpenMetadata, the #1 open source data catalog tool. Get discovery, collaboration, governance, observability, quality tools all in one place.";
 
 export default function MyApp({ Component, pageProps }: AppProps<SlugProps>) {
-  const title = isEmpty(pageProps.pageTitle) ? TITLE : pageProps.pageTitle;
-  const description = isEmpty(pageProps.pageDescription)
+  const router = useRouter();
+  const { noindex, nofollow, pageTitle, pageDescription, slug } = pageProps;
+  const title = isEmpty(pageTitle) ? TITLE : pageTitle;
+  const description = isEmpty(pageDescription)
     ? DESCRIPTION
-    : pageProps.pageDescription;
+    : pageDescription;
 
-    const [storedCookie, setStoredCookie] = useState<string | null>(null);
+  const canonicalUrl = `${HOST_NAME}/${router.query.version}/${slug?.join('/') || ''}`;
+
+  const [storedCookie, setStoredCookie] = useState<string | null>(null);
 
   const handleButtonClick = (choice: string) => {
     localStorage.setItem("docsOmCookie", choice);
@@ -75,6 +81,7 @@ export default function MyApp({ Component, pageProps }: AppProps<SlugProps>) {
     <>
       <Head>
         <title>{title}</title>
+        <link rel="canonical" href={canonicalUrl} />
         <meta property="og:title" content={title} />
         <meta name="twitter:title" content={title} />
         <meta name="description" content={description} />
@@ -83,6 +90,9 @@ export default function MyApp({ Component, pageProps }: AppProps<SlugProps>) {
         <link rel="icon" href="/favicon.png" />
         <link rel="alternate icon" href="/favicon.png" />
         <link rel="shortcut icon" href="/favicon180.png" />
+        {(noindex || nofollow) && (
+          <meta name="robots" content={`${noindex ? 'noindex' : 'index'},${nofollow ? 'nofollow' : 'follow'}`} />
+        )}
         <meta name="theme-color" content="#ffffff" />
         <meta
           name="keywords"
