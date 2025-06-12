@@ -152,6 +152,8 @@ export const getReturnObjectForValidVersion = ({
         partials,
         pageTitle: data.title,
         pageDescription: data.description ?? "",
+        noindex: data.noindex ?? false,
+        nofollow: data.nofollow ?? false,
       },
     };
   }

@@ -26,6 +26,8 @@ export interface SlugProps {
   partials: Record<string, string>;
   pageTitle: string;
   pageDescription: string;
+  noindex?: boolean;
+  nofollow?: boolean;
 }
 
 export default function Article({
