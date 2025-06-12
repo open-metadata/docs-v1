@@ -1,8 +1,6 @@
 ---
 title: saslMechanismType
 slug: /main-concepts/metadata-standard/schemas/entity/services/connections/messaging/saslmechanismtype
-noindex: true
-nofollow: true
 ---
 
 # SaslMechanismType

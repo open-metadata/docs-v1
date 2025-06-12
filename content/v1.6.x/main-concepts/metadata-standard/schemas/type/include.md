@@ -1,8 +1,6 @@
 ---
 title: include
 slug: /main-concepts/metadata-standard/schemas/type/include
-noindex: true
-nofollow: true
 ---
 
 # Include

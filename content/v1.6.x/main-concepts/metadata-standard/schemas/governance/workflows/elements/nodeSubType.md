@@ -1,8 +1,6 @@
 ---
 title: nodeSubType
 slug: /main-concepts/metadata-standard/schemas/governance/workflows/elements/nodesubtype
-noindex: true
-nofollow: true
 ---
 
 # NodeSubType

@@ -1,8 +1,6 @@
 ---
 title: Metadata Ingestion Filter Patterns
 slug: /connectors/ingestion/workflows/metadata/filter-patterns
-noindex: true
-nofollow: true
 ---
 
 # Metadata Ingestion Filter Patterns

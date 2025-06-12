@@ -1,8 +1,6 @@
 ---
 title: Manage Teams and Users
 slug: /how-to-guides/admin-guide/teams-and-users
-noindex: true
-nofollow: true
 ---
 
 # Manage Teams and Users
