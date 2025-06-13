@@ -27,7 +27,7 @@ export default function Button({
   return type === "link" ? (
     <ParamLink
       className={classNames(styles.Container, className)}
-      href={getUrl({ url: href, docVersion: router.query.version as string, enableVersion, isExternalLink })}
+      href={getUrl({ url: href, docVersion: router.query.version as string ?? "latest", enableVersion, isExternalLink })}
       id={id}
       style={style}
     >

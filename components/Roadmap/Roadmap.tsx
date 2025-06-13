@@ -74,7 +74,7 @@ function Roadmap() {
       <p>
         You can check the latest release{" "}
         <ParamLink
-          href={getUrl({ url: ALL_RELEASES_URL, docVersion: router.query.version as string, enableVersion })}
+          href={getUrl({ url: ALL_RELEASES_URL, docVersion: router.query.version as string ?? "latest", enableVersion })}
           name="here"
         />
         .

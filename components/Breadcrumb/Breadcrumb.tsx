@@ -36,7 +36,7 @@ export default function Breadcrumb({ slug }: { slug: string[] }) {
       {breadcrumb.map((crumb, idx) => {
         const hrefString = getUrl({
           url: crumb.path,
-          docVersion: router.query.version as string,
+          docVersion: router.query.version as string ?? "latest",
           enableVersion,
         });
         return (

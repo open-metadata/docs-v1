@@ -25,7 +25,7 @@ function CustomAnchorNode({ href, children }: Props) {
     <ParamLink
       href={getUrl({
         url: href,
-        docVersion: router.query.version as string,
+        docVersion: router.query.version as string ?? "latest",
         enableVersion,
         isExternalLink: disableVersion,
       })}
