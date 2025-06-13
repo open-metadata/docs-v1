@@ -24,7 +24,7 @@ function Tile({
       link ? (
         <ParamLink
           target={isExternalLink ? "_blank" : "_self"}
-          href={getUrl({ url: link, docVersion: router.query.version as string, enableVersion, isExternalLink })}
+          href={getUrl({ url: link, docVersion: router.query.version as string ?? "latest", enableVersion, isExternalLink })}
         >
           {tileContainer}
         </ParamLink>

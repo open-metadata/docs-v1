@@ -90,7 +90,7 @@ export default function TopNav({ versionsList, logo }: Readonly<TopNavProps>) {
       <div className={styles.CollapsedDivContainer}>
         <div className={styles.LogoContainer}>
           <ParamLink
-            href={getUrl({ url: "/", docVersion: router.query.version as string, enableVersion })}
+            href={getUrl({ url: "/", docVersion: router.query.version as string ?? "latest", enableVersion })}
             aria-label="omd-icon"
           >
             {isUndefined(logo) ? <OMDIcon /> : logo}

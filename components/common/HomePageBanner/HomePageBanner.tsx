@@ -61,7 +61,7 @@ export default function HomePageBanner({
                 <ParamLink
                   href={getUrl({
                     url: href,
-                    docVersion: router.query.version as string,
+                    docVersion: router.query.version as string ?? "latest",
                     enableVersion,
                     isExternalLink: externalURL,
                   })}

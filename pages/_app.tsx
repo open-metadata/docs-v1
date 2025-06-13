@@ -81,7 +81,6 @@ export default function MyApp({ Component, pageProps }: AppProps<SlugProps>) {
     <>
       <Head>
         <title>{title}</title>
-        <link rel="canonical" href={canonicalUrl} />
         <meta property="og:title" content={title} />
         <meta name="twitter:title" content={title} />
         <meta name="description" content={description} />
@@ -90,8 +89,10 @@ export default function MyApp({ Component, pageProps }: AppProps<SlugProps>) {
         <link rel="icon" href="/favicon.png" />
         <link rel="alternate icon" href="/favicon.png" />
         <link rel="shortcut icon" href="/favicon180.png" />
-        {(noindex || nofollow) && (
+        {(noindex || nofollow) ? (
           <meta name="robots" content={`${noindex ? 'noindex' : 'index'},${nofollow ? 'nofollow' : 'follow'}`} />
+        ) : (
+          <link rel="canonical" href={canonicalUrl} />
         )}
         <meta name="theme-color" content="#ffffff" />
         <meta
