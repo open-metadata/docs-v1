@@ -55,7 +55,7 @@ export default function ConnectorsInfo({ tabStyle, activeTabStyle }) {
           {getSortedServiceList(selectedTab.services).map((connector) => (
             <ParamLink
               className={styles.ConnectorItem}
-              href={getUrl({ url: connector.url, docVersion: router.query.version as string, enableVersion })}
+              href={getUrl({ url: connector.url, docVersion: router.query.version as string ?? "latest", enableVersion })}
               key={connector.name}
             >
               <ConnectorImage

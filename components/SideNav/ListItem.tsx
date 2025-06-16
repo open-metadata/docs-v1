@@ -36,7 +36,7 @@ export default function ListItem({
     setIsOpen((open) => !open);
   };
 
-  const urlWithVersion = getUrl({ url: item.url, docVersion: router.query.version as string, enableVersion });
+  const urlWithVersion = getUrl({ url: item.url, docVersion: router.query.version as string ?? "latest", enableVersion });
 
   const linkItem = useMemo(() => {
     return (

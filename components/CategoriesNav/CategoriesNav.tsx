@@ -45,7 +45,7 @@ export default function CategoriesNav({ menu }: Props) {
 
           return (
             <ParamLink
-              href={getUrl({ url: item.url, docVersion: router.query.version as string, enableVersion })}
+              href={getUrl({ url: item.url, docVersion: router.query.version as string ?? "latest", enableVersion })}
               key={item.url}
               className={classNames(
                 styles.NavItem,

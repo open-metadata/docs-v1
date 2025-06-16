@@ -42,7 +42,7 @@ const InlineCallout = ({
   return (
     <ParamLink
       className={classNames(styles.Container)}
-      href={getUrl({ url: href, docVersion: router.query.version as string, enableVersion, isExternalLink })}
+      href={getUrl({ url: href, docVersion: router.query.version as string ?? "latest", enableVersion, isExternalLink })}
       target={isExternalLink ? "_blank" : "_self"}
     >
       <span className={classNames(styles.IconContainer)}>{iconComponent}</span>

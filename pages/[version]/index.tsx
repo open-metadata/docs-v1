@@ -17,7 +17,6 @@ import {
   QUICK_LINK_CARDS,
 } from "../../constants/homePage.constants";
 import {
-  DEFAULT_VERSION,
   REGEX_VERSION_MATCH,
 } from "../../constants/version.constants";
 import { useMenuItemsContext } from "../../context/MenuItemsContext";

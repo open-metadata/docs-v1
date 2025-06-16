@@ -27,7 +27,7 @@ export default function Card({
   return (
     <ParamLink
       className={styles.Container}
-      href={getUrl({ url, docVersion: router.query.version as string, enableVersion, isExternalLink })}
+      href={getUrl({ url, docVersion: router.query.version as string ?? "latest", enableVersion, isExternalLink })}
     >
       {icon ? icon : <Puzzle />}
       <div className={styles.Heading}>{heading}</div>
