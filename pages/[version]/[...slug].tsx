@@ -117,7 +117,7 @@ export async function getServerSideProps(
         : `/latest${context.resolvedUrl}`;
       return {
         redirect: {
-          permanent: false,
+          permanent: true,
           destination: url,
         },
       };
