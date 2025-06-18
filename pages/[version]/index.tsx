@@ -138,7 +138,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
 
         return {
           redirect: {
-            permanent: false,
+            permanent: true,
             destination: `/${
               majorVersionMatch?.value ?? "latest" // If major version match is not present, redirect to latest
             }`,
@@ -152,7 +152,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
       // passed URL, in this case tha will be `/latest/releases`
       return {
         redirect: {
-          permanent: false,
+          permanent: true,
           destination: `/latest${context.resolvedUrl}`,
         },
       };
