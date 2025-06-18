@@ -10,6 +10,7 @@ import TopNav from "../../components/TopNav/TopNav";
 import { API_AND_SDK_MENU_ITEMS } from "../../constants/categoriesNav.constants";
 import {
   REGEX_VERSION_MATCH,
+  REGEX_VERSION_PATTERN_FOR_INVALID_URL,
 } from "../../constants/version.constants";
 import { getVersionsList } from "../../lib/api";
 import { configs } from "../../lib/markdoc";
@@ -111,8 +112,14 @@ export async function getServerSideProps(
         };
       }
     } else {
+      const url = REGEX_VERSION_PATTERN_FOR_INVALID_URL.test(context.query.version as string) 
+        ? `/latest/${(context.query.slug as string[]).join('/')}` 
+        : `/latest${context.resolvedUrl}`;
       return {
-        notFound: true,
+        redirect: {
+          permanent: false,
+          destination: url,
+        },
       };
     }
   } catch {

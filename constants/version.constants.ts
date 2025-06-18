@@ -24,3 +24,5 @@ export const REGEX_VERSION_MATCH_WITH_SLASH_AT_START =
 // The regex will match all the following:
 // 1.6
 export const REGEX_TO_EXTRACT_VERSION_NUMBER = /\d+\.\d+/;
+
+export const REGEX_VERSION_PATTERN_FOR_INVALID_URL = /^v\d+\.\d+(\.x)?$/;
