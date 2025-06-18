@@ -7,7 +7,7 @@ slug: /how-to-guides
 
 The How-to Guides will give you a walk through on accomplishing the basic to the most advanced things in OpenMetadata. These step-by-step guides will help get an overview of the features and also help explore the various functionalities.  
 
-## Agenitc Metadata Management
+## Agentic Metadata Management
 Use LLMs and GenAI agents for automation and intelligent data management within OpenMetadata
 
 {% tilesContainer %}
