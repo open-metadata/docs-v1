@@ -125,7 +125,7 @@ export const getReturnObjectForValidVersion = ({
 
       return {
         redirect: {
-          permanent: false,
+          permanent: true,
           destination: `/${
             majorVersionMatch?.value ?? "latest" // If major version match is not present, redirect to latest
           }/${pathWithoutVersion}`,
