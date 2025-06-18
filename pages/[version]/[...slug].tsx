@@ -9,6 +9,7 @@ import { SelectOption } from "../../components/SelectDropdown/SelectDropdown";
 import TopNav from "../../components/TopNav/TopNav";
 import { API_AND_SDK_MENU_ITEMS } from "../../constants/categoriesNav.constants";
 import {
+  REGEX_PATTERN_FOR_OLD_VERSION,
   REGEX_VERSION_MATCH,
 } from "../../constants/version.constants";
 import { getVersionsList } from "../../lib/api";
@@ -111,8 +112,14 @@ export async function getServerSideProps(
         };
       }
     } else {
+      const url = REGEX_PATTERN_FOR_OLD_VERSION.test(context.query.version as string) 
+        ? `/latest/${(context.query.slug as string[]).join('/')}` 
+        : `/latest${context.resolvedUrl}`;
       return {
-        notFound: true,
+        redirect: {
+          permanent: false,
+          destination: url,
+        },
       };
     }
   } catch {
