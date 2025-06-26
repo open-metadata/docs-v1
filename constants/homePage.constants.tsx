@@ -80,21 +80,21 @@ export const QUICK_LINK_CARDS = [
 
 export const BLOGS_INFO = [
   {
+    title: "OpenMetadata Release 1.7",
+    text: "New innovations like AutoPilot, Persona Customizations, Improved UX, Search Relevancy Settings, Enhanced Lineage Layers, New Connectors, and more",
+    link: "https://blog.open-metadata.org/announcing-openmetadata-1-7-9f9778579704",
+    image: "/blogs/openmetadata-1.7.0-release.webp",
+  },
+  {
+    title: "OpenMetadata Release 1.6.0",
+    text: "Key features to unify Metric definitions, Search RBAC, Alerts Debuggability, Terraform module, and more!",
+    link: "https://blog.open-metadata.org/announcing-openmetadata-release-1-6-f4fdd7f66f72",
+    image: "/blogs/openmetadata-1.6.0-release.webp",
+  },
+  {
     title: "Announcing OpenMetadata Release 1.5.0",
     text: "Key features improving data quality and insights, Data diff quality tests, APIs as a metadata asset, and more!",
     link: "https://blog.open-metadata.org/announcing-openmetadata-release-1-5-0-2b2fae95ff1c",
     image: "/blogs/openmetadata-1.5.0-release.webp",
-  },
-  {
-    title: "OpenMetadata Release 1.4.0",
-    text: "Key features boosting the productivity of data teams — Lineage, Bulk Upload Data Assets, Advanced Custom Properties, Activity Feed",
-    link: "https://blog.open-metadata.org/openmetadata-release-1-4-0-f6fb11ec34d7",
-    image: "/blogs/openmetadata-1.4.0-release.webp",
-  },
-  {
-    title: "OpenMetadata Release 1.3",
-    text: "Intuitive Lineage UI, Data Observability Alerts, Data Quality Incident Manager, Custom Metrics for Profiler, Knowledge Center Improvements, and lots more",
-    link: "https://blog.open-metadata.org/openmetadata-release-1-3-ac801834ee80",
-    image: "/blogs/openmetadata-1.3.0-release.webp",
   },
 ];
