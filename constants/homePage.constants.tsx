@@ -81,7 +81,7 @@ export const QUICK_LINK_CARDS = [
 export const BLOGS_INFO = [
   {
     title: "OpenMetadata Release 1.7",
-    text: "INew innovations like AutoPilot, Persona Customizations, Improved UX, Search Relevancy Settings, Enhanced Lineage Layers, New Connectors, and more",
+    text: "New innovations like AutoPilot, Persona Customizations, Improved UX, Search Relevancy Settings, Enhanced Lineage Layers, New Connectors, and more",
     link: "https://blog.open-metadata.org/announcing-openmetadata-1-7-9f9778579704",
     image: "/blogs/openmetadata-1.7.0-release.webp",
   },
