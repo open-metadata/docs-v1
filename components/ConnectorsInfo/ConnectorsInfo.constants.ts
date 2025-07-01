@@ -247,6 +247,12 @@ export const CONNECTORS: Array<ConnectorCategory> = [
         icon: "/images/connectors/sqlite.webp",
         name: "SQL Lite",
       },
+      {
+        url: "/connectors/database/ssas",
+        icon: "/images/connectors/ssas.webp",
+        name: "SSAS",
+        collate: true,
+      },
     ],
   },
   {
