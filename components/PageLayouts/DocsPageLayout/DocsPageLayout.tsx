@@ -27,6 +27,7 @@ interface DocsPageLayoutProps {
   slug: string[];
   footer: ReactNode;
   componentsList?: Record<string, React.ComponentType>;
+  isCollate?: boolean;
 }
 
 function DocsPageLayout({
@@ -35,6 +36,7 @@ function DocsPageLayout({
   slug,
   footer,
   componentsList = {},
+  isCollate = false,
 }: Readonly<DocsPageLayoutProps>) {
   const router = useRouter();
   const { isRouteChanging } = useRouteChangingContext();
@@ -128,6 +130,11 @@ function DocsPageLayout({
             ) : (
               <>
                 <Breadcrumb slug={slug} />
+                {isCollate && (
+                  <div className="mt-4 -mb-6 font-medium px-2 bg-[#cbeef6] w-fit rounded-xl text-[#007e99]">
+                    Collate Documentation
+                  </div>
+                )}
                 {Markdoc.renderers.react(parsedContent, React, {
                   components: { ...components, ...componentsList },
                 })}
