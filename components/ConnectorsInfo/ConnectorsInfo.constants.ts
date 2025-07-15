@@ -334,6 +334,11 @@ export const CONNECTORS: Array<ConnectorCategory> = [
         name: "Tableau",
       },
       {
+        url: "/connectors/dashboard/thoughtspot",
+        icon: "/images/connectors/thoughtspot.webp",
+        name: "ThoughtSpot",
+      },
+      {
         url: "/connectors/dashboard/qlikcloud",
         icon: "/images/connectors/qlikcloud.webp",
         name: "Qlik Cloud",

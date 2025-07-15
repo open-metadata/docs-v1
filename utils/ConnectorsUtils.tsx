@@ -160,6 +160,7 @@ export const getConnectorImage = (connector: string) => {
     Superset: "superset",
     Synapse: "synapse",
     Tableau: "tableau",
+    ThoughtSpot: "thoughtspot",
     Teradata: "teradata",
     Trino: "trino",
     "Unity Catalog": "databrick",
