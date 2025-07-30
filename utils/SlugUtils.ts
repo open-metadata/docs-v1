@@ -49,7 +49,7 @@ export async function getPaths() {
         location: slug,
         version: version,
         fileName: articles[index],
-        title: data.title ? (data.title as string) : "Untitled",
+        title: data.title ? processDynamicTitle(data.title as string, false) : "Untitled",
         description: data.description ? (data.description as string) : "",
       },
     };
@@ -150,11 +150,19 @@ export const getReturnObjectForValidVersion = ({
         slug,
         versionsList,
         partials,
-        pageTitle: data.title,
+        pageTitle: processDynamicTitle(data.title, false),
         pageDescription: data.description ?? "",
         noindex: data.noindex ?? false,
         nofollow: data.nofollow ?? false,
       },
     };
   }
+};
+
+export const processDynamicTitle = (title: string, isCollate: boolean = false): string => {
+  if (title?.includes("`title`")) {
+    const replacement = isCollate ? "Collate" : "OpenMetadata";
+    return title.replace(/`title`/g, replacement);
+  }
+  return title;
 };
