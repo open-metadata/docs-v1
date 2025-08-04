@@ -114,6 +114,7 @@ export const CONNECTORS: Array<ConnectorCategory> = [
         url: "/connectors/database/epic",
         icon: "/images/connectors/epic.webp",
         name: "Epic",
+        collate: true,
       },
       {
         url: "/connectors/database/exasol",
@@ -342,6 +343,7 @@ export const CONNECTORS: Array<ConnectorCategory> = [
         url: "/connectors/dashboard/thoughtspot",
         icon: "/images/connectors/thoughtspot.webp",
         name: "ThoughtSpot",
+        collate: true,
       },
       {
         url: "/connectors/dashboard/qlikcloud",
