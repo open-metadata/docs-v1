@@ -111,6 +111,11 @@ export const CONNECTORS: Array<ConnectorCategory> = [
         name: "DynamoDB",
       },
       {
+        url: "/connectors/database/epic",
+        icon: "/images/connectors/epic.webp",
+        name: "Epic",
+      },
+      {
         url: "/connectors/database/exasol",
         icon: "/images/connectors/exasol.webp",
         name: "Exasol",
