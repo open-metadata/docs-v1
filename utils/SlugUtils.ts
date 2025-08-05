@@ -160,9 +160,9 @@ export const getReturnObjectForValidVersion = ({
 };
 
 export const processDynamicTitle = (title: string, isCollate: boolean = false): string => {
-  if (title?.includes("`title`")) {
+  if (title?.includes("`brandName`")) {
     const replacement = isCollate ? "Collate" : "OpenMetadata";
-    return title.replace(/`title`/g, replacement);
+    return title.replace(/`brandName`/g, replacement);
   }
   return title;
 };
