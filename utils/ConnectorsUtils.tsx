@@ -110,6 +110,7 @@ export const getConnectorImage = (connector: string) => {
     Flink: "flink",
     Fivetran: "fivetran",
     GCS: "gcs",
+    Grafana: "grafana",
     Glue: "glue",
     Greenplum: "greenplum",
     Hive: "hive",
