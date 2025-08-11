@@ -290,6 +290,11 @@ export const CONNECTORS: Array<ConnectorCategory> = [
         name: "Lightdash",
       },
       {
+        url: "/connectors/dashboard/grafana",
+        icon: "/images/connectors/grafana.webp",
+        name: "Grafana",
+      },
+      {
         url: "/connectors/dashboard/looker",
         icon: "/images/connectors/looker.webp",
         name: "Looker",
