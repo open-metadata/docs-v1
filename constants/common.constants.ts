@@ -4,3 +4,5 @@ export const ARTICLES_DIRECTORY = join(process.cwd(), "content");
 export const PARTIALS_DIRECTORY = join(process.cwd(), "content/partials");
 
 export const HOST_NAME = 'https://docs.open-metadata.org';
+
+export const IS_COLLATE_DEPLOYMENT = process.env.NEXT_PUBLIC_IS_COLLATE === 'true';
