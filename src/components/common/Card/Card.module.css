@@ -1,0 +1,29 @@
+.Container {
+  position: relative;
+  padding: 16px;
+  background: #ffffff;
+  border: 1px solid rgba(221, 227, 234, 0.6);
+  box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  color: var(--default-text-color);
+  transition: box-shadow 0.2s linear;
+}
+
+.Container:hover {
+  box-shadow: 0px 4px 14px 6px rgba(0, 0, 0, 0.09);
+}
+
+.Heading {
+  font-weight: 600;
+  font-size: 18px;
+  margin: 16px 0px 4px 0px;
+}
+
+.ArrowIcon {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  cursor: pointer;
+}

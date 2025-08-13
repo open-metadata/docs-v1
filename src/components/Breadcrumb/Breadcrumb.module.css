@@ -1,0 +1,31 @@
+.Container {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: var(--gray-text-color);
+}
+
+.Divider {
+  margin: 0px 8px;
+}
+
+.HomeIcon {
+  margin-top: 2px;
+}
+
+.BreadcumbLink {
+  cursor: pointer;
+}
+
+.BreadcumbLink:hover {
+  color: var(--default-text-color);
+}
+
+.LinkItem {
+  font-weight: 400;
+  color: var(--gray-text-color);
+}
+
+.Container + article > a:first-child {
+  margin-top: 12px;
+}

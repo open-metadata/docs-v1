@@ -1,0 +1,17 @@
+.Container{
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.LightThemeContainer{
+    border: 1px solid var(--code-light-border-color);
+}
+
+.Language{
+    padding: 8px 12px;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    align-items: center;
+}
+

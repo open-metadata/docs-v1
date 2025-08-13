@@ -1,0 +1,13 @@
+.APIVisualInfoContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  height: fit-content;
+  position: sticky;
+  top: 80px;
+}
+
+/* To ignore the margin styles from other tags like p,headings */
+.APIVisualInfoContainer > *{
+  margin: 0px;
+}

@@ -1,0 +1,41 @@
+.RoadmapModalHeader{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 32px;
+    border-bottom: 1px solid var(--default-border-color);
+    padding: 20px;
+    background-color: #f8fafb;
+}
+
+.LeftPanelInfoHeader{
+    margin: 0px;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.LeftPanelInfoData{
+    color: var(--gray-text-color);
+    margin: 0px;
+    margin-bottom: 12px;
+}
+
+.RightPanelInfoHeader{
+    font-size: 12px;
+    color: var(--gray-text-color);
+    margin: 10px 0px 5px 0px;
+}
+
+.RightPanelInfoData{
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.RightPanel{
+    border-left: 1px solid var(--default-border-color);
+    background-color: #f8fafb;
+}
+
+.PlatformIcon{
+    flex-shrink: 0;
+}

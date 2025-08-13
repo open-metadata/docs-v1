@@ -1,0 +1,26 @@
+h1.HeaderLink {
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--default-border-color);
+}
+
+.HeaderLink {
+  display: flex;
+  align-items: center;
+  color: rgb(26, 31, 54);
+  margin-top: 32px;
+}
+
+.CopiedText {
+  margin-left: 16px;
+  font-size: 12px;
+}
+
+.Icon {
+  margin-left: 16px;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.HeaderLink:hover .Icon {
+  opacity: 0.9;
+}

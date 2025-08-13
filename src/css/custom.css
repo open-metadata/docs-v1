@@ -1,0 +1,223 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* You can override the default Infima variables here. */
+:root {
+  --ifm-color-primary: #7147E8;
+  --ifm-color-primary-dark: #5935E4;
+  --ifm-color-primary-darker: #4E2BE1;
+  --ifm-color-primary-darkest: #3315D6;
+  --ifm-color-primary-light: #8959EC;
+  --ifm-color-primary-lighter: #9163EF;
+  --ifm-color-primary-lightest: #B085F4;
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+}
+
+/* For readability concerns, you should choose a lighter palette in dark mode. */
+[data-theme='dark'] {
+  --ifm-color-primary: #8959EC;
+  --ifm-color-primary-dark: #7347E8;
+  --ifm-color-primary-darker: #6B3FE6;
+  --ifm-color-primary-darkest: #4E2BE1;
+  --ifm-color-primary-light: #A16BF0;
+  --ifm-color-primary-lighter: #A971F1;
+  --ifm-color-primary-lightest: #C195F6;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
+
+/* TailwindCSS base styles */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom component styles */
+.custom-connector-card {
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 0.5rem 0;
+  transition: all 0.3s ease;
+}
+
+.custom-connector-card:hover {
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.custom-step-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.custom-code-preview {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+@media (max-width: 768px) {
+  .custom-code-preview {
+    grid-template-columns: 1fr;
+  }
+}
+
+.custom-note {
+  padding: 1rem;
+  border-radius: 8px;
+  margin: 1rem 0;
+  border-left: 4px solid;
+}
+
+.custom-note--note {
+  background-color: var(--ifm-color-info-contrast-background);
+  border-left-color: var(--ifm-color-info);
+}
+
+.custom-note--warning {
+  background-color: var(--ifm-color-warning-contrast-background);
+  border-left-color: var(--ifm-color-warning);
+}
+
+.custom-note--tip {
+  background-color: var(--ifm-color-success-contrast-background);
+  border-left-color: var(--ifm-color-success);
+}
+
+.custom-tiles-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.custom-tile {
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 8px;
+  padding: 1.5rem;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+}
+
+.custom-tile:hover {
+  text-decoration: none;
+  color: inherit;
+  border-color: var(--ifm-color-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.custom-inline-callout-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.custom-inline-callout {
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 8px;
+  padding: 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+}
+
+.custom-inline-callout:hover {
+  text-decoration: none;
+  color: inherit;
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Code with language selector styles */
+.code-with-language-selector {
+  margin: 1rem 0;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.code-with-language-selector__tabs {
+  display: flex;
+  background-color: var(--ifm-color-emphasis-100);
+  border-bottom: 1px solid var(--ifm-color-emphasis-300);
+}
+
+.code-with-language-selector__tab {
+  padding: 0.5rem 1rem;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  color: var(--ifm-color-content);
+}
+
+.code-with-language-selector__tab--active {
+  border-bottom-color: var(--ifm-color-primary);
+  color: var(--ifm-color-primary);
+}
+
+.code-with-language-selector__content {
+  position: relative;
+}
+
+/* Steps component styles */
+.steps-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.step {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+.step__number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  background-color: var(--ifm-color-primary);
+  color: white;
+  border-radius: 50%;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.step__content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .step__content {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.step__description {
+  padding-right: 1rem;
+}
+
+.step__visual {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}

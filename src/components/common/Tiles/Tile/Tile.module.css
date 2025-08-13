@@ -1,0 +1,51 @@
+.Container {
+  display: flex;
+  height: 100%;
+  gap: 16px;
+  padding: 16px;
+  border: 1px solid var(--default-border-color);
+  border-radius: 4px;
+  transition: box-shadow 0.2s ease-in-out;
+  color: rgb(78, 86, 109);
+  cursor: pointer;
+}
+
+.IconContainer{
+  padding-top: 4px;
+}
+
+.WithIcon{
+  border-radius: 8px;
+}
+
+.WithIcon *{
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.InnerContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.HoverEffect:hover {
+  box-shadow: 0 0 0 1px rgba(50, 50, 93, 0.01),
+    0 7px 14px 0 rgba(50, 50, 93, 0.1), 0 3px 6px 0 rgba(0, 0, 0, 0.02);
+}
+
+.InnerContainer h4 {
+  color: var(--primary-color);
+  font-weight: 500;
+}
+
+.InnerContainer :nth-child(2) {
+  margin-top: 8px;
+}
+
+.WithIcon .InnerContainer :nth-child(2) {
+  margin-top: 0px;
+}
+
+.InnerContainer > ul > li > * {
+  margin-top: 0px;
+}

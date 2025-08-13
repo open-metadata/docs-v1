@@ -1,0 +1,30 @@
+.Heading {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.Heading > h4 {
+  margin: 0px;
+  font-weight: 500;
+}
+
+.Description {
+  margin-left: 48px; /* step-icon width = 32px + left margin of heading = 16px */
+}
+
+.HighlightedStepHeading {
+  color: var(--primary-color);
+}
+
+.NonSelectedStepIcon {
+  color: #dde3ea;
+  fill: var(--default-text-color);
+  stroke: var(--default-text-color);
+}
+
+.SelectedStepIcon {
+  color: var(--primary-color);
+  fill: var(--white-color);
+  stroke: var(--white-color);
+}

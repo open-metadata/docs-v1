@@ -1,0 +1,7 @@
+.APIsInfoContainer {
+  display: grid;
+  grid-template-columns: auto 46%;
+  gap: 48px;
+  border-bottom: 1px solid var(--default-border-color);
+  padding: 72px;
+}
