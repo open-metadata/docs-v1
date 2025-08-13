@@ -1,0 +1,8 @@
+.Container {
+  border: 1px solid var(--default-border-color);
+  border-radius: 4px;
+  background: rgb(247, 250, 252);
+  padding: 4px;
+  font-size: 14px;
+  word-break: break-all;
+}

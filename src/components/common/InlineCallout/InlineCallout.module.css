@@ -1,0 +1,42 @@
+.Container {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  margin: 16px 0px;
+  padding: 8px;
+  width: fit-content;
+  border: 1px solid transparent;
+  border-radius: 8px;
+}
+
+.IconContainer {
+  margin-bottom: 0;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  background-color: var(--icon-background-color);
+  border-radius: 8px;
+}
+ 
+.Text {
+  margin: 0px;
+  color: var(--default-text-color);
+}
+
+.Text > p {
+  margin: 0px;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+.Link {
+  border: none;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--primary-color);
+}
+
+.Container:hover .Link,
+.Container:hover .Text {
+  opacity: 0.9;
+}

@@ -1,0 +1,51 @@
+.Container {
+  @apply flex justify-center m-auto;
+}
+.InnerContainer {
+  @apply w-5/6 flex flex-col justify-center items-center;
+}
+
+:global(.dark) .InnerContainer {
+  @apply md:bg-gray-90;
+}
+
+.Image {
+  @apply transition duration-100 ease-in-out hover:opacity-80 cursor-pointer mt-6 shadow;
+}
+
+.Caption {
+  @apply italic text-sm tracking-tight rounded-br-[5px] rounded-bl-[5px] text-center mt-0;
+}
+
+:global(.dark) .Caption {
+  @apply text-white;
+}
+
+.LightBox {
+  @apply fixed top-0 left-0 w-full h-full flex justify-center items-center overscroll-contain;
+  background-color: rgba(162, 162, 162, 0.5);
+  z-index: 9;
+}
+
+:global(.dark) .LightBox {
+  @apply bg-gray-90;
+}
+
+.ImageContainer {
+  display: flex;
+  flex-direction: column;
+  margin: 0px 50px;
+  align-items: center;
+  justify-content: center;
+  height: 75%;
+  margin-top: calc(var(--top-nav-height) + var(--main-nav-height));
+}
+
+.ModalImage {
+  object-fit: contain;
+  max-height: 100%;
+}
+
+:global(.dark) .CloseButton {
+  @apply bg-gray-90 text-white;
+}

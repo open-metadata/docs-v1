@@ -4,3 +4,8 @@ node_modules/
 .vercel
 package-lock.json
 .env.local
+.env.example
+CLAUDE.md
+claude-instructions/
+build/
+static/

@@ -1,0 +1,42 @@
+import MDXComponents from '@theme-original/MDXComponents';
+import {
+  Note,
+  CodeWithLanguageSelector,
+  StepsContainer,
+  Step,
+  StepDescription,
+  StepVisualInfo,
+  TilesContainer,
+  Tile,
+  InlineCalloutContainer,
+  InlineCallout,
+  ConnectorDetailsHeader,
+  ConnectorInfoCard,
+  ConnectorsListContainer,
+  CodePreview,
+  CodeInfoContainer,
+  CodeInfo,
+  CodeBlockContainer,
+} from '@components';
+
+export default {
+  ...MDXComponents,
+  // Custom components for documentation
+  Note,
+  CodeWithLanguageSelector,
+  StepsContainer,
+  Step,
+  StepDescription,
+  StepVisualInfo,
+  TilesContainer,
+  Tile,
+  InlineCalloutContainer,
+  InlineCallout,
+  ConnectorDetailsHeader,
+  ConnectorInfoCard,
+  ConnectorsListContainer,
+  CodePreview,
+  CodeInfoContainer,
+  CodeInfo,
+  CodeBlockContainer,
+};

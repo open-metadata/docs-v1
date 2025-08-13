@@ -1,0 +1,33 @@
+.Container {
+  padding: 16px 20px;
+  border-left: 4px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.Container:hover {
+  border-left: 4px solid #dde3ea;
+}
+
+.Container a,
+.Container h2,
+.Container h3,
+.Container h4,
+.Container h5,
+.Container h6 {
+  margin: 0px;
+}
+
+.Container p {
+  margin: 8px 0px 0px 0px;
+}
+
+.HighlightedCode {
+  border-left: 4px solid var(--primary-color);
+  background-color: #f7fafc;
+}
+
+.HighlightedCode:hover {
+  border-left: 4px solid var(--primary-color);
+  background-color: #f7fafc;
+}

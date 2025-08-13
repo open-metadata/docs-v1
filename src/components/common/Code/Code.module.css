@@ -1,0 +1,435 @@
+.CodeContainer {
+  @apply overflow-x-auto mt-3;
+  @apply relative !important;
+  overflow-y: hidden;
+  min-width: 100%;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.CodeWithSrNumber {
+  padding-left: 32px;
+}
+
+.CodePreviewContainer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 16px;
+}
+
+.CodePreviewContainer > .CodeBlockContainer {
+  width: 60%;
+}
+
+.CodeBlockContainer {
+  overflow-x: auto;
+  background-color: var(--code-background-color);
+  border-radius: 8px;
+  height: fit-content;
+  position: sticky;
+  max-height: 80vh;
+  top: calc(var(--top-nav-height) + var(--main-nav-height) + 40px);
+  overflow-y: scroll;
+  overflow-x: scroll;
+  overscroll-behavior: contain;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.CodeBlockContainer > pre {
+  padding: 8px 0px;
+  width: fit-content;
+  min-width: 100%;
+}
+
+.CodeBlockContainer > pre > .CodeContainer {
+  margin: 0px;
+  min-width: 100%;
+}
+.CodeBlockContainer > pre > .CodeContainer pre {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+.CodeBlockContainer::-webkit-scrollbar,
+.CodeContainer::-webkit-scrollbar {
+  display: none;
+}
+
+.CodeBlockContainer pre code {
+  margin: 0px !important;
+  font-size: 13px !important;
+}
+
+.CodeContainer pre,
+.CodeContainer code,
+.CodeBlockContainer pre,
+.CodeBlockContainer code {
+  @apply overflow-auto whitespace-pre;
+  font-size: 14px;
+}
+
+.CodeContainer pre {
+  @apply py-3 px-8;
+  opacity: 98%;
+}
+
+.CodeContainer pre,
+.CodeBlockContainer pre {
+  @apply font-semibold relative leading-relaxed;
+  color: var(--code-block-text-color);
+}
+
+.CodeBlockContainer pre {
+  border-radius: 0px;
+}
+
+.CodeContainer pre code,
+.CodeBlockContainer pre code {
+  @apply my-2 relative;
+}
+
+.LineHighlight {
+  @apply bg-gray-80 opacity-30 z-0;
+}
+
+.CopyIconContainer{
+  display: none;
+  background-color: var(--code-background-color);
+  color:white;
+}
+
+.CodeContainer:hover .CopyIconContainer{
+  display: flex;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  height: 16px;
+  width: 16px;
+  z-index: 100;
+}
+
+.CopiedText{
+  border:0.5px solid white;
+  padding: 0px 4px;
+  border-radius: 4px;
+  background-color: var(--code-background-color);
+  position: absolute;
+  right: 0px;
+}
+
+.CodePreviewContainer:hover .CopyIconContainer,.CodeBlockContainer:hover .CopyIconContainer{
+  display: none;
+}
+
+.CodeBlockContainer > pre button,
+.CodeBlockContainer > pre button::before,
+.CodeBlockContainer:hover > pre button {
+  display: none;
+}
+
+.CodeBlockContainer > .Toolbar {
+  position: sticky;
+  top: 0px;
+  left: 0px;
+  z-index: 30;
+  padding: 8px 20px;
+  border-bottom: 0.1px solid var(--code-filename-color);
+  background-color: var(--code-background-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.Toolbar > .FileName {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 2px 8px;
+  background-color: var(--code-filename-color);
+  color: var(--code-background-color);
+  border: 0.5px solid var(--code-filename-color);
+  border-radius: 16px;
+}
+
+.Toolbar > .CopyButton {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  height: 14px;
+  font-size: 14px;
+  padding: 12px;
+  border: 0.5px solid white;
+  border-radius: 8px;
+  color: white;
+}
+
+.Toolbar > .CopyButton:hover {
+  background-color: var(--code-filename-color);
+  border: 0.5px solid var(--code-filename-color);
+  color: var(--code-background-color);
+}
+
+/* Code block adjustments */
+.CodeContainer pre code :global(.operator),
+.CodeBlockContainer pre code :global(.operator) {
+  @apply text-indigo-50;
+}
+
+.LightTheme .CodeContainer pre code :global(.operator),
+.LightTheme .CodeBlockContainer pre code :global(.operator),
+.LightTheme .CodeContainer pre code :global(.decorator),
+.LightTheme .CodeBlockContainer pre code :global(.decorator) {
+  @apply text-indigo-50;
+}
+
+.CodeContainer pre code :global(.decorator),
+.CodeBlockContainer pre code :global(.decorator) {
+  @apply text-yellow-80;
+}
+
+.CodeContainer pre code :global(.property),
+.CodeBlockContainer pre code :global(.property) {
+  @apply text-red-60;
+}
+
+.CodeContainer pre code :global(.string),
+.CodeBlockContainer pre code :global(.string) {
+  @apply text-green-70;
+}
+
+.CodeContainer pre code :global(.keyword),
+.CodeBlockContainer pre code :global(.keyword) {
+  @apply text-indigo-50;
+}
+
+.CodeContainer pre code :global(.builtin),
+.CodeBlockContainer pre code :global(.builtin) {
+  @apply text-lightBlue-40;
+}
+
+.CodeContainer pre code :global(.class-name),
+.CodeBlockContainer pre code :global(.class-name),
+.CodeContainer pre code :global(.variable),
+.CodeBlockContainer pre code :global(.variable),
+.CodeContainer pre code :global(.number),
+.CodeBlockContainer pre code :global(.number){
+  @apply text-orange-60;
+}
+
+.CodeContainer pre code :global(.boolean),
+.CodeBlockContainer pre code :global(.boolean) {
+  @apply text-darkBlue-60;
+}
+
+.CodeContainer pre code :global(.function),
+.CodeBlockContainer pre code :global(.function) {
+  @apply text-darkBlue-60;
+}
+
+.CodeContainer pre code :global(.punctuation),
+.CodeBlockContainer pre code :global(.punctuation) {
+  @apply text-yellow-50;
+}
+
+.LightTheme .CodeContainer pre code :global(.punctuation),
+.LightTheme .CodeBlockContainer pre code :global(.punctuation) {
+  color: var(--default-text-color)
+}
+
+.CodeContainer pre code :global(.key),
+.CodeBlockContainer pre code :global(.key) {
+  @apply text-lightBlue-30;
+}
+
+.CodeContainer pre code :global(.comment),
+.CodeBlockContainer pre code :global(.comment) {
+  @apply text-gray-60 italic font-normal;
+}
+
+.CodeContainer pre code :global(.table),
+.CodeBlockContainer pre code :global(.table) {
+  @apply inline;
+}
+
+/* Dark mode adjustments */
+:global(.dark) .CodeContainer pre code :global(.operator),
+:global(.dark) .CodeContainer pre code :global(.decorator),
+:global(.dark) .CodeBlockContainer pre code :global(.operator),
+:global(.dark) .CodeBlockContainer pre code :global(.decorator) {
+  @apply text-yellow-50;
+}
+
+:global(.dark) .CodeContainer pre code :global(.keyword),
+:global(.dark) .CodeBlockContainer pre code :global(.keyword) {
+  @apply text-darkBlue-50;
+}
+
+:global(.dark) .CodeContainer pre code :global(.builtin),
+:global(.dark) .CodeBlockContainer pre code :global(.builtin) {
+  @apply text-lightBlue-60;
+}
+
+:global(.dark) .CodeContainer pre code :global(.number),
+:global(.dark) .CodeContainer pre code :global(.boolean),
+:global(.dark) .CodeBlockContainer pre code :global(.number),
+:global(.dark) .CodeBlockContainer pre code :global(.boolean) {
+  @apply text-green-40;
+}
+
+:global(.dark) .CodeContainer pre code :global(.function),
+:global(.dark) .CodeBlockContainer pre code :global(.function) {
+  @apply text-red-50;
+}
+
+:global(.dark) .CodeContainer pre code :global(.comment),
+:global(.dark) .CodeBlockContainer pre code :global(.comment) {
+  @apply text-gray-60;
+}
+
+:global(.dark) .CodeContainer pre code :global(.string),
+:global(.dark) .CodeBlockContainer pre code :global(.string) {
+  @apply text-darkBlue-30;
+}
+
+.GrayTheme pre {
+  background-color: var(--code-gray-background-color);
+}
+
+.GrayTheme .Toolbar {
+  background-color: var(--code-gray-toolbar-color);
+  border-color: var(--code-gray-toolbar-color);
+}
+
+.GrayTheme .Title,.GrayTheme .LanguageSelector{
+  background-color: var(--code-gray-toolbar-color);
+  color: var(--code-light-filename-color);
+}
+
+.GrayTheme .LanguageSelector{
+  border-bottom: 1px solid var(--code-gray-toolbar-color);
+}
+
+.GrayTheme .Toolbar > .CopyButton:hover {
+  background-color: var(--code-gray-filename-color);
+  border-color: var(--code-gray-filename-color);
+}
+
+.GrayTheme .Toolbar > .FileName {
+  color: var(--code-gray-toolbar-color);
+  background-color: var(--code-gray-filename-color);
+  border-color: var(--code-gray-filename-color);
+}
+
+.LightTheme pre {
+  background-color: var(--code-light-background-color);
+  color: var(--default-text-color);
+}
+
+.LightTheme .Toolbar {
+  background-color: var(--code-light-toolbar-color);
+  border-bottom: 1px solid var(--code-light-border-color);
+}
+
+.LightTheme .Content pre {
+  background-color: var(--code-light-background-color);
+}
+
+.LightTheme .Title,.LightTheme .LanguageSelector{
+  background-color: var(--code-light-toolbar-color);
+  color: var(--code-gray-toolbar-color);
+}
+
+.LightTheme {
+  background-color: var(--code-light-toolbar-color);
+  border: 1px solid var(--code-light-border-color);
+}
+
+.LightTheme .LanguageSelector{
+  border-bottom: 1px solid var(--code-light-border-color);
+}
+
+.LightTheme .Toolbar > .CopyButton {
+  color: var(--default-text-color);
+  background-color: var(--code-light-filename-color);
+  border: 0.2px solid var(--code-light-border-color);
+}
+
+.LightTheme .Toolbar > .CopyButton:hover {
+  color: var(--code-light-filename-color);
+  background-color: var(--default-text-color);
+  border-color: var(--code-light-toolbar-color);
+}
+
+.LightTheme .Toolbar > .FileName {
+  color: var(--default-text-color);
+  background-color: var(--code-light-filename-color);
+  border: 0.2px solid var(--code-light-border-color);
+}
+
+.Content *{
+  font-weight: 400;
+}
+
+.Content pre{
+  padding: 12px 24px;
+  border-radius: 0px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.Content > *{
+  display: none;
+}
+
+.LightTheme .CopyIconContainer{
+  color: var(--default-text-color);
+  background-color: var(--code-light-background-color);
+}
+
+.GrayTheme .CopyIconContainer{
+  background-color: var(--code-gray-background-color);
+}
+
+.LightTheme .CopiedText{
+  border-color: var(--default-border-color);
+  background-color: var(--code-light-background-color);
+}
+
+.GrayTheme .CopiedText{
+  background-color: var(--code-gray-background-color);
+}
+
+.Title{
+  font-weight: 500;
+  font-size: 16px;
+  padding: 8px 16px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  background-color: var(--code-background-color);
+  color: var(--code-light-filename-color);
+}
+
+.LanguageSelector{
+  width: 100%;
+  overflow-x: scroll;
+  display: flex;
+  gap: 8px;
+  padding: 0px 24px;
+  background-color: var(--code-background-color);
+  color: var(--code-light-filename-color);
+  border-bottom: 1px solid var(--code-filename-color);
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.LanguageSelector::-webkit-scrollbar {
+  display: none;
+}
+
+.SelectedLanguage{
+  font-weight: 500;
+  border-bottom: 2px solid var(--code-filename-color);
+}

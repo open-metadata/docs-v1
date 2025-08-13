@@ -1,0 +1,130 @@
+.SideNav {
+  padding: 24px 20px 0px 12px;
+  height: calc(100vh - var(--top-nav-height) - var(--main-nav-height));
+  border-right: 1px solid var(--default-border-color);
+  position: sticky;
+  top: calc(var(--main-nav-height) + var(--top-nav-height));
+  flex-grow: 0;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: space-between;
+  overflow-y: scroll;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.SideNav::-webkit-scrollbar {
+  display: none;
+}
+
+.CollapsedSideNav {
+  width: var(--side-nav-collapsed-width);
+  transition: width 0.2s linear;
+}
+
+.NonCollapsedSideNav {
+  width: var(--side-nav-width);
+  transition: width 0.2s linear;
+}
+
+.CollapsedSideNavContent {
+  width: 0px;
+  opacity: 0;
+  animation: fadeIn 0.4s;
+}
+
+.NonCollapsedSideNavContent {
+  animation: fadeOut 0.4s;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.LinkContainer {
+  padding: 0px 0px 0px 14px;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.Link {
+  color: inherit;
+  font-weight: 300;
+  line-height: 20px;
+  font-size: 14px;
+}
+
+.ListItem {
+  font-size: 14px;
+  font-weight: 400;
+  margin: 0px;
+  position: relative;
+}
+
+.TextGray {
+  color: var(--gray-text-color);
+}
+
+.ActiveLink {
+  color: var(--primary-color);
+  font-weight: 500;
+}
+
+.CollapseIcon {
+  height: 18px;
+  width: 16px;
+  opacity: 50%;
+  cursor: pointer;
+}
+
+.ArrowDown {
+  position: absolute;
+  top: 7px;
+}
+
+.ArrowRight {
+  position: absolute;
+  top: 7px;
+  left: 1px;
+}
+
+.Heading {
+  margin: 0px;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.NoDataPlaceholder {
+  margin-left: 24px;
+  font-size: 14px;
+  color: var(--gray-text-color);
+}
+
+@media (max-width: 600px) {
+  .NonCollapsedSideNav {
+    width: 100%;
+    transition: width 0s linear;
+  }
+  .CollapsedSideNav {
+    transition: width 0s linear;
+    overflow-x: hidden;
+  }
+  .CollapsedSideNavContent {
+    display: none;
+  }
+}

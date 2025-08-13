@@ -2,6 +2,10 @@
 up:
 	yarn dev
 
+.PHONY: dev
+dev:
+	yarn dev
+
 .PHONY: start
 start:
 	yarn start
@@ -10,9 +14,13 @@ start:
 build:
 	yarn build
 
-.PHONY: export
-export:
-	yarn export
+.PHONY: serve
+serve:
+	yarn serve
+
+.PHONY: clear
+clear:
+	yarn clear
 
 .PHONY: search
 search:

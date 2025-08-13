@@ -1,0 +1,11 @@
+.Container {
+  margin-top: 16px;
+  padding-top: 2px;
+
+  /* Left dashed border of container */
+  background-image: linear-gradient(to bottom, #9498a0 60%, #ffffff 0%);
+  background-position: left;
+  background-size: 1px 24px;
+  background-repeat: repeat-y;
+  background-position-x: 16px;
+}
