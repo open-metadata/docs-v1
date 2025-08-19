@@ -3,7 +3,6 @@ import matter from "gray-matter";
 import { GetServerSidePropsContext, GetServerSidePropsResult } from "next";
 import { basename } from "path";
 import { SelectOption } from "../components/SelectDropdown/SelectDropdown";
-import { IS_COLLATE_DEPLOYMENT } from "../constants/common.constants";
 import {
   DEFAULT_VERSION,
   REGEX_TO_EXTRACT_VERSION_NUMBER,
@@ -16,9 +15,9 @@ import {
 } from "../lib/api";
 import { SlugProps } from "../pages/[version]/[...slug]";
 
-export const processDynamicContent = (content: string, isCollate: boolean = false): string => {
+export const processDynamicContent = (content: string, isCollate: boolean): string => {
   if (content?.includes("`brandName`")) {
-    const replacement = IS_COLLATE_DEPLOYMENT ? "Collate" : "OpenMetadata";
+    const replacement = isCollate ? "Collate" : "OpenMetadata";
     return content.replace(/`brandName`/g, replacement);
   }
   return content;
