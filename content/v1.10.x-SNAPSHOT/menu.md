@@ -1152,23 +1152,23 @@ site_menu:
   - category: Releases / All Releases
     url: /releases/all-releases
   - category: Releases / All Releases / 1.9.0 Release
-    url: /releases/all-releases/#1.9.0-releases
+    url: /releases/all-releases/#1.9.0-release
   - category: Releases / All Releases / 1.8.10 Release
-    url: /releases/all-releases/#1.8.10-releases
+    url: /releases/all-releases/#1.8.10-release
   - category: Releases / All Releases / 1.8.9 Release
-    url: /releases/all-releases/#1.8.9-releases
+    url: /releases/all-releases/#1.8.9-release
   - category: Releases / All Releases / 1.8.8 Release
-    url: /releases/all-releases/#1.8.8-releases
+    url: /releases/all-releases/#1.8.8-release
   - category: Releases / All Releases / 1.8.7 Release
-    url: /releases/all-releases/#1.8.7-releases
+    url: /releases/all-releases/#1.8.7-release
   - category: Releases / All Releases / 1.8.6 Release
-    url: /releases/all-releases/#1.8.6-releases
+    url: /releases/all-releases/#1.8.6-release
   - category: Releases / All Releases / 1.8.3 Release
-    url: /releases/all-releases/#1.8.3-releases
+    url: /releases/all-releases/#1.8.3-release
   - category: Releases / All Releases / 1.8.2 Release
-    url: /releases/all-releases/#1.8.2-releases
+    url: /releases/all-releases/#1.8.2-release
   - category: Releases / All Releases / 1.8.1 Release
-    url: /releases/all-releases/#1.8.1-releases
+    url: /releases/all-releases/#1.8.1-release
   - category: Releases / All Releases / 1.8.0 Release
     url: /releases/all-releases/#1.8.0-release
   - category: Releases / All Releases / 1.7.5 Release
