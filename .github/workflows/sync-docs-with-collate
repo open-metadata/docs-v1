@@ -59,7 +59,7 @@ jobs:
         target-branch: main
 
     - name: Slack on Failure
-      if: ${{ steps.push_content_collate.outcome != 'success' || steps.prepare_collate.outcome != 'success' }}
+      if: ${{ steps.push_content_collate.outcome != 'success' || steps.prepare_collate.outcome != 'success' || steps.push_images_collate.outcome != 'success' }}
       uses: slackapi/slack-github-action@v1.23.0
       with:
         payload: |
