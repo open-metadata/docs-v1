@@ -19,6 +19,9 @@ Configure and schedule Tableau metadata and profiler workflows from the OpenMeta
 - [Requirements](#requirements)
 - [Metadata Ingestion](#metadata-ingestion)
 - [Enable Security](#securing-tableau-connection-with-ssl-in-openmetadata)
+{% collateContent %}
+- [Reverse Metadata](/applications/reverse-metadata)
+{% /collateContent %}
 
 {% partial file="/v1.9/connectors/external-ingestion-deployment.md" /%}
 

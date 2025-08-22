@@ -1,7 +1,7 @@
 ---
 title: Reverse Metadata Ingestion Collate | Feature & Configuration
 description: Ingest reverse metadata to propagate data context from downstream tools back into the catalog.
-slug: /connectors/ingestion/workflows/reverse-metadata
+slug: /applications/reverse-metadata
 collate: true
 ---
 

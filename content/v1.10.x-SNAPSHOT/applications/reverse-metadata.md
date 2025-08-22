@@ -11,9 +11,9 @@ collate: true
 
 The **Reverse Metadata Application** ensures real-time synchronization of metadata changes. Once installed and configured, any updates made to selected assets in Collate—such as descriptions, tags, or owners—are automatically in real-time propagated back to the source systems. There’s no need to trigger the application manually. This live sync ensures Collate remains the single source of truth while all connected systems stay up to date and compliant with governance policies.
 
-## Supported Databases and Features
+## Supported Connectors and Features
 
-| Database       | Update Description | Update Tags | Update Owners | Custom SQL Support | Documentation |
+| Connectors       | Update Description | Update Tags | Update Owners | Custom SQL Support | Documentation |
 |----------------|-------------------|-------------|---------------|-------------------|---------------|
 | Athena         | ✅ (Table)        | ❌          | ❌            | ✅                | [Link](/connectors/database/athena#reverse-metadata) |
 | BigQuery       | ✅ (Schema, Table)| ✅ (Schema, Table) | ❌            | ✅                | [Link](/connectors/database/bigquery#reverse-metadata) |
@@ -27,6 +27,7 @@ The **Reverse Metadata Application** ensures real-time synchronization of metada
 | Snowflake      | ✅ (Support all) | ✅ (Schema, Table, Column) | ❌            | ✅                | [Link](/connectors/database/snowflake#reverse-metadata) |
 | Unity Catalog  | ✅ (Support all) | ✅ (Support all)  | ✅ (Database, Schema, Table) | ✅                | [Link](/connectors/database/unity-catalog#reverse-metadata) |
 | Trino  | ✅ (Table) | ❌ | ❌ | ✅                | [Link](/connectors/database/trino#reverse-metadata) |
+| Tableau  | ✅ (Dashboard, Chart) | ✅ (Dashboard, Chart) | ✅ (Dashboard) | ❌                 | [Link](/connectors/dashboard/tableau#reverse-metadata) |
 
 ## Overview
 

@@ -28,7 +28,7 @@ Configure and schedule Databricks metadata and profiler workflows from the OpenM
 - [Data Quality](#data-quality)
 - [dbt Integration](#dbt-integration)
 {% collateContent %}
-- [Reverse Metadata](/connectors/ingestion/workflows/reverse-metadata)
+- [Reverse Metadata](/applications/reverse-metadata)
 {% /collateContent %}
 {% partial file="/v1.9/connectors/external-ingestion-deployment.md" /%}
 
