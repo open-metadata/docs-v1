@@ -68,7 +68,7 @@ The Apache Ranger connector is designed specifically for **reverse metadata inge
   file="/v1.9/connectors/metadata-ingestion-ui.md" 
   variables={
     connector: "Apache Ranger", 
-    selectServicePath: "/images/v1.9/connectors/domodasrangerhboard/select-service.png",
+    selectServicePath: "/images/v1.9/connectors/ranger/select-service.png",
     addNewServicePath: "/images/v1.9/connectors/ranger/add-new-service.png",
     serviceConnectionPath: "/images/v1.9/connectors/ranger/service-connection.png",
 } 

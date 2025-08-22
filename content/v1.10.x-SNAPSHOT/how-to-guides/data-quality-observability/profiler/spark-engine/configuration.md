@@ -16,13 +16,13 @@ There are two ways to configure Spark Engine in OpenMetadata:
   color="violet-70"
   bold="UI Configuration"
   icon="MdAnalytics"
-  href="/how-to-guides/data-quality-observability/profiler/spark-engine/ui-configuration" %}
+  href="/how-to-guides/data-quality-observability/profiler/spark-engine/configuration/ui-configuration" %}
   Configure Spark Engine through the OpenMetadata UI.
  {% /inlineCallout %}
  {% inlineCallout
     icon="MdOutlineSchema"
     bold="External Configuration"
-    href="/how-to-guides/data-quality-observability/profiler/spark-engine/external-configuration" %}
+    href="/how-to-guides/data-quality-observability/profiler/spark-engine/configuration/external-configuration" %}
     Configure Spark Engine using YAML files for external workflows.
  {% /inlineCallout %}
 {% /inlineCalloutContainer %}
