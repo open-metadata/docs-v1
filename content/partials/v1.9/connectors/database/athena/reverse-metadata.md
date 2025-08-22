@@ -24,6 +24,6 @@ Here are examples of custom SQL queries for metadata changes:
 ALTER TABLE {schema}.{table} SET TBLPROPERTIES ('comment' = {description});
 ```
 
-The list of variables for custom SQL can be found [here](/connectors/ingestion/workflows/reverse-metadata#custom-sql-template).
+The list of variables for custom SQL can be found [here](/applications/reverse-metadata#custom-sql-template).
 
-For more details about reverse metadata ingestion, visit our [Reverse Metadata Documentation](/connectors/ingestion/workflows/reverse-metadata).
+For more details about reverse metadata ingestion, visit our [Reverse Metadata Documentation](/applications/reverse-metadata).

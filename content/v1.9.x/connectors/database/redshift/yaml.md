@@ -26,7 +26,7 @@ Configure and schedule Redshift metadata and profiler workflows from the OpenMet
 - [dbt Integration](#dbt-integration)
 - [Enable Security](#securing-redshift-connection-with-ssl-in-openmetadata)
 {% collateContent %}
-- [Reverse Metadata](/connectors/ingestion/workflows/reverse-metadata)
+- [Reverse Metadata](/applications/reverse-metadata)
 {% /collateContent %}
 
 {% partial file="/v1.9/connectors/external-ingestion-deployment.md" /%}
