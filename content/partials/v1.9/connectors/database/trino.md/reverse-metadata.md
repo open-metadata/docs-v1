@@ -23,13 +23,8 @@ Trino supports custom SQL templates for metadata changes. The template is interp
 Here are examples of custom SQL queries for metadata changes:
 
 ```sql
--- Update table comment
-COMMENT ON TABLE {schema}.{table} IS '{description}';
-```
-
-```sql
--- Update column comment
-COMMENT ON COLUMN {schema}.{table}.{column} IS '{description}';
+-- Update table description
+COMMENT ON TABLE "{database}"."{schema}"."{table}" IS {description}
 ```
 
 The list of variables for custom SQL can be found [here](/applications/reverse-metadata#custom-sql-template).
