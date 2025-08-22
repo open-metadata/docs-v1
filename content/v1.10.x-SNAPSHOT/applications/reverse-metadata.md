@@ -26,7 +26,7 @@ The **Reverse Metadata Application** ensures real-time synchronization of metada
 | Redshift       | ✅ (Support all) | ❌          | ✅ (Database, Schema, Table) | ✅                | [Link](/connectors/database/redshift#reverse-metadata) |
 | Snowflake      | ✅ (Support all) | ✅ (Schema, Table, Column) | ❌            | ✅                | [Link](/connectors/database/snowflake#reverse-metadata) |
 | Unity Catalog  | ✅ (Support all) | ✅ (Support all)  | ✅ (Database, Schema, Table) | ✅                | [Link](/connectors/database/unity-catalog#reverse-metadata) |
-| Trino  | ✅ (Table) | ❌ | ❌ | ✅                | [Link](/connectors/database/trino#reverse-metadata) |
+| Trino  | ✅ (Table, Column) | ❌ | ❌ | ✅                | [Link](/connectors/database/trino#reverse-metadata) |
 | Tableau  | ✅ (Dashboard, Chart) | ✅ (Dashboard, Chart) | ✅ (Dashboard) | ❌                 | [Link](/connectors/dashboard/tableau#reverse-metadata) |
 
 ## Overview
@@ -79,8 +79,9 @@ Tag metadata (like `PII`, `sensitive`, `finance-related`, etc.) applied in **Col
 - **Configurable Channels:**  
   Create multiple sync channels to define exactly which asset or metadata types to sync. Once configured, changes sync live — no manual action needed.
 
-- **Custom SQL Templates:**  
-  Use SQL templates to customize update behavior per connector.
+### Custom SQL Templates
+
+Use SQL templates to customize update behavior per connector.
 
 | Variable | Description | Context | Type |
 |----------|-------------| --- | --- |
