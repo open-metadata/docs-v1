@@ -15,6 +15,14 @@ import {
 } from "../lib/api";
 import { SlugProps } from "../pages/[version]/[...slug]";
 
+export const processDynamicContent = (content: string, isCollate: boolean): string => {
+  if (content?.includes("`brandName`")) {
+    const replacement = isCollate ? "Collate" : "OpenMetadata";
+    return content.replace(/`brandName`/g, replacement);
+  }
+  return content;
+};
+
 export async function getPaths() {
   // Build up paths based on slugified categories for all docs
   const articles = getArticleSlugs();
@@ -137,13 +145,6 @@ export const getReturnObjectForValidVersion = ({
     const fileContents = fs.readFileSync(filename, "utf8");
     const { content, data } = matter(fileContents);
 
-    // If the file is a collate only file, return 404
-    if (data.collate) {
-      return {
-        notFound: true,
-      };
-    }
-
     return {
       props: {
         content,
@@ -157,12 +158,4 @@ export const getReturnObjectForValidVersion = ({
       },
     };
   }
-};
-
-export const processDynamicContent = (content: string, isCollate: boolean = false): string => {
-  if (content?.includes("`brandName`")) {
-    const replacement = isCollate ? "Collate" : "OpenMetadata";
-    return content.replace(/`brandName`/g, replacement);
-  }
-  return content;
 };
