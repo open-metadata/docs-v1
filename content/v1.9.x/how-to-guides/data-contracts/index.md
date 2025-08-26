@@ -33,11 +33,4 @@ Watch a demo of Data Contracts from our [OpenMetadata Community Meetup](https://
   href="/how-to-guides/data-contracts/create"%}
   Create data contracts directly from the OpenMetadata UI!
  {%/inlineCallout%}
- {%inlineCallout
-  color="violet-70"
-  bold="Add Data Quality Tests to a Data Contract"
-  icon="MdGppGood"
-  href="/how-to-guides/data-contracts/data-quality"%}
-  Assign data quality tests to an OpenMetadata Data Contract.
- {%/inlineCallout%}
 {%/inlineCalloutContainer%}

@@ -23,7 +23,7 @@ alt="Adding Contract Details"
 caption="Adding a Contract Details to an OpenMetadata Data Contract"
 /%}
 
-- Select the columns of your table that you would like to add to your new data contract, or select all columns by checking the box at the top right. Then select **Semantics**.
+- Select the columns of your table that you would like to add to your new data contract, or select all columns by checking the box at the top right. Then select **Semantics**
 
 {% image
 src="/images/v1.9/how-to-guides/contracts/create3.png"
