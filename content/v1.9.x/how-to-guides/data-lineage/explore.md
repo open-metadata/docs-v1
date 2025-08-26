@@ -55,6 +55,60 @@ caption="Database and Pipeline Lineage"
 
 Similarly for a **Dashboard**, we first have the lineage ingested from the databases. Further, when setting up the dashboard ingestion, the data models and charts are ingested. That way we display the lineage of the database tables connected using the dashboard data models.
 
+## Lineage Layers
+
+Lineage view supports multiple exploration layers that provide deeper insights into the structure, flow, and quality of data across your ecosystem. These layers help users visualize lineage not just at the dataset level, but also across services, domains, and business-critical data products.
+
+### Column Layer
+
+The **Column layer** enables detailed exploration of column-level lineage, allowing users to trace the flow and transformation of specific fields (e.g., customer_id, first_name) across tables and pipelines. This granularity helps in understanding data dependencies at the attribute level.
+
+{% image
+src="/images/v1.9/how-to-guides/lineage/column-layer.png"
+alt="Column Layer in Lineage"
+caption="Column Layer in Lineage"
+/%}
+
+### Observability Layer
+
+The **Observability layer** integrates data quality insights directly into lineage by displaying test outcomes such as passes, failures, and pending checks. This helps users identify potential issues and assess the trustworthiness of data as it moves through the pipeline.
+
+{% image
+src="/images/v1.9/how-to-guides/lineage/observability-layer.png"
+alt="Observability Layer in Lineage"
+caption="Observability Layer in Lineage"
+/%} 
+
+### Service Layer
+
+The **Service layer** visualizes how data flows across different platforms and services like Hive, Redshift, Power BI, and Tableau. It connects ingestion, transformation, and consumption points, offering a system-level view of the end-to-end data journey.
+
+{% image
+src="/images/v1.9/how-to-guides/lineage/service-layer.png"
+alt="Service Layer in Lineage"
+caption="Service Layer in Lineage"
+/%} 
+
+### Domain Layer
+
+The **Domain layer** organizes datasets and assets into business-relevant categories such as “Ecommerce” or “Customer Data.” This classification provides contextual clarity and supports governance by aligning technical assets with business functions.
+
+{% image
+src="/images/v1.9/how-to-guides/lineage/domain-layer.png"
+alt="Domain Layer in Lineage"
+caption="Domain Layer in Lineage"
+/%} 
+
+### Data Product Layer
+
+The **Data Product layer** highlights curated outputs like *Customer Registry* or *Superstore*, representing the final, value-delivering datasets within a domain. It enables teams to track the lineage of trusted, consumption-ready data products across the organization.
+
+{% image
+src="/images/v1.9/how-to-guides/lineage/data-product-layer.png"
+alt="Data Product Layer in Lineage"
+caption="Data Product Layer in Lineage"
+/%} 
+
 {%inlineCallout
   color="violet-70"
   bold="How Column-Level Lineage Works"
