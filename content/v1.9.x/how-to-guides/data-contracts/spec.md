@@ -1,7 +1,7 @@
 ---
 title: Creating Data Contracts | OpenMetadata Data Contracts Guide
 description: Create open-source data contracts directly in the OpenMetadata UI
-slug: /how-to-guides/data-contracts/create
+slug: /how-to-guides/data-contracts/spec
 ---
 
 # Introduction
