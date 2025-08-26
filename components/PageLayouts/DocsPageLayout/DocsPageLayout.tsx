@@ -130,7 +130,13 @@ function DocsPageLayout({
             ) : (
               <>
                 <Breadcrumb slug={slug} />
-                <div className={`mt-4 -mb-6 font-medium px-2 w-fit rounded-xl ${isCollate ? "bg-[#cbeef6] text-[#007e99]" : "bg-[#e5e8fb] text-[#5469d4]"}`}>
+                <div
+                  className={`brand-docs-banner ${
+                    isCollate
+                      ? "bg-[#cbeef6] text-[#007e99]"
+                      : "bg-[#e5e8fb] text-[#5469d4]"
+                  }`}
+                >
                   {isCollate ? "Collate" : "OpenMetadata"} Documentation
                 </div>
                 {Markdoc.renderers.react(parsedContent, React, {
