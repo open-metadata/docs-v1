@@ -15,10 +15,10 @@ by making data expectations explicit and automating their enforcement.
 
 Below is the JSON Schema definition for a new DataContract entity in OpenMetadata. This schema defines the contract’s structure and allowed fields. The contract covers four main categories of expectations:
 
-1. Schema
-2. Semantics
-3. Security
-4. Business Assertions (data quality).
+1. [Schema](#schema)
+2. [Semantics](#semantics)
+3. [Security](#security)
+4. [Business Assertions (data quality)](#quality)
 
 We also include an SLA section for service-level agreements and an Ownership field for accountability. Each DataContract is designed to represent one single data asset (dataset, topic, model, etc.) in a well-structured, templated format. Data contracts are currently available for Table asset types.
 
@@ -177,19 +177,19 @@ Below is an outline of the JSON Schema for the DataContract entity:
 ```
 
 # Data Contract Sections
-## Schema
+## Schema <a name="schema"></a>
 
 This is where the expected structural schema of the data asset is defined. It includes a list of fields (for a table, these are columns) each with name and data type. This captures the contractual schema that producers and consumers agreed on. You can also specify if fields are allowed to be null and provide each field’s description and any integrity constraints (like unique, foreign key reference, etc.). A boolean strict indicates if the schema is exact – e.g., if strict=true, no additional columns beyond those listed can appear without violating the contract (useful for enforcing strict schema evolution control). If strict=false, the contract defines a minimum expected schema (new columns could be added as long as they don’t break existing fields).
 
-## Semantics
+## Semantics <a name="semantics"></a>
 
 Business meaning and documentation requirements are defined in a contract's Semantics section. For example, one can enforce that a data asset must have an description (entityDescriptionRequired=true) and optionally that every column/field has a description (columnDescriptionRequired). Required tags or glossary terms that must be associated with a particular asset can also be defined and enforced here (ensuring proper classification and taxonomy linkage. Additionally, customIntegrityRules allow business users to specify any high-level rules about the data (e.g. “Account status must be one of ACTIVE/INACTIVE” or “All records should have a corresponding entry in master table”). These rules complement the formal tests in the quality section, acting as documentation of business expectations (they could later be mapped to actual test cases or checks). This section ensures the contract isn’t just about technical schema, but also carries business context.
 
-## Security
+## Security <a name="security"></a>
 
 Data security and access expectations are defined in this section. This can reference an accessPolicy (for example, the name/ID of a policy in OpenMetadata’s Access Control that should apply to this dataset) or a required dataClassification label. In practice, this means the contract might require the data asset to be tagged as “PII” or “Confidential” if appropriate, and that only certain roles can access it (through an associated policy). While enforcement of security in OpenMetadata is typically done via [role-based policies](https://docs.open-metadata.org/latest/how-to-guides/admin-guide/roles-policies/authorization), including it in the contract ensures producers/owners declare the intended security level as part of the contract.
 
-## Quality (Assertions) 
+## Quality (Assertions) <a name="quality"></a>
 
 Data quality tests and assertions required by the contract are here. This can be represented in two ways (which are not mutually exclusive):
 1. A list of explicit tests referencing OpenMetadata’s [Test Case](https://docs.open-metadata.org/latest/how-to-guides/data-quality-observability/quality/test) entities. Each TestCase in OpenMetadata corresponds to a specific data quality check (for example, a “non-null constraint on column X” or “freshness under 24h” test). By linking to TestCase or TestDefinition entries, the contract directly ties into OpenMetadata’s testing framework. (For instance, if a Great Expectations suite or a custom SQL check exists for this dataset, it can be referenced here.)
