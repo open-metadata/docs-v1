@@ -6,14 +6,13 @@ slug: /how-to-guides/data-contracts/spec
 
 # Introduction
 
-Data contracts formalize an agreement between data producers and consumers about what to expect from a data asset’s data. They capture the structure, semantics, quality, and SLAs of data in a machine-readable way, similar to an API contract but for data. In essence, a DataContract is enforceable in the data ecosystem to bring standardization, control, and reliability
+Data contracts formalize an agreement between data producers and consumers about what to expect from a data asset’s data. They capture the structure, semantics, quality, and SLAs of data in a machine-readable way, similar to an API contract but for data. In essence, a DataContract is enforceable in the data ecosystem to bring standardization, control, and reliability.
 
-OpenMetadata, as a metadata platform, can integrate this concept by introducing a DataContract entity defined via JSON Schema. This allows OpenMetadata admins and data product owners to attach a contract to any data asset (Table, Topic, ML Model, Dashboard, Data Product, etc.), codifying expectations in a structured format. The contract can then be enforced or validated using OpenMetadata’s existing metadata and data quality frameworks. The goal is to achieve “contextually rich, high-quality, well-governed data that is trustworthy”
-by making data expectations explicit and automating their enforcement.
+OpenMetadata, as a metadata platform, integrates this concept by introducing a DataContract entity defined via JSON Schema. This allows OpenMetadata admins and [data product](https://docs.open-metadata.org/latest/how-to-guides/data-governance/domains-&-data-products#data-products) owners to attach a contract to tables in OpenMetadata, codifying expectations in a structured format. The contract can then be enforced or validated using OpenMetadata’s existing metadata and data quality frameworks. The goal is to have contextually rich, high-quality, well-governed data that is trustworthy. Data contracts achieve this by making data expectations explicit and automating their enforcement.
 
 # DataContract Entity Schema Design
 
-Below is the JSON Schema definition for a new DataContract entity in OpenMetadata. This schema defines the contract’s structure and allowed fields. The contract covers four main categories of expectations:
+Below is the JSON Schema definition for DataContract entities in OpenMetadata. This schema defines the contract’s structure and allowed fields. The contract covers four main categories of expectations:
 
 1. [Schema](#schema)
 2. [Semantics](#semantics)
@@ -179,15 +178,15 @@ Below is an outline of the JSON Schema for the DataContract entity:
 # Data Contract Sections
 ## Schema <a name="schema"></a>
 
-This is where the expected structural schema of the data asset is defined. It includes a list of fields (for a table, these are columns) each with name and data type. This captures the contractual schema that producers and consumers agreed on. You can also specify if fields are allowed to be null and provide each field’s description and any integrity constraints (like unique, foreign key reference, etc.). A boolean strict indicates if the schema is exact – e.g., if strict=true, no additional columns beyond those listed can appear without violating the contract (useful for enforcing strict schema evolution control). If strict=false, the contract defines a minimum expected schema (new columns could be added as long as they don’t break existing fields).
+This is where the expected structural schema of the data asset is defined. It includes a list of fields (for a table, these are columns) each with name and data type. This captures the contractual schema that producers and consumers agreed on. You can also specify if fields are allowed to be null and provide each field’s description and any integrity constraints (like unique, foreign key reference, etc.). A boolean strict indicates if the schema is exact – e.g., if `strict=true`, no additional columns beyond those listed can appear without violating the contract (useful for enforcing strict schema evolution control). If `strict=false`, the contract defines a minimum expected schema (new columns could be added as long as they don’t break existing fields).
 
 ## Semantics <a name="semantics"></a>
 
-Business meaning and documentation requirements are defined in a contract's Semantics section. For example, one can enforce that a data asset must have an description (entityDescriptionRequired=true) and optionally that every column/field has a description (columnDescriptionRequired). Required tags or glossary terms that must be associated with a particular asset can also be defined and enforced here (ensuring proper classification and taxonomy linkage. Additionally, customIntegrityRules allow business users to specify any high-level rules about the data (e.g. “Account status must be one of ACTIVE/INACTIVE” or “All records should have a corresponding entry in master table”). These rules complement the formal tests in the quality section, acting as documentation of business expectations (they could later be mapped to actual test cases or checks). This section ensures the contract isn’t just about technical schema, but also carries business context.
+Business meaning and documentation requirements are defined in a contract's Semantics section. For example, one can enforce that a data asset must have an description (`entityDescriptionRequired=true`) and optionally that every column/field has a description (`columnDescriptionRequired`). Required tags or glossary terms that must be associated with a particular asset can also be defined and enforced here (ensuring proper classification and taxonomy linkage. Additionally, `customIntegrityRules` allow business users to specify any high-level rules about the data (e.g. “Account status must be one of ACTIVE/INACTIVE” or “All records should have a corresponding entry in master table”). These rules complement the formal tests in the quality section, acting as documentation of business expectations (they could later be mapped to actual test cases or checks). This section ensures the contract isn’t just about technical schema, but also carries business context.
 
 ## Security <a name="security"></a>
 
-Data security and access expectations are defined in this section. This can reference an accessPolicy (for example, the name/ID of a policy in OpenMetadata’s Access Control that should apply to this dataset) or a required dataClassification label. In practice, this means the contract might require the data asset to be tagged as “PII” or “Confidential” if appropriate, and that only certain roles can access it (through an associated policy). While enforcement of security in OpenMetadata is typically done via [role-based policies](https://docs.open-metadata.org/latest/how-to-guides/admin-guide/roles-policies/authorization), including it in the contract ensures producers/owners declare the intended security level as part of the contract.
+Data security and access expectations are defined in this section. This can reference an `accessPolicy` (for example, the name/ID of a [policy](https://docs.open-metadata.org/latest/how-to-guides/admin-guide/roles-policies/authorization#building-blocks-of-authorization-policies) in OpenMetadata’s Access Control that should apply to this dataset) or a required `dataClassification` label. In practice, this means the contract might require the data asset to be tagged as `PII` or `Confidential` if appropriate, and that only certain roles can access it (through an associated policy). While enforcement of security in OpenMetadata is typically done via [role-based policies](https://docs.open-metadata.org/latest/how-to-guides/admin-guide/roles-policies/authorization), including it in the contract ensures producers/owners declare the intended security level as part of the contract.
 
 ## Quality (Assertions) <a name="quality"></a>
 
@@ -212,7 +211,7 @@ A status field indicates whether the contract is active, draft, or currently vio
 
 # Applying Contracts to Tables
 
-Below is and example of a data contract for a warehouse.sales.orders table.
+Below is an example of a data contract for a warehouse.sales.orders table.
 
 ## Data Contract for Table warehouse.sales.orders
 
