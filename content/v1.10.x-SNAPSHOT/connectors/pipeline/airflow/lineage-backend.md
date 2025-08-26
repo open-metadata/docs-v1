@@ -90,7 +90,7 @@ retry_codes = 500,502,503,504
 that any lineage in OpenMetadata comes only from your code.
 - `max_status` controls the number of status to ingest in each run. By default, we'll pick the last 10.
 - `timeout` sets the timeout for the airflow lineage backend's connection to openMetadata.
-- `retry` limits the numbers of retries for the airflow lineage backend's connection to openMetadata.
+- `retry` limits the number of retries for the airflow lineage backend's connection to openMetadata.
 - `retry_wait` the base wait time (in seconds) between retry attempts. On each retry, the wait time increases linearly based on the number of attempts already made: `retry_wait * (total_retries - retry + 1)` This mechanism helps avoid overwhelming the service by spacing out retries.
 - `retry_codes` is a comma-separated list of HTTP status codes that will trigger a retry. By default, it includes Gateway Timeout (HTTP 504).
 
