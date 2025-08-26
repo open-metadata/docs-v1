@@ -152,6 +152,7 @@ export const getConnectorImage = (connector: string) => {
     "S3 Storage": "amazon-s3",
     Sagemaker: "sagemaker",
     Sigma: "sigma",
+    ServiceNow: "servicenow",
     SingleStore: "singlestore",
     Snowflake: "snowflakes",
     Spline: "spline",

@@ -272,6 +272,12 @@ site_menu:
     url: /connectors/database/singlestore/yaml
   - category: Connectors / Database / SingleStore / Troubleshooting
     url: /connectors/database/singlestore/troubleshooting
+  - category: Connectors / Database / ServiceNow
+    url: /connectors/database/servicenow
+  - category: Connectors / Database / ServiceNow / Run Externally
+    url: /connectors/database/servicenow/yaml
+  - category: Connectors / Database / ServiceNow / Troubleshooting
+    url: /connectors/database/servicenow/troubleshooting
   - category: Connectors / Database / Snowflake
     url: /connectors/database/snowflake
   - category: Connectors / Database / Snowflake / Run Externally
