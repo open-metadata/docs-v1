@@ -8,7 +8,7 @@ slug: /how-to-guides/data-contracts
 
 OpenMetadata is a centralized, active metadata repository where all your data resides. In any organization, it is important to get the consumers utilizing data assets aligned with asset producers. As data platform adoption increases in an organization, a data mesh architecture with OpenMetadata Data Contracts can produce automated schema, semantic, and data quality validations that enforce data quality and SLAs across departments and domains. 
 
-Contracts in OpenMetadata are now available for tables. With OpenMetadata Data Contracts, you can set the expected schema structure of an asset, define its semantics (like ensuring that a table has a description field out or an [owner assigned](https://docs.open-metadata.org/latest/how-to-guides/guide-for-data-users/data-ownership), assign data quailty tests, and track a data contract's execution history over time.
+Contracts in OpenMetadata are now available for tables. With OpenMetadata Data Contracts, you can set the expected schema structure of an asset, define its semantics (like ensuring that a table has a description field or an [owner assigned](https://docs.open-metadata.org/latest/how-to-guides/guide-for-data-users/data-ownership)), assign data quality tests, and track a data contract's execution history over time.
 
 Watch the video to learn more about OpenMetadata Data Contracts.
 
@@ -30,7 +30,7 @@ Watch a demo of Data Contracts from our [OpenMetadata Community Meetup](https://
   color="violet-70"
   bold="Creating a Data Contract"
   icon="MdConnectWithoutContact"
-  href="/how-to-guides/data-insights/create"%}
+  href="/how-to-guides/data-contracts/create"%}
   Create data contracts directly from the OpenMetadata UI!
  {%/inlineCallout%}
  {%inlineCallout

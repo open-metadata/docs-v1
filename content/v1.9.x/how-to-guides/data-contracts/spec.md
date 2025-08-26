@@ -6,7 +6,7 @@ slug: /how-to-guides/data-contracts/create
 
 # Introduction
 
-Data contracts formalize an agreement between data producers and consumers about what to expect from a data asset’s data. They capture the structure, semantics, quality, and SLAs of data in a machine-readable way, similar to an API contract but for data. In essence, an DataContract is enforceable in the data ecosystem to bring standardization, control, and reliability
+Data contracts formalize an agreement between data producers and consumers about what to expect from a data asset’s data. They capture the structure, semantics, quality, and SLAs of data in a machine-readable way, similar to an API contract but for data. In essence, a DataContract is enforceable in the data ecosystem to bring standardization, control, and reliability
 
 OpenMetadata, as a metadata platform, can integrate this concept by introducing a DataContract entity defined via JSON Schema. This allows OpenMetadata admins and data product owners to attach a contract to any data asset (Table, Topic, ML Model, Dashboard, Data Product, etc.), codifying expectations in a structured format. The contract can then be enforced or validated using OpenMetadata’s existing metadata and data quality frameworks. The goal is to achieve “contextually rich, high-quality, well-governed data that is trustworthy”
 by making data expectations explicit and automating their enforcement.
