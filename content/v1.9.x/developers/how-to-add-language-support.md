@@ -6,6 +6,60 @@ slug: /developers/how-to-add-language-support
 
 # How to Add Language Support
 
+## 🌍 Language Support
+
+{% collateContent %}Collate{% /collateContent %}{% ossContent %}OpenMetadata{% /ossContent %} offers **multi-language support** to provide a more accessible and localized experience for global teams. Users can change the application language from the top-right corner of the UI by selecting from a list of supported languages.
+
+### ✅ Currently Supported Languages
+
+The following languages are available out of the box:
+
+- English (EN)
+- Korean (KO)
+- French (FR)
+- Simplified Chinese (ZH-CN)
+- Traditional Chinese (ZH-TW)
+- Japanese (JA)
+- Portuguese (Brazil) – PT-BR
+- Portuguese (Portugal) – PT-PT
+- Spanish (ES)
+- Galician (GL)
+- Russian (RU)
+- German (DE)
+- Hebrew (HE)
+- Dutch (NL)
+- Persian (PR)
+- Thai (TH)
+- Marathi (MR)
+- Turkish (TR)
+
+{% image
+src="/images/v1.9/developers/language/language.png"
+alt="Language Dropdown in UI"
+caption="Language Dropdown in UI"
+/%}
+
+### 📁 Adding or Customizing Language Support
+
+If you'd like to:
+
+- Contribute a new language,
+- Customize existing translations,
+- Or enable internal company-specific terms,
+
+You can do so by editing or adding JSON files in the `locale/languages` [directory](https://github.com/open-metadata/OpenMetadata/tree/main/openmetadata-ui/src/main/resources/ui/src/locale/languages) of the {% collateContent %}Collate{% /collateContent %}{% ossContent %}OpenMetadata{% /ossContent %} frontend codebase.
+
+Each language is structured like this:
+
+```json
+// Example: fr-fr.json
+{
+  "home.welcome": "Bienvenue",
+  "table.title": "Tables",
+  ...
+}
+```
+
 To add support for a new language in our internationalization setup using `react-i18next` and `i18next`, please follow the steps below:
 
 ## Create a Language JSON File
