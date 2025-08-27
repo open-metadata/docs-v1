@@ -80,7 +80,7 @@ caption="Personal Access Token expires in 60 days"
 - Paste your PAT in mcp-remote's MCP Inspector. 
   - MCP Inspector URL is [http://127.0.0.1:6274/](http://127.0.0.1:6274/)
   - *Transport Type* is SSE
-  - *URL* is <YOUR-OpenMetadata-SERVER>/mcp/sse
+  - *URL* is <YOUR-OpenMetadata-SERVER>/mcp
   - *Bearer Token* is your PAT
   - Select *Connect*
 
@@ -96,7 +96,7 @@ This how-to guide uses the free version of Claude Desktop for macOS with Sonnet 
       "args": [
         "-y",
         "mcp-remote",
-        "<YOUR-OpenMetadata-SERVER>/mcp/sse",
+        "<YOUR-OpenMetadata-SERVER>/mcp",
         "--auth-server-url=<YOUR-OpenMetadata-SERVER>/mcp",
         "--client-id=openmetadata",
         "--verbose",

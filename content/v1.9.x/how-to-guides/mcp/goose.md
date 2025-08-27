@@ -82,11 +82,11 @@ caption="Settings are where you add custom extensions like Collate MCP Server"
   - *Extension Name* {% collateContent %}`Collate`{% /collateContent %}{% ossContent %}`OpenMetadata`{% /ossContent %}
   - *Command* paste the following command:
     ```
-    npx -y mcp-remote <YOUR_OpenMetadata_SERVER>/mcp/sse --auth-server-url=<YOUR_OpenMetadata_SERVER>/mcp --client-id=openmetadata --verbose --clean --header Authorization:${AUTH_HEADER}
+    npx -y mcp-remote <YOUR_OpenMetadata_SERVER>/mcp --auth-server-url=<YOUR_OpenMetadata_SERVER>/mcp --client-id=openmetadata --verbose --clean --header Authorization:${AUTH_HEADER}
     ```
     - If you are running [it locally](https://docs.open-metadata.org/latest/quick-start/local-docker-deployment), your command will look like this:
       ```
-      npx -y mcp-remote http://localhost:8585/mcp/sse --auth-server-url=http://localhost:8585/mcp --client-id=openmetadata --verbose --clean --header Authorization:${AUTH_HEADER}
+      npx -y mcp-remote http://localhost:8585/mcp --auth-server-url=http://localhost:8585/mcp --client-id=openmetadata --verbose --clean --header Authorization:${AUTH_HEADER}
       ```
   - Add 1 *Environment Variable*
     - *Variable name* is `AUTH_HEADER`
