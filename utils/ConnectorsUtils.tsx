@@ -154,6 +154,7 @@ export const getConnectorImage = (connector: string) => {
     Sigma: "sigma",
     SingleStore: "singlestore",
     Snowflake: "snowflakes",
+    Snowplow: "snowplow",
     Spline: "spline",
     SQLite: "sqlite",
     SSIS: "ssis",
