@@ -462,3 +462,15 @@ code::-webkit-scrollbar {
   transform: translateY(0); 
   visibility: visible;
 }
+
+.brand-docs-banner{
+  font-weight: 500;
+  padding: 0px 8px;
+  border-radius: 12px;
+  margin-top: 16px;
+  width: fit-content;
+}
+
+.brand-docs-banner+article> h1:first-child{
+  margin-top: 8px;
+}
