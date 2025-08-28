@@ -19,6 +19,7 @@ import { useEffect, useState } from "react";
 import CookieModal from "../components/CookieModal/CookieModal";
 import { useRouter } from "next/router";
 import { HOST_NAME } from "../constants/common.constants";
+import Script from "next/script";
 
 declare global {
   interface Window {
@@ -113,6 +114,22 @@ export default function MyApp({ Component, pageProps }: AppProps<SlugProps>) {
                         <CookieModal handleButtonClick={handleButtonClick} />
                       )}
                     <Component {...pageProps} />
+                    <Script
+                      id="reo-script"
+                      dangerouslySetInnerHTML={{
+                        __html: `
+                          !function(){
+                          var e,t,n;
+                          e="31422172b6c48e5",
+                          t=function(){Reo.init({clientID:"31422172b6c48e5"})},
+                          (n=document.createElement("script")).src="https://static.reo.dev/"+e+"/reo.js",
+                          n.defer=!0,
+                          n.onload=t,
+                          document.head.appendChild(n)
+                        }();
+                        `,
+                      }}
+                    />
                   </CodeWithLanguageSelectorContextProvider>
                 </StepsContextProvider>
               </NavBarCollapseContextProvider>
