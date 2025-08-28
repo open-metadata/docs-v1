@@ -2277,8 +2277,8 @@ site_menu:
     url: /developers/contribute/build-code-and-run-tests/generate-typescript-types-from-json-schema
   - category: Developers / Contribute / Build the Code and Run Tests / OpenMetadata UI
     url: /developers/contribute/build-code-and-run-tests/openmetadata-ui
-  - category: Developers / Contribute / Build the Code and Run Tests / Cypress Integration Tests
-    url: /developers/contribute/build-code-and-run-tests/cypress-integration-tests
+  - category: Developers / Contribute / Build the Code and Run Tests / Playwright Integration Tests
+    url: /developers/contribute/build-code-and-run-tests/playwright-integration-tests
   - category: Developers / Contribute / Developing a New Connector
     url: /developers/contribute/developing-a-new-connector
   - category: Developers / Contribute / Developing a New Connector / 1. Define the JSON Schema
