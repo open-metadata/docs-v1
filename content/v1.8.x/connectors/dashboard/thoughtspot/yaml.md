@@ -8,7 +8,7 @@ collate: true
 {% connectorDetailsHeader
 name="ThoughtSpot"
 stage="BETA"
-platform="OpenMetadata"
+platform="Collate"
 availableFeatures=["Dashboards", "Charts", "Owners", "Datamodels", "Lineage"]
 unavailableFeatures=["Projects"]
 / %}
