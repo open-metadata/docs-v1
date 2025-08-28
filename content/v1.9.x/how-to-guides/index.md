@@ -31,6 +31,12 @@ Use LLMs and GenAI agents for automation and intelligent data management within 
     icon="discovery"
 /%}
 {% tile
+    title="Data Contracts"
+    description="Formalize agreements that keep data consumers and producers aligned."
+    link="/how-to-guides/data-contracts"
+    icon="discovery"
+/%}
+{% tile
     title="Data Collaboration"
     description="Foster data team collaboration to enhance data understanding."
     link="/how-to-guides/data-collaboration"
@@ -52,7 +58,7 @@ Use LLMs and GenAI agents for automation and intelligent data management within 
     title="Data Insights"
     description="Define KPIs and set goals to proactively hone the data culture of your company."
     link="/how-to-guides/data-insights"
-    icon="discovery"
+    icon="insight"
 /%}
 {% ossContent %}
 {% tile
