@@ -89,6 +89,17 @@ caption="Remove Test Cases"
 
 {% note %}
 
+Apply to Children option allows you to apply test cases at the column level instead of the entire table.
+When enabled:
+
+- You can specify and select individual column names from the table.
+- Only column-level test definitions are applied (table-level tests are automatically excluded).
+- Before being added, tests verify column data type compatibility to ensure accuracy.
+
+{% /note %}
+
+{% note %}
+
 This functionality is not designed to trigger actions based on test case results (e.g., fail/pass/aborted). 
 
 {% /note %}
@@ -119,6 +130,12 @@ Remove a specific test case (with a defined type/config) from all filtered data 
 Example Use Case:
 
  - Remove all “row count threshold” test cases from tables within a deprecated domain.
+
+{% note %}
+
+ Supported Assets: Test cases currently only work with Table data assets. Other entities such as Topics, Containers, and Pipelines do not support test cases at this time.
+
+ {% /note %}
 
 ### 5. Metadata Propagation via Lineage
 
