@@ -98,7 +98,7 @@ For foundational concepts on test cases and their role in Collate's metadata mod
 - **Benefit**: 
 
   - Saves manual effort by enabling one-click bulk operations (add or remove) on test cases.
-  - Enforces standardization of similar data quality checks across filtered similar assets.
+  - Enforces standardization of similar data quality checks across filtered assets.
   - Reduces human error and speeds up test deployment.
   - Helps maintain consistency in validation strategies across domains, asset types, or tags.
 
