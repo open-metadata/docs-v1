@@ -1,0 +1,13 @@
+.Container {
+  margin: 24px 0px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 24px;
+  width: 100%;
+}
+
+@media (max-width: 600px) {
+  .Container {
+    grid-template-columns: 1fr;
+  }
+}

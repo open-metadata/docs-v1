@@ -1,0 +1,10 @@
+.MenuItem {
+  font-size: 14px;
+  padding: 4px 12px;
+}
+
+.MenuItem:hover {
+  cursor: pointer;
+  background-color: #fafafa;
+  color: var(--primary-color);
+}

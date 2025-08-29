@@ -1,0 +1,28 @@
+.Container{
+  display: flex;
+  justify-content: center;
+  margin: 32px 0px;
+}
+
+.Iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  display: inline-block;
+  border: 1px solid #dde3ea;
+  border-radius: 6px;
+}
+
+.CaptionContainer {
+  margin-top: 16px;
+}
+
+.Caption {
+  font-style: italic;
+  color: gray;
+  padding-top: 8px;
+  font-size: 14px;
+}
+
+:global(.dark) .Caption {
+  color: white;
+}

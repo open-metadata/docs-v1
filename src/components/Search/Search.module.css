@@ -1,0 +1,156 @@
+.SearchContainer {
+  position: relative;
+  width: 40%;
+  max-width: 632px;
+}
+
+.HiddenPlaceholderText {
+  display: none;
+}
+
+.SearchText {
+  margin: 0px;
+  color: var(--gray-text-color);
+}
+
+.SearchIcon {
+  width: 12px;
+  height: 12px;
+  margin: 0px 12px;
+  position: absolute;
+  top: 12px;
+}
+
+.HotKeyContainer {
+  position: absolute;
+  top: 9px;
+  right: 8px;
+  font-size: 12px;
+}
+
+.HotKey {
+  margin: 0px 2px;
+  font-size: 10px;
+  border: 1px solid var(--default-border-color);
+  border-radius: 4px;
+  padding: 2px 4px;
+  background-color: var(--top-nav-color);
+}
+
+.SearchModal {
+  display: none;
+  overscroll-behavior: contain;
+}
+
+.SearchModal ol {
+  list-style: none;
+  margin: 0px;
+}
+
+.VisibleModal {
+  background-color: white;
+  padding: 12px;
+  border: 1px solid var(--default-border-color);
+  border-radius: 4px;
+  display: block;
+  position: absolute;
+  top: 40px;
+  z-index: 900;
+  width: 100%;
+  max-height: 50vh;
+  overflow-y: scroll;
+}
+
+.HitContainer {
+  margin: 0px;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.ActiveHit {
+  background-color: var(--primary-color);
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+
+.HitLink {
+  color: var(--default-text-color);
+}
+
+.HitCategory {
+  margin: 0px;
+  color: var(--gray-text-color);
+  font-size: 12px;
+  font-weight: 400;
+  max-width: 90%;
+  text-overflow: ellipsis;
+}
+
+.ActiveHit,
+.ActiveHit > .SnippetContainer > .HighlightedText,
+.ActiveHit > .HitTitle,
+.ActiveHit > .HitTitle > .HighlightRoot > .HighlightedText {
+  color: var(--white-color);
+}
+
+.ActiveHit > .HitCategory {
+  color: var(--white-color);
+  opacity: 0.7;
+}
+
+.HitTitle {
+  display: flex;
+  margin: 0px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--primary-color);
+}
+
+.HitTitle > .HighlightRoot > .HighlightedText {
+  color: var(--primary-color);
+}
+
+.SnippetContainer {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.ListItem {
+  margin: 0px;
+}
+
+.HighlightedText {
+  background-color: inherit;
+  font-weight: 700;
+}
+
+.NoDataPlaceholder {
+  color: var(--gray-text-color);
+  font-size: 14px;
+}
+
+.LoadingIcon {
+  height: 16px;
+  width: 16px;
+  animation: rotate 1s linear infinite;
+  color: var(--gray-text-color);
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 600px) {
+  .SearchContainer {
+    max-width: 100%;
+    width: 100%;
+  }
+  .CollapsedNav {
+    display: none;
+  }
+}

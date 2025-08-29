@@ -1,0 +1,79 @@
+.Container{
+    margin: 32px 0px;
+    display:flex;
+    flex-direction: column;
+    gap: 6px
+}
+
+.Heading{
+    display:flex;
+    justify-content: space-between;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--default-border-color);
+}
+
+.ConnectorName{
+    font-size: 32px;
+    font-weight: 700;
+}
+
+.PlatformDetails{
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 14px;
+    color: var(--gray-text-color);
+}
+
+.PlatformIcon{
+    padding: 4px;
+    background-color: var(--connector-icon-bg-color);
+    border: 1px solid var(--default-border-color);
+    border-radius: 12px;
+}
+
+.ImageContainer{
+    background-color: var(--connector-icon-bg-color);
+    padding: 12px;
+    border: 1px solid var(--default-border-color);
+    border-radius: 28px;
+}
+
+.FeaturesHeading{
+    font-size: 14px;
+    color: var(--gray-text-color);
+}
+
+.SubHeading{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.FeaturesList{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.FeatureTag{
+    padding: 4px 10px;
+    font-size: 12px;
+    border-radius: 14px;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    gap: 4px
+}
+
+.AvailableFeature{
+    color: var(--green-tag-color);
+    border: 1px solid var(--green-tag-color);
+    background-color: var(--green-tag-bg-color);
+}
+
+.UnavailableFeature{
+    color: var(--orange-tag-color);
+    border: 1px solid var(--orange-tag-color);
+    background-color: var(--orange-tag-bg-color);
+}
