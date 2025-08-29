@@ -1,7 +1,7 @@
-# 1.9.1 Release 🎉
+# 1.9.2 Release 🎉
 
 {% note noteType="Tip" %}
-**13th August 2025**
+**21st August 2025**
 {% /note %}
 
 {% inlineCalloutContainer %}
@@ -10,31 +10,45 @@ color="violet-70"
 icon="celebration"
 bold="Upgrade OpenMetadata"
 href="/deployment/upgrade" %}
-Learn how to upgrade your OpenMetadata instance to 1.9.1!
+Learn how to upgrade your OpenMetadata instance to 1.9.2!
 {% /inlineCallout %}
 {% /inlineCalloutContainer %}
 
-You can find the GitHub release [here](https://github.com/open-metadata/OpenMetadata/releases/tag/1.9.1-release).
+You can find the GitHub release [here](https://github.com/open-metadata/OpenMetadata/releases/tag/1.9.2-release).
 
-## Improvements
-- Removed lastLoginTime from change Description.
-- Add Grafana Support.
-- Add OpenAPI YAML format support for REST API ingestion.
-- Implement Cross Service Lineage.
-- Precede source table name before pbi table name.
-- Supported lineage table, highlight current root node and some Improvement around UI.
-- Spark Engine UI Implementation (Collate).
+## What's New ✨
 
-## Fixes
-- Fix Glossary Terms getting vanished for customized persona in Glossary Terms.
-- Fix deleted assets being visible in Search Suggestions.
-- Fix the upload dragger being enabled when file in process in Bulk Actions.
-- Fix the keyboard delete action not working in Bulk Actions.
-- Fix the PowerBI parse expression along with measure.
-- Fix the expand icon after updating column details.
-- Fix the default persona in user profile.
-- Fix Bedrock Support.
-- Fix User Metrics.
-- Fix Telemetry Payload (Collate)
+- Custom SQL Test Enhancements: The Custom SQL Test functionality now includes support for checking Row Count, providing more robust data quality validation.
+- Exasol Connector: Lineage support has been added to the Exasol connector, allowing for better data traceability.
+- System Health Check: A new health check has been added to monitor system resources, improving platform stability and observability.
 
-**Full Changelog**: [link](https://github.com/open-metadata/OpenMetadata/compare/1.9.0-release...1.9.1-release)
+## What's Improved 🚀
+
+- Performance: General performance has been improved across the application. 
+- NiFi Connector: The NiFi connector has been enhanced to support Execution Time.
+- Domain Migrations: Added missing domain migrations for entity version history to ensure schema consistency.
+
+## What's Fixed 🐞
+
+- UI Performance: Resolved a significant UI lag that occurred when viewing Kafka topics with large or deeply nested schemas.
+
+### Lineage UI:
+
+- Fixed an issue where lineage layers were not visible upfront upon loading the page.
+- Corrected panel alignment issues in the full-screen lineage edit mode.
+
+### Connectors:
+
+- Snowflake: Fixed a bug where tags were not being inherited correctly from schemas.
+- SAP HANA: Corrected the physical schema mapping and column lookup for calculation views.
+- Soft Deletion: Fixed an issue where columns for soft-deleted tables were not being displayed correctly.
+- Tags: Resolved a Null Pointer Exception that occurred when using the "Match All Tags" filter on a resource that had no tags.
+- Domains: Fixed an incorrect condition in the getDomains() method to ensure domains are retrieved accurately.
+- Personas: Addressed a pagination issue on the Persona listing page. 
+- Navigation: Fixed a redirection issue when navigating from the logs view page to the data quality page. 
+
+## Breaking Changes 💥
+
+- API Configuration Removal: The ability to configure authorizer or authentication for individual APIs has been removed. This change simplifies security management by centralizing these settings at the application level, removing redundant and potentially conflicting configurations. All authentication and authorization should now be managed through the primary security configuration.
+
+**Full Changelog**: [link](https://github.com/open-metadata/OpenMetadata/compare/1.9.1-release...1.9.2-release)
