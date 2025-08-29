@@ -1,0 +1,22 @@
+.Container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 24px;
+  border: none;
+  overflow: hidden;
+}
+
+.Iframe {
+  width: 100%;
+  max-width: 100%;
+  aspect-ratio: 16/9;
+  display: inline-block;
+}
+
+.Caption {
+  font-style: italic;
+  color: #6b7280;
+  font-size: 14px;
+}

@@ -39,6 +39,7 @@ Here are the custom markdoc tags to use for desired functionalities.
    - [5. connectorDetailsHeader](#5-connectorDetailsHeader)
    - [6. connectorInfoCard](#6-connectorInfoCard)
    - [7. connectorsListContainer](#7-connectorsListContainer)
+   - [8. storyLane](#8-storyLane)
 - [Conditional Content](#conditional-content)
    - [1. collateContent](#1-collateContent)
    - [2. ossContent](#2-ossContent)
@@ -287,6 +288,25 @@ A styled card to show the links to navigate users to the connector details page 
 ### 7. connectorsListContainer
 
 A wrapper tag to envelope the connectorInfoCard tags for a grid view.
+
+### 8. storyLane
+
+A tag to embed the storylane demos inside the documentation
+
+#### Attributes
+
+1. demoId (type - String)
+   The storylane demo ID from your demo URL.
+
+2. width (type - String, default - "80%") (optional)
+   Width of the demo embed (height will be calculated automatically for 16:9 ratio)
+
+3. caption (type - String) (optional)
+   Caption for the demo
+
+Example:
+
+{% storyLane demoId="demoid123" caption="Demo Id" width="80%" /%}
 
 ---
 
