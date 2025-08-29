@@ -207,6 +207,11 @@ export const CONNECTORS: Array<ConnectorCategory> = [
         name: "Snowflake",
       },
       {
+        url: "/connectors/database/servicenow",
+        icon: "/images/connectors/servicenow.webp",
+        name: "ServiceNow",
+      },
+      {
         url: "/connectors/database/singlestore",
         icon: "/images/connectors/singlestore.webp",
         name: "SingleStore",

@@ -39,6 +39,7 @@
 {% connectorInfoCard name="SAP ERP" stage="PROD" href="/connectors/database/sap-erp" platform="OpenMetadata" / %}
 {% connectorInfoCard name="SAP HANA" stage="PROD" href="/connectors/database/sap-hana" platform="OpenMetadata" / %}
 {% connectorInfoCard name="SAS" stage="PROD" href="/connectors/database/sas" platform="OpenMetadata" / %}
+{% connectorInfoCard name="ServiceNow" stage="BETA" href="/connectors/database/servicenow" platform="Collate" / %}
 {% connectorInfoCard name="SingleStore" stage="PROD" href="/connectors/database/singlestore" platform="OpenMetadata" / %}
 {% connectorInfoCard name="Snowflake" stage="PROD" href="/connectors/database/snowflake" platform="OpenMetadata" / %}
 {% connectorInfoCard name="SQLite" stage="PROD" href="/connectors/database/sqlite" platform="OpenMetadata" / %}
