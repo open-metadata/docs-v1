@@ -17,6 +17,7 @@ import Image from "../components/common/Image/Image";
 import InlineCallout from "../components/common/InlineCallout/InlineCallout";
 import InlineCalloutContainer from "../components/common/InlineCallout/InlineCalloutContainer";
 import Note from "../components/common/Note/Note";
+import StoryLane from "../components/common/StoryLane/StoryLane";
 import MultiTablesWrapper from "../components/common/Table/MultiTablesWrapper";
 import Table from "../components/common/Table/Table";
 import Tile from "../components/common/Tiles/Tile/Tile";
@@ -78,6 +79,7 @@ export const components = {
   Roadmap,
   CollateContent,
   OSSContent,
+  StoryLane,
 };
 
 export const configs: Config = {
