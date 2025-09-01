@@ -1,5 +1,6 @@
 ---
 title: Getting Started with Claude Desktop
+description: Set up MCP Server to connect Claude Desktop, generate tokens, and enable seamless AI-powered access to your data.
 slug: /how-to-guides/mcp/claude
 ---
 
@@ -11,6 +12,7 @@ Configure {% collateContent %}Collate{% /collateContent %}{% ossContent %}OpenMe
 For this guide, you will need:
 - [nvm](https://github.com/nvm-sh/nvm)
 - OpenMetadata v1.8.0 - You can upgrade your version of {% collateContent %}Collate{% /collateContent %}{% ossContent %}OpenMetadata{% /ossContent %} with [this guide](https://docs.open-metadata.org/latest/deployment/upgrade)
+- Latest Node v22 (required)
 - [Claude Desktop](https://claude.ai/download)
 
 ## Add MCP App to {% collateContent %}Collate{% /collateContent %}{% ossContent %}OpenMetadata{% /ossContent %}
