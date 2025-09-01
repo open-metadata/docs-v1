@@ -26,9 +26,7 @@ topics, dashboards, pipelines, and services. OpenMetadata supports detailed meta
 ### Data Discovery
 Find assets based on name, description, component metadata (e.g., for columns, charts), and the containing service.
 
-{% image
-  src="/images/v1.9/features/data-discovery.gif"
-/%}
+{% storyLane demoId="t7tzt6elzgzo" caption="Data Discovery" /%}
 
 
 
@@ -62,24 +60,18 @@ are clickable including tables, dashboards, team names, etc. There are activity 
 /%}
 
 
-## Event Notification via Webhooks and Slack Integration
+## Event alerts and Notification via Webhooks, Slack Integration, etc
 
-The webhook interface allows you to build applications that receive all the data changes happening in your organization 
-through APIs. Register URLs to receive metadata event notifications. Slack integration through incoming webhooks is one
-of many applications of this feature.
+OpenMetadata helps you stay updated on key metadata changes through event-based alerts and notifications. You can send updates via Webhooks, Slack, Microsoft Teams, or Google Chat, ensuring your teams receive real-time updates in their preferred collaboration tools.
 
-{% image
-  src="/images/v1.9/features/event-notification-slack.gif"
-/%}
+{% storyLane demoId="rqr9vuq3e6l8" caption="Alerts and Notification" /%}
 
 ## Add Descriptive Metadata
 Add descriptions and tags to tables, columns, and other assets. OpenMetadata indexes assets based on descriptions, tags,
 names, and other metadata to enable keyword, advanced search, and filtering to enable you and others in your 
 organization to discover your data.
 
-{% image
-  src="/images/v1.9/features/add-descriptive-metadata.gif"
-/%}
+{% storyLane demoId="xteyeka25reh" caption="Add Descriptive Metadata" /%}
 
 
 ## Complex Data Types
@@ -117,9 +109,7 @@ any questions you might have.
 ### Filter Assets by Importance
 User Tier tags and usage data to identify the relative importance of data assets.
 
-{% image
-  src="/images/v1.9/features/filter-asset-by-importance.gif"
-/%}
+{% storyLane demoId="jkv0cxmdd5v1" caption="Filter Assets by Importance" /%}
 
 
 ### Identify Asset Owners
@@ -135,17 +125,13 @@ OpenMetadata supports Role Based Access Control (RBAC) policies for metadata ope
 or more roles. Each role has a defined policy. Policies are composed of a set of rules. Rules allow/deny access to 
 metadata operations such as updating descriptions, tags, owners, and lineage.
 
-{% image
-  src="/images/v1.9/features/rbac.gif"
-/%}
+{% storyLane demoId="nzsz2n9crhab" caption="Role Based Access Control" /%}
 
 
 ## Data Lineage
 Trace the path of data across tables, pipelines, and dashboards.
 
-{% image
-  src="/images/v1.9/features/data-lineage.gif"
-/%}
+{% storyLane demoId="rohlmrpjwntx" caption="Data Lineage" /%}
 
 
 ## Edit Data Lineage Manually
@@ -176,10 +162,7 @@ Enable the data profiler to capture table usage statistics over a period of time
 ingestion. Data profiles enable you to check for null values in non-null columns, for duplicates in a unique column, 
 etc. You can gain a better understanding of column data distributions through descriptive statistics provided.
 
-{% image
-  src="/images/v1.9/features/data-profiler.gif"
-/%}
-
+{% storyLane demoId="ktnyawmpntbi" caption="Data Profiler" /%}
 
 ## Service Connectors & One-Click Ingestion Pipelines
 Integrate your database, dashboard, messaging, and pipeline services with OpenMetadata. OpenMetadata provides a UI 
