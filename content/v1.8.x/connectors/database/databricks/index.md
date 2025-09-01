@@ -13,7 +13,7 @@ unavailableFeatures=["Stored Procedures", "Tags", "Owners"]
 / %}
 
 {% note %}
-As per the [documentation](https://docs.databricks.com/en/data-governance/unity-catalog/tags.html#manage-tags-with-sql-commands) here, note that we only support metadata `tag` extraction for databricks version 13.3 version and higher.
+Although [Databricks supports tags](https://docs.databricks.com/en/data-governance/unity-catalog/tags.html#manage-tags-with-sql-commands), the Databricks connector in OpenMetadata does not yet support them. Tag support will be available in a future release.
 {% /note %}
 
 
