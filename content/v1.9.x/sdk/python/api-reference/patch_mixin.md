@@ -126,7 +126,9 @@ Given an Table , Column FQN, JSON PATCH the description of the column
 
 `column_fqn`: FQN of the column to update  
 
-`description`: new description to add  force: if True, we will patch any existing description. Otherwise, we will maintain  the existing data. 
+`description`: new description to add  
+
+`force`: if True, we will patch any existing description. Otherwise, we will maintain  the existing data. 
 
 **Returns:** 
 
@@ -202,7 +204,9 @@ Given an Entity type and ID, JSON PATCH the description.
 
 `source`: source entity object  
 
-`description`: new description to add  force: if True, we will patch any existing description. Otherwise, we will maintain  the existing data. 
+`description`: new description to add  
+
+`force`: if True, we will patch any existing description. Otherwise, we will maintain  the existing data. 
 
 **Returns:**  
 
@@ -261,7 +265,9 @@ Given an Entity type and ID, JSON PATCH the owner. If not owner Entity type and 
 
 `entity_id`: ID of the entity to be patched  
 
-`owner`: Entity Reference of the owner. If None, the owner will be removed  force: if True, we will patch any existing owner. Otherwise, we will maintain  the existing data. 
+`owner`: Entity Reference of the owner. If None, the owner will be removed  
+
+`force`: if True, we will patch any existing owner. Otherwise, we will maintain  the existing data. 
 
 **Returns:**  
 
