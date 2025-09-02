@@ -190,9 +190,13 @@ Patch domain data for an Entity
 patch_life_cycle(entity: BaseModel, life_cycle: LifeCycle) → Optional[BaseModel]
 ```
 
-Patch life cycle data for a entity 
+Patch life cycle data for a entity
 
-:param entity: Entity to update the life cycle for :param life_cycle_data: Life Cycle data to add 
+**Args:**
+
+`entity`: Entity to update the life cycle for 
+
+`life_cycle_data`: Life Cycle data to add 
 
 ---
 
