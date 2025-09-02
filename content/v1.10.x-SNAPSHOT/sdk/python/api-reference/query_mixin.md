@@ -69,9 +69,13 @@ ingest_entity_queries_data(
 ) → None
 ```
 
-PUT queries for an entity 
+PUT queries for an entity
 
-:param entity: Entity to update :param queries: CreateQueryRequest to add 
+**Args:**
+
+`entity`: Entity to update 
+
+`queries`: CreateQueryRequest to add 
 
 
 
