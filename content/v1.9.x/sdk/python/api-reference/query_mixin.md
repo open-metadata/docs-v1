@@ -48,10 +48,6 @@ Get the queries attached to a table
  - `entity_id` (Union[Uuid,str]):  entity id of given entity 
  - `fields` (Optional[List[str]]):  list of fields to be included in response 
 
-
-
-
-
 **Returns:**
  
  - `Optional[List[Query]]`:  List of queries 
