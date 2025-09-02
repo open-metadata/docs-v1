@@ -39,7 +39,17 @@ add_mlmodel_lineage(
 ) → Dict[str, Any]
 ```
 
-Iterates over MlModel's Feature Sources and add the lineage information. :param model: MlModel containing EntityReferences :param description: Lineage description :return: List of added lineage information 
+Iterates over MlModel's Feature Sources and add the lineage information. 
+
+**Args:**
+
+`model`: MlModel containing EntityReferences 
+
+`description`: Lineage description 
+
+**Returns:**
+
+List of added lineage information 
 
 ---
 
@@ -58,7 +68,21 @@ get_mlmodel_sklearn(
 
 Get an MlModel Entity instance from a scikit-learn model. 
 
-Sklearn estimators all extend BaseEstimator. :param name: MlModel name :param model: sklearn estimator :param description: MlModel description :param service_name: Service name to use when creating sklearn service :return: OpenMetadata CreateMlModelRequest Entity 
+Sklearn estimators all extend BaseEstimator. 
+
+**Args:**
+
+`name`: MlModel name 
+
+`model`: sklearn estimator 
+
+`description`: MlModel description 
+
+`service_name`: Service name to use when creating sklearn service 
+
+**Returns:**
+
+OpenMetadata CreateMlModelRequest Entity 
 
 
 
