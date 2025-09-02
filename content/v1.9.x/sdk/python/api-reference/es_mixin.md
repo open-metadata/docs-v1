@@ -49,9 +49,23 @@ es_search_from_fqn(
 ) → Optional[List[~T]]
 ```
 
-Given a service_name and some filters, search for entities using ES 
+Given a service_name and some filters, search for entities using ES
 
-:param entity_type: Entity to look for :param fqn_search_string: string used to search by FQN. E.g., service.*.schema.table :param from_count: Records to expect :param size: Number of records :param fields: Comma separated list of fields to be returned :return: List of entities 
+**Args:**
+
+`entity_type`: Entity to look for 
+
+`fqn_search_string`: string used to search by FQN. E.g., service.*.schema.table 
+
+`from_count`: Records to expect 
+
+`size`: Number of records 
+
+`fields`: Comma separated list of fields to be returned 
+
+**Returns:**
+
+List of entities 
 
 ---
 
