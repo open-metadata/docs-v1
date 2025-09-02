@@ -3,17 +3,17 @@ title: OpenMetadata MCP Tools Reference
 slug: /how-to-guides/mcp/reference
 ---
 
-# OpenMetadata MCP Tools Reference
+# {% collateContent %}Collate{% /collateContent %}{% ossContent %}OpenMetadata{% /ossContent %} MCP Tools Reference
 
 ## Overview
 
-This document provides detailed examples and usage patterns for all available OpenMetadata MCP tools. Each tool includes sample requests, responses, and common use cases.
+This document provides detailed examples and usage patterns for all available {% collateContent %}Collate{% /collateContent %}{% ossContent %}OpenMetadata{% /ossContent %} MCP tools. Each tool includes sample requests, responses, and common use cases.
 
 ## Available Tools
 
 ### 1. search_metadata
 
-**Description**: Find data assets and business terms in your OpenMetadata catalog.
+**Description**: Find data assets and business terms in your {% collateContent %}Collate{% /collateContent %}{% ossContent %}OpenMetadata{% /ossContent %} catalog.
 
 **Use Cases**:
 - Discover tables containing specific data
