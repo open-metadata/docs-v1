@@ -41,7 +41,7 @@ ingest_topic_sample_data(
 
 PUT sample data for a topic 
 
-**Parameters:**
+**Args:**
 
 `topic`: Topic Entity to update 
 
