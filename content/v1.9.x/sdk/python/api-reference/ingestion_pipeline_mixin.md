@@ -41,7 +41,11 @@ create_or_update_pipeline_status(
 
 PUT create or update pipeline status 
 
-:param ingestion_pipeline_fqn: Ingestion Pipeline FQN :param pipeline_status: Pipeline Status data to add 
+**Args:**
+
+`ingestion_pipeline_fqn`: Ingestion Pipeline FQN 
+
+`pipeline_status`: Pipeline Status data to add 
 
 ---
 
@@ -62,8 +66,8 @@ Get ingestion pipeline statues based on name
 
 **Args:**
  
- - <b>`name`</b> (str):  Ingestion Pipeline Name 
- - <b>`fields`</b> (List[str]):  List of all the fields 
+ - `name` (str):  Ingestion Pipeline Name 
+ - `fields` (List[str]):  List of all the fields 
 
 ---
 
@@ -80,7 +84,11 @@ get_pipeline_status(
 
 GET pipeline status 
 
-:param ingestion_pipeline_fqn: Ingestion Pipeline FQN :param pipeline_status_run_id: Pipeline Status run id 
+**Args:**
+
+`ingestion_pipeline_fqn`: Ingestion Pipeline FQN 
+
+`pipeline_status_run_id`: Pipeline Status run id 
 
 ---
 
@@ -102,9 +110,9 @@ Get pipeline status between timestamp
 
 **Args:**
  
- - <b>`ingestion_pipeline_fqn`</b> (str):  pipeline fqn 
- - <b>`start_ts`</b> (int):  start_ts 
- - <b>`end_ts`</b> (int):  end_ts 
+ - `ingestion_pipeline_fqn` (str):  pipeline fqn
+ - `start_ts` (int):  start_ts 
+ - `end_ts` (int):  end_ts 
 
 ---
 
@@ -122,7 +130,7 @@ Run ingestion pipeline workflow
 
 **Args:**
  
- - <b>`ingestion_pipeline_id`</b> (str):  ingestion pipeline uuid 
+ - `ingestion_pipeline_id` (str):  ingestion pipeline uuid 
 
 
 
