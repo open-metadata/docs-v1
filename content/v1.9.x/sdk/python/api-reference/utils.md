@@ -23,7 +23,7 @@ format_name(name: str) → str
 
 Given a name, replace all special characters by `_` 
 
-**Parameters:**
+**Args:**
 
 `name`: name to format 
 
