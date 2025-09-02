@@ -86,7 +86,17 @@ get_lineage_by_id(
 ) → Optional[Dict[str, Any]]
 ```
 
-Get lineage details for an entity `id` :param entity: Type of the entity :param entity_id: Entity ID :param up_depth: Upstream depth of lineage (default=1, min=0, max=3)" :param down_depth: Downstream depth of lineage (default=1, min=0, max=3) 
+Get lineage details for an entity `id` 
+
+**Args:**
+
+`entity`: Type of the entity 
+
+`entity_id`: Entity ID 
+
+`up_depth`: Upstream depth of lineage (default=1, min=0, max=3)" 
+
+`down_depth`: Downstream depth of lineage (default=1, min=0, max=3) 
 
 ---
 
@@ -103,7 +113,17 @@ get_lineage_by_name(
 ) → Optional[Dict[str, Any]]
 ```
 
-Get lineage details for an entity `id` :param entity: Type of the entity :param fqn: Entity FQN :param up_depth: Upstream depth of lineage (default=1, min=0, max=3)" :param down_depth: Downstream depth of lineage (default=1, min=0, max=3) 
+Get lineage details for an entity `id` 
+
+**Args:**
+
+`entity`: Type of the entity 
+
+`fqn`: Entity FQN 
+
+`up_depth`: Upstream depth of lineage (default=1, min=0, max=3)" 
+
+`down_depth`: Downstream depth of lineage (default=1, min=0, max=3) 
 
 
 
