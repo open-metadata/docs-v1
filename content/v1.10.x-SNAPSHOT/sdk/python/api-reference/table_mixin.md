@@ -63,9 +63,17 @@ create_or_update_table_profiler_config(
 ) → Optional[Table]
 ```
 
-Update the profileSample property of a Table, given its FQN. 
+Update the profileSample property of a Table, given its FQN.
 
-:param fqn: Table FQN :param profile_sample: new profile sample to set :return: Updated table 
+**Args:**
+
+`fqn`: Table FQN 
+
+`profile_sample`: new profile sample to set 
+
+**Returns:**
+
+Updated table 
 
 ---
 
@@ -159,9 +167,13 @@ ingest_profile_data(
 ) → Table
 ```
 
-PUT profile data for a table 
+PUT profile data for a table
 
-:param table: Table Entity to update :param table_profile: Profile data to add 
+**Args:**
+
+`table`: Table Entity to update 
+
+`table_profile`: Profile data to add 
 
 ---
 
@@ -173,9 +185,13 @@ PUT profile data for a table
 ingest_table_data_model(table: Table, data_model: DataModel) → Table
 ```
 
-PUT data model for a table 
+PUT data model for a table
 
-:param table: Table Entity to update :param data_model: Model to add 
+**Args:**
+
+`table`: Table Entity to update 
+
+`data_model`: Model to add 
 
 ---
 
@@ -190,9 +206,13 @@ ingest_table_sample_data(
 ) → Optional[TableData]
 ```
 
-PUT sample data for a table 
+PUT sample data for a table
 
-:param table: Table Entity to update :param sample_data: Data to add 
+**Args:**
+
+`table`: Table Entity to update 
+
+`sample_data`: Data to add 
 
 ---
 
@@ -207,9 +227,13 @@ publish_frequently_joined_with(
 ) → None
 ```
 
-POST frequently joined with for a table 
+POST frequently joined with for a table
 
-:param table: Table Entity to update :param table_join_request: Join data to add 
+**Args:**
+
+`table`: Table Entity to update 
+
+`table_join_request`: Join data to add 
 
 ---
 
@@ -221,9 +245,13 @@ POST frequently joined with for a table
 publish_table_usage(table: Table, table_usage_request: UsageRequest) → None
 ```
 
-POST usage details for a Table 
+POST usage details for a Table
 
-:param table: Table Entity to update :param table_usage_request: Usage data to add 
+**Args:**
+
+`table`: Table Entity to update 
+
+`table_usage_request`: Usage data to add 
 
 
 
