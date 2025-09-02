@@ -21,7 +21,15 @@ Helper functions to handle OpenMetadata Entities' properties
 format_name(name: str) → str
 ```
 
-Given a name, replace all special characters by `_` :param name: name to format :return: formatted string 
+Given a name, replace all special characters by `_` 
+
+**Args:**
+
+`name`: name to format 
+
+**Returns:**
+
+formatted string 
 
 
 ---
