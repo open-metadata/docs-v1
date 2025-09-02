@@ -9,6 +9,7 @@ Configure {% collateContent %}Collate{% /collateContent %}{% ossContent %}OpenMe
 
 ## Prerequisites
 For this guide, you will need:
+- [nvm](https://github.com/nvm-sh/nvm) and npx/node version 22
 - {% collateContent %}Collate{% /collateContent %}{% ossContent %}OpenMetadata{% /ossContent %} v1.8.0 or later- You can upgrade your version of {% collateContent %}Collate{% /collateContent %}{% ossContent %}OpenMetadata{% /ossContent %} with [this guide](https://docs.open-metadata.org/latest/deployment/upgrade)
 - [Goose Desktop](https://block.github.io/goose/docs/quickstart/)
 - {% collateContent %}Collate{% /collateContent %}{% ossContent %}OpenMetadata{% /ossContent %} [MCP Application and Personal Access Token](https://docs.open-metadata.org/v1.9.x/how-to-guides/mcp#installing-mcp-server)

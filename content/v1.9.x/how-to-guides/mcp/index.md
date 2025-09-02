@@ -66,6 +66,20 @@ With MCP installed and a Personal Access Token created, you can connect {% colla
 {%inlineCalloutContainer%}
  {%inlineCallout
   color="violet-70"
+  bold="OpenMetadata MCP Server Connection Guide"
+  icon="MdSearch"
+  href="/how-to-guides/mcp/connect"%}
+  Connect to your MCP Server.
+ {%/inlineCallout%}
+ {%inlineCallout
+  color="violet-70"
+  bold="OpenMetadata MCP Tools Reference"
+  icon="MdSearch"
+  href="/how-to-guides/mcp/reference"%}
+  Detailed examples and usage patterns for all available OpenMetadata MCP tools.
+ {%/inlineCallout%}
+ {%inlineCallout
+  color="violet-70"
   bold="Getting Started with Claude Desktop"
   icon="MdSearch"
   href="/how-to-guides/mcp/claude"%}
@@ -77,13 +91,6 @@ With MCP installed and a Personal Access Token created, you can connect {% colla
   icon="MdSearch"
   href="/how-to-guides/mcp/goose"%}
   Connect your {% collateContent %}Collate{% /collateContent %}{% ossContent %}OpenMetadata{% /ossContent %} to Block's Open-Source AI assistant.
- {%/inlineCallout%}
- {%inlineCallout
-  color="violet-70"
-  bold="Getting Started with API's"
-  icon="MdSearch"
-  href="/how-to-guides/mcp/api"%}
-  Connect your MCP Server to an API service like Postman.
  {%/inlineCallout%}
 {%/inlineCalloutContainer%}
 
