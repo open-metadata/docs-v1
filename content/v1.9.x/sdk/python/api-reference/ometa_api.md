@@ -255,7 +255,21 @@ list_all_entities(
 ) → Iterable[~T]
 ```
 
-Utility method that paginates over all EntityLists to return a generator to fetch entities :param entity: Entity Type, such as Table :param fields: Extra fields to return :param limit: Number of entities in each pagination :param params: Extra parameters, e.g., {"service": "serviceName"} to filter :return: Generator that will be yielding all Entities 
+Utility method that paginates over all EntityLists to return a generator to fetch entities.
+
+**Parameters**:
+
+- `entity`: Entity Type, such as Table
+
+- `fields`: Extra fields to return
+
+- `limit`: Number of entities in each pagination
+
+- `params`: Extra parameters, e.g., {"service": "serviceName"} to filter
+
+**Returns**:
+
+Generator that will be yielding all Entities 
 
 ---
 
