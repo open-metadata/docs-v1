@@ -77,7 +77,7 @@ Given an Entity type and Source entity and Destination entity, generate a JSON P
 
 **Args:**
 
-`entity (T)`: Entity Type  
+`entity` (T): Entity Type  
 
 `source`: Source payload which is current state of the source in OpenMetadata  
 
@@ -200,7 +200,7 @@ Given an Entity type and ID, JSON PATCH the description.
 
 **Args:**  
 
-`entity (T)`: Entity Type  
+`entity` (T): Entity Type  
 
 `source`: source entity object  
 
@@ -261,7 +261,7 @@ Given an Entity type and ID, JSON PATCH the owner. If not owner Entity type and 
 
 **Args:**  
 
-`entity (T)`: Entity Type of the entity to be patched  
+`entity` (T): Entity Type of the entity to be patched  
 
 `entity_id`: ID of the entity to be patched  
 
@@ -334,7 +334,7 @@ Given an Entity type and ID, JSON PATCH the tag.
 
 **Args:**  
 
-`entity (T)`: Entity Type  
+`entity` (T): Entity Type  
 
 `source`: Source entity object  
 
