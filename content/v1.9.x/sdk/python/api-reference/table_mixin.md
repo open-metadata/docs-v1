@@ -65,7 +65,7 @@ create_or_update_table_profiler_config(
 
 Update the profileSample property of a Table, given its FQN.
 
-**Parameters:**
+**Args:**
 
 `fqn`: Table FQN 
 
@@ -169,7 +169,7 @@ ingest_profile_data(
 
 PUT profile data for a table 
 
-**Parameters:**
+**Args:**
 
 `table`: Table Entity to update 
 
@@ -187,7 +187,7 @@ ingest_table_data_model(table: Table, data_model: DataModel) → Table
 
 PUT data model for a table
 
-**Parameters:**
+**Args:**
 
 `table`: Table Entity to update 
 
@@ -208,7 +208,7 @@ ingest_table_sample_data(
 
 PUT sample data for a table
 
-**Parameters:**
+**Args:**
 
 `table`: Table Entity to update 
 
@@ -229,7 +229,7 @@ publish_frequently_joined_with(
 
 POST frequently joined with for a table
 
-**Parameters:**
+**Args:**
 
 `table`: Table Entity to update 
 
@@ -247,7 +247,7 @@ publish_table_usage(table: Table, table_usage_request: UsageRequest) → None
 
 POST usage details for a Table 
 
-**Parameters:**
+**Args:**
 
 `table`: Table Entity to update 
 
