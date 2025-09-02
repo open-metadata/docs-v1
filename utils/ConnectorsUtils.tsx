@@ -155,6 +155,7 @@ export const getConnectorImage = (connector: string) => {
     ServiceNow: "servicenow",
     SingleStore: "singlestore",
     Snowflake: "snowflakes",
+    Snowplow: "snowplow",
     Spline: "spline",
     SQLite: "sqlite",
     SSIS: "ssis",

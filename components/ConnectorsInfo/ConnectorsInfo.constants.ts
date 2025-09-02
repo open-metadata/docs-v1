@@ -428,6 +428,11 @@ export const CONNECTORS: Array<ConnectorCategory> = [
         name: "OpenLineage",
       },
       {
+        url: "/connectors/pipeline/snowplow",
+        icon: "/images/connectors/snowplow.webp",
+        name: "Snowplow",
+      },
+      {
         url: "/connectors/pipeline/spline",
         icon: "/images/connectors/spline.webp",
         name: "Spline",

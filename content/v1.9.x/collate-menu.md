@@ -559,6 +559,12 @@ site_menu:
     url: /connectors/pipeline/spline/yaml
   - category: Connectors / Pipeline / Spline / Troubleshooting
     url: /connectors/pipeline/spline/troubleshooting
+  - category: Connectors / Pipeline / Snowplow
+    url: /connectors/pipeline/snowplow
+  - category: Connectors / Pipeline / Snowplow / Run Externally
+    url: /connectors/pipeline/snowplow/yaml
+  - category: Connectors / Pipeline / Snowplow / Troubleshooting
+    url: /connectors/pipeline/snowplow/troubleshooting
   - category: Connectors / Pipeline / SSIS
     url: /connectors/pipeline/ssis
   - category: Connectors / Pipeline / SSIS / Run Externally
