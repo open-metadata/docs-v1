@@ -40,7 +40,7 @@ Given a ReportData object convert it to a json payload and send a POST request t
 
 **Args:**
  
- - <b>`record`</b> (ReportData):  report data 
+ - `record` (ReportData):  report data 
 
 ---
 
@@ -58,7 +58,7 @@ Given a ReportData object convert it to a json payload and send a POST request t
 
 **Args:**
  
- - <b>`record`</b> (ReportData):  report data 
+ - `record` (ReportData):  report data 
 
 ---
 
@@ -104,7 +104,7 @@ Delete report data for a specific report data type
 
 **Args:**
  
- - <b>`report_data_type`</b> (ReportDataType):  report date type to delete 
+ - `report_data_type` (ReportDataType):  report date type to delete 
 
 ---
 
@@ -125,8 +125,8 @@ Delete report data at a specific date for a specific report data type
 
 **Args:**
  
- - <b>`report_data_type`</b> (ReportDataType):  report date type to delete 
- - <b>`date`</b> (str):  date for which to delete the report data 
+ - `report_data_type` (ReportDataType):  report date type to delete 
+ - `date` (str):  date for which to delete the report data 
 
 ---
 
@@ -147,8 +147,8 @@ Deletes web analytics events before a timestamp
 
 **Args:**
  
- - <b>`event_type`</b> (WebAnalyticEventData):  web analytic event type 
- - <b>`tmsp`</b> (int):  timestamp 
+ - `event_type` (WebAnalyticEventData):  web analytic event type 
+ - `tmsp` (int):  timestamp 
 
 ---
 
@@ -172,17 +172,17 @@ _summary_
 
 **Args:**
  
- - <b>`start_ts`</b> (int):  _description_ 
- - <b>`end_ts`</b> (int):  _description_ 
- - <b>`data_insight_chart_name`</b> (str):  _description_ 
- - <b>`data_report_index`</b> (str):  _description_ 
- - <b>`params`</b> (Optional[dict], optional):  _description_. Defaults to None. 
+ - `start_ts` (int):  _description_ 
+ - `end_ts` (int):  _description_ 
+ - `data_insight_chart_name` (str):  _description_ 
+ - `data_report_index` (str):  _description_ 
+ - `params` (Optional[dict], optional):  _description_. Defaults to None. 
 
 
 
 **Returns:**
  
- - <b>`DataInsightChartResult`</b>:  _description_ 
+ - `DataInsightChartResult`:  _description_ 
 
 ---
 
@@ -204,9 +204,9 @@ Return dict with a list of report data given a start and end date
 
 **Args:**
  
- - <b>`start_ts`</b> (_type_):  start_timestamp 
- - <b>`end_ts`</b> (_type_):  end timestampe 
- - <b>`report_data_type`</b> (ReportDataType):  report data type 
+ - `start_ts` (_type_):  start_timestamp 
+ - `end_ts` (_type_):  end timestampe 
+ - `report_data_type` (ReportDataType):  report data type 
 
 
 
@@ -229,7 +229,7 @@ Given FQN return KPI results
 
 **Args:**
  
- - <b>`fqn`</b> (str):  fullyQualifiedName 
+ - `fqn` (str):  fullyQualifiedName 
 
 ---
 
