@@ -45,16 +45,12 @@ Get the queries attached to a table
 
 **Args:**
  
- - <b>`entity_id`</b> (Union[Uuid,str]):  entity id of given entity 
- - <b>`fields`</b> (Optional[List[str]]):  list of fields to be included in response 
-
-
-
-
+ - `entity_id` (Union[Uuid,str]):  entity id of given entity 
+ - `fields` (Optional[List[str]]):  list of fields to be included in response 
 
 **Returns:**
  
- - <b>`Optional[List[Query]]`</b>:  List of queries 
+ - `Optional[List[Query]]`:  List of queries 
 
 ---
 
@@ -71,7 +67,11 @@ ingest_entity_queries_data(
 
 PUT queries for an entity 
 
-:param entity: Entity to update :param queries: CreateQueryRequest to add 
+**Args:**
+
+`entity`: Entity to update 
+
+`queries`: CreateQueryRequest to add 
 
 
 

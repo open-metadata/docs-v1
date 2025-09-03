@@ -201,7 +201,17 @@ Inversely, import the Entity type based on the create Entity class
 get_entity_reference(entity: Type[~T], fqn: str) → Optional[EntityReference]
 ```
 
-Helper method to obtain an EntityReference from a FQN and the Entity class. :param entity: Entity Class :param fqn: Entity instance FQN :return: EntityReference or None 
+Helper method to obtain an EntityReference from a FQN and the Entity class. 
+
+**Args:**
+
+`entity`: Entity Class 
+
+`fqn`: Entity instance FQN 
+
+**Returns:**
+
+EntityReference or None 
 
 ---
 

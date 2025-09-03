@@ -48,7 +48,7 @@ Create or update custom metric. If custom metric name matches an existing one th
 
 **Args:**
  
- - <b>`custom_metric`</b> (CreateCustomMetricRequest):  custom metric to be create or updated 
+ - `custom_metric` (CreateCustomMetricRequest):  custom metric to be create or updated 
 
 ---
 
@@ -63,9 +63,17 @@ create_or_update_table_profiler_config(
 ) → Optional[Table]
 ```
 
-Update the profileSample property of a Table, given its FQN. 
+Update the profileSample property of a Table, given its FQN.
 
-:param fqn: Table FQN :param profile_sample: new profile sample to set :return: Updated table 
+**Args:**
+
+`fqn`: Table FQN 
+
+`profile_sample`: new profile sample to set 
+
+**Returns:**
+
+Updated table 
 
 ---
 
@@ -83,13 +91,13 @@ Get the latest profile data for a table
 
 **Args:**
  
- - <b>`fqn`</b> (str):  table fully qualified name 
+ - `fqn` (str):  table fully qualified name 
 
 
 
 **Returns:**
  
- - <b>`Optional[Table]`</b>:  OM table object 
+ - `Optional[Table]`:  OM table object 
 
 ---
 
@@ -114,23 +122,23 @@ Get profile data
 
 **Args:**
  
- - <b>`fqn`</b> (str):  fullyQualifiedName 
- - <b>`start_ts`</b> (int):  start timestamp 
- - <b>`end_ts`</b> (int):  end timestamp 
- - <b>`limit`</b> (int, optional):  limit of record to return. Defaults to 100. 
- - <b>`after`</b> (_type_, optional):  use for API pagination. Defaults to None. profile_type (Union[Type[TableProfile], Type[ColumnProfile]], optional):  Profile type to retrieve. Defaults to TableProfile. 
+ - `fqn` (str):  fullyQualifiedName 
+ - `start_ts` (int):  start timestamp 
+ - `end_ts` (int):  end timestamp 
+ - `limit` (int, optional):  limit of record to return. Defaults to 100. 
+ - `after` (_type_, optional):  use for API pagination. Defaults to None. profile_type (Union[Type[TableProfile], Type[ColumnProfile]], optional):  Profile type to retrieve. Defaults to TableProfile. 
 
 
 
 **Raises:**
  
- - <b>`TypeError`</b>:  if `profile_type` is not TableProfile or ColumnProfile 
+ - `TypeError`:  if `profile_type` is not TableProfile or ColumnProfile 
 
 
 
 **Returns:**
  
- - <b>`EntityList`</b>:  EntityList list object 
+ - `EntityList`:  EntityList list object 
 
 ---
 
@@ -161,7 +169,11 @@ ingest_profile_data(
 
 PUT profile data for a table 
 
-:param table: Table Entity to update :param table_profile: Profile data to add 
+**Args:**
+
+`table`: Table Entity to update 
+
+`table_profile`: Profile data to add 
 
 ---
 
@@ -173,9 +185,13 @@ PUT profile data for a table
 ingest_table_data_model(table: Table, data_model: DataModel) → Table
 ```
 
-PUT data model for a table 
+PUT data model for a table
 
-:param table: Table Entity to update :param data_model: Model to add 
+**Args:**
+
+`table`: Table Entity to update 
+
+`data_model`: Model to add 
 
 ---
 
@@ -190,9 +206,13 @@ ingest_table_sample_data(
 ) → Optional[TableData]
 ```
 
-PUT sample data for a table 
+PUT sample data for a table
 
-:param table: Table Entity to update :param sample_data: Data to add 
+**Args:**
+
+`table`: Table Entity to update 
+
+`sample_data`: Data to add 
 
 ---
 
@@ -207,9 +227,13 @@ publish_frequently_joined_with(
 ) → None
 ```
 
-POST frequently joined with for a table 
+POST frequently joined with for a table
 
-:param table: Table Entity to update :param table_join_request: Join data to add 
+**Args:**
+
+`table`: Table Entity to update 
+
+`table_join_request`: Join data to add 
 
 ---
 
@@ -223,7 +247,11 @@ publish_table_usage(table: Table, table_usage_request: UsageRequest) → None
 
 POST usage details for a Table 
 
-:param table: Table Entity to update :param table_usage_request: Usage data to add 
+**Args:**
+
+`table`: Table Entity to update 
+
+`table_usage_request`: Usage data to add 
 
 
 

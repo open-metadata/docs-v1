@@ -39,9 +39,17 @@ Create a service of type T.
 We need to extract from the WorkflowSource: 
 - name: serviceName 
 - serviceType: Type Enum 
-- connection: (DatabaseConnection, DashboardConnection...) 
+- connection: (DatabaseConnection, DashboardConnection...)
 
-:param entity: Service Type :param config: WorkflowSource :return: Created Service 
+**Args:**
+
+`entity`: Service Type 
+
+`config`: WorkflowSource 
+
+**Returns:**
+
+Created Service 
 
 ---
 
@@ -53,7 +61,17 @@ We need to extract from the WorkflowSource:
 get_create_service_from_source(entity: Type[~T], config: Source) → ~C
 ```
 
-Prepare a CreateService request from source config :param entity: Service Type :param config: WorkflowSource :return: CreateService request 
+Prepare a CreateService request from source config 
+
+**Args:**
+
+`entity`: Service Type 
+
+`config`: WorkflowSource 
+
+**Returns:**
+
+CreateService request 
 
 If the OpenMetadata Connection has storeServiceConnection set to false, we won't pass the connection details when creating the service. 
 
@@ -67,7 +85,16 @@ If the OpenMetadata Connection has storeServiceConnection set to false, we won't
 get_service_or_create(entity: Type[~T], config: Source) → ~T
 ```
 
-Fetches a service by name, or creates it using the WorkflowSource config :param entity: Entity Type to get or create :param config: WorkflowSource :return: Entity Service of T 
+Fetches a service by name, or creates it using the WorkflowSource config 
+
+**Args:**
+
+`entity`: Entity Type to get or create
+
+`config`: WorkflowSource 
+
+**Returns:**
+Entity Service of T 
 
 
 
