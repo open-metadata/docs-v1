@@ -25,7 +25,7 @@ slug: /main-concepts/metadata-standard/schemas/entity/services/connections/conne
 - **`supportsSystemProfile`** *(boolean)*: The source database supports system profiles for tables such as last update. Default: `False`.
 - **`supportsDataInsightExtraction`** *(boolean)*: Support Metadata To Elastic Search. Default: `True`.
 - **`supportsElasticSearchReindexingExtraction`** *(boolean)*: Support Elastic Search Reindexing. Default: `True`.
-- **`supportsDBTExtraction`** *(boolean)*: Supports DBT Extraction. Default: `True`.
+- **`supportsDBTExtraction`** *(boolean)*: Supports dbt Extraction. Default: `True`.
 - **`supportsDataDiff`** *(boolean)*: Supports the data diff data qualty specification. Default: `True`.
 - **`dataStorageConfig`** *(object)*: Storage config to store sample data.
   - **`bucketName`** *(string)*: Bucket Name. Default: ``.

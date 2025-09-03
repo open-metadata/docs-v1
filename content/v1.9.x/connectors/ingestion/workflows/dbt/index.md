@@ -25,7 +25,7 @@ Configure the dbt Workflow from the CLI.
 
 {%inlineCallout
   icon="celebration"
-  bold="Auto Ingest DBT Artifacts (dbt-core)"
+  bold="Auto Ingest dbt Artifacts (dbt-core)"
   href="/connectors/ingestion/workflows/dbt/auto-ingest-dbt-core"%}
 Configure the auto dbt ingestion for dbt-core.
 

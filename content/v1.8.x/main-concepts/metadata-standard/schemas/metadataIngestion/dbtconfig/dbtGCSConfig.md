@@ -1,12 +1,12 @@
 ---
 title: dbtGCSConfig | OpenMetadata dbt GCS Config
-description: Store DBT GCS config for accessing DBT files from Google Cloud Storage during ingestion.
+description: Store dbt GCS config for accessing dbt files from Google Cloud Storage during ingestion.
 slug: /main-concepts/metadata-standard/schemas/metadataingestion/dbtconfig/dbtgcsconfig
 ---
 
-# DBT GCS Config
+# dbt GCS Config
 
-*DBT Catalog, Manifest and Run Results files in GCS storage. We will search for catalog.json, manifest.json and run_results.json.*
+*dbt Catalog, Manifest and Run Results files in GCS storage. We will search for catalog.json, manifest.json and run_results.json.*
 
 ## Properties
 

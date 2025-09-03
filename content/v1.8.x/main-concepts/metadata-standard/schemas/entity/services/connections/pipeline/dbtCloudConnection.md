@@ -11,12 +11,12 @@ slug: /main-concepts/metadata-standard/schemas/entity/services/connections/pipel
 ## Properties
 
 - **`type`**: Service Type. Refer to *[#/definitions/DBTCloudType](#definitions/DBTCloudType)*. Default: `"DBTCloud"`.
-- **`host`** *(string, format: uri)*: DBT cloud Access URL.
-- **`discoveryAPI`** *(string, format: uri)*: DBT cloud Metadata API URL.
-- **`accountId`** *(string)*: ID of your DBT cloud account.
-- **`jobIds`** *(array)*: List of IDs of your DBT cloud jobs separated by comma `,`.
+- **`host`** *(string, format: uri)*: dbt cloud Access URL.
+- **`discoveryAPI`** *(string, format: uri)*: dbt cloud Metadata API URL.
+- **`accountId`** *(string)*: ID of your dbt cloud account.
+- **`jobIds`** *(array)*: List of IDs of your dbt cloud jobs separated by comma `,`.
   - **Items** *(string)*
-- **`projectIds`** *(array)*: List of IDs of your DBT cloud projects separated by comma `,`.
+- **`projectIds`** *(array)*: List of IDs of your dbt cloud projects separated by comma `,`.
   - **Items** *(string)*
 - **`token`** *(string, format: password)*: Generated Token to connect to DBTCloud.
 ## Definitions
