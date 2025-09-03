@@ -27,13 +27,13 @@ Create an OpenMetadata client
 
 **Args:**
  
- - <b>`metadata_config`</b> (OpenMetadataConnection):  OM connection config 
+ - `metadata_config` (OpenMetadataConnection):  OM connection config 
 
 
 
 **Returns:**
  
- - <b>`OpenMetadata`</b>:  an OM client 
+ - `OpenMetadata`:  an OM client 
 
 
 ---
