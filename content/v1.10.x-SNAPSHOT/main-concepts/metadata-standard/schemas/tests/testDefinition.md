@@ -36,7 +36,7 @@ slug: /main-concepts/metadata-standard/schemas/tests/testdefinition
 - **`supportsDynamicAssertion`** *(boolean)*: When `true` indicates the test case supports dynamic assertions. Default: `False`.
 ## Definitions
 
-- **`testPlatform`** *(string)*: This schema defines the platform where tests are defined and ran. Must be one of: `['OpenMetadata', 'GreatExpectations', 'DBT', 'Deequ', 'Soda', 'Other']`.
+- **`testPlatform`** *(string)*: This schema defines the platform where tests are defined and ran. Must be one of: `['OpenMetadata', 'GreatExpectations', 'dbt', 'Deequ', 'Soda', 'Other']`.
 - **`testDataType`** *(string)*: This enum defines the type of data stored in a column. Must be one of: `['NUMBER', 'INT', 'FLOAT', 'DOUBLE', 'DECIMAL', 'TIMESTAMP', 'TIME', 'DATE', 'DATETIME', 'ARRAY', 'MAP', 'SET', 'STRING', 'BOOLEAN']`.
 - **`entityType`** *(string)*: This enum defines the type for which this test definition applies to. Must be one of: `['TABLE', 'COLUMN']`.
 - **`testCaseParameterDefinition`** *(object)*: This schema defines the parameters that can be passed for a Test Case.

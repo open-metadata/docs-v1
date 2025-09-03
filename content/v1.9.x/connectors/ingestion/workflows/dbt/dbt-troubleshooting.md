@@ -77,7 +77,7 @@ For dbt lineage to happen we need to have the tables (models) involved previousl
 If lineage is not appearing:
 - Make sure that all the tables are ingested in OpenMetadata.
 - Follow to docs [here](/connectors/ingestion/workflows/dbt/ingest-dbt-lineage) to see if necessary details are present in the manifest.json file.
-- Search for the following string `Processing DBT lineage for` in the dbt workflow logs and see if any errors are causing the lineage creation to fail.
+- Search for the following string `Processing dbt lineage for` in the dbt workflow logs and see if any errors are causing the lineage creation to fail.
 
 ### 3. An error occurred (AccessDenied) when calling the ListBuckets operation: Access Denied
 
