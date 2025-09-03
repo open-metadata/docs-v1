@@ -34,7 +34,7 @@ slug: /main-concepts/metadata-standard/schemas/entity/services/databaseservice
 - **`ingestionRunner`**: The ingestion agent responsible for executing the ingestion pipeline. Refer to *../../type/entityReference.json*.
 ## Definitions
 
-- **`databaseServiceType`** *(string)*: Type of database service such as MySQL, BigQuery, Snowflake, Redshift, Postgres... Must be one of: `['BigQuery', 'BigTable', 'Mysql', 'Redshift', 'Snowflake', 'Postgres', 'Mssql', 'Oracle', 'Athena', 'Hive', 'Impala', 'Presto', 'Trino', 'Vertica', 'Glue', 'MariaDB', 'Druid', 'Db2', 'Clickhouse', 'Databricks', 'AzureSQL', 'DynamoDB', 'SingleStore', 'SQLite', 'DeltaLake', 'Salesforce', 'PinotDB', 'Datalake', 'DomoDatabase', 'QueryLog', 'CustomDatabase', 'Dbt', 'SapHana', 'MongoDB', 'Cassandra', 'Couchbase', 'Greenplum', 'Doris', 'UnityCatalog', 'SAS', 'Iceberg', 'Teradata', 'SapErp', 'Synapse', 'Exasol', 'Cockroach', 'SSAS', 'Epic']`.
+- **`databaseServiceType`** *(string)*: Type of database service such as MySQL, BigQuery, Snowflake, Redshift, Postgres... Must be one of: `['BigQuery', 'BigTable', 'Mysql', 'Redshift', 'Snowflake', 'Postgres', 'Mssql', 'Oracle', 'Athena', 'Hive', 'Impala', 'Presto', 'Trino', 'Vertica', 'Glue', 'MariaDB', 'Druid', 'Db2', 'Clickhouse', 'Databricks', 'AzureSQL', 'DynamoDB', 'SingleStore', 'SQLite', 'DeltaLake', 'Salesforce', 'PinotDB', 'Datalake', 'DomoDatabase', 'QueryLog', 'CustomDatabase', 'dbt', 'SapHana', 'MongoDB', 'Cassandra', 'Couchbase', 'Greenplum', 'Doris', 'UnityCatalog', 'SAS', 'Iceberg', 'Teradata', 'SapErp', 'Synapse', 'Exasol', 'Cockroach', 'SSAS', 'Epic']`.
 - **`databaseConnection`** *(object)*: Database Connection. Cannot contain additional properties.
   - **`config`**
 

@@ -34,7 +34,7 @@ slug: /main-concepts/metadata-standard/schemas/entity/services/pipelineservice
 - **`ingestionRunner`**: The ingestion agent responsible for executing the ingestion pipeline. Refer to *../../type/entityReference.json*.
 ## Definitions
 
-- **`pipelineServiceType`** *(string)*: Type of pipeline service - Airflow or Prefect. Must be one of: `['Airflow', 'GluePipeline', 'Airbyte', 'Fivetran', 'Flink', 'Dagster', 'Nifi', 'DomoPipeline', 'CustomPipeline', 'DatabricksPipeline', 'Spline', 'Spark', 'OpenLineage', 'KafkaConnect', 'DBTCloud', 'Matillion', 'Stitch', 'DataFactory', 'Wherescape', 'SSIS']`.
+- **`pipelineServiceType`** *(string)*: Type of pipeline service - Airflow or Prefect. Must be one of: `['Airflow', 'GluePipeline', 'Airbyte', 'Fivetran', 'Flink', 'Dagster', 'Nifi', 'DomoPipeline', 'CustomPipeline', 'DatabricksPipeline', 'Spline', 'Spark', 'OpenLineage', 'KafkaConnect', 'dbtCloud', 'Matillion', 'Stitch', 'DataFactory', 'Wherescape', 'SSIS']`.
 - **`pipelineConnection`** *(object)*: Pipeline Connection. Cannot contain additional properties.
   - **`config`**
 

@@ -18,7 +18,7 @@ slug: /main-concepts/metadata-standard/schemas/entity/services/connections/datab
 - **`databaseName`** *(string)*: Optional name to give to the database in OpenMetadata. If left blank, we will use default as the database name.
 - **`connectionArguments`**: If using Metastore, Key-Value pairs that will be used to add configs to the SparkSession. Refer to *[../connectionBasicType.json#/definitions/connectionArguments](#/connectionBasicType.json#/definitions/connectionArguments)*.
 - **`supportsMetadataExtraction`**: Refer to *[../connectionBasicType.json#/definitions/supportsMetadataExtraction](#/connectionBasicType.json#/definitions/supportsMetadataExtraction)*.
-- **`supportsDBTExtraction`**: Refer to *[../connectionBasicType.json#/definitions/supportsDBTExtraction](#/connectionBasicType.json#/definitions/supportsDBTExtraction)*.
+- **`supportsdbtExtraction`**: Refer to *[../connectionBasicType.json#/definitions/supportsdbtExtraction](#/connectionBasicType.json#/definitions/supportsdbtExtraction)*.
 ## Definitions
 
 - **`deltaLakeType`** *(string)*: Service type. Must be one of: `["DeltaLake"]`. Default: `"DeltaLake"`.

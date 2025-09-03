@@ -9,7 +9,7 @@ slug: /main-concepts/metadata-standard/schemas/entity/services/connections/datab
 
 ## Properties
 
-- **`type`**: Service Type. Refer to *#/definitions/mariaDBType*. Default: `MariaDB`.
+- **`type`**: Service Type. Refer to *#/definitions/mariadbtype*. Default: `MariaDB`.
 - **`scheme`**: SQLAlchemy driver scheme options. Refer to *#/definitions/mariaDBScheme*. Default: `mysql+pymysql`.
 - **`username`** *(string)*: Username to connect to MariaDB. This user should have privileges to read all the metadata in MariaDB.
 - **`password`** *(string)*: Password to connect to MariaDB.
@@ -22,14 +22,14 @@ slug: /main-concepts/metadata-standard/schemas/entity/services/connections/datab
 - **`tableFilterPattern`**: Regex to only include/exclude tables that matches the pattern. Refer to *../../../../type/filterPattern.json#/definitions/filterPattern*.
 - **`databaseFilterPattern`**: Regex to only include/exclude databases that matches the pattern. Refer to *../../../../type/filterPattern.json#/definitions/filterPattern*.
 - **`supportsMetadataExtraction`**: Refer to *../connectionBasicType.json#/definitions/supportsMetadataExtraction*.
-- **`supportsDBTExtraction`**: Refer to *../connectionBasicType.json#/definitions/supportsDBTExtraction*.
+- **`supportsdbtExtraction`**: Refer to *../connectionBasicType.json#/definitions/supportsdbtExtraction*.
 - **`supportsProfiler`**: Refer to *../connectionBasicType.json#/definitions/supportsProfiler*.
 - **`supportsQueryComment`**: Refer to *../connectionBasicType.json#/definitions/supportsQueryComment*.
 - **`sampleDataStorageConfig`**: Refer to *../connectionBasicType.json#/definitions/sampleDataStorageConfig*.
 - **`supportsViewLineageExtraction`**: Refer to *../connectionBasicType.json#/definitions/supportsViewLineageExtraction*.
 ## Definitions
 
-- **`mariaDBType`** *(string)*: Service type. Must be one of: `['MariaDB']`. Default: `MariaDB`.
+- **`mariadbtype`** *(string)*: Service type. Must be one of: `['MariaDB']`. Default: `MariaDB`.
 - **`mariaDBScheme`** *(string)*: SQLAlchemy driver scheme options. Must be one of: `['mysql+pymysql']`. Default: `mysql+pymysql`.
 
 

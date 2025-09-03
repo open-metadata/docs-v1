@@ -15,7 +15,7 @@ This folder contains the following items:
 - [**StitchConnection**](/main-concepts/metadata-standard/schemas/entity/services/connections/pipeline/stitchconnection)
 - [**DatabricksPipelineConnection**](/main-concepts/metadata-standard/schemas/entity/services/connections/pipeline/databrickspipelineconnection)
 - [**GluePipelineConnection**](/main-concepts/metadata-standard/schemas/entity/services/connections/pipeline/gluepipelineconnection)
-- [**DbtCloudConnection**](/main-concepts/metadata-standard/schemas/entity/services/connections/pipeline/dbtcloudconnection)
+- [**dbtCloudConnection**](/main-concepts/metadata-standard/schemas/entity/services/connections/pipeline/dbtcloudconnection)
 - [**DagsterConnection**](/main-concepts/metadata-standard/schemas/entity/services/connections/pipeline/dagsterconnection)
 - [**CustomPipelineConnection**](/main-concepts/metadata-standard/schemas/entity/services/connections/pipeline/custompipelineconnection)
 - [**FivetranConnection**](/main-concepts/metadata-standard/schemas/entity/services/connections/pipeline/fivetranconnection)

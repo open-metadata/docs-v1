@@ -9,7 +9,7 @@ slug: /main-concepts/metadata-standard/schemas/entity/services/connections/datab
 
 ## Properties
 
-- **`type`**: Service Type. Refer to *#/definitions/dynamoDBType*. Default: `DynamoDB`.
+- **`type`**: Service Type. Refer to *#/definitions/dynamodbtype*. Default: `DynamoDB`.
 - **`awsConfig`**: Refer to *../../../../security/credentials/awsCredentials.json*.
 - **`databaseName`** *(string)*: Optional name to give to the database in OpenMetadata. If left blank, we will use default as the database name.
 - **`connectionOptions`**: Refer to *../connectionBasicType.json#/definitions/connectionOptions*.
@@ -21,7 +21,7 @@ slug: /main-concepts/metadata-standard/schemas/entity/services/connections/datab
 - **`supportsProfiler`**: Refer to *../connectionBasicType.json#/definitions/supportsProfiler*.
 ## Definitions
 
-- **`dynamoDBType`** *(string)*: Service type. Must be one of: `['DynamoDB']`. Default: `DynamoDB`.
+- **`dynamodbtype`** *(string)*: Service type. Must be one of: `['DynamoDB']`. Default: `DynamoDB`.
 
 
 Documentation file automatically generated at 2025-08-12 05:39:47.683420+00:00.

@@ -52,7 +52,7 @@ To know more about permissions required refer [here](https://docs.getdbt.com/doc
 {% partial 
     file="/v1.9/connectors/metadata-ingestion-ui.md" 
     variables={
-        connector: "DBTCloud", 
+        connector: "dbtCloud", 
         selectServicePath: "/images/v1.9/connectors/dbtcloud/select-service.png",
         addNewServicePath: "/images/v1.9/connectors/dbtcloud/add-new-service.png",
         serviceConnectionPath: "/images/v1.9/connectors/dbtcloud/service-connection.png",

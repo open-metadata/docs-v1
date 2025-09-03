@@ -95,7 +95,7 @@ vars:
   openmetadata_service_name: "{{ env_var('OPENMETADATA_SERVICE_NAME') }}"
   
   # Using dbt-style with defaults
-  openmetadata_dbt_classification_name: "{{ env_var('DBT_CLASSIFICATION', 'dbt_tags') }}"
+  openmetadata_dbt_classification_name: "{{ env_var('dbt_CLASSIFICATION', 'dbt_tags') }}"
   openmetadata_search_across_databases: "{{ env_var('SEARCH_ACROSS_DB', 'false') }}"
 ```
 
@@ -189,7 +189,7 @@ vars:
   openmetadata_dbt_update_descriptions: true
   openmetadata_dbt_update_owners: true
   openmetadata_include_tags: true
-  openmetadata_dbt_classification_name: "{{ env_var('DBT_CLASSIFICATION', 'dbt_analytics_tags') }}"
+  openmetadata_dbt_classification_name: "{{ env_var('dbt_CLASSIFICATION', 'dbt_analytics_tags') }}"
   
   # Filtering
   openmetadata_database_filter_pattern:
@@ -281,7 +281,7 @@ metadata --debug ingest-dbt -c .
     openmetadata_service_name: "{{ env_var('OPENMETADATA_SERVICE_NAME') }}"
     
     # dbt-style with fallbacks (recommended for optional settings)
-    openmetadata_dbt_classification_name: "{{ env_var('DBT_CLASSIFICATION', 'dbt_tags') }}"
+    openmetadata_dbt_classification_name: "{{ env_var('dbt_CLASSIFICATION', 'dbt_tags') }}"
   ```
 - **Never commit** sensitive values directly to version control
 
@@ -329,7 +329,7 @@ jobs:
           dbt test
           dbt docs generate
         env:
-          DBT_PROFILES_DIR: .
+          dbt_PROFILES_DIR: .
       
       - name: Ingest to OpenMetadata
         run: metadata ingest-dbt -c .

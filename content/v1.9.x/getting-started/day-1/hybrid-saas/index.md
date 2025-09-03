@@ -34,7 +34,7 @@ The Collate Ingestion Agent is ideal for scenarios where running connectors on-p
 With the Collate Ingestion Agent, you can:  
 - Set up ingestion workflows easily without configuring YAML files manually.  
 - Leverage the Collate UI for a seamless and user-friendly experience.  
-- Manage various ingestion types, including metadata, profiling, lineage, usage, DBT, and data quality.
+- Manage various ingestion types, including metadata, profiling, lineage, usage, dbt, and data quality.
 
 ### Setting Up the Collate Ingestion Agent  
 

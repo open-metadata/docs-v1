@@ -3,9 +3,9 @@ title: dbtS3Config
 slug: /main-concepts/metadata-standard/schemas/metadataingestion/dbtconfig/dbts3config
 ---
 
-# DBT S3 Config
+# dbt S3 Config
 
-*DBT Catalog, Manifest and Run Results files in S3 bucket. We will search for catalog.json, manifest.json and run_results.json.*
+*dbt Catalog, Manifest and Run Results files in S3 bucket. We will search for catalog.json, manifest.json and run_results.json.*
 
 ## Properties
 

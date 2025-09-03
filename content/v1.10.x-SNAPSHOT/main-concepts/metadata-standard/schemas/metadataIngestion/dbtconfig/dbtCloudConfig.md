@@ -3,7 +3,7 @@ title: dbtCloudConfig
 slug: /main-concepts/metadata-standard/schemas/metadataingestion/dbtconfig/dbtcloudconfig
 ---
 
-# DBT Cloud Config
+# dbt Cloud Config
 
 *dbt Cloud configuration.*
 

@@ -43,7 +43,7 @@ slug: /main-concepts/metadata-standard/schemas/entity/data/table
   - **Items**: Refer to *../../tests/customMetric.json*.
 - **`profile`**: Latest Data profile for a table. Refer to *#/definitions/tableProfile*. Default: `None`.
 - **`testSuite`**: Executable test suite associated with this table. Refer to *../../type/entityReference.json*.
-- **`dataModel`**: This captures information about how the table is modeled. Currently only DBT model is supported. Refer to *#/definitions/dataModel*.
+- **`dataModel`**: This captures information about how the table is modeled. Currently only dbt model is supported. Refer to *#/definitions/dataModel*.
 - **`changeDescription`**: Change that lead to this version of the entity. Refer to *../../type/entityHistory.json#/definitions/changeDescription*.
 - **`incrementalChangeDescription`**: Change that lead to this version of the entity. Refer to *../../type/entityHistory.json#/definitions/changeDescription*.
 - **`deleted`** *(boolean)*: When `true` indicates the entity has been soft deleted. Default: `False`.
@@ -208,20 +208,20 @@ slug: /main-concepts/metadata-standard/schemas/entity/data/table
   - **`createDateTime`** *(string)*: Table creation time.
   - **`customMetrics`** *(array)*: Custom Metrics profile list bound to a column. Default: `None`.
     - **Items**: Refer to *#/definitions/customMetricProfile*.
-- **`modelType`**: Must be one of: `['DBT', 'DDL']`.
-- **`dataModel`** *(object)*: This captures information about how the table is modeled. Currently only DBT and DDL model is supported. Cannot contain additional properties.
+- **`modelType`**: Must be one of: `['dbt', 'DDL']`.
+- **`dataModel`** *(object)*: This captures information about how the table is modeled. Currently only dbt and DDL model is supported. Cannot contain additional properties.
   - **`modelType`**: Refer to *#/definitions/modelType*.
   - **`resourceType`** *(string)*: Resource Type of the model.
   - **`description`**: Description of the Table from the model. Refer to *../../type/basic.json#/definitions/markdown*.
   - **`path`** *(string)*: Path to sql definition file.
-  - **`rawSql`**: This corresponds to rws SQL from `<model_name>.sql` in DBT. This might be null when SQL query need not be compiled as done in DBT. Refer to *../../type/basic.json#/definitions/sqlQuery*.
-  - **`sql`**: This corresponds to compile SQL from `<model_name>.sql` in DBT. In cases where compilation is not necessary, this corresponds to SQL that created the table. Refer to *../../type/basic.json#/definitions/sqlQuery*.
+  - **`rawSql`**: This corresponds to rws SQL from `<model_name>.sql` in dbt. This might be null when SQL query need not be compiled as done in dbt. Refer to *../../type/basic.json#/definitions/sqlQuery*.
+  - **`sql`**: This corresponds to compile SQL from `<model_name>.sql` in dbt. In cases where compilation is not necessary, this corresponds to SQL that created the table. Refer to *../../type/basic.json#/definitions/sqlQuery*.
   - **`upstream`** *(array)*: Fully qualified name of Models/tables used for in `sql` for creating this table.
     - **Items** *(string)*
   - **`owners`**: Owners of this Table. Refer to *../../type/entityReferenceList.json*. Default: `None`.
   - **`tags`** *(array)*: Tags for this data model. Default: `[]`.
     - **Items**: Refer to *../../type/tagLabel.json*.
-  - **`columns`** *(array)*: Columns from the schema defined during modeling. In case of DBT, the metadata here comes from `schema.yaml`. Default: `None`.
+  - **`columns`** *(array)*: Columns from the schema defined during modeling. In case of dbt, the metadata here comes from `schema.yaml`. Default: `None`.
     - **Items**: Refer to *#/definitions/column*.
   - **`generatedAt`**: Refer to *../../type/basic.json#/definitions/dateTime*.
 - **`fileFormat`** *(string)*: File format in case of file/datalake tables. Must be one of: `['csv', 'csv.gz', 'tsv', 'avro', 'parquet', 'pq', 'pqt', 'parq', 'parquet.snappy', 'json', 'json.gz', 'json.zip', 'jsonl', 'jsonl.gz', 'jsonl.zip']`.

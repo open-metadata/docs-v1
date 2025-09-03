@@ -29,7 +29,7 @@ slug: /main-concepts/metadata-standard/schemas/type/entitylineage
     - **Items**: Refer to *#/definitions/columnLineage*.
   - **`pipeline`**: Pipeline where the sqlQuery is periodically run. Refer to *../type/entityReference.json*.
   - **`description`** *(string)*: description of lineage.
-  - **`source`** *(string)*: Lineage type describes how a lineage was created. Must be one of: `['Manual', 'ViewLineage', 'QueryLineage', 'PipelineLineage', 'DashboardLineage', 'DbtLineage', 'SparkLineage', 'OpenLineage', 'ExternalTableLineage', 'CrossDatabaseLineage', 'ChildAssets']`. Default: `Manual`.
+  - **`source`** *(string)*: Lineage type describes how a lineage was created. Must be one of: `['Manual', 'ViewLineage', 'QueryLineage', 'PipelineLineage', 'DashboardLineage', 'dbtLineage', 'SparkLineage', 'OpenLineage', 'ExternalTableLineage', 'CrossDatabaseLineage', 'ChildAssets']`. Default: `Manual`.
   - **`createdAt`**: Last update time corresponding to the new version of the entity in Unix epoch time milliseconds. Refer to *../type/basic.json#/definitions/timestamp*.
   - **`createdBy`** *(string)*: User who created the node.
   - **`updatedAt`**: Last update time corresponding to the new version of the entity in Unix epoch time milliseconds. Refer to *../type/basic.json#/definitions/timestamp*.

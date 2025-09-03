@@ -33,7 +33,7 @@ slug: /main-concepts/metadata-standard/schemas/entity/services/connections/datab
 - **`supportsIncrementalMetadataExtraction`**: Refer to *../connectionBasicType.json#/definitions/supportsIncrementalMetadataExtraction*.
 - **`supportsUsageExtraction`**: Refer to *../connectionBasicType.json#/definitions/supportsUsageExtraction*.
 - **`supportsLineageExtraction`**: Refer to *../connectionBasicType.json#/definitions/supportsLineageExtraction*.
-- **`supportsDBTExtraction`**: Refer to *../connectionBasicType.json#/definitions/supportsDBTExtraction*.
+- **`supportsdbtExtraction`**: Refer to *../connectionBasicType.json#/definitions/supportsdbtExtraction*.
 - **`supportsProfiler`**: Refer to *../connectionBasicType.json#/definitions/supportsProfiler*.
 - **`supportsDatabase`**: Refer to *../connectionBasicType.json#/definitions/supportsDatabase*.
 - **`supportsQueryComment`**: Refer to *../connectionBasicType.json#/definitions/supportsQueryComment*.

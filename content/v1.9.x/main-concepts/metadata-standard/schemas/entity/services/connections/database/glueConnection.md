@@ -16,7 +16,7 @@ slug: /main-concepts/metadata-standard/schemas/entity/services/connections/datab
 - **`connectionOptions`**: Refer to *[../connectionBasicType.json#/definitions/connectionOptions](#/connectionBasicType.json#/definitions/connectionOptions)*.
 - **`connectionArguments`**: Refer to *[../connectionBasicType.json#/definitions/connectionArguments](#/connectionBasicType.json#/definitions/connectionArguments)*.
 - **`supportsMetadataExtraction`**: Refer to *[../connectionBasicType.json#/definitions/supportsMetadataExtraction](#/connectionBasicType.json#/definitions/supportsMetadataExtraction)*.
-- **`supportsDBTExtraction`**: Refer to *[../connectionBasicType.json#/definitions/supportsDBTExtraction](#/connectionBasicType.json#/definitions/supportsDBTExtraction)*.
+- **`supportsdbtExtraction`**: Refer to *[../connectionBasicType.json#/definitions/supportsdbtExtraction](#/connectionBasicType.json#/definitions/supportsdbtExtraction)*.
 ## Definitions
 
 - **`glueType`** *(string)*: Service type. Must be one of: `["Glue"]`. Default: `"Glue"`.

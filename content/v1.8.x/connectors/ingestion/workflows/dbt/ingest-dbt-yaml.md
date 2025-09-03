@@ -67,7 +67,7 @@ source:
   serviceName: service_name
   sourceConfig:
     config:
-      type: DBT
+      type: dbt
 ```
 ```yaml {% srNumber=10 %}
       dbtConfigSource:
@@ -136,7 +136,7 @@ source:
   serviceName: service_name
   sourceConfig:
     config:
-      type: DBT
+      type: dbt
       dbtConfigSource:
         dbtConfigType: gcs
         dbtSecurityConfig:
@@ -152,7 +152,7 @@ source:
   serviceName: service_name
   sourceConfig:
     config:
-      type: DBT
+      type: dbt
       dbtConfigSource:
         dbtConfigType: gcs
         dbtSecurityConfig:
@@ -179,7 +179,7 @@ source:
   serviceName: service_name
   sourceConfig:
     config:
-      type: DBT
+      type: dbt
 ```
 ```yaml {% srNumber=20 %}
       dbtConfigSource:
@@ -287,7 +287,7 @@ source:
   serviceName: service_name
   sourceConfig:
     config:
-      type: DBT
+      type: dbt
 ```
 ```yaml {% srNumber=30 %}
       dbtConfigSource:
@@ -361,7 +361,7 @@ source:
   serviceName: service_name
   sourceConfig:
     config:
-      type: DBT
+      type: dbt
 ```
 ```yaml {% srNumber=40 %}
       dbtConfigSource:
@@ -428,7 +428,7 @@ source:
   serviceName: service_name
   sourceConfig:
     config:
-      type: DBT
+      type: dbt
 ```
 ```yaml {% srNumber=50 %}
       dbtConfigSource:
@@ -528,7 +528,7 @@ source:
   serviceName: service_name
   sourceConfig:
     config:
-      type: DBT
+      type: dbt
 ```
 ```yaml {% srNumber=60 %}
       dbtConfigSource:

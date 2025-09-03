@@ -10,7 +10,7 @@ slug: /main-concepts/metadata-standard/schemas/entity/services/connections/datab
 
 ## Properties
 
-- **`type`**: Service Type. Refer to *[#/definitions/pinotDBType](#definitions/pinotDBType)*. Default: `"PinotDB"`.
+- **`type`**: Service Type. Refer to *[#/definitions/pinotdbtype](#definitions/pinotdbtype)*. Default: `"PinotDB"`.
 - **`scheme`**: SQLAlchemy driver scheme options. Refer to *[#/definitions/pinotDBScheme](#definitions/pinotDBScheme)*. Default: `"pinot"`.
 - **`username`** *(string)*: username to connect to the PinotDB. This user should have privileges to read all the metadata in PinotDB.
 - **`password`** *(string, format: password)*: password to connect to the PinotDB.
@@ -20,14 +20,14 @@ slug: /main-concepts/metadata-standard/schemas/entity/services/connections/datab
 - **`connectionOptions`**: Refer to *[../connectionBasicType.json#/definitions/connectionOptions](#/connectionBasicType.json#/definitions/connectionOptions)*.
 - **`connectionArguments`**: Refer to *[../connectionBasicType.json#/definitions/connectionArguments](#/connectionBasicType.json#/definitions/connectionArguments)*.
 - **`supportsMetadataExtraction`**: Refer to *[../connectionBasicType.json#/definitions/supportsMetadataExtraction](#/connectionBasicType.json#/definitions/supportsMetadataExtraction)*.
-- **`supportsDBTExtraction`**: Refer to *[../connectionBasicType.json#/definitions/supportsDBTExtraction](#/connectionBasicType.json#/definitions/supportsDBTExtraction)*.
+- **`supportsdbtExtraction`**: Refer to *[../connectionBasicType.json#/definitions/supportsdbtExtraction](#/connectionBasicType.json#/definitions/supportsdbtExtraction)*.
 - **`supportsProfiler`**: Refer to *[../connectionBasicType.json#/definitions/supportsProfiler](#/connectionBasicType.json#/definitions/supportsProfiler)*.
 - **`supportsQueryComment`**: Refer to *[../connectionBasicType.json#/definitions/supportsQueryComment](#/connectionBasicType.json#/definitions/supportsQueryComment)*.
 - **`sampleDataStorageConfig`**: Refer to *[../connectionBasicType.json#/definitions/sampleDataStorageConfig](#/connectionBasicType.json#/definitions/sampleDataStorageConfig)*.
 - **`supportsViewLineageExtraction`**: Refer to *[../connectionBasicType.json#/definitions/supportsViewLineageExtraction](#/connectionBasicType.json#/definitions/supportsViewLineageExtraction)*.
 ## Definitions
 
-- **`pinotDBType`** *(string)*: Service type. Must be one of: `["PinotDB"]`. Default: `"PinotDB"`.
+- **`pinotdbtype`** *(string)*: Service type. Must be one of: `["PinotDB"]`. Default: `"PinotDB"`.
 - **`pinotDBScheme`** *(string)*: SQLAlchemy driver scheme options. Must be one of: `["pinot", "pinot+http", "pinot+https"]`. Default: `"pinot"`.
 
 

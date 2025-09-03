@@ -8191,7 +8191,7 @@
       "put" : {
         "tags" : [ "Tables" ],
         "summary" : "Add data modeling information to a table",
-        "description" : "Add data modeling (such as DBT model) information on how the table was created to the table.",
+        "description" : "Add data modeling (such as dbt model) information on how the table was created to the table.",
         "operationId" : "addDataModel",
         "parameters" : [ {
           "name" : "id",
@@ -14368,7 +14368,7 @@
           "description" : "Filter by a test platform",
           "schema" : {
             "type" : "string",
-            "enum" : [ "OpenMetadata", "GreatExpectations", "DBT", "Deequ", "Soda", "Other" ]
+            "enum" : [ "OpenMetadata", "GreatExpectations", "dbt", "Deequ", "Soda", "Other" ]
           }
         }, {
           "name" : "supportedDataType",
@@ -48656,7 +48656,7 @@
           },
           "serviceType" : {
             "type" : "string",
-            "enum" : [ "BigQuery", "BigTable", "Mysql", "Redshift", "Snowflake", "Postgres", "Mssql", "Oracle", "Athena", "Hive", "Impala", "Presto", "Trino", "Vertica", "Glue", "MariaDB", "Druid", "Db2", "Clickhouse", "Databricks", "AzureSQL", "DynamoDB", "SingleStore", "SQLite", "DeltaLake", "Salesforce", "PinotDB", "Datalake", "DomoDatabase", "QueryLog", "CustomDatabase", "Dbt", "SapHana", "MongoDB", "Cassandra", "Couchbase", "Greenplum", "Doris", "UnityCatalog", "SAS", "Iceberg", "Teradata", "SapErp", "Synapse", "Exasol", "Cockroach", "SSAS", "Epic" ]
+            "enum" : [ "BigQuery", "BigTable", "Mysql", "Redshift", "Snowflake", "Postgres", "Mssql", "Oracle", "Athena", "Hive", "Impala", "Presto", "Trino", "Vertica", "Glue", "MariaDB", "Druid", "Db2", "Clickhouse", "Databricks", "AzureSQL", "DynamoDB", "SingleStore", "SQLite", "DeltaLake", "Salesforce", "PinotDB", "Datalake", "DomoDatabase", "QueryLog", "CustomDatabase", "dbt", "SapHana", "MongoDB", "Cassandra", "Couchbase", "Greenplum", "Doris", "UnityCatalog", "SAS", "Iceberg", "Teradata", "SapErp", "Synapse", "Exasol", "Cockroach", "SSAS", "Epic" ]
           },
           "location" : {
             "$ref" : "#/components/schemas/EntityReference"
@@ -49001,7 +49001,7 @@
           },
           "serviceType" : {
             "type" : "string",
-            "enum" : [ "BigQuery", "BigTable", "Mysql", "Redshift", "Snowflake", "Postgres", "Mssql", "Oracle", "Athena", "Hive", "Impala", "Presto", "Trino", "Vertica", "Glue", "MariaDB", "Druid", "Db2", "Clickhouse", "Databricks", "AzureSQL", "DynamoDB", "SingleStore", "SQLite", "DeltaLake", "Salesforce", "PinotDB", "Datalake", "DomoDatabase", "QueryLog", "CustomDatabase", "Dbt", "SapHana", "MongoDB", "Cassandra", "Couchbase", "Greenplum", "Doris", "UnityCatalog", "SAS", "Iceberg", "Teradata", "SapErp", "Synapse", "Exasol", "Cockroach", "SSAS", "Epic" ]
+            "enum" : [ "BigQuery", "BigTable", "Mysql", "Redshift", "Snowflake", "Postgres", "Mssql", "Oracle", "Athena", "Hive", "Impala", "Presto", "Trino", "Vertica", "Glue", "MariaDB", "Druid", "Db2", "Clickhouse", "Databricks", "AzureSQL", "DynamoDB", "SingleStore", "SQLite", "DeltaLake", "Salesforce", "PinotDB", "Datalake", "DomoDatabase", "QueryLog", "CustomDatabase", "dbt", "SapHana", "MongoDB", "Cassandra", "Couchbase", "Greenplum", "Doris", "UnityCatalog", "SAS", "Iceberg", "Teradata", "SapErp", "Synapse", "Exasol", "Cockroach", "SSAS", "Epic" ]
           },
           "database" : {
             "$ref" : "#/components/schemas/EntityReference"
@@ -50236,7 +50236,7 @@
           },
           "serviceType" : {
             "type" : "string",
-            "enum" : [ "BigQuery", "BigTable", "Mysql", "Redshift", "Snowflake", "Postgres", "Mssql", "Oracle", "Athena", "Hive", "Impala", "Presto", "Trino", "Vertica", "Glue", "MariaDB", "Druid", "Db2", "Clickhouse", "Databricks", "AzureSQL", "DynamoDB", "SingleStore", "SQLite", "DeltaLake", "Salesforce", "PinotDB", "Datalake", "DomoDatabase", "QueryLog", "CustomDatabase", "Dbt", "SapHana", "MongoDB", "Cassandra", "Couchbase", "Greenplum", "Doris", "UnityCatalog", "SAS", "Iceberg", "Teradata", "SapErp", "Synapse", "Exasol", "Cockroach", "SSAS", "Epic" ]
+            "enum" : [ "BigQuery", "BigTable", "Mysql", "Redshift", "Snowflake", "Postgres", "Mssql", "Oracle", "Athena", "Hive", "Impala", "Presto", "Trino", "Vertica", "Glue", "MariaDB", "Druid", "Db2", "Clickhouse", "Databricks", "AzureSQL", "DynamoDB", "SingleStore", "SQLite", "DeltaLake", "Salesforce", "PinotDB", "Datalake", "DomoDatabase", "QueryLog", "CustomDatabase", "dbt", "SapHana", "MongoDB", "Cassandra", "Couchbase", "Greenplum", "Doris", "UnityCatalog", "SAS", "Iceberg", "Teradata", "SapErp", "Synapse", "Exasol", "Cockroach", "SSAS", "Epic" ]
           },
           "deleted" : {
             "type" : "boolean"
@@ -50486,7 +50486,7 @@
         "properties" : {
           "modelType" : {
             "type" : "string",
-            "enum" : [ "DBT", "DDL" ]
+            "enum" : [ "dbt", "DDL" ]
           },
           "resourceType" : {
             "type" : "string"
@@ -50699,7 +50699,7 @@
           },
           "serviceType" : {
             "type" : "string",
-            "enum" : [ "BigQuery", "BigTable", "Mysql", "Redshift", "Snowflake", "Postgres", "Mssql", "Oracle", "Athena", "Hive", "Impala", "Presto", "Trino", "Vertica", "Glue", "MariaDB", "Druid", "Db2", "Clickhouse", "Databricks", "AzureSQL", "DynamoDB", "SingleStore", "SQLite", "DeltaLake", "Salesforce", "PinotDB", "Datalake", "DomoDatabase", "QueryLog", "CustomDatabase", "Dbt", "SapHana", "MongoDB", "Cassandra", "Couchbase", "Greenplum", "Doris", "UnityCatalog", "SAS", "Iceberg", "Teradata", "SapErp", "Synapse", "Exasol", "Cockroach", "SSAS", "Epic" ]
+            "enum" : [ "BigQuery", "BigTable", "Mysql", "Redshift", "Snowflake", "Postgres", "Mssql", "Oracle", "Athena", "Hive", "Impala", "Presto", "Trino", "Vertica", "Glue", "MariaDB", "Druid", "Db2", "Clickhouse", "Databricks", "AzureSQL", "DynamoDB", "SingleStore", "SQLite", "DeltaLake", "Salesforce", "PinotDB", "Datalake", "DomoDatabase", "QueryLog", "CustomDatabase", "dbt", "SapHana", "MongoDB", "Cassandra", "Couchbase", "Greenplum", "Doris", "UnityCatalog", "SAS", "Iceberg", "Teradata", "SapErp", "Synapse", "Exasol", "Cockroach", "SSAS", "Epic" ]
           },
           "location" : {
             "$ref" : "#/components/schemas/EntityReference"
@@ -53717,7 +53717,7 @@
             "type" : "array",
             "items" : {
               "type" : "string",
-              "enum" : [ "OpenMetadata", "GreatExpectations", "DBT", "Deequ", "Soda", "Other" ]
+              "enum" : [ "OpenMetadata", "GreatExpectations", "dbt", "Deequ", "Soda", "Other" ]
             }
           },
           "supportedDataTypes" : {
@@ -53872,7 +53872,7 @@
             "type" : "array",
             "items" : {
               "type" : "string",
-              "enum" : [ "OpenMetadata", "GreatExpectations", "DBT", "Deequ", "Soda", "Other" ]
+              "enum" : [ "OpenMetadata", "GreatExpectations", "dbt", "Deequ", "Soda", "Other" ]
             }
           },
           "supportedDataTypes" : {
@@ -58097,7 +58097,7 @@
           },
           "source" : {
             "type" : "string",
-            "enum" : [ "Manual", "ViewLineage", "QueryLineage", "PipelineLineage", "DashboardLineage", "DbtLineage", "SparkLineage", "OpenLineage", "ExternalTableLineage", "CrossDatabaseLineage", "ChildAssets" ]
+            "enum" : [ "Manual", "ViewLineage", "QueryLineage", "PipelineLineage", "DashboardLineage", "dbtLineage", "SparkLineage", "OpenLineage", "ExternalTableLineage", "CrossDatabaseLineage", "ChildAssets" ]
           },
           "createdAt" : {
             "type" : "integer",
@@ -59341,7 +59341,7 @@
           },
           "serviceType" : {
             "type" : "string",
-            "enum" : [ "Airflow", "GluePipeline", "Airbyte", "Fivetran", "Flink", "Dagster", "Nifi", "DomoPipeline", "CustomPipeline", "DatabricksPipeline", "Spline", "Spark", "OpenLineage", "KafkaConnect", "DBTCloud", "Matillion", "Stitch", "DataFactory", "Wherescape", "SSIS" ]
+            "enum" : [ "Airflow", "GluePipeline", "Airbyte", "Fivetran", "Flink", "Dagster", "Nifi", "DomoPipeline", "CustomPipeline", "DatabricksPipeline", "Spline", "Spark", "OpenLineage", "KafkaConnect", "dbtCloud", "Matillion", "Stitch", "DataFactory", "Wherescape", "SSIS" ]
           },
           "usageSummary" : {
             "$ref" : "#/components/schemas/UsageDetails"
@@ -62628,7 +62628,7 @@
           },
           "serviceType" : {
             "type" : "string",
-            "enum" : [ "BigQuery", "BigTable", "Mysql", "Redshift", "Snowflake", "Postgres", "Mssql", "Oracle", "Athena", "Hive", "Impala", "Presto", "Trino", "Vertica", "Glue", "MariaDB", "Druid", "Db2", "Clickhouse", "Databricks", "AzureSQL", "DynamoDB", "SingleStore", "SQLite", "DeltaLake", "Salesforce", "PinotDB", "Datalake", "DomoDatabase", "QueryLog", "CustomDatabase", "Dbt", "SapHana", "MongoDB", "Cassandra", "Couchbase", "Greenplum", "Doris", "UnityCatalog", "SAS", "Iceberg", "Teradata", "SapErp", "Synapse", "Exasol", "Cockroach", "SSAS", "Epic" ]
+            "enum" : [ "BigQuery", "BigTable", "Mysql", "Redshift", "Snowflake", "Postgres", "Mssql", "Oracle", "Athena", "Hive", "Impala", "Presto", "Trino", "Vertica", "Glue", "MariaDB", "Druid", "Db2", "Clickhouse", "Databricks", "AzureSQL", "DynamoDB", "SingleStore", "SQLite", "DeltaLake", "Salesforce", "PinotDB", "Datalake", "DomoDatabase", "QueryLog", "CustomDatabase", "dbt", "SapHana", "MongoDB", "Cassandra", "Couchbase", "Greenplum", "Doris", "UnityCatalog", "SAS", "Iceberg", "Teradata", "SapErp", "Synapse", "Exasol", "Cockroach", "SSAS", "Epic" ]
           },
           "description" : {
             "type" : "string"
@@ -62771,7 +62771,7 @@
           },
           "serviceType" : {
             "type" : "string",
-            "enum" : [ "BigQuery", "BigTable", "Mysql", "Redshift", "Snowflake", "Postgres", "Mssql", "Oracle", "Athena", "Hive", "Impala", "Presto", "Trino", "Vertica", "Glue", "MariaDB", "Druid", "Db2", "Clickhouse", "Databricks", "AzureSQL", "DynamoDB", "SingleStore", "SQLite", "DeltaLake", "Salesforce", "PinotDB", "Datalake", "DomoDatabase", "QueryLog", "CustomDatabase", "Dbt", "SapHana", "MongoDB", "Cassandra", "Couchbase", "Greenplum", "Doris", "UnityCatalog", "SAS", "Iceberg", "Teradata", "SapErp", "Synapse", "Exasol", "Cockroach", "SSAS", "Epic" ]
+            "enum" : [ "BigQuery", "BigTable", "Mysql", "Redshift", "Snowflake", "Postgres", "Mssql", "Oracle", "Athena", "Hive", "Impala", "Presto", "Trino", "Vertica", "Glue", "MariaDB", "Druid", "Db2", "Clickhouse", "Databricks", "AzureSQL", "DynamoDB", "SingleStore", "SQLite", "DeltaLake", "Salesforce", "PinotDB", "Datalake", "DomoDatabase", "QueryLog", "CustomDatabase", "dbt", "SapHana", "MongoDB", "Cassandra", "Couchbase", "Greenplum", "Doris", "UnityCatalog", "SAS", "Iceberg", "Teradata", "SapErp", "Synapse", "Exasol", "Cockroach", "SSAS", "Epic" ]
           },
           "connection" : {
             "$ref" : "#/components/schemas/DatabaseConnection"
@@ -64051,7 +64051,7 @@
           },
           "serviceType" : {
             "type" : "string",
-            "enum" : [ "Airflow", "GluePipeline", "Airbyte", "Fivetran", "Flink", "Dagster", "Nifi", "DomoPipeline", "CustomPipeline", "DatabricksPipeline", "Spline", "Spark", "OpenLineage", "KafkaConnect", "DBTCloud", "Matillion", "Stitch", "DataFactory", "Wherescape", "SSIS" ]
+            "enum" : [ "Airflow", "GluePipeline", "Airbyte", "Fivetran", "Flink", "Dagster", "Nifi", "DomoPipeline", "CustomPipeline", "DatabricksPipeline", "Spline", "Spark", "OpenLineage", "KafkaConnect", "dbtCloud", "Matillion", "Stitch", "DataFactory", "Wherescape", "SSIS" ]
           },
           "description" : {
             "type" : "string"
@@ -64191,7 +64191,7 @@
           },
           "serviceType" : {
             "type" : "string",
-            "enum" : [ "Airflow", "GluePipeline", "Airbyte", "Fivetran", "Flink", "Dagster", "Nifi", "DomoPipeline", "CustomPipeline", "DatabricksPipeline", "Spline", "Spark", "OpenLineage", "KafkaConnect", "DBTCloud", "Matillion", "Stitch", "DataFactory", "Wherescape", "SSIS" ]
+            "enum" : [ "Airflow", "GluePipeline", "Airbyte", "Fivetran", "Flink", "Dagster", "Nifi", "DomoPipeline", "CustomPipeline", "DatabricksPipeline", "Spline", "Spark", "OpenLineage", "KafkaConnect", "dbtCloud", "Matillion", "Stitch", "DataFactory", "Wherescape", "SSIS" ]
           },
           "connection" : {
             "$ref" : "#/components/schemas/PipelineConnection"

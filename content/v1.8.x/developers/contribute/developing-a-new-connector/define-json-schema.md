@@ -112,7 +112,7 @@ On this connector we can see two different definitions:
         On this example we can see it references both `./common/basicAuth.json` and `./common/iamAuthConfig.json`.
         It is this way because we could Authenticate to MySQL either by using the `basicAuth` (Username/Password) or by using `iamAuth` if we are actually running [MySQL as a RDS in AWS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.IAMDBAuth.html)
 
-    - **supportsMetadataExtraction**: We can also see a couple of different properties that showcase the features this connector supports (**supportsMetadataExtraction**, **supportsDBTExtraction**, **supportsProfiler**, **supportsQueryComment**) They are all different features from OpenMetadata that are not necessarily supported by all connectors.
+    - **supportsMetadataExtraction**: We can also see a couple of different properties that showcase the features this connector supports (**supportsMetadataExtraction**, **supportsdbtExtraction**, **supportsProfiler**, **supportsQueryComment**) They are all different features from OpenMetadata that are not necessarily supported by all connectors.
 
     The most basic case is **supportsMetadataExtraction** and we should always start from there.
 
@@ -232,8 +232,8 @@ On this connector we can see two different definitions:
       "title": "Supports Metadata Extraction",
       "$ref": "../connectionBasicType.json#/definitions/supportsMetadataExtraction"
     },
-    "supportsDBTExtraction": {
-      "$ref": "../connectionBasicType.json#/definitions/supportsDBTExtraction"
+    "supportsdbtExtraction": {
+      "$ref": "../connectionBasicType.json#/definitions/supportsdbtExtraction"
     },
     "supportsProfiler": {
       "title": "Supports Profiler",

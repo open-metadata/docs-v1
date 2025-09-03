@@ -10,7 +10,7 @@ slug: /main-concepts/metadata-standard/schemas/entity/services/connections/datab
 
 ## Properties
 
-- **`type`**: Service Type. Refer to *[#/definitions/mongoDBType](#definitions/mongoDBType)*. Default: `"MongoDB"`.
+- **`type`**: Service Type. Refer to *[#/definitions/mongodbtype](#definitions/mongodbtype)*. Default: `"MongoDB"`.
 - **`scheme`**: Mongo connection scheme options. Refer to *[#/definitions/mongoDBScheme](#definitions/mongoDBScheme)*. Default: `"mongodb"`.
 - **`username`** *(string)*: Username to connect to MongoDB. This user should have privileges to read all the metadata in MongoDB.
 - **`password`** *(string, format: password)*: Password to connect to MongoDB.
@@ -23,7 +23,7 @@ slug: /main-concepts/metadata-standard/schemas/entity/services/connections/datab
 - **`sslConfig`**: Refer to *[../../../../security/ssl/verifySSLConfig.json#/definitions/sslConfig](#/../../../security/ssl/verifySSLConfig.json#/definitions/sslConfig)*.
 ## Definitions
 
-- **`mongoDBType`** *(string)*: Service type. Must be one of: `["MongoDB"]`. Default: `"MongoDB"`.
+- **`mongodbtype`** *(string)*: Service type. Must be one of: `["MongoDB"]`. Default: `"MongoDB"`.
 - **`mongoDBScheme`** *(string)*: Mongo connection scheme options. Must be one of: `["mongodb", "mongodb+srv"]`. Default: `"mongodb"`.
 
 

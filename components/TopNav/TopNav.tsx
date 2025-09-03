@@ -151,7 +151,7 @@ export default function TopNav({ versionsList, logo }: Readonly<TopNavProps>) {
           target="_blank"
           aria-label="cloud-icon"
         >
-          <button className={styles.CloudBtn} aria-label="cloud-icon">
+          <button className={styles.Cloudbtn} aria-label="cloud-icon">
             <CloudIcon />
           </button>
         </ParamLink>

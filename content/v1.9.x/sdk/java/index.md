@@ -155,7 +155,7 @@ Provide the Auth0 config while creating the [server connection](#establish-openm
 
 ### OpenMetadata
 To set up OpenMetadata as the auth provider, the following details should be provided:
-* JWT Token: Provide the JWT Token. For example `eyJraWQiOiJHYjM4OWEtOWY3Ni1nZGpzLWE5Mmo....XN0aW9uLWJvdEBvcGVubWV0YWRhdGEub3JnIn0.Ku_FHGIS3Id3ARusMaXZDYKcq...Ztap9KDU7nZilNT2Bq-o75aIsgKKmtSuVdBTzpFK8aLGLmRp_8J007t-kpcjIW7Qf0l4...dGb0QqhoZin0JA`
+* JWT Token: Provide the JWT Token. For example `eyJraWQiOiJHYjM4OWEtOWY3Ni1nZGpzLWE5Mmo....XN0aW9uLWJvdEBvcGVubWV0YWRhdGEub3JnIn0.Ku_FHGIS3Id3ARusMaXZDYKcq...Ztap9KDU7nZilNT2Bq-o75aIsgKKmtSuVdbtzpFK8aLGLmRp_8J007t-kpcjIW7Qf0l4...dGb0QqhoZin0JA`
 
 ```java
     OpenMetadataJWTClientConfig openMetadataJWTClientConfig = new OpenMetadataJWTClientConfig();

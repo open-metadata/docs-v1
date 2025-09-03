@@ -14,7 +14,7 @@ Follow the link [here](https://docs.getdbt.com/reference/resource-configs/tags) 
 
 {% note %}
 
-For dbt tags, if the tag is not already present it will be created under tag category `DBTTags` in OpenMetadata
+For dbt tags, if the tag is not already present it will be created under tag category `dbtTags` in OpenMetadata
 
 {% /note %}
 

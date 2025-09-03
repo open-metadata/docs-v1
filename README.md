@@ -260,7 +260,7 @@ Tag to show a styled heading for connectors with the connector Icon, development
    The list of available features for the connector such as "Query Usage", "Lineage" etc.
 
 5. unavailableFeatures (type - Array<string>)
-   The list of unavailable features for the connector such as "DBT", "Owners" etc
+   The list of unavailable features for the connector such as "dbt", "Owners" etc
 
 6. availableFeaturesCollate (type - Array<string>)
    This is an optional argument to pass the list of available features for the connector that are Collate only.

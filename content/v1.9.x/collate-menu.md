@@ -716,7 +716,7 @@ site_menu:
     url: /connectors/ingestion/workflows/dbt
   - category: Connectors / Ingestion / Workflows / dbt / Configure dbt workflow from OpenMetadata UI
     url: /connectors/ingestion/workflows/dbt/configure-dbt-workflow-from-ui
-  - category: Connectors / Ingestion / Workflows / dbt / Auto Ingest DBT Core Artifacts
+  - category: Connectors / Ingestion / Workflows / dbt / Auto Ingest dbt Core Artifacts
     url: /connectors/ingestion/workflows/dbt/auto-ingest-dbt-core
   - category: Connectors / Ingestion / Workflows / dbt / Run Externally
     url: /connectors/ingestion/workflows/dbt/run-dbt-workflow-externally
@@ -1750,7 +1750,7 @@ site_menu:
     url: /main-concepts/metadata-standard/schemas/entity/services/connections/pipeline/custompipelineconnection
   - category: Main Concepts / Metadata Standard / Schemas / Entity / Services / Connections / Pipeline / DagsterConnection
     url: /main-concepts/metadata-standard/schemas/entity/services/connections/pipeline/dagsterconnection
-  - category: Main Concepts / Metadata Standard / Schemas / Entity / Services / Connections / Pipeline / DBTCloudConnection
+  - category: Main Concepts / Metadata Standard / Schemas / Entity / Services / Connections / Pipeline / dbtCloudConnection
     url: /main-concepts/metadata-standard/schemas/entity/services/connections/pipeline/dbtcloudconnection
   - category: Main Concepts / Metadata Standard / Schemas / Entity / Services / Connections / Pipeline / DatabricksPipelineConnection
     url: /main-concepts/metadata-standard/schemas/entity/services/connections/pipeline/databrickspipelineconnection
@@ -1874,23 +1874,23 @@ site_menu:
     url: /main-concepts/metadata-standard/schemas/metadataingestion/databaseservicequerylineagepipeline
   - category: Main Concepts / Metadata Standard / Schemas / Metadataingestion / DatabaseServiceQueryUsagePipeline
     url: /main-concepts/metadata-standard/schemas/metadataingestion/databaseservicequeryusagepipeline
-  - category: Main Concepts / Metadata Standard / Schemas / Metadataingestion / DbtPipeline
+  - category: Main Concepts / Metadata Standard / Schemas / Metadataingestion / dbtPipeline
     url: /main-concepts/metadata-standard/schemas/metadataingestion/dbtpipeline
-  - category: Main Concepts / Metadata Standard / Schemas / Metadataingestion / Dbtconfig / DbtAzureConfig
+  - category: Main Concepts / Metadata Standard / Schemas / Metadataingestion / dbtconfig / dbtAzureConfig
     url: /main-concepts/metadata-standard/schemas/metadataingestion/dbtconfig/dbtazureconfig
-  - category: Main Concepts / Metadata Standard / Schemas / Metadataingestion / Dbtconfig / DbtBucketDetails
+  - category: Main Concepts / Metadata Standard / Schemas / Metadataingestion / dbtconfig / dbtBucketDetails
     url: /main-concepts/metadata-standard/schemas/metadataingestion/dbtconfig/dbtbucketdetails
-  - category: Main Concepts / Metadata Standard / Schemas / Metadataingestion / Dbtconfig / DbtCloudConfig
+  - category: Main Concepts / Metadata Standard / Schemas / Metadataingestion / dbtconfig / dbtCloudConfig
     url: /main-concepts/metadata-standard/schemas/metadataingestion/dbtconfig/dbtcloudconfig
-  - category: Main Concepts / Metadata Standard / Schemas / Metadataingestion / Dbtconfig / DbtGCSConfig
+  - category: Main Concepts / Metadata Standard / Schemas / Metadataingestion / dbtconfig / dbtGCSConfig
     url: /main-concepts/metadata-standard/schemas/metadataingestion/dbtconfig/dbtgcsconfig
-  - category: Main Concepts / Metadata Standard / Schemas / Metadataingestion / Dbtconfig / DbtHttpConfig
+  - category: Main Concepts / Metadata Standard / Schemas / Metadataingestion / dbtconfig / dbtHttpConfig
     url: /main-concepts/metadata-standard/schemas/metadataingestion/dbtconfig/dbthttpconfig
-  - category: Main Concepts / Metadata Standard / Schemas / Metadataingestion / Dbtconfig / DbtLocalConfig
+  - category: Main Concepts / Metadata Standard / Schemas / Metadataingestion / dbtconfig / dbtLocalConfig
     url: /main-concepts/metadata-standard/schemas/metadataingestion/dbtconfig/dbtlocalconfig
-  - category: Main Concepts / Metadata Standard / Schemas / Metadataingestion / Dbtconfig / DbtS3Config
+  - category: Main Concepts / Metadata Standard / Schemas / Metadataingestion / dbtconfig / dbtS3Config
     url: /main-concepts/metadata-standard/schemas/metadataingestion/dbtconfig/dbts3config
-  - category: Main Concepts / Metadata Standard / Schemas / Metadataingestion / Dbtconfig
+  - category: Main Concepts / Metadata Standard / Schemas / Metadataingestion / dbtconfig
     url: /main-concepts/metadata-standard/schemas/metadataingestion/dbtconfig
   - category: Main Concepts / Metadata Standard / Schemas / Metadataingestion
     url: /main-concepts/metadata-standard/schemas/metadataingestion

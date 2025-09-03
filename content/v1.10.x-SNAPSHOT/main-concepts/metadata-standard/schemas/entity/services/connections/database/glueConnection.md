@@ -18,7 +18,7 @@ slug: /main-concepts/metadata-standard/schemas/entity/services/connections/datab
 - **`tableFilterPattern`**: Regex to only include/exclude tables that matches the pattern. Refer to *../../../../type/filterPattern.json#/definitions/filterPattern*.
 - **`databaseFilterPattern`**: Regex to only include/exclude databases that matches the pattern. Refer to *../../../../type/filterPattern.json#/definitions/filterPattern*.
 - **`supportsMetadataExtraction`**: Refer to *../connectionBasicType.json#/definitions/supportsMetadataExtraction*.
-- **`supportsDBTExtraction`**: Refer to *../connectionBasicType.json#/definitions/supportsDBTExtraction*.
+- **`supportsdbtExtraction`**: Refer to *../connectionBasicType.json#/definitions/supportsdbtExtraction*.
 ## Definitions
 
 - **`glueType`** *(string)*: Service type. Must be one of: `['Glue']`. Default: `Glue`.

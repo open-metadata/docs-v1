@@ -32,7 +32,7 @@ slug: /main-concepts/metadata-standard/schemas/entity/services/pipelineservice
 - **`domain`**: Domain the Pipeline service belongs to. Refer to *[../../type/entityReference.json](#/../type/entityReference.json)*.
 ## Definitions
 
-- **`pipelineServiceType`** *(string)*: Type of pipeline service - Airflow or Prefect. Must be one of: `["Airflow", "GluePipeline", "Airbyte", "Fivetran", "Flink", "Dagster", "Nifi", "DomoPipeline", "CustomPipeline", "DatabricksPipeline", "Spline", "Spark", "OpenLineage", "KafkaConnect", "DBTCloud", "Matillion", "Stitch", "DataFactory"]`.
+- **`pipelineServiceType`** *(string)*: Type of pipeline service - Airflow or Prefect. Must be one of: `["Airflow", "GluePipeline", "Airbyte", "Fivetran", "Flink", "Dagster", "Nifi", "DomoPipeline", "CustomPipeline", "DatabricksPipeline", "Spline", "Spark", "OpenLineage", "KafkaConnect", "dbtCloud", "Matillion", "Stitch", "DataFactory"]`.
 - **`pipelineConnection`** *(object)*: Pipeline Connection. Cannot contain additional properties.
   - **`config`**
     - **One of**

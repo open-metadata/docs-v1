@@ -39,7 +39,7 @@
   max-width: 200px;
 }
 
-.CloudBtn {
+.Cloudbtn {
   background-color: var(--primary-color);
   padding: 0px 12px;
   border: 1px solid var(--primary-color);
