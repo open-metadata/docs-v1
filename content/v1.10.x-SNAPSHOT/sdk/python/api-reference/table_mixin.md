@@ -48,7 +48,7 @@ Create or update custom metric. If custom metric name matches an existing one th
 
 **Args:**
  
- - <b>`custom_metric`</b> (CreateCustomMetricRequest):  custom metric to be create or updated 
+ - `custom_metric` (CreateCustomMetricRequest):  custom metric to be create or updated 
 
 ---
 
@@ -91,13 +91,13 @@ Get the latest profile data for a table
 
 **Args:**
  
- - <b>`fqn`</b> (str):  table fully qualified name 
+ - `fqn` (str):  table fully qualified name 
 
 
 
 **Returns:**
  
- - <b>`Optional[Table]`</b>:  OM table object 
+ - `Optional[Table]`:  OM table object 
 
 ---
 
@@ -122,23 +122,23 @@ Get profile data
 
 **Args:**
  
- - <b>`fqn`</b> (str):  fullyQualifiedName 
- - <b>`start_ts`</b> (int):  start timestamp 
- - <b>`end_ts`</b> (int):  end timestamp 
- - <b>`limit`</b> (int, optional):  limit of record to return. Defaults to 100. 
- - <b>`after`</b> (_type_, optional):  use for API pagination. Defaults to None. profile_type (Union[Type[TableProfile], Type[ColumnProfile]], optional):  Profile type to retrieve. Defaults to TableProfile. 
+ - `fqn` (str):  fullyQualifiedName 
+ - `start_ts` (int):  start timestamp 
+ - `end_ts` (int):  end timestamp 
+ - `limit` (int, optional):  limit of record to return. Defaults to 100. 
+ - `after` (_type_, optional):  use for API pagination. Defaults to None. profile_type (Union[Type[TableProfile], Type[ColumnProfile]], optional):  Profile type to retrieve. Defaults to TableProfile. 
 
 
 
 **Raises:**
  
- - <b>`TypeError`</b>:  if `profile_type` is not TableProfile or ColumnProfile 
+ - `TypeError`:  if `profile_type` is not TableProfile or ColumnProfile 
 
 
 
 **Returns:**
  
- - <b>`EntityList`</b>:  EntityList list object 
+ - `EntityList`:  EntityList list object 
 
 ---
 
