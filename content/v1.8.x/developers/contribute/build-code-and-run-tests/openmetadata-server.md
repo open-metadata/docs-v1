@@ -20,6 +20,8 @@ docker compose -f docker/development/docker-compose.yml up mysql elasticsearch -
 docker compose -f docker/development/docker-compose-postgres.yml up postgresql opensearch --build -d
 ```
 
+{% partial file="/v1.8/developers/contribute/build-code-and-run-tests/postgres-compose-instructions.md" /%}
+
 ## Building
 The following commands must be run from the top-level directory.
 
@@ -43,7 +45,7 @@ openmetadata-dist/target/open-metadata-<version>.pom
 openmetadata-dist/target/open-metadata-<version>.tar.gz
 ```
 
-## Bootstrap MySQL
+## Bootstrap Database
 
 Extract the distribution tar.gz file created on the previous step and run the following command
 
@@ -112,7 +114,7 @@ We also need to set the folder ‘generated-resources’ in some module’s targ
 
 Now run/debug the application.
 
-## Load Sample Data into MySQL
+## Load Sample Data into the database
 
 With the OpenMetadata service up and running, run the following commands from the top-level directory
 
