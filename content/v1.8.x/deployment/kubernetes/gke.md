@@ -38,6 +38,10 @@ We recommend -
 - CloudSQL to be Multi Zone Available
 - Elastic Cloud Environment with multiple zones and minimum 2 nodes
 
+{%note noteType="Warning"%}
+Make sure to increase `sort_buffer_size` ([for MySQL](https://cloud.google.com/sql/docs/mysql/flags)) or `work_mem` ([for PostgreSQL](https://cloud.google.com/sql/docs/postgres/flags)) to the recommended value of **20MB** or more using flags. This is especially important when running migrations to prevent **Out of Sort Memory Error**. You can revert the setting once the migrations are complete.
+{%/note%}
+
 Once you have the Database and Search Engine configured and available, update the helm values below for OpenMetadata kubernetes deployments to connect with Database and ElasticSearch.
 
 ```yaml
