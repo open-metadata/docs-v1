@@ -1,0 +1,33 @@
+.ItemContainer {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--gray-text-color);
+}
+
+.ItemLabel {
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  cursor: pointer;
+  padding: 4px 12px;
+}
+
+.ActiveLabel {
+  color: var(--primary-color);
+  background-color: var(--primary-background-color);
+}
+
+.H3Style {
+  padding-left: 24px;
+}
+
+.H4Style {
+  padding-left: 36px;
+}
+
+.H5Style {
+  padding-left: 48px;
+}
+
+.H6Style {
+  padding-left: 60px;
+}

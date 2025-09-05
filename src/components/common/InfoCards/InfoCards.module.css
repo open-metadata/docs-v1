@@ -1,0 +1,26 @@
+.Container {
+  position: relative;
+  padding: 16px;
+  width: 346px;
+  display: flex;
+  flex-direction: column;
+}
+
+.Container p {
+  margin: 0px;
+}
+
+.Heading {
+  font-weight: 600;
+  font-size: 18px;
+  margin: 0px 0px 4px 0px;
+}
+
+.Patch {
+  position: absolute;
+  width: 62px;
+  height: 62px;
+  border-radius: 4px;
+  top: 10px;
+  left: 10px;
+}
