@@ -64,7 +64,7 @@ source:
   serviceName: openapi_rest
   serviceConnection:
     config:
-      type: ApiMetadata
+      type: Rest
 ```
 ```yaml {% srNumber=1 %}
       openAPISchemaURL: https://docs.open-metadata.org/swagger.json
