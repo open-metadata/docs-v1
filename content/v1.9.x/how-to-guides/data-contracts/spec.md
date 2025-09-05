@@ -87,7 +87,7 @@ status: Active
 entity:
   id: 8beb4301-8302-4791-9944-2897e7614a1a
   type: table
-  href: https://devrel.getcollate.io/v1/tables/8beb4301-8302-4791-9944-2897e7614a1a
+  href: https://example.com/v1/tables/8beb4301-8302-4791-9944-2897e7614a1a
 schema:
   - name: customer_id
     dataType: INT
