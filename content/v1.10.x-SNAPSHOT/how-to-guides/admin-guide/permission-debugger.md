@@ -26,7 +26,7 @@ First navigate to settings > Access Control > Permission Debugger
 Use the input field to search for and select the user whose permissions you want to inspect.
 
 {% image
-src="/images/v1.9/how-to-guides/admin-guide/permission-debugger/permission1.png"
+src="/images/v1.10/how-to-guides/admin-guide/permission-debugger/permission1.png"
 alt="Select a User in Permission Debugger"
 caption="Create Observability Alerts"
 /%}
@@ -42,7 +42,7 @@ caption="Create Observability Alerts"
 - **Resource FQN or ID (Optional)**: Provide a Fully Qualified Name (FQN) or unique ID of a specific resource if you want to debug at the resource instance level.
 
 {% image
-src="/images/v1.9/how-to-guides/admin-guide/permission-debugger/permission2.png"
+src="/images/v1.10/how-to-guides/admin-guide/permission-debugger/permission2.png"
 alt="Define the Permission Check"
 caption="Define the Permission Check"
 /%}
@@ -52,7 +52,7 @@ caption="Define the Permission Check"
 Click the **Evaluate** button to perform the permission check.
 
 {% image
-src="/images/v1.9/how-to-guides/admin-guide/permission-debugger/permission3.png"
+src="/images/v1.10/how-to-guides/admin-guide/permission-debugger/permission3.png"
 alt="Evaluate Permission"
 caption="Evaluate Permission"
 /%}
@@ -60,7 +60,7 @@ caption="Evaluate Permission"
 ## Example 1: DENIED (EditAll on Table)
 
 {% image
-src="/images/v1.9/how-to-guides/admin-guide/permission-debugger/permission4.png"
+src="/images/v1.10/how-to-guides/admin-guide/permission-debugger/permission4.png"
 alt="Permission Debugger Example: DENIED"
 caption="Permission Debugger Example: DENIED"
 /%}
@@ -90,7 +90,7 @@ caption="Permission Debugger Example: DENIED"
 ## Example 2: ALLOWED (ViewAll on Table)
 
 {% image
-src="/images/v1.9/how-to-guides/admin-guide/permission-debugger/permission5.png"
+src="/images/v1.10/how-to-guides/admin-guide/permission-debugger/permission5.png"
 alt="Permission Debugger Example: ALLOWED"
 caption="Permission Debugger Example: ALLOWED"
 /%}
