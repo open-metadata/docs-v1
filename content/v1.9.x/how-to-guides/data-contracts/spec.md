@@ -24,7 +24,7 @@ The JSON Schema definition for Data Contract entities in OpenMetadata defines th
 
 We also include an SLA section for service-level agreements and an Ownership field for accountability. Each Data Contract is designed to represent one single data asset (dataset, topic, model, etc.) in a well-structured, templated format. Data contracts are currently available for Table asset types.
 
-The JSON Schema for the Data Contract entity can be found [here](https://github.com/open-metadata/OpenMetadata/blob/main/openmetadata-spec/src/main/resources/json/schema/entity/data/Data Contract.json)
+The JSON Schema for the Data Contract entity can be found [here](https://github.com/open-metadata/OpenMetadata/blob/main/openmetadata-spec/src/main/resources/json/schema/entity/data/dataContract.json)
 
 # Data Contract Sections
 ## Schema
