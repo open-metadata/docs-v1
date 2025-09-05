@@ -37,6 +37,10 @@ We recommend
 - Amazon RDS to be in Multiple Availability Zones. 
 - Amazon OpenSearch (or ElasticSearch) Service with Multiple Availability Zones with minimum 2 Nodes.
 
+{%note noteType="Warning"%}
+Make sure to increase `sort_buffer_size` (for MySQL) or `work_mem` (for PostgreSQL) to the recommended value of **20MB** or more using the [database parameter group setting](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithParamGroups.html). This is especially important when running migrations to prevent **Out of Sort Memory Error**. You can revert the setting once the migrations are complete.
+{%/note%}
+
 Once you have the RDS and OpenSearch Services Setup, you can update the environment variables below for OpenMetadata kubernetes deployments to connect with Database and ElasticSearch.
 
 ```yaml

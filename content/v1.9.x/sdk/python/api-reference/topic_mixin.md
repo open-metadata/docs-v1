@@ -41,7 +41,11 @@ ingest_topic_sample_data(
 
 PUT sample data for a topic 
 
-:param topic: Topic Entity to update :param sample_data: Data to add 
+**Args:**
+
+`topic`: Topic Entity to update 
+
+`sample_data`: Data to add 
 
 
 

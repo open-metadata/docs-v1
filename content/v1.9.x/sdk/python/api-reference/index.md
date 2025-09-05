@@ -50,7 +50,7 @@ slug: /sdk/python/api-reference
 - [`auth_provider.OktaAuthenticationProvider`](/sdk/python/api-reference/auth-provider#class-oktaauthenticationprovider): Prepare the Json Web Token for Okta auth
 - [`auth_provider.OpenMetadataAuthenticationProvider`](/sdk/python/api-reference/auth-provider#class-openmetadataauthenticationprovider): OpenMetadata authentication implementation
 - [`client.APIError`](/sdk/python/api-reference/client#class-apierror): Represent API related error.
-- [`client.ClientConfig`](/sdk/python/api-reference/client#class-clientconfig): :param raw_data: should we return api response raw or wrap it with
+- [`client.ClientConfig`](/sdk/python/api-reference/client#class-clientconfig): Returns api response raw or wrap it with Entity objects
 - [`client.REST`](/sdk/python/api-reference/client#class-rest): REST client wrapper to manage requests with
 - [`client.RetryException`](/sdk/python/api-reference/client#class-retryexception): API Client retry exception
 - [`credentials.DATE`](/sdk/python/api-reference/credentials#class-date): date string in the format YYYY-MM-DD

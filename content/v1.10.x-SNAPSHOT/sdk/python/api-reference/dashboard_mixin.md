@@ -39,9 +39,13 @@ publish_dashboard_usage(
 ) → None
 ```
 
-POST usage details for a Dashboard 
+POST usage details for a Dashboard
 
-:param dashboard: Table Entity to update :param dashboard_usage_request: Usage data to add 
+**Args:**
+
+`dashboard`: Table Entity to update 
+
+`dashboard_usage_request`: Usage data to add 
 
 
 

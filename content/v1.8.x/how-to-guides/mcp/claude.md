@@ -1,5 +1,6 @@
 ---
 title: Getting Started with Claude Desktop
+description: Set up MCP Server to connect Claude Desktop, generate tokens, and enable seamless AI-powered access to your data.
 slug: /how-to-guides/mcp/claude
 ---
 

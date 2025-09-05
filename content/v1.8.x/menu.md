@@ -823,7 +823,7 @@ site_menu:
     url: /connectors/ingestion/workflows/dbt
   - category: Connectors / Ingestion / Workflows / dbt / Configure dbt workflow from OpenMetadata UI
     url: /connectors/ingestion/workflows/dbt/configure-dbt-workflow-from-ui
-  - category: Connectors / Ingestion / Workflows / dbt / Auto Ingest DBT Core Artifacts
+  - category: Connectors / Ingestion / Workflows / dbt / Auto Ingest dbt Core Artifacts
     url: /connectors/ingestion/workflows/dbt/auto-ingest-dbt-core
   - category: Connectors / Ingestion / Workflows / dbt / Run Externally
     url: /connectors/ingestion/workflows/dbt/run-dbt-workflow-externally
@@ -2270,8 +2270,8 @@ site_menu:
     url: /developers/contribute/build-code-and-run-tests/generate-typescript-types-from-json-schema
   - category: Developers / Contribute / Build the Code and Run Tests / OpenMetadata UI
     url: /developers/contribute/build-code-and-run-tests/openmetadata-ui
-  - category: Developers / Contribute / Build the Code and Run Tests / Cypress Integration Tests
-    url: /developers/contribute/build-code-and-run-tests/cypress-integration-tests
+  - category: Developers / Contribute / Build the Code and Run Tests / Playwright Integration Tests
+    url: /developers/contribute/build-code-and-run-tests/playwright-integration-tests
   - category: Developers / Contribute / Developing a New Connector
     url: /developers/contribute/developing-a-new-connector
   - category: Developers / Contribute / Developing a New Connector / 1. Define the JSON Schema

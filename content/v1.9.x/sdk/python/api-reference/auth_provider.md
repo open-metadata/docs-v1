@@ -70,7 +70,7 @@ Create authentication
 
 **Arguments:**
  
- - <b>`config`</b> (ConfigModel):  configuration 
+ - `config` (ConfigModel):  configuration 
 
 **Returns:**
  AuthenticationProvider 

@@ -1,5 +1,6 @@
 ---
 title: Getting Started with Goose Desktop
+description: Learn how to connect Goose Desktop with MCP Server, create tokens, and enable secure AI-powered access to your data platform.
 slug: /how-to-guides/mcp/goose
 ---
 

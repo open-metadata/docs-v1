@@ -1,10 +1,10 @@
 ---
 title: dbtBucketDetails | OpenMetadata dbt Bucket Details
-description: Store metadata about DBT bucket location, naming conventions, and object access permissions.
+description: Store metadata about dbt bucket location, naming conventions, and object access permissions.
 slug: /main-concepts/metadata-standard/schemas/metadataingestion/dbtconfig/dbtbucketdetails
 ---
 
-# DBT Bucket Details
+# dbt Bucket Details
 
 *Details of the bucket where the dbt files are stored*
 

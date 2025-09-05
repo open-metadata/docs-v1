@@ -14,4 +14,4 @@ In this page we go through how to build OpenMetadata code and get a developer en
 - [Setup Ingestion Framework code](/developers/contribute/build-code-and-run-tests/ingestion-framework)
 - [Generate Typescript types from JSON Schemas](/developers/contribute/build-code-and-run-tests/generate-typescript-types-from-json-schema)
 - [Build OpenMetadata UI](/developers/contribute/build-code-and-run-tests/openmetadata-ui)
-- [Run Cypress Integration Tests](/developers/contribute/build-code-and-run-tests/cypress-integration-tests)
+- [Run Playwright Integration Tests](/developers/contribute/build-code-and-run-tests/playwright-integration-tests)

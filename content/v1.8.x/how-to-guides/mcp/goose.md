@@ -1,5 +1,6 @@
 ---
 title: Getting Started with Goose Desktop
+description: Learn how to connect Goose Desktop with MCP Server, create tokens, and enable secure AI-powered access to your data platform.
 slug: /how-to-guides/mcp/goose
 ---
 
@@ -9,6 +10,7 @@ Configure {% collateContent %}Collate{% /collateContent %}{% ossContent %}OpenMe
 
 ## Prerequisites
 For this guide, you will need:
+
 - [nvm](https://github.com/nvm-sh/nvm) and npx/node version 22
 - {% collateContent %}Collate{% /collateContent %}{% ossContent %}OpenMetadata{% /ossContent %} v1.8.0 or later- You can upgrade your version of {% collateContent %}Collate{% /collateContent %}{% ossContent %}OpenMetadata{% /ossContent %} with [this guide](https://docs.open-metadata.org/latest/deployment/upgrade)
 - [Goose Desktop](https://block.github.io/goose/docs/quickstart/)

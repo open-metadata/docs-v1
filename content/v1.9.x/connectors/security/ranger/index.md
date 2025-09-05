@@ -7,7 +7,7 @@ collate: true
 {% connectorDetailsHeader
 name="Apache Ranger"
 stage="Beta"
-platform="OpenMetadata"
+platform="Collate"
 availableFeatures=["Reverse Metadata (Collate Only)"]
 unavailableFeatures=[]
 / %}

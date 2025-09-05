@@ -34,3 +34,13 @@ COMMENT ON COLUMN {database}.{schema}.{table}.{column} IS {description};
 The list of variables for custom SQL can be found [here](/applications/reverse-metadata#custom-sql-template).
 
 For more details about reverse metadata ingestion, visit our [Reverse Metadata Documentation](/applications/reverse-metadata).
+
+### Requirements for Reverse Metadata
+
+In addition to the basic ingestion requirements, for reverse metadata ingestion the user needs:
+- `SUPERUSER` privilege to the user
+
+```sql
+-- Grant superuser privilege to the user
+ALTER USER USER_NAME CREATEUSER;
+```

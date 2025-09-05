@@ -1,7 +1,7 @@
-# 1.9.1 Release 🎉
+# 1.9.7 Release 🎉
 
 {% note noteType="Tip" %}
-**13th August 2025**
+**5th September 2025**
 {% /note %}
 
 {% inlineCalloutContainer %}
@@ -10,31 +10,18 @@ color="violet-70"
 icon="celebration"
 bold="Upgrade OpenMetadata"
 href="/deployment/upgrade" %}
-Learn how to upgrade your OpenMetadata instance to 1.9.1!
+Learn how to upgrade your OpenMetadata instance to 1.9.7!
 {% /inlineCallout %}
 {% /inlineCalloutContainer %}
 
-You can find the GitHub release [here](https://github.com/open-metadata/OpenMetadata/releases/tag/1.9.1-release).
+You can find the GitHub release [here](https://github.com/open-metadata/OpenMetadata/releases/tag/1.9.7-release).
 
-## Improvements
-- Removed lastLoginTime from change Description.
-- Add Grafana Support.
-- Add OpenAPI YAML format support for REST API ingestion.
-- Implement Cross Service Lineage.
-- Precede source table name before pbi table name.
-- Supported lineage table, highlight current root node and some Improvement around UI.
-- Spark Engine UI Implementation (Collate).
+## Bug Fixes
 
-## Fixes
-- Fix Glossary Terms getting vanished for customized persona in Glossary Terms.
-- Fix deleted assets being visible in Search Suggestions.
-- Fix the upload dragger being enabled when file in process in Bulk Actions.
-- Fix the keyboard delete action not working in Bulk Actions.
-- Fix the PowerBI parse expression along with measure.
-- Fix the expand icon after updating column details.
-- Fix the default persona in user profile.
-- Fix Bedrock Support.
-- Fix User Metrics.
-- Fix Telemetry Payload (Collate)
+- Fix contract schema pagination key selection not persisting across sessions.
+- Fix date formatters to work according to the chosen language setting.
+- Fix cross services lineage changes of service_names to missed methods and handled string value passed to service_names.
+- Users with Data Product edit permission were unable to upload images due to missing Domain resource permission.
+- Fix WebSocketManager concurrency issues during concurrent modification and consumer job processing.
 
-**Full Changelog**: [link](https://github.com/open-metadata/OpenMetadata/compare/1.9.0-release...1.9.1-release)
+**Full Changelog**: [link](https://github.com/open-metadata/OpenMetadata/compare/1.9.5-release...1.9.7-release)

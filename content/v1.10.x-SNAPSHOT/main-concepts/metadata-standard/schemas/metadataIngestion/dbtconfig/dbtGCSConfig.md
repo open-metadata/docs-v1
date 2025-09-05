@@ -3,9 +3,9 @@ title: dbtGCSConfig
 slug: /main-concepts/metadata-standard/schemas/metadataingestion/dbtconfig/dbtgcsconfig
 ---
 
-# DBT GCS Config
+# dbt GCS Config
 
-*DBT Catalog, Manifest and Run Results files in GCS storage. We will search for catalog.json, manifest.json and run_results.json.*
+*dbt Catalog, Manifest and Run Results files in GCS storage. We will search for catalog.json, manifest.json and run_results.json.*
 
 ## Properties
 
