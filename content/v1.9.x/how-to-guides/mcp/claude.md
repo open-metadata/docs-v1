@@ -10,81 +10,11 @@ Configure {% collateContent %}Collate{% /collateContent %}{% ossContent %}OpenMe
 
 ## Prerequisites
 For this guide, you will need:
-- [nvm](https://github.com/nvm-sh/nvm)
-- OpenMetadata v1.8.0 - You can upgrade your version of {% collateContent %}Collate{% /collateContent %}{% ossContent %}OpenMetadata{% /ossContent %} with [this guide](https://docs.open-metadata.org/latest/deployment/upgrade)
-- Latest Node v22 (required)
+
+- [nvm](https://github.com/nvm-sh/nvm) and npx/node version 22
+- OpenMetadata v1.8.0 or later - You can upgrade your version of {% collateContent %}Collate{% /collateContent %}{% ossContent %}OpenMetadata{% /ossContent %} with [this guide](https://docs.open-metadata.org/latest/deployment/upgrade)
 - [Claude Desktop](https://claude.ai/download)
-
-## Add MCP App to {% collateContent %}Collate{% /collateContent %}{% ossContent %}OpenMetadata{% /ossContent %}
-{% collateContent %}Collate{% /collateContent %}{% ossContent %}OpenMetadata{% /ossContent %} has a variety of applications to improve your data such as MetaPilot, Data Insights, Search Indexing, and MCP.
-
-- Go to <YOUR-OpenMetadata-SERVER>/marketplace/apps/McpApplication and select *Install*
-
-{% ossContent %}
-{% image
-src="/images/v1.9/how-to-guides/mcp/install-mcp.jpg"
-alt="Add MCP app"
-caption="Install MCP Server on OpenMetadata"
-/%}
-{% /ossContent %}
-
-{% collateContent %}
-{% image
-src="/images/v1.9/how-to-guides/mcp/install-mcp.jpg"
-alt="Add MCP app"
-caption="Install MCP Server on Collate"
-/%}
-{% /collateContent %}
-
-- The next screen, with *Origin Header URI* is for Streamable-Http requests. This guide uses SSE, so we can skip this portion, select *Submit*
-
-## Install mcp-remote
-Next, we will be adding mcp-remote to Claude Desktop so we can give Claude secure access to your {% collateContent %}Collate{% /collateContent %}{% ossContent %}OpenMetadata{% /ossContent %} MCP Server via support for HTTP+SSE.
-
-- Install the latest node version
-```
-nvm install 22 && nvm alias default 22
-```
-
-- Install mcp-remote globally*
-```
-npm install -g mcp-remote
-```
-
-*Note: Installing globally may require you to run as root `sudo npm install -g mcp-remote`
-
-- Start mcp-remote
-```
-npx @modelcontextprotocol/inspector
-```
-
-This will start mcp-remote's MCP Inspector on your localhost at [http://127.0.0.1:6274/](http://127.0.0.1:6274/). Keep your terminal window open, you will see requests coming from Claude to OpenMetadata through mcp-remote in this window once you start prompting.
-
-## Adding your {% collateContent %}Collate{% /collateContent %}{% ossContent %}OpenMetadata{% /ossContent %} PAT to mcp-remote
-The next step will be to add your Personal Access Token (PAT) to mcp-remote so that Claude can communicate with {% collateContent %}Collate{% /collateContent %}{% ossContent %}OpenMetadata{% /ossContent %}
-
-- Go to <YOUR-OpenMetadata-SERVER>/users/<YOUR-USERNAME>/access-token and select *Generate New Token*. This will give Claude the same role and access policy that is assign to you in {% collateContent %}Collate{% /collateContent %}{% ossContent %}OpenMetadata{% /ossContent %}, if you would like Claude to have different role-based access controls, create a new user.
-
-{% image
-src="/images/v1.9/how-to-guides/mcp/generate-new-token.jpg"
-alt="Generate New Token"
-caption="Creating a new Personal Access Token"
-/%}
-
-- Set your *Token Expiration*. This guide uses 60 days. Once your new token is created copy it.
-
-{% image
-src="/images/v1.9/how-to-guides/mcp/generate-new-token-2.jpg"
-alt="Set Token Lifespan"
-caption="Personal Access Token expires in 60 days"
-/%}
-
-- Paste your PAT in mcp-remote's MCP Inspector. 
-  - MCP Inspector URL is [http://127.0.0.1:6274/](http://127.0.0.1:6274/)
-  - *Transport Type* is SSE
-  - *URL* is <YOUR-OpenMetadata-SERVER>/mcp
-  - *Bearer Token* is your PAT
-  - Select *Connect*
+- {% collateContent %}Collate{% /collateContent %}{% ossContent %}OpenMetadata{% /ossContent %} [MCP Application and Personal Access Token](https://docs.open-metadata.org/v1.9.x/how-to-guides/mcp#installing-mcp-server)
 
 ## Adding your {% collateContent %}Collate{% /collateContent %}{% ossContent %}OpenMetadata{% /ossContent %} MCP Server to Claude Desktop
 This how-to guide uses the free version of Claude Desktop for macOS with Sonnet 4.
@@ -156,6 +86,8 @@ caption="Claude asking for permission to search Collate"
 /%}
 {% /collateContent %}
 
+For more sample use cases with MCP please check out {% ossContent %}[our blog]([https://collatedata.medium.com/mcp-sample-uses-in-collate-b7846864f63b](https://blog.open-metadata.org/mcp-sample-uses-in-collate-0c195c7f5741)){% /ossContent %}{% collateContent %}[our blog](https://collatedata.medium.com/mcp-sample-uses-in-collate-b7846864f63b){% /collateContent %}!
 
-### Show us what you got
-With MCP, we are finding new ways to use {% collateContent %}Collate{% /collateContent %}{% ossContent %}OpenMetadata{% /ossContent %} all the time! Now that you have Claude and {% collateContent %}Collate{% /collateContent %}{% ossContent %}OpenMetadata{% /ossContent %} configured to work together, think you've got a great new use case? Show us what you've got in the {% collateContent %}Collate{% /collateContent %}{% ossContent %}OpenMetadata{% /ossContent %} #mcp Slack Channel!
+### Reach out on Slack!
+With MCP, we are finding new ways to use {% collateContent %}Collate{% /collateContent %}{% ossContent %}OpenMetadata{% /ossContent %} all the time! Now that you have Claude and {% collateContent %}Collate{% /collateContent %}{% ossContent %}OpenMetadata{% /ossContent %} configured to work together, think you've got a great new use case? Show us what you've got in [Slack](https://slack.open-metadata.org/)!
+
