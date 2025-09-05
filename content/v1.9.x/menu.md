@@ -919,6 +919,8 @@ site_menu:
     url: /how-to-guides/admin-guide/Reindexing-Search
   - category: How-to Guides / Admin Guide / Data Insights
     url: /how-to-guides/admin-guide/data-insights
+  - category: How-to Guides / Admin Guide / Permission Debugger
+    url: /how-to-guides/admin-guide/permission-debugger
   - category: How-to Guides / Admin Guide / Persona and Landing Page Customization
     url: /how-to-guides/admin-guide/persona-landing-page-customization
   - category: How-to Guides / Admin Guide / Persona and Landing Page Customization / How to Customize a Landing Page
