@@ -880,6 +880,10 @@ site_menu:
 
   - category: How-to Guides / MCP
     url: /how-to-guides/mcp
+  - category: How-to Guides / MCP / OpenMetadata MCP Server Connection Guide
+    url: /how-to-guides/mcp/connect
+  - category: How-to Guides / MCP / OpenMetadata MCP Tools Reference
+    url: /how-to-guides/mcp/reference
   - category: How-to Guides / MCP / Getting Started with Claude Desktop
     url: /how-to-guides/mcp/claude
   - category: How-to Guides / MCP / Getting Started with Goose Desktop
