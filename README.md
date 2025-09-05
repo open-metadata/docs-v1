@@ -2,7 +2,8 @@
 
 1. Clone the repository 
 2. Run `yarn` to install all the required packages.
-3. Run `yarn dev` to start server for development mode.
+3. Set up [Algolia](#algolia-local-set-up)
+4. Run `yarn dev` to start server for development mode.
 
 # Change the default version
 
@@ -788,3 +789,43 @@ A styled, bordered component, with or without icons, to navigate to pages.
 **Tiles with the icons**
 
 <img width="2032" alt="tiles-with-icon" src="./public/tiles-with-icon.png">
+
+
+---
+
+# Algolia local set up
+
+The project might not run if you don't pass in the required Nextjs environment variables to set up Algolia. You may encounter something like this:
+
+![Algolia Unreachable hosts error, common when application id is not correct](public/algolia/missing-credentials-error.png)
+
+If you don't have access to Collate's credentials, you can leverage Algolia's [Build Tier (free)](https://www.algolia.com/pricing) to set up your own environment.
+
+## Caveats
+
+1. The Build Tier is limited to records of to 10KB, too restrictive for some of the pages we have, so running `make search` will fail.
+2. When you sign up, you'll need the Application ID and the Search API Key. Create a `.env` file (see `.env.example`) setting up the respective environment variables:
+    ```
+    NEXT_PUBLIC_ALGOLIA_APP_ID="Your application ID"
+    NEXT_PUBLIC_ALGOLIA_API_KEY="Your search API key"
+    ```
+3. Running `make search` builds the required indexes, but if for some reason you can't run that command, then you must create the indexes manually in Algolia, even if empty.
+
+   The indexes must follow the naming rule: `openmetadata-v1-<content-version>`. Check the available version folders in `./content` to check available documented versions.
+
+   ### Example
+   The following directory structure would require these indexes: `openmetadata-v1-v1.8.x`, `openmetadata-v1-v1.9.x` and `openmetadata-v1-v1.10.x-SNAPSHOT`
+   ```
+   content/
+     v1.8.x/
+     v1.9.x/
+     v1.10.x-SNAPSHOT/
+   ```
+   
+   ### Adding indexes manually
+   #### Your first index
+   ![Screenshot of the Algolia UI to create your first index](public/algolia/first-index.png)
+
+   #### Additional indexes
+   ![Screenshot of the Algolia UI to create additional indexes](public/algolia/additional-indexes.png)
+4. When dealing with empty indexes, the search bar will return nothing. If you need to test search functionality and can't run `make search` then try adding records manually.
