@@ -5,7 +5,7 @@ slug: /how-to-guides/mcp/connect
 
 # MCP Server Connection Guide
 
-{% collateContent %}Collate{% /collateContent %}{% ossContent %}OpenMetadata{% /ossContent %} provides a Model Context Protocol (MCP) server that allows AI assistants and other clients to interact with your metadata catalog. The MCP server exposes tools for searching metadata, managing glossaries, and working with lineage data. Please check out our guides for [Claude](href="/how-to-guides/mcp/claude") and [Goose](href="/how-to-guides/mcp/goose") if you are using them as AI assistants.
+{% collateContent %}Collate{% /collateContent %}{% ossContent %}OpenMetadata{% /ossContent %} provides a Model Context Protocol (MCP) server that allows AI assistants and other clients to interact with your metadata catalog. The MCP server exposes tools for searching metadata, managing glossaries, and working with lineage data. Please check out our guides for [Claude](../claude) and [Goose](../goose) if you are using them as AI assistants.
 
 ## Server Information
 
