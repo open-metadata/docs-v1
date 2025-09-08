@@ -17,7 +17,7 @@ function ConnectorDetailsHeader({
   stage,
   platform,
   availableFeatures,
-  unavailableFeatures,
+  unavailableFeatures = [],
   availableFeaturesCollate = [],
 }: Readonly<ConnectorDetailsHeaderProps>) {
   const { enableVersion } = useDocVersionContext();
