@@ -10,6 +10,7 @@ name="ServiceNow"
 stage="BETA"
 platform="Collate"
 availableFeatures=["Metadata", "Lineage"]
+unavailableFeatures=["Query Usage", "Data Profiler", "Data Quality", "dbt", "Stored Procedures", "Owners", "Tags", "Sample Data", "Auto-Classification"]
 / %}
 
 In this section, we provide guides and references to use the ServiceNow connector.
