@@ -24,4 +24,4 @@ You can find the GitHub release [here](https://github.com/open-metadata/OpenMeta
 - Users with Data Product edit permission were unable to upload images due to missing Domain resource permission.
 - Fix WebSocketManager concurrency issues during concurrent modification and consumer job processing.
 
-**Full Changelog**: [link](https://github.com/open-metadata/OpenMetadata/compare/1.9.5-release...1.9.7-release)
+**Full Changelog**: [link](https://github.com/open-metadata/OpenMetadata/compare/1.9.6-release...1.9.7-release)
