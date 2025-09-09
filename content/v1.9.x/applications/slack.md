@@ -180,8 +180,8 @@ This ensures Slack can return the authorization code to your backend after the u
 
 {% image
 src="/images/v1.9/applications/slack-redirect.png"
-alt="onfigure Redirect URLs"
-caption="onfigure Redirect URLs"
+alt="Configure Redirect URLs"
+caption="Configure Redirect URLs"
 /%}
 
 ### Configure Event Subscriptions
