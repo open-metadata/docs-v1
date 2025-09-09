@@ -86,7 +86,7 @@ caption="Claude asking for permission to search Collate"
 /%}
 {% /collateContent %}
 
-For more sample use cases with MCP please check out {% ossContent %}[our blog]([https://collatedata.medium.com/mcp-sample-uses-in-collate-b7846864f63b](https://blog.open-metadata.org/mcp-sample-uses-in-collate-0c195c7f5741)){% /ossContent %}{% collateContent %}[our blog](https://collatedata.medium.com/mcp-sample-uses-in-collate-b7846864f63b){% /collateContent %}!
+For more sample use cases with MCP please check out {% ossContent %}[our blog](https://blog.open-metadata.org/mcp-sample-uses-in-collate-0c195c7f5741){% /ossContent %}{% collateContent %}[our blog](https://collatedata.medium.com/mcp-sample-uses-in-collate-b7846864f63b){% /collateContent %}!
 
 ### Reach out on Slack!
 With MCP, we are finding new ways to use {% collateContent %}Collate{% /collateContent %}{% ossContent %}OpenMetadata{% /ossContent %} all the time! Now that you have Claude and {% collateContent %}Collate{% /collateContent %}{% ossContent %}OpenMetadata{% /ossContent %} configured to work together, think you've got a great new use case? Show us what you've got in [Slack](https://slack.open-metadata.org/)!
