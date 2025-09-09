@@ -265,7 +265,7 @@ For each command:
 - *(Optional)* Enable **Escape channels, users, and links** if you want Slack to escape mentions and links.
 
     - Once created, the commands will appear in Slack's autocomplete suggestions when users start typing `/`.
-Authorize the permissions requested by the app.
+    - Authorize the permissions requested by the app.
 
 ### Install the App to Workspace
 
