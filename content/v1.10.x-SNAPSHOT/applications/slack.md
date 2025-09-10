@@ -115,7 +115,7 @@ Here, you'll find the following important credentials:
 - Client Secret – Used for authenticating requests made from your app.
 - Signing Secret – Used to verify that incoming requests (e.g., from Slack) are genuinely from Slack.
 
-    Click Show next to each secret if you need to view the values. You can also regenerate them if needed using the Regenerate button and after that you can share it with Collate Team.
+    Click Show next to each secret if you need to view the values. You can also regenerate them if needed using the Regenerate button, and after that you can share it with Collate Team.
  
 Make sure to store these securely, as you'll need them to configure OAuth and validate request signatures later.
 
