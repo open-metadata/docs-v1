@@ -80,6 +80,12 @@ export const QUICK_LINK_CARDS = [
 
 export const BLOGS_INFO = [
   {
+    title: "OpenMetadata Release 1.9.0",
+    text: "Data Contracts, Multi-Domain Support, and Enhanced User Experience",
+    link: "https://blog.open-metadata.org/announcing-openmetadata-1-9-68b63005bb25",
+    image: "/blogs/openmetadata-1.9.0-release.webp",
+  },
+  {
     title: "Announcing OpenMetadata Release 1.8.0",
     text: "Enterprise‑grade data context for AI, contracts for data you can trust, and new Microsoft ecosystem connectors",
     link: "https://blog.open-metadata.org/announcing-openmetadata-1-8-948eb14d41c7",
@@ -90,11 +96,5 @@ export const BLOGS_INFO = [
     text: "New innovations like AutoPilot, Persona Customizations, Improved UX, Search Relevancy Settings, Enhanced Lineage Layers, New Connectors, and more",
     link: "https://blog.open-metadata.org/announcing-openmetadata-1-7-9f9778579704",
     image: "/blogs/openmetadata-1.7.0-release.webp",
-  },
-  {
-    title: "OpenMetadata Release 1.6.0",
-    text: "Key features to unify Metric definitions, Search RBAC, Alerts Debuggability, Terraform module, and more!",
-    link: "https://blog.open-metadata.org/announcing-openmetadata-release-1-6-f4fdd7f66f72",
-    image: "/blogs/openmetadata-1.6.0-release.webp",
   },
 ];
