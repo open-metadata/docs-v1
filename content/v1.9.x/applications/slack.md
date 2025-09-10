@@ -172,7 +172,7 @@ Only add the scopes you need. Ensure your Slack workspace allows user token gene
 Before installing the app to your workspace, configure the redirect URLs to ensure successful OAuth authentication:
 1. In the left-hand menu, go to **OAuth & Permissions**.
 2. Scroll down to the **Redirect URLs** section.
-3. Click **Add New Redirect URL** and enter. Example: https://sandbox.open-metadata.org/api/slack/callback
+3. Click **Add New Redirect URL** and enter the redirect URL. Example: https://sandbox.open-metadata.org/api/slack/callback
 4. Click **Save URLs** to apply the changes.
 
 The redirect URL must exactly match the URL used in your OAuth request.  
