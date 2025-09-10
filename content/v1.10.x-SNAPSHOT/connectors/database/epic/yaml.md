@@ -6,7 +6,7 @@ Collate: true
 ---
 
 {% connectorDetailsHeader
-name="Epic FHIR"
+name="Epic"
 stage="BETA"
 platform="Collate"
 availableFeatures=["Metadata"]
