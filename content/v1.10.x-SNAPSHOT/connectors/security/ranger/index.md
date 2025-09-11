@@ -5,7 +5,7 @@ collate: true
 ---
 
 {% connectorDetailsHeader
-name="Apache Ranger"
+name="Ranger"
 stage="Beta"
 platform="Collate"
 availableFeatures=["Reverse Metadata (Collate Only)"]

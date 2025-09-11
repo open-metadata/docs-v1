@@ -141,6 +141,7 @@ export const getConnectorImage = (connector: string) => {
     QuickSight: "quicksight",
     "Qlik Cloud": "qlikcloud",
     "Qlik Sense": "qlik-sense",
+    Ranger: "ranger",
     Redash: "redash",
     Redpanda: "redpanda",
     Redshift: "redshift",
