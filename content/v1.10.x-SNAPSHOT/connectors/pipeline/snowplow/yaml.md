@@ -147,7 +147,7 @@ source:
 
 {% /codePreview %}
 
-- You can learn more about how to configure and run the Ingestion Framework [here](/connectors/ingestion-framework/run).
+- You can learn more about how to configure and run the Ingestion Framework [here](/deployment/ingestion).
 
 ### 2. Run the Command
 
