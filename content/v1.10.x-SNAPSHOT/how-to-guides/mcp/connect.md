@@ -5,7 +5,7 @@ slug: /how-to-guides/mcp/connect
 
 # MCP Server Connection Guide
 
-{% collateContent %}Collate{% /collateContent %}{% ossContent %}OpenMetadata{% /ossContent %} provides a Model Context Protocol (MCP) server that allows AI assistants and other clients to interact with your metadata catalog. The MCP server exposes tools for searching metadata, managing glossaries, and working with lineage data. Please check out our guides for [Claude](./how-to-guides/mcp/claude) and [Goose](./how-to-guides/mcp/goose) if you are using them as AI assistants.
+{% collateContent %}Collate{% /collateContent %}{% ossContent %}OpenMetadata{% /ossContent %} provides a Model Context Protocol (MCP) server that allows AI assistants and other clients to interact with your metadata catalog. The MCP server exposes tools for searching metadata, managing glossaries, and working with lineage data. Please check out our guides for [Claude](/how-to-guides/mcp/claude) and [Goose](/how-to-guides/mcp/goose) if you are using them as AI assistants.
 
 ## Server Information
 
@@ -26,7 +26,7 @@ Your MCP server is available at:
 Replace `{OMURL}` with your {% collateContent %}Collate{% /collateContent %}{% ossContent %}OpenMetadata{% /ossContent %} instance URL (e.g., `https://your-openmetadata.com/mcp`)
 
 ### 2. Authentication
-The MCP server requires [JWT authentication](./how-to-guides/mcp#adding-a-personal-access-token-to-your-mcp-client). Include your token in the Authorization header:
+The MCP server requires [JWT authentication](/how-to-guides/mcp#adding-a-personal-access-token-to-your-mcp-client). Include your token in the Authorization header:
 ```http
 Authorization: Bearer <your-jwt-token>
 ```
