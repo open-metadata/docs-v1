@@ -542,4 +542,14 @@ export const CONNECTORS: Array<ConnectorCategory> = [
       },
     ],
   },
+  {
+    connector: "Security",
+    services: [
+      {
+        url: "/connectors/security/ranger",
+        icon: "/images/connectors/ranger.webp",
+        name: "Ranger",
+      },
+    ],
+  },
 ];
