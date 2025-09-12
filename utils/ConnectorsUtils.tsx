@@ -113,6 +113,7 @@ export const getConnectorImage = (connector: string) => {
     Grafana: "grafana",
     Glue: "glue",
     Greenplum: "greenplum",
+    Hex: "hex",
     Hive: "hive",
     Iceberg: "iceberg",
     Impala: "impala",

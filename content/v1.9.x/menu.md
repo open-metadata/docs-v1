@@ -523,6 +523,12 @@ site_menu:
     url: /connectors/dashboard/grafana/yaml
   - category: Connectors / Database / Grafana / Troubleshooting
     url: /connectors/dashboard/grafana/troubleshooting
+  - category: Connectors / Database / Hex
+    url: /connectors/dashboard/hex
+  - category: Connectors / Database / Hex / Run Externally
+    url: /connectors/dashboard/hex/yaml
+  - category: Connectors / Database / Hex / Troubleshooting
+    url: /connectors/dashboard/hex/troubleshooting
   - category: Connectors / Dashboard / Lightdash
     url: /connectors/dashboard/lightdash
   - category: Connectors / Dashboard / Lightdash / Run Externally
