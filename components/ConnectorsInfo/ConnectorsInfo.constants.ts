@@ -300,6 +300,11 @@ export const CONNECTORS: Array<ConnectorCategory> = [
         name: "Grafana",
       },
       {
+        url: "/connectors/dashboard/hex",
+        icon: "/images/connectors/hex.webp",
+        name: "Hex",
+      },
+      {
         url: "/connectors/dashboard/looker",
         icon: "/images/connectors/looker.webp",
         name: "Looker",
