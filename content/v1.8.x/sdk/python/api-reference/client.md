@@ -80,7 +80,10 @@ Return response status code
 [{% image align="right" style="float:right;" src="https://img.shields.io/badge/-source-cccccc?style=flat-square" /%}](https://github.com/open-metadata/OpenMetadata/tree/main/ingestion/src/metadata/ingestion/ometa/client.py#L89")
 
 ## class `ClientConfig`
-:param raw_data: should we return api response raw or wrap it with  Entity objects. 
+
+**Args:**
+
+`raw_data`: should we return api response raw or wrap it with  Entity objects. 
 
 
 

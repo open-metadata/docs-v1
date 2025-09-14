@@ -1,12 +1,12 @@
 ---
 title: dbtAzureConfig | OpenMetadata dbt Azure Config
-description: Represent DBT Azure configuration for reading files from Azure Blob Storage for ingestion.
+description: Represent dbt Azure configuration for reading files from Azure Blob Storage for ingestion.
 slug: /main-concepts/metadata-standard/schemas/metadataingestion/dbtconfig/dbtazureconfig
 ---
 
-# DBT Azure Config
+# dbt Azure Config
 
-*DBT Catalog, Manifest and Run Results files in Azure bucket. We will search for catalog.json, manifest.json and run_results.json.*
+*dbt Catalog, Manifest and Run Results files in Azure bucket. We will search for catalog.json, manifest.json and run_results.json.*
 
 ## Properties
 

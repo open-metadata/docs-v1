@@ -823,7 +823,7 @@ site_menu:
     url: /connectors/ingestion/workflows/dbt
   - category: Connectors / Ingestion / Workflows / dbt / Configure dbt workflow from OpenMetadata UI
     url: /connectors/ingestion/workflows/dbt/configure-dbt-workflow-from-ui
-  - category: Connectors / Ingestion / Workflows / dbt / Auto Ingest DBT Core Artifacts
+  - category: Connectors / Ingestion / Workflows / dbt / Auto Ingest dbt Core Artifacts
     url: /connectors/ingestion/workflows/dbt/auto-ingest-dbt-core
   - category: Connectors / Ingestion / Workflows / dbt / Run Externally
     url: /connectors/ingestion/workflows/dbt/run-dbt-workflow-externally
@@ -875,6 +875,10 @@ site_menu:
 
   - category: How-to Guides / MCP
     url: /how-to-guides/mcp
+  - category: How-to Guides / MCP / OpenMetadata MCP Server Connection Guide
+    url: /how-to-guides/mcp/connect
+  - category: How-to Guides / MCP / OpenMetadata MCP Tools Reference
+    url: /how-to-guides/mcp/reference
   - category: How-to Guides / MCP / Getting Started with Claude Desktop
     url: /how-to-guides/mcp/claude
   - category: How-to Guides / MCP / Getting Started with Goose Desktop

@@ -41,3 +41,22 @@ ALTER TABLE {database}.{schema}.{table} SET TAGS {tags};
 The list of variables for custom SQL can be found [here](/applications/reverse-metadata#custom-sql-template).
 
 For more details about reverse metadata ingestion, visit our [Reverse Metadata Documentation](/applications/reverse-metadata).
+
+### Requirements for Reverse Metadata
+
+In addition to the basic ingestion requirements, for reverse metadata ingestion the user needs:
+
+```sql
+-- Catalog grants
+GRANT USE CATALOG ON CATALOG `<catalog>` TO `<principal>`;
+GRANT MANAGE ON CATALOG `<catalog>` TO `<principal>`;
+
+-- Schema grants
+GRANT USE SCHEMA ON SCHEMA `<catalog>`.`<schema>` TO `<principal>`;
+GRANT MANAGE ON SCHEMA `<catalog>`.`<schema>` TO `<principal>`;
+GRANT APPLY TAG ON SCHEMA `<catalog>`.`<schema>` TO `<principal>`;
+
+-- Table grants
+GRANT MANAGE ON TABLE `<catalog>`.`<schema>`.`<table>` TO `<principal>`;
+GRANT APPLY TAG ON TABLE `<catalog>`.`<schema>`.`<table>` TO `<principal>`;
+```

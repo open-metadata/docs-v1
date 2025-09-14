@@ -3,4 +3,11 @@ node_modules/
 .next/
 .vercel
 package-lock.json
-.env.local
+
+search-venv
+
+# Env files
+.env*
+!.env.example
+
+.idea

@@ -70,8 +70,74 @@ For the Action Configuration:
 - **Apply to Children**: Lets you apply the Tags or Glossary Terms to the selected child assets (e.g., columns) within an asset.
 - **Overwrite Metadata**: Allows you to overwrite existing Tags or Terms with the configured one. Otherwise, we will add the new Tags or Terms to the existing ones.
 
+### 4. Bulk Test cases Assignment
 
-### 4. Metadata Propagation via Lineage
+{% image
+src="/images/v1.9/how-to-guides/governance/add-test-case.png"
+alt="Add Test Cases"
+caption="Add Test Cases"
+/%}
+
+{% image
+src="/images/v1.9/how-to-guides/governance/remove-test-case.png"
+alt="Remove Test Cases"
+caption="Remove Test Cases"
+/%}
+
+- **Problem**: Manually assigning or removing test cases for individual data assets is time-consuming and error-prone, especially at scale. For teams managing hundreds or thousands of assets, this repetitive process creates friction, reduces consistency, and delays the rollout of standardized data quality checks.
+- **Solution**: The Add Test Cases and Remove Test Cases actions in Automator allow users to manage test case assignments in bulk. Instead of individually configuring test cases on each asset, users can apply or remove a common test case (of the same type and configuration) across all filtered data assets in a single step.
+
+{% note %}
+
+Apply to Children option allows you to apply test cases at the column level instead of the entire table.
+When enabled:
+
+- You can specify and select individual column names from the table.
+- Only column-level test definitions are applied (table-level tests are automatically excluded).
+- Before being added, tests verify column data type compatibility to ensure accuracy.
+
+{% /note %}
+
+{% note %}
+
+This functionality is not designed to trigger actions based on test case results (e.g., fail/pass/aborted). 
+
+{% /note %}
+
+For foundational concepts on test cases and their role in Collate's metadata model, refer to: [Test Cases in Collate](https://docs.getcollate.io/main-concepts/metadata-standard/schemas/tests?utm_source=chatgpt.com).
+
+- **Benefit**: 
+
+  - Saves manual effort by enabling one-click bulk operations (add or remove) on test cases.
+  - Enforces standardization of similar data quality checks across filtered assets.
+  - Reduces human error and speeds up test deployment.
+  - Helps maintain consistency in validation strategies across domains, asset types, or tags.
+
+#### Action Configuration:
+
+**Add Test Cases**
+
+Apply the same test case configuration to all filtered data assets in one go. This is useful for bulk-enforcing validation rules like "not null", "regex match", etc.
+
+Example Use Case:
+
+ - Apply a "not null" test to every Column tagged as Sensitive.
+
+**Remove Test Cases**
+
+Remove a specific test case (with a defined type/config) from all filtered data assets at once. This is ideal for cleaning up deprecated or incorrectly assigned tests.
+
+Example Use Case:
+
+ - Remove all “row count threshold” test cases from tables within a deprecated domain.
+
+{% note %}
+
+ Supported Assets: Test cases currently only work with Table data assets. Other entities such as Topics, Containers, and Pipelines do not support test cases at this time.
+
+ {% /note %}
+
+### 5. Metadata Propagation via Lineage
 
 {% image
 src="/images/v1.9/how-to-guides/governance/metadata-propogation.png"

@@ -3,7 +3,7 @@ title: dbtBucketDetails
 slug: /main-concepts/metadata-standard/schemas/metadataingestion/dbtconfig/dbtbucketdetails
 ---
 
-# DBT Bucket Details
+# dbt Bucket Details
 
 *Details of the bucket where the dbt files are stored*
 

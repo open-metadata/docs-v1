@@ -75,9 +75,17 @@ patch(entity: Type[~T], source: ~T, destination: ~T) → Optional[~T]
 
 Given an Entity type and Source entity and Destination entity, generate a JSON Patch and apply it. 
 
-Args  entity (T): Entity Type  source: Source payload which is current state of the source in OpenMetadata  destination: payload with changes applied to the source. 
+**Args:**  
 
-Returns  Updated Entity 
+`entity` (T): Entity Type  
+
+`source`: Source payload which is current state of the source in OpenMetadata  
+
+`destination`: payload with changes applied to the source. 
+
+**Returns:**  
+
+Updated Entity 
 
 ---
 
@@ -112,7 +120,19 @@ patch_column_description(
 
 Given an Table , Column FQN, JSON PATCH the description of the column 
 
-Args  src_table: origin Table object  column_fqn: FQN of the column to update  description: new description to add  force: if True, we will patch any existing description. Otherwise, we will maintain  the existing data. Returns  Updated Entity 
+**Args:**  
+
+`src_table`: origin Table object  
+
+`column_fqn`: FQN of the column to update  
+
+`description`: new description to add  
+
+`force`: if True, we will patch any existing description. Otherwise, we will maintain  the existing data. 
+
+**Returns:** 
+
+Updated Entity 
 
 ---
 
@@ -147,7 +167,19 @@ patch_column_tags(
 
 Given an Entity ID, JSON PATCH the tag of the column 
 
-Args  entity_id: ID  tag_label: TagLabel to add or remove  column_name: column to update  operation: Patch Operation to add or remove Returns  Updated Entity 
+**Args:**  
+
+`entity_id`: ID  
+
+`tag_label`: TagLabel to add or remove  
+
+`column_name`: column to update  
+
+`operation`: Patch Operation to add or remove 
+
+**Returns:** 
+
+Updated Entity 
 
 ---
 
@@ -166,7 +198,19 @@ patch_description(
 
 Given an Entity type and ID, JSON PATCH the description. 
 
-Args  entity (T): Entity Type  source: source entity object  description: new description to add  force: if True, we will patch any existing description. Otherwise, we will maintain  the existing data. Returns  Updated Entity 
+**Args:**  
+
+`entity` (T): Entity Type  
+
+`source`: source entity object  
+
+`description`: new description to add  
+
+`force`: if True, we will patch any existing description. Otherwise, we will maintain  the existing data. 
+
+**Returns:**  
+
+Updated Entity 
 
 ---
 
@@ -190,9 +234,13 @@ Patch domain data for an Entity
 patch_life_cycle(entity: BaseModel, life_cycle: LifeCycle) → Optional[BaseModel]
 ```
 
-Patch life cycle data for a entity 
+Patch life cycle data for a entity
 
-:param entity: Entity to update the life cycle for :param life_cycle_data: Life Cycle data to add 
+**Args:**
+
+`entity`: Entity to update the life cycle for 
+
+`life_cycle_data`: Life Cycle data to add 
 
 ---
 
@@ -211,7 +259,19 @@ patch_owner(
 
 Given an Entity type and ID, JSON PATCH the owner. If not owner Entity type and not owner ID are provided, the owner is removed. 
 
-Args  entity (T): Entity Type of the entity to be patched  entity_id: ID of the entity to be patched  owner: Entity Reference of the owner. If None, the owner will be removed  force: if True, we will patch any existing owner. Otherwise, we will maintain  the existing data. Returns  Updated Entity 
+**Args:**  
+
+`entity` (T): Entity Type of the entity to be patched  
+
+`entity_id`: ID of the entity to be patched  
+
+`owner`: Entity Reference of the owner. If None, the owner will be removed  
+
+`force`: if True, we will patch any existing owner. Otherwise, we will maintain  the existing data. 
+
+**Returns:**  
+
+Updated Entity 
 
 ---
 
@@ -228,9 +288,17 @@ patch_table_constraints(
 
 Given an Entity ID, JSON PATCH the table constraints of table 
 
-Args  source_table: Origin table  description: new description to add  table_constraints: table constraints to add 
+**Args:**  
 
-Returns  Updated Entity 
+`source_table`: Origin table  
+
+`description`: new description to add  
+
+`table_constraints`: table constraints to add
+
+**Returns:**  
+
+Updated Entity 
 
 ---
 
@@ -266,7 +334,19 @@ patch_tags(
 
 Given an Entity type and ID, JSON PATCH the tag. 
 
-Args  entity (T): Entity Type  source: Source entity object  tag_label: TagLabel to add or remove  operation: Patch Operation to add or remove the tag. Returns  Updated Entity 
+**Args:**  
+
+`entity` (T): Entity Type  
+
+`source`: Source entity object  
+
+`tag_label`: TagLabel to add or remove  
+
+`operation`: Patch Operation to add or remove the tag. 
+
+**Returns:**
+
+Updated Entity 
 
 ---
 
@@ -284,7 +364,11 @@ patch_test_case_definition(
 
 Given a test case and a test case definition JSON PATCH the test case 
 
-Args  test_case: test case object  test_case_definition: test case definition to add 
+**Args:**  
+
+`test_case`: test case object  
+
+`test_case_definition`: test case definition to add 
 
 
 

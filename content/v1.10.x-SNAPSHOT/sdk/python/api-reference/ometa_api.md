@@ -201,7 +201,17 @@ Inversely, import the Entity type based on the create Entity class
 get_entity_reference(entity: Type[~T], fqn: str) → Optional[EntityReference]
 ```
 
-Helper method to obtain an EntityReference from a FQN and the Entity class. :param entity: Entity Class :param fqn: Entity instance FQN :return: EntityReference or None 
+Helper method to obtain an EntityReference from a FQN and the Entity class. 
+
+**Args:**
+
+`entity`: Entity Class 
+
+`fqn`: Entity instance FQN 
+
+**Returns:**
+
+EntityReference or None 
 
 ---
 
@@ -255,7 +265,21 @@ list_all_entities(
 ) → Iterable[~T]
 ```
 
-Utility method that paginates over all EntityLists to return a generator to fetch entities :param entity: Entity Type, such as Table :param fields: Extra fields to return :param limit: Number of entities in each pagination :param params: Extra parameters, e.g., {"service": "serviceName"} to filter :return: Generator that will be yielding all Entities 
+Utility method that paginates over all EntityLists to return a generator to fetch entities 
+
+**Parameters**:
+
+- `entity`: Entity Type, such as Table
+
+- `fields`: Extra fields to return
+
+- `limit`: Number of entities in each pagination
+
+- `params`: Extra parameters, e.g., {"service": "serviceName"} to filter
+
+**Returns**:
+
+Generator that will be yielding all Entities 
 
 ---
 

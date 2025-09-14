@@ -6,15 +6,15 @@ slug: /main-concepts/metadata-standard/schemas/metadataingestion/dbtpipeline
 
 # dbtPipeline
 
-*DBT Pipeline Configuration.*
+*dbt Pipeline Configuration.*
 
 ## Properties
 
-- **`type`**: Pipeline type. Refer to *#/definitions/dbtConfigType*. Default: `DBT`.
-- **`dbtConfigSource`**: Available sources to fetch DBT catalog and manifest files.
+- **`type`**: Pipeline type. Refer to *#/definitions/dbtConfigType*. Default: `dbt`.
+- **`dbtConfigSource`**: Available sources to fetch dbt catalog and manifest files.
 - **`searchAcrossDatabases`** *(boolean)*: Optional configuration to search across databases for tables or not. Default: `False`.
-- **`dbtUpdateDescriptions`** *(boolean)*: Optional configuration to update the description from DBT or not. Default: `False`.
-- **`dbtUpdateOwners`** *(boolean)*: Optional configuration to update the owners from DBT or not. Default: `False`.
+- **`dbtUpdateDescriptions`** *(boolean)*: Optional configuration to update the description from dbt or not. Default: `False`.
+- **`dbtUpdateOwners`** *(boolean)*: Optional configuration to update the owners from dbt or not. Default: `False`.
 - **`includeTags`** *(boolean)*: Optional configuration to toggle the tags ingestion. Default: `True`.
 - **`dbtClassificationName`** *(string)*: Custom OpenMetadata Classification name for dbt tags. Default: `dbtTags`.
 - **`schemaFilterPattern`**: Regex to only fetch tables or databases that matches the pattern. Refer to *../type/filterPattern.json#/definitions/filterPattern*.
@@ -23,7 +23,7 @@ slug: /main-concepts/metadata-standard/schemas/metadataingestion/dbtpipeline
 - **`databaseFilterPattern`**: Regex to only fetch databases that matches the pattern. Refer to *../type/filterPattern.json#/definitions/filterPattern*.
 ## Definitions
 
-- **`dbtConfigType`** *(string)*: DBT Config Pipeline type. Must be one of: `['DBT']`. Default: `DBT`.
+- **`dbtConfigType`** *(string)*: dbt Config Pipeline type. Must be one of: `['dbt']`. Default: `dbt`.
 
 
 Documentation file automatically generated at 2025-01-15 09:05:41.923720+00:00.

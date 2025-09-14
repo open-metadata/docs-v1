@@ -272,6 +272,12 @@ site_menu:
     url: /connectors/database/singlestore/yaml
   - category: Connectors / Database / SingleStore / Troubleshooting
     url: /connectors/database/singlestore/troubleshooting
+  - category: Connectors / Database / ServiceNow
+    url: /connectors/database/servicenow
+  - category: Connectors / Database / ServiceNow / Run Externally
+    url: /connectors/database/servicenow/yaml
+  - category: Connectors / Database / ServiceNow / Troubleshooting
+    url: /connectors/database/servicenow/troubleshooting
   - category: Connectors / Database / Snowflake
     url: /connectors/database/snowflake
   - category: Connectors / Database / Snowflake / Run Externally
@@ -553,6 +559,12 @@ site_menu:
     url: /connectors/pipeline/spline/yaml
   - category: Connectors / Pipeline / Spline / Troubleshooting
     url: /connectors/pipeline/spline/troubleshooting
+  - category: Connectors / Pipeline / Snowplow
+    url: /connectors/pipeline/snowplow
+  - category: Connectors / Pipeline / Snowplow / Run Externally
+    url: /connectors/pipeline/snowplow/yaml
+  - category: Connectors / Pipeline / Snowplow / Troubleshooting
+    url: /connectors/pipeline/snowplow/troubleshooting
   - category: Connectors / Pipeline / SSIS
     url: /connectors/pipeline/ssis
   - category: Connectors / Pipeline / SSIS / Run Externally
@@ -704,7 +716,7 @@ site_menu:
     url: /connectors/ingestion/workflows/dbt
   - category: Connectors / Ingestion / Workflows / dbt / Configure dbt workflow from OpenMetadata UI
     url: /connectors/ingestion/workflows/dbt/configure-dbt-workflow-from-ui
-  - category: Connectors / Ingestion / Workflows / dbt / Auto Ingest DBT Core Artifacts
+  - category: Connectors / Ingestion / Workflows / dbt / Auto Ingest dbt Core Artifacts
     url: /connectors/ingestion/workflows/dbt/auto-ingest-dbt-core
   - category: Connectors / Ingestion / Workflows / dbt / Run Externally
     url: /connectors/ingestion/workflows/dbt/run-dbt-workflow-externally
@@ -823,6 +835,8 @@ site_menu:
     url: /how-to-guides/admin-guide/Reindexing-Search
   - category: How-to Guides / Admin Guide / Data Insights
     url: /how-to-guides/admin-guide/data-insights
+  - category: How-to Guides / Admin Guide / Permission Debugger
+    url: /how-to-guides/admin-guide/permission-debugger
   - category: How-to Guides / Admin Guide / Persona and Landing Page Customization
     url: /how-to-guides/admin-guide/persona-landing-page-customization
   - category: How-to Guides / Admin Guide / Persona and Landing Page Customization / How to Customize a Landing Page

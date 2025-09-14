@@ -39,9 +39,13 @@ ingest_search_index_sample_data(
 ) → Optional[SearchIndexSampleData]
 ```
 
-PUT sample data for a search index 
+PUT sample data for a search index
 
-:param search_index: SearchIndex Entity to update :param sample_data: Data to add 
+**Args:**
+
+`search_index`: SearchIndex Entity to update 
+
+`sample_data`: Data to add 
 
 
 

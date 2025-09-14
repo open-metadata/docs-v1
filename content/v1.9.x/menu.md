@@ -829,7 +829,7 @@ site_menu:
     url: /connectors/ingestion/workflows/dbt
   - category: Connectors / Ingestion / Workflows / dbt / Configure dbt workflow from OpenMetadata UI
     url: /connectors/ingestion/workflows/dbt/configure-dbt-workflow-from-ui
-  - category: Connectors / Ingestion / Workflows / dbt / Auto Ingest DBT Core Artifacts
+  - category: Connectors / Ingestion / Workflows / dbt / Auto Ingest dbt Core Artifacts
     url: /connectors/ingestion/workflows/dbt/auto-ingest-dbt-core
   - category: Connectors / Ingestion / Workflows / dbt / Run Externally
     url: /connectors/ingestion/workflows/dbt/run-dbt-workflow-externally
@@ -880,6 +880,10 @@ site_menu:
 
   - category: How-to Guides / MCP
     url: /how-to-guides/mcp
+  - category: How-to Guides / MCP / OpenMetadata MCP Server Connection Guide
+    url: /how-to-guides/mcp/connect
+  - category: How-to Guides / MCP / OpenMetadata MCP Tools Reference
+    url: /how-to-guides/mcp/reference
   - category: How-to Guides / MCP / Getting Started with Claude Desktop
     url: /how-to-guides/mcp/claude
   - category: How-to Guides / MCP / Getting Started with Goose Desktop
@@ -919,6 +923,8 @@ site_menu:
     url: /how-to-guides/admin-guide/Reindexing-Search
   - category: How-to Guides / Admin Guide / Data Insights
     url: /how-to-guides/admin-guide/data-insights
+  - category: How-to Guides / Admin Guide / Permission Debugger
+    url: /how-to-guides/admin-guide/permission-debugger
   - category: How-to Guides / Admin Guide / Persona and Landing Page Customization
     url: /how-to-guides/admin-guide/persona-landing-page-customization
   - category: How-to Guides / Admin Guide / Persona and Landing Page Customization / How to Customize a Landing Page
@@ -1151,6 +1157,12 @@ site_menu:
     url: /releases/supported
   - category: Releases / All Releases
     url: /releases/all-releases
+  - category: Releases / All Releases / 1.9.6 Release
+    url: /releases/all-releases/#1.9.6-release
+  - category: Releases / All Releases / 1.9.5 Release
+    url: /releases/all-releases/#1.9.5-release
+  - category: Releases / All Releases / 1.9.4 Release
+    url: /releases/all-releases/#1.9.4-release
   - category: Releases / All Releases / 1.9.2 Release
     url: /releases/all-releases/#1.9.2-release
   - category: Releases / All Releases / 1.9.1 Release

@@ -207,6 +207,11 @@ export const CONNECTORS: Array<ConnectorCategory> = [
         name: "Snowflake",
       },
       {
+        url: "/connectors/database/servicenow",
+        icon: "/images/connectors/servicenow.webp",
+        name: "ServiceNow",
+      },
+      {
         url: "/connectors/database/singlestore",
         icon: "/images/connectors/singlestore.webp",
         name: "SingleStore",
@@ -423,6 +428,11 @@ export const CONNECTORS: Array<ConnectorCategory> = [
         name: "OpenLineage",
       },
       {
+        url: "/connectors/pipeline/snowplow",
+        icon: "/images/connectors/snowplow.webp",
+        name: "Snowplow",
+      },
+      {
         url: "/connectors/pipeline/spline",
         icon: "/images/connectors/spline.webp",
         name: "Spline",
@@ -529,6 +539,16 @@ export const CONNECTORS: Array<ConnectorCategory> = [
         url: "/connectors/metadata/atlas",
         icon: "/images/connectors/atlas.webp",
         name: "Atlas",
+      },
+    ],
+  },
+  {
+    connector: "Security",
+    services: [
+      {
+        url: "/connectors/security/ranger",
+        icon: "/images/connectors/ranger.webp",
+        name: "Ranger",
       },
     ],
   },

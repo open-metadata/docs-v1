@@ -54,7 +54,7 @@ Run lineage Agent workflows externally to capture data flow.
 {%/inlineCallout%}
 
 {%inlineCallout
-  bold="DBT"
+  bold="dbt"
   icon="cable"
   href="/connectors/ingestion/workflows/dbt"%}
 Run dbt Agent workflows externally to sync models and metadata.

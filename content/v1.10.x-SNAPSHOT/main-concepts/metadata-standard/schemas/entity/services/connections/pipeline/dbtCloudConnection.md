@@ -10,14 +10,14 @@ slug: /main-concepts/metadata-standard/schemas/entity/services/connections/pipel
 ## Properties
 
 - **`type`**: Service Type. Refer to *#/definitions/DBTCloudType*. Default: `DBTCloud`.
-- **`host`** *(string)*: DBT cloud Access URL.
-- **`discoveryAPI`** *(string)*: DBT cloud Metadata API URL.
-- **`accountId`** *(string)*: ID of your DBT cloud account.
-- **`jobIds`** *(array)*: List of IDs of your DBT cloud jobs separated by comma `,`.
+- **`host`** *(string)*: dbt cloud Access URL.
+- **`discoveryAPI`** *(string)*: dbt cloud Metadata API URL.
+- **`accountId`** *(string)*: ID of your dbt cloud account.
+- **`jobIds`** *(array)*: List of IDs of your dbt cloud jobs separated by comma `,`.
   - **Items** *(string)*
-- **`projectIds`** *(array)*: List of IDs of your DBT cloud projects separated by comma `,`.
+- **`projectIds`** *(array)*: List of IDs of your dbt cloud projects separated by comma `,`.
   - **Items** *(string)*
-- **`numberOfRuns`** *(integer)*: Number of runs to fetch from DBT cloud. Default: `100`.
+- **`numberOfRuns`** *(integer)*: Number of runs to fetch from dbt cloud. Default: `100`.
 - **`token`** *(string)*: Generated Token to connect to DBTCloud.
 - **`pipelineFilterPattern`**: Regex exclude pipelines. Refer to *../../../../type/filterPattern.json#/definitions/filterPattern*.
 - **`supportsMetadataExtraction`**: Refer to *../connectionBasicType.json#/definitions/supportsMetadataExtraction*.
