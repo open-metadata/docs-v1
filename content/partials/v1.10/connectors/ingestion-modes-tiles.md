@@ -1,3 +1,4 @@
+{% ossContent %}
 ## Ingestion Deployment
 
 To run the Ingestion via the UI you'll need to use the OpenMetadata Ingestion Container, which comes shipped with
@@ -24,3 +25,4 @@ the following docs to run the Ingestion Framework in any orchestrator externally
     link="/deployment/ingestion"
   / %}
 {% /tilesContainer %}
+{% /ossContent %}
