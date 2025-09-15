@@ -46,4 +46,12 @@ caption="View the Ingestion Pipeline from the Service Page" /%}
 
 {% /stepVisualInfo %}
 
+{% collateContent %}
+{% note %}
+
+If [AutoPilot](/applications/autopilot) is enabled, workflows like usage tracking, data lineage, and similar tasks will be handled automatically. Users don’t need to set up or manage them - AutoPilot takes care of everything in the system.
+
+{% /note %}
+{% /collateContent %}
+
 {% /step %}
