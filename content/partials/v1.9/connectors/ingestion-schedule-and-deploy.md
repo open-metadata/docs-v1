@@ -46,6 +46,8 @@ caption="View the Ingestion Pipeline from the Service Page" /%}
 
 {% /stepVisualInfo %}
 
+{% /step %}
+
 {% collateContent %}
 {% note %}
 
@@ -53,5 +55,3 @@ If [AutoPilot](/applications/autopilot) is enabled, workflows like usage trackin
 
 {% /note %}
 {% /collateContent %}
-
-{% /step %}
