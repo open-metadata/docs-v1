@@ -47,8 +47,6 @@ ALTER USER USER_NAME CREATEUSER;
 
 {% note %}
 
-Collate supports syncing metadata changes made in Collate back to your Redshift source.
-
 - Owners are not ingested during Redshift metadata ingestion, but you can still sync ownership changes back to Redshift using reverse metadata.
     - To update owners, the user must be a superuser (requires `CREATEUSER` permission).
     - If the user is a superuser, no additional privileges are required.
