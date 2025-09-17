@@ -44,3 +44,11 @@ In addition to the basic ingestion requirements, for reverse metadata ingestion 
 -- Grant superuser privilege to the user
 ALTER USER USER_NAME CREATEUSER;
 ```
+
+{% note %}
+
+- Owners are not ingested during Redshift metadata ingestion, but you can still sync ownership changes back to Redshift using reverse metadata.
+    - To update owners, the user must be a superuser (requires `CREATEUSER` permission).
+    - If the user is a superuser, no additional privileges are required.
+
+{% /note %}
