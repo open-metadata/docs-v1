@@ -8,8 +8,8 @@ slug: /connectors/database/mariadb
 name="MariaDB"
 stage="PROD"
 platform="OpenMetadata"
-availableFeatures=["Metadata", "Data Profiler", "Data Quality", "dbt", "View Lineage", "View Column-level Lineage", "Sample Data", "Auto-Classification"]
-unavailableFeatures=["Query Usage", "Owners", "Tags", "Stored Procedures"]
+availableFeatures=["Metadata", "Data Profiler", "Data Quality", "dbt", "View Lineage", "View Column-level Lineage", "Sample Data", "Auto-Classification", "Stored Procedures"]
+unavailableFeatures=["Query Usage", "Owners", "Tags"]
 / %}
 
 In this section, we provide guides and references to use the MariaDB connector.
@@ -37,11 +37,11 @@ CREATE USER <username>[@<hostName>] IDENTIFIED BY '<password>';
 -- Grant select on a database
 GRANT SELECT ON world.* TO '<username>';
 
--- Grant select on a database
-GRANT SELECT ON world.* TO '<username>';
-
 -- Grant select on a specific object
 GRANT SELECT ON world.hello TO '<username>';
+
+-- Grant select on mysql.proc to allow viewing stored procedures
+GRANT SELECT ON mysql.proc TO '<username>';
 ```
 
 ### Profiler & Data Quality

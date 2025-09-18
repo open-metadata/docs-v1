@@ -37,9 +37,6 @@ CREATE USER <username>[@<hostName>] IDENTIFIED BY '<password>';
 -- Grant select on a database
 GRANT SELECT ON world.* TO '<username>';
 
--- Grant select on a database
-GRANT SELECT ON world.* TO '<username>';
-
 -- Grant select on a specific object
 GRANT SELECT ON world.hello TO '<username>';
 ```
