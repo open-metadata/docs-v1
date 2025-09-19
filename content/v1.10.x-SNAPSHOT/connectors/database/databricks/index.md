@@ -50,32 +50,41 @@ To run the Databricks ingestion, you will need to install:
 pip3 install "openmetadata-ingestion[databricks]"
 ```
 
-### Permission Requirement
+### Authentication Types
 
-To enable full functionality of metadata extraction, profiling, usage, and lineage features in OpenMetadata, the following permissions must be granted to the relevant users in your Databricks environment.
+Databricks connector supports three authentication methods:
 
-### Metadata and Profiling Permissions
+1. **Personal Access Token (PAT)**: Generated Personal Access Token for Databricks workspace authentication.
+2. **Databricks OAuth (Service Principal)**: OAuth2 Machine-to-Machine authentication using a Service Principal.
+3. **Azure AD Setup**: Specifically for Azure Databricks workspaces that use Azure Active Directory for identity management. Uses Azure Service Principal authentication through Azure AD.
 
-These permissions are required on the catalogs, schemas, and tables from which metadata and profiling information will be ingested.
+### Permission Requirements
+
+The required permissions vary based on the authentication method used:
+
+#### Personal Access Token Permissions
+
+When using PAT, the token inherits the permissions of the user who created it. Ensure the user has:
 
 ```sql
 GRANT USE CATALOG ON CATALOG <catalog_name> TO `<user>`;
 GRANT USE SCHEMA ON SCHEMA <schema_name> TO `<user>`;
 GRANT SELECT ON TABLE <table_name> TO `<user>`;
-```
-
-Ensure these grants are applied to all relevant tables for metadata ingestion and profiling operations.
-
-### Usage and Lineage
-
-These permissions enable OpenMetadata to extract query history and construct lineage information.
-
-```sql
 GRANT SELECT ON SYSTEM.QUERY.HISTORY TO `<user>`;
 GRANT USE SCHEMA ON SCHEMA system.query TO `<user>`;
 ```
 
-These permissions allow access to Databricks system tables that track query activity, enabling lineage and usage statistics generation.
+#### Service Principal Permissions (OAuth/Azure AD)
+
+For Service Principal authentication, grant permissions to the Service Principal:
+
+```sql
+GRANT USE CATALOG ON CATALOG <catalog_name> TO `<service_principal>`;
+GRANT USE SCHEMA ON SCHEMA <schema_name> TO `<service_principal>`;
+GRANT SELECT ON TABLE <table_name> TO `<service_principal>`;
+GRANT SELECT ON SYSTEM.QUERY.HISTORY TO `<service_principal>`;
+GRANT USE SCHEMA ON SCHEMA system.query TO `<service_principal>`;
+```
 
 {% note %}
 
@@ -105,7 +114,12 @@ If you are using unity catalog in Databricks, then checkout the [Unity Catalog](
 #### Connection Details
 
 - **Host and Port**: Enter the fully qualified hostname and port number for your Databricks deployment in the Host and Port field.
-- **Token**: Generated Token to connect to Databricks.
+
+- **Authentication Type**: Choose one of the following authentication methods:
+  - **Personal Access Token**: Enter your PAT in the `token` field
+  - **Databricks OAuth**: Provide `clientId` and `clientSecret` for Service Principal
+  - **Azure AD Setup**: Provide `azureClientId`, `azureClientSecret`, and `azureTenantId`
+
 - **HTTP Path**: Databricks compute resources URL.
 - **connectionTimeout**: The maximum amount of time (in seconds) to wait for a successful connection to the data source. If the connection attempt takes longer than this timeout period, an error will be returned.
 - **Catalog**: Catalog of the data source(Example: hive_metastore). This is optional parameter, if you would like to restrict the metadata reading to a single catalog. When left blank, OpenMetadata Ingestion attempts to scan all the catalog.
