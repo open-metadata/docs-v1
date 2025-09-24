@@ -109,12 +109,15 @@ source:
         verifySSL: true
 ```
 ```yaml {% srNumber=3 %}
+      # For KafkaConnect, choose one of noAuth or basic
+      # For basic authentication uncomment below:
+      # KafkaConnectConfig:
         authType:
           username: username
           password: password
 ```
 ```yaml {% srNumber=4 %}
-        # messagingServiceName: ""
+        # messagingServiceName: local_kafka
 ```
 
 {% partial file="/v1.9/connectors/yaml/pipeline/source-config.md" /%}
