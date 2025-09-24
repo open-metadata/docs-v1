@@ -117,6 +117,8 @@ You can checkout [this](https://cloud.google.com/iam/docs/keys-create-delete#iam
 **2.**  Passing a local file path that contains the credentials:
   - **gcpCredentialsPath**
 
+**Include Policy Tags (Optional)**: Enable this to ingest BigQuery policy tags. Make sure the `Include Tags` option is enabled in the ingestion agent. If Include Policy Tags is disabled, the agent will only ingest labels according to the Include Tags setting.
+
 **Taxonomy Project ID (Optional)**: Bigquery uses taxonomies to create hierarchical groups of policy tags. To apply access controls to BigQuery columns, tag the columns with policy tags. Learn more about how yo can create policy tags and set up column-level access control [here](https://cloud.google.com/bigquery/docs/column-level-security)
 
 If you have attached policy tags to the columns of table available in Bigquery, then OpenMetadata will fetch those tags and attach it to the respective columns.
@@ -224,6 +226,7 @@ source:
 {% partial file="/v1.10/connectors/yaml/common/gcp-config.md" /%}
 
 ```yaml {% srNumber=4 %}
+      includePolicyTags: false
       # taxonomyLocation: us
       # taxonomyProjectID: ["project-id-1", "project-id-2"]
       # usageLocation: us
