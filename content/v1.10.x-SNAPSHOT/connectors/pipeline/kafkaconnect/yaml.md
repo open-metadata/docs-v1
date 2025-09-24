@@ -111,8 +111,7 @@ source:
 ```yaml {% srNumber=3 %}
       # For KafkaConnect, choose one of noAuth or basic
       # For basic authentication uncomment below:
-      # KafkaConnectConfig:
-        authType:
+        KafkaConnectConfig:
           username: username
           password: password
 ```
