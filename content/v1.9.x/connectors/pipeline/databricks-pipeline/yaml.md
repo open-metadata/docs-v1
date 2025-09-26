@@ -5,7 +5,7 @@ slug: /connectors/pipeline/databricks-pipeline/yaml
 ---
 
 {% connectorDetailsHeader
-name="Databricks"
+name="Databricks Pipeline"
 stage="PROD"
 platform="OpenMetadata"
 availableFeatures=["Pipelines", "Pipeline Status", "Usage"]
