@@ -4,7 +4,7 @@
 {% connectorInfoCard name="Airflow" stage="PROD" href="/connectors/pipeline/airflow" platform="OpenMetadata" / %}
 {% connectorInfoCard name="Azure Data Factory" stage="PROD" href="/connectors/pipeline/datafactory" platform="Collate" / %}
 {% connectorInfoCard name="Dagster" stage="PROD" href="/connectors/pipeline/dagster" platform="OpenMetadata" / %}
-{% connectorInfoCard name="Databricks" stage="PROD" href="/connectors/pipeline/databricks-pipeline" platform="OpenMetadata" / %}
+{% connectorInfoCard name="Databricks Pipeline" stage="PROD" href="/connectors/pipeline/databricks-pipeline" platform="OpenMetadata" / %}
 {% connectorInfoCard name="dbt Cloud" stage="PROD" href="/connectors/pipeline/dbtcloud" platform="OpenMetadata" / %}
 {% connectorInfoCard name="Domo" stage="PROD" href="/connectors/pipeline/domo-pipeline" platform="OpenMetadata" / %}
 {% connectorInfoCard name="Fivetran" stage="PROD" href="/connectors/pipeline/fivetran" platform="OpenMetadata" / %}
