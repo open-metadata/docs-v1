@@ -1,7 +1,7 @@
-# 1.9.10 Release 🎉
+# 1.9.11 Release 🎉
 
 {% note noteType="Tip" %}
-**24th September 2025**
+**26th September 2025**
 {% /note %}
 
 {% inlineCalloutContainer %}
@@ -10,63 +10,15 @@ color="violet-70"
 icon="celebration"
 bold="Upgrade OpenMetadata"
 href="/deployment/upgrade" %}
-Learn how to upgrade your OpenMetadata instance to 1.9.10!
+Learn how to upgrade your OpenMetadata instance to 1.9.11!
 {% /inlineCallout %}
 {% /inlineCalloutContainer %}
 
-You can find the GitHub release [here](https://github.com/open-metadata/OpenMetadata/releases/tag/1.9.10-release).
+You can find the GitHub release [here](https://github.com/open-metadata/OpenMetadata/releases/tag/1.9.11-release).
 
-## Bug Fixes
+## Fixes
 
-### Core System & Infrastructure
+- Fix search aggregations
+- Fix search aggregations for knowledge center pages (Collate)
 
-- WebSocket Stability: Resolved NPE errors during import/export operations and addressed potential race conditions in WebSocket connections
-- Migration Improvements:
-    - Fixed broken migrations from version 1.9.8
-    - Resolved migration issues caused by duplicate ViewAll entries in OrganizationPolicy
-    - Skipped orphaned ingestion pipelines without service relationships during secrets migration
-- SSL Configuration: Updated SSLManager to support dynamic schema registry paths
-- Security: Patched identified security vulnerability
-
-### Team Management & Permissions
-
-- Team Creation: Updated "Create on Parent Team" functionality to properly allow team creation under child teams
-- Permission Controls: Modified team entity-specific permissions for create and editUser actions
-- UI Placeholders: Corrected permission usage for "Add Team" error placeholder
-- Policy Evaluation: Ensured domain policies are evaluated correctly during policy evaluation process
-
-### Data Quality & Testing
-
-- Test Suite Stability:
-    - Un-skipped data quality Playwright test in release branch
-    - Fixed flaky glossary-related test cases
-    - Added automated reporting for unexpectedly failing tests
-    - Added Playwright test support for mention knowledge articles
-- Custom SQL Tests: Corrected pass/fail count calculations for custom SQL tests
-
-### UI/UX Improvements
-
-- Widgets & Display:
-    - Added new "Data Products" widget
-    - Sorted "Total Data Assets" widget data by count for better visibility
-- Navigation: Fixed redirect paths for mention knowledge articles and breadcrumbs
-- Performance: Optimized hierarchy refetches to avoid unnecessary calls on knowledge article changes
-- Notifications: Added notification system for default persona changes
-
-### Data Integration & Lineage
-
-- SAP HANA: Optimized lineage parsing to prevent exponential processing; implemented full names for filtering
-- Kafka Connect: Resolved issues with lineage tracking and description handling
-- OpenLineage: Improved handling of database native types for create table requests during lineage collection
-- SSIS Support: Added SSIS compatibility in class converter factory
-- Hive Metastore: Fixed issue where Hive Metastore could return None values
-- dbt Integration: Enhanced debug logging for improved troubleshooting
-
-### Third-Party Integrations
-
-- Alation:
-    - Resolved glossary term synchronization issues
-    - Fixed asset attachment to Alation glossary terms
-    - Corrected column asset handling
-
-**Full Changelog**: [link](https://github.com/open-metadata/OpenMetadata/compare/1.9.9-release...1.9.10-release)
+**Full Changelog**: [link](https://github.com/open-metadata/OpenMetadata/compare/1.9.10-release...1.9.11-release)
