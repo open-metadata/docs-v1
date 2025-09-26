@@ -39,7 +39,7 @@ export default function MyApp({ Component, pageProps }: AppProps<SlugProps>) {
     ? DESCRIPTION
     : pageDescription;
 
-  const canonicalUrl = `${HOST_NAME}/${router.query.version}/${slug?.join('/') || ''}`;
+  const canonicalUrl = `${HOST_NAME}/${router.query.version ?? '/latest'}/${slug?.join('/') || ''}`;
 
   const [storedCookie, setStoredCookie] = useState<string | null>(null);
 
