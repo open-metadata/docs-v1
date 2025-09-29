@@ -3,7 +3,7 @@
     config:
       type: DashboardMetadata
       # lineageInformation:
-      #   dbServiceNames:
+      #   dbServicePrefixes:
       #     - service1
       #     - service2
       # dashboardFilterPattern:

@@ -106,7 +106,7 @@ source:
     config:
       type: DashboardMetadata
       lineageInformation:
-        dbServiceNames:
+        dbServicePrefixes:
         - snowflake_service
         - redshift_service
       chartFilterPattern:
@@ -136,7 +136,7 @@ workflowConfig:
 ```
 
 ### 4. Run the PowerBI connector
-Add  `dbServiceNames` under `lineageInformation` to create lineage between datasource Tables and PowerBI datasets.
+Add  `dbServicePrefixes` under `lineageInformation` to create lineage between datasource Tables and PowerBI datasets.
 After running the PowerBI connector, the connector will gather these files and extract the files under path specified at `pbitFilesExtractDir` (directory will be created if not present). Then the extracted contents will be used to create the lineage.
 
 {% note %} 
