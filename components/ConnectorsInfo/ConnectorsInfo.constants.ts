@@ -391,6 +391,11 @@ export const CONNECTORS: Array<ConnectorCategory> = [
         name: "Dagster",
       },
       {
+        url: "/connectors/pipeline/databricks-pipeline",
+        icon: "/images/connectors/databrick.webp",
+        name: "Databricks Pipeline",
+      },
+      {
         url: "/connectors/pipeline/datafactory",
         icon: "/images/connectors/datafactory.webp",
         name: "Azure Data Factory",
