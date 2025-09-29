@@ -94,7 +94,7 @@ This is a sample config for ThoughtSpot:
 
 {% codeInfo srNumber=5 %}
 
-- **dbServicePrefixes**: Database Service Names for ingesting lineage if the source supports it.
+- **dbServicePrefixes**: List of service path prefixes for lineage matching. Supported formats: DBServiceName, DBServiceName.DatabaseName, DBServiceName.DatabaseName.SchemaName, or DBServiceName.DatabaseName.SchemaName.TableName
 
 {% /codeInfo %}
 
