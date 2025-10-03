@@ -1,7 +1,7 @@
-# 1.9.11 Release 🎉
+# 1.9.12 Release 🎉
 
 {% note noteType="Tip" %}
-**26th September 2025**
+**2nd October 2025**
 {% /note %}
 
 {% inlineCalloutContainer %}
@@ -10,15 +10,27 @@ color="violet-70"
 icon="celebration"
 bold="Upgrade OpenMetadata"
 href="/deployment/upgrade" %}
-Learn how to upgrade your OpenMetadata instance to 1.9.11!
+Learn how to upgrade your OpenMetadata instance to 1.9.12!
 {% /inlineCallout %}
 {% /inlineCalloutContainer %}
 
-You can find the GitHub release [here](https://github.com/open-metadata/OpenMetadata/releases/tag/1.9.11-release).
+You can find the GitHub release [here](https://github.com/open-metadata/OpenMetadata/releases/tag/1.9.12-release).
 
-## Fixes
+## Bug Fixes
 
-- Fix search aggregations
-- Fix search aggregations for knowledge center pages (Collate)
+- Fix Glossary Pagination Issue UI.
+- Fix batchFetchClassification for tags.
+- Fix correct snowflake object types in source url.
+- Fix creation of Glossary when global domain is selected
+- Fix lineage flow and improved logging for databricks pipeline.
+- Fix Alation ingestion (Collate)
 
-**Full Changelog**: [link](https://github.com/open-metadata/OpenMetadata/compare/1.9.10-release...1.9.11-release)
+## Improvements
+
+- Supported MF4 File Reader
+- Supported Infinite Scroll in Certification popover list.
+- Support owner operation with editOwner and editAll permissions for Teams.
+- Improve timestamp sorting logic in IngestionRecentRuns component.
+- Add Unity Catalog data diff module to use DBX connection instead of workspace client.
+
+**Full Changelog**: [link](https://github.com/open-metadata/OpenMetadata/compare/1.9.11-release...1.9.12-release)
