@@ -788,6 +788,8 @@ site_menu:
     url: /applications/data-retention
   - category: Applications / Slack Application
     url: /applications/slack
+  - category: Applications / Metadata Exporter
+    url: /applications/metadata-exporter
 
   - category: How-to Guides
     url: /how-to-guides
