@@ -22,4 +22,9 @@ Explore powerful Collate Applications to automate metadata management, streamlin
     description="Unlock AI-powered metadata automation with Collate AI — enabling smart documentation, data quality validation, tiering, and natural language SQL generation."
     link="/collateai"
   / %}
+{% tile
+    title="Metadata Exporter"
+    description="Export data quality results and profiling data to Snowflake, BigQuery, or Databricks with support for scheduling, filtering, and custom configs."
+    link="/applications/metadata-exporter"
+  / %}
 {% /tilesContainer %}
