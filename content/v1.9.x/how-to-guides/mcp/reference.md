@@ -324,3 +324,72 @@ This document provides detailed examples and usage patterns for all available {%
 | `fqn` | string | Yes | Fully qualified name of the entity |
 | `upstream_depth` | integer | Yes | Depth for upstream entities (default: 5) |
 | `downstream_depth` | integer | Yes | Depth for ...
+
+---
+
+### 6. patch_entity
+
+**Description**: Patch an entity using a JSONPatch operation. Typically used to update attributes like description, owner, or tags. Before applying a patch, the entity should be validated by retrieving it first and then constructing the appropriate patch.
+
+#### Parameters
+
+| Parameter    | Type   | Required | Description                                                    |
+| ------------ | ------ | -------- | -------------------------------------------------------------- |
+| `entityType` | string | Yes      | Type of entity to patch (e.g., table, dashboard, glossaryTerm) |
+| `entityFqn`  | string | Yes      | Fully qualified name of the entity                             |
+| `patch`      | string | Yes      | JSONPatch in string format, defining the changes               |
+
+#### Example – Update a Table Description
+
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 11,
+  "method": "tools/call",
+  "params": {
+    "name": "patch_entity",
+    "arguments": {
+      "entityType": "table",
+      "entityFqn": "mysql_prod.ecommerce.public.customer_orders",
+      "patch": "[{ \"op\": \"replace\", \"path\": \"/description\", \"value\": \"Updated description: Customer order transactions with enhanced detail.\" }]"
+    }
+  }
+}
+```
+
+#### Example – Add a Tag to a Table
+
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 12,
+  "method": "tools/call",
+  "params": {
+    "name": "patch_entity",
+    "arguments": {
+      "entityType": "table",
+      "entityFqn": "mysql_prod.ecommerce.public.customer_orders",
+      "patch": "[{ \"op\": \"add\", \"path\": \"/tags/-\", \"value\": \"Customer-Data\" }]"
+    }
+  }
+}
+```
+
+**Sample Response**:
+
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 11,
+  "result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "✅ Successfully patched entity: **mysql_prod.ecommerce.public.customer_orders**\n\n**Applied Patch**:\n- Operation: replace\n- Path: /description\n- Value: Updated description: Customer order transactions with enhanced detail\n\n[View Updated Entity in OpenMetadata](https://your-om.com/table/mysql_prod.ecommerce.public.customer_orders)"
+      }
+    ]
+  }
+}
+```
+
+---
