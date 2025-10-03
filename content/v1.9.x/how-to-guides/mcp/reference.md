@@ -391,5 +391,3 @@ This document provides detailed examples and usage patterns for all available {%
   }
 }
 ```
-
----
