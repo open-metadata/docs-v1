@@ -167,6 +167,7 @@ export const getConnectorImage = (connector: string) => {
     Tableau: "tableau",
     ThoughtSpot: "thoughtspot",
     Teradata: "teradata",
+    TimescaleDB: "timescale",
     Trino: "trino",
     "Unity Catalog": "databrick",
     Vertica: "vertica",
