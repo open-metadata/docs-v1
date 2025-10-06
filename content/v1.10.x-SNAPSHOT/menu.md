@@ -490,6 +490,12 @@ site_menu:
     url: /connectors/database/teradata
   - category: Connectors / Database / Teradata / Run Externally
     url: /connectors/database/teradata/yaml
+  - category: Connectors / Database / TimescaleDB
+    url: /connectors/database/timescale
+  - category: Connectors / Database / TimescaleDB / Run Externally
+    url: /connectors/database/timescale/yaml
+  - category: Connectors / Database / TimescaleDB / Troubleshooting
+    url: /connectors/database/timescale/troubleshooting
   - category: Connectors / Database / Trino
     url: /connectors/database/trino
   - category: Connectors / Database / Trino / Run Externally

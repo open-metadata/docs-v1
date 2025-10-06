@@ -46,6 +46,7 @@
 {% connectorInfoCard name="SSAS" stage="BETA" href="/connectors/database/ssas" platform="Collate" / %}
 {% connectorInfoCard name="Synapse" stage="PROD" href="/connectors/database/synapse" platform="Collate" / %}
 {% connectorInfoCard name="Teradata" stage="PROD" href="/connectors/database/teradata" platform="OpenMetadata" / %}
+{% connectorInfoCard name="TimescaleDB" stage="BETA" href="/connectors/database/timescale" platform="OpenMetadata" / %}
 {% connectorInfoCard name="Trino" stage="PROD" href="/connectors/database/trino" platform="OpenMetadata" / %}
 {% connectorInfoCard name="Unity Catalog" stage="PROD" href="/connectors/database/unity-catalog" platform="OpenMetadata" / %}
 {% connectorInfoCard name="Vertica" stage="PROD" href="/connectors/database/vertica" platform="OpenMetadata" / %}

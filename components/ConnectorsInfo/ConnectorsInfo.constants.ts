@@ -228,6 +228,11 @@ export const CONNECTORS: Array<ConnectorCategory> = [
         name: "Teradata",
       },
       {
+        url: "/connectors/database/timescale",
+        icon: "/images/connectors/timescale.webp",
+        name: "TimescaleDB",
+      },
+      {
         url: "/connectors/database/trino",
         icon: "/images/connectors/trino.webp",
         name: "Trino",
