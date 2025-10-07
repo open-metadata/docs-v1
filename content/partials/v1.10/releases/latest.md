@@ -39,7 +39,7 @@ The existing Python SDK is still going to be internally used for the Ingestion F
 
 ### Enhanced SSO Setup & Configuration
 
- ** Independent SSO Configuration**: Customer admins can now configure Google and Azure SSO directly from the OpenMetadata UI, removing the dependency on DevOps teams for manual setup.
+**Independent SSO Configuration**: Customer admins can now configure Google and Azure SSO directly from the OpenMetadata UI, removing the dependency on DevOps teams for manual setup.
 
 **SSO Mapping Updates**: Improved mapping flexibility to streamline SSO setup and customization.
 
