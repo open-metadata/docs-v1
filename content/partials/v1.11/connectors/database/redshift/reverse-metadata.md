@@ -1,0 +1,54 @@
+## Reverse Metadata
+
+
+### Description Management
+
+Redshift supports description updates at all levels:
+- Database level
+- Schema level
+- Table level
+- Column level
+
+### Owner Management
+
+Redshift supports owner management at the following levels:
+- Database level
+- Schema level
+- Table level
+
+### Tag Management
+
+❌ Tag management is not supported for Redshift.
+
+### Custom SQL Template
+
+Redshift supports custom SQL templates for metadata changes. The template is interpreted using python f-strings.
+
+Here are examples of custom SQL queries for metadata changes:
+
+```sql
+-- Update column description
+COMMENT ON COLUMN {database}.{schema}.{table}.{column} IS {description};
+```
+
+The list of variables for custom SQL can be found [here](/applications/reverse-metadata#custom-sql-template).
+
+For more details about reverse metadata ingestion, visit our [Reverse Metadata Documentation](/applications/reverse-metadata).
+
+### Requirements for Reverse Metadata
+
+In addition to the basic ingestion requirements, for reverse metadata ingestion the user needs:
+- `SUPERUSER` privilege to the user
+
+```sql
+-- Grant superuser privilege to the user
+ALTER USER USER_NAME CREATEUSER;
+```
+
+{% note %}
+
+- Owners are not ingested during Redshift metadata ingestion, but you can still sync ownership changes back to Redshift using reverse metadata.
+    - To update owners, the user must be a superuser (requires `CREATEUSER` permission).
+    - If the user is a superuser, no additional privileges are required.
+
+{% /note %}
