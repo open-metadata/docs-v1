@@ -4,7 +4,7 @@ To enable email alerts you will need to ensure that you have an SMTP server avai
 To update the details from the UI, navigate to Settings > Preferences > Email
 
 {% image
-src="/images/v1.8/how-to-guides/admin-guide/email.webp"
+src="/images/v1.9/how-to-guides/admin-guide/email.webp"
 alt="Email Configuration"
 caption="Email Configuration"
 /%}
