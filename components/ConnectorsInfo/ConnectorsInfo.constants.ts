@@ -272,6 +272,17 @@ export const CONNECTORS: Array<ConnectorCategory> = [
     ],
   },
   {
+    connector: "Drive",
+    services: [
+      {
+        url: "/connectors/drive/googledrive",
+        icon: "/images/connectors/googledrive.webp",
+        name: "Google Drive",
+        collate: true,
+      },
+    ],
+  },
+  {
     connector: "Messaging",
     services: [
       {
