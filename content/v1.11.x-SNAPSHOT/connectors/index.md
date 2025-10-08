@@ -81,6 +81,10 @@ Set up auto-classification to detect and tag sensitive data automatically.
 
 {% partial file="/v1.11/connectors/dashboard/connectors-list.md" /%}
 
+## Drive Services
+
+{% partial file="/v1.11/connectors/drive/connectors-list.md" /%}
+
 ## Messaging Services
 
 {% partial file="/v1.11/connectors/messaging/connectors-list.md" /%}
