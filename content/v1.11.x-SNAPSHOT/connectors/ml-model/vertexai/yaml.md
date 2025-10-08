@@ -40,10 +40,12 @@ To execute metadata extraction workflow successfully the user or the service acc
 
 {% multiTablesWrapper %}
 
-| #    | GCP Permission                | Required For            |
-| :--- | :---------------------------- | :---------------------- |
-| 1    | aiplatform.models.get         | Metadata Ingestion      |
-| 2    | aiplatform.models.list        | Metadata Ingestion      |
+| #    | GCP Permission                   | Required For            |
+| :--- | :------------------------------- | :---------------------- |
+| 1    | aiplatform.models.get            | Metadata Ingestion      |
+| 2    | aiplatform.models.list           | Metadata Ingestion      |
+| 3    | aiplatform.trainingPipelines.get | Lineage                 |
+| 4    | aiplatform.datasets.get          | Lineage                 |
 
 
 {% /multiTablesWrapper %}
@@ -86,7 +88,15 @@ Location refers to the geographical region where your resources, such as dataset
 
 {% /codeInfo %}
 
-{% /codeInfoContainer %}
+{% codeInfo srNumber=5 %}
+
+Lineage Information:
+
+Use `lineageInformation` to configure lineage generation for VertexAI. This lets you specify the service path prefixes used to match upstream BigQuery tables when creating lineage for ML models.
+
+- `dbServicePrefixes`: List of service path prefixes for lineage matching. Supported formats: `DBServiceName`, `DBServiceName.DatabaseName`, `DBServiceName.DatabaseName.SchemaName`, or `DBServiceName.DatabaseName.SchemaName.TableName`.
+
+{% /codeInfo %}
 
 {% codeBlock fileName="filename.yaml" %}
 
@@ -107,6 +117,12 @@ source:
 
 ```yaml {% srNumber=4 %}
         location: PROJECT LOCATION/REGION (us-central1)
+```
+```yaml {% srNumber=5 %}
+        lineageInformation:
+          dbServicePrefixes:
+            - my_bigquery_service
+            - my_bigquery_service.my_dataset
 ```
 ```yaml {% srNumber=2 %}
         # connectionOptions:

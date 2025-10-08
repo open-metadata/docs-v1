@@ -9,7 +9,7 @@ collate: true
 name="VertexAI"
 stage="BETA"
 platform="Collate"
-availableFeatures=["ML Store", "ML Features", "Hyper parameters"]
+availableFeatures=["ML Store", "ML Features", "Hyper parameters", "Lineage"]
 unavailableFeatures=[]
 / %}
 
@@ -37,10 +37,12 @@ To execute metadata extraction workflow successfully the user or the service acc
 
 {% multiTablesWrapper %}
 
-| #    | GCP Permission                | Required For            |
-| :--- | :---------------------------- | :---------------------- |
-| 1    | aiplatform.models.get         | Metadata Ingestion      |
-| 2    | aiplatform.models.list        | Metadata Ingestion      |
+| #    | GCP Permission                   | Required For            |
+| :--- | :------------------------------- | :---------------------- |
+| 1    | aiplatform.models.get            | Metadata Ingestion      |
+| 2    | aiplatform.models.list           | Metadata Ingestion      |
+| 3    | aiplatform.trainingPipelines.get | Lineage                 |
+| 4    | aiplatform.datasets.get          | Lineage                 |
 
 
 {% /multiTablesWrapper %}
@@ -86,6 +88,14 @@ You can checkout [this](https://cloud.google.com/iam/docs/keys-create-delete#iam
 
 **Location**:
 Location refers to the geographical region where your resources, such as datasets, models, and endpoints, are physically hosted.(e.g. `us-central1`, `europe-west4`)
+
+#### Lineage Information
+
+Use the `lineageInformation` connection option to configure lineage generation for VertexAI models and datasets.
+
+- `dbServicePrefixes`: List of service path prefixes for lineage matching. Supported formats: `DBServiceName`, `DBServiceName.DatabaseName`, `DBServiceName.DatabaseName.SchemaName`, or `DBServiceName.DatabaseName.SchemaName.TableName`.
+
+Note: In Vertex AI, a BigQuery table can only be associated when adding a dataset. Therefore, lineage is created between the ML model and that associated BigQuery table.
 
 {% /extraContent %}
 
