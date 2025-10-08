@@ -23,6 +23,15 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v4
 
+    - name: Generate a token
+      id: generate_token
+      uses: actions/create-github-app-token@v1
+      with:
+        app-id: ${{ secrets.GH_BOT_PUB_ID }}
+        private-key: ${{ secrets.GH_BOT_PUB_PK }}
+        owner: ${{ github.repository_owner }}
+        repositories: docs-collate
+
     - name: Prepare Collate content and partials
       id: prepare_collate
       continue-on-error: true
@@ -33,7 +42,7 @@ jobs:
       continue-on-error: true
       uses: cpina/github-action-push-to-another-repository@main
       env:
-        SSH_DEPLOY_KEY: ${{ secrets.DOCS_COLLATE_SSH_DEPLOY_KEY }}
+        API_TOKEN_GITHUB: ${{ steps.generate_token.outputs.token }}
       with:
         source-directory: content/v1.9.x
         target-directory: content/
@@ -48,7 +57,7 @@ jobs:
       continue-on-error: true
       uses: cpina/github-action-push-to-another-repository@main
       env:
-        SSH_DEPLOY_KEY: ${{ secrets.DOCS_COLLATE_SSH_DEPLOY_KEY }}
+        API_TOKEN_GITHUB: ${{ steps.generate_token.outputs.token }}
       with:
         source-directory: public/images/
         target-directory: public/images/
