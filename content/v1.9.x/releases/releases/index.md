@@ -15,6 +15,16 @@ version. To see what's coming in next releases, please check our {% collateConte
 
 {% partial file="/v1.9/releases/latest.md" /%}
 
+{% partial file="/v1.9/releases/1.9.12.md" /%}
+
+{% partial file="/v1.9/releases/1.9.11.md" /%}
+
+{% partial file="/v1.9/releases/1.9.10.md" /%}
+
+{% partial file="/v1.9/releases/1.9.9.md" /%}
+
+{% partial file="/v1.9/releases/1.9.8.md" /%}
+
 {% partial file="/v1.9/releases/1.9.7.md" /%}
 
 {% partial file="/v1.9/releases/1.9.6.md" /%}

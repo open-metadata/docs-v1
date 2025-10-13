@@ -4,7 +4,7 @@
 
 The `sourceConfig` is defined [here](https://github.com/open-metadata/OpenMetadata/blob/main/openmetadata-spec/src/main/resources/json/schema/metadataIngestion/dashboardServiceMetadataPipeline.json):
 
-- **dbServiceNames**: Database Service Names for ingesting lineage if the source supports it.
+- **dbServicePrefixes**: List of service path prefixes for lineage matching. Supported formats: DBServiceName, DBServiceName.DatabaseName, DBServiceName.DatabaseName.SchemaName, or DBServiceName.DatabaseName.SchemaName.TableName
 
 - **dashboardFilterPattern**, **chartFilterPattern**, **dataModelFilterPattern**: Note that all of them support regex as include or exclude. E.g., "My dashboard, My dash.*, .*Dashboard".
 

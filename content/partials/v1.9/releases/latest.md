@@ -1,7 +1,7 @@
-# 1.9.8 Release 🎉
+# 1.9.13 Release 🎉
 
 {% note noteType="Tip" %}
-**17th September 2025**
+**10th October 2025**
 {% /note %}
 
 {% inlineCalloutContainer %}
@@ -10,45 +10,31 @@ color="violet-70"
 icon="celebration"
 bold="Upgrade OpenMetadata"
 href="/deployment/upgrade" %}
-Learn how to upgrade your OpenMetadata instance to 1.9.8!
+Learn how to upgrade your OpenMetadata instance to 1.9.13!
 {% /inlineCallout %}
 {% /inlineCalloutContainer %}
 
-You can find the GitHub release [here](https://github.com/open-metadata/OpenMetadata/releases/tag/1.9.8-release).
-
-## Fixes
-
-- Fix the issue where only newly added test cases were getting selected in pipeline during test case creation and added bulk test case functionality
-- Fix BigQuery project selection issues in profiler and auto-classification workflows by implementing separate engines and sessions per project
-- Fix scroll issue in entity search settings
-- Fix advanced config in service form preventing next action from proceeding
-- Add missing user_activity migrations to version 1.9.8 with dynamic SQL queries for MySQL compatibility
-- Prevent index errors in SearchClient by iterating arrays in reverse when removing elements and refactored Painless scripts to use removeIf
-- Add depth parameter in JSON and passed it to metadata entry
-- Fix Integrated API for notifications and bots with updated bot details redirection and activity feed entity types
-- Convert dynamic Elasticsearch scripts to parameterized scripts to avoid compilation limit
-- Fix the extended application configuration component with test fixes
-- Implement noop decryptConfig for external app pipeline generation
-- Resolved critical vulnerabilities in Netty, Spring Framework, and commons-lang dependencies
-- Fix knowledge Center search issue where article name search was not working (collate)
-- Fix race condition in lineage propagation with multiple downstream nodes preventing tag propagation to intermediate nodes (Collate)
-- Add billable assets count to telemetry (Collate)
+You can find the GitHub release [here](https://github.com/open-metadata/OpenMetadata/releases/tag/1.9.13-release).
 
 ## Improvements
 
-- Add multi-asset selection capability for curated assets with certification filtering
-- Add entityType.keyword field with lowercase normalizer for case-insensitive search
-- Display dbt project name in data asset view with dedicated tab integration
-- Add domain icon and dropdown for displaying multiple domain names with comma-separated format
-- Add better searching capabilities via Claude tool integration
-- Refactor profiler for metadata extraction application with new entity profile resource and backward compatibility
-- Add App Runner support to Application Entity with backend agent runner for external applications
-- Add Databricks exporter support with record count increment optimization
-- Extend ENTITY_TYPE with additional entity types and fields
-- Revamp persona section in user profile dropdown with widget size fixes
-- Improved data asset header layout and component styling with domain count overflow fixes
-- Add depth search support for ADLS structured containers (Collate)
-- Add metadata exporter application with data quality and profiler exporters and preview mode (Collate)
-- Add hybrid runner support for applications with agent runner backend implementation (Collate)
+- Kafka Connect: Support Confluent Cloud connectors
+- Unity Catalog Lineage Enhancement: External Location Support
+- Add pagination for Snowflake usage and lineage queries SQL
+- Pin pydantic to below 2.12.0
+- Iceberg load table retry backoff
+- Add workflow resource utilization metrics for better troubleshooting
+- Add better handling for missing columns and permission issue exceptions
 
-**Full Changelog**: [link](https://github.com/open-metadata/OpenMetadata/compare/1.9.7-release...1.9.8-release)
+## Fixes
+
+- Fix: PowerBI Snowflake query lineage parsing
+- Fix: Test suite owner blocked when adding test cases to a bundle suite
+- Fix: Add support for data model source URL
+- Fix: Datalake column subfields
+- Fix: Flaky tag spec Playwright failure
+- Fix: GlossaryTerm circular references causing API hang due to self-referential or circular parent relationships
+- Cherry-pick: User with Owner role unable to update Incident Status via API
+- Fix: Flaky large glossary term
+
+**Full Changelog**: [link](https://github.com/open-metadata/OpenMetadata/compare/1.9.12-release...1.9.13-release)

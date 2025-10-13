@@ -53,7 +53,7 @@ In OpenMetadata, the **"Running"** state indicates that the OpenMetadata server 
 This situation can also occur during an OpenMetadata upgrade. If an ingestion pipeline was running at the time of the upgrade and the process caused Airflow to shut down, OpenMetadata would not receive any further updates from Airflow. Consequently, the pipeline status remains **"Running"** indefinitely.
 
 {% image
-  src="/images/v1.8/deployment/upgrade/running-state-in-openmetadata.png"
+  src="/images/v1.9/deployment/upgrade/running-state-in-openmetadata.png"
   alt="Running State in OpenMetadata"
   caption="Running State in OpenMetadata" /%}
 

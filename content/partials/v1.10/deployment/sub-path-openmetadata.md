@@ -46,7 +46,7 @@ assets:
 - `uriPath`: URI path prefix for assets.
 
 {% image
-  src="/images/v1.8/deployment/subpath/subpath.gif"
+  src="/images/v1.10/deployment/subpath/subpath.gif"
 /%}
 
 ## Example Configuration

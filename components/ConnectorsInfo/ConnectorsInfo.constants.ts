@@ -228,6 +228,11 @@ export const CONNECTORS: Array<ConnectorCategory> = [
         name: "Teradata",
       },
       {
+        url: "/connectors/database/timescale",
+        icon: "/images/connectors/timescale.webp",
+        name: "TimescaleDB",
+      },
+      {
         url: "/connectors/database/trino",
         icon: "/images/connectors/trino.webp",
         name: "Trino",
@@ -267,6 +272,17 @@ export const CONNECTORS: Array<ConnectorCategory> = [
     ],
   },
   {
+    connector: "Drive",
+    services: [
+      {
+        url: "/connectors/drive/googledrive",
+        icon: "/images/connectors/googledrive.webp",
+        name: "Google Drive",
+        collate: true,
+      },
+    ],
+  },
+  {
     connector: "Messaging",
     services: [
       {
@@ -298,6 +314,11 @@ export const CONNECTORS: Array<ConnectorCategory> = [
         url: "/connectors/dashboard/grafana",
         icon: "/images/connectors/grafana.webp",
         name: "Grafana",
+      },
+      {
+        url: "/connectors/dashboard/hex",
+        icon: "/images/connectors/hex.webp",
+        name: "Hex",
       },
       {
         url: "/connectors/dashboard/looker",
@@ -389,6 +410,11 @@ export const CONNECTORS: Array<ConnectorCategory> = [
         url: "/connectors/pipeline/dagster",
         icon: "/images/connectors/dagster.webp",
         name: "Dagster",
+      },
+      {
+        url: "/connectors/pipeline/databricks-pipeline",
+        icon: "/images/connectors/databrick.webp",
+        name: "Databricks Pipeline",
       },
       {
         url: "/connectors/pipeline/datafactory",
