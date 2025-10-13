@@ -1171,6 +1171,8 @@ site_menu:
     url: /releases/all-releases
   - category: Releases / All Releases / 1.10.0 Release
     url: /releases/all-releases/#1.10.0-release
+  - category: Releases / All Releases / 1.9.13 Release
+    url: /releases/all-releases/#1.9.13-release
   - category: Releases / All Releases / 1.9.12 Release
     url: /releases/all-releases/#1.9.12-release
   - category: Releases / All Releases / 1.9.11 Release
