@@ -44,42 +44,32 @@ To run the Databricks ingestion, you will need to install:
 pip3 install "openmetadata-ingestion[databricks]"
 ```
 
-### Authentication Types
+### Permission Requirement
 
-Databricks connector supports three authentication methods:
+To enable full functionality of metadata extraction, profiling, usage, and lineage features in OpenMetadata, the following permissions must be granted to the relevant users in your Databricks environment.
 
-1. **Personal Access Token (PAT)**: Generated Personal Access Token for Databricks workspace authentication.
-2. **Databricks OAuth (Service Principal)**: OAuth2 Machine-to-Machine authentication using a Service Principal.
-3. **Azure AD Setup**: Specifically for Azure Databricks workspaces that use Azure Active Directory for identity management. Uses Azure Service Principal authentication through Azure AD.
+### Metadata and Profiling Permissions
 
-### Permission Requirements
-
-The required permissions vary based on the authentication method used:
-
-#### Personal Access Token Permissions
-
-When using PAT, the token inherits the permissions of the user who created it. Ensure the user has:
+These permissions are required on the catalogs, schemas, and tables from which metadata and profiling information will be ingested.
 
 ```sql
 GRANT USE CATALOG ON CATALOG <catalog_name> TO `<user>`;
 GRANT USE SCHEMA ON SCHEMA <schema_name> TO `<user>`;
 GRANT SELECT ON TABLE <table_name> TO `<user>`;
+```
+
+Ensure these grants are applied to all relevant tables for metadata ingestion and profiling operations.
+
+### Usage and Lineage
+
+These permissions enable OpenMetadata to extract query history and construct lineage information.
+
+```sql
 GRANT SELECT ON SYSTEM.QUERY.HISTORY TO `<user>`;
 GRANT USE SCHEMA ON SCHEMA system.query TO `<user>`;
 ```
 
-#### Service Principal Permissions (OAuth/Azure AD)
-
-For Service Principal authentication, grant permissions to the Service Principal:
-
-```sql
-GRANT USE CATALOG ON CATALOG <catalog_name> TO `<service_principal>`;
-GRANT USE SCHEMA ON SCHEMA <schema_name> TO `<service_principal>`;
-GRANT SELECT ON TABLE <table_name> TO `<service_principal>`;
-GRANT SELECT ON SYSTEM.QUERY.HISTORY TO `<service_principal>`;
-GRANT USE SCHEMA ON SCHEMA system.query TO `<service_principal>`;
-```
-
+These permissions allow access to Databricks system tables that track query activity, enabling lineage and usage statistics generation.
 
 {% note %}
 
@@ -130,10 +120,7 @@ This is a sample config for Databricks:
 
 {% codeInfo srNumber=4 %}
 
-**authType**: Authentication configuration. Choose one of:
-- **Personal Access Token**: Use `token` field with your PAT
-- **Databricks OAuth**: Use `clientId` and `clientSecret` for Service Principal
-- **Azure AD Setup**: Use `azureClientId`, `azureClientSecret`, and `azureTenantId`
+**token**: Generated Token to connect to Databricks.
 
 {% /codeInfo %}
 
@@ -191,28 +178,13 @@ source:
       databaseSchema: default
 ```
 ```yaml {% srNumber=3 %}
-      hostPort: adb-xyz.databricks.com:443  # Your Databricks host and port
+      token: <databricks token>
 ```
 ```yaml {% srNumber=4 %}
-      # Choose ONE authentication method:
-      
-      # Option 1: Personal Access Token
-      authType:
-        token: dapi1234567890abcxyz
-      
-      # Option 2: Databricks OAuth (Service Principal)
-      # authType:
-      #   clientId: 12345678-1234-1234-1234-123456789xyz
-      #   clientSecret: dose1234507890abcdef
-      
-      # Option 3: Azure AD Setup
-      # authType:
-      #   azureClientId: a1b2c3d4-e5f6-7890-abcd-ef1234567890
-      #   azureClientSecret: secret123~value456
-      #   azureTenantId: 98765432-fcba-4321-abcd-1234567890ab
+      hostPort: <databricks connection host & port>
 ```
 ```yaml {% srNumber=5 %}
-      httpPath: /sql/1.0/warehouses/39c340db3a3e19ze
+      httpPath: <http path of databricks cluster>
 ```
 ```yaml {% srNumber=6 %}
       connectionTimeout: 120
