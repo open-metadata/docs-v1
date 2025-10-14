@@ -96,9 +96,9 @@ caption="Connection details" /%}
 In Connection details section page click on Create a personal access token.
 
 {% image
-src="/images/v1.11/connectors/databricks/Open-create-tocken-page.png"
-alt="Open create tocken"
-caption="Open create tocken" /%}
+src="/images/v1.11/connectors/databricks/Open-create-token-page.png"
+alt="Open create token"
+caption="Open create token" /%}
 
 
 
@@ -107,8 +107,8 @@ Now In this page you can create new `token`.
 
 {% image
 src="/images/v1.11/connectors/databricks/Generate-token.png"
-alt="Generate tocken"
-caption="Generate tocken" /%}
+alt="Generate token"
+caption="Generate token" /%}
 
 ### Getting Service Principal Credentials
 
