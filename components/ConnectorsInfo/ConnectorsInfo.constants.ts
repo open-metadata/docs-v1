@@ -470,6 +470,12 @@ export const CONNECTORS: Array<ConnectorCategory> = [
         collate: true,
       },
       {
+        url: "/connectors/pipeline/kinesis-firehose",
+        icon: "/images/connectors/kinesis-firehose.webp",
+        name: "KinesisFirehose",
+        collate: true,
+      },
+      {
         url: "/connectors/pipeline/wherescape",
         icon: "/images/connectors/wherescape.webp",
         name: "Wherescape",
