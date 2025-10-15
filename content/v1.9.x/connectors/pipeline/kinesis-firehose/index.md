@@ -31,6 +31,7 @@ To extract metadata from AWS Kinesis Firehose, you need to configure AWS credent
 - **Permissions Required**:
   - `firehose:DescribeDeliveryStream` - To describe delivery stream details
   - `firehose:ListDeliveryStreams` - To list all delivery streams
+  - `dynamodb:describe_kinesis_streaming_destination`- To describe dynamodb table destination kinesis stream
 
 
 ## Metadata Ingestion
