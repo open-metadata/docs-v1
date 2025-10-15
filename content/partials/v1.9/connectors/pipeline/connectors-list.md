@@ -16,6 +16,7 @@
 {% connectorInfoCard name="OpenLineage" stage="BETA" href="/connectors/pipeline/openlineage" platform="OpenMetadata" / %}
 {% connectorInfoCard name="Spline" stage="PROD" href="/connectors/pipeline/spline" platform="OpenMetadata" / %}
 {% connectorInfoCard name="Stitch" stage="PROD" href="/connectors/pipeline/stitch" platform="Collate" / %}
+{% connectorInfoCard name="KinesisFirehose" stage="PROD" href="/connectors/pipeline/kinesis-firehose" platform="Collate" / %}
 {% connectorInfoCard name="Wherescape" stage="BETA" href="/connectors/pipeline/wherescape" platform="Collate" / %}
 {% connectorInfoCard name="Snowplow" stage="BETA" href="/connectors/pipeline/snowplow" platform="Collate" / %}
 {% connectorInfoCard name="SSIS" stage="BETA" href="/connectors/pipeline/ssis" platform="Collate" / %}

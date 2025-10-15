@@ -32,7 +32,7 @@ slug: /main-concepts/metadata-standard/schemas/entity/services/pipelineservice
 - **`domain`**: Domain the Pipeline service belongs to. Refer to *[../../type/entityReference.json](#/../type/entityReference.json)*.
 ## Definitions
 
-- **`pipelineServiceType`** *(string)*: Type of pipeline service - Airflow or Prefect. Must be one of: `["Airflow", "GluePipeline", "Airbyte", "Fivetran", "Flink", "Dagster", "Nifi", "DomoPipeline", "CustomPipeline", "DatabricksPipeline", "Spline", "Spark", "OpenLineage", "KafkaConnect", "DBTCloud", "Matillion", "Stitch", "DataFactory"]`.
+- **`pipelineServiceType`** *(string)*: Type of pipeline service - Airflow or Prefect. Must be one of: `["Airflow", "GluePipeline", "Airbyte", "Fivetran", "Flink", "Dagster", "Nifi", "DomoPipeline", "CustomPipeline", "DatabricksPipeline", "Spline", "Spark", "OpenLineage", "KafkaConnect", "KinesisFirehose","DBTCloud", "Matillion", "Stitch", "DataFactory"]`.
 - **`pipelineConnection`** *(object)*: Pipeline Connection. Cannot contain additional properties.
   - **`config`**
     - **One of**
@@ -50,6 +50,7 @@ slug: /main-concepts/metadata-standard/schemas/entity/services/pipelineservice
       - : Refer to *[./connections/pipeline/sparkConnection.json](#connections/pipeline/sparkConnection.json)*.
       - : Refer to *[./connections/pipeline/openLineageConnection.json](#connections/pipeline/openLineageConnection.json)*.
       - : Refer to *[./connections/pipeline/kafkaConnectConnection.json](#connections/pipeline/kafkaConnectConnection.json)*.
+      - : Refer to *[./connections/pipeline/kinesisFirehoseConnection.json](#connections/pipeline/kinesisFirehoseConnection.json)*.
       - : Refer to *[./connections/pipeline/dbtCloudConnection.json](#connections/pipeline/dbtCloudConnection.json)*.
       - : Refer to *[./connections/pipeline/matillionConnection.json](#connections/pipeline/matillionConnection.json)*.
       - : Refer to *[./connections/pipeline/datafactoryConnection.json](#connections/pipeline/datafactoryConnection.json)*.

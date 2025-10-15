@@ -703,6 +703,12 @@ site_menu:
     url: /connectors/pipeline/kafkaconnect/yaml
   - category: Connectors / Pipeline / KafkaConnect / Troubleshooting
     url: /connectors/pipeline/kafkaconnect/troubleshooting
+  - category: Connectors / Pipeline / KinesisFirehose
+    url: /connectors/pipeline/kinesis-firehose
+  - category: Connectors / Pipeline / KinesisFirehose / Run Externally
+    url: /connectors/pipeline/kinesis-firehose/yaml
+  - category: Connectors / Pipeline / KinesisFirehose / Troubleshooting
+    url: /connectors/pipeline/kinesis-firehose/troubleshooting
   - category: Connectors / Pipeline / Nifi
     url: /connectors/pipeline/nifi
   - category: Connectors / Pipeline / Nifi / Run Externally
