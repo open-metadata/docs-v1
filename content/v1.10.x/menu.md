@@ -86,12 +86,8 @@ site_menu:
     url: /deployment/security/ldap/kubernetes
   - category: Deployment / Enable Security / Auth0 SSO
     url: /deployment/security/auth0
-  - category: Deployment / Enable Security / Auth0 SSO / Docker
-    url: /deployment/security/auth0/docker
-  - category: Deployment / Enable Security / Auth0 SSO / Bare Metal
-    url: /deployment/security/auth0/bare-metal
-  - category: Deployment / Enable Security / Auth0 SSO / Kubernetes
-    url: /deployment/security/auth0/kubernetes
+  - category: Deployment / Enable Security / Auth0 SSO / Google
+    url: /deployment/security/auth0/google
   - category: Deployment / Enable Security / Azure SSO
     url: /deployment/security/azure
   - category: Deployment / Enable Security / Azure SSO / Docker

@@ -14,7 +14,7 @@ OpenMetadata supports Single Sign-On (SSO) integration with various identity pro
   - **Navigate to:** `Settings > SSO`
 
 {% image 
-src="/images/v1.10/deployment/security/auth0/sso1.png" 
+src="/images/v1.11/deployment/security/auth0/sso1.png" 
 alt="SSO Authentication" /%}
 
 ### Supported Providers:
@@ -28,7 +28,7 @@ alt="SSO Authentication" /%}
 - Auth0
 
 {% image 
-src="/images/v1.10/deployment/security/auth0/sso2.png" 
+src="/images/v1.11/deployment/security/auth0/sso2.png" 
 alt="Supported Providers" /%}
 
 ## Google SSO Configuration - Public Client
@@ -36,7 +36,7 @@ alt="Supported Providers" /%}
 This configuration is recommended for **public applications**, such as **SPAs (Single Page Applications)** and **mobile apps**. It does **not require a client secret**.
 
 {% image 
-src="/images/v1.10/deployment/security/auth0/google1.png" 
+src="/images/v1.11/deployment/security/auth0/google1.png" 
 alt="Google SSO Configuration - Public Client" /%}
 
 ### 1. Client Type
@@ -139,7 +139,7 @@ alt="Google SSO Configuration - Public Client" /%}
 This configuration is required for web applications and backend services that can securely store client credentials.
 
 {% image 
-src="/images/v1.10/deployment/security/auth0/google2.png" 
+src="/images/v1.11/deployment/security/auth0/google2.png" 
 alt="Google SSO Configuration - Confidential Client" /%}
 
 ### 1. Enable Self Signup
