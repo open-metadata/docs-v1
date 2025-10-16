@@ -112,12 +112,10 @@ site_menu:
     url: /deployment/security/oidc
   - category: Deployment / Enable Security / Google SSO
     url: /deployment/security/google
-  - category: Deployment / Enable Security / Google SSO / Docker
-    url: /deployment/security/google/docker
-  - category: Deployment / Enable Security / Google SSO / Bare Metal
-    url: /deployment/security/google/bare-metal
-  - category: Deployment / Enable Security / Google SSO / Kubernetes
-    url: /deployment/security/google/kubernetes
+  - category: Deployment / Enable Security / Google SSO / Public
+    url: /deployment/security/google/public-client
+  - category: Deployment / Enable Security / Google SSO / Confidential 
+    url: /deployment/security/google/confidential-client
   - category: Deployment / Enable Security / Okta SSO
     url: /deployment/security/okta
   - category: Deployment / Enable Security / Okta SSO / Docker

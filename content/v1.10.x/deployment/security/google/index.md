@@ -90,23 +90,16 @@ After the applying these steps, you can update the configuration of your deploym
   {% inlineCallout
     color="violet-70"
     icon="celebration"
-    bold="Docker Security"
-    href="/deployment/security/google/docker" %}
-    Configure Auth0 SSO for your Docker Deployment.
+    bold="Google SSO - Public"
+    href="/deployment/security/google/public-client" %}
+    Configure Google SSO using the Public client type.
   {% /inlineCallout %}
   {% inlineCallout
     color="violet-70"
     icon="storage"
-    bold="Bare Metal Security"
-    href="/deployment/security/google/bare-metal" %}
-    Configure Auth0 SSO for your Bare Metal Deployment.
-  {% /inlineCallout %}
-  {% inlineCallout
-    color="violet-70"
-    icon="fit_screen"
-    bold="Kubernetes Security"
-    href="/deployment/security/google/kubernetes" %}
-    Configure Auth0 SSO for your Kubernetes Deployment.
+    bold="Google SSO - Confidential"
+    href="/deployment/security/google/confidential-client" %}
+    Configure Google SSO using the Confidential client type.
   {% /inlineCallout %}
 {% /inlineCalloutContainer %}
 
