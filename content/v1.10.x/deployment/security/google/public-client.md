@@ -14,13 +14,13 @@ OpenMetadata supports Single Sign-On (SSO) integration with various identity pro
   - **Navigate to:** `Settings > SSO`
 
 {% image 
-src="/images/v1.10/deployment/security/auth0/sso1.png" 
+src="/images/v1.10/deployment/security/google/sso1.png" 
 alt="SSO Authentication" /%}
 
   - Select Google as the service Provider
 
 {% image 
-src="/images/v1.10/deployment/security/auth0/sso2.png" 
+src="/images/v1.10/deployment/security/google/sso2.png" 
 alt="Supported Providers" /%}
 
 ## Google SSO Configuration 
@@ -28,7 +28,7 @@ alt="Supported Providers" /%}
 This configuration is recommended for **public applications**, such as **SPAs (Single Page Applications)** and **mobile apps**. It does **not require a client secret**.
 
 {% image 
-src="/images/v1.10/deployment/security/auth0/google1.png" 
+src="/images/v1.10/deployment/security/google/google1.png" 
 alt="Google SSO Configuration - Public Client" /%}
 
 ### 1. Client Type
@@ -83,16 +83,19 @@ alt="Google SSO Configuration - Public Client" /%}
 ### 7. JWT Principal Claims
 
 - **Definition:** JWT fields used to identify the user.
-- **Example:** `["email", "sub", "preferred_username"]`
+- **Example:** `["email", "sub"]`
 - **Why it matters:** Identifies the user in OpenMetadata.
-- **Note:** Use `email` for consistency and compatibility.
+- **Note:** Use `email` for consistency and compatibility. For domain scoping, use the `hd` claim.
 
 ### 8. JWT Principal Claims Mapping
 
 - **Definition:** Maps JWT claims to OpenMetadata user attributes.
 - **Example:**
   ```json
+
   ["email:email", "name:name", "firstName:given_name", "lastName:family_name"]
+
+  ```
 - **Why it matters:** Maps identity information to OpenMetadata user profiles.
 - **Note:** Use the format `openmetadata_field:jwt_claim`.
 

@@ -1,5 +1,5 @@
 ---
-title: Google SSO Configuration Guide | Public & Confidential Client Setup
+title: Google SSO Configuration Guide | Confidential Client Setup
 description: Comprehensive guide to setting up Google SSO for confidential clients using OIDC. Includes client secret configuration, secure token handling, and advanced security options.
 slug: /deployment/security/google/confidential-client
 collate: false
@@ -10,7 +10,7 @@ collate: false
 This configuration is required for web applications and backend services that can securely store client credentials.
 
 {% image 
-src="/images/v1.10/deployment/security/auth0/google2.png" 
+src="/images/v1.10/deployment/security/google/google2.png" 
 alt="Google SSO Configuration - Confidential Client" /%}
 
 ### 1. Enable Self Signup
@@ -90,7 +90,7 @@ alt="Google SSO Configuration - Confidential Client" /%}
 
 Options: id_token | code
 
-- **Default & Example:** `id_token`
+- **Default & Example:** `code`
 - **Why it matters:** Defines OAuth flow; code is more secure.
 
 ### 12. OIDC Disable PKCE
