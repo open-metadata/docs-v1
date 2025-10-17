@@ -40,9 +40,9 @@ To extract metadata from AWS Kinesis Firehose, you need to configure AWS credent
     file="/v1.9/connectors/metadata-ingestion-ui.md"
     variables={
         connector: "AWS Kinesis Firehose",
-        selectServicePath: "/images/v1.9/connectors/kinesis-firehose/select-service.png",
-        addNewServicePath: "/images/v1.9/connectors/kinesis-firehose/add-new-service.png",
-        serviceConnectionPath: "/images/v1.9/connectors/kinesis-firehose/service-connection.png",
+        selectServicePath: "/images/v1.11/connectors/kinesis-firehose/select-service.png",
+        addNewServicePath: "/images/v1.11/connectors/kinesis-firehose/add-new-service.png",
+        serviceConnectionPath: "/images/v1.11/connectors/kinesis-firehose/service-connection.png",
     }
 /%}
 
