@@ -1,4 +1,4 @@
-# 1.10.1 Release 🎉
+# 1.10.2 Release 🎉
 
 {% note noteType="Tip" %}
 **10th October 2025**
@@ -10,26 +10,21 @@ color="violet-70"
 icon="celebration"
 bold="Upgrade OpenMetadata"
 href="/deployment/upgrade" %}
-Learn how to upgrade your OpenMetadata instance to 1.10.1!
+Learn how to upgrade your OpenMetadata instance to 1.10.2!
 {% /inlineCallout %}
 {% /inlineCalloutContainer %}
 
-You can find the GitHub release [here](https://github.com/open-metadata/OpenMetadata/releases/tag/1.10.1-release).
+You can find the GitHub release [here](https://github.com/open-metadata/OpenMetadata/releases/tag/1.10.2-release).
 
-### Bug Fixes
+## Bug Fixes
 
-- **Fix:** Hide owner and domain "Add" button if classification is disabled  
-- **Fix:** Change remove default persona icon  
-- **Fix:** The table column resize handler not visible  
-- **Fix:** Pin pydantic to `<2.12.0`  
-- **Fix:** The wrong label displayed on semantic status  
-- **Fix:** Logger level should work for deprecation warnings  
-- **Fix:** Update the node version in Dockerfile *(Collate)*  
-- **Fix:** Pass context for local ingestion webserver build `[skip ci]` *(Collate)* 
+- Fix: Active knowledge center not fetching list on scroll end
+- Fix: Runner getting wrong values in workflow API
+- Fix: Knowledge page hierarchy after page refresh
+- Fix: Data Quality Dashboard Filters
 
-### Improvements
+## Improvements
 
-- Improved Playwright flaky user profile persona interactions  
-- Test suite owner is getting blocked when trying to add test cases to a bundle suite.
+- Optimized ingestion log downloads with file caching and streaming (>95% improvement)
 
-**Full Changelog**: [link](https://github.com/open-metadata/OpenMetadata/compare/1.10.0-release...1.10.1-release)
+**Full Changelog**: [link](https://github.com/open-metadata/OpenMetadata/compare/1.10.1-release...1.10.2-release)
