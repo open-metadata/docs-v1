@@ -164,7 +164,7 @@ export const getConnectorImage = (connector: string) => {
     SSIS: "ssis",
     SSAS: "ssas",
     Stitch: "stitch",
-    KinesisFirehose: "KinesisFirehose",
+    KinesisFirehose: "kinesis-firehose",
     Superset: "superset",
     Synapse: "synapse",
     Tableau: "tableau",
