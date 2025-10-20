@@ -18,7 +18,7 @@ You can find the GitHub release [here](https://github.com/open-metadata/OpenMeta
 
 ## Bug Fixes
 
-- Fix: Active knowledge center not fechting list on scroll end
+- Fix: Active knowledge center not fetching list on scroll end
 - Fix: Runner getting wrong values in workflow API
 - Fix: Knowledge page hierarchy after page refresh
 - Fix: Data Quality Dashboard Filters
