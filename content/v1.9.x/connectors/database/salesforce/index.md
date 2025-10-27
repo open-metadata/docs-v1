@@ -48,6 +48,12 @@ These are the permissions you will require to fetch the metadata from Salesforce
 
 #### Connection Details
 
+{% note %}
+
+If you are using **Secret Manager**, there is **no need to manually add `\n`** in the private key stored in the vault. The system will handle line breaks automatically.
+
+{% /note %}
+
 - **Username**: Username to connect to the Salesforce. This user should have the access as defined in requirements.
 - **Password**: Password to connect to Salesforce.
 - **Security Token**: Salesforce Security Token is required to access the metadata through APIs. You can checkout [this doc](https://help.salesforce.com/s/articleView?id=sf.user_security_token.htm&type=5) on how to get the security token.

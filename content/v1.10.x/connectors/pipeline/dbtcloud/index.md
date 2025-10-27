@@ -64,6 +64,12 @@ To know more about permissions required refer [here](https://docs.getdbt.com/doc
 
 #### Connection Details
 
+{% note %}
+
+If you are using **Secret Manager**, there is **no need to manually add `\n`** in the private key stored in the vault. The system will handle line breaks automatically.
+
+{% /note %}
+
 - **Host**: dbt Cloud Access URL eg.`https://abc12.us1.dbt.com`. Go to your dbt Cloud account settings to know your Access URL.
 
 - **Discovery API URL** : dbt Cloud Access URL eg. `https://metadata.cloud.getdbt.com/graphql`. Go to your dbt Cloud account settings to know your Discovery API url. Make sure you have `/graphql` at the end of your URL.

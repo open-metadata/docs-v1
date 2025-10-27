@@ -104,6 +104,12 @@ If you are using unity catalog in Databricks, then checkout the [Unity Catalog](
 
 #### Connection Details
 
+{% note %}
+
+If you are using **Secret Manager**, there is **no need to manually add `\n`** in the private key stored in the vault. The system will handle line breaks automatically.
+
+{% /note %}
+
 - **Host and Port**: Enter the fully qualified hostname and port number for your Databricks deployment in the Host and Port field.
 - **Token**: Generated Token to connect to Databricks.
 - **HTTP Path**: Databricks compute resources URL.

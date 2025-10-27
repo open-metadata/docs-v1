@@ -46,6 +46,12 @@ The ingestion of the Kafka topics' schema is done separately by configuring the 
 
 #### Connection Details
 
+{% note %}
+
+If you are using **Secret Manager**, there is **no need to manually add `\n`** in the private key stored in the vault. The system will handle line breaks automatically.
+
+{% /note %}
+
 - **Bootstrap Servers**: List of brokers as comma separated values of broker `host` or `host:port`. Example: `host1:9092,host2:9092`
 - **Schema Registry URL**: URL of the Schema Registry used to ingest the schemas of the topics.
 - **SASL Username**: SASL username for use with the PLAIN and SASL-SCRAM mechanisms.

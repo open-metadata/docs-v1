@@ -46,6 +46,12 @@ Configure and schedule REST metadata workflows from the OpenMetadata UI:
 
 #### Connection Options
 
+{% note %}
+
+If you are using **Secret Manager**, there is **no need to manually add `\n`** in the private key stored in the vault. The system will handle line breaks automatically.
+
+{% /note %}
+
 **OpenAPI Schema URL**: 
 An OpenAPI schema URL typically refers to the URL where the OpenAPI Specification (OAS) document of a web service is hosted. The document defines the service's API, including available endpoints, request/response formats, authentication methods, etc. It is usually in JSON format. for e.g. `https://petstore3.swagger.io/api/v3/openapi.json`
 

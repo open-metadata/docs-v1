@@ -47,6 +47,12 @@ permissions, please visit Redash documentation [here](https://redash.io/help/use
 
 #### Connection Details
 
+{% note %}
+
+If you are using **Secret Manager**, there is **no need to manually add `\n`** in the private key stored in the vault. The system will handle line breaks automatically.
+
+{% /note %}
+
 - **Host and Port**: URL to the Redash instance.
 - **Username**: Specify the User to connect to Redash. It should have enough privileges to read all the metadata.
 - **API Key**: API key of the redash instance to access. It has the same permissions as the user who owns it. Can be found on a user profile page.

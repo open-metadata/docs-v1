@@ -55,6 +55,12 @@ OpenMetadata is integrated with matillion up to version [1.75.0](https://docs.ma
 
 #### Connection Details
 
+{% note %}
+
+If you are using **Secret Manager**, there is **no need to manually add `\n`** in the private key stored in the vault. The system will handle line breaks automatically.
+
+{% /note %}
+
 - **hostPort**: The hostname or IP address with the REST API enabled eg.`https://<your-matillion-host-name-here>`
 
 - **username**: The username to authenticate with the Matillion instance.

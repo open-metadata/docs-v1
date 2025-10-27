@@ -105,6 +105,12 @@ For details step please refer to this [link](https://docs.microsoft.com/en-us/sq
 
 #### Connection Details
 
+{% note %}
+
+If you are using **Secret Manager**, there is **no need to manually add `\n`** in the private key stored in the vault. The system will handle line breaks automatically.
+
+{% /note %}
+
 - **Connection Scheme**: Defines how to connect to MSSQL. We support `mssql+pytds`, `mssql+pyodbc`, and `mssql+pymssql`. (If you are using windows authentication from a linux deployment please use pymssql)
 - **Username**: Specify the User to connect to MSSQL. It should have enough privileges to read all the metadata.
 - **Password**: Password to connect to MSSQL.

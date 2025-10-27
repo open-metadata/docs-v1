@@ -43,6 +43,12 @@ To access Fivetran APIs, a Fivetran account on a Standard, Enterprise, or Busine
 
 #### Connection Details
 
+{% note %}
+
+If you are using **Secret Manager**, there is **no need to manually add `\n`** in the private key stored in the vault. The system will handle line breaks automatically.
+
+{% /note %}
+
 **apiKey**: Fivetran API Key.
 
 Follow the steps mentioned below to generate the Fivetran API key and API secret:

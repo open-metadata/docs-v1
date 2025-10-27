@@ -60,6 +60,12 @@ It depends on where and how the Hive / Rest Catalog is setup and where the Icebe
 
 #### Connection Details
 
+{% note %}
+
+If you are using **Secret Manager**, there is **no need to manually add `\n`** in the private key stored in the vault. The system will handle line breaks automatically.
+
+{% /note %}
+
 **Glue Catalog**
 
 - [**AWS Credentials**](#aws-credentials)

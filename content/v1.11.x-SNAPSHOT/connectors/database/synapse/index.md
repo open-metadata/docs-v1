@@ -59,6 +59,12 @@ GRANT SELECT TO Mary;
 
 #### Connection Options
 
+{% note %}
+
+If you are using **Secret Manager**, there is **no need to manually add `\n`** in the private key stored in the vault. The system will handle line breaks automatically.
+
+{% /note %}
+
 - **Username**: Specify the User to connect to Synapse. It should have enough privileges to read all the metadata.
 - **Password**: Password to connect to Synapse.
 - **Host and Port**: Enter the fully qualified hostname and port number for your Synapse deployment in the Host and Port field.

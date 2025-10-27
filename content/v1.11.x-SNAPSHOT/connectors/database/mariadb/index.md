@@ -64,6 +64,12 @@ Executing the profiler workflow or data quality tests, will require the user to 
 
 #### Connection Details
 
+{% note %}
+
+If you are using **Secret Manager**, there is **no need to manually add `\n`** in the private key stored in the vault. The system will handle line breaks automatically.
+
+{% /note %}
+
 - **Username**: Specify the User to connect to MariaDB. It should have enough privileges to read all the metadata.
 - **Password**: Password to connect to MariaDB.
 - **Host and Port**: Enter the fully qualified hostname and port number for your MariaDB deployment in the Host and Port field.

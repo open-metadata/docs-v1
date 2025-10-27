@@ -47,6 +47,12 @@ Prepare the SAS Service and configure the Ingestion:
 
 #### Connection Details
 
+{% note %}
+
+If you are using **Secret Manager**, there is **no need to manually add `\n`** in the private key stored in the vault. The system will handle line breaks automatically.
+
+{% /note %}
+
 - **ServerHost**: Host and port of the SAS Viya deployment.
 - **Username**: Username to connect to SAS Viya. This user should have privileges to read all the metadata in SAS Information Catalog.
 - **Password**: Password to connect to SAS Viya.

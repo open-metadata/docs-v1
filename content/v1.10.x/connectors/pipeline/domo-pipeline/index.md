@@ -44,6 +44,12 @@ For questions related to scopes, click [here](https://developer.domo.com/portal/
 
 #### Connection Details
 
+{% note %}
+
+If you are using **Secret Manager**, there is **no need to manually add `\n`** in the private key stored in the vault. The system will handle line breaks automatically.
+
+{% /note %}
+
 - **Client ID**: Client Id for DOMO Pipeline.
 - **Secret Token**: Secret Token to Connect to DOMO Pipeline.
 - **Access Token**: Access to Connect to DOMO Pipeline.

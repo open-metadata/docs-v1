@@ -66,6 +66,12 @@ Executing the profiler workflow or data quality tests, will require the user to 
 
 #### Connection Details
 
+{% note %}
+
+If you are using **Secret Manager**, there is **no need to manually add `\n`** in the private key stored in the vault. The system will handle line breaks automatically.
+
+{% /note %}
+
 - **Username**: Specify the User to connect to SingleStore. It should have enough privileges to read all the metadata.
 - **Password**: Password to connect to SingleStore.
 - **Host and Port**: Enter the fully qualified hostname and port number for your SingleStore deployment in the Host and Port field.

@@ -47,6 +47,12 @@ We extract Elasticsearch's metadata by using its [API](https://www.elastic.co/gu
 
 #### Connection Details
 
+{% note %}
+
+If you are using **Secret Manager**, there is **no need to manually add `\n`** in the private key stored in the vault. The system will handle line breaks automatically.
+
+{% /note %}
+
 - **Host and Port**: This parameter specifies the host and port of the Elasticsearch instance. This should be specified as a URI string in the format `http://hostname:port` or `https://hostname:port`. For example, you might set it to `https://localhost:9200`.
 - **Authentication Types**:
     1. Basic Authentication

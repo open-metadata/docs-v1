@@ -47,6 +47,12 @@ To fetch metadata from ServiceNow into OpenMetadata you will need:
 
 #### Connection Details
 
+{% note %}
+
+If you are using **Secret Manager**, there is **no need to manually add `\n`** in the private key stored in the vault. The system will handle line breaks automatically.
+
+{% /note %}
+
 - **ServiceNow Instance URL**: Your ServiceNow instance URL (e.g., `https://your-instance.service-now.com`).
 - **Username**: Username to connect to ServiceNow. This user should have read access to `sys_db_object` and `sys_dictionary` tables.
 - **Password**: Password to connect to ServiceNow.

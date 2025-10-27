@@ -49,6 +49,12 @@ To extract metadata, the user needs to be able to perform `.tables`, `.schema`, 
 
 #### Connection Details
 
+{% note %}
+
+If you are using **Secret Manager**, there is **no need to manually add `\n`** in the private key stored in the vault. The system will handle line breaks automatically.
+
+{% /note %}
+
 - **Username**: Username to connect to SQLite. Blank for in-memory database.
 - **Password**: Password to connect to SQLite. Blank for in-memory database.
 - **Host and Port**: Enter the fully qualified hostname and port number for your SQLite deployment in the Host and Port field.

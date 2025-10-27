@@ -111,6 +111,12 @@ there is no routine out of the box in Oracle to grant SELECT to a full schema.
 
 #### Connection Details
 
+{% note %}
+
+If you are using **Secret Manager**, there is **no need to manually add `\n`** in the private key stored in the vault. The system will handle line breaks automatically.
+
+{% /note %}
+
 - **Username**: Specify the User to connect to Oracle. It should have enough privileges to read all the metadata.
 - **Password**: Password to connect to Oracle.
 - **Host and Port**: Enter the fully qualified hostname and port number for your Oracle deployment in the Host and Port field.

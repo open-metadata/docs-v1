@@ -79,6 +79,12 @@ It is recommmended to exclude the schema "information_schema" from the metadata 
 
 #### Connection Details
 
+{% note %}
+
+If you are using **Secret Manager**, there is **no need to manually add `\n`** in the private key stored in the vault. The system will handle line breaks automatically.
+
+{% /note %}
+
 - **Username**: Specify the User to connect to Redshift. It should have enough privileges to read all the metadata.
 - **Password**: Password to connect to Redshift.
 - **Database**: The database of the data source is an optional parameter, if you would like to restrict the metadata reading to a single database. If left blank, OpenMetadata ingestion attempts to scan all the databases.

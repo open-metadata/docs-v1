@@ -67,6 +67,12 @@ We do not yet support liquid variables.
 
 #### Connection Details
 
+{% note %}
+
+If you are using **Secret Manager**, there is **no need to manually add `\n`** in the private key stored in the vault. The system will handle line breaks automatically.
+
+{% /note %}
+
 - **Host and Port**: URL to the Looker instance, e.g., `https://my-company.region.looker.com`.
 - **Client ID**: User's Client ID to authenticate to the SDK. This user should have privileges to read all the metadata in Looker.
 - **Client Secret**: User's Client Secret for the same ID provided.

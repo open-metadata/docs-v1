@@ -57,6 +57,12 @@ Then, prepare the Atlas Service and configure the Ingestion:
 
 #### Connection Details
 
+{% note %}
+
+If you are using **Secret Manager**, there is **no need to manually add `\n`** in the private key stored in the vault. The system will handle line breaks automatically.
+
+{% /note %}
+
 - **Host and Port**: Host and port of the Atlas service.
 - **Username**: username to connect  to the Atlas. This user should have privileges to read all the metadata in Atlas.
 - **Password**: password to connect  to the Atlas.

@@ -44,6 +44,11 @@ To integrate Lightdash, ensure you are using OpenMetadata version 1.2.x or highe
 
 #### Connection Details
 
+{% note %}
+
+If you are using **Secret Manager**, there is **no need to manually add `\n`** in the private key stored in the vault. The system will handle line breaks automatically.
+
+{% /note %}
 
 - **Host and Port**: Specify the network location where your Lightdash instance is accessible, combining both hostname and port in a URI format: either `http://hostname:port` or `https://hostname:port`, based on your security needs.
 

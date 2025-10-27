@@ -38,6 +38,12 @@ Configure and schedule Databricks Pipeline metadata workflows from the OpenMetad
 
 #### Connection Details
 
+{% note %}
+
+If you are using **Secret Manager**, there is **no need to manually add `\n`** in the private key stored in the vault. The system will handle line breaks automatically.
+
+{% /note %}
+
 - **Host and Port**: Enter the fully qualified hostname and port number for your Databricks Pipeline deployment in the Host and Port field.
 - **Token**: Generated Token to connect to Databricks Pipeline.
 - **HTTP Path**: Databricks Pipeline compute resources URL.

@@ -44,6 +44,12 @@ OpenMetadata relies on Sigma's REST API. To know more you can read the [Sigma AP
 
 #### Connection Details
 
+{% note %}
+
+If you are using **Secret Manager**, there is **no need to manually add `\n`** in the private key stored in the vault. The system will handle line breaks automatically.
+
+{% /note %}
+
 **hostPort**: Host and Port Sigma REST API.
 The hostPort parameter specifies the host and port of the Sigma's API request URL. This should be specified as a string in the format `https://aws-api.sigmacomputing.com`. Sigma's API request URL varies according to the sigma cloud. you can determine your API url by following the docs [here](https://help.sigmacomputing.com/reference/get-started-sigma-api#identify-your-api-request-url)
 

@@ -119,6 +119,12 @@ For reference here is a [thread](https://community.powerbi.com/t5/Service/Error-
 
 #### Connection Details
 
+{% note %}
+
+If you are using **Secret Manager**, there is **no need to manually add `\n`** in the private key stored in the vault. The system will handle line breaks automatically.
+
+{% /note %}
+
 **clientId**: PowerBI Client ID.
 
 To get the client ID (also known as application ID), follow these steps:

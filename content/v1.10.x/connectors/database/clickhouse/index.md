@@ -78,6 +78,12 @@ For the usage and lineage workflow, the user will need `SELECT` privilege. You c
 
 #### Connection Options
 
+{% note %}
+
+If you are using **Secret Manager**, there is **no need to manually add `\n`** in the private key stored in the vault. The system will handle line breaks automatically.
+
+{% /note %}
+
 - **Username**: Specify the User to connect to Clickhouse. It should have enough privileges to read all the metadata.
 - **Password**: Password to connect to Clickhouse.
 - **Host and Port**: Enter the fully qualified hostname and port number for your Clickhouse deployment in the Host and Port field.
