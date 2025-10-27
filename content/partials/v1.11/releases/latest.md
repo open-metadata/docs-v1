@@ -23,7 +23,7 @@ You can find the GitHub release [here](https://github.com/open-metadata/OpenMeta
 - Resolved **FQN encoding bug** when retrieving test case results via Python SDK.
 - Addressed **protobuf version conflict** to ensure compatibility.
 - Reverted naming convention change from **"dbt" to "DBT"** for consistency.  
-- Adjusted **migration structure** by moving changes to version `1.0.3`.
+- Adjusted **migration structure** by moving changes to version `1.10.3`.
 
 ## Improvements
 
