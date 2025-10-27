@@ -1,7 +1,7 @@
-# 1.10.2 Release 🎉
+# 1.10.3 Release 🎉
 
 {% note noteType="Tip" %}
-**10th October 2025**
+**22nd October 2025**
 {% /note %}
 
 {% inlineCalloutContainer %}
@@ -10,21 +10,25 @@ color="violet-70"
 icon="celebration"
 bold="Upgrade OpenMetadata"
 href="/deployment/upgrade" %}
-Learn how to upgrade your OpenMetadata instance to 1.10.2!
+Learn how to upgrade your OpenMetadata instance to 1.10.3!
 {% /inlineCallout %}
 {% /inlineCalloutContainer %}
 
-You can find the GitHub release [here](https://github.com/open-metadata/OpenMetadata/releases/tag/1.10.2-release).
+You can find the GitHub release [here](https://github.com/open-metadata/OpenMetadata/releases/tag/1.10.3-release).
 
-## Bug Fixes
 
-- Fix: Active knowledge center not fetching list on scroll end
-- Fix: Runner getting wrong values in workflow API
-- Fix: Knowledge page hierarchy after page refresh
-- Fix: Data Quality Dashboard Filters
+## Fixes
+
+- Fixed issue with **table column descriptions** not being correctly handled.
+- Resolved **FQN encoding bug** when retrieving test case results via Python SDK.
+- Addressed **protobuf version conflict** to ensure compatibility.
+- Reverted naming convention change from **"dbt" to "DBT"** for consistency.  
+- Adjusted **migration structure** by moving changes to version `1.10.3`.
 
 ## Improvements
 
-- Optimized ingestion log downloads with file caching and streaming (>95% improvement)
+- Added **Databricks pipeline support** for function parsing.  
+- Enabled configuration of **custom property fields** in search settings.
+- Upgraded **sqlalchemy-bigquery** dependency to `v1.15.0`.
 
-**Full Changelog**: [link](https://github.com/open-metadata/OpenMetadata/compare/1.10.1-release...1.10.2-release)
+**Full Changelog**: [link](https://github.com/open-metadata/OpenMetadata/compare/1.10.2-release...1.10.3-release)
