@@ -50,6 +50,21 @@ The connector requires **Exasol version 7.1 or higher** to function correctly. E
 
 ### Connection Options
 
+{% collateContent %}
+
+{% note %} 
+
+If you are using a **Hybrid Ingestion Runner**, passwords must be referenced securely via secret paths using the following format:
+
+```
+password: secret:/my/database/password
+```
+For more details, refer to the [Hybrid Ingestion Runner Secret Management Guide](https://docs.getcollate.io/getting-started/day-1/hybrid-saas/hybrid-ingestion-runner#3.-manage-secrets-securely).
+
+{% /note %}
+
+{% /collateContent %}
+
 **Connection Scheme**: Specifies the SQLAlchemy driver scheme options required to connect to Exasol.
 
 **Username**: The username used to connect to the Exasol database. Ensure that this user has sufficient privileges to read all the metadata from Exasol.

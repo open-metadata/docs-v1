@@ -39,6 +39,21 @@ Configure and schedule Couchbase metadata workflows from the OpenMetadata UI:
 
 #### Connection Details
 
+{% collateContent %}
+
+{% note %} 
+
+If you are using a **Hybrid Ingestion Runner**, passwords must be referenced securely via secret paths using the following format:
+
+```
+password: secret:/my/database/password
+```
+For more details, refer to the [Hybrid Ingestion Runner Secret Management Guide](https://docs.getcollate.io/getting-started/day-1/hybrid-saas/hybrid-ingestion-runner#3.-manage-secrets-securely).
+
+{% /note %}
+
+{% /collateContent %}
+
 - **Username**: Username to connect to Couchbase.
 - **Password**: Password to connect to Couchbase.
 - **Hostport**: If couchbase is hosted on cloud then the hostport parameter specifies the connection string and if you are using couchbase server then the hostport parameter specifies hostname of the Couchbase. This should be specified as a string in the format `hostname` or `xyz.cloud.couchbase.com`. E.g., `localhost`.

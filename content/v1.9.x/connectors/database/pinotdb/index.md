@@ -42,6 +42,21 @@ Configure and schedule PinotDB metadata and profiler workflows from the OpenMeta
 
 #### Connection Details
 
+{% collateContent %}
+
+{% note %} 
+
+If you are using a **Hybrid Ingestion Runner**, passwords must be referenced securely via secret paths using the following format:
+
+```
+password: secret:/my/database/password
+```
+For more details, refer to the [Hybrid Ingestion Runner Secret Management Guide](https://docs.getcollate.io/getting-started/day-1/hybrid-saas/hybrid-ingestion-runner#3.-manage-secrets-securely).
+
+{% /note %}
+
+{% /collateContent %}
+
 - **Username**: Specify the User to connect to PinotDB. It should have enough privileges to read all the metadata.
 - **Password**: Password to connect to PinotDB.
 - **Host and Port**: Enter the fully qualified hostname and port number for your PinotDB deployment in the Host and Port field.  Unlike broker host, prefix http:// or https:// must be added to controller host. For example, pinot broker host can be set to `localhost:8099` and pinot controller host can be set to `http://localhost:9000`.

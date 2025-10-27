@@ -52,6 +52,21 @@ These steps are necessary to allow the connector to communicate with your SSAS i
 
 #### Connection Details
 
+{% collateContent %}
+
+{% note %} 
+
+If you are using a **Hybrid Ingestion Runner**, passwords must be referenced securely via secret paths using the following format:
+
+```
+password: secret:/my/database/password
+```
+For more details, refer to the [Hybrid Ingestion Runner Secret Management Guide](https://docs.getcollate.io/getting-started/day-1/hybrid-saas/hybrid-ingestion-runner#3.-manage-secrets-securely).
+
+{% /note %}
+
+{% /collateContent %}
+
 - **HTTP Connection**: The HTTP endpoint (URL) for accessing your SSAS instance. This should be the address where your SSAS service is exposed for HTTP requests.
 - **Username**: The username for authenticating to the SSAS HTTP endpoint. This user must have sufficient privileges to access the required models and metadata.
 - **Password**: The password for the above username. The password is stored securely and used for Basic Authentication.

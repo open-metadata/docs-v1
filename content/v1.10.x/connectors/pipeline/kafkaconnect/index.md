@@ -53,6 +53,21 @@ The ingestion framework uses [kafkaconnect python client](https://libraries.io/p
 
 #### Connection Details
 
+{% collateContent %}
+
+{% note %} 
+
+If you are using a **Hybrid Ingestion Runner**, passwords must be referenced securely via secret paths using the following format:
+
+```
+password: secret:/my/database/password
+```
+For more details, refer to the [Hybrid Ingestion Runner Secret Management Guide](https://docs.getcollate.io/getting-started/day-1/hybrid-saas/hybrid-ingestion-runner#3.-manage-secrets-securely).
+
+{% /note %}
+
+{% /collateContent %}
+
 - **Host and Port**: The hostname or IP address of the Kafka Connect worker with the REST API enabled eg.`https://localhost:8083` or `https://127.0.0.1:8083` or `https://<yourkafkaconnectresthostnamehere>`
 
 - **Kafka Connect Config**: OpenMetadata supports username/password.
