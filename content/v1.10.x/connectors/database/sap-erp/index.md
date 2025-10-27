@@ -46,6 +46,21 @@ Follow the guide [here](/connectors/database/sap-erp/setup-sap-apis) to setup th
 
 #### Connection Details
 
+{% collateContent %}
+
+{% note %} 
+
+If you are using a **Hybrid Ingestion Runner**, passwords must be referenced securely via secret paths using the following format:
+
+```
+password: secret:/my/database/password
+```
+For more details, refer to the [Hybrid Ingestion Runner Secret Management Guide](https://docs.getcollate.io/getting-started/day-1/hybrid-saas/hybrid-ingestion-runner#3.-manage-secrets-securely).
+
+{% /note %}
+
+{% /collateContent %}
+
 - **Host and Port**: This parameter specifies the host and port of the SAP ERP instance. This should be specified as a string in the format `https://hostname.com`.
 - **API Key**: Api Key to authenticate the SAP ERP Apis.
 - **database**: Optional name to give to the database in OpenMetadata. If left blank, we will use `default` as the database name.
