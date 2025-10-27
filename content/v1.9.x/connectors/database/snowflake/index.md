@@ -120,7 +120,7 @@ You can find more information about the `account_usage` schema [here](https://do
 If you are using **Secret Manager**, there is **no need to manually add `\n`** in the private key stored in the vault. The system will handle line breaks automatically.
 {% /note %}
 
-- **Snowflake Passphrase Key (Optional)**: If you have configured the encrypted key pair authentication for the given user you will have to pass the paraphrase associated with the private key in this field. You can checkout [this](https://docs.snowflake.com/en/user-guide/key-pair-auth) doc to get more details about key-pair authentication.
+- **Snowflake Passphrase Key (Optional)**: If you have configured the encrypted key pair authentication for the given user you will have to pass the passphrase associated with the private key in this field. You can checkout [this](https://docs.snowflake.com/en/user-guide/key-pair-auth) doc to get more details about key-pair authentication.
 - **Include Temporary and Transient Tables**:
 Optional configuration for ingestion of `TRANSIENT` and `TEMPORARY` tables, By default, it will skip the `TRANSIENT` and `TEMPORARY` tables.
 - **Include Streams**:
