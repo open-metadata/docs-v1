@@ -111,6 +111,21 @@ there is no routine out of the box in Oracle to grant SELECT to a full schema.
 
 #### Connection Details
 
+{% collateContent %}
+
+{% note %} 
+
+If you are using a **Hybrid Ingestion Runner**, passwords must be referenced securely via secret paths using the following format:
+
+```
+password: secret:/my/database/password
+```
+For more details, refer to the [Hybrid Ingestion Runner Secret Management Guide](https://docs.getcollate.io/getting-started/day-1/hybrid-saas/hybrid-ingestion-runner#3.-manage-secrets-securely).
+
+{% /note %}
+
+{% /collateContent %}
+
 - **Username**: Specify the User to connect to Oracle. It should have enough privileges to read all the metadata.
 - **Password**: Password to connect to Oracle.
 - **Host and Port**: Enter the fully qualified hostname and port number for your Oracle deployment in the Host and Port field.

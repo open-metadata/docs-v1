@@ -47,6 +47,21 @@ To extract metadata from Stitch, User first need to crate API crednetials:
 
 #### Connection Details
 
+{% collateContent %}
+
+{% note %} 
+
+If you are using a **Hybrid Ingestion Runner**, passwords must be referenced securely via secret paths using the following format:
+
+```
+password: secret:/my/database/password
+```
+For more details, refer to the [Hybrid Ingestion Runner Secret Management Guide](https://docs.getcollate.io/getting-started/day-1/hybrid-saas/hybrid-ingestion-runner#3.-manage-secrets-securely).
+
+{% /note %}
+
+{% /collateContent %}
+
 - **hostPort**: This parameter specifies the network location where your Stitch instance is accessible, combining both the hostname. It is based on the account and region where user has hosted his/her data pipelines. More about this you can check [here](https://www.stitchdata.com/docs/developers/import-api/api#base-urls)
 
 - **token**: Token to get access to Stitch metadata. This token is created by user after logging into stitch console. More about this, please check [here](https://www.stitchdata.com/docs/developers/import-api/guides/quick-start#obtain-api-credentials)

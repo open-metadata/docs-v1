@@ -57,6 +57,21 @@ Then, prepare the Atlas Service and configure the Ingestion:
 
 #### Connection Details
 
+{% collateContent %}
+
+{% note %} 
+
+If you are using a **Hybrid Ingestion Runner**, passwords must be referenced securely via secret paths using the following format:
+
+```
+password: secret:/my/database/password
+```
+For more details, refer to the [Hybrid Ingestion Runner Secret Management Guide](https://docs.getcollate.io/getting-started/day-1/hybrid-saas/hybrid-ingestion-runner#3.-manage-secrets-securely).
+
+{% /note %}
+
+{% /collateContent %}
+
 - **Host and Port**: Host and port of the Atlas service.
 - **Username**: username to connect  to the Atlas. This user should have privileges to read all the metadata in Atlas.
 - **Password**: password to connect  to the Atlas.

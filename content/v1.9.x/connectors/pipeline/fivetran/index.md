@@ -43,6 +43,21 @@ To access Fivetran APIs, a Fivetran account on a Standard, Enterprise, or Busine
 
 #### Connection Details
 
+{% collateContent %}
+
+{% note %} 
+
+If you are using a **Hybrid Ingestion Runner**, passwords must be referenced securely via secret paths using the following format:
+
+```
+password: secret:/my/database/password
+```
+For more details, refer to the [Hybrid Ingestion Runner Secret Management Guide](https://docs.getcollate.io/getting-started/day-1/hybrid-saas/hybrid-ingestion-runner#3.-manage-secrets-securely).
+
+{% /note %}
+
+{% /collateContent %}
+
 **apiKey**: Fivetran API Key.
 
 Follow the steps mentioned below to generate the Fivetran API key and API secret:

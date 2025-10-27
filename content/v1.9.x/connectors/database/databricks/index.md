@@ -104,6 +104,21 @@ If you are using unity catalog in Databricks, then checkout the [Unity Catalog](
 
 #### Connection Details
 
+{% collateContent %}
+
+{% note %} 
+
+If you are using a **Hybrid Ingestion Runner**, passwords must be referenced securely via secret paths using the following format:
+
+```
+password: secret:/my/database/password
+```
+For more details, refer to the [Hybrid Ingestion Runner Secret Management Guide](https://docs.getcollate.io/getting-started/day-1/hybrid-saas/hybrid-ingestion-runner#3.-manage-secrets-securely).
+
+{% /note %}
+
+{% /collateContent %}
+
 - **Host and Port**: Enter the fully qualified hostname and port number for your Databricks deployment in the Host and Port field.
 - **Token**: Generated Token to connect to Databricks.
 - **HTTP Path**: Databricks compute resources URL.

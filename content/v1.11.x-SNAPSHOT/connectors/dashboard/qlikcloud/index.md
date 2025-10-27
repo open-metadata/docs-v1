@@ -46,6 +46,21 @@ To deploy OpenMetadata, check the Deployment guides.
 
 #### Connection Details
 
+{% collateContent %}
+
+{% note %} 
+
+If you are using a **Hybrid Ingestion Runner**, passwords must be referenced securely via secret paths using the following format:
+
+```
+password: secret:/my/database/password
+```
+For more details, refer to the [Hybrid Ingestion Runner Secret Management Guide](https://docs.getcollate.io/getting-started/day-1/hybrid-saas/hybrid-ingestion-runner#3.-manage-secrets-securely).
+
+{% /note %}
+
+{% /collateContent %}
+
 - **Qlik Cloud Host Port**: This field refers to the base url of your Qlik Cloud Portal, will be used for generating the redirect links for dashboards and charts. Example: `https://<TenantURL>.qlikcloud.com`
 - **Qlik Cloud API Token**: Enter the API token for Qlik Cloud APIs access. Refer to [this](https://help.qlik.com/en-US/cloud-services/Subsystems/Hub/Content/Sense_Hub/Admin/mc-generate-api-keys.htm) document for more details about. Example: `eyJhbGciOiJFU***`.
 - **Qlik Cloud Space Types**: Select relevant space types of Qlik Cloud to filter the dashboards ingested into the platform. Example: `Personal`, `Shared`, `Managed`, `Data`.

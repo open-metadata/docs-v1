@@ -46,6 +46,21 @@ The ingestion of the Kafka topics' schema is done separately by configuring the 
 
 #### Connection Details
 
+{% collateContent %}
+
+{% note %} 
+
+If you are using a **Hybrid Ingestion Runner**, passwords must be referenced securely via secret paths using the following format:
+
+```
+password: secret:/my/database/password
+```
+For more details, refer to the [Hybrid Ingestion Runner Secret Management Guide](https://docs.getcollate.io/getting-started/day-1/hybrid-saas/hybrid-ingestion-runner#3.-manage-secrets-securely).
+
+{% /note %}
+
+{% /collateContent %}
+
 - **Bootstrap Servers**: List of brokers as comma separated values of broker `host` or `host:port`. Example: `host1:9092,host2:9092`
 - **Schema Registry URL**: URL of the Schema Registry used to ingest the schemas of the topics.
 - **SASL Username**: SASL username for use with the PLAIN and SASL-SCRAM mechanisms.
