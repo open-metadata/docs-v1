@@ -185,6 +185,10 @@ When using this field make sure you have all these tables available within your 
 **privateKey**: If you have configured the key pair authentication for the given user you will have to pass the private key associated with the user in this field. You can checkout [this](https://docs.snowflake.com/en/user-guide/key-pair-auth) doc to get more details about key-pair authentication.
   - The multi-line key needs to be converted to one line with `\n` for line endings i.e. `-----BEGIN ENCRYPTED PRIVATE KEY-----\nMII...\n...\n-----END ENCRYPTED PRIVATE KEY-----`
 
+{% note %}
+If you are using **Secret Manager**, there is **no need to manually add `\n`** in the private key stored in the vault. The system will handle line breaks automatically.
+{% /note %}
+
 {% /codeInfo %}
 
 {% codeInfo srNumber=9 %}
