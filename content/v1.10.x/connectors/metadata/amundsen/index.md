@@ -31,6 +31,8 @@ unavailableFeatures=[]
 
 #### Connection Details
 
+{% collateContent %}
+
 {% note %} 
 
 If you are using a **Hybrid Ingestion Runner**, passwords must be referenced securely via secret paths using the following format:
@@ -41,6 +43,8 @@ password: secret:/my/database/password
 For more details, refer to the [Hybrid Ingestion Runner Secret Management Guide](https://docs.getcollate.io/getting-started/day-1/hybrid-saas/hybrid-ingestion-runner#3.-manage-secrets-securely).
 
 {% /note %}
+
+{% /collateContent %}
 
 - **username**: Enter the username of your Amundsen user in the Username field. The specified user should be authorized to read all databases you want to include in the metadata ingestion workflow.
 - **password**: Enter the password for your amundsen user in the Password field.

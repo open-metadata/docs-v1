@@ -47,6 +47,8 @@ We extract Elasticsearch's metadata by using its [API](https://www.elastic.co/gu
 
 #### Connection Details
 
+{% collateContent %}
+
 {% note %} 
 
 If you are using a **Hybrid Ingestion Runner**, passwords must be referenced securely via secret paths using the following format:
@@ -57,6 +59,8 @@ password: secret:/my/database/password
 For more details, refer to the [Hybrid Ingestion Runner Secret Management Guide](https://docs.getcollate.io/getting-started/day-1/hybrid-saas/hybrid-ingestion-runner#3.-manage-secrets-securely).
 
 {% /note %}
+
+{% /collateContent %}
 
 - **Host and Port**: This parameter specifies the host and port of the Elasticsearch instance. This should be specified as a URI string in the format `http://hostname:port` or `https://hostname:port`. For example, you might set it to `https://localhost:9200`.
 - **Authentication Types**:

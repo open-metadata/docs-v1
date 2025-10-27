@@ -47,6 +47,8 @@ Prepare the SAS Service and configure the Ingestion:
 
 #### Connection Details
 
+{% collateContent %}
+
 {% note %} 
 
 If you are using a **Hybrid Ingestion Runner**, passwords must be referenced securely via secret paths using the following format:
@@ -57,6 +59,8 @@ password: secret:/my/database/password
 For more details, refer to the [Hybrid Ingestion Runner Secret Management Guide](https://docs.getcollate.io/getting-started/day-1/hybrid-saas/hybrid-ingestion-runner#3.-manage-secrets-securely).
 
 {% /note %}
+
+{% /collateContent %}
 
 - **ServerHost**: Host and port of the SAS Viya deployment.
 - **Username**: Username to connect to SAS Viya. This user should have privileges to read all the metadata in SAS Information Catalog.

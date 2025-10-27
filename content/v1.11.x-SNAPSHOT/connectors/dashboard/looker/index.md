@@ -67,6 +67,8 @@ We do not yet support liquid variables.
 
 #### Connection Details
 
+{% collateContent %}
+
 {% note %} 
 
 If you are using a **Hybrid Ingestion Runner**, passwords must be referenced securely via secret paths using the following format:
@@ -77,6 +79,8 @@ password: secret:/my/database/password
 For more details, refer to the [Hybrid Ingestion Runner Secret Management Guide](https://docs.getcollate.io/getting-started/day-1/hybrid-saas/hybrid-ingestion-runner#3.-manage-secrets-securely).
 
 {% /note %}
+
+{% /collateContent %}
 
 - **Host and Port**: URL to the Looker instance, e.g., `https://my-company.region.looker.com`.
 - **Client ID**: User's Client ID to authenticate to the SDK. This user should have privileges to read all the metadata in Looker.

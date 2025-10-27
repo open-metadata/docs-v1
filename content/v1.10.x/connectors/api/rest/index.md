@@ -46,6 +46,8 @@ Configure and schedule REST metadata workflows from the OpenMetadata UI:
 
 #### Connection Options
 
+{% collateContent %}
+
 {% note %} 
 
 If you are using a **Hybrid Ingestion Runner**, passwords must be referenced securely via secret paths using the following format:
@@ -56,6 +58,8 @@ password: secret:/my/database/password
 For more details, refer to the [Hybrid Ingestion Runner Secret Management Guide](https://docs.getcollate.io/getting-started/day-1/hybrid-saas/hybrid-ingestion-runner#3.-manage-secrets-securely).
 
 {% /note %}
+
+{% /collateContent %}
 
 **OpenAPI Schema URL**: 
 An OpenAPI schema URL typically refers to the URL where the OpenAPI Specification (OAS) document of a web service is hosted. The document defines the service's API, including available endpoints, request/response formats, authentication methods, etc. It is usually in JSON format. for e.g. `https://petstore3.swagger.io/api/v3/openapi.json`

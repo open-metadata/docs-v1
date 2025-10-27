@@ -105,6 +105,8 @@ For details step please refer to this [link](https://docs.microsoft.com/en-us/sq
 
 #### Connection Details
 
+{% collateContent %}
+
 {% note %} 
 
 If you are using a **Hybrid Ingestion Runner**, passwords must be referenced securely via secret paths using the following format:
@@ -115,6 +117,8 @@ password: secret:/my/database/password
 For more details, refer to the [Hybrid Ingestion Runner Secret Management Guide](https://docs.getcollate.io/getting-started/day-1/hybrid-saas/hybrid-ingestion-runner#3.-manage-secrets-securely).
 
 {% /note %}
+
+{% /collateContent %}
 
 - **Connection Scheme**: Defines how to connect to MSSQL. We support `mssql+pytds`, `mssql+pyodbc`, and `mssql+pymssql`. (If you are using windows authentication from a linux deployment please use pymssql)
 - **Username**: Specify the User to connect to MSSQL. It should have enough privileges to read all the metadata.
