@@ -1008,6 +1008,11 @@ site_menu:
   - category: How-to Guides / Data Discovery / OpenMetadata Chrome Extension / Viewing tasks & add comment directly from the extension
     url: /how-to-guides/data-discovery/openmetadata-extension/viewing-tasks
 
+  - category: How-to Guides / Data Contracts
+    url: /how-to-guides/data-contracts
+  - category: How-to Guides / Data Contracts / Creating Data Contracts
+    url: /how-to-guides/data-contracts/create
+
   - category: How-to Guides / Data Collaboration
     url: /how-to-guides/data-collaboration
   - category: How-to Guides / Data Collaboration / Understanding Activity Feeds
