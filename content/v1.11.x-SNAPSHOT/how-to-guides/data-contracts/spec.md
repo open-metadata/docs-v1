@@ -12,7 +12,7 @@ OpenMetadata, as a metadata management platform, integrates this concept by intr
 
 # Data Contract Entity Schema Design
 
-The JSON Schema definition for Data Contract entities in OpenMetadata defines the contract’s structure and allowed fields. The contract covers four main categories of expectations:
+The JSON Schema definition for Data Contract entities in OpenMetadata defines the contract’s structure and allowed fields. The contract covers seven main categories of expectations:
 
 1. [Schema](#schema)
 2. [Semantics](#semantics)
