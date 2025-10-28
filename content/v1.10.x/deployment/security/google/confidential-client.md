@@ -187,3 +187,17 @@ Options: id_token | code
 - **Example:** `true`
 - **Why it matters:** Ensures secure token exchange and communication.
 - **Note:** Must be true in production.
+
+{% note %}
+
+If users are automatically logged out and unable to log in again due to a bad authentication configuration, you can reset the security setup using the following command:
+
+```
+
+./bootstrap/openmetadata-ops.sh remove-security-config --force
+
+```
+
+After executing the command, **restart the server**. The authentication values from your YAML or Helm chart will then be reapplied on startup.
+
+{% /note %}

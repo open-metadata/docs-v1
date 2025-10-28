@@ -94,12 +94,10 @@ site_menu:
     url: /deployment/security/auth0/kubernetes
   - category: Deployment / Enable Security / Azure SSO
     url: /deployment/security/azure
-  - category: Deployment / Enable Security / Azure SSO / Docker
-    url: /deployment/security/azure/docker
-  - category: Deployment / Enable Security / Azure SSO / Bare Metal
-    url: /deployment/security/azure/bare-metal
-  - category: Deployment / Enable Security / Azure SSO / Kubernetes
-    url: /deployment/security/azure/kubernetes
+  - category: Deployment / Enable Security / Azure SSO / Public
+    url: /deployment/security/azure/public-client
+  - category: Deployment / Enable Security / Azure SSO / Confidential
+    url: /deployment/security/azure/confidential-client
   - category: Deployment / Enable Security / Custom OIDC SSO
     url: /deployment/security/custom-oidc
   - category: Deployment / Enable Security / Custom OIDC SSO / Docker
