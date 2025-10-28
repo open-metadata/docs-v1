@@ -1000,8 +1000,6 @@ site_menu:
 
   - category: How-to Guides / Data Contracts
     url: /how-to-guides/data-contracts
-  - category: How-to Guides / Data Contracts / 
-    url: /how-to-guides/data-contracts
   - category: How-to Guides / Data Contracts / Creating Data Contracts
     url: /how-to-guides/data-contracts/create
 
