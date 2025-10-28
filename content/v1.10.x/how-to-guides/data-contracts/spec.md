@@ -1,5 +1,5 @@
 ---
-title: Contract Specification | OpenMetadata Data Contracts Guide
+title: Data Contract Specification | OpenMetadata Data Contracts Guide
 description: Create open-source data contracts directly in the OpenMetadata UI
 slug: /how-to-guides/data-contracts/spec
 ---
