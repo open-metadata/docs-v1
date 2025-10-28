@@ -10,7 +10,7 @@ To create a Data Contract for a Table in OpenMetadata:
 - Go to the Table's page, select **Contract**, then **+ Add Contract**
 
 {% image
-src="/images/v1.11/how-to-guides/contracts/create1.png"
+src="/images/v1.10/how-to-guides/contracts/create1.png"
 alt="Adding a Data Contract to an OpenMetadata Table"
 caption="Adding a Data Contract to an OpenMetadata Table"
 /%}
