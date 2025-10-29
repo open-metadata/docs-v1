@@ -42,7 +42,7 @@ By default Basic Authentication will be enabled as authentication mechanism.
     color="violet-70"
     bold="Azure SSO"
     icon="add_moderator"
-    href="/deployment/security/azure/docker"%}
+    href="/deployment/security/azure/"%}
     Configure Azure SSO to access the UI and APIs
   {%/inlineCallout%}
   {%inlineCallout
@@ -56,7 +56,7 @@ By default Basic Authentication will be enabled as authentication mechanism.
     color="violet-70"
     bold="Google SSO"
     icon="add_moderator"
-    href="/deployment/security/google/docker"%}
+    href="/deployment/security/google"%}
     Configure Google SSO to access the UI and APIs
   {%/inlineCallout%}
   {%inlineCallout

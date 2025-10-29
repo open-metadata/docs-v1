@@ -42,7 +42,7 @@ By default, Basic Authentication will be enabled as authentication mechanism.
     color="violet-70"
     bold="Azure SSO"
     icon="add_moderator"
-    href="/deployment/security/azure/kubernetes"%}
+    href="/deployment/security/azure/"%}
     Configure Azure SSO to access the UI and APIs
   {%/inlineCallout%}
   {%inlineCallout
