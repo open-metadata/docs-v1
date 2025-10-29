@@ -43,12 +43,15 @@ Configure and schedule Couchbase metadata workflows from the OpenMetadata UI:
 
 {% note %} 
 
-If you are using a **Hybrid Ingestion Runner**, passwords must be referenced securely via secret paths using the following format:
+When using a **Hybrid Ingestion Runner**, any sensitive credential fields—such as passwords, API keys, or private keys—must reference secrets using the following format: 
 
 ```
 password: secret:/my/database/password
-```
-For more details, refer to the [Hybrid Ingestion Runner Secret Management Guide](https://docs.getcollate.io/getting-started/day-1/hybrid-saas/hybrid-ingestion-runner#3.-manage-secrets-securely).
+``` 
+
+This applies **only to fields marked as secrets** in the connection form (these typically mask input and show a visibility toggle icon). 
+
+For a complete guide on managing secrets in hybrid setups, see the [Hybrid Ingestion Runner Secret Management Guide](https://docs.getcollate.io/getting-started/day-1/hybrid-saas/hybrid-ingestion-runner#3.-manage-secrets-securely).
 
 {% /note %}
 
