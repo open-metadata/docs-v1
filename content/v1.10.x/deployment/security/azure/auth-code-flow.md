@@ -38,23 +38,16 @@ collate: false
   {% inlineCallout
     color="violet-70"
     icon="celebration"
-    bold="Docker Security"
-    href="/deployment/security/azure/docker" %}
-    Configure Azure SSO for your Docker Deployment.
+    bold="Azure SSO - Public"
+    href="/deployment/security/azure/public-client" %}
+    Configure Azure SSO using the Public client type.
   {% /inlineCallout %}
   {% inlineCallout
     color="violet-70"
     icon="storage"
-    bold="Bare Metal Security"
-    href="/deployment/security/azure/bare-metal" %}
-    Configure Azure SSO for your Bare Metal Deployment.
-  {% /inlineCallout %}
-  {% inlineCallout
-    color="violet-70"
-    icon="fit_screen"
-    bold="Kubernetes Security"
-    href="/deployment/security/azure/kubernetes" %}
-    Configure Azure SSO for your Kubernetes Deployment.
+    bold="Azure SSO - Confidential"
+    href="/deployment/security/azure/confidential-client" %}
+    Configure Azure SSO using the Confidential client type.
   {% /inlineCallout %}
 {% /inlineCalloutContainer %}
 

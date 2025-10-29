@@ -70,4 +70,19 @@ After creating the account, choose the authentication flow you want to use:
 
 {% /note %}
 
-
+{% inlineCalloutContainer %}
+  {% inlineCallout
+    color="violet-70"
+    icon="celebration"
+    bold="Azure SSO - Public"
+    href="/deployment/security/azure/public-client" %}
+    Configure Azure SSO using the Public client type.
+  {% /inlineCallout %}
+  {% inlineCallout
+    color="violet-70"
+    icon="storage"
+    bold="Azure SSO - Confidential"
+    href="/deployment/security/azure/confidential-client" %}
+    Configure Azure SSO using the Confidential client type.
+  {% /inlineCallout %}
+{% /inlineCalloutContainer %}
