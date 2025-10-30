@@ -423,5 +423,5 @@ Please validate:
 - `storageClassName` field in YAML file
 
 # FAQs
-
+{% partial file="/v1.9/deployment/faqs-gke.md" /%}
 {% partial file="/v1.9/deployment/faqs.md" /%}
