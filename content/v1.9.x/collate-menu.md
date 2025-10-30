@@ -920,6 +920,13 @@ site_menu:
   - category: How-to Guides / Data Discovery / ER Diagrams
     url: /how-to-guides/data-discovery/er-diagrams
 
+  - category: How-to Guides / Data Contracts
+    url: /how-to-guides/data-contracts
+  - category: How-to Guides / Data Contracts / Creating Data Contracts
+    url: /how-to-guides/data-contracts/create
+  - category: How-to Guides / Data Contracts / Data Contract Specification
+    url: /how-to-guides/data-contracts/spec
+
   - category: How-to Guides / Data Collaboration
     url: /how-to-guides/data-collaboration
   - category: How-to Guides / Data Collaboration / Understanding Activity Feeds
