@@ -39,6 +39,14 @@ alt="Selecting a schema for Data Contract"
 caption="Selecting a schema for Data Contract"
 /%}
 
+- The **Security** tab allows you to configure access policies and data classification. First, enter a classification label such as PII or Confidential. Then, define the consumers of this data using the policies section. You can set up identities, access conditions, and apply row-level filters by specifying column names and their corresponding values.
+
+{% image
+src="/images/v1.10/how-to-guides/contracts/createsec.png"
+alt="Configuring Security Policies"
+caption="Configuring Security Policies"
+/%}
+
 - Add the business rules you would like to enforce in *Semantics*. For OpenMetadata Tables, rules can be created for:
   - Service
   - Owners
@@ -54,14 +62,6 @@ caption="Selecting a schema for Data Contract"
 src="/images/v1.10/how-to-guides/contracts/create4.png"
 alt="Adding rules to Data Contract"
 caption="Adding rules to Data Contract"
-/%}
-
-- The **Security** tab allows you to configure access policies and data classification. First, enter a classification label such as PII or Confidential. Then, define the consumers of this data using the policies section. You can set up identities, access conditions, and apply row-level filters by specifying column names and their corresponding values.
-
-{% image
-src="/images/v1.10/how-to-guides/contracts/createsec.png"
-alt="Configuring Security Policies"
-caption="Configuring Security Policies"
 /%}
 
 - Once a rule is created, you can **+ Add New Rule** to create more, or select **Quality**
