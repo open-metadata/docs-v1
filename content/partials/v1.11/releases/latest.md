@@ -1,7 +1,7 @@
-# 1.10.3 Release 🎉
+# 1.10.4 Release 🎉
 
 {% note noteType="Tip" %}
-**22nd October 2025**
+**30th October 2025**
 {% /note %}
 
 {% inlineCalloutContainer %}
@@ -10,25 +10,23 @@ color="violet-70"
 icon="celebration"
 bold="Upgrade OpenMetadata"
 href="/deployment/upgrade" %}
-Learn how to upgrade your OpenMetadata instance to 1.10.3!
+Learn how to upgrade your OpenMetadata instance to 1.10.4!
 {% /inlineCallout %}
 {% /inlineCalloutContainer %}
 
-You can find the GitHub release [here](https://github.com/open-metadata/OpenMetadata/releases/tag/1.10.3-release).
+You can find the GitHub release [here](https://github.com/open-metadata/OpenMetadata/releases/tag/1.10.4-release).
 
 
-## Fixes
+## Bug Fixes
 
-- Fixed issue with **table column descriptions** not being correctly handled.
-- Resolved **FQN encoding bug** when retrieving test case results via Python SDK.
-- Addressed **protobuf version conflict** to ensure compatibility.
-- Reverted naming convention change from **"dbt" to "DBT"** for consistency.  
-- Adjusted **migration structure** by moving changes to version `1.10.3`.
+- Fixed **custom label display** for **ER Diagram** tab
+- Resolved **failing custom dashboard** and **Automator Playwright tests**
+- Fixed **Support App token evaluation** issue
 
 ## Improvements
 
-- Added **Databricks pipeline support** for function parsing.  
-- Enabled configuration of **custom property fields** in search settings.
-- Upgraded **sqlalchemy-bigquery** dependency to `v1.15.0`.
+- Added **Azure Data Lake Storage (ADLS) Unstructured Containers** support
+- Revamped **Overview tab** for an improved user experience 
+- Added validation and **checks for Embeddings functionality**
 
-**Full Changelog**: [link](https://github.com/open-metadata/OpenMetadata/compare/1.10.2-release...1.10.3-release)
+**Full Changelog**: [link](https://github.com/open-metadata/OpenMetadata/compare/1.10.3-release...1.10.4-release)
