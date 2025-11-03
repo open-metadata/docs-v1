@@ -8,7 +8,7 @@ If users are automatically logged out and unable to log in again due to a bad au
 
 ```
 
-After executing the command, **restart the server**. The authentication values from your YAML or Helm chart will then be reapplied on startup. The following tiles detail how to apply this configuration across Docker, Kubernetes, and Bare Metal deployments:-
+After executing the command, **restart the server**. The authentication values from your YAML or Helm chart will then be reapplied on startup. The following tiles detail how to apply this configuration across Docker, Kubernetes, and Bare Metal deployments:
 
 {% inlineCalloutContainer %}
   {% inlineCallout
