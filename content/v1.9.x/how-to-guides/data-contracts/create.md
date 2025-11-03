@@ -20,7 +20,7 @@ caption="Adding a Data Contract to an OpenMetadata Table"
 {% image
 src="/images/v1.9/how-to-guides/contracts/create2.png"
 alt="Adding Contract Details"
-caption="Adding a Contract Details to an OpenMetadata Data Contract"
+caption="Adding Contract Details to an OpenMetadata Data Contract"
 /%}
 
 - In **Terms of Service**, you can click on **+ New Node** to add individual Terms such as acceptable usage guidelines, data handling policies, or legal terms that consumers must acknowledge.
