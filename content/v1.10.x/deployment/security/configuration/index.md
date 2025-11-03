@@ -35,7 +35,7 @@ In a **Public** client configuration, only the **Client ID** is required. **Clie
 - Navigate to your preferred OIDC provider console and create an OIDC client application.
 - Generate client ID and secret key in JSON format.
 
-After the applying these steps, you can update the configuration of your deployment:
+After applying these steps, you can update the configuration of your deployment:
 
 {% inlineCalloutContainer %}
   {% inlineCallout
