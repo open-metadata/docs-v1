@@ -7,6 +7,8 @@ collate: false
 
 # Google SSO Authentication Documentation - Public Client
 
+- [Troubleshooting](#troubleshooting)
+
 ## Overview
 
 OpenMetadata supports Single Sign-On (SSO) integration with various identity providers, enabling secure, centralized user authentication.
@@ -128,3 +130,5 @@ alt="Google SSO Configuration - Public Client" /%}
 - **Example:** `true`
 - **Why it matters:** Ensures secure token exchange and communication.
 - **Note:** Must be true in production.
+
+{% partial file="/v1.11/deployment/sso-troubleshooting.md" /%}
