@@ -7,6 +7,8 @@ collate: false
 
 ## Google SSO Configuration - Confidential Client
 
+- [Troubleshooting](#troubleshooting)
+
 This configuration is required for web applications and backend services that can securely store client credentials.
 
 {% image 
@@ -187,3 +189,5 @@ Options: id_token | code
 - **Example:** `true`
 - **Why it matters:** Ensures secure token exchange and communication.
 - **Note:** Must be true in production.
+
+{% partial file="/v1.11/deployment/sso-troubleshooting.md" /%}

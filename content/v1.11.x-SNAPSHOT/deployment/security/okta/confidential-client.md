@@ -7,6 +7,8 @@ collate: false
 
 # Okta SSO Configuration (Confidential Client)
 
+- [Troubleshooting](#troubleshooting)
+
 Okta Single Sign-On (SSO) enables users to log in to OpenMetadata with their Okta credentials using **OAuth 2.0** and **OpenID Connect (OIDC)** protocols.
 
 {% image 
@@ -293,16 +295,4 @@ Enforces secure (SSL/TLS) communication.
 | Enforce Principal Domain         | false                                                     |
 | SSL/TLS                          | true                                                      |
 
-{% note %}
-
-If users are automatically logged out and unable to log in again due to a bad authentication configuration, you can reset the security setup using the following command:
-
-```
-
-./bootstrap/openmetadata-ops.sh remove-security-config --force
-
-```
-
-After executing the command, **restart the server**. The authentication values from your YAML or Helm chart will then be reapplied on startup.
-
-{% /note %}
+{% partial file="/v1.11/deployment/sso-troubleshooting.md" /%}
