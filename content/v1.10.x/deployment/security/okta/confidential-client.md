@@ -1,7 +1,7 @@
 ---
-title: Google SSO Configuration Guide | Confidential Client Setup
-description: Comprehensive guide to setting up Google SSO for confidential clients using OIDC. Includes client secret configuration, secure token handling, and advanced security options.
-slug: /deployment/security/google/confidential-client
+title: Okta SSO Configuration Guide | Confidential Client Setup
+description: Comprehensive guide to setting up Okta SSO for confidential clients using OIDC. Includes client secret configuration, secure token handling, and advanced security options.
+slug: /deployment/security/okta/confidential-client
 collate: false
 ---
 
