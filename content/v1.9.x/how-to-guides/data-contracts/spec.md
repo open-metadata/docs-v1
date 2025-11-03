@@ -1,6 +1,6 @@
 ---
-title: Creating Data Contracts | OpenMetadata Data Contracts Guide
-description: Create open-source data contracts directly in the OpenMetadata UI
+title: Data Contract Specification | OpenMetadata Data Contracts Guide
+description: Follow this guide to create data contracts. Define schema, add business rules, and run quality tests to ensure consistent, reliable table data.
 slug: /how-to-guides/data-contracts/spec
 ---
 
