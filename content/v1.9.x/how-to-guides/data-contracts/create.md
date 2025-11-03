@@ -80,7 +80,7 @@ alt="Adding data quality tests"
 caption="Adding data quality tests"
 /%}
 
-- In **SLA**, define expectations around service level agreements. Specify how frequently the data is expected to refresh using the refresh frequency interval and unit fields. Define the maximum acceptable latency between data generation and availability using the max latency field. Specify when the data should be available with availability time and timezone inputs. You can also configure the retention period and specify which column in the dataset indicates the last refresh timestamp. Then click **save**
+- In **SLA**, define expectations around service level agreements. Specify how frequently the data is expected to refresh using the refresh frequency interval and unit fields. Define the maximum acceptable latency between data generation and availability using the max latency field. Specify when the data should be available with availability time and timezone inputs. You can also configure the retention period and specify which column in the dataset indicates the last refresh timestamp. Then click **Save**
 
 {% image
 src="/images/v1.9/how-to-guides/contracts/createsla.png"
