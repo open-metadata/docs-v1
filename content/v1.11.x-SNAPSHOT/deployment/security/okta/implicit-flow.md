@@ -113,7 +113,7 @@ After the applying these steps, you can update the configuration of your deploym
     icon="storage"
     bold="Public Client"
     href="/deployment/security/okta/public-client" %}
-    Configure Okta SSO sing the Public client type.
+    Configure Okta SSO using the Public client type.
   {% /inlineCallout %}
   {% inlineCallout
     color="violet-70"
