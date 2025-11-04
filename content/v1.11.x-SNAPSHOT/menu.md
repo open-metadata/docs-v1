@@ -132,12 +132,10 @@ site_menu:
     url: /deployment/security/okta/kubernetes
   - category: Deployment / Enable Security / Amazon Cognito SSO
     url: /deployment/security/amazon-cognito
-  - category: Deployment / Enable Security / Amazon Cognito SSO / Docker
-    url: /deployment/security/amazon-cognito/docker
-  - category: Deployment / Enable Security / Amazon Cognito SSO / Bare Metal
-    url: /deployment/security/amazon-cognito/bare-metal
-  - category: Deployment / Enable Security / Amazon Cognito SSO / Kubernetes
-    url: /deployment/security/amazon-cognito/kubernetes
+  - category: Deployment / Enable Security / Amazon Cognito SSO / Public
+    url: /deployment/security/amazon-cognito/public-client
+  - category: Deployment / Enable Security / Amazon Cognito SSO / Confidential
+    url: /deployment/security/amazon-cognito/confidential-client
   - category: Deployment / Enable Security / One Login SSO
     url: /deployment/security/one-login
   - category: Deployment / Enable Security / One Login SSO / Docker

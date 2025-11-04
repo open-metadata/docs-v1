@@ -71,24 +71,17 @@ After the applying these steps, you can update the configuration of your deploym
 {% inlineCalloutContainer %}
   {% inlineCallout
     color="violet-70"
-    icon="celebration"
-    bold="Docker Security"
-    href="/deployment/security/amazon-cognito/docker" %}
-    Configure Amazon Cognito SSO for your Docker Deployment.
-  {% /inlineCallout %}
-  {% inlineCallout
-    color="violet-70"
     icon="storage"
-    bold="Bare Metal Security"
-    href="/deployment/security/amazon-cognito/bare-metal" %}
-    Configure Amazon Cognito SSO for your Bare Metal Deployment.
+    bold="Public Client"
+    href="/deployment/security/amazon-cognito/public-client" %}
+    Configure Amazon Cognito SSO using the Public client type.
   {% /inlineCallout %}
   {% inlineCallout
     color="violet-70"
     icon="fit_screen"
-    bold="Kubernetes Security"
-    href="/deployment/security/amazon-cognito/kubernetes" %}
-    Configure Amazon Cognito SSO for your Kubernetes Deployment.
+    bold="Confidential Client"
+    href="/deployment/security/amazon-cognito/confidential-client" %}
+    Configure Amazon Cognito SSO using the Confidential client type.
   {% /inlineCallout %}
 {% /inlineCalloutContainer %}
 
