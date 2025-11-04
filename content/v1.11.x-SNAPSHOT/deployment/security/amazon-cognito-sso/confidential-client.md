@@ -1,5 +1,5 @@
 ---
-title: Azure SSO Configuration for Confidential Apps
+title: AWS Cognito SSO Configuration for Confidential Apps
 description: Learn to configure AWS Cognito SSO for confidential clients with OIDC, secure token handling, and client secret setup for web and backend apps.
 slug: /deployment/security/amazon-cognito/confidential-client
 collate: false
