@@ -74,7 +74,7 @@ After the applying these steps, you can update the configuration of your deploym
     icon="storage"
     bold="Public Client"
     href="/deployment/security/amazon-cognito/public-client" %}
-    Configure Amazon Cognito SSO sing the Public client type.
+    Configure Amazon Cognito SSO using the Public client type.
   {% /inlineCallout %}
   {% inlineCallout
     color="violet-70"
