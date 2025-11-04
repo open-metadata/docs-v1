@@ -82,6 +82,7 @@ export const getConnectorImage = (connector: string) => {
     Cassandra: "cassandra",
     Clickhouse: "clickhouse",
     Collate: "collate",
+    Collibra: "collibra",
     Cockroach: "cockroach",
     Couchbase: "couchbase",  
     Databricks: "databrick",

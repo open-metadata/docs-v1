@@ -572,6 +572,11 @@ export const CONNECTORS: Array<ConnectorCategory> = [
         icon: "/images/connectors/atlas.webp",
         name: "Atlas",
       },
+      {
+        url: "/connectors/metadata/collibra",
+        icon: "/images/connectors/collibra.webp",
+        name: "Collibra",
+      },
     ],
   },
   {
