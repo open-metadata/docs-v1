@@ -690,6 +690,12 @@ site_menu:
     url: /connectors/metadata/atlas/yaml
   - category: Connectors / Metadata / Atlas / Troubleshooting
     url: /connectors/metadata/atlas/troubleshooting
+  - category: Connectors / Metadata / Collibra
+    url: /connectors/metadata/collibra
+  - category: Connectors / Metadata / Collibra / Run Externally
+    url: /connectors/metadata/collibra/yaml
+  - category: Connectors / Metadata / Collibra / Troubleshooting
+    url: /connectors/metadata/collibra/troubleshooting
 
   - category: Connectors / Custom Connectors
     url: /connectors/custom-connectors
