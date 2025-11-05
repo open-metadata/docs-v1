@@ -76,13 +76,25 @@ This is a sample config for Salesforce:
 
 {% /codeInfo %}
 
+{% codeInfo srNumber=3 %}
+
+**consumerKey**: Salesforce Consumer Key for OAuth 2.0 authentication. This is obtained from your Salesforce Connected App configuration.
+
+{% /codeInfo %}
+
 {% codeInfo srNumber=4 %}
+
+**consumerSecret**: Salesforce Consumer Secret for OAuth 2.0 authentication. This is obtained from your Salesforce Connected App configuration.
+
+{% /codeInfo %}
+
+{% codeInfo srNumber=5 %}
 
 **securityToken**: Salesforce Security Token is required to access the metadata through APIs. You can checkout [this doc](https://help.salesforce.com/s/articleView?id=sf.user_security_token.htm&type=5) on how to get the security token.
 
 {% /codeInfo %}
 
-{% codeInfo srNumber=5 %}
+{% codeInfo srNumber=6 %}
 
 **Organization ID**: Salesforce Organization ID is the unique identifier for your Salesforce identity. You can check out [this doc](https://help.salesforce.com/s/articleView?id=000385215&type=1) on how to get the your Salesforce Organization ID.
 {% note %}
@@ -93,19 +105,19 @@ This is a sample config for Salesforce:
 {% /note %}
 {% /codeInfo %}
 
-{% codeInfo srNumber=6 %}
+{% codeInfo srNumber=7 %}
 
 **sobjectName**: Specify the Salesforce Object Name in case you want to ingest a specific object.  If left blank, we will ingest all the Objects.
 
 {% /codeInfo %}
 
-{% codeInfo srNumber=7 %}
+{% codeInfo srNumber=8 %}
 
 **salesforceApiVersion**: Follow the steps mentioned [here](https://help.salesforce.com/s/articleView?id=000386929&type=1) to get the API version. Enter the numerical value in the field, For example `42.0`.
 
 {% /codeInfo %}
 
-{% codeInfo srNumber=8 %}
+{% codeInfo srNumber=9 %}
 
 **salesforceDomain**: When connecting to Salesforce, you can specify the domain to use for accessing the platform. The common domains include `login` and `test`, and you can also utilize Salesforce My Domain.
 By default, the domain `login` is used for accessing Salesforce.
@@ -120,13 +132,13 @@ By default, the domain `login` is used for accessing Salesforce.
 
 #### Advanced Configuration
 
-{% codeInfo srNumber=9 %}
+{% codeInfo srNumber=10 %}
 
 **Connection Options (Optional)**: Enter the details for any additional connection options that can be sent to database during the connection. These details must be added as Key-Value pairs.
 
 {% /codeInfo %}
 
-{% codeInfo srNumber=10 %}
+{% codeInfo srNumber=11 %}
 
 **Connection Arguments (Optional)**: Enter the details for any additional connection arguments such as security or protocol configs that can be sent to database during the connection. These details must be added as Key-Value pairs.
 
@@ -152,26 +164,32 @@ source:
 ```yaml {% srNumber=2 %}
       password: password
 ```
+```yaml {% srNumber=3 %}
+      consumerKey: consumerKey
+```
 ```yaml {% srNumber=4 %}
-      securityToken: securityToken
+      consumerSecret: consumerSecret
 ```
 ```yaml {% srNumber=5 %}
-      organizationId: organizationId
+      securityToken: securityToken
 ```
 ```yaml {% srNumber=6 %}
-      sobjectName: sobjectName
+      organizationId: organizationId
 ```
 ```yaml {% srNumber=7 %}
-      salesforceApiVersion: "42.0"
+      sobjectName: sobjectName
 ```
 ```yaml {% srNumber=8 %}
-      salesforceDomain: login
+      salesforceApiVersion: "42.0"
 ```
 ```yaml {% srNumber=9 %}
+      salesforceDomain: login
+```
+```yaml {% srNumber=10 %}
       # connectionOptions:
       #   key: value
 ```
-```yaml {% srNumber=10 %}
+```yaml {% srNumber=11 %}
       # connectionArguments:
       #   key: value
 ```
