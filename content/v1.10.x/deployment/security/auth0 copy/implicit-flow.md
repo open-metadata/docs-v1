@@ -43,18 +43,26 @@ After the applying these steps, you can update the configuration of your deploym
   {% inlineCallout
     color="violet-70"
     icon="celebration"
-    bold="Auth0 SSO - Public"
-    href="/deployment/security/auth0/public-client" %}
-    Configure Auth0 SSO using the Public client type.
+    bold="Docker Security"
+    href="/deployment/security/auth0/docker" %}
+    Configure Auth0 SSO for your Docker Deployment.
   {% /inlineCallout %}
   {% inlineCallout
     color="violet-70"
     icon="storage"
-    bold="Auth0 SSO - Confidential"
-    href="/deployment/security/auth0/confidential-client" %}
-    Configure Auth0 SSO using the Confidential client type.
+    bold="Bare Metal Security"
+    href="/deployment/security/auth0/bare-metal" %}
+    Configure Auth0 SSO for your Bare Metal Deployment.
+  {% /inlineCallout %}
+  {% inlineCallout
+    color="violet-70"
+    icon="fit_screen"
+    bold="Kubernetes Security"
+    href="/deployment/security/auth0/kubernetes" %}
+    Configure Auth0 SSO for your Kubernetes Deployment.
   {% /inlineCallout %}
 {% /inlineCalloutContainer %}
+
 
 
 {% inlineCalloutContainer %}
