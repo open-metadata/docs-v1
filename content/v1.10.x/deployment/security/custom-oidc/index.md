@@ -34,24 +34,10 @@ After the applying these steps, you can update the configuration of your deploym
 {% inlineCalloutContainer %}
   {% inlineCallout
     color="violet-70"
-    icon="celebration"
-    bold="Docker Security"
-    href="/deployment/security/custom-oidc/docker" %}
-    Configure Custom OIDC SSO for your Docker Deployment.
-  {% /inlineCallout %}
-  {% inlineCallout
-    color="violet-70"
-    icon="storage"
-    bold="Bare Metal Security"
-    href="/deployment/security/custom-oidc/bare-metal" %}
-    Configure Custom OIDC SSO for your Bare Metal Deployment.
-  {% /inlineCallout %}
-  {% inlineCallout
-    color="violet-70"
     icon="fit_screen"
-    bold="Kubernetes Security"
-    href="/deployment/security/custom-oidc/kubernetes" %}
-    Configure Custom OIDC SSO for your Kubernetes Deployment.
+    bold="Custom OIDC Configuration"
+    href="/deployment/security/custom-oidc/custom-oidc-configuration" %}
+    Configure Custom OIDC.
   {% /inlineCallout %}
 {% /inlineCalloutContainer %}
 
