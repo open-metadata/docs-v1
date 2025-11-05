@@ -13,7 +13,7 @@ Custom OIDC authentication enables integration with any OpenID Connect (OIDC) co
 This guide walks you through configuring OpenMetadata with a Custom OIDC provider using **Confidential client** settings (Client ID + Client Secret).
 
 {% image 
-src="/images/v1.10/deployment/security/custom-odic/custom1.png"
+src="/images/v1.10/deployment/security/custom-oidc/custom1.png"
 alt="Custom OIDC Configuration" /%}
 
 ## Configuration Fields
