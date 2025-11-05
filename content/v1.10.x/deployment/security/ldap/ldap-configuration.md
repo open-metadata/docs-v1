@@ -1,6 +1,6 @@
 ---
 title: LDAP SSO Configuration | OpenMetadata
-description: Step-by-step guide to configure LDAP-based SSO using ADFS, Okta, or Shibboleth for secure enterprise authentication and federated login in OpenMetadata.
+description: Step-by-step guide to configure LDAP-based SSO using Active Directory, OpenLDAP, or other LDAP-compatible directory services for secure enterprise authentication and federated login in OpenMetadata.
 slug: /deployment/security/ldap/ldap-configuration
 ---
 
@@ -14,7 +14,7 @@ This guide explains how to configure LDAP as an authentication source in OpenMet
 
 {% image 
 src="/images/v1.10/deployment/security/ldap/ldap1.png"
-alt="SAML SSO Configuration" /%}
+alt="LDAP SSO Configuration" /%}
 
 ## Configuration Fields
 
