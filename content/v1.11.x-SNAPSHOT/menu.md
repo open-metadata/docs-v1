@@ -78,12 +78,8 @@ site_menu:
     url: /deployment/security/basic-auth
   - category: Deployment / Enable Security / Ldap Authentication
     url: /deployment/security/ldap
-  - category: Deployment / Enable Security / Ldap Authentication / Docker
-    url: /deployment/security/ldap/docker
-  - category: Deployment / Enable Security / Ldap Authentication / Bare Metal
-    url: /deployment/security/ldap/bare-metal
-  - category: Deployment / Enable Security / Ldap Authentication / Kubernetes
-    url: /deployment/security/ldap/kubernetes
+  - category: Deployment / Enable Security / Ldap Authentication / Ldap Configuration
+    url: /deployment/security/ldap/ldap-configuration
   - category: Deployment / Enable Security / Auth0 SSO
     url: /deployment/security/auth0
   - category: Deployment / Enable Security / Auth0 SSO / Docker
