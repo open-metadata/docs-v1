@@ -100,12 +100,8 @@ site_menu:
     url: /deployment/security/azure/confidential-client
   - category: Deployment / Enable Security / Custom OIDC SSO
     url: /deployment/security/custom-oidc
-  - category: Deployment / Enable Security / Custom OIDC SSO / Docker
-    url: /deployment/security/custom-oidc/docker
-  - category: Deployment / Enable Security / Custom OIDC SSO / Bare Metal
-    url: /deployment/security/custom-oidc/bare-metal
-  - category: Deployment / Enable Security / Custom OIDC SSO / Kubernetes
-    url: /deployment/security/custom-oidc/kubernetes
+  - category: Deployment / Enable Security / Custom OIDC SSO / Custom OIDC Configuration
+    url: /deployment/security/custom-oidc/custom-odic-configuration
   - category: Deployment / Enable Security / SSO Configuration
     url: /deployment/security/configuration/
   - category: Deployment / Enable Security / SSO Configuration / Docker
