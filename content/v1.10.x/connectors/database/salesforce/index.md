@@ -52,13 +52,13 @@ These are the permissions you will require to fetch the metadata from Salesforce
 
 {% note %} 
 
-When using a **Hybrid Ingestion Runner**, any sensitive credential fields—such as passwords, API keys, or private keys—must reference secrets using the following format: 
+When using a **Hybrid Ingestion Runner**, any sensitive credential fields—such as passwords, API keys, or private keys—must reference secrets using the following format:
 
 ```
 password: secret:/my/database/password
-``` 
+```
 
-This applies **only to fields marked as secrets** in the connection form (these typically mask input and show a visibility toggle icon). 
+This applies **only to fields marked as secrets** in the connection form (these typically mask input and show a visibility toggle icon).
 
 For a complete guide on managing secrets in hybrid setups, see the [Hybrid Ingestion Runner Secret Management Guide](https://docs.getcollate.io/getting-started/day-1/hybrid-saas/hybrid-ingestion-runner#3.-manage-secrets-securely).
 
@@ -68,6 +68,8 @@ For a complete guide on managing secrets in hybrid setups, see the [Hybrid Inges
 
 - **Username**: Username to connect to the Salesforce. This user should have the access as defined in requirements.
 - **Password**: Password to connect to Salesforce.
+- **Consumer Key**: Salesforce Consumer Key for OAuth 2.0 authentication. This is obtained from your Salesforce Connected App configuration.
+- **Consumer Secret**: Salesforce Consumer Secret for OAuth 2.0 authentication. This is obtained from your Salesforce Connected App configuration.
 - **Security Token**: Salesforce Security Token is required to access the metadata through APIs. You can checkout [this doc](https://help.salesforce.com/s/articleView?id=sf.user_security_token.htm&type=5) on how to get the security token.
 - **Organization ID**: Salesforce Organization ID is the unique identifier for your Salesforce identity. You can check out [this doc](https://help.salesforce.com/s/articleView?id=000385215&type=1) on how to get the your Salesforce Organization ID.
   {% note %}
