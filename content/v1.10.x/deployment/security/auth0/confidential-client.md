@@ -15,7 +15,7 @@ Auth0 SSO enables users to log in to OpenMetadata using their Auth0 credentials 
 
 {% image 
 src="/images/v1.10/deployment/security/auth0/auth02.png" 
-alt="Azure AD SSO Configuration - Confidential Client" /%}
+alt="Auth0 SSO Configuration - Confidential Client" /%}
 
 ### Provider Name
 
