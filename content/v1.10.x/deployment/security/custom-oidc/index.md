@@ -35,8 +35,8 @@ After the applying these steps, you can update the configuration of your deploym
   {% inlineCallout
     color="violet-70"
     icon="fit_screen"
-    bold="Custom ODIC Configuration"
-    href="/deployment/security/custom-oidc/custom-odic-configuration" %}
+    bold="Custom OIDC Configuration"
+    href="/deployment/security/custom-oidc/custom-oidc-configuration" %}
     Configure Custom OIDC.
   {% /inlineCallout %}
 {% /inlineCalloutContainer %}

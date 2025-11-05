@@ -1,7 +1,7 @@
 ---
 title: Custom OIDC SSO Configuration | OpenMetadata
 description: Step-by-step guide to configure Custom OIDC-based SSO using ADFS, Okta, or Shibboleth for secure enterprise authentication and federated login in OpenMetadata.
-slug: /deployment/security/custom-oidc/custom-odic-configuration
+slug: /deployment/security/custom-oidc/custom-oidc-configuration
 ---
 
 # Custom OIDC SSO Configuration
