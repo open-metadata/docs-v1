@@ -13,7 +13,7 @@ LDAP (Lightweight Directory Access Protocol) authentication enables users to log
 This guide explains how to configure LDAP as an authentication source in OpenMetadata.
 
 {% image 
-src="/images/v1.10/deployment/security/saml/saml1.png" 
+src="/images/v1.10/deployment/security/ldap/ldap1.png"
 alt="SAML SSO Configuration" /%}
 
 ## Configuration Fields
