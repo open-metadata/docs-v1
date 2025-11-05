@@ -101,7 +101,7 @@ site_menu:
   - category: Deployment / Enable Security / Custom OIDC SSO
     url: /deployment/security/custom-oidc
   - category: Deployment / Enable Security / Custom OIDC SSO / Custom OIDC Configuration
-    url: /deployment/security/custom-oidc/custom-odic-configuration
+    url: /deployment/security/custom-oidc/custom-oidc-configuration
   - category: Deployment / Enable Security / SSO Configuration
     url: /deployment/security/configuration/
   - category: Deployment / Enable Security / SSO Configuration / Docker
