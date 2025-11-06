@@ -161,7 +161,7 @@ alt="Auth0 SSO Configuration - Confidential Client" /%}
 
 - **Definition:** Your OM server url.
 - **Example:** `https://yourapp.company.com`.
-- **Why it matters:** specifies the url at which OM is hosted.
+- **Why it matters:** Specifies the URL at which OM is hosted.
 
 ### OIDC Callback URL
 
