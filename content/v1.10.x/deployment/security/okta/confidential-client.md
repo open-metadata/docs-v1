@@ -166,9 +166,9 @@ Your Okta organization subdomain.
 
 ### OIDC Server URL
 
-- **Definition:** Your OM server url.
+- **Definition:** Your OM server URL.
 - **Example:** `https://yourapp.company.com`.
-- **Why it matters:** specifies the url at which OM is hosted.
+- **Why it matters:** specifies the URL at which OM is hosted.
 
 ### Callback URL
 
