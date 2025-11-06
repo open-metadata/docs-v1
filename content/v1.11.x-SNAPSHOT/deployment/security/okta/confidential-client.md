@@ -31,16 +31,12 @@ Allows users to create OpenMetadata accounts on first login.
 - **Options:** Enabled | Disabled
 - **Recommended:** Disabled (for tighter access control)
 
----
-
 ### Authority
 
 Your Okta domain URL used to issue tokens.
 
 - **Example:** `https://dev-123456.okta.com` or `https://company.okta.com`
 - **Note:** This must match your Okta domain exactly.
-
----
 
 ### Public Key URLs
 
@@ -49,8 +45,6 @@ URLs where Okta publishes its public signing keys.
 - **Example:** `["https://dev-123456.okta.com/oauth2/v1/keys"]`
 - **Note:** Usually auto-discovered via discovery URI.
 
----
-
 ### Token Validation Algorithm
 
 Specifies the JWT algorithm to validate token signatures.
@@ -58,23 +52,17 @@ Specifies the JWT algorithm to validate token signatures.
 - **Options:** RS256 | RS384 | RS512
 - **Default:** RS256
 
----
-
 ### Client Type
 
 Defines the application type: public (no secret) or confidential (requires client secret).
 
 - **Recommended:** Confidential (for backend services and web apps)
 
----
-
 ### OIDC Client ID
 
 The client ID from your Okta app registration.
 
 - **Example:** `0oabc123def456ghi789`
-
----
 
 ### OIDC Client Secret
 
@@ -83,8 +71,6 @@ The client secret for authenticating your confidential client.
 - **Example:** `abc123def456ghi789jkl012mno345pqr678st`
 - **Note:** Only used for confidential clients. Rotate regularly.
 
----
-
 ### OIDC Request Scopes
 
 Permissions requested during authentication.
@@ -92,15 +78,11 @@ Permissions requested during authentication.
 - **Default:** `openid email profile`
 - **Optional:** Add `groups` for group-based authorization.
 
----
-
 ### OIDC Discovery URI
 
 URI to retrieve Okta’s OIDC metadata.
 
 - **Example:** `https://dev-123456.okta.com/.well-known/openid-configuration`
-
----
 
 ### OIDC Use Nonce
 
@@ -108,15 +90,11 @@ Enables anti-replay protection.
 
 - **Default:** true
 
----
-
 ### OIDC Preferred JWS Algorithm
 
 Preferred JWT signing algorithm.
 
 - **Default:** RS256
-
----
 
 ### OIDC Response Type
 
@@ -125,8 +103,6 @@ Defines the OAuth flow type.
 - **Options:** `id_token` | `code`
 - **Recommended:** `code` (authorization code flow)
 
----
-
 ### OIDC Disable PKCE
 
 Disables PKCE (Proof Key for Code Exchange).
@@ -134,15 +110,11 @@ Disables PKCE (Proof Key for Code Exchange).
 - **Default:** false
 - **Note:** Should generally remain enabled for security.
 
----
-
 ### OIDC Max Clock Skew
 
 Allowed time difference (in seconds) between systems during token validation.
 
 - **Example:** `0`
-
----
 
 ### OIDC Client Authentication Method
 
@@ -151,8 +123,6 @@ Specifies how the client authenticates with Okta.
 - **Options:** `client_secret_basic` | `client_secret_post` | `client_secret_jwt` | `private_key_jwt`
 - **Default:** `client_secret_basic`
 
----
-
 ### OIDC Token Validity
 
 How long tokens remain valid (in seconds).
@@ -160,23 +130,17 @@ How long tokens remain valid (in seconds).
 - **Default:** `0` (uses Okta’s default)
 - **Example:** `3600` (1 hour)
 
----
-
 ### OIDC Tenant
 
 Your Okta organization subdomain.
 
 - **Example:** `dev-123456`, `company`
 
----
-
 ### OIDC Server URL
 
-Base URL for your Okta server.
-
-- **Example:** `https://dev-123456.okta.com`
-
----
+- **Definition:** Your OM server url.
+- **Example:** `https://yourapp.company.com`.
+- **Why it matters:** specifies the url at which OM is hosted.
 
 ### Callback URL
 
@@ -185,16 +149,12 @@ Redirect URI for handling login responses.
 - **Example:** `https://yourapp.company.com/callback`
 - **Note:** Must match exactly in Okta → Applications → Sign-in redirect URIs
 
----
-
 ### OIDC Max Age
 
 Maximum time (in seconds) before forcing re-authentication.
 
 - **Example:** `3600`
 - **Optional:** Leave empty to use default behavior.
-
----
 
 ### OIDC Prompt
 
@@ -203,23 +163,17 @@ Controls authentication behavior.
 - **Options:** `none` | `login` | `consent` | `select_account`
 - **Recommended:** `login` (forces credential prompt)
 
----
-
 ### OIDC Session Expiry
 
 Controls user session duration (in seconds).
 
 - **Default:** `604800` (7 days)
 
----
-
 ### JWT Principal Claims
 
 JWT fields used to identify the authenticated user.
 
 - **Example:** `["preferred_username", "email", "sub"]`
-
----
 
 ### JWT Principal Claims Mapping
 
@@ -228,8 +182,6 @@ Maps JWT claims to OpenMetadata user profile fields.
 - **Example:** `["email:email", "name:name", "firstName:given_name"]`
 - **Note:** Format: `"openmetadata_field:jwt_claim"`
 
----
-
 ### Admin Principals
 
 List of users with full admin access.
@@ -237,15 +189,11 @@ List of users with full admin access.
 - **Example:** `["admin@company.com", "superuser@company.com"]`
 - **Note:** Must match one of the JWT claim values.
 
----
-
 ### Principal Domain
 
 Default domain for user identifiers.
 
 - **Example:** `company.com`
-
----
 
 ### Enforce Principal Domain
 
@@ -253,8 +201,6 @@ Restricts access to users within the configured domain.
 
 - **Default:** false
 - **Example:** true
-
----
 
 ### Enable Secure Socket Connection
 

@@ -159,9 +159,9 @@ alt="Auth0 SSO Configuration - Confidential Client" /%}
 
 ### OIDC Server URL
 
-- **Definition:** Base URL for Auth0 authentication server.  
-- **Example:** `https://dev‑abc123.us.auth0.com`  
-- **Why it matters:** Specifies the Auth0 endpoint to use in flows.
+- **Definition:** Your OM server url.
+- **Example:** `https://yourapp.company.com`.
+- **Why it matters:** specifies the url at which OM is hosted.
 
 ### OIDC Callback URL
 

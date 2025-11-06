@@ -151,8 +151,6 @@ Specifies how the client authenticates with Okta.
 - **Options:** `client_secret_basic` | `client_secret_post` | `client_secret_jwt` | `private_key_jwt`
 - **Default:** `client_secret_basic`
 
----
-
 ### OIDC Token Validity
 
 How long tokens remain valid (in seconds).
@@ -160,23 +158,17 @@ How long tokens remain valid (in seconds).
 - **Default:** `0` (uses Okta’s default)
 - **Example:** `3600` (1 hour)
 
----
-
 ### OIDC Tenant
 
 Your Okta organization subdomain.
 
 - **Example:** `dev-123456`, `company`
 
----
-
 ### OIDC Server URL
 
-Base URL for your Okta server.
-
-- **Example:** `https://dev-123456.okta.com`
-
----
+- **Definition:** Your OM server url.
+- **Example:** `https://yourapp.company.com`.
+- **Why it matters:** specifies the url at which OM is hosted.
 
 ### Callback URL
 
@@ -185,16 +177,12 @@ Redirect URI for handling login responses.
 - **Example:** `https://yourapp.company.com/callback`
 - **Note:** Must match exactly in Okta → Applications → Sign-in redirect URIs
 
----
-
 ### OIDC Max Age
 
 Maximum time (in seconds) before forcing re-authentication.
 
 - **Example:** `3600`
 - **Optional:** Leave empty to use default behavior.
-
----
 
 ### OIDC Prompt
 
@@ -203,23 +191,17 @@ Controls authentication behavior.
 - **Options:** `none` | `login` | `consent` | `select_account`
 - **Recommended:** `login` (forces credential prompt)
 
----
-
 ### OIDC Session Expiry
 
 Controls user session duration (in seconds).
 
 - **Default:** `604800` (7 days)
 
----
-
 ### JWT Principal Claims
 
 JWT fields used to identify the authenticated user.
 
 - **Example:** `["preferred_username", "email", "sub"]`
-
----
 
 ### JWT Principal Claims Mapping
 
@@ -228,8 +210,6 @@ Maps JWT claims to OpenMetadata user profile fields.
 - **Example:** `["email:email", "name:name", "firstName:given_name"]`
 - **Note:** Format: `"openmetadata_field:jwt_claim"`
 
----
-
 ### Admin Principals
 
 List of users with full admin access.
@@ -237,15 +217,11 @@ List of users with full admin access.
 - **Example:** `["admin@company.com", "superuser@company.com"]`
 - **Note:** Must match one of the JWT claim values.
 
----
-
 ### Principal Domain
 
 Default domain for user identifiers.
 
 - **Example:** `company.com`
-
----
 
 ### Enforce Principal Domain
 
@@ -253,8 +229,6 @@ Restricts access to users within the configured domain.
 
 - **Default:** false
 - **Example:** true
-
----
 
 ### Enable Secure Socket Connection
 

@@ -7,7 +7,7 @@ slug: /connectors/pipeline/airflow/mwaa
 
 To extract MWAA Metadata we need to run the ingestion **from** MWAA, since the underlying database lives in a private network.
 
-To learn how to run connectors from MWAA, you can take a look at this [doc](/deployment/ingestion/mwaa). In this guide,
+To learn how to run connectors from MWAA, you can take a look at this [doc](/deployment/ingestion/external/mwaa). In this guide,
 we'll explain how to configure the MWAA ingestion in the 3 supported approaches:
 
 1. Install the openmetadata-ingestion package as a requirement in the Airflow environment. We will then run the process using a `PythonOperator`

@@ -22,6 +22,7 @@ src="/images/v1.11/deployment/security/azure/azure2.png"
 alt="Azure AD SSO Configuration - Confidential Client" /%}
 
 ### 1. Client Type
+
 - **Definition:** Defines whether the application is public (no client secret) or confidential (requires client secret).
 - **Options:** `Public` | `Confidential`
 - **Example:** `Confidential`
@@ -31,6 +32,7 @@ alt="Azure AD SSO Configuration - Confidential Client" /%}
   - Azure typically uses `Confidential` type.
 
 ### 2. Authority
+
 - **Definition:** Azure AD endpoint that issues tokens for your tenant.
 - **Example:** `https://login.microsoftonline.com/your-tenant-id`
 - **Why it matters:** Tells OpenMetadata which Azure AD tenant to authenticate against.
@@ -39,12 +41,14 @@ alt="Azure AD SSO Configuration - Confidential Client" /%}
   - Use `common` for multi-tenant applications.
 
 ### 3. Public Key URLs
+
 - **Definition:** List of URLs where Azure AD publishes public keys for token verification.
 - **Example:** `["https://login.microsoftonline.com/common/discovery/v2.0/keys"]`
 - **Why it matters:** Verifies JWT token signatures.
 - **Note:** Usually auto-discovered via the discovery URI.
 
 ### 4. Token Validation Algorithm
+
 - **Definition:** Algorithm used to validate JWT token signatures.
 - **Options:** `RS256`, `RS384`, `RS512`
 - **Default & Example:** `RS256`
@@ -52,6 +56,7 @@ alt="Azure AD SSO Configuration - Confidential Client" /%}
 - **Note:** Azure AD typically uses `RS256`.
 
 ### 5. Client Type (OIDC IDP Type)
+
 - **Definition:** Defines whether the application is public (no client secret) or confidential (requires client secret).
 - **Options:** `Public` | `Confidential`
 - **Example:** `Confidential`
@@ -61,12 +66,14 @@ alt="Azure AD SSO Configuration - Confidential Client" /%}
   - Azure typically uses `Confidential` type.
 
 ### 6. OIDC Client ID
+
 - **Definition:** Application (client) ID for OIDC authentication with Azure AD.
 - **Example:** `12345678-1234-1234-1234-123456789012`
 - **Why it matters:** Identifies the application to Azure AD.
 - **Note:** Same as the Application (client) ID in Azure AD app registration.
 
 ### 7. OIDC Client Secret
+
 - **Definition:** Secret key for confidential client authentication.
 - **Example:** `abc123def456ghi789jkl012mno345pqr678st`
 - **Why it matters:** Required to securely authenticate with Azure AD.
@@ -75,6 +82,7 @@ alt="Azure AD SSO Configuration - Confidential Client" /%}
   - Store securely and rotate periodically.
 
 ### 8. OIDC Request Scopes
+
 - **Definition:** Permissions requested from Azure AD.
 - **Default:** `openid email profile`
 - **Example:** `openid email profile User.Read`
@@ -82,6 +90,7 @@ alt="Azure AD SSO Configuration - Confidential Client" /%}
 - **Note:** `openid email profile` is usually sufficient.
 
 ### 9. OIDC Discovery URI
+
 - **Definition:** Azure AD’s OpenID Connect metadata endpoint.
 - **Example:**  
   `https://login.microsoftonline.com/your-tenant-id/v2.0/.well-known/openid-configuration`
@@ -89,56 +98,66 @@ alt="Azure AD SSO Configuration - Confidential Client" /%}
 - **Note:** Replace `your-tenant-id` with your Azure AD tenant ID.
 
 ### 10. OIDC Use Nonce
+
 - **Definition:** Prevents replay attacks.
 - **Default & Example:** `true`
 - **Why it matters:** Enhances OIDC request security.
 
 ### 11. OIDC Preferred JWS Algorithm
+
 - **Default & Example:** `RS256`
 - **Why it matters:** Must match Azure AD’s token signing algorithm.
 - **Note:** Rarely needs to be changed.
 
 ### 12. OIDC Response Type
+
 - **Definition:** OAuth response type expected.
 - **Options:** `id_token` | `code`
 - **Default & Example:** `id_token`
 - **Why it matters:** Determines the OAuth flow (`code` is more secure).
 
 ### 13. OIDC Disable PKCE
+
 - **Definition:** Disables Proof Key for Code Exchange.
 - **Default & Example:** `false`
 - **Why it matters:** PKCE provides additional security.
 - **Note:** Should typically remain enabled (`false`).
 
 ### 14. OIDC Max Clock Skew
+
 - **Definition:** Allowed time difference (in seconds) between systems.
 - **Example:** `0`
 - **Why it matters:** Prevents token rejection due to system clock differences.
 
 ### 15. OIDC Client Authentication Method
+
 - **Definition:** How client authenticates with Azure AD.
 - **Options:** `client_secret_basic`, `client_secret_post`, `client_secret_jwt`, `private_key_jwt`
 - **Default & Example:** `client_secret_basic`
 - **Why it matters:** Must align with Azure AD app registration.
 
 ### 16. OIDC Token Validity
+
 - **Definition:** Duration in seconds that tokens remain valid.
 - **Default:** `0` (use Azure AD default)
 - **Example:** `3600`
 - **Why it matters:** Balances token lifetime vs. security.
 
 ### 17. OIDC Tenant
+
 - **Definition:** Azure AD tenant identifier.
 - **Example:** `your-tenant-id` or `company.onmicrosoft.com`
 - **Why it matters:** Defines which tenant to authenticate against.
 - **Note:** Use `common` for multi-tenant apps.
 
 ### 18. OIDC Server URL
+
 - **Definition:** Base URL of Azure AD authentication server.
 - **Example:** `https://login.microsoftonline.com`
 - **Why it matters:** Defines the Azure AD issuer URL.
 
 ### 19. Callback URL
+
 - **Definition:** Redirect URI where Azure AD sends auth responses.
 - **Example:** `https://yourapp.company.com/callback`
 - **Why it matters:** Must match Azure AD registered redirect URI.
@@ -147,11 +166,13 @@ alt="Azure AD SSO Configuration - Confidential Client" /%}
   - Always use HTTPS.
 
 ### 20. OIDC Max Age
+
 - **Definition:** Max authentication age before re-login is required.
 - **Example:** `3600`
 - **Why it matters:** Controls how often users must re-authenticate.
 
 ### 21. OIDC Prompt
+
 - **Definition:** Controls login experience.
 - **Options:** `none`, `login`, `consent`, `select_account`
 - **Example:** `select_account`
@@ -162,17 +183,20 @@ alt="Azure AD SSO Configuration - Confidential Client" /%}
   - `select_account`: Show account picker
 
 ### 22. OIDC Session Expiry
+
 - **Definition:** How long user sessions remain valid (in seconds).
 - **Default & Example:** `604800` (7 days)
 - **Why it matters:** Controls session timeout for confidential clients.
 
 ### 23. JWT Principal Claims
+
 - **Definition:** JWT fields used to identify users.
 - **Example:** `["preferred_username", "email", "sub"]`
 - **Why it matters:** Determines how users are mapped in OpenMetadata.
 - **Note:** Common claims: `email`, `preferred_username`, `upn`, `sub`
 
 ### 24. JWT Principal Claims Mapping
+
 - **Definition:** Maps JWT claims to OpenMetadata user fields.
 - **Example:**
   ```json
