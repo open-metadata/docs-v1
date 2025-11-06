@@ -134,9 +134,10 @@ alt="Azure AD SSO Configuration - Confidential Client" /%}
 - **Note:** Use `common` for multi-tenant apps.
 
 ### 18. OIDC Server URL
-- **Definition:** Base URL of Azure AD authentication server.
-- **Example:** `https://login.microsoftonline.com`
-- **Why it matters:** Defines the Azure AD issuer URL.
+
+- **Definition:** Your OM server URL.
+- **Example:** `https://yourapp.company.com`.
+- **Why it matters:** specifies the URL at which OM is hosted.
 
 ### 19. Callback URL
 - **Definition:** Redirect URI where Azure AD sends auth responses.
