@@ -870,6 +870,13 @@ site_menu:
   - category: How-to Guides / Admin Guide / Persona and Landing Page Customization / How to Define Personas
     url: /how-to-guides/admin-guide/persona-landing-page-customization/defining-persona
 
+  - category: How-to Guides / Collate Customer Support
+    url: /how-to-guides/collate-customer-support
+  - category: How-to Guides / Collate Customer Support / How to Open a Support Ticket with Collate
+    url: /how-to-guides/collate-customer-support/open-ticket
+  - category: How-to Guides / Collate Customer Support / How to Manage Users from the Collate Support Portal
+    url: /how-to-guides/collate-customer-support/manage-users
+
   - category: How-to Guides / Guide for Data Users
     url: /how-to-guides/guide-for-data-users
   - category: How-to Guides / Guide for Data Users / Understanding the Basics of OpenMetadata
