@@ -1,6 +1,6 @@
 ---
 title: Python SDK | OpenMetadata Python SDK Documentation
-description: Master OpenMetadata'sPython SDK with comprehensive documentation, code examples, and API guides. Build powerful data discovery and governance solutions.
+description: Master OpenMetadata's Python SDK with comprehensive documentation, code examples, and API guides. Build powerful data discovery and governance solutions.
 slug: /sdk/python
 ---
 
@@ -16,7 +16,7 @@ Make sure to use the same `openmetadata-ingestion` version as your server versio
 server at version 1.10.4, you will need to install:
 
 ```python
-pip install "openmetadata-ingestion~=1.10.4.0"
+pip install "openmetadata-ingestion~=1.11.0.0"
 ```
 
 {% /note %}

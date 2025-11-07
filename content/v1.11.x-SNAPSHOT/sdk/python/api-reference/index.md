@@ -13,6 +13,7 @@ slug: /sdk/python/api-reference
 - [`client`](/sdk/python/api-reference/client#module-client): Python API REST wrapper and helpers
 - [`client_utils`](/sdk/python/api-reference/client-utils#module-client_utils): OMeta client create helpers
 - [`credentials`](/sdk/python/api-reference/credentials#module-credentials): Helper methods to handle creds retrieval
+- [`data_quality`](/sdk/python/api-reference/data-quality): Module for running OpenMetadata Data Quality tests as code.
 - [`models`](/sdk/python/api-reference/models#module-models): Pydantic models for ometa client API
 - [`ometa_api`](/sdk/python/api-reference/ometa-api#module-ometa_api): OpenMetadata is the high level Python API that serves as a wrapper
 - [`provider_registry`](/sdk/python/api-reference/provider-registry#module-provider_registry): Register auth provider init functions here
