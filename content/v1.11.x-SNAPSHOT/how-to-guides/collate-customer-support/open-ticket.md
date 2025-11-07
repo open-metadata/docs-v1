@@ -2,7 +2,7 @@
 title: How to Open a Support Ticket with Collate
 description: Learn how to open a Collate support ticket via Slack, portal, or email to report bugs, request features, or ask product questions.
 slug: /how-to-guides/collate-customer-support/open-ticket
-Collate: true
+collate: true
 ---
 
 # How to Open a Support Ticket with Collate
