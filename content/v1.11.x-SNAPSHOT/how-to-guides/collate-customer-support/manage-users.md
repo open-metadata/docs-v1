@@ -2,7 +2,7 @@
 title: How to Manage Users from the Collate Support Portal
 description: Guide for Collate admins to manage users, assign roles, and control access within the Collate Support Portal.
 slug: /how-to-guides/collate-customer-support/manage-users
-Collate: true
+collate: true
 ---
 
 # How to Manage Users from the Collate Support Portal

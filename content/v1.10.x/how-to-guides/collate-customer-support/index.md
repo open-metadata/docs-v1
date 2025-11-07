@@ -2,7 +2,7 @@
 title: Collate Support Guides | Tickets & User Management
 description: Explore Collate Support Guides to learn how to open support tickets, manage users, assign roles, and control access in the Collate Portal.
 slug: /how-to-guides/collate-customer-support
-Collate: true
+collate: true
 ---
 
 
