@@ -8,10 +8,8 @@ slug: /connectors/pipeline/airflow/gcp-composer
 ## Requirements
 
 This approach has been last tested against:
-- Composer version 2.5.4
-- Airflow version 2.6.3
-
-It also requires the ingestion package to be at least `openmetadata-ingestion==1.2.4.3`.
+- Composer version 2.15.2
+- Airflow version 2.10.5
 
 There are 2 main approaches we can follow here to extract metadata from GCS. Both of them involve creating a DAG
 directly in your Composer instance, but the requirements and the steps to follow are going to be slightly different.
@@ -32,8 +30,8 @@ In any case, once the requirements are there, preparing the DAG is super straigh
 
 In your environment you will need to install the following packages:
 
-- `openmetadata-ingestion==x.y.z`, (e.g., `openmetadata-ingestion==1.2.4`).
-- `sqlalchemy==1.4.27`: This is needed to align OpenMetadata version with the Composer internal requirements.
+- `openmetadata-ingestion==x.y.z`, (e.g., `openmetadata-ingestion==1.10.4`).
+- `sqlalchemy==1.4.54`: This is needed to align OpenMetadata version with the Composer internal requirements.
 
 **Note:** Make sure to use the `openmetadata-ingestion` version that matches the server version
 you currently have!
@@ -137,39 +135,192 @@ with only the `openmetadata-ingestion` package.
 
 ### Requirements
 
-The only thing we need to handle here is getting the URL of the underlying Composer's database. You can follow
-the official GCS [docs](https://cloud.google.com/composer/docs/composer-2/access-airflow-database) for the steps to
-obtain the credentials.
+#### 1. Get Database Credentials
 
-In a nutshell, from the Airflow UI you can to Admin > Configurations, and search for `sql_alchemy_conn`. In our case,
-the URL looked like this:
+You need to obtain the connection details for the underlying Composer's database. You can follow the official GCS
+[docs](https://cloud.google.com/composer/docs/composer-2/access-airflow-database) for manual steps.
 
+**Alternative Automated Approach:**
+
+Create and run a DAG in your Composer environment to automatically extract the database credentials:
+
+```python
+import logging
+from datetime import timedelta
+from urllib.parse import urlparse
+import base64
+
+from airflow import DAG
+
+try:
+    from airflow.operators.python import PythonOperator
+except ModuleNotFoundError:
+    from airflow.operators.python_operator import PythonOperator
+
+from airflow.utils.dates import days_ago
+from airflow.configuration import conf
+
+default_args = {
+    "owner": "your_name",
+    "email": ["your_email@example.com"],
+    "email_on_failure": False,
+    "retries": 0,
+    "retry_delay": timedelta(minutes=5),
+    "execution_timeout": timedelta(minutes=60),
+}
+
+def get_database_config():
+    logging.info("=" * 80)
+    logging.info("DATABASE CONNECTION DETAILS")
+    logging.info("=" * 80)
+
+    sqlalchemy_conn = conf.get("core", "sql_alchemy_conn", fallback=None)
+
+    if sqlalchemy_conn:
+        logging.info(f"\nFull Connection String:\n{sqlalchemy_conn}\n")
+
+        try:
+            parsed = urlparse(sqlalchemy_conn)
+
+            logging.info("Parsed Connection Details:")
+            logging.info(f"  Database Type: {parsed.scheme}")
+            logging.info(f"  Username: {parsed.username}")
+
+            if parsed.password:
+                pwd_encoded = base64.b64encode(parsed.password.encode()).decode()
+                logging.info(f"  Password (base64 encoded): {pwd_encoded}")
+            else:
+                logging.info("  Password: None")
+
+            logging.info(f"  Host: {parsed.hostname}")
+            logging.info(f"  Port: {parsed.port}")
+            logging.info(f"  Database Name: {parsed.path.lstrip('/')}")
+
+            if parsed.query:
+                logging.info(f"  Query Parameters: {parsed.query}")
+
+        except Exception as e:
+            logging.error(f"Error parsing connection string: {e}")
+    else:
+        logging.warning("No SQL Alchemy connection string found")
+
+    logging.info("=" * 80)
+
+with DAG(
+    "get_airflow_database_config",
+    default_args=default_args,
+    description="Extract Airflow database configuration",
+    start_date=days_ago(1),
+    is_paused_upon_creation=True,
+    schedule_interval="@once",
+    catchup=False,
+) as dag:
+    extract_config = PythonOperator(
+        task_id="extract_db_config",
+        python_callable=get_database_config,
+    )
 ```
-postgresql+psycopg2://root:<pwd>@airflow-sqlproxy-service.composer-system.svc.cluster.local:3306/composer-2-0-28-airflow-2-2-5-5ab01d14
+
+Upload this DAG to your Composer environment and run it. The logs will show the parsed connection details.
+
+**Note:** The password is displayed using encoding methods (base64) to bypass Airflow's automatic password masking in logs. You can decode this password using a Base64 decoder.
+
+Example output format:
+```
+Database Type: postgresql+psycopg2
+Username: root
+Password (base64 encoded): base64_encoded_password
+Host: airflow-sqlproxy-service.composer-system.svc.cluster.local
+Port: 3306
+Database Name: composer-2-15-2-airflow-2-10-5-d07e4986
 ```
 
-As GCS uses Postgres for the backend database, our Airflow connection configuration will be shaped as:
+#### 2. Get Composer Namespace
+
+You need to identify your Composer environment's Kubernetes namespace. The namespace is typically the same as the **Database Name** from Step 1.
+
+**Alternative:** You can also find it via GCP Cloud Shell:
+
+```bash
+# Set your variables
+COMPOSER_ENV_NAME="your-composer-env-name"
+REGION="your-region"
+PROJECT_ID="your-project-id"
+
+# Get your Composer environment's GKE cluster details
+CLUSTER_FULL_PATH=$(gcloud composer environments describe $COMPOSER_ENV_NAME \
+  --location $REGION \
+  --format="get(config.gkeCluster)")
+
+# Extract cluster name and zone from the full path
+# Full path format: projects/{project}/zones/{zone}/clusters/{cluster}
+ZONE=$(echo $CLUSTER_FULL_PATH | cut -d'/' -f4)
+CLUSTER_NAME=$(echo $CLUSTER_FULL_PATH | cut -d'/' -f6)
+
+echo "Cluster Name: $CLUSTER_NAME"
+echo "Zone: $ZONE"
+
+# Connect to the cluster
+gcloud container clusters get-credentials $CLUSTER_NAME \
+  --zone $ZONE \
+  --project $PROJECT_ID
+
+# List namespaces to find the Composer namespace (usually starts with composer-)
+kubectl get namespaces | grep composer
+```
+
+The namespace typically follows the pattern: `composer-X-X-X-airflow-X-X-X-XXXXXXXX`
+
+Example: `composer-2-15-2-airflow-2-10-5-d07e4986`
+
+#### 3. Setup Kubernetes RBAC Permissions
+
+The KubernetesPodOperator requires specific permissions to create and manage pods. Run these commands in GCP Cloud Shell:
+
+```bash
+# Set your Composer namespace (same as Database Name from Step 1)
+NAMESPACE="<your-composer-namespace>"  # e.g., composer-2-15-2-airflow-2-10-5-d07e4986
+
+# Create a role with pod and events permissions
+kubectl create role pod-manager \
+  --verb=get,list,watch,create,delete,patch,update \
+  --resource=pods,pods/log,pods/status,events \
+  -n $NAMESPACE
+
+# Bind the role to the default service account
+kubectl create rolebinding default-pod-manager \
+  --role=pod-manager \
+  --serviceaccount=$NAMESPACE:default \
+  -n $NAMESPACE
+```
+
+**Note:** This step is required because the Kubernetes service account needs explicit permissions to manage pods within the namespace.
+
+#### 4. Configure Airflow Connection
+
+As GCP Composer uses Postgres for the backend database, use the values from Step 1 to configure the Airflow connection:
 
 ```yaml
 connection:
   type: Postgres
-  username: root
-  password: ...
-  hostPort: airflow-sqlproxy-service.composer-system.svc.cluster.local:3306
-  database: composer-2-0-28-airflow-2-2-5-5ab01d14
+  username: <username_from_step_1>          # e.g., root
+  authType:
+    password: <password_from_step_1>        # Actual password from decoded output
+  hostPort: <host_and_port_from_step_1>    # e.g., airflow-sqlproxy-service.composer-system.svc.cluster.local:3306
+  database: <database_name_from_step_1>    # e.g., composer-2-15-2-airflow-2-10-5-d07e4986
 ```
-
-For more information on how to shape the YAML describing the Airflow metadata extraction, you can refer 
-[here](/connectors/pipeline/airflow/cli#1-define-the-yaml-config).
 
 
 ### Prepare the DAG!
+
+Replace the placeholder values below with your actual configuration from the previous steps:
 
 ```python
 from datetime import datetime
 
 from airflow import models
-from airflow.providers.cncf.kubernetes.operators.kubernetes_pod import KubernetesPodOperator
+from airflow.providers.cncf.kubernetes.operators.pod import KubernetesPodOperator
+from kubernetes.client import models as k8s_models
 
 
 config = """
@@ -183,10 +334,11 @@ source:
       numberOfStatus: 10
       connection:
         type: Postgres
-        username: root
-        password: ...
-        hostPort: airflow-sqlproxy-service.composer-system.svc.cluster.local:3306
-        database: composer-2-0-28-airflow-2-2-5-5ab01d14
+        username: <username_from_step_1>
+        authType:
+          password: <password_from_step_1>
+        hostPort: <host_and_port_from_step_1>
+        database: <database_name_from_step_1>
   sourceConfig:
     config:
       type: PipelineMetadata
@@ -195,11 +347,11 @@ sink:
   config: {}
 workflowConfig:
   openMetadataServerConfig:
-    hostPort: https://sandbox.open-metadata.org/api
+    hostPort: <your_openmetadata_server_url>
     enableVersionValidation: false
     authProvider: openmetadata
     securityConfig:
-      jwtToken: <JWT>
+      jwtToken: <your_jwt_token>
 """
 
 
@@ -214,39 +366,51 @@ with models.DAG(
         task_id="ingest",
         name="ingest",
         cmds=["python", "main.py"],
-        image="openmetadata/ingestion-base:0.13.2",
-        namespace='default',
+        image="openmetadata/ingestion-base:<version>",  # Match your OpenMetadata server version
+        namespace="<namespace_from_step_2>",            # Same as database name
+        container_resources=k8s_models.V1ResourceRequirements(
+            requests={"memory": "256Mi", "cpu": "100m"},
+            limits={"memory": "512Mi", "cpu": "250m"},
+        ),
         env_vars={"config": config, "pipelineType": "metadata"},
         dag=dag,
     )
 ```
 
-Some remarks on this example code:
+**Note:** If you encounter an `ImportError` for `KubernetesPodOperator`, you may need to install the Kubernetes provider package in your Composer environment:
+```bash
+apache-airflow-providers-cncf-kubernetes
+```
 
-#### Kubernetes Pod Operator
+### Important Configuration Notes
 
-You can name the task as you want (`task_id` and `name`). The important points here are the `cmds`, this should not
-be changed, and the `env_vars`. The `main.py` script that gets shipped within the image will load the env vars
-as they are shown, so only modify the content of the config YAML, but not this dictionary.
+#### 1. Task Configuration
+- **task_id** and **name**: Can be customized to your preference
+- **cmds**: Must be `["python", "main.py"]` - do not change this
+- **env_vars**: Must contain `{"config": config, "pipelineType": "metadata"}` - the script relies on these exact keys
 
-Note that the example uses the image `openmetadata/ingestion-base:0.13.2`. Update that accordingly for higher version
-once they are released. Also, the image version should be aligned with your OpenMetadata server version to avoid
-incompatibilities.
+#### 2. Image Version
+The image version **must match your OpenMetadata server version**. For example:
+- OpenMetadata Server 1.10.4 → use `openmetadata/ingestion-base:1.10.4`
+- OpenMetadata Server 1.9.x → use `openmetadata/ingestion-base:1.9.x`
 
+#### 3. Resource Requirements
+GKE Autopilot (used by Composer 2.x) requires resource specifications:
 ```python
-KubernetesPodOperator(
-    task_id="ingest",
-    name="ingest",
-    cmds=["python", "main.py"],
-    image="openmetadata/ingestion-base:0.13.2",
-    namespace='default',
-    env_vars={"config": config, "pipelineType": "metadata"},
-    dag=dag,
+container_resources=k8s_models.V1ResourceRequirements(
+    requests={"memory": "256Mi", "cpu": "100m"},
+    limits={"memory": "512Mi", "cpu": "250m"},
 )
 ```
 
+You may need to adjust these based on your ingestion workload size.
+
+### Additional Resources
+
 You can find more information about the `KubernetesPodOperator` and how to tune its configurations
 [here](https://cloud.google.com/composer/docs/how-to/using/using-kubernetes-pod-operator).
+
+For RBAC troubleshooting, refer to the [Kubernetes RBAC documentation](https://kubernetes.io/docs/reference/access-authn-authz/rbac/).
 
 # OpenMetadata Server Config
 
