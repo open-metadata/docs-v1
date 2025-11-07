@@ -90,6 +90,88 @@ Adjust <user>, <catalog_name>, <schema_name>, and <table_name> according to your
 
 {% /note %}
 
+## Getting Connection Details
+
+Here are the steps to get `hostPort`, `httpPath` and authentication credentials:
+
+First login to Azure Databricks and from side bar select SQL Warehouse (In SQL section)
+
+
+{% image
+src="/images/v1.10/connectors/databricks/select-sql-warehouse.png"
+alt="Select Sql Warehouse"
+caption="Select Sql Warehouse" /%}
+
+
+Now click on sql Warehouse from the SQL Warehouses list.
+
+
+{% image
+src="/images/v1.10/connectors/databricks/Open-sql-warehouse.png"
+alt="Open Sql Warehouse"
+caption="Open Sql Warehouse" /%}
+
+
+Now inside that page go to Connection details section.
+In this page Server hostname and Port is your `hostPort`, HTTP path is your `http_path`.
+
+
+
+{% image
+src="/images/v1.10/connectors/databricks/Connection-details.png"
+alt="Connection details"
+caption="Connection details" /%}
+
+
+In Connection details section page click on Create a personal access token.
+
+{% image
+src="/images/v1.10/connectors/databricks/Open-create-token-page.png"
+alt="Open create token"
+caption="Open create token" /%}
+
+
+
+Now In this page you can create new `token`.
+
+
+{% image
+src="/images/v1.10/connectors/databricks/Generate-token.png"
+alt="Generate token"
+caption="Generate token" /%}
+
+## Getting Service Principal Credentials
+
+### For Databricks OAuth (All Platforms)
+
+1. Navigate to your Databricks Account Console
+2. Go to **Settings** → **Identity and access** → **Service Principals** → **Add Service Principal**
+3. Note down the **Application ID** (this is your `clientId`)
+4. Click **Generate Secret** and save the secret (this is your `clientSecret`)
+
+### For Azure AD Setup (Azure Databricks Only)
+
+1. Go to Azure Portal → **Azure Active Directory**
+2. Navigate to **Microsoft Entra ID** → **App registrations** → **New registration**
+3. After registration, note:
+   - **Application (client) ID** (this is your `azureClientId`)
+   - **Directory (tenant) ID** (this is your `azureTenantId`)
+4. Go to **Certificates & secrets** → **New client secret**
+5. Create and save the secret value (this is your `azureClientSecret`)
+6. Navigate to your Azure Databricks Account Console
+7. Go to **Settings** → **Identity and access** → **Service Principals** → **Add Service Principal**
+8. Select **Microsoft Entra ID managed** option and enter your **azureClientId**
+
+### Common Issues
+
+#### Authentication Failures
+- **PAT Issues**: Ensure token hasn't expired (max 90 days lifetime)
+- **Service Principal**: Verify the Service Principal has necessary permissions
+- **Azure AD**: Check if Azure Databricks workspace is configured for Azure AD authentication
+
+#### Permission Errors
+- Ensure proper GRANT statements have been executed for your authentication method
+
 ## Unity Catalog
 
 If you are using unity catalog in Databricks, then checkout the [Unity Catalog](/connectors/database/unity-catalog) connector.
