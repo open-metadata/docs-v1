@@ -78,20 +78,14 @@ site_menu:
     url: /deployment/security/basic-auth
   - category: Deployment / Enable Security / Ldap Authentication
     url: /deployment/security/ldap
-  - category: Deployment / Enable Security / Ldap Authentication / Docker
-    url: /deployment/security/ldap/docker
-  - category: Deployment / Enable Security / Ldap Authentication / Bare Metal
-    url: /deployment/security/ldap/bare-metal
-  - category: Deployment / Enable Security / Ldap Authentication / Kubernetes
-    url: /deployment/security/ldap/kubernetes
+  - category: Deployment / Enable Security / Ldap Authentication / Ldap Configuration
+    url: /deployment/security/ldap/ldap-configuration
   - category: Deployment / Enable Security / Auth0 SSO
     url: /deployment/security/auth0
-  - category: Deployment / Enable Security / Auth0 SSO / Docker
-    url: /deployment/security/auth0/docker
-  - category: Deployment / Enable Security / Auth0 SSO / Bare Metal
-    url: /deployment/security/auth0/bare-metal
-  - category: Deployment / Enable Security / Auth0 SSO / Kubernetes
-    url: /deployment/security/auth0/kubernetes
+  - category: Deployment / Enable Security / Auth0 SSO / Public
+    url: /deployment/security/auth0/public-client
+  - category: Deployment / Enable Security / Auth0 SSO / Confidential
+    url: /deployment/security/auth0/confidential-client
   - category: Deployment / Enable Security / Azure SSO
     url: /deployment/security/azure
   - category: Deployment / Enable Security / Azure SSO / Public
@@ -100,12 +94,8 @@ site_menu:
     url: /deployment/security/azure/confidential-client
   - category: Deployment / Enable Security / Custom OIDC SSO
     url: /deployment/security/custom-oidc
-  - category: Deployment / Enable Security / Custom OIDC SSO / Docker
-    url: /deployment/security/custom-oidc/docker
-  - category: Deployment / Enable Security / Custom OIDC SSO / Bare Metal
-    url: /deployment/security/custom-oidc/bare-metal
-  - category: Deployment / Enable Security / Custom OIDC SSO / Kubernetes
-    url: /deployment/security/custom-oidc/kubernetes
+  - category: Deployment / Enable Security / Custom OIDC SSO / Custom OIDC Configuration
+    url: /deployment/security/custom-oidc/custom-oidc-configuration
   - category: Deployment / Enable Security / SSO Configuration
     url: /deployment/security/configuration/
   - category: Deployment / Enable Security / SSO Configuration / Docker

@@ -690,6 +690,12 @@ site_menu:
     url: /connectors/metadata/atlas/yaml
   - category: Connectors / Metadata / Atlas / Troubleshooting
     url: /connectors/metadata/atlas/troubleshooting
+  - category: Connectors / Metadata / Collibra
+    url: /connectors/metadata/collibra
+  - category: Connectors / Metadata / Collibra / Run Externally
+    url: /connectors/metadata/collibra/yaml
+  - category: Connectors / Metadata / Collibra / Troubleshooting
+    url: /connectors/metadata/collibra/troubleshooting
 
   - category: Connectors / Custom Connectors
     url: /connectors/custom-connectors
@@ -863,6 +869,13 @@ site_menu:
     url: /how-to-guides/admin-guide/persona-landing-page-customization/customizable-landing-page
   - category: How-to Guides / Admin Guide / Persona and Landing Page Customization / How to Define Personas
     url: /how-to-guides/admin-guide/persona-landing-page-customization/defining-persona
+
+  - category: How-to Guides / Collate Customer Support
+    url: /how-to-guides/collate-customer-support
+  - category: How-to Guides / Collate Customer Support / How to Open a Support Ticket with Collate
+    url: /how-to-guides/collate-customer-support/open-ticket
+  - category: How-to Guides / Collate Customer Support / How to Manage Users from the Collate Support Portal
+    url: /how-to-guides/collate-customer-support/manage-users
 
   - category: How-to Guides / Guide for Data Users
     url: /how-to-guides/guide-for-data-users

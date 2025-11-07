@@ -91,6 +91,14 @@ Use LLMs and GenAI agents for automation and intelligent data management within 
     icon="administration"
 /%}
 {% /collateContent %}
+{% collateContent %}
+{% tile
+    title="Collate Customer Support"
+    description="Explore Collate Support Guides to learn how to open support tickets, manage users, assign roles, and control access in the Collate Portal."
+    link="/how-to-guides/collate-customer-support"
+    icon="steward"
+/%}
+{% /collateContent %}
 {% ossContent %}
 {% tile
     title="Guide for Data Users"

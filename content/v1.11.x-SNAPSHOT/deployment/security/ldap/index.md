@@ -24,17 +24,10 @@ Below are the configuration types to set up the LDAP Authentication:
 {%inlineCalloutContainer%}
   {%inlineCallout
     color="violet-70"
-    icon="celebration"
-    bold="Docker Security"
-    href="/deployment/security/ldap/docker"%}
-    Configure LDAP for your Docker Deployment.
-  {%/inlineCallout%}
-  {%inlineCallout
-    color="violet-70"
     icon="storage"
-    bold="Bare Metal Security"
-    href="/deployment/security/ldap/bare-metal"%}
-    Configure LDAP for your Bare Metal Deployment.
+    bold="LDAP Configuration"
+    href="/deployment/security/ldap/ldap-configuration"%}
+    Configure LDAP SSO.
   {%/inlineCallout%}
 {%/inlineCalloutContainer%}
 

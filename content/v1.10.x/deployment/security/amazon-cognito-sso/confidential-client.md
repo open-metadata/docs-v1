@@ -130,9 +130,10 @@ alt="AWS Cognito SSO Configuration - Confidential Client" /%}
 - **Why it matters:** Uniquely identifies your Cognito User Pool.
 
 ### OIDC Server URL
-- **Definition:** Base URL for AWS Cognito’s authentication server.
-- **Example:** `https://cognito-idp.us-east-1.amazonaws.com`
-- **Why it matters:** Defines the token and userinfo API endpoints.
+
+- **Definition:** Your OM server url.
+- **Example:** `https://yourapp.company.com`.
+- **Why it matters:** Specifies the URL at which OM is hosted.
 
 ### OIDC Callback URL
 - **Definition:** Redirect URI where Cognito sends authentication responses.
