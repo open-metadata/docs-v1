@@ -72,4 +72,10 @@ Here's the latest on OpenMetadata's data quality.
     href="/how-to-guides/data-quality-observability/quality/custom-tests"%}
     Write your own data quality tests and test suites.
  {%/inlineCallout%}
+ {%inlineCallout
+    icon="MdCode"
+    bold="Data Quality as Code"
+    href="/how-to-guides/data-quality-observability/quality/data-quality-as-code"%}
+    Run data quality tests programmatically from your ETL workflows using the Python SDK.
+ {%/inlineCallout%}
 {%/inlineCalloutContainer%}

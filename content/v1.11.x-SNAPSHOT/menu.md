@@ -1044,6 +1044,18 @@ site_menu:
     url: /how-to-guides/data-quality-observability/quality/tests-yaml
   - category: How-to Guides / Data Quality and Observability / Data Quality / Tests - UI Config
     url: /how-to-guides/data-quality-observability/quality/tests-ui
+  - category: How-to Guides / Data Quality and Observability / Data Quality / Data Quality as Code
+    url: /how-to-guides/data-quality-observability/quality/data-quality-as-code
+  - category: How-to Guides / Data Quality and Observability / Data Quality / Data Quality as Code / Getting Started
+    url: /how-to-guides/data-quality-observability/quality/data-quality-as-code/getting-started
+  - category: How-to Guides / Data Quality and Observability / Data Quality / Data Quality as Code / Test Runner
+    url: /how-to-guides/data-quality-observability/quality/data-quality-as-code/test-runner
+  - category: How-to Guides / Data Quality and Observability / Data Quality / Data Quality as Code / Dataframe Validation
+    url: /how-to-guides/data-quality-observability/quality/data-quality-as-code/dataframe-validation
+  - category: How-to Guides / Data Quality and Observability / Data Quality / Data Quality as Code / Test Definitions
+    url: /how-to-guides/data-quality-observability/quality/data-quality-as-code/test-definitions
+  - category: How-to Guides / Data Quality and Observability / Data Quality / Data Quality as Code / Advanced Usage
+    url: /how-to-guides/data-quality-observability/quality/data-quality-as-code/advanced-usage
   - category: How-to Guides / Data Quality and Observability / Data Quality / Custom Tests
     url: /how-to-guides/data-quality-observability/quality/custom-tests
   - category: How-to Guides / Data Quality and Observability / Data Profiler
