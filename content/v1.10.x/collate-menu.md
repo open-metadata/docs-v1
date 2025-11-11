@@ -1155,6 +1155,8 @@ site_menu:
     url: /how-to-guides/data-governance/workflows/how-to-edit-workflow
   - category: How-to Guides / Data Governance / Metrics
     url: /how-to-guides/data-governance/metrics
+  - category: How-to Guides / Data Governance / Custom Workflows
+    url: /how-to-guides/data-governance/custom-workflows
 
   - category: Enable Security
     url: /security
