@@ -1,7 +1,7 @@
-# 1.10.4 Release 🎉
+# 1.10.5 Release 🎉
 
 {% note noteType="Tip" %}
-**30th October 2025**
+**10th November 2025**
 {% /note %}
 
 {% inlineCalloutContainer %}
@@ -10,23 +10,45 @@ color="violet-70"
 icon="celebration"
 bold="Upgrade OpenMetadata"
 href="/deployment/upgrade" %}
-Learn how to upgrade your OpenMetadata instance to 1.10.4!
+Learn how to upgrade your OpenMetadata instance to 1.10.5!
 {% /inlineCallout %}
 {% /inlineCalloutContainer %}
 
-You can find the GitHub release [here](https://github.com/open-metadata/OpenMetadata/releases/tag/1.10.4-release).
+You can find the GitHub release [here](https://github.com/open-metadata/OpenMetadata/releases/tag/1.10.5-release).
 
+# Improvements
 
-## Bug Fixes
+- Added Salesforce OAuth
+- Databricks Pipeline Lineage
+- Implementation of Custom Workflows
+- Improvement around Data Quality UI
+- Removed `botPrincipal` from custom OIDC in UI form
+- Asset Specific Restrictions based on EntityStatus
+- Modified the “Run Agents” button label and message for better clarity
+- Domain and Data Product UI improvements and architecture enhancements
+- Enhanced REST API Connector
+  - Added support for Swagger 2.0
+  - Included Query/Path Parameters and Parameter References
+- Enhancements around Ingestion Runners (Collate)
+- Custom Workflows UI, Knowledge Center Improvements, Existing Workflow Migrations (Collate)
 
-- Fixed **custom label display** for **ER Diagram** tab
-- Resolved **failing custom dashboard** and **Automator Playwright tests**
-- Fixed **Support App token evaluation** issue
+# Fixes
 
-## Improvements
+- Ops install app bug fixed
+- Online users not getting tracked
+- PBI Databricks lineage parsing fix
+- Auth SSO form not showing some fields
+- Added missing entity card icons in Persona
+- PowerBI connector now supports custom API URL
+- PBI dataset source expression default value fix
+- FQN parsing problem in ClickHouse and improved logging
+- Prevented double notification when cover image upload fails
+- Added safeguard to prevent character loss during fast typing in search bar
+- Fixed job status update not working for stop action or server crash during job running
+- Fixed Automator Dynamic Assertion (Collate)
+- Fixed minor issues with Anomaly Detection (Collate)
+- Fixed description rendering for chart edit mode (Collate)
+- Fixed app cache update when user adds a config (Collate)
+- Fixed explore link not working on Automator details page (Collate)
 
-- Added **Azure Data Lake Storage (ADLS) Unstructured Containers** support
-- Revamped **Overview tab** for an improved user experience 
-- Added validation and **checks for Embeddings functionality**
-
-**Full Changelog**: [link](https://github.com/open-metadata/OpenMetadata/compare/1.10.3-release...1.10.4-release)
+**Full Changelog**: [link](https://github.com/open-metadata/OpenMetadata/compare/1.10.4-release...1.10.5-release)
