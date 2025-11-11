@@ -1044,6 +1044,18 @@ site_menu:
     url: /how-to-guides/data-quality-observability/quality/tests-yaml
   - category: How-to Guides / Data Quality and Observability / Data Quality / Tests - UI Config
     url: /how-to-guides/data-quality-observability/quality/tests-ui
+  - category: How-to Guides / Data Quality and Observability / Data Quality / Data Quality as Code
+    url: /how-to-guides/data-quality-observability/quality/data-quality-as-code
+  - category: How-to Guides / Data Quality and Observability / Data Quality / Data Quality as Code / Getting Started
+    url: /how-to-guides/data-quality-observability/quality/data-quality-as-code/getting-started
+  - category: How-to Guides / Data Quality and Observability / Data Quality / Data Quality as Code / Test Runner
+    url: /how-to-guides/data-quality-observability/quality/data-quality-as-code/test-runner
+  - category: How-to Guides / Data Quality and Observability / Data Quality / Data Quality as Code / Dataframe Validation
+    url: /how-to-guides/data-quality-observability/quality/data-quality-as-code/dataframe-validation
+  - category: How-to Guides / Data Quality and Observability / Data Quality / Data Quality as Code / Test Definitions
+    url: /how-to-guides/data-quality-observability/quality/data-quality-as-code/test-definitions
+  - category: How-to Guides / Data Quality and Observability / Data Quality / Data Quality as Code / Advanced Usage
+    url: /how-to-guides/data-quality-observability/quality/data-quality-as-code/advanced-usage
   - category: How-to Guides / Data Quality and Observability / Data Quality / Custom Tests
     url: /how-to-guides/data-quality-observability/quality/custom-tests
   - category: How-to Guides / Data Quality and Observability / Data Profiler
@@ -2391,6 +2403,34 @@ site_menu:
     url: /sdk/python/api-reference/dashboard-mixin
   - category: SDK / Python SDK / API Reference / Data Insight Mixin
     url: /sdk/python/api-reference/data-insight-mixin
+  - category: SDK / Python SDK / API Reference / Data Quality
+    url: /sdk/python/api-reference/data-quality
+  - category: SDK / Python SDK / API Reference / Data Quality / Workflow as Code
+    url: /sdk/python/api-reference/data-quality/workflow-as-code
+  - category: SDK / Python SDK / API Reference / Data Quality / Workflow as Code / Test Runner
+    url: /sdk/python/api-reference/data-quality/workflow-as-code/runner
+  - category: SDK / Python SDK / API Reference / Data Quality / Workflow as Code / Workflow Config Builder
+    url: /sdk/python/api-reference/data-quality/workflow-as-code/workflow-config-builder
+  - category: SDK / Python SDK / API Reference / Data Quality / Workflow as Code / Tests
+    url: /sdk/python/api-reference/data-quality/workflow-as-code/tests
+  - category: SDK / Python SDK / API Reference / Data Quality / Workflow as Code / Tests / Base Tests
+    url: /sdk/python/api-reference/data-quality/workflow-as-code/tests/base-tests
+  - category: SDK / Python SDK / API Reference / Data Quality / Workflow as Code / Tests / Column Tests
+    url: /sdk/python/api-reference/data-quality/workflow-as-code/tests/column-tests
+  - category: SDK / Python SDK / API Reference / Data Quality / Workflow as Code / Tests / Table Tests
+    url: /sdk/python/api-reference/data-quality/workflow-as-code/tests/table-tests
+  - category: SDK / Python SDK / API Reference / Data Quality / DataFrame Validation
+    url: /sdk/python/api-reference/data-quality/dataframe-validation
+  - category: SDK / Python SDK / API Reference / Data Quality / DataFrame Validation / Custom Warnings
+    url: /sdk/python/api-reference/data-quality/dataframe-validation/custom-warnings
+  - category: SDK / Python SDK / API Reference / Data Quality / DataFrame Validation / DataFrame Validator
+    url: /sdk/python/api-reference/data-quality/dataframe-validation/dataframe-validator
+  - category: SDK / Python SDK / API Reference / Data Quality / DataFrame Validation / DataFrame Validator Engine
+    url: /sdk/python/api-reference/data-quality/dataframe-validation/dataframe-validator-engine
+  - category: SDK / Python SDK / API Reference / Data Quality / DataFrame Validation / Validator Registry
+    url: /sdk/python/api-reference/data-quality/dataframe-validation/validators
+  - category: SDK / Python SDK / API Reference / Data Quality / DataFrame Validation / Validation Results
+    url: /sdk/python/api-reference/data-quality/dataframe-validation/validation-results
   - category: SDK / Python SDK / API Reference / ES Mixin
     url: /sdk/python/api-reference/es-mixin
   - category: SDK / Python SDK / API Reference / Ingestion Pipeline Mixin
