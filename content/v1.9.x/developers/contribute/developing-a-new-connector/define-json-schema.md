@@ -124,7 +124,7 @@ On this connector we can see two different definitions:
 
 {% codeInfo srNumber=6 %}
 
-* **additionalProperties**: To avoid werid behavior, we always prevent additionalProperties to be passed to the schema by setting this parameter to false.
+* **additionalProperties**: To avoid weird behavior, we always prevent additionalProperties to be passed to the schema by setting this parameter to false.
 
 * **required**: Here we can define any properties that are always required or the schema would be invalid otherwise
 

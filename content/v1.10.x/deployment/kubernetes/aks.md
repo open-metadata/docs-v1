@@ -184,7 +184,7 @@ kubectl create secret generic postgresql-secret                                 
 ```
 
 ### Step 6 - Install Openmetadata dependencies
-The values-dependencies-yaml is used to overwride default values in the official helm chart and must be configured for customizing for use cases. Uncomment the externalDatabase section with meaningful values to connect to external database for production deployments. We set sensitive information like host address, DB name and DB username through the CLI.
+The values-dependencies-yaml is used to override default values in the official helm chart and must be configured for customizing for use cases. Uncomment the externalDatabase section with meaningful values to connect to external database for production deployments. We set sensitive information like host address, DB name and DB username through the CLI.
 ```yaml
 # values-dependencies.yaml
 

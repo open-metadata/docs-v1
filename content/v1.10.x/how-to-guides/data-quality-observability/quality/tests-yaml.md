@@ -571,7 +571,7 @@ Accuracy
 
 **Properties**
 
-* `column`: the column that will be used to chech the table freshness
+* `column`: the column that will be used to check the table freshness
 * `timeSinceUpdate`: (in seconds) The data is expected to be updated within this number of seconds. If the time since the last update is greater than this value, the test will fail.
 
 **Behavior**
