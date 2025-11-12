@@ -123,13 +123,13 @@ For reference here is a [thread](https://community.powerbi.com/t5/Service/Error-
 
 {% note %} 
 
-When using a **Hybrid Ingestion Runner**, any sensitive credential fields—such as passwords, API keys, or private keys—must reference secrets using the following format: 
+When using a **Hybrid Ingestion Runner**, any sensitive credential fields—such as passwords, API keys, or private keys—must reference secrets using the following format:
 
 ```
 password: secret:/my/database/password
-``` 
+```
 
-This applies **only to fields marked as secrets** in the connection form (these typically mask input and show a visibility toggle icon). 
+This applies **only to fields marked as secrets** in the connection form (these typically mask input and show a visibility toggle icon).
 
 For a complete guide on managing secrets in hybrid setups, see the [Hybrid Ingestion Runner Secret Management Guide](https://docs.getcollate.io/getting-started/day-1/hybrid-saas/hybrid-ingestion-runner#3.-manage-secrets-securely).
 
@@ -158,11 +158,24 @@ To get the client secret, follow these steps:
 
 **tenantId**: PowerBI Tenant ID.
 
-To get the tenant ID, follow these steps:
-- Log into [Microsoft Azure](https://ms.portal.azure.com/#allservices).
-- Search for App registrations and select the App registrations link.
-- Select the Azure AD app you're using for Power BI.
-- From the Overview section, copy the Directory (tenant) ID.
+To create an Azure AD application and retrieve the required credentials, follow these steps:
+
+1. **Create an Azure AD Application**
+   - If you haven’t created an Azure AD app yet, follow [this guide](https://docs.open-metadata.org/latest/connectors/dashboard/powerbi/yaml#step-2-create-the-app-in-azure-ad) to set it up.
+
+2. **Get the tenant ID**
+   - Log into [Microsoft Azure](https://ms.portal.azure.com/#allservices).
+   - Search for **App registrations** and select the **App registrations** link.
+   - Select the Azure AD app you're using for Power BI.
+   - From the **Overview** section, copy the **Directory (tenant) ID**.
+
+3. **Get the client ID**
+   - In the same **Overview** section, copy the **Application (client) ID**.
+
+4. **Get the client secret**
+   - Navigate to **Certificates & secrets** in the left-hand menu.
+   - Under the **Client secrets** section, create a new client secret if one does not already exist.
+   - Copy and securely store the generated **client secret**, as it will only be shown once.
 
 **scope**: Service scope.
 
