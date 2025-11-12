@@ -167,7 +167,7 @@ kubectl apply -f permissions_pod.yaml
 helm repo add open-metadata https://helm.open-metadata.org/
 ```
 #### Create secrets
-It is recommeded to use external database and search for production deplyoments. The following implementation uses external postgresql DB from Azure Database. Any of the popular databases can be used. The default implementation uses mysql.
+It is recommended to use external database and search for production deployments. The following implementation uses external postgresql DB from Azure Database. Any of the popular databases can be used. The default implementation uses mysql.
 
 ```azure-cli
 kubectl create secret generic airflow-secrets                                    \

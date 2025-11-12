@@ -18,7 +18,7 @@ The `sourceConfig` is defined [here](https://github.com/open-metadata/OpenMetada
 
 - **markDeletedDashboards**: Set the 'Mark Deleted Dashboards' toggle to flag dashboards as soft-deleted if they are not present anymore in the source system.
 
-- **Include Draft Dashboard (toogle)**: Set the 'Include Draft Dashboard' toggle to include draft dashboards. By default it will include draft dashboards.
+- **Include Draft Dashboard (toggle)**: Set the 'Include Draft Dashboard' toggle to include draft dashboards. By default it will include draft dashboards.
 
 - **dataModelFilterPattern**: Regex exclude or include data models that matches the pattern.
 

@@ -24,7 +24,7 @@ To create OpenMetadata Gateway, you will need to establish a connection with *Op
 * `BaseURL`: The url on which your instance of OpenMetadata is up and running (include the port if you need to e.g. http://localhost:8585).
 * `APIVersion`: pass an empty string -- this will be `v1` for now.
 * `Retry`: number of time the request should retry if the status code returned is in `RetryCodes`. Use `0` to use the default value
-* `RetryWait`: number of second to wait betwee retries. Pass 0 to use the default value
+* `RetryWait`: number of second to wait between retries. Pass 0 to use the default value
 * `RetryCodes`: HTTP status that will trigger a retry. Pass `nil` to use the default
 * `AuthTokenMode`: defaults to `Bearer`
 * `AccessToken`: JWT token use to authenticate the request

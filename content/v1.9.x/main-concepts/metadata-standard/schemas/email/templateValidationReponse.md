@@ -4,7 +4,7 @@ description: Connect Templatevalidationreponse to enable streamlined access, mon
 slug: /main-concepts/metadata-standard/schemas/email/templatevalidationreponse
 ---
 
-# Email Template Validation Reponse
+# Email Template Validation Response
 
 *Schema defining email templates.*
 

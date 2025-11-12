@@ -1,6 +1,6 @@
 # Prerequisites
 
-Everytime that you plan on upgrading OpenMetadata to a newer version, make sure to go over all these steps:
+Every time that you plan on upgrading OpenMetadata to a newer version, make sure to go over all these steps:
 
 ## Backup your Metadata
 
