@@ -697,6 +697,15 @@ site_menu:
   - category: Connectors / Metadata / Collibra / Troubleshooting
     url: /connectors/metadata/collibra/troubleshooting
 
+  - category: Connectors / Drive
+    url: /connectors/drive
+  - category: Connectors / Drive / Google Drive
+    url: /connectors/drive/googledrive
+  - category: Connectors / Drive / Google Drive / Run Externally
+    url: /connectors/drive/googledrive/yaml
+  - category: Connectors / Drive / Google Drive / Troubleshooting
+    url: /connectors/drive/googledrive/troubleshooting
+
   - category: Connectors / Custom Connectors
     url: /connectors/custom-connectors
 
