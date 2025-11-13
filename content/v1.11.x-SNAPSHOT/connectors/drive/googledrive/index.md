@@ -2,6 +2,7 @@
 title: Google Drive Connector | OpenMetadata Drive Integration
 description: Connect Google Drive to OpenMetadata with our comprehensive drive connector guide. Step-by-step setup, configuration examples, and metadata extraction tips.
 slug: /connectors/drive/googledrive
+collate: true
 ---
 
 {% connectorDetailsHeader

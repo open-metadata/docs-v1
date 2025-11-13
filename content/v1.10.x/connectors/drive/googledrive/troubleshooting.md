@@ -1,6 +1,8 @@
 ---
 title: Google Drive Connector Troubleshooting
+description: Troubleshoot common issues with the Google Drive connector in OpenMetadata, including authentication failures, permission errors, missing files, and domain-wide delegation problems.
 slug: /connectors/drive/googledrive/troubleshooting
+collate: true
 ---
 
 # Troubleshooting
