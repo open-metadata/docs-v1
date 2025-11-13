@@ -2,6 +2,7 @@
 title: Run the Google Drive Connector Externally
 description: Use YAML to configure Google Drive metadata ingestion with profiling and schema extraction.
 slug: /connectors/drive/googledrive/yaml
+collate: true
 ---
 
 {% connectorDetailsHeader
