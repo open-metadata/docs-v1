@@ -16,7 +16,7 @@ OpenMetadata supports a hierarchical team structure with **teamType** that can b
 
 - **`Department`** is the next level of the team in the hierarchy below `Division`. It can have `Department` and `Group` as children. It can have `Organization`, `Business Unit`, `Division`, or `Department` as parents. It can have **multiple parents**.
 
-- **`Group`** is the last level of the team in the hierarchy. It can only have `Users` as children and not any other teams. It can have all the team types as parents. It can have **multiple parents**. 
+- **`Group`** is the final level in the team hierarchy. It can only have **Users** as children and cannot contain any other teams. A Group can have **any team type as its parent**, but **each Group can have only one parent team**. Multiple parent teams are **not supported**. 
 
 {% note noteType="Warning" %}
 - Once created, the teamType for `Group` **cannot be changed later**. 
