@@ -8,6 +8,10 @@ The `sourceConfig` is defined [here](https://github.com/open-metadata/OpenMetada
 
 **markDeletedStoredProcedures**: Optional configuration to soft delete stored procedures in OpenMetadata if the source stored procedures are deleted. Also, if the stored procedures is deleted, all the associated entities like lineage, etc., with that stored procedures will be deleted.
 
+**markDeletedSchemas**: Optional configuration to soft delete schemas stored in OpenMetadata if the source schema is deleted. Setting this flag to true will only keep filtered schema and delete any other schemas that do not match schemaFilterPattern or do not exist at source.
+
+**markDeletedDatabases**: Additional optional configuration for soft deletion, providing granular option to select which perticular entities should be deleted.
+
 **includeTables**: true or false, to ingest table data. Default is true.
 
 **includeViews**: true or false, to ingest views definitions.
