@@ -3,219 +3,25 @@ site_menu:
   - category: Home
     url: /
 
-  - category: Quickstart
-    url: /quick-start
-  - category: Quickstart / Try OpenMetadata in Docker
-    url: /quick-start/local-docker-deployment
-  - category: Quickstart / Try OpenMetadata in Kubernetes
-    url: /quick-start/local-kubernetes-deployment
-  - category: Quickstart / Try the OpenMetadata Sandbox
-    url: /quick-start/sandbox
-  - category: Quickstart / Getting Started
-    url: /quick-start/getting-started
-  - category: Quickstart / Getting Started / Day 1
-    url: /quick-start/getting-started/day-1
-  - category: Quickstart / Getting Started / Day 1 / Database Service Setup
-    url: /quick-start/getting-started/day-1/database-service-setup
+  - category: Getting Started
+    url: /getting-started
 
-  - category: Deployment
-    url: /deployment
-  - category: Deployment / Minimum Requirements
-    url: /deployment/minimum-requirements
-  - category: Deployment / Bare Metal Deployment
-    url: /deployment/bare-metal
-  - category: Deployment / Bare Metal Deployment / Enable Security
-    url: /deployment/bare-metal/security
-  - category: Deployment / Bare Metal Deployment / Enable Subpath
-    url: /deployment/bare-metal/subpath
-
-  - category: Deployment / Docker Deployment
-    url: /deployment/docker
-  - category: Deployment / Docker Deployment / Enable Security
-    url: /deployment/docker/security
-  - category: Deployment / Docker Deployment / Enable Subpath
-    url: /deployment/docker/subpath
-
-  - category: Deployment / Kubernetes Deployment
-    url: /deployment/kubernetes
-  - category: Deployment/ Kubernetes Deployment / Helm Values
-    url: /deployment/kubernetes/helm-values
-  - category: Deployment / Kubernetes Deployment / EKS
-    url: /deployment/kubernetes/eks
-  - category: Deployment / Kubernetes Deployment / GKE
-    url: /deployment/kubernetes/gke
-  - category: Deployment / Kubernetes Deployment / AKS
-    url: /deployment/kubernetes/aks
-  - category: Deployment / Kubernetes Deployment / On Premises
-    url: /deployment/kubernetes/on-prem
-  - category: Deployment / Kubernetes Deployment / Enable Security
-    url: /deployment/kubernetes/security
-  - category: Deployment / Kubernetes Deployment / Enable Subpath
-    url: /deployment/kubernetes/subpath
-  - category: Deployment / Kubernetes Deployment / Helm Values
-    url: /deployment/kubernetes/helm-values
-
-  - category: Deployment / Ingestion
-    url: /deployment/ingestion
-  - category: Deployment / Ingestion / OpenMetadata
-    url: /deployment/ingestion/openmetadata
-  - category: Deployment / Ingestion / External Ingestion
-    url: /deployment/ingestion/external
-  - category: Deployment / Ingestion / External / Airflow
-    url: /deployment/ingestion/external/airflow
-  - category: Deployment / Ingestion / External / MWAA
-    url: /deployment/ingestion/external/mwaa
-  - category: Deployment / Ingestion / External / GCP Composer 
-    url: /deployment/ingestion/external/gcp-composer
-  - category: Deployment / Ingestion / External / GitHub Actions
-    url: /deployment/ingestion/external/github-actions
-  - category: Deployment / Ingestion / External / Credentials
-    url: /deployment/ingestion/external/credentials
-
-  - category: Deployment / Enable Security
-    url: /deployment/security
-  - category: Deployment / Enable Security / Basic Authentication
-    url: /deployment/security/basic-auth
-  - category: Deployment / Enable Security / Ldap Authentication
-    url: /deployment/security/ldap
-  - category: Deployment / Enable Security / Ldap Authentication / Ldap Configuration
-    url: /deployment/security/ldap/ldap-configuration
-  - category: Deployment / Enable Security / Auth0 SSO
-    url: /deployment/security/auth0
-  - category: Deployment / Enable Security / Auth0 SSO / Public
-    url: /deployment/security/auth0/public-client
-  - category: Deployment / Enable Security / Auth0 SSO / Confidential
-    url: /deployment/security/auth0/confidential-client
-  - category: Deployment / Enable Security / Azure SSO
-    url: /deployment/security/azure
-  - category: Deployment / Enable Security / Azure SSO / Public
-    url: /deployment/security/azure/public-client
-  - category: Deployment / Enable Security / Azure SSO / Confidential
-    url: /deployment/security/azure/confidential-client
-  - category: Deployment / Enable Security / Custom OIDC SSO
-    url: /deployment/security/custom-oidc
-  - category: Deployment / Enable Security / Custom OIDC SSO / Custom OIDC Configuration
-    url: /deployment/security/custom-oidc/custom-oidc-configuration
-  - category: Deployment / Enable Security / SSO Configuration
-    url: /deployment/security/configuration/
-  - category: Deployment / Enable Security / SSO Configuration / Docker
-    url: /deployment/security/configuration/docker
-  - category: Deployment / Enable Security / SSO Configuration / Bare Metal
-    url: /deployment/security/configuration/bare-metal
-  - category: Deployment / Enable Security / SSO Configuration / Kubernetes
-    url: /deployment/security/configuration/kubernetes
-  - category: Deployment / Enable Security / OIDC SSO
-    url: /deployment/security/oidc
-  - category: Deployment / Enable Security / Google SSO
-    url: /deployment/security/google
-  - category: Deployment / Enable Security / Google SSO / Public
-    url: /deployment/security/google/public-client
-  - category: Deployment / Enable Security / Google SSO / Confidential 
-    url: /deployment/security/google/confidential-client
-  - category: Deployment / Enable Security / Okta SSO
-    url: /deployment/security/okta
-  - category: Deployment / Enable Security / Okta SSO / Docker
-    url: /deployment/security/okta/docker
-  - category: Deployment / Enable Security / Okta SSO / Bare Metal
-    url: /deployment/security/okta/bare-metal
-  - category: Deployment / Enable Security / Okta SSO / Kubernetes
-    url: /deployment/security/okta/kubernetes
-  - category: Deployment / Enable Security / Amazon Cognito SSO
-    url: /deployment/security/amazon-cognito
-  - category: Deployment / Enable Security / Amazon Cognito SSO / Public
-    url: /deployment/security/amazon-cognito/public-client
-  - category: Deployment / Enable Security / Amazon Cognito SSO / Confidential
-    url: /deployment/security/amazon-cognito/confidential-client
-  - category: Deployment / Enable Security / One Login SSO
-    url: /deployment/security/one-login
-  - category: Deployment / Enable Security / One Login SSO / Docker
-    url: /deployment/security/one-login/docker
-  - category: Deployment / Enable Security / One Login SSO / Bare Metal
-    url: /deployment/security/one-login/bare-metal
-  - category: Deployment / Enable Security / One Login SSO / Kubernetes
-    url: /deployment/security/one-login/kubernetes
-  - category: Deployment / Enable Security / Keycloak SSO
-    url: /deployment/security/keycloak
-  - category: Deployment / Enable Security / Keycloak SSO / Docker
-    url: /deployment/security/keycloak/docker
-  - category: Deployment / Enable Security / Keycloak SSO / Bare Metal
-    url: /deployment/security/keycloak/bare-metal
-  - category: Deployment / Enable Security / Keycloak SSO / Kubernetes
-    url: /deployment/security/keycloak/kubernetes
-  - category: Deployment / Enable Security / Keycloak SSO / Troubleshooting
-    url: /deployment/security/keycloak/troubleshooting
-  - category: Deployment / Enable Security / Saml
-    url: /deployment/security/saml
-  - category: Deployment / Enable Security / Saml / AWS
-    url: /deployment/security/saml/aws
-  - category: Deployment / Enable Security / Saml / Azure
-    url: /deployment/security/saml/azure
-  - category: Deployment / Enable Security / Saml / Saml Configuration
-    url: /deployment/security/saml/saml-configuration
-  - category: Deployment / Enable Security / Enable SSL
-    url: /deployment/security/enable-ssl
-  - category: Deployment / Enable Security / Enable SSL / Use Nginx
-    url: /deployment/security/enable-ssl/nginx
-  - category: Deployment / Enable Security / Enable SSL / Use the OpenMetadata Server
-    url: /deployment/security/enable-ssl/openmetadata-server
-  - category: Deployment / Enable Security / Enable SSL / Enable SSL in Airflow
-    url: /deployment/security/enable-ssl/airflow
-  - category: Deployment / Enable Security / Enable SSL / SSL Troubleshooting
-    url: /deployment/security/enable-ssl/ssl-troubleshooting
-  - category: Deployment / Enable Security / Enable JWT Tokens
-    url: /deployment/security/enable-jwt-tokens
-  - category: Deployment / Enable Security / Configuration Reference Parameters
-    url: /deployment/security/configuration-parameters
-  - category: Deployment / Enable Security / JWT Troubleshooting
-    url: /deployment/security/jwt-troubleshooting
-
-  - category: Deployment / Enable Secrets Manager
-    url: /deployment/secrets-manager
-  - category: Deployment / Enable Secrets Manager / Supported Implementations
-    url: /deployment/secrets-manager/supported-implementations
-  - category: Deployment / Enable Secrets Manager / Supported Implementations / AWS Secrets Manager
-    url: /deployment/secrets-manager/supported-implementations/aws-secrets-manager
-  - category: Deployment / Enable Secrets Manager / Supported Implementations / AWS SSM Parameter Store
-    url: /deployment/secrets-manager/supported-implementations/aws-ssm-parameter-store
-  - category: Deployment / Enable Secrets Manager / Supported Implementations / Azure Key Vault
-    url: /deployment/secrets-manager/supported-implementations/azure-key-vault
-  - category: Deployment / Enable Secrets Manager / Supported Implementations / GCP Secret Manager
-    url: /deployment/secrets-manager/supported-implementations/gcp-secret-manager
-  - category: Deployment / Enable Secrets Manager / How to add a new implementation
-    url: /deployment/secrets-manager/how-to-add-a-new-implementation
-
-  - category: Deployment / How to enable AWS RDS IAM Auth
-    url: /deployment/rds-iam-auth
-  - category: Deployment / How to enable Azure Auth
-    url: /deployment/azure-auth
-  - category: Deployment / Azure - Enable Passwordless Database Backend Connection
-    url: /deployment/azure-passwordless-auth
-  - category: Deployment / Production-Ready Requirements
-    url: /deployment/requirements
-  - category: Deployment / Server Configuration Reference
-    url: /deployment/configuration
-  - category: Deployment / Database Connection Pooling
-    url: /deployment/database-connection-pooling
-
-  - category: Deployment / Upgrade OpenMetadata
-    url: /deployment/upgrade
-  - category: Deployment / Upgrade OpenMetadata / How do the Upgrade & Backup work?
-    url: /deployment/upgrade/how-does-it-work
-  - category: Deployment / Upgrade OpenMetadata / Upgrade on Bare Metal
-    url: /deployment/upgrade/bare-metal
-  - category: Deployment / Upgrade OpenMetadata / Upgrade on Docker
-    url: /deployment/upgrade/docker
-  - category: Deployment / Upgrade OpenMetadata / Upgrade on Kubernetes
-    url: /deployment/upgrade/kubernetes
-
-  - category: Deployment / Backup & Restore Metadata
-    url: /deployment/backup-restore-metadata
-
-  - category: Deployment / Metrics
-    url: /deployment/metrics
-
-  - category: Deployment / OSS Security
-    url: /deployment/oss-security
+  - category: Getting Started / Day 1
+    url: /getting-started/day-1
+  - category: Getting Started / Day 1 / Hybrid SaaS
+    url: /getting-started/day-1/hybrid-saas
+  - category: Getting Started / Day 1 / Hybrid SaaS / Airflow
+    url: /getting-started/day-1/hybrid-saas/airflow
+  - category: Getting Started / Day 1 / Hybrid SaaS / MWAA
+    url: /getting-started/day-1/hybrid-saas/mwaa
+  - category: Getting Started / Day 1 / Hybrid SaaS / GCP Composer 
+    url: /getting-started/day-1/hybrid-saas/gcp-composer
+  - category: Getting Started / Day 1 / Hybrid SaaS / GitHub Actions
+    url: /getting-started/day-1/hybrid-saas/github-actions
+  - category: Getting Started / Day 1 / Hybrid SaaS / Credentials
+    url: /getting-started/day-1/hybrid-saas/credentials
+  - category: Getting Started / Day 1 / Hybrid SaaS / Hybrid Ingestion Runner
+    url: /getting-started/day-1/hybrid-saas/hybrid-ingestion-runner
 
   - category: Connectors
     url: /connectors
@@ -278,7 +84,7 @@ site_menu:
     url: /connectors/database/clickhouse/troubleshooting
   - category: Connectors / Database / Cockroach
     url: /connectors/database/cockroach
-  - category: Connectors / Database / cockroach / Run Externally
+  - category: Connectors / Database / Cockroach / Run Externally
     url: /connectors/database/cockroach/yaml
   - category: Connectors / Database / Cockroach / Troubleshooting
     url: /connectors/database/cockroach/troubleshooting
@@ -336,6 +142,12 @@ site_menu:
     url: /connectors/database/exasol/yaml
   - category: Connectors / Database / Exasol / Troubleshooting
     url: /connectors/database/exasol/troubleshooting
+  - category: Connectors / Database / Epic
+    url: /connectors/database/epic
+  - category: Connectors / Database / Epic / Run Externally
+    url: /connectors/database/epic/yaml
+  - category: Connectors / Database / Epic / Troubleshooting
+    url: /connectors/database/epic/troubleshooting
   - category: Connectors / Database / GCS Datalake
     url: /connectors/database/gcs-datalake
   - category: Connectors / Database / GCS Datalake / Run Externally
@@ -418,8 +230,6 @@ site_menu:
     url: /connectors/database/presto
   - category: Connectors / Database / Presto / Run Externally
     url: /connectors/database/presto/yaml
-  - category: Connectors / Database / Presto / Troubleshooting
-    url: /connectors/database/presto/troubleshooting
   - category: Connectors / Database / Redshift
     url: /connectors/database/redshift
   - category: Connectors / Database / Redshift / Run Externally
@@ -462,6 +272,12 @@ site_menu:
     url: /connectors/database/singlestore/yaml
   - category: Connectors / Database / SingleStore / Troubleshooting
     url: /connectors/database/singlestore/troubleshooting
+  - category: Connectors / Database / ServiceNow
+    url: /connectors/database/servicenow
+  - category: Connectors / Database / ServiceNow / Run Externally
+    url: /connectors/database/servicenow/yaml
+  - category: Connectors / Database / ServiceNow / Troubleshooting
+    url: /connectors/database/servicenow/troubleshooting
   - category: Connectors / Database / Snowflake
     url: /connectors/database/snowflake
   - category: Connectors / Database / Snowflake / Run Externally
@@ -474,6 +290,18 @@ site_menu:
     url: /connectors/database/sqlite/yaml
   - category: Connectors / Database / SQLite / Troubleshooting
     url: /connectors/database/sqlite/troubleshooting
+  - category: Connectors / Database / SSAS
+    url: /connectors/database/ssas
+  - category: Connectors / Database / SSAS / Run Externally
+    url: /connectors/database/ssas/yaml
+  - category: Connectors / Database / SSAS / Troubleshooting
+    url: /connectors/database/ssas/troubleshooting
+  - category: Connectors / Database / Synapse
+    url: /connectors/database/synapse
+  - category: Connectors / Database / Synapse / Run Externally
+    url: /connectors/database/synapse/yaml
+  - category: Connectors / Database / Synapse / Troubleshooting
+    url: /connectors/database/synapse/troubleshooting
   - category: Connectors / Database / Teradata
     url: /connectors/database/teradata
   - category: Connectors / Database / Teradata / Run Externally
@@ -561,6 +389,12 @@ site_menu:
     url: /connectors/dashboard/powerbi/powerbi-pbit-lineage
   - category: Connectors / Dashboard / PowerBI / Troubleshooting
     url: /connectors/dashboard/powerbi/troubleshooting
+  - category: Connectors / Dashboard / PowerBI Report Server
+    url: /connectors/dashboard/powerbireportserver
+  - category: Connectors / Dashboard / PowerBI Report Server / Run Externally
+    url: /connectors/dashboard/powerbireportserver/yaml
+  - category: Connectors / Dashboard / PowerBI Report Server / Troubleshooting
+    url: /connectors/dashboard/powerbireportserver/troubleshooting
   - category: Connectors / Dashboard / Qlik Cloud
     url: /connectors/dashboard/qlikcloud
   - category: Connectors / Dashboard / Qlik Cloud / Run Externally
@@ -609,6 +443,12 @@ site_menu:
     url: /connectors/dashboard/tableau/yaml
   - category: Connectors / Dashboard / Tableau / Troubleshooting
     url: /connectors/dashboard/tableau/troubleshooting
+  - category: Connectors / Dashboard / ThoughtSpot
+    url: /connectors/dashboard/thoughtspot
+  - category: Connectors / Dashboard / ThoughtSpot / Run Externally
+    url: /connectors/dashboard/thoughtspot/yaml
+  - category: Connectors / Dashboard / ThoughtSpot / Troubleshooting
+    url: /connectors/dashboard/thoughtspot/troubleshooting
 
   - category: Connectors / Messaging
     url: /connectors/messaging
@@ -655,6 +495,12 @@ site_menu:
     url: /connectors/pipeline/airflow/mwaa
   - category: Connectors / Pipeline / Airflow / GCP Composer 
     url: /connectors/pipeline/airflow/gcp-composer
+  - category: Connectors / Pipeline / Azure Data Factory
+    url: /connectors/pipeline/datafactory
+  - category: Connectors / Pipeline / Azure Data Factory / Run Externally
+    url: /connectors/pipeline/datafactory/yaml
+  - category: Connectors / Pipeline / Azure Data Factory / Troubleshooting
+    url: /connectors/pipeline/datafactory/troubleshooting
   - category: Connectors / Pipeline / Dagster
     url: /connectors/pipeline/dagster
   - category: Connectors / Pipeline / Dagster / Run Externally
@@ -703,6 +549,18 @@ site_menu:
     url: /connectors/pipeline/kafkaconnect/yaml
   - category: Connectors / Pipeline / KafkaConnect / Troubleshooting
     url: /connectors/pipeline/kafkaconnect/troubleshooting
+  - category: Connectors / Pipeline / KinesisFirehose
+    url: /connectors/pipeline/kinesis-firehose
+  - category: Connectors / Pipeline / KinesisFirehose / Run Externally
+    url: /connectors/pipeline/kinesis-firehose/yaml
+  - category: Connectors / Pipeline / KinesisFirehose / Troubleshooting
+    url: /connectors/pipeline/kinesis-firehose/troubleshooting
+  - category: Connectors / Pipeline / Matillion
+    url: /connectors/pipeline/matillion
+  - category: Connectors / Pipeline / Matillion / Run Externally
+    url: /connectors/pipeline/matillion/yaml
+  - category: Connectors / Pipeline / Troubleshooting
+    url: /connectors/pipeline/matillion/troubleshooting
   - category: Connectors / Pipeline / Nifi
     url: /connectors/pipeline/nifi
   - category: Connectors / Pipeline / Nifi / Run Externally
@@ -717,8 +575,32 @@ site_menu:
     url: /connectors/pipeline/spline
   - category: Connectors / Pipeline / Spline / Run Externally
     url: /connectors/pipeline/spline/yaml
-  - category: Connectors / Pipeline / Spline / troubleshooting
+  - category: Connectors / Pipeline / Spline / Troubleshooting
     url: /connectors/pipeline/spline/troubleshooting
+  - category: Connectors / Pipeline / Snowplow
+    url: /connectors/pipeline/snowplow
+  - category: Connectors / Pipeline / Snowplow / Run Externally
+    url: /connectors/pipeline/snowplow/yaml
+  - category: Connectors / Pipeline / Snowplow / Troubleshooting
+    url: /connectors/pipeline/snowplow/troubleshooting
+  - category: Connectors / Pipeline / SSIS
+    url: /connectors/pipeline/ssis
+  - category: Connectors / Pipeline / SSIS / Run Externally
+    url: /connectors/pipeline/ssis/yaml
+  - category: Connectors / Pipeline / SSIS / Troubleshooting
+    url: /connectors/pipeline/ssis/troubleshooting
+  - category: Connectors / Pipeline / Stitch
+    url: /connectors/pipeline/stitch
+  - category: Connectors / Pipeline / Stitch / Run Externally
+    url: /connectors/pipeline/stitch/yaml
+  - category: Connectors / Pipeline / Stitch / Troubleshooting
+    url: /connectors/pipeline/stitch/troubleshooting
+  - category: Connectors / Pipeline / Wherescape
+    url: /connectors/pipeline/wherescape
+  - category: Connectors / Pipeline / Wherescape / Run Externally
+    url: /connectors/pipeline/wherescape/yaml
+  - category: Connectors / Pipeline / Wherescape / Troubleshooting
+    url: /connectors/pipeline/wherescape/troubleshooting
 
   - category: Connectors / ML Model
     url: /connectors/ml-model
@@ -734,9 +616,26 @@ site_menu:
     url: /connectors/ml-model/sagemaker/yaml
   - category: Connectors / ML Model / Sagemaker / Troubleshooting
     url: /connectors/ml-model/sagemaker/troubleshooting
+  - category: Connectors / ML Model / VertexAI
+    url: /connectors/ml-model/vertexai
+  - category: Connectors / ML Model / VertexAI / Run Externally
+    url: /connectors/ml-model/vertexai/yaml
+  - category: Connectors / ML Model / VertexAI / Troubleshooting
+    url: /connectors/ml-model/vertexai/troubleshooting
+
+  - category: Connectors / Security
+    url: /connectors/security
+  - category: Connectors / Security / Ranger
+    url: /connectors/security/ranger
 
   - category: Connectors / Storage
     url: /connectors/storage
+  - category: Connectors / Storage / ADLS
+    url: /connectors/storage/adls
+  - category: Connectors / Storage / ADLS / Run Externally
+    url: /connectors/storage/adls/yaml
+  - category: Connectors / Storage / ADLS / Troubleshooting
+    url: /connectors/storage/adls/troubleshooting
   - category: Connectors / Storage / GCS
     url: /connectors/storage/gcs
   - category: Connectors / Storage / GCS / Run Externally
@@ -767,6 +666,12 @@ site_menu:
 
   - category: Connectors / Metadata
     url: /connectors/metadata
+  - category: Connectors / Metadata / Alation
+    url: /connectors/metadata/alation
+  - category: Connectors / Metadata / Alation / Run Externally
+    url: /connectors/metadata/alation/yaml
+  - category: Connectors / Metadata / Alation / Troubleshooting
+    url: /connectors/metadata/alation/troubleshooting
   - category: Connectors / Metadata / Alation Sink
     url: /connectors/metadata/alationsink
   - category: Connectors / Metadata / Alation Sink / Run Externally
@@ -785,6 +690,21 @@ site_menu:
     url: /connectors/metadata/atlas/yaml
   - category: Connectors / Metadata / Atlas / Troubleshooting
     url: /connectors/metadata/atlas/troubleshooting
+  - category: Connectors / Metadata / Collibra
+    url: /connectors/metadata/collibra
+  - category: Connectors / Metadata / Collibra / Run Externally
+    url: /connectors/metadata/collibra/yaml
+  - category: Connectors / Metadata / Collibra / Troubleshooting
+    url: /connectors/metadata/collibra/troubleshooting
+
+  - category: Connectors / Drive
+    url: /connectors/drive
+  - category: Connectors / Drive / Google Drive
+    url: /connectors/drive/googledrive
+  - category: Connectors / Drive / Google Drive / Run Externally
+    url: /connectors/drive/googledrive/yaml
+  - category: Connectors / Drive / Google Drive / Troubleshooting
+    url: /connectors/drive/googledrive/troubleshooting
 
   - category: Connectors / Custom Connectors
     url: /connectors/custom-connectors
@@ -859,6 +779,8 @@ site_menu:
     url: /connectors/ingestion/lineage/spark-lineage
   - category: Connectors / Ingestion / Versioning
     url: /connectors/ingestion/versioning
+  - category: Connectors / Ingestion / Auto Tagging
+    url: /connectors/ingestion/auto_tagging
   - category: Connectors / Ingestion / Versioning / Change Feeds
     url: /connectors/ingestion/versioning/change-feeds
   - category: Connectors / Ingestion / Versioning / Change Events
@@ -871,19 +793,42 @@ site_menu:
     url: /connectors/ingestion/deployment
   - category: Connectors / Ingestion / Best Practices
     url: /connectors/ingestion/best-practices
-
   - category: Connectors / Troubleshooting
     url: /connectors/troubleshooting
+
+  - category: Collate AI
+    url: /collateai
+
+  - category: Collate AI / Autopilot
+    url: /collateai/collate-ai-autopilot-workflows
+  - category: Collate AI / How to Use Collate AI
+    url: /collateai/how-to-use-collate-ai
+  - category: Collate AI / Collate AI Tier Agent
+    url: /collateai/tier-agent
+  - category: Collate AI / Collate AI Quality Agent
+    url: /collateai/quality-agent
+  - category: Collate AI / Collate AI Documentation Agent
+    url: /collateai/documentation-agent
+
+  - category: Applications
+    url: /applications
+
+  - category: Applications / Reverse Metadata Application
+    url: /applications/reverse-metadata
+  - category: Applications / Autopilot
+    url: /applications/autopilot
+  - category: Applications / Data Retention Application
+    url: /applications/data-retention
+  - category: Applications / Slack Application
+    url: /applications/slack
+  - category: Applications / Metadata Exporter
+    url: /applications/metadata-exporter
 
   - category: How-to Guides
     url: /how-to-guides
 
   - category: How-to Guides / MCP
     url: /how-to-guides/mcp
-  - category: How-to Guides / MCP / OpenMetadata MCP Server Connection Guide
-    url: /how-to-guides/mcp/connect
-  - category: How-to Guides / MCP / OpenMetadata MCP Tools Reference
-    url: /how-to-guides/mcp/reference
   - category: How-to Guides / MCP / Getting Started with Claude Desktop
     url: /how-to-guides/mcp/claude
   - category: How-to Guides / MCP / Getting Started with Goose Desktop
@@ -907,6 +852,8 @@ site_menu:
     url: /how-to-guides/admin-guide/teams-and-users/add-users
   - category: How-to Guides / Admin Guide / Manage Teams and Users / How to Change the Team Type
     url: /how-to-guides/admin-guide/teams-and-users/change-team-type
+  - category: How-to Guides / Admin Guide / Manage Teams and Users / SCIM Provisioning Guide
+    url: /how-to-guides/admin-guide/teams-and-users/scim-provisioning-guide
   - category: How-to Guides / Admin Guide / Advanced Guide for Roles and Policies
     url: /how-to-guides/admin-guide/roles-policies
   - category: How-to Guides / Admin Guide / Advanced Guide for Roles and Policies / Building Blocks of Authorization - Rules, Policies, and Roles
@@ -931,6 +878,13 @@ site_menu:
     url: /how-to-guides/admin-guide/persona-landing-page-customization/customizable-landing-page
   - category: How-to Guides / Admin Guide / Persona and Landing Page Customization / How to Define Personas
     url: /how-to-guides/admin-guide/persona-landing-page-customization/defining-persona
+
+  - category: How-to Guides / Collate Customer Support
+    url: /how-to-guides/collate-customer-support
+  - category: How-to Guides / Collate Customer Support / How to Open a Support Ticket with Collate
+    url: /how-to-guides/collate-customer-support/open-ticket
+  - category: How-to Guides / Collate Customer Support / How to Manage Users from the Collate Support Portal
+    url: /how-to-guides/collate-customer-support/manage-users
 
   - category: How-to Guides / Guide for Data Users
     url: /how-to-guides/guide-for-data-users
@@ -997,6 +951,8 @@ site_menu:
     url: /how-to-guides/data-discovery/openmetadata-extension/looking-up
   - category: How-to Guides / Data Discovery / OpenMetadata Chrome Extension / Viewing tasks & add comment directly from the extension
     url: /how-to-guides/data-discovery/openmetadata-extension/viewing-tasks
+  - category: How-to Guides / Data Discovery / ER Diagrams
+    url: /how-to-guides/data-discovery/er-diagrams
 
   - category: How-to Guides / Data Contracts
     url: /how-to-guides/data-contracts
@@ -1021,6 +977,8 @@ site_menu:
     url: /how-to-guides/data-collaboration/announcements
   - category: How-to Guides / Data Collaboration / How to Create an Announcement
     url: /how-to-guides/data-collaboration/add-announcement
+  - category: How-to Guides / Data Collaboration / Overview of Knowledge Center
+    url: /how-to-guides/data-collaboration/knowledge-center
 
   - category: How-to Guides / Data Quality and Observability
     url: /how-to-guides/data-quality-observability
@@ -1028,18 +986,13 @@ site_menu:
     url: /how-to-guides/data-quality-observability/quality
   - category: How-to Guides / Data Quality and Profiler / Data Quality / Data Quality Tab
     url: /how-to-guides/data-quality-observability/quality/tab
+  - category: How-to Guides / Data Quality and Profiler / Data Quality / Data Quality Overview Section
+    url: /how-to-guides/data-quality-observability/quality/overview
+
   - category: How-to Guides / Data Quality and Profiler / Data Quality / How to Write and Deploy No-Code Test Cases
     url: /how-to-guides/data-quality-observability/quality/test
   - category: How-to Guides / Data Quality and Observability / Data Quality / Configure Data Quality
     url: /how-to-guides/data-quality-observability/quality/configure
-  - category: How-to Guides / Data Quality Observability / Data Quality / Adding Test Cases
-    url: /how-to-guides/data-quality-observability/quality/adding-test-cases
-  - category: How-to Guides / Data Quality Observability / Data Quality / Adding Test Suites
-    url: /how-to-guides/data-quality-observability/quality/adding-test-suites
-  - category: How-to Guides / Data Quality Observability / Data Quality / Test Cases From YAML Config
-    url: /how-to-guides/data-quality-observability/quality/test-cases-from-yaml-config
-  - category: How-to Guides / Data Quality Observability / Data Quality / How to Visualize Test Results
-    url: /how-to-guides/data-quality-observability/quality/visualize
   - category: How-to Guides / Data Quality and Observability / Data Quality / Tests - YAML Config
     url: /how-to-guides/data-quality-observability/quality/tests-yaml
   - category: How-to Guides / Data Quality and Observability / Data Quality / Tests - UI Config
@@ -1057,7 +1010,7 @@ site_menu:
   - category: How-to Guides / Data Quality and Observability / Data Profiler / Custom Metrics
     url: /how-to-guides/data-quality-observability/profiler/custom-metrics
   - category: How-to Guides / Data Quality and Observability / Data Profiler / External Workflow
-    url: /how-to-guides/data-quality-observability/profiler/external-workflow
+    url: /how-to-guides/data-quality-observability/profiler/auto-pii-tagging
   - category: How-to Guides / Data Quality and Observability / Data Observability
     url: /how-to-guides/data-quality-observability/observability
   - category: How-to Guides / Data Quality and Observability / Data Observability / Observability Alerts
@@ -1068,6 +1021,26 @@ site_menu:
     url: /how-to-guides/data-quality-observability/incident-manager
   - category: How-to Guides / Data Quality and Observability / Incident Manager / How to work with the Incident Manager
     url: /how-to-guides/data-quality-observability/incident-manager/workflow
+  - category: How-to Guides / Data Quality and Observability / Incident Manager / Root Cause Analysis
+    url: /how-to-guides/data-quality-observability/incident-manager/root-cause-analysis
+  - category: How-to Guides / Data Quality and Observability / Data Profiler / Spark Engine
+    url: /how-to-guides/data-quality-observability/profiler/spark-engine
+  - category: How-to Guides / Data Quality and Observability / Data Profiler / Spark Engine / Prerequisites
+    url: /how-to-guides/data-quality-observability/profiler/spark-engine/prerequisites
+  - category: How-to Guides / Data Quality and Observability / Data Profiler / Spark Engine / Partitioning
+    url: /how-to-guides/data-quality-observability/profiler/spark-engine/partitioning
+  - category: How-to Guides / Data Quality and Observability / Data Profiler / Spark Engine / Configuration
+    url: /how-to-guides/data-quality-observability/profiler/spark-engine/configuration
+  - category: How-to Guides / Data Quality and Observability / Data Profiler / Spark Engine / Configuration / UI Configuration
+    url: /how-to-guides/data-quality-observability/profiler/spark-engine/configuration/ui-configuration
+  - category: How-to Guides / Data Quality and Observability / Data Profiler / Spark Engine / Configuration / External Configuration
+    url: /how-to-guides/data-quality-observability/profiler/spark-engine/configuration/external-configuration
+
+  - category: How-to Guides / Data Quality and Observability / Anomaly Detection
+    url: /how-to-guides/data-quality-observability/anomaly-detection
+
+  - category: How-to Guides / Data Quality and Observability / Anomaly Detection / Steps to Set Up Anomaly Detection
+    url: /how-to-guides/data-quality-observability/anomaly-detection/setting-up
 
   - category: How-to Guides / Data Lineage
     url: /how-to-guides/data-lineage
@@ -1088,19 +1061,25 @@ site_menu:
     url: /how-to-guides/data-insights/ingestion
   - category: How-to Guides / Data Insights / Key Performance Indicators (KPI)
     url: /how-to-guides/data-insights/kpi
-  - category: How-to Guides / Data Insights / Run Elasticsearch Reindex using Airflow SDK
-    url: /how-to-guides/data-insights/elasticsearch-reindex
   - category: How-to Guides / Data Insights / Data Insights Report
     url: /how-to-guides/data-insights/report
+  - category: How-to Guides / Data Insights / Cost Analysis
+    url: /how-to-guides/data-insights/cost-analysis
   - category: How-to Guides / Data Insights / Configure the Data Insights Report
     url: /how-to-guides/data-insights/email-report
   - category: How-to Guides / Data Insights / How to Transform the Data Culture of Your Company
     url: /how-to-guides/data-insights/data-culture
+  - category: How-to Guides / Data Insights / Custom Data Insight Dashboards
+    url: /how-to-guides/data-insights/custom-dashboard
   - category: How-to Guides / Data Insights / Service Insights
     url: /how-to-guides/data-insights/service-insights
 
   - category: How-to Guides / Data Governance
     url: /how-to-guides/data-governance
+  - category: How-to Guides / Data Governance / Automation
+    url: /how-to-guides/data-governance/automation
+  - category: How-to Guides / Data Governance / Automation / How to Set Up Automations in Collate
+    url: /how-to-guides/data-governance/automation/set-up-automation
   - category: How-to Guides / Data Governance / Glossary
     url: /how-to-guides/data-governance/glossary
   - category: How-to Guides / Data Governance / Glossary / What is a Glossary Term
@@ -1153,215 +1132,69 @@ site_menu:
     url: /how-to-guides/data-governance/domains-&-data-products/domains
   - category: How-to Guides / Data Governance / Domains & Data Product /  How to Use Data Products
     url: /how-to-guides/data-governance/domains-&-data-products/data-products
+  - category: How-to Guides / Data Governance / Workflows
+    url: /how-to-guides/data-governance/workflows
+  - category: How-to Guides / Data Governance / Workflows / Default Workflows
+    url: /how-to-guides/data-governance/workflows/default-workflows
+  - category: How-to Guides / Data Governance / Workflows / Default Workflows / Glossary Approval Workflow
+    url: /how-to-guides/data-governance/workflows/default-workflows/glossary-approval
+  - category: How-to Guides / Data Governance / Workflows / Default Workflows / Table Certification Workflow
+    url: /how-to-guides/data-governance/workflows/default-workflows/table-certification
+  - category: How-to Guides / Data Governance / Workflows / Default Workflows / Dashboard Certification Workflow
+    url: /how-to-guides/data-governance/workflows/default-workflows/dashboard-certification
+  - category: How-to Guides / Data Governance / Workflows / Elements
+    url: /how-to-guides/data-governance/workflows/elements
+  - category: How-to Guides / Data Governance / Workflows / Elements / Triggers
+    url: /how-to-guides/data-governance/workflows/elements/triggers
+  - category: How-to Guides / Data Governance / Workflows / Elements / Triggers / Event Based Entity Trigger
+    url: /how-to-guides/data-governance/workflows/elements/triggers/event-based-entity-trigger
+  - category: How-to Guides / Data Governance / Workflows / Elements / Triggers / Periodic Batch Entity Trigger
+    url: /how-to-guides/data-governance/workflows/elements/triggers/periodic-batch-entity-trigger
+  - category: How-to Guides / Data Governance / Workflows / Elements / Nodes
+    url: /how-to-guides/data-governance/workflows/elements/nodes
+  - category: How-to Guides / Data Governance / Workflows / Elements / Nodes / Check Entity Attributes
+    url: /how-to-guides/data-governance/workflows/elements/nodes/check-entity-attributes
+  - category: How-to Guides / Data Governance / Workflows / Elements / Nodes / Create User Task
+    url: /how-to-guides/data-governance/workflows/elements/nodes/create-user-task
+  - category: How-to Guides / Data Governance / Workflows / Elements / Nodes / Set Asset Certification
+    url: /how-to-guides/data-governance/workflows/elements/nodes/set-asset-certification
+  - category: How-to Guides / Data Governance / Workflows / Elements / Nodes / Set Glossary Term Status
+    url: /how-to-guides/data-governance/workflows/elements/nodes/set-glossary-term-status
+  - category: How-to Guides / Data Governance / Workflows / How to Edit a Workflow
+    url: /how-to-guides/data-governance/workflows/how-to-edit-workflow
   - category: How-to Guides / Data Governance / Metrics
     url: /how-to-guides/data-governance/metrics
+  - category: How-to Guides / Data Governance / Custom Workflows
+    url: /how-to-guides/data-governance/custom-workflows
 
-  - category: Releases
-    url: /releases
-  - category: Releases / Latest Release
-    url: /releases/latest-release
-  - category: Releases / Supported Releases
-    url: /releases/supported
-  - category: Releases / All Releases
-    url: /releases/all-releases
-  - category: Releases / All Releases / 1.10.4 Release
-    url: /releases/all-releases/#1.10.4-release
-  - category: Releases / All Releases / 1.10.3 Release
-    url: /releases/all-releases/#1.10.3-release
-  - category: Releases / All Releases / 1.10.2 Release
-    url: /releases/all-releases/#1.10.2-release
-  - category: Releases / All Releases / 1.10.1 Release
-    url: /releases/all-releases/#1.10.1-release
-  - category: Releases / All Releases / 1.10.0 Release
-    url: /releases/all-releases/#1.10.0-release
-  - category: Releases / All Releases / 1.9.14 Release
-    url: /releases/all-releases/#1.9.14-release
-  - category: Releases / All Releases / 1.9.13 Release
-    url: /releases/all-releases/#1.9.13-release
-  - category: Releases / All Releases / 1.9.12 Release
-    url: /releases/all-releases/#1.9.12-release
-  - category: Releases / All Releases / 1.9.11 Release
-    url: /releases/all-releases/#1.9.11-release
-  - category: Releases / All Releases / 1.9.10 Release
-    url: /releases/all-releases/#1.9.10-release
-  - category: Releases / All Releases / 1.9.9 Release
-    url: /releases/all-releases/#1.9.9-release
-  - category: Releases / All Releases / 1.9.8 Release
-    url: /releases/all-releases/#1.9.8-release
-  - category: Releases / All Releases / 1.9.7 Release
-    url: /releases/all-releases/#1.9.7-release
-  - category: Releases / All Releases / 1.9.6 Release
-    url: /releases/all-releases/#1.9.6-release
-  - category: Releases / All Releases / 1.9.5 Release
-    url: /releases/all-releases/#1.9.5-release
-  - category: Releases / All Releases / 1.9.4 Release
-    url: /releases/all-releases/#1.9.4-release
-  - category: Releases / All Releases / 1.9.2 Release
-    url: /releases/all-releases/#1.9.2-release
-  - category: Releases / All Releases / 1.9.1 Release
-    url: /releases/all-releases/#1.9.1-release
-  - category: Releases / All Releases / 1.9.0 Release
-    url: /releases/all-releases/#1.9.0-release
-  - category: Releases / All Releases / 1.8.12 Release
-    url: /releases/all-releases/#1.8.12-release
-  - category: Releases / All Releases / 1.8.10 Release
-    url: /releases/all-releases/#1.8.10-release
-  - category: Releases / All Releases / 1.8.9 Release
-    url: /releases/all-releases/#1.8.9-release
-  - category: Releases / All Releases / 1.8.8 Release
-    url: /releases/all-releases/#1.8.8-release
-  - category: Releases / All Releases / 1.8.7 Release
-    url: /releases/all-releases/#1.8.7-release
-  - category: Releases / All Releases / 1.8.6 Release
-    url: /releases/all-releases/#1.8.6-release
-  - category: Releases / All Releases / 1.8.3 Release
-    url: /releases/all-releases/#1.8.3-release
-  - category: Releases / All Releases / 1.8.2 Release
-    url: /releases/all-releases/#1.8.2-release
-  - category: Releases / All Releases / 1.8.1 Release
-    url: /releases/all-releases/#1.8.1-release
-  - category: Releases / All Releases / 1.8.0 Release
-    url: /releases/all-releases/#1.8.0-release
-  - category: Releases / All Releases / 1.7.5 Release
-    url: /releases/all-releases/#1.7.5-release
-  - category: Releases / All Releases / 1.7.4 Release
-    url: /releases/all-releases/#1.7.4-release
-  - category: Releases / All Releases / 1.7.3 Release
-    url: /releases/all-releases/#1.7.3-release
-  - category: Releases / All Releases / 1.7.2 Release
-    url: /releases/all-releases/#1.7.2-release
-  - category: Releases / All Releases / 1.7.1 Release
-    url: /releases/all-releases/#1.7.1-release
-  - category: Releases / All Releases / 1.7.0 Release
-    url: /releases/all-releases/#1.7.0-release
-  - category: Releases / All Releases / 1.6.11 Release
-    url: /releases/all-releases/#1.6.11-release
-  - category: Releases / All Releases / 1.6.10 Release
-    url: /releases/all-releases/#1.6.10-release
-  - category: Releases / All Releases / 1.6.9 Release
-    url: /releases/all-releases/#1.6.9-release
-  - category: Releases / All Releases / 1.6.8 Release
-    url: /releases/all-releases/#1.6.8-release
-  - category: Releases / All Releases / 1.6.7 Release
-    url: /releases/all-releases/#1.6.7-release
-  - category: Releases / All Releases / 1.6.6 Release
-    url: /releases/all-releases/#1.6.6-release
-  - category: Releases / All Releases / 1.6.5 Release
-    url: /releases/all-releases/#1.6.5-release
-  - category: Releases / All Releases / 1.6.4 Release
-    url: /releases/all-releases/#1.6.4-release
-  - category: Releases / All Releases / 1.6.3 Release
-    url: /releases/all-releases/#1.6.3-release
-  - category: Releases / All Releases / 1.6.2 Release
-    url: /releases/all-releases/#1.6.2-release
-  - category: Releases / All Releases / 1.6.1 Release
-    url: /releases/all-releases/#1.6.1-release
-  - category: Releases / All Releases / 1.6.1 Release
-    url: /releases/all-releases/#1.6.1-release
-  - category: Releases / All Releases / 1.5.15 Release
-    url: /releases/all-releases/#1.5.15-release
-  - category: Releases / All Releases / 1.5.14 Release
-    url: /releases/all-releases/#1.5.14-release
-  - category: Releases / All Releases / 1.5.13 Release
-    url: /releases/all-releases/#1.5.13-release
-  - category: Releases / All Releases / 1.5.12 Release
-    url: /releases/all-releases/#1.5.12-release
-  - category: Releases / All Releases / 1.5.11 Release
-    url: /releases/all-releases/#1.5.11-release
-  - category: Releases / All Releases / 1.5.10 Release
-    url: /releases/all-releases/#1.5.10-release
-  - category: Releases / All Releases / 1.5.9 Release
-    url: /releases/all-releases/#1.5.9-release
-  - category: Releases / All Releases / 1.5.8 Release
-    url: /releases/all-releases/#1.5.8-release
-  - category: Releases / All Releases / 1.5.7 Release
-    url: /releases/all-releases/#1.5.7-release
-  - category: Releases / All Releases / 1.5.6 Release
-    url: /releases/all-releases/#1.5.6-release
-  - category: Releases / All Releases / 1.5.5 Release
-    url: /releases/all-releases/#1.5.5-release
-  - category: Releases / All Releases / 1.5.4 Release
-    url: /releases/all-releases/#1.5.4-release
-  - category: Releases / All Releases / 1.5.3 Release
-    url: /releases/all-releases/#1.5.3-release
-  - category: Releases / All Releases / 1.5.2 Release
-    url: /releases/all-releases/#1.5.2-release
-  - category: Releases / All Releases / 1.5.1 Release
-    url: /releases/all-releases/#1.5.1-release
-  - category: Releases / All Releases / 1.4.8 Release
-    url: /releases/all-releases/#1.4.8-release
-  - category: Releases / All Releases / 1.4.7 Release
-    url: /releases/all-releases/#1.4.7-release
-  - category: Releases / All Releases / 1.4.6 Release
-    url: /releases/all-releases/#1.4.6-release
-  - category: Releases / All Releases / 1.4.5 Release
-    url: /releases/all-releases/#1.4.5-release
-  - category: Releases / All Releases / 1.4.4 Release
-    url: /releases/all-releases/#1.4.4-release
-  - category: Releases / All Releases / 1.4.3 Release
-    url: /releases/all-releases/#1.4.3-release
-  - category: Releases / All Releases / 1.4.2 Release
-    url: /releases/all-releases/#1.4.2-release
-  - category: Releases / All Releases / 1.4.1 Release
-    url: /releases/all-releases/#1.4.1-release
-  - category: Releases / All Releases / 1.4.0 Release
-    url: /releases/all-releases/#1.4.0-release
-  - category: Releases / All Releases / 1.3.4 Release
-    url: /releases/all-releases/#1.3.4-release
-  - category: Releases / All Releases / 1.3.3 Release
-    url: /releases/all-releases/#1.3.3-release
-  - category: Releases / All Releases / 1.3.2 Release
-    url: /releases/all-releases/#1.3.2-release
-  - category: Releases / All Releases / 1.3.1 Release
-    url: /releases/all-releases/#1.3.1-release
-  - category: Releases / All Releases / 1.3.1 Release
-    url: /releases/all-releases/#1.3.1-release
-  - category: Releases / All Releases / 1.3.0 Release
-    url: /releases/all-releases/#1.3.0-release
-  - category: Releases / All Releases / 1.2.0 Release
-    url: /releases/all-releases/#1.2.0-release
-  - category: Releases / All Releases / 1.1.2 Release
-    url: /releases/all-releases/#1.1.2-release
-  - category: Releases / All Releases / 1.1.1 Release
-    url: /releases/all-releases/#1.1.1-release
-  - category: Releases / All Releases / 1.1.0 Release
-    url: /releases/all-releases/#1.1.0-release
-  - category: Releases / All Releases / 1.0.0 Release
-    url: /releases/all-releases/#1.0.0-release
-  - category: Releases / All Releases / 0.13.3 Release
-    url: /releases/all-releases/#0.13.3-release
-  - category: Releases / All Releases / 0.13.2 Release
-    url: /releases/all-releases/#0.13.2-release
-  - category: Releases / All Releases / 0.13.1 Release
-    url: /releases/all-releases/#0.13.1-release
-  - category: Releases / All Releases / 0.13.0 Release
-    url: /releases/all-releases/#0.13.0-release
-  - category: Releases / All Releases / 0.12.3 Release
-    url: /releases/all-releases/#0.12.3-release
-  - category: Releases / All Releases / 0.12.2 Release
-    url: /releases/all-releases/#0.12.2-release
-  - category: Releases / All Releases / 0.12.1 Release
-    url: /releases/all-releases/#0.12.1-release
-  - category: Releases / All Releases / 0.12.0 Release
-    url: /releases/all-releases/#0.12.0-release
-  - category: Releases / All Releases / 0.11.0 Release
-    url: /releases/all-releases/#0.11.0-release
-  - category: Releases / All Releases / 0.10.1 Release
-    url: /releases/all-releases/#0.10.1-release
-  - category: Releases / All Releases / 0.10.0 Release
-    url: /releases/all-releases/#0.10.0-release
-  - category: Releases / All Releases / 0.9.0 Release
-    url: /releases/all-releases/#0.9.0-release
-  - category: Releases / All Releases / 0.8.0 Release
-    url: /releases/all-releases/#0.8.0-release
-  - category: Releases / All Releases / 0.7.0 Release
-    url: /releases/all-releases/#0.7.0-release
-  - category: Releases / All Releases / 0.6.0 Release
-    url: /releases/all-releases/#0.6.0-release
-  - category: Releases / All Releases / 0.5.0 Release
-    url: /releases/all-releases/#0.5.0-release
-  - category: Releases / All Releases / 0.4.0 Release
-    url: /releases/all-releases/#0.4.0-release
+  - category: Enable Security
+    url: /security
+  - category: Enable Security / Ldap Authentication
+    url: /security/ldap
+  - category: Enable Security / Auth0 SSO
+    url: /security/auth0
+  - category: Enable Security / Azure SSO
+    url: /security/azure
+  - category: Enable Security / Custom OIDC SSO
+    url: /security/custom-oidc
+  - category: Enable Security / OIDC SSO
+    url: /security/oidc
+  - category: Enable Security / Google SSO
+    url: /security/google
+  - category: Enable Security / Okta SSO
+    url: /security/okta
+  - category: Enable Security / Amazon Cognito SSO
+    url: /security/amazon-cognito
+  - category: Enable Security / One Login SSO
+    url: /security/one-login
+  - category: Enable Security / Keycloak SSO
+    url: /security/keycloak
+  - category: Enable Security / Saml
+    url: /security/saml
+  - category: Enable Security / Saml / AWS
+    url: /security/saml/aws
+  - category: Enable Security / Saml / Azure
+    url: /security/saml/azure
 
   - category: Main Concepts
     url: /main-concepts
@@ -1518,6 +1351,8 @@ site_menu:
     url: /main-concepts/metadata-standard/schemas/api/services/createpipelineservice
   - category: Main Concepts / Metadata Standard / Schemas / Api / Services / CreateSearchService
     url: /main-concepts/metadata-standard/schemas/api/services/createsearchservice
+  - category: Main Concepts / Metadata Standard / Schemas / Api / Services / CreateSecurityService
+    url: /main-concepts/metadata-standard/schemas/api/services/createsecurityservice
   - category: Main Concepts / Metadata Standard / Schemas / Api / Services / CreateStorageService
     url: /main-concepts/metadata-standard/schemas/api/services/createstorageservice
   - category: Main Concepts / Metadata Standard / Schemas / Api / Services
@@ -1816,8 +1651,6 @@ site_menu:
     url: /main-concepts/metadata-standard/schemas/entity/services/connections/dashboard/lookerconnection
   - category: Main Concepts / Metadata Standard / Schemas / Entity / Services / Connections / Dashboard / MetabaseConnection
     url: /main-concepts/metadata-standard/schemas/entity/services/connections/dashboard/metabaseconnection
-  - category: Main Concepts / Metadata Standard / Schemas / Entity / Services / Connections / Dashboard / SigmaConnection
-    url: /main-concepts/metadata-standard/schemas/entity/services/connections/dashboard/sigmaconnection
   - category: Main Concepts / Metadata Standard / Schemas / Entity / Services / Connections / Dashboard / ModeConnection
     url: /main-concepts/metadata-standard/schemas/entity/services/connections/dashboard/modeconnection
   - category: Main Concepts / Metadata Standard / Schemas / Entity / Services / Connections / Dashboard / PowerBIConnection
@@ -1838,10 +1671,6 @@ site_menu:
     url: /main-concepts/metadata-standard/schemas/entity/services/connections/database/azuresqlconnection
   - category: Main Concepts / Metadata Standard / Schemas / Entity / Services / Connections / Database / BigQueryConnection
     url: /main-concepts/metadata-standard/schemas/entity/services/connections/database/bigqueryconnection
-  - category: Main Concepts / Metadata Standard / Schemas / Entity / Services / Connections / Database / Cassandra
-    url: /main-concepts/metadata-standard/schemas/entity/services/connections/database/cassandra
-  - category: Main Concepts / Metadata Standard / Schemas / Entity / Services / Connections / Database / Cassandra / CassandraValues
-    url: /main-concepts/metadata-standard/schemas/entity/services/connections/database/cassandra/cassandravalues
   - category: Main Concepts / Metadata Standard / Schemas / Entity / Services / Connections / Database / CassandraConnection
     url: /main-concepts/metadata-standard/schemas/entity/services/connections/database/cassandraconnection
   - category: Main Concepts / Metadata Standard / Schemas / Entity / Services / Connections / Database / ClickhouseConnection
@@ -2038,6 +1867,8 @@ site_menu:
     url: /main-concepts/metadata-standard/schemas/entity/services/pipelineservice
   - category: Main Concepts / Metadata Standard / Schemas / Entity / Services / SearchService
     url: /main-concepts/metadata-standard/schemas/entity/services/searchservice
+  - category: Main Concepts / Metadata Standard / Schemas / Entity / Services / SecurityService
+    url: /main-concepts/metadata-standard/schemas/entity/services/securityservice
   - category: Main Concepts / Metadata Standard / Schemas / Entity / Services / ServiceType
     url: /main-concepts/metadata-standard/schemas/entity/services/servicetype
   - category: Main Concepts / Metadata Standard / Schemas / Entity / Services / StorageService
@@ -2305,53 +2136,6 @@ site_menu:
 
   - category: Main Concepts / Metadata Standard / APIs
     url: /main-concepts/metadata-standard/apis
-
-  - category: Developers
-    url: /developers
-  - category: Developers / Architecture
-    url: /developers/architecture
-  - category: Developers / Architecture / Understand Code Layout
-    url: /developers/architecture/code-layout
-  - category: Developers / Open Source Community
-    url: /developers/open-source-community
-  - category: Developers / Contribute
-    url: /developers/contribute
-  - category: Developers / Contribute / Build the Code and Run Tests
-    url: /developers/contribute/build-code-and-run-tests
-  - category: Developers / Contribute / Build the Code and Run Tests / Prerequisites
-    url: /developers/contribute/build-code-and-run-tests/prerequisites
-  - category: Developers / Contribute / Build the Code and Run Tests / OpenMetadata Server
-    url: /developers/contribute/build-code-and-run-tests/openmetadata-server
-  - category: Developers / Contribute / Build the Code and Run Tests / Ingestion Framework
-    url: /developers/contribute/build-code-and-run-tests/ingestion-framework
-  - category: Developers / Contribute / Build the Code and Run Tests / Generate Typescript Types From JSON Schema
-    url: /developers/contribute/build-code-and-run-tests/generate-typescript-types-from-json-schema
-  - category: Developers / Contribute / Build the Code and Run Tests / OpenMetadata UI
-    url: /developers/contribute/build-code-and-run-tests/openmetadata-ui
-  - category: Developers / Contribute / Build the Code and Run Tests / Playwright Integration Tests
-    url: /developers/contribute/build-code-and-run-tests/playwright-integration-tests
-  - category: Developers / Contribute / Developing a New Connector
-    url: /developers/contribute/developing-a-new-connector
-  - category: Developers / Contribute / Developing a New Connector / 1. Define the JSON Schema
-    url: /developers/contribute/developing-a-new-connector/define-json-schema
-  - category: Developers / Contribute / Developing a New Connector / 2. Develop the Ingestion Code
-    url: /developers/contribute/developing-a-new-connector/develop-ingestion-code
-  - category: Developers / Contribute / Developing a New Connector / 3. Apply UI Changes
-    url: /developers/contribute/developing-a-new-connector/apply-ui-changes
-  - category: Developers / Contribute / Developing a New Connector / 4. Create the Java ClassConverter
-    url: /developers/contribute/developing-a-new-connector/create-java-class-converter
-  - category: Developers / Contribute / Developing a New Connector / 5. Test it
-    url: /developers/contribute/developing-a-new-connector/test-it
-  - category: Developers / Contribute / Developing a New Connector / 6. Update the Documentation
-    url: /developers/contribute/developing-a-new-connector/update-documentation
-  - category: Developers / Webhooks
-    url: /developers/webhooks
-  - category: Developers / Bots
-    url: /developers/bots
-  - category: Developers / Add Language Support
-    url: /developers/how-to-add-language-support
-  - category: Developers / How to Add a Custom Property to an Entity with API
-    url: /developers/how-to-add-custom-property-to-an-entity
 
   - category: SDK
     url: /sdk
