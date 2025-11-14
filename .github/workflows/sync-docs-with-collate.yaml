@@ -35,7 +35,7 @@ jobs:
     - name: Prepare Collate content and partials
       id: prepare_collate
       continue-on-error: true
-      run: cp -R content/partials/ content/v1.9.x/partials
+      run: cp -R content/partials/ content/v1.10.x/partials
 
     - name: Push content Collate
       id: push_content_collate
@@ -44,7 +44,7 @@ jobs:
       env:
         API_TOKEN_GITHUB: ${{ steps.generate_token.outputs.token }}
       with:
-        source-directory: content/v1.9.x
+        source-directory: content/v1.10.x
         target-directory: content/
         destination-github-username: 'open-metadata'
         destination-repository-name: 'docs-collate'
