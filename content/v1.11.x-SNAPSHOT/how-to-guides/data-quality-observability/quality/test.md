@@ -73,6 +73,12 @@ OpenMetadata currently supports the following column level test types:
 14. Column Values to Match Regex Pattern: Define the regular expression that the column entries should match.
 15. Column Values to Not Match Regex: Define the regular expression that the column entries should not match.
 
+All column-level tests also support **dimensional validation**, which allows you to group test results by business dimension columns. Instead of getting a single pass/fail result for your entire column, you can see results segmented by categories like region, product type, customer segment, or any other dimension that matters to your business.
+
+For example, when testing email completeness, dimensional validation can show you that North America has 99% complete emails while Asia Pacific has only 88%, helping you quickly identify which business segments need attention.
+
+To create a dimensional test, select the **Dimension Level** option when adding a new test. For complete guidance on when to use or not dimensional validation, performance considerations, and best practices, see the [Dimensional Validation guide](/how-to-guides/data-quality-observability/quality/dimensional-validation).
+
 {% image
 src="/images/v1.11/how-to-guides/quality/test2.png"
 alt="Configure a Column Level Test"

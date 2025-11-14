@@ -49,6 +49,13 @@ Here's the latest on OpenMetadata's data quality.
   Verify your data quality with table and column level tests.
  {%/inlineCallout%}
  {%inlineCallout
+  color="violet-70"
+  bold="Dimensional Validation"
+  icon="MdSecurity"
+  href="/how-to-guides/data-quality-observability/quality/dimensional-validation"%}
+  Run data quality tests grouped by business dimensions to identify problem segments.
+ {%/inlineCallout%}
+ {%inlineCallout
     icon="MdGppGood"
     bold="Configure Data Quality"
     href="/how-to-guides/data-quality-observability/quality/configure"%}
