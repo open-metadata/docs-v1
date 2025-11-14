@@ -1,7 +1,7 @@
-# 1.10.5 Release 🎉
+# 1.10.6 Release 🎉
 
 {% note noteType="Tip" %}
-**10th November 2025**
+**12th November 2025**
 {% /note %}
 
 {% inlineCalloutContainer %}
@@ -10,45 +10,24 @@ color="violet-70"
 icon="celebration"
 bold="Upgrade OpenMetadata"
 href="/deployment/upgrade" %}
-Learn how to upgrade your OpenMetadata instance to 1.10.5!
+Learn how to upgrade your OpenMetadata instance to 1.10.6!
 {% /inlineCallout %}
 {% /inlineCalloutContainer %}
 
-You can find the GitHub release [here](https://github.com/open-metadata/OpenMetadata/releases/tag/1.10.5-release).
+You can find the GitHub release [here](https://github.com/open-metadata/OpenMetadata/releases/tag/1.10.6-release).
 
-# Improvements
+## Improvements
 
-- Added Salesforce OAuth
-- Databricks Pipeline Lineage
-- Implementation of Custom Workflows
-- Improvement around Data Quality UI
-- Removed `botPrincipal` from custom OIDC in UI form
-- Asset Specific Restrictions based on EntityStatus
-- Modified the “Run Agents” button label and message for better clarity
-- Domain and Data Product UI improvements and architecture enhancements
-- Enhanced REST API Connector
-  - Added support for Swagger 2.0
-  - Included Query/Path Parameters and Parameter References
-- Enhancements around Ingestion Runners (Collate)
-- Custom Workflows UI, Knowledge Center Improvements, Existing Workflow Migrations (Collate)
+- Create `ChangeEvents` for SSO user operations to enable `EventSubscription`.
+- Add **Airbyte Cloud** support.
+- Refactor: Remove duplicate directory custom property from **GlobalSettings**.
+- Update `setuptools` version to **78.1.1**.
 
-# Fixes
+## Bug Fixes
 
-- Ops install app bug fixed
-- Online users not getting tracked
-- PBI Databricks lineage parsing fix
-- Auth SSO form not showing some fields
-- Added missing entity card icons in Persona
-- PowerBI connector now supports custom API URL
-- PBI dataset source expression default value fix
-- FQN parsing problem in ClickHouse and improved logging
-- Prevented double notification when cover image upload fails
-- Added safeguard to prevent character loss during fast typing in search bar
-- Fixed job status update not working for stop action or server crash during job running
-- Fixed Automator Dynamic Assertion (Collate)
-- Fixed minor issues with Anomaly Detection (Collate)
-- Fixed description rendering for chart edit mode (Collate)
-- Fixed app cache update when user adds a config (Collate)
-- Fixed explore link not working on Automator details page (Collate)
+- Fix: Issue with large parameter list in `findByIds` and `findByNames`.
+- Fix: Bump **Axios** to resolve security vulnerabilities.
+- Fix: Bump **Vite** package to address known vulnerabilities.
+- Fix: Bump **vite-plugin-dts** to the latest version for security and stability.
 
-**Full Changelog**: [link](https://github.com/open-metadata/OpenMetadata/compare/1.10.4-release...1.10.5-release)
+**Full Changelog**: [link](https://github.com/open-metadata/OpenMetadata/compare/1.10.5-release...1.10.6-release)
