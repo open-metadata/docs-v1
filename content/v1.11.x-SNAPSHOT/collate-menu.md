@@ -705,6 +705,9 @@ site_menu:
     url: /connectors/drive/googledrive/yaml
   - category: Connectors / Drive / Google Drive / Troubleshooting
     url: /connectors/drive/googledrive/troubleshooting
+  - category: Connectors / Drive / Custom Drive
+    url: /connectors/drive/custom-drive
+
 
   - category: Connectors / Custom Connectors
     url: /connectors/custom-connectors
