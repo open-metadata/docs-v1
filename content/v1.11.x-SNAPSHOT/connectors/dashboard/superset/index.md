@@ -53,13 +53,13 @@ The ingestion also works with Superset 2.0.0 🎉
 
 {% note %} 
 
-When using a **Hybrid Ingestion Runner**, any sensitive credential fields—such as passwords, API keys, or private keys—must reference secrets using the following format: 
+When using a **Hybrid Ingestion Runner**, any sensitive credential fields—such as passwords, API keys, or private keys—must reference secrets using the following format:
 
 ```
 password: secret:/my/database/password
-``` 
+```
 
-This applies **only to fields marked as secrets** in the connection form (these typically mask input and show a visibility toggle icon). 
+This applies **only to fields marked as secrets** in the connection form (these typically mask input and show a visibility toggle icon).
 
 For a complete guide on managing secrets in hybrid setups, see the [Hybrid Ingestion Runner Secret Management Guide](https://docs.getcollate.io/getting-started/day-1/hybrid-saas/hybrid-ingestion-runner#3.-manage-secrets-securely).
 
