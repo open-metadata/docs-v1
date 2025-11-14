@@ -4,6 +4,8 @@
       type: DatabaseMetadata
       markDeletedTables: true
       markDeletedStoredProcedures: true
+      markDeletedSchemas: true
+      markDeletedDatabases: true
       includeTables: true
       includeViews: true
       # includeTags: true
