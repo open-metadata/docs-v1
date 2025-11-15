@@ -7,7 +7,7 @@ slug: /how-to-guides/data-discovery/openmetadata-extension/looking-up
 
 The OpenMetadata Chrome extension allows users to easily look up data assets and access detailed metadata directly from their web browser. This feature provides instant access to essential information about data assets, enabling users to better understand the data they are working with without leaving their current context.
 
-##Looking up data assets using data tools
+## Looking up data assets using data tools
 
 - The extension is also compatible with data tools like Tableau, allowing you to view detailed metadata for each data asset.
 - When you select an asset, the extension provides a detailed view, including:
