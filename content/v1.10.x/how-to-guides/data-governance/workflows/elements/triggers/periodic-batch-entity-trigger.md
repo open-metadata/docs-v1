@@ -7,7 +7,7 @@ collate: true
 
 # Governance Workflows - Periodic Batch Entity Trigger
 
-The **Periodic Batch Entity Trigger** enables actions to be triggered on a periodic schedule, processing a batch of entitites at a time.
+The **Periodic Batch Entity Trigger** enables actions to be triggered on a periodic schedule, processing a batch of entities at a time.
 This type of trigger is useful for automating regular workflows that need to run on a schedule.
 
 ## Configuration

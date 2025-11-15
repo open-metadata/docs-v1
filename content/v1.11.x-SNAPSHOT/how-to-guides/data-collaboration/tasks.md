@@ -7,7 +7,7 @@ slug: /how-to-guides/data-collaboration/tasks
 # Create Tasks
 
 Tasks are an extension to the Conversation Threads feature where users can create tasks to
-request to create or update description or tags for a data asset. Tasks are assgined to the owner of the data asset by default. If there are no owners, the task can be assigned to an appropriate user or team.
+request to create or update description or tags for a data asset. Tasks are assigned to the owner of the data asset by default. If there are no owners, the task can be assigned to an appropriate user or team.
 
 {% image
 src="/images/v1.11/how-to-guides/collaboration/task.webp"

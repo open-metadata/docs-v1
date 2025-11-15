@@ -98,7 +98,7 @@ You can choose the field name from the fields dropdown from the chart by functio
 
 Remember, spaces in field names are replaced with a period (.), and the key should be in lower camel case (meaning the first word is lowercase, and each subsequent word starts with an uppercase letter).
 
-**Query**: The query is to filter down the result to plot, use the format `q='<filed-name>: <value>'`. The `q=` part signifies a query, adn the condition goes inside the single quotes.
+**Query**: The query is to filter down the result to plot, use the format `q='<filed-name>: <value>'`. The `q=` part signifies a query, and the condition goes inside the single quotes.
 
 The value can be a literal value or it can be `*` to signify that any value exists for the give field.
 

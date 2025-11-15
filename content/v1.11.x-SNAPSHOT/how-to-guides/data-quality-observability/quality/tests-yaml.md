@@ -316,12 +316,12 @@ Integrity
 ```
 
 ### Table Custom SQL Test
-Write you own SQL test. When writting your query you can use 2 strategies:
-- `ROWS` (default): expects the query to be written as `SELECT <field>, <field> FROM <foo> WHERE <condition>`. **Note** if your query returns a large amount of rows it might cause an "Out Of Memeory" error. In this case we recomend you to use the `COUNT` strategy.
+Write you own SQL test. When writing your query you can use 2 strategies:
+- `ROWS` (default): expects the query to be written as `SELECT <field>, <field> FROM <foo> WHERE <condition>`. **Note** if your query returns a large amount of rows it might cause an "Out Of Memory" error. In this case we recommend you to use the `COUNT` strategy.
 - `COUNT`: expects the query to be written as `SELECT COUNT(<field>) FROM <foo> WHERE <condition>`.
 
 **How to use the Threshold Parameter?**
-The threshold allows you to define a limit for which you test should pass or fail - by defaut this number is 0. For example if my custom SQL query test returns 10 rows (or a COUNT value of 10) and my threshold is 5 the test will fail. If I update my threshold to 11 on my next run my test will pass.
+The threshold allows you to define a limit for which you test should pass or fail - by default this number is 0. For example if my custom SQL query test returns 10 rows (or a COUNT value of 10) and my threshold is 5 the test will fail. If I update my threshold to 11 on my next run my test will pass.
 
 {% note %}
 
@@ -571,7 +571,7 @@ Accuracy
 
 **Properties**
 
-* `column`: the colummn that will be used to chech the table freshness
+* `column`: the column that will be used to check the table freshness
 * `timeSinceUpdate`: (in seconds) The data is expected to be updated within this number of seconds. If the time since the last update is greater than this value, the test will fail.
 
 **Behavior**
@@ -1520,7 +1520,7 @@ Accuracy
 
 ### Column Values To Be At Expected Location
 Validate the reference value for a column is a the expected geographic location
-> Data will be temporarely stored in memory while the test case is running to validate the location. Not data will be permanently stored.
+> Data will be temporarily stored in memory while the test case is running to validate the location. Not data will be permanently stored.
 > France is the only supported location at this time. To add any additional location please reach out to the team in our slack support channel
 
 **Dimension**:
@@ -1528,7 +1528,7 @@ Accuracy
 
 **Properties**
 
-* `locationReferenceType`: the type of location refernce `CITY` or `POSTAL_CODE`
+* `locationReferenceType`: the type of location reference `CITY` or `POSTAL_CODE`
 * `longitudeColumnName`: longitude column name
 * `latitudeColumnName`: latitude column name
 * `radius`: radius in meter from which the location can be from the expected lat/long -- acts as a buffer

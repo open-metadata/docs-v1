@@ -23,7 +23,7 @@ src="/images/v1.9/connectors/redshift/service-connection-arguments.png"
 alt="Configure service connection"
 caption="Configure the service connection by filling the form" /%}
 
-### Metdata Ingestion Failure
+### Metadata Ingestion Failure
 
 If your metadata ingesiton fails and you have errors like:
 

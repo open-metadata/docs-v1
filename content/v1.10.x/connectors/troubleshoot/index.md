@@ -177,8 +177,8 @@ In Connection details section page click on Create a personal access token.
 
 {% image
 src="/images/v1.10/connectors/databricks/Open-create-tocken-page.png"
-alt="Open create tocken"
-caption="Open create tocken" /%}
+alt="Open create token"
+caption="Open create token" /%}
 
 
 
@@ -187,8 +187,8 @@ Now In this page you can create new `token`.
 
 {% image
 src="/images/v1.10/connectors/databricks/Generate-token.png"
-alt="Generate tocken"
-caption="Generate tocken" /%}
+alt="Generate token"
+caption="Generate token" /%}
 
 ## Domo Database
 
@@ -395,7 +395,7 @@ src="/images/v1.10/connectors/redshift/service-connection-arguments.png"
 alt="Configure service connection"
 caption="Configure the service connection by filling the form" /%}
 
-### Metdata Ingestion Failure
+### Metadata Ingestion Failure
 
 If your metadata ingesiton fails and you have errors like:
 

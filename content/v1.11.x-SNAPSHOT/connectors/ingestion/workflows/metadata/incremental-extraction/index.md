@@ -14,7 +14,7 @@ The default Metadata Ingestion roughly follows these steps:
 
 While on one hand this is a great simple way of doing things that works for most use cases since at every ingestion pipeline run we get the whole Source state, on other hand this is fetching and comparing a lot of data without need since if there were no structural changes we already know there is nothing to update on OpenMetadata.
 
-We implemented the Incremental Extraction feature to improve the performance by diminishing the extraction and comparison of uneeded data.
+We implemented the Incremental Extraction feature to improve the performance by diminishing the extraction and comparison of unneeded data.
 
 How this is done depends a lot on the Source itself, but the general idea is to follow these steps:
 

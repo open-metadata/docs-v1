@@ -5,7 +5,7 @@ slug: /main-concepts/metadata-standard/schemas/entity/feed/customproperty
 
 # CustomPropertyFeedInfo
 
-*This schema defines the custom properties addition/deltion schema on feed.*
+*This schema defines the custom properties addition/deletion schema on feed.*
 
 ## Properties
 

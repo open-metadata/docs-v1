@@ -7,7 +7,7 @@ collate: false
 # Azure - Enable Passwordless Database Backend Connection
 
 By Default, OpenMetadata supports basic authentication when connecting to MySQL/PostgreSQL as Database backend. With Azure, you can enhance the security for configuring Database configurations other the basic authentication mechanism.
-This guide will help you setup the application to use passwordless approach for Azure PaaS Databases (preferrably [Azure Database for PostgreSQL - Flexible Server](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/service-overview) and [Azure Database for MySQL - Flexible Server](https://learn.microsoft.com/en-us/azure/mysql/flexible-server/overview)).
+This guide will help you setup the application to use passwordless approach for Azure PaaS Databases (preferably [Azure Database for PostgreSQL - Flexible Server](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/service-overview) and [Azure Database for MySQL - Flexible Server](https://learn.microsoft.com/en-us/azure/mysql/flexible-server/overview)).
 
 # Prerequisites
 

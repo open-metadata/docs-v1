@@ -167,7 +167,7 @@ kubectl apply -f permissions_pod.yaml
 helm repo add open-metadata https://helm.open-metadata.org/
 ```
 #### Create secrets
-It is recommeded to use external database and search for production deplyoments. The following implementation uses external postgresql DB from Azure Database. Any of the popular databases can be used. The default implementation uses mysql.
+It is recommended to use external database and search for production deployments. The following implementation uses external postgresql DB from Azure Database. Any of the popular databases can be used. The default implementation uses mysql.
 
 ```azure-cli
 kubectl create secret generic airflow-secrets                                    \
@@ -184,7 +184,7 @@ kubectl create secret generic postgresql-secret                                 
 ```
 
 ### Step 6 - Install Openmetadata dependencies
-The values-dependencies-yaml is used to overwride default values in the official helm chart and must be configured for customizing for use cases. Uncomment the externalDatabase section with meaningful values to connect to external database for production deployments. We set sensitive information like host address, DB name and DB username through the CLI.
+The values-dependencies-yaml is used to override default values in the official helm chart and must be configured for customizing for use cases. Uncomment the externalDatabase section with meaningful values to connect to external database for production deployments. We set sensitive information like host address, DB name and DB username through the CLI.
 ```yaml
 # values-dependencies.yaml
 

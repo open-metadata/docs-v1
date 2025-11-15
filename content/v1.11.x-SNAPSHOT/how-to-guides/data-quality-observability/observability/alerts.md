@@ -33,7 +33,7 @@ The first will be to select a source. For data quality you have 2 relevant optio
  /%}
 
 
-### Step 2 - Select a Filtering Conditon (optional)
+### Step 2 - Select a Filtering Condition (optional)
 **Note:** if you do not set any filter the alert will apply to all test cases or test suite.  
 
 You can filter alerts based on specific condition to narrow down which test suite/test case should trigger an alert. This is interesting for user to dispatch alerts to different channels/users.
@@ -44,7 +44,7 @@ You can filter alerts based on specific condition to narrow down which test suit
   caption="Alerts Menu"
  /%}
 
-### Step 3 - Select a Triggering Conditon
+### Step 3 - Select a Triggering Condition
 Trigger section will allow you set the condition for which an alert should be triggered
 
 {% image

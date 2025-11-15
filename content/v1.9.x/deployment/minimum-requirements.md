@@ -35,7 +35,7 @@ Our minimum specs recommendation for ElasticSearch / OpenSearch deployment is
 - 2 vCPUs
 - 8 GiB Memory
 - 100 GiB Storage (per node)
-- Master / Worker Nodes with atleast 1 Master and 2 Worker Nodes
+- Master / Worker Nodes with at least 1 Master and 2 Worker Nodes
 
 ### Software Requirements
 

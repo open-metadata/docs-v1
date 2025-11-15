@@ -6,7 +6,7 @@ collate: false
 ---
 # JWT Troubleshooting
 
-Add the `{domain}:{port}/api/v1/sytem/config/jwks` in the list of publicKeys
+Add the `{domain}:{port}/api/v1/system/config/jwks` in the list of publicKeys
 
 ```yaml
   authentication:
