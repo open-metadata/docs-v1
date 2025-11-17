@@ -10,9 +10,7 @@ The `sourceConfig` is defined [here](https://github.com/open-metadata/OpenMetada
 
 **markDeletedSchemas**: Optional configuration to soft delete schemas stored in OpenMetadata if the source schema is deleted. Setting this flag to true will only keep filtered schema and delete any other schemas that do not match schemaFilterPattern or do not exist at source.
 
-**markDeletedDatabases**: Additional optional configuration for soft deletion, p
-roviding granular option to select which particular entities should be deleted.
-
+**markDeletedDatabases**: Optional configuration to soft delete databases stored in OpenMetadata if the source database is deleted. Setting this flag to true will only keep filtered databases and delete any other databases that do not match databaseFilterPattern or do not exist at source.
 **includeTables**: true or false, to ingest table data. Default is true.
 
 **includeViews**: true or false, to ingest views definitions.
