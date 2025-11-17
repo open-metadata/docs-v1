@@ -132,7 +132,7 @@ Choose dimension columns with **low-to-medium cardinality** (5-100 unique values
 
 {% image
 src="/images/v1.11/how-to-guides/quality/dimensional-select-test.png"
-alt="Configure Test "
+alt="Configure Test"
 caption="Choose your column, test type, and dimension"
 /%}
 
