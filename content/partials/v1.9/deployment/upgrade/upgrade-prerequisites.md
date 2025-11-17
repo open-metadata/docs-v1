@@ -124,3 +124,16 @@ While the schema and APIs are all updated, the Multi-domain support is not enabl
 If you want to allow your assets to belong to multiple domains, you need to go to Settings > Preferences > Data Asset Rules and disable the `Multiple Domains are not allowed` rule.
 
 {% /note %}
+
+
+### Removal of `openmetadata.config.openmetadata.uri` in Helm Chart 1.9.x
+
+Starting from **OpenMetadata Helm chart v1.9.5**, the field:
+
+```yaml
+openmetadata:
+  config:
+    openmetadata:
+      uri: "<value>"
+```
+has been removed from the chart schema.
