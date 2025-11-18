@@ -280,7 +280,7 @@ export const CONNECTORS: Array<ConnectorCategory> = [
         name: "Google Drive",
         collate: true,
       },
-            {
+      {
         url: "/connectors/drive/custom-drive",
         icon: "/images/connectors/default-service-icon.webp",
         name: "Custom Drive",
