@@ -5,7 +5,7 @@ slug: /applications/slack
 collate: true
 ---
 
-# Slack Application in Collate
+# AskCollate Slack Application
 
 Integrate Collate with Slack to enhance data collaboration and streamline team workflows. This integration enables real-time notifications, in-Slack search and sharing of metadata assets, and message interactions—all within your existing Slack workspace.
 
@@ -22,20 +22,22 @@ The Slack application connects your Slack workspace with Collate, enabling seaml
 
 - **Search Entities**: Use Slack to search glossaries, terms, tags, and tables.
 - **Share Assets**: Share metadata assets from Collate to your team directly in Slack.
-- **Notifications**: Get notified when someone mentions `@collate2`, or when updates occur in your data workspace.
+- **Notifications**: Get notified when someone mentions `@AskCollate`, or when updates occur in your data workspace.
+- **AskCollate AI**: Chat with your metadata in Natural Language. Available with AskCollate Add-on.
 
 ## Authorizations
 
 When connected, Collate will have the following permissions in Slack:
 
-- View and respond to messages that mention `@collate2`.
+- View and respond to messages that mention `@@skCollate`.
 - Access content in public channels where Collate is added.
 - Join public channels and view their basic information.
 - Add and respond to shortcuts and slash commands.
 - Access content in direct messages and group direct messages.
 - View user profiles in the workspace.
-- Send messages as `@collate2`, including to channels it's not a member of.
+- Send messages as `@AskCollate`, including to channels it's not a member of.
 - Post messages to designated Slack channels.
+- @AskCollate ask anything about your Metadata, search, analyze and take decisions.
 
 ## Slack App Configuration
 
@@ -44,7 +46,7 @@ To enable Slack integration in Collate:
 1. Navigate to **Settings** → **Applications** → **Add Apps**.
 
 {% image
-src="/images/v1.11/applications/slack1.png"
+src="/images/v1.10/applications/slack1.png"
 alt="Configuration"
 caption="Configuration"
 /%}
@@ -52,18 +54,21 @@ caption="Configuration"
 2. Search for **Slack** and install the application.
 
 {% image
-src="/images/v1.11/applications/slack2.png"
+src="/images/v1.10/applications/slack2.png"
 alt="Configuration"
 caption="Configuration"
 /%}
 
 ### Configuration Fields
 
+- **Client Id**: Client Id of the Application.
+- **Client Secret**: Client Secret of the Application.
+- **Signing Secret**: Signing Secret of the Application.
 - **User Token**: Token used to authenticate Slack API requests on behalf of a user.
 - **Bot Token**: Token used to authenticate Slack API requests on behalf of the bot.
 
 {% image
-src="/images/v1.11/applications/slack3.png"
+src="/images/v1.10/applications/slack3.png"
 alt="Configuration"
 caption="Configuration"
 /%}
@@ -74,11 +79,11 @@ Ensure that both tokens are securely stored and have the required scopes for int
 
 {% /note %}
 
-## How to Obtain Slack Bot Token and User Token
+## How to Obtain Slack Credentials
 
 To integrate Slack with Collate, you need to generate both a **Bot Token** and a **User Token** from your Slack workspace. These tokens allow Collate to interact with Slack APIs on behalf of your application and users.
 
-## Step-by-Step Instructions
+## Step-by-Step Instructions to create App **From scratch**
 
 ### Create a Slack App
 
@@ -86,7 +91,7 @@ To integrate Slack with Collate, you need to generate both a **Bot Token** and a
 2. Click **Create New App**.
 
 {% image
-src="/images/v1.11/applications/slack4.png"
+src="/images/v1.10/applications/slack4.png"
 alt="Configuration"
 caption="Configuration"
 /%}
@@ -94,7 +99,7 @@ caption="Configuration"
 3. Select **From scratch**.
 
 {% image
-src="/images/v1.11/applications/slack5.png"
+src="/images/v1.10/applications/slack5.png"
 alt="Configuration"
 caption="Configuration"
 /%}
@@ -103,24 +108,24 @@ caption="Configuration"
 5. Click **Create App**.
 
 {% image
-src="/images/v1.11/applications/slack6.png"
+src="/images/v1.10/applications/slack6.png"
 alt="Configuration"
 caption="Configuration"
 /%}
 
 6. After your app is created, you'll be redirected to the Basic Information page under Settings.
-Here, you'll find the following important credentials:
+   Here, you'll find the following important credentials:
 
 - Client ID – Used to identify your app.
 - Client Secret – Used for authenticating requests made from your app.
 - Signing Secret – Used to verify that incoming requests (e.g., from Slack) are genuinely from Slack.
 
-    Click Show next to each secret if you need to view the values. You can also regenerate them if needed using the Regenerate button, and after that you can share it with Collate Team.
- 
+  Click Show next to each secret if you need to view the values. You can also regenerate them if needed using the Regenerate button, and after that you can share it with Collate Team.
+
 Make sure to store these securely, as you'll need them to configure OAuth and validate request signatures later.
 
 {% image
-src="/images/v1.11/applications/slack-basic.png"
+src="/images/v1.10/applications/slack-basic.png"
 alt="Basic Information page"
 caption="Basic Information page"
 /%}
@@ -130,7 +135,7 @@ caption="Basic Information page"
 1. In your app’s dashboard, navigate to **OAuth & Permissions**.
 
 {% image
-src="/images/v1.11/applications/slack7.png"
+src="/images/v1.10/applications/slack7.png"
 alt="Configuration"
 caption="Configuration"
 /%}
@@ -138,7 +143,7 @@ caption="Configuration"
 2. Under **Scopes**, configure the following:
 
 {% image
-src="/images/v1.11/applications/slack8.png"
+src="/images/v1.10/applications/slack8.png"
 alt="Configuration"
 caption="Configuration"
 /%}
@@ -146,20 +151,25 @@ caption="Configuration"
 #### For **Bot Token Scopes**:
 Add these scopes:
 - `chat:write`
-- `channels:read`
 - `groups:read`
 - `im:read`
 - `mpim:read`
 - `users:read`
 - `commands`
 - `app_mentions:read`
+- `channels:read`
+- `files:read`
+- `im:history`
+- `channels:history`
+- `im:write`
+- `users:read.email`
+- `groups:history`
 
 #### For **User Token Scopes**:
 Add these scopes:
-- `channels:history`
-- `groups:history`
-- `im:history`
-- `mpim:history`
+- `channels:read`
+- `users:read`
+- `chat:write`
 
 {% note %}
 
@@ -179,7 +189,7 @@ The redirect URL must exactly match the URL used in your OAuth request.
 This ensures Slack can return the authorization code to your backend after the user grants permissions.
 
 {% image
-src="/images/v1.11/applications/slack-redirect.png"
+src="/images/v1.10/applications/slack-redirect.png"
 alt="Configure Redirect URLs"
 caption="Configure Redirect URLs"
 /%}
@@ -193,7 +203,7 @@ After setting the necessary OAuth scopes, follow the steps below to configure **
 2. Toggle the Enable Events switch to On.
 
 {% image
-src="/images/v1.11/applications/enable-events.png"
+src="/images/v1.10/applications/enable-events.png"
 alt="Enable Events"
 caption="Enable Events"
 /%}
@@ -206,7 +216,7 @@ caption="Enable Events"
 4. Scroll down to the Subscribe to bot events section and click **Add Bot User Event**.
 
 {% image
-src="/images/v1.11/applications/bot-events.png"
+src="/images/v1.10/applications/bot-events.png"
 alt="Subscribe to bot events"
 caption="Subscribe to bot events"
 /%}
@@ -218,6 +228,13 @@ caption="Subscribe to bot events"
     - message.im – Subscribes to messages in direct message channels (im:history scope required).
     - message.mpim – Subscribes to messages in multi-party direct message channels (mpim:history scope required).
 
+{% image
+src="/images/v1.11/applications/slack10.png"
+alt="Subscribe to bot events"
+caption="Subscribe to bot events"
+/%}
+
+
 5. (Optional) Under **Subscribe to events on behalf of users**, click **Add Workspace Event** and select:
 
     - message.im – Subscribes to messages posted in a direct message channel on behalf of users (im:history scope required).
@@ -225,7 +242,7 @@ caption="Subscribe to bot events"
 Slack automatically adds the necessary scopes for any subscribed events if not already included.
 
 {% image
-src="/images/v1.11/applications/subscribe-events.png"
+src="/images/v1.10/applications/subscribe-events.png"
 alt="Subscribe to events on behalf of users"
 caption="Subscribe to events on behalf of users"
 /%}
@@ -238,7 +255,7 @@ To enable users to interact with your app via custom commands in Slack:
 2. Click **Create New Command** to define a new command, or edit an existing one.
 
 {% image
-src="/images/v1.11/applications/create-command.png"
+src="/images/v1.10/applications/create-command.png"
 alt="Create Edit New Command"
 caption="Create Edit New Command"
 /%}
@@ -251,7 +268,7 @@ caption="Create Edit New Command"
 | `/asset` | Fetch data for a specific asset | `https://sandbox.open-metadata.org/api/slack/command/asset` | `entityType fqn/id` |
 
 {% image
-src="/images/v1.11/applications/slash-commands.png"
+src="/images/v1.10/applications/slash-commands.png"
 alt="Slash Commands"
 caption="Slash Commands"
 /%}
@@ -272,7 +289,7 @@ For each command:
 1. Still in **OAuth & Permissions**, click **Install** to install App to your Workspace.
 
 {% image
-src="/images/v1.11/applications/slack9.png"
+src="/images/v1.10/applications/slack9.png"
 alt="Configuration"
 caption="Configuration"
 /%}
@@ -281,8 +298,9 @@ caption="Configuration"
 
 After installation, you'll be redirected to the OAuth screen where your tokens will be displayed.
 
-### 4. Copy the Tokens
+### 4. Copy the Credientials and Tokens
 
+- **Client ID, Secret and Signing Secret** : Basic App Information Page will have it.
 - **Bot User OAuth Token**: Starts with `xoxb-...`
 - **User OAuth Token**: Starts with `xoxp-...`
 
@@ -295,5 +313,109 @@ Store these tokens securely and provide them in the Slack app configuration with
 - Use Slack's [token rotation policy](https://api.slack.com/authentication/token-types#rotating) for better security.
 
 {% /note %}
+
+
+## Step-by-Step Instructions to create App **From Manifest**
+
+### Create a Slack App
+
+1. Go to the [Slack API: Your Apps](https://api.slack.com/apps) page.
+2. Click **Create New App**.
+3. Select **From manifest**.
+
+{% image
+src="/images/v1.10/applications/slack11.png"
+alt="Configuration"
+caption="Configuration"
+/%}
+
+4. Choose your **Slack workspace** and click 'Next'.
+5. Use the below json as a reference and paste it in.
+
+{% image
+src="/images/v1.10/applications/slack12.png"
+alt="Configuration"
+caption="Configuration"
+/%}
+
+```json
+{
+    "display_information": {
+        "name": "AskCollate",
+        "description": "AI-powered data assistant for OpenMetadata",
+        "background_color": "#2e3030",
+        "long_description": "Connect OpenMetadata with Slack!\r\n\r\nCollate unlocks the value of your data with a unified Platform for data discovery, observability and governance.\r\n\r\nWith two of your most essential workspaces connected, you will receive notifications from Collate directly in Slack. Benefit from an improved discovery and collaboration process that enables you to:\r\n\r\n1. *Search Entities*: Quickly search for glossaries, terms, tags, and tables directly within Slack.\r\n2. Notifications: Stay informed with real-time alerts. :bell:\r\n3. Share Assets: Seamlessly share OpenMetadata assets with your team. :link:"
+    },
+    "features": {
+        "bot_user": {
+            "display_name": "AskCollate",
+            "always_online": false
+        }
+    },
+    "oauth_config": {
+        "scopes": {
+            "user": [
+                "channels:read",
+                "users:read",
+                "chat:write"
+            ],
+            "bot": [
+                "app_mentions:read",
+                "channels:read",
+                "chat:write",
+                "files:read",
+                "im:history",
+                "im:read",
+                "users:read",
+                "channels:history",
+                "im:write",
+                "users:read.email",
+                "groups:history"
+            ]
+        }
+    },
+    "settings": {
+        "event_subscriptions": {
+            "request_url": "https://sandbox-beta.open-metadata.org/api/slack/events",
+            "bot_events": [
+                "app_mention",
+                "message.channels",
+                "message.groups",
+                "message.im"
+            ]
+        },
+        "interactivity": {
+            "is_enabled": true,
+            "request_url": "https://sandbox-beta.open-metadata.org/api/slack/events"
+        },
+        "org_deploy_enabled": false,
+        "socket_mode_enabled": false,
+        "token_rotation_enabled": false
+    }
+}
+```
+
+{% note %}
+
+- Please update the request url in the above json to your server url.
+
+{% /note %}
+
+6. After your app is created, you'll be redirected to the Basic Information page under Settings.
+   Here, you'll find the following important credentials:
+
+- Client ID – Used to identify your app.
+- Client Secret – Used for authenticating requests made from your app.
+- Signing Secret – Used to verify that incoming requests (e.g., from Slack) are genuinely from Slack.
+
+  Click Show next to each secret if you need to view the values. You can also regenerate them if needed using the Regenerate button, and after that you can share it with Collate Team.
+
+Make sure to store these securely, as you'll need them to configure OAuth and validate request signatures later.
+
+{% image
+src="/images/v1.10/applications/slack-basic.png"
+alt="Basic Information page"
+caption="Basic Information page"
+/%}
 
 For more information, refer to the [Slack API documentation](https://api.slack.com/).
