@@ -1166,6 +1166,8 @@ site_menu:
     url: /releases/supported
   - category: Releases / All Releases
     url: /releases/all-releases
+  - category: Releases / All Releases / 1.10.6 Release
+    url: /releases/all-releases/#1.10.6-release
   - category: Releases / All Releases / 1.10.5 Release
     url: /releases/all-releases/#1.10.5-release
   - category: Releases / All Releases / 1.10.4 Release
