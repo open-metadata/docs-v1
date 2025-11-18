@@ -786,7 +786,10 @@ site_menu:
   - category: Connectors / Metadata / Atlas / Troubleshooting
     url: /connectors/metadata/atlas/troubleshooting
 
-
+  - category: Connectors / Drive
+    url: /connectors/drive
+  - category: Connectors / Drive / Custom Drive
+    url: /connectors/drive/custom-drive
 
   - category: Connectors / Custom Connectors
     url: /connectors/custom-connectors
