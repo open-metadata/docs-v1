@@ -7,6 +7,8 @@ collate: true
 
 # Slack Integration with AskCollate
 
+{% youtube videoId="IVxnitE23GM" start="0:00" end="1:45" width="800px" height="450px" /%}
+
 Connect Collate with your Slack workspace to enable seamless data collaboration and streamline team workflows. With the AskCollate Slack application, your team can search metadata assets, receive real-time notifications, share data insights, and interact with your data catalog—all without leaving Slack.
 
 ## What You Can Do
