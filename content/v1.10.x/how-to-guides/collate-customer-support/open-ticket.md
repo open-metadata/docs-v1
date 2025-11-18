@@ -26,7 +26,7 @@ You should open a support ticket if you encounter:
 ### 1. Slack
 
 Any Slack conversation can be converted into a ticket.  
-React to a message or thread with an emoji 🧩 to automatically create a ticket.
+React to a message or thread with an emoji:- ![emoji](/images/image.png)to automatically create a ticket.
 
 ### 2. Support Portal
 
