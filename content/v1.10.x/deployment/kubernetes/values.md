@@ -190,16 +190,6 @@ This page list all the supported helm values for OpenMetadata Helm Charts.
 | openmetadata.config.secretsManager.additionalParameters.region | string | `Empty String` | OM_SM_REGION |
 | openmetadata.config.secretsManager.additionalParameters.secretAccessKey.secretRef | string | `aws-secret-access-key-secret` | OM_SM_ACCESS_KEY |
 | openmetadata.config.secretsManager.additionalParameters.secretAccessKey.secretKey | string | `aws-key-secret` | OM_SM_ACCESS_KEY |
-| openmetadata.config.smtpConfig.enableSmtpServer | bool | `false` | AUTHORIZER_ENABLE_SMTP |
-| openmetadata.config.smtpConfig.emailingEntity | string | `OpenMetadata` | OM_EMAIL_ENTITY |
-| openmetadata.config.smtpConfig.openMetadataUrl | string | `Empty String` | OPENMETADATA_SERVER_URL |
-| openmetadata.config.smtpConfig.password.secretKey | string | `Empty String` | SMTP_SERVER_PWD |
-| openmetadata.config.smtpConfig.password.secretRef | string | `Empty String` | SMTP_SERVER_PWD |
-| openmetadata.config.smtpConfig.serverEndpoint | string | `Empty String` | SMTP_SERVER_ENDPOINT |
-| openmetadata.config.smtpConfig.serverPort | string | `Empty String` | SMTP_SERVER_PORT |
-| openmetadata.config.smtpConfig.supportUrl | string | `https://slack.open-metadata.org` | OM_SUPPORT_URL |
-| openmetadata.config.smtpConfig.transportationStrategy | string | `SMTP_TLS` | SMTP_SERVER_STRATEGY |
-| openmetadata.config.smtpConfig.username | string | `Empty String` | SMTP_SERVER_USERNAME |
 | openmetadata.config.upgradeMigrationConfigs.debug | bool | `false` |  |
 | openmetadata.config.upgradeMigrationConfigs.additionalArgs | string | `Empty String` |  |
 | openmetadata.config.web.enabled | bool | `true` | |
