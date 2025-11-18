@@ -5,39 +5,43 @@ slug: /applications/slack
 collate: true
 ---
 
-# AskCollate Slack Application
+# Slack Integration with AskCollate
 
-Integrate Collate with Slack to enhance data collaboration and streamline team workflows. This integration enables real-time notifications, in-Slack search and sharing of metadata assets, and message interactions—all within your existing Slack workspace.
+Connect Collate with your Slack workspace to enable seamless data collaboration and streamline team workflows. With the AskCollate Slack application, your team can search metadata assets, receive real-time notifications, share data insights, and interact with your data catalog—all without leaving Slack.
 
-## Overview
+## What You Can Do
 
-The Slack application connects your Slack workspace with Collate, enabling seamless communication and metadata access:
+The AskCollate Slack application brings powerful data collaboration features to your workspace:
 
-- **Real-Time Notifications**: Receive instant alerts, mentions, and updates directly in Slack.
-- **Metadata Search**: Quickly search for glossaries, terms, tags, and tables within Slack.
-- **Asset Sharing**: Share Collate assets effortlessly with your team from Slack.
-- **Enhanced Productivity**: Stay informed and connected without leaving your workspace.
+- **Real-Time Notifications**: Receive instant alerts for mentions, task assignments, and data asset updates directly in Slack channels
+- **In-Slack Search**: Quickly find glossaries, terms, tags, and tables without switching to the Collate UI
+- **Easy Asset Sharing**: Share metadata assets and data insights with your team in any Slack conversation
+- **AI-Powered Assistance**: Chat with AskCollate AI to query your metadata using natural language (available with AskCollate Add-on)
+- **Slash Commands**: Use convenient commands like `/find` and `/asset` to access data quickly
 
-## Key Capabilities
+## Setup Overview
 
-- **Search Entities**: Use Slack to search glossaries, terms, tags, and tables.
-- **Share Assets**: Share metadata assets from Collate to your team directly in Slack.
-- **Notifications**: Get notified when someone mentions `@AskCollate`, or when updates occur in your data workspace.
-- **AskCollate AI**: Chat with your metadata in Natural Language. Available with AskCollate Add-on.
+Setting up the Slack integration involves two main steps:
 
-## Authorizations
+1. **Create and configure a Slack app** in your Slack workspace with the necessary permissions and credentials
+2. **Configure the integration** in Collate using the credentials from your Slack app
 
-When connected, Collate will have the following permissions in Slack:
+This guide provides two approaches to create your Slack app:
+- **From scratch**: Step-by-step manual configuration (recommended for learning or custom setups)
+- **From manifest**: Quick setup using a pre-configured JSON manifest (recommended for faster deployment)
 
-- View and respond to messages that mention `@@skCollate`.
-- Access content in public channels where Collate is added.
-- Join public channels and view their basic information.
-- Add and respond to shortcuts and slash commands.
-- Access content in direct messages and group direct messages.
-- View user profiles in the workspace.
-- Send messages as `@AskCollate`, including to channels it's not a member of.
-- Post messages to designated Slack channels.
-- @AskCollate ask anything about your Metadata, search, analyze and take decisions.
+## Required Permissions
+
+When you install AskCollate, the app will request the following permissions in your Slack workspace:
+
+- **Message Access**: View and respond to messages that mention `@AskCollate` in public channels, direct messages, and group conversations
+- **Channel Access**: Join public channels, view channel information, and access message history
+- **User Information**: View user profiles to personalize responses and notifications
+- **Messaging**: Send messages as `@AskCollate` to any channel or user
+- **Commands**: Register and respond to slash commands (e.g., `/find`, `/asset`)
+- **Interactive Components**: Handle button clicks, menu selections, and other interactive elements
+
+These permissions enable AskCollate to provide seamless data collaboration features while maintaining security and privacy within your workspace.
 
 ## Slack App Configuration
 
@@ -61,11 +65,13 @@ caption="Configuration"
 
 ### Configuration Fields
 
-- **Client Id**: Client Id of the Application.
-- **Client Secret**: Client Secret of the Application.
-- **Signing Secret**: Signing Secret of the Application.
-- **User Token**: Token used to authenticate Slack API requests on behalf of a user.
-- **Bot Token**: Token used to authenticate Slack API requests on behalf of the bot.
+Provide the following credentials from your Slack app:
+
+- **Client ID**: Unique identifier for your Slack application (found in Basic Information)
+- **Client Secret**: Secret key used to authenticate your application (found in Basic Information)
+- **Signing Secret**: Used to verify that requests are coming from Slack (found in Basic Information)
+- **Bot Token**: OAuth token for bot operations, starts with `xoxb-` (found in OAuth & Permissions)
+- **User Token**: OAuth token for user-level operations, starts with `xoxp-` (found in OAuth & Permissions)
 
 {% image
 src="/images/v1.10/applications/slack3.png"
@@ -79,11 +85,15 @@ Ensure that both tokens are securely stored and have the required scopes for int
 
 {% /note %}
 
-## How to Obtain Slack Credentials
+---
 
-To integrate Slack with Collate, you need to generate both a **Bot Token** and a **User Token** from your Slack workspace. These tokens allow Collate to interact with Slack APIs on behalf of your application and users.
+## Creating Your Slack App
 
-## Step-by-Step Instructions to create App **From scratch**
+To integrate Slack with Collate, you'll need to create a Slack application and obtain the necessary credentials (Client ID, Client Secret, Signing Secret, Bot Token, and User Token). Choose one of the following methods:
+
+## Method 1: Create App From Scratch
+
+Follow these detailed steps to manually configure your Slack app with all necessary permissions and settings.
 
 ### Create a Slack App
 
@@ -298,13 +308,15 @@ caption="Configuration"
 
 After installation, you'll be redirected to the OAuth screen where your tokens will be displayed.
 
-### 4. Copy the Credientials and Tokens
+### Copy the Credentials and Tokens
 
-- **Client ID, Secret and Signing Secret** : Basic App Information Page will have it.
-- **Bot User OAuth Token**: Starts with `xoxb-...`
-- **User OAuth Token**: Starts with `xoxp-...`
+After installation, copy the following credentials from your Slack app:
 
-Store these tokens securely and provide them in the Slack app configuration within Collate.
+- **Client ID, Client Secret, and Signing Secret**: Available on the Basic Information page
+- **Bot User OAuth Token**: Starts with `xoxb-...` (found on OAuth & Permissions page)
+- **User OAuth Token**: Starts with `xoxp-...` (found on OAuth & Permissions page)
+
+Store these tokens securely and use them to configure the Slack integration in Collate.
 
 {% note %}
 
@@ -315,7 +327,11 @@ Store these tokens securely and provide them in the Slack app configuration with
 {% /note %}
 
 
-## Step-by-Step Instructions to create App **From Manifest**
+---
+
+## Method 2: Create App From Manifest
+
+Use a pre-configured JSON manifest for faster setup. This method automatically configures most settings, requiring minimal manual configuration.
 
 ### Create a Slack App
 
@@ -418,4 +434,19 @@ alt="Basic Information page"
 caption="Basic Information page"
 /%}
 
-For more information, refer to the [Slack API documentation](https://api.slack.com/).
+---
+
+## Next Steps
+
+After configuring your Slack app and adding the credentials to Collate:
+
+1. **Test the integration**: Send a message mentioning `@AskCollate` in a Slack channel to verify the connection
+2. **Try slash commands**: Use `/find` or `/asset` to search your metadata from Slack
+3. **Configure notifications**: Set up which Collate notifications you want to receive in Slack
+4. **Invite team members**: Add AskCollate to relevant channels where your team discusses data
+
+## Additional Resources
+
+- [Slack API Documentation](https://api.slack.com/)
+- [Slack App Management Console](https://api.slack.com/apps)
+- [OAuth Scopes Reference](https://api.slack.com/scopes)
