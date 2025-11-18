@@ -157,6 +157,24 @@ This is a sample config for Athena:
 
 {% /codeInfo %}
 
+{% codeInfo srNumber=14 %}
+
+**Console Endpoint URL (Optional)**: The Console Endpoint URL is used to generate clickable links in the OpenMetadata UI that direct users to the appropriate web console for viewing buckets and objects.
+
+**For AWS S3**: Leave this field empty. OpenMetadata will automatically generate the correct AWS console URLs based on your bucket's region.
+
+**For S3-compatible services** (MinIO, Cloudflare R2, DigitalOcean Spaces, Wasabi, etc.): Provide the base console path where your buckets can be viewed in the web interface.
+
+Examples:
+- MinIO: `http://minio.example.com:9001/browser/`
+- Cloudflare R2: `https://dash.cloudflare.com/?to=/<account-id>/r2/buckets/`
+- DigitalOcean Spaces: `https://cloud.digitalocean.com/spaces/`
+- Wasabi: `https://console.wasabisys.com/#/file_manager/`
+
+OpenMetadata will append the bucket name to this URL to create direct links to your buckets.
+
+{% /codeInfo %}
+
 {% /codeInfoContainer %}
 
 {% codeBlock fileName="filename.yaml" %}
@@ -177,6 +195,9 @@ source:
       bucketNames: 
       - s3-testing-1
       - s3-testing-2
+```
+```yaml {% srNumber=14 %}
+      # consoleEndpointURL: http://minio.example.com:9001/browser/  # For S3-compatible services only
 ```
 ```yaml {% srNumber=11 %}
       # connectionOptions:

@@ -1049,6 +1049,8 @@ site_menu:
     url: /how-to-guides/data-quality-observability/quality/tests-yaml
   - category: How-to Guides / Data Quality and Observability / Data Quality / Tests - UI Config
     url: /how-to-guides/data-quality-observability/quality/tests-ui
+  - category: How-to Guides / Data Quality and Observability / Data Quality / Dimensional Validation
+    url: /how-to-guides/data-quality-observability/quality/dimensional-validation
   - category: How-to Guides / Data Quality and Observability / Data Quality / Data Quality as Code
     url: /how-to-guides/data-quality-observability/quality/data-quality-as-code
   - category: How-to Guides / Data Quality and Observability / Data Quality / Data Quality as Code / Getting Started
@@ -1181,6 +1183,10 @@ site_menu:
     url: /releases/supported
   - category: Releases / All Releases
     url: /releases/all-releases
+  - category: Releases / All Releases / 1.10.6 Release
+    url: /releases/all-releases/#1.10.6-release
+  - category: Releases / All Releases / 1.10.5 Release
+    url: /releases/all-releases/#1.10.5-release
   - category: Releases / All Releases / 1.10.4 Release
     url: /releases/all-releases/#1.10.4-release
   - category: Releases / All Releases / 1.10.3 Release

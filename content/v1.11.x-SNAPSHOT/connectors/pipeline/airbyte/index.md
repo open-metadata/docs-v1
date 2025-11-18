@@ -42,13 +42,13 @@ Configure and schedule Airbyte metadata and profiler workflows from the OpenMeta
 
 {% note %} 
 
-When using a **Hybrid Ingestion Runner**, any sensitive credential fields—such as passwords, API keys, or private keys—must reference secrets using the following format: 
+When using a **Hybrid Ingestion Runner**, any sensitive credential fields—such as passwords, API keys, or private keys—must reference secrets using the following format:
 
 ```
 password: secret:/my/database/password
-``` 
+```
 
-This applies **only to fields marked as secrets** in the connection form (these typically mask input and show a visibility toggle icon). 
+This applies **only to fields marked as secrets** in the connection form (these typically mask input and show a visibility toggle icon).
 
 For a complete guide on managing secrets in hybrid setups, see the [Hybrid Ingestion Runner Secret Management Guide](https://docs.getcollate.io/getting-started/day-1/hybrid-saas/hybrid-ingestion-runner#3.-manage-secrets-securely).
 
@@ -56,13 +56,39 @@ For a complete guide on managing secrets in hybrid setups, see the [Hybrid Inges
 
 {% /collateContent %}
 
-- **Host and Port**: Pipeline Service Management UI URL
+- **Host and Port**: Enter the full service endpoint as a URI in the format scheme://hostname:port.
+  - Examples:
+    - Local: `http://localhost:8000`
+    - Docker: `http://host.docker.internal:8000`
+    - Airbyte Cloud: `https://api.airbyte.com`
+
+#### Authentication
+
+Airbyte supports two authentication methods:
+
+**Basic Authentication (for self-hosted Airbyte):**
 
 - **Username**: Username to connect to Airbyte.
 
 - **Password**: Password to connect to Airbyte.
 
-- **API Version**: Version of the Airbyte REST API by default `api/v1`.
+**OAuth 2.0 Authentication (for Airbyte Cloud):**
+
+To obtain OAuth credentials for Airbyte Cloud:
+
+1. Log into your Airbyte Cloud account
+2. Navigate to **User Settings > Applications**
+3. Click **Create an application**
+4. Name your application for easy identification
+5. The system will automatically generate a `client_id` and `client_secret`
+
+- **Client ID**: Client ID for the application registered in Airbyte.
+
+- **Client Secret**: Client Secret for the application registered in Airbyte.
+
+#### Other Settings
+
+- **API Version**: The Airbyte REST API version to use. Defaults to `api/v1`. For Airbyte Cloud, you may simply use `v1`.
 
 {% /extraContent %}
 

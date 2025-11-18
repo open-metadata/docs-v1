@@ -58,9 +58,19 @@ This is a sample config for Airbyte:
 
 {% codeInfo srNumber=1 %}
 
-**hostPort**: Pipeline Service Management UI URL
+**hostPort**: Enter the full service endpoint as a URI in the format scheme://hostname:port.
+- Examples:
+  - Local: `http://localhost:8000`
+  - Docker: `http://host.docker.internal:8000`
+  - Airbyte Cloud: `https://api.airbyte.com`
 
 {% /codeInfo %}
+
+#### Authentication
+
+Airbyte supports two authentication methods:
+
+**Basic Authentication (for self-hosted Airbyte):**
 
 {% codeInfo srNumber=2 %}
 
@@ -74,9 +84,25 @@ This is a sample config for Airbyte:
 
 {% /codeInfo %}
 
+**OAuth 2.0 Authentication (for Airbyte Cloud):**
+
 {% codeInfo srNumber=4 %}
 
-**apiVersion**: Version of the Airbyte REST API by default `api/v1`.
+**clientId**: Client ID for the application registered in Airbyte.
+
+{% /codeInfo %}
+
+{% codeInfo srNumber=5 %}
+
+**clientSecret**: Client Secret for the application registered in Airbyte.
+
+{% /codeInfo %}
+
+#### Other Settings
+
+{% codeInfo srNumber=6 %}
+
+**apiVersion**: The Airbyte REST API version to use. Defaults to `api/v1`. For Airbyte Cloud, you may simply use `v1`.
 
 {% /codeInfo %}
 
@@ -105,12 +131,20 @@ source:
       hostPort: http://localhost:8000
 ```
 ```yaml {% srNumber=2 %}
+      # Basic Authentication (for self-hosted Airbyte)
       username: <username>
 ```
 ```yaml {% srNumber=3 %}
       password: <password>
 ```
 ```yaml {% srNumber=4 %}
+      # OAuth 2.0 Authentication (for Airbyte Cloud)
+      # clientId: <client_id>
+```
+```yaml {% srNumber=5 %}
+      # clientSecret: <client_secret>
+```
+```yaml {% srNumber=6 %}
       apiVersion: api/v1
 ```
 
