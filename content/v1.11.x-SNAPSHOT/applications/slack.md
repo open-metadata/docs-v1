@@ -52,7 +52,7 @@ To enable Slack integration in Collate:
 1. Navigate to **Settings** → **Applications** → **Add Apps**.
 
 {% image
-src="/images/v1.10/applications/slack1.png"
+src="/images/v1.11/applications/slack1.png"
 alt="Configuration"
 caption="Configuration"
 /%}
@@ -60,7 +60,7 @@ caption="Configuration"
 2. Search for **Slack** and install the application.
 
 {% image
-src="/images/v1.10/applications/slack2.png"
+src="/images/v1.11/applications/slack2.png"
 alt="Configuration"
 caption="Configuration"
 /%}
@@ -76,7 +76,7 @@ Provide the following credentials from your Slack app:
 - **User Token**: OAuth token for user-level operations, starts with `xoxp-` (found in OAuth & Permissions)
 
 {% image
-src="/images/v1.10/applications/slack3.png"
+src="/images/v1.11/applications/slack3.png"
 alt="Configuration"
 caption="Configuration"
 /%}
@@ -103,7 +103,7 @@ Follow these detailed steps to manually configure your Slack app with all necess
 2. Click **Create New App**.
 
 {% image
-src="/images/v1.10/applications/slack4.png"
+src="/images/v1.11/applications/slack4.png"
 alt="Configuration"
 caption="Configuration"
 /%}
@@ -111,7 +111,7 @@ caption="Configuration"
 3. Select **From scratch**.
 
 {% image
-src="/images/v1.10/applications/slack5.png"
+src="/images/v1.11/applications/slack5.png"
 alt="Configuration"
 caption="Configuration"
 /%}
@@ -120,7 +120,7 @@ caption="Configuration"
 5. Click **Create App**.
 
 {% image
-src="/images/v1.10/applications/slack6.png"
+src="/images/v1.11/applications/slack6.png"
 alt="Configuration"
 caption="Configuration"
 /%}
@@ -137,7 +137,7 @@ caption="Configuration"
 Make sure to store these securely, as you'll need them to configure OAuth and validate request signatures later.
 
 {% image
-src="/images/v1.10/applications/slack-basic.png"
+src="/images/v1.11/applications/slack-basic.png"
 alt="Basic Information page"
 caption="Basic Information page"
 /%}
@@ -147,7 +147,7 @@ caption="Basic Information page"
 1. In your app’s dashboard, navigate to **OAuth & Permissions**.
 
 {% image
-src="/images/v1.10/applications/slack7.png"
+src="/images/v1.11/applications/slack7.png"
 alt="Configuration"
 caption="Configuration"
 /%}
@@ -155,7 +155,7 @@ caption="Configuration"
 2. Under **Scopes**, configure the following:
 
 {% image
-src="/images/v1.10/applications/slack8.png"
+src="/images/v1.11/applications/slack8.png"
 alt="Configuration"
 caption="Configuration"
 /%}
@@ -201,7 +201,7 @@ The redirect URL must exactly match the URL used in your OAuth request.
 This ensures Slack can return the authorization code to your backend after the user grants permissions.
 
 {% image
-src="/images/v1.10/applications/slack-redirect.png"
+src="/images/v1.11/applications/slack-redirect.png"
 alt="Configure Redirect URLs"
 caption="Configure Redirect URLs"
 /%}
@@ -215,7 +215,7 @@ After setting the necessary OAuth scopes, follow the steps below to configure **
 2. Toggle the Enable Events switch to On.
 
 {% image
-src="/images/v1.10/applications/enable-events.png"
+src="/images/v1.11/applications/enable-events.png"
 alt="Enable Events"
 caption="Enable Events"
 /%}
@@ -228,7 +228,7 @@ caption="Enable Events"
 4. Scroll down to the Subscribe to bot events section and click **Add Bot User Event**.
 
 {% image
-src="/images/v1.10/applications/bot-events.png"
+src="/images/v1.11/applications/bot-events.png"
 alt="Subscribe to bot events"
 caption="Subscribe to bot events"
 /%}
@@ -254,7 +254,7 @@ caption="Subscribe to bot events"
 Slack automatically adds the necessary scopes for any subscribed events if not already included.
 
 {% image
-src="/images/v1.10/applications/subscribe-events.png"
+src="/images/v1.11/applications/subscribe-events.png"
 alt="Subscribe to events on behalf of users"
 caption="Subscribe to events on behalf of users"
 /%}
@@ -267,7 +267,7 @@ To enable users to interact with your app via custom commands in Slack:
 2. Click **Create New Command** to define a new command, or edit an existing one.
 
 {% image
-src="/images/v1.10/applications/create-command.png"
+src="/images/v1.11/applications/create-command.png"
 alt="Create Edit New Command"
 caption="Create Edit New Command"
 /%}
@@ -280,7 +280,7 @@ caption="Create Edit New Command"
 | `/asset` | Fetch data for a specific asset | `https://sandbox.open-metadata.org/api/slack/command/asset` | `entityType fqn/id` |
 
 {% image
-src="/images/v1.10/applications/slash-commands.png"
+src="/images/v1.11/applications/slash-commands.png"
 alt="Slash Commands"
 caption="Slash Commands"
 /%}
@@ -301,7 +301,7 @@ For each command:
 1. Still in **OAuth & Permissions**, click **Install** to install App to your Workspace.
 
 {% image
-src="/images/v1.10/applications/slack9.png"
+src="/images/v1.11/applications/slack9.png"
 alt="Configuration"
 caption="Configuration"
 /%}
@@ -342,7 +342,7 @@ Use a pre-configured JSON manifest for faster setup. This method automatically c
 3. Select **From manifest**.
 
 {% image
-src="/images/v1.10/applications/slack11.png"
+src="/images/v1.11/applications/slack11.png"
 alt="Configuration"
 caption="Configuration"
 /%}
@@ -351,7 +351,7 @@ caption="Configuration"
 5. Use the below json as a reference and paste it in.
 
 {% image
-src="/images/v1.10/applications/slack12.png"
+src="/images/v1.11/applications/slack12.png"
 alt="Configuration"
 caption="Configuration"
 /%}
@@ -431,7 +431,7 @@ caption="Configuration"
 Make sure to store these securely, as you'll need them to configure OAuth and validate request signatures later.
 
 {% image
-src="/images/v1.10/applications/slack-basic.png"
+src="/images/v1.11/applications/slack-basic.png"
 alt="Basic Information page"
 caption="Basic Information page"
 /%}
