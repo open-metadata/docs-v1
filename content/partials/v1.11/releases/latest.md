@@ -1,7 +1,7 @@
-# 1.10.6 Release 🎉
+# 1.10.7 Release 🎉
 
 {% note noteType="Tip" %}
-**12th November 2025**
+**17th November 2025**
 {% /note %}
 
 {% inlineCalloutContainer %}
@@ -10,24 +10,25 @@ color="violet-70"
 icon="celebration"
 bold="Upgrade OpenMetadata"
 href="/deployment/upgrade" %}
-Learn how to upgrade your OpenMetadata instance to 1.10.6!
+Learn how to upgrade your OpenMetadata instance to 1.10.7!
 {% /inlineCallout %}
 {% /inlineCalloutContainer %}
 
-You can find the GitHub release [here](https://github.com/open-metadata/OpenMetadata/releases/tag/1.10.6-release).
+You can find the GitHub release [here](https://github.com/open-metadata/OpenMetadata/releases/tag/1.10.7-release).
 
 ## Improvements
 
-- Create `ChangeEvents` for SSO user operations to enable `EventSubscription`.
-- Add **Airbyte Cloud** support.
-- Refactor: Remove duplicate directory custom property from **GlobalSettings**.
-- Update `setuptools` version to **78.1.1**.
+- Improve Okta public key URL validation to correctly handle both `/oauth2/v1/keys` and `/oauth2/{authServerId}/v1/keys` patterns.
+- TRUNCATE Flowable history tables in both 1.10.5 and 1.10.7 migrations.
+- Deduplicate dbt tags.
+- Add support for classification tags in the dbt `meta` field.
+- Add `consoleEndpointURL` support for S3-compatible services.
 
 ## Bug Fixes
 
-- Fix: Issue with large parameter list in `findByIds` and `findByNames`.
-- Fix: Bump **Axios** to resolve security vulnerabilities.
-- Fix: Bump **Vite** package to address known vulnerabilities.
-- Fix: Bump **vite-plugin-dts** to the latest version for security and stability.
+- Resolve “dbt NoneType has no attribute len” error.
+- Fix UI flickering issue in the classification module.
+- Add pagination Playwright test in a separate file and address code smells.
+- Correct currentPage reset issue across all pages.
 
-**Full Changelog**: [link](https://github.com/open-metadata/OpenMetadata/compare/1.10.5-release...1.10.6-release)
+**Full Changelog**: [link](https://github.com/open-metadata/OpenMetadata/compare/1.10.6-release...1.10.7-release)
