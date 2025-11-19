@@ -23,7 +23,7 @@ For a user to log in using SSO, you must configure SSO from your identity provid
 
 ## Step 1: Configure Collate
 
-> **Note**: Ensure TLSv1.2 is enabled on your server. The Collate team can help with this configuration if needed.
+> **Note**: Ensure TLSv1.2 is enabled on your server. TLSv1.3 is not supported by Azure SCIM provisioning ([reference](https://learn.microsoft.com/en-us/entra/identity/app-provisioning/how-provisioning-works)). The Collate team can help with this configuration if needed.
 
 1. Navigate to **Settings** → **SSO** → **Enable SCIM**
 2. Copy the **SCIM Token** from the same page
