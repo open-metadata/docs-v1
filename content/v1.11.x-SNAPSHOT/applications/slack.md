@@ -28,8 +28,7 @@ Setting up the Slack integration involves two main steps:
 1. **Create and configure a Slack app** in your Slack workspace with the necessary permissions and credentials
 2. **Configure the integration** in Collate using the credentials from your Slack app
 
-This guide provides two approaches to create your Slack app:
-- **From scratch**: Step-by-step manual configuration (recommended for learning or custom setups)
+This guide provides approaches to create your Slack app:
 - **From manifest**: Quick setup using a pre-configured JSON manifest (recommended for faster deployment)
 
 ## Required Permissions
@@ -91,247 +90,9 @@ Ensure that both tokens are securely stored and have the required scopes for int
 
 ## Creating Your Slack App
 
-To integrate Slack with Collate, you'll need to create a Slack application and obtain the necessary credentials (Client ID, Client Secret, Signing Secret, Bot Token, and User Token). Choose one of the following methods:
+To integrate Slack with Collate, you'll need to create a Slack application and obtain the necessary credentials (Client ID, Client Secret, Signing Secret, Bot Token, and User Token) using the app manifest method.
 
-## Method 1: Create App From Scratch
-
-Follow these detailed steps to manually configure your Slack app with all necessary permissions and settings.
-
-### Create a Slack App
-
-1. Go to the [Slack API: Your Apps](https://api.slack.com/apps) page.
-2. Click **Create New App**.
-
-{% image
-src="/images/v1.11/applications/slack4.png"
-alt="Configuration"
-caption="Configuration"
-/%}
-
-3. Select **From scratch**.
-
-{% image
-src="/images/v1.11/applications/slack5.png"
-alt="Configuration"
-caption="Configuration"
-/%}
-
-4. Enter the **App Name** (e.g., `Collate Integration`) and choose your **Slack workspace**.
-5. Click **Create App**.
-
-{% image
-src="/images/v1.11/applications/slack6.png"
-alt="Configuration"
-caption="Configuration"
-/%}
-
-6. After your app is created, you'll be redirected to the Basic Information page under Settings.
-   Here, you'll find the following important credentials:
-
-- Client ID – Used to identify your app.
-- Client Secret – Used for authenticating requests made from your app.
-- Signing Secret – Used to verify that incoming requests (e.g., from Slack) are genuinely from Slack.
-
-  Click Show next to each secret if you need to view the values. You can also regenerate them if needed using the Regenerate button, and after that you can share it with Collate Team.
-
-Make sure to store these securely, as you'll need them to configure OAuth and validate request signatures later.
-
-{% image
-src="/images/v1.11/applications/slack-basic.png"
-alt="Basic Information page"
-caption="Basic Information page"
-/%}
-
-### Configure OAuth & Permissions
-
-1. In your app’s dashboard, navigate to **OAuth & Permissions**.
-
-{% image
-src="/images/v1.11/applications/slack7.png"
-alt="Configuration"
-caption="Configuration"
-/%}
-
-2. Under **Scopes**, configure the following:
-
-{% image
-src="/images/v1.11/applications/slack8.png"
-alt="Configuration"
-caption="Configuration"
-/%}
-
-#### For **Bot Token Scopes**:
-Add these scopes:
-- `chat:write`
-- `groups:read`
-- `im:read`
-- `mpim:read`
-- `users:read`
-- `commands`
-- `app_mentions:read`
-- `channels:read`
-- `files:read`
-- `im:history`
-- `channels:history`
-- `im:write`
-- `users:read.email`
-- `groups:history`
-
-#### For **User Token Scopes**:
-Add these scopes:
-- `channels:read`
-- `users:read`
-- `chat:write`
-
-{% note %}
-
-Only add the scopes you need. Ensure your Slack workspace allows user token generation (may require admin privileges).
-
-{% /note %}
-
-### Configure Redirect URLs
-
-Before installing the app to your workspace, configure the redirect URLs to ensure successful OAuth authentication:
-1. In the left-hand menu, go to **OAuth & Permissions**.
-2. Scroll down to the **Redirect URLs** section.
-3. Click **Add New Redirect URL** and enter the redirect URL, e.g., https://sandbox.open-metadata.org/api/slack/callback.
-4. Click **Save URLs** to apply the changes.
-
-The redirect URL must exactly match the URL used in your OAuth request.  
-This ensures Slack can return the authorization code to your backend after the user grants permissions.
-
-{% image
-src="/images/v1.11/applications/slack-redirect.png"
-alt="Configure Redirect URLs"
-caption="Configure Redirect URLs"
-/%}
-
-### Configure Event Subscriptions
-
-After setting the necessary OAuth scopes, follow the steps below to configure **Event Subscriptions**:
-
-1. In the left-hand menu under Features, click on Event Subscriptions.
-
-2. Toggle the Enable Events switch to On.
-
-{% image
-src="/images/v1.11/applications/enable-events.png"
-alt="Enable Events"
-caption="Enable Events"
-/%}
-
-3. In the Request URL field, enter your app’s endpoint (e.g., https://sandbox.open-metadata.org/api/slack/events).
-
-    - Slack will send a verification request containing a challenge parameter.
-    - Ensure your endpoint responds with the challenge value to confirm validation.
-
-4. Scroll down to the Subscribe to bot events section and click **Add Bot User Event**.
-
-{% image
-src="/images/v1.11/applications/bot-events.png"
-alt="Subscribe to bot events"
-caption="Subscribe to bot events"
-/%}
-
-- Add the following events (ensure corresponding scopes are already granted under OAuth permissions):
-
-    - app_home_opened – Triggered when a user clicks into your App Home (no additional scope needed).
-    - app_mention – Subscribes to messages that mention your app or bot (app_mentions:read scope required).
-    - message.im – Subscribes to messages in direct message channels (im:history scope required).
-    - message.mpim – Subscribes to messages in multi-party direct message channels (mpim:history scope required).
-
-{% image
-src="/images/v1.11/applications/slack10.png"
-alt="Subscribe to bot events"
-caption="Subscribe to bot events"
-/%}
-
-
-5. (Optional) Under **Subscribe to events on behalf of users**, click **Add Workspace Event** and select:
-
-    - message.im – Subscribes to messages posted in a direct message channel on behalf of users (im:history scope required).
-
-Slack automatically adds the necessary scopes for any subscribed events if not already included.
-
-{% image
-src="/images/v1.11/applications/subscribe-events.png"
-alt="Subscribe to events on behalf of users"
-caption="Subscribe to events on behalf of users"
-/%}
-
-### Configure Slash Commands
-
-To enable users to interact with your app via custom commands in Slack:
-
-1. In the left-hand menu under **Features**, click on **Slash Commands**.
-2. Click **Create New Command** to define a new command, or edit an existing one.
-
-{% image
-src="/images/v1.11/applications/create-command.png"
-alt="Create Edit New Command"
-caption="Create Edit New Command"
-/%}
-
-#### Example Slash Commands
-
-| Command | Description | Request URL | Usage Hint |
-|---------|-------------|-------------|-------------|
-| `/find` | Find the asset | `https://sandbox.open-metadata.org/api/slack/command/find` | `query or entityType query` |
-| `/asset` | Fetch data for a specific asset | `https://sandbox.open-metadata.org/api/slack/command/asset` | `entityType fqn/id` |
-
-{% image
-src="/images/v1.11/applications/slash-commands.png"
-alt="Slash Commands"
-caption="Slash Commands"
-/%}
-
-For each command:
-
-- **Command**: Keyword users will type (e.g., `/find`).
-- **Request URL**: The backend endpoint that processes the command.
-- **Short Description**: What the command does.
-- **Usage Hint**: Shows users how to pass parameters.
-- *(Optional)* Enable **Escape channels, users, and links** if you want Slack to escape mentions and links.
-
-    - Once created, the commands will appear in Slack's autocomplete suggestions when users start typing `/`.
-    - Authorize the permissions requested by the app.
-
-### Install the App to Workspace
-
-1. Still in **OAuth & Permissions**, click **Install** to install App to your Workspace.
-
-{% image
-src="/images/v1.11/applications/slack9.png"
-alt="Configuration"
-caption="Configuration"
-/%}
-
-2. Authorize the permissions requested by the app.
-
-After installation, you'll be redirected to the OAuth screen where your tokens will be displayed.
-
-### Copy the Credentials and Tokens
-
-After installation, copy the following credentials from your Slack app:
-
-- **Client ID, Client Secret, and Signing Secret**: Available on the Basic Information page
-- **Bot User OAuth Token**: Starts with `xoxb-...` (found on OAuth & Permissions page)
-- **User OAuth Token**: Starts with `xoxp-...` (found on OAuth & Permissions page)
-
-Store these tokens securely and use them to configure the Slack integration in Collate.
-
-{% note %}
-
-- Never expose your tokens publicly.
-- Rotate tokens periodically.
-- Use Slack's [token rotation policy](https://api.slack.com/authentication/token-types#rotating) for better security.
-
-{% /note %}
-
-
----
-
-## Method 2: Create App From Manifest
+## Create App From Manifest
 
 Use a pre-configured JSON manifest for faster setup. This method automatically configures most settings, requiring minimal manual configuration.
 
@@ -435,6 +196,43 @@ src="/images/v1.11/applications/slack-basic.png"
 alt="Basic Information page"
 caption="Basic Information page"
 /%}
+
+### Install the App to Workspace
+
+1. In the left-hand menu, navigate to **Install App**.
+2. Click **Install to Workspace** to install the app to your Slack workspace.
+3. Authorize the permissions requested by the app.
+
+After installation, if you go to **Install App** again you will see the User and Bot Tokens.
+
+### Copy the Credentials and Tokens
+
+1. Copy the following credentials and tokens from your Slack app:
+
+- **Client ID, Client Secret, and Signing Secret**: Available on the Basic Information page
+- **Bot User OAuth Token**: Starts with `xoxb-...` (found on OAuth & Permissions page after installation)
+- **User OAuth Token**: Starts with `xoxp-...` (found on OAuth & Permissions page after installation)
+
+Store these tokens securely and use them to configure the Slack integration in Collate as described in the [Slack App Configuration](#slack-app-configuration) section above.
+
+{% note %}
+
+- Never expose your tokens publicly.
+- Rotate tokens periodically.
+- Use Slack's [token rotation policy](https://api.slack.com/authentication/token-types#rotating) for better security.
+
+{% /note %}
+
+### Configure Redirect URLs and Event Subscriptions
+
+1. Navigate to **Event Subscriptions** in the left-hand menu.
+2. If the Request URL shows a verification error, click **Retry** to re-verify the endpoint.
+
+{% note %}
+
+The Event Subscriptions request URL is already configured in the manifest (e.g., `https://sandbox.open-metadata.org/api/slack/events`). If you see a verification error, ensure your server is running and the endpoint is accessible, then click **Retry**.
+
+{% /note %}
 
 ---
 
