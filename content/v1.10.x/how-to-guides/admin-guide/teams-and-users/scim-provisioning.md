@@ -72,7 +72,7 @@ For a user to log in using SSO, you must configure SSO from your identity provid
 1. In the application, click on the **Provisioning** tab
 2. Click **Configure API Integration**
 3. Check **Enable API integration**
-4. Set the **Base URL** to `https://youcompany.getcollate.io/api/v1/scim`
+4. Set the **Base URL** to `https://yourcompany.getcollate.io/api/v1/scim`
 5. Set the **API Token** to the Collate SCIM token from Step 1
 6. Click **Test API Credentials** to verify the connection
 7. Click **Save**
