@@ -23,11 +23,8 @@ For a user to log in using SSO, you must configure SSO from your identity provid
 
 ## Step 1: Configure Collate
 
-> **Note**: As of now, we will enable SCIM from the backend for the customer. In future releases, we will bring out the option to enable/disable from the UI.
-
-To get the secret token:
-1. Navigate to **Settings** → **Bot** → **SCIM-Bot**
-2. Copy the bot token
+1. Navigate to **Settings** → **SSO** → **Enable SCIM**
+2. Copy the **SCIM Token** from the same page
 
 ---
 
@@ -44,7 +41,7 @@ To get the secret token:
 
 1. Under the **Manage** menu, click **Provisioning**
 2. Set **Provisioning Mode** to **Automatic**
-3. Set the **SCIM API endpoint URL** (will be provided by Collate)
+3. Set the **SCIM API endpoint URL** to `https://youcompany.getcollate.io/api/v1/scim`
 4. Set **Secret Token** to the Collate SCIM token that you generated in Step 1
 5. Click **Test Connection** and wait for the confirmation message that the credentials are authorized to enable provisioning
 6. Click **Save**
@@ -73,7 +70,7 @@ To get the secret token:
 1. In the application, click on the **Provisioning** tab
 2. Click **Configure API Integration**
 3. Check **Enable API integration**
-4. Set the **Base URL** to the SCIM API endpoint URL (will be provided by Collate)
+4. Set the **Base URL** to `https://youcompany.getcollate.io/api/v1/scim`
 5. Set the **API Token** to the Collate SCIM token from Step 1
 6. Click **Test API Credentials** to verify the connection
 7. Click **Save**
