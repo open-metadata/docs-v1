@@ -1117,6 +1117,356 @@ OpenMetadata API call timed out after 30 seconds
 2. **Use consistent `pipelineServiceName`:**
    - Ensure service name is the same for all related jobs
 
+### Spark Code Patterns That Break Lineage
+
+Certain Spark coding patterns can prevent lineage from being captured correctly. Below are common issues and how to fix them:
+
+#### Pattern 1: Using Dynamic Table Names
+
+**❌ Breaks Lineage:**
+```python
+import datetime
+table_suffix = datetime.datetime.now().strftime("%Y%m%d")
+table_name = f"sales_{table_suffix}"  # Dynamic name: sales_20250119
+
+df.write.format("jdbc") \
+    .option("dbtable", table_name) \  # Lineage cannot track dynamic names
+    .save()
+```
+
+**✅ Fix:** Use consistent table names or configure table mapping:
+```python
+# Option 1: Use consistent base table name
+df.write.format("jdbc") \
+    .option("dbtable", "sales_current") \
+    .mode("overwrite") \
+    .save()
+
+# Option 2: Use partitioning instead of table name suffixes
+df.write.format("jdbc") \
+    .option("dbtable", "sales") \
+    .partitionBy("date") \
+    .save()
+```
+
+#### Pattern 2: Creating DataFrames from Local Collections
+
+**❌ Breaks Lineage:**
+```python
+# Creating DataFrame from Python list - no source lineage
+data = [(1, "John"), (2, "Jane")]
+df = spark.createDataFrame(data, ["id", "name"])
+
+df.write.jdbc(url, "users", properties=props)  # No source table tracked
+```
+
+**✅ Fix:** Always read from actual data sources:
+```python
+# Read from actual database/file source
+df = spark.read.jdbc(url, "source_users", properties=props)
+
+# Perform transformations
+df_transformed = df.select("id", "name")
+
+df_transformed.write.jdbc(url, "users", properties=props)  # Lineage tracked
+```
+
+#### Pattern 3: Using RDD Operations
+
+**❌ Breaks Lineage:**
+```python
+# Reading as DataFrame but converting to RDD
+df = spark.read.jdbc(url, "employees", properties=props)
+rdd = df.rdd.map(lambda row: (row.id, row.name.upper()))  # Breaks lineage tracking
+
+# Converting back to DataFrame
+result_df = rdd.toDF(["id", "name"])
+result_df.write.jdbc(url, "employees_upper", properties=props)  # Lineage lost
+```
+
+**✅ Fix:** Use DataFrame/Dataset APIs:
+```python
+from pyspark.sql.functions import upper
+
+df = spark.read.jdbc(url, "employees", properties=props)
+result_df = df.select("id", upper("name").alias("name"))  # Lineage preserved
+result_df.write.jdbc(url, "employees_upper", properties=props)
+```
+
+#### Pattern 4: Using Temporary Views Without Proper Table References
+
+**❌ Breaks Lineage:**
+```python
+# Reading from JDBC
+df = spark.read.jdbc(url, "orders", properties=props)
+
+# Creating temp view and using SQL without clear lineage
+df.createOrReplaceTempView("temp_orders")
+result = spark.sql("SELECT * FROM temp_orders WHERE amount > 100")
+
+# Writing without maintaining source reference
+result.write.mode("overwrite").parquet("/output/filtered_orders")  # Weak lineage
+```
+
+**✅ Fix:** Minimize temp views or use JDBC for output:
+```python
+df = spark.read.jdbc(url, "orders", properties=props)
+
+# Use DataFrame API instead of temp views
+result = df.filter("amount > 100")
+
+# Write to tracked destination (JDBC)
+result.write.format("jdbc") \
+    .option("url", url) \
+    .option("dbtable", "filtered_orders") \
+    .mode("overwrite") \
+    .save()
+```
+
+#### Pattern 5: Using collect() and Manual Writes
+
+**❌ Breaks Lineage:**
+```python
+df = spark.read.jdbc(url, "products", properties=props)
+
+# Collecting data locally and writing manually
+rows = df.collect()  # Brings data to driver
+
+# Manual database insert (lineage breaks here)
+import psycopg2
+conn = psycopg2.connect(...)
+for row in rows:
+    cursor.execute("INSERT INTO products_copy VALUES (%s, %s)", (row.id, row.name))
+conn.commit()
+```
+
+**✅ Fix:** Use Spark's native write operations:
+```python
+df = spark.read.jdbc(url, "products", properties=props)
+
+# Let Spark handle the write - lineage preserved
+df.write.format("jdbc") \
+    .option("url", url) \
+    .option("dbtable", "products_copy") \
+    .mode("append") \
+    .save()
+```
+
+#### Pattern 6: Using Non-JDBC File Formats Without Catalog
+
+**❌ Breaks Lineage:**
+```python
+# Reading from files without catalog registration
+df = spark.read.parquet("/data/input/sales.parquet")
+
+# Writing to files without catalog
+df.write.parquet("/data/output/processed_sales.parquet")  # No table lineage
+```
+
+**✅ Fix:** Use JDBC sources or register with catalog:
+```python
+# Option 1: Use JDBC sources/targets
+df = spark.read.jdbc(url, "sales", properties=props)
+df.write.jdbc(url, "processed_sales", properties=props)
+
+# Option 2: Register files as tables in metastore
+spark.sql("CREATE TABLE sales USING parquet LOCATION '/data/input/sales.parquet'")
+spark.sql("CREATE TABLE processed_sales USING parquet LOCATION '/data/output/processed_sales.parquet'")
+
+df = spark.table("sales")
+df.write.insertInto("processed_sales")
+```
+
+#### Pattern 7: Mixing Multiple Write Operations
+
+**❌ Breaks Lineage:**
+```python
+df = spark.read.jdbc(url, "transactions", properties=props)
+
+# Writing to multiple destinations in separate operations
+df.write.mode("overwrite").parquet("/backup/transactions")  # First write
+df.write.jdbc(url, "transactions_processed", properties=props)  # Second write
+
+# Lineage may only capture last write
+```
+
+**✅ Fix:** Use cache and separate clear operations:
+```python
+df = spark.read.jdbc(url, "transactions", properties=props)
+df_cached = df.cache()  # Cache to avoid re-reading
+
+# Write to primary JDBC target (tracked)
+df_cached.write.jdbc(url, "transactions_processed", properties=props)
+
+# Backup write (optional, document separately)
+df_cached.write.mode("overwrite").parquet("/backup/transactions")
+
+df_cached.unpersist()
+```
+
+#### Pattern 8: Using Incorrect JDBC URL Formats
+
+**❌ Breaks Lineage:**
+```python
+# Incorrect JDBC URL without proper database/schema
+df.write.format("jdbc") \
+    .option("url", "jdbc:mysql://localhost:3306") \  # Missing database
+    .option("dbtable", "users") \
+    .save()
+
+# Or using query instead of table
+df.write.format("jdbc") \
+    .option("url", url) \
+    .option("dbtable", "(SELECT * FROM users WHERE active=1) tmp") \  # Query, not table
+    .save()
+```
+
+**✅ Fix:** Use proper JDBC URLs and table names:
+```python
+# Include database in URL
+df.write.format("jdbc") \
+    .option("url", "jdbc:mysql://localhost:3306/mydb") \
+    .option("dbtable", "users") \
+    .save()
+
+# Use actual table names, do filtering in DataFrame
+df_filtered = df.filter("active = 1")
+df_filtered.write.format("jdbc") \
+    .option("url", "jdbc:mysql://localhost:3306/mydb") \
+    .option("dbtable", "active_users") \
+    .save()
+```
+
+#### Pattern 9: Using saveAsTable Without Database Prefix
+
+**❌ Breaks Lineage:**
+```python
+df = spark.read.jdbc(url, "orders", properties=props)
+
+# Saving to Spark catalog without database specification
+df.write.mode("overwrite").saveAsTable("processed_orders")  # Which database?
+```
+
+**✅ Fix:** Specify database explicitly:
+```python
+df = spark.read.jdbc(url, "source_db.orders", properties=props)
+
+# Write with full database qualification
+df.write.mode("overwrite").saveAsTable("target_db.processed_orders")
+
+# Or use JDBC write for better lineage
+df.write.format("jdbc") \
+    .option("url", "jdbc:mysql://localhost:3306/target_db") \
+    .option("dbtable", "processed_orders") \
+    .mode("overwrite") \
+    .save()
+```
+
+#### Pattern 10: Schema Mismatches Between Spark and OpenMetadata
+
+**❌ Breaks Lineage:**
+```python
+# Spark reads table with different casing than OpenMetadata
+df = spark.read.jdbc(url, "UserAccounts", properties=props)  # Capital case
+
+# OpenMetadata has it registered as "user_accounts" (lowercase)
+# Lineage fails due to name mismatch
+```
+
+**✅ Fix:** Match table names exactly as in OpenMetadata:
+```python
+# Check table name in OpenMetadata first
+# Use exact same casing and schema qualification
+df = spark.read.jdbc(url, "public.user_accounts", properties=props)
+
+# For case-sensitive databases, quote table names
+df.write.format("jdbc") \
+    .option("url", url) \
+    .option("dbtable", '"public"."user_accounts"') \
+    .save()
+```
+
+#### Pattern 11: Using Deprecated Write APIs
+
+**❌ Breaks Lineage:**
+```python
+# Old deprecated API
+df.write.jdbc(url=url, table="users", mode="overwrite", properties=props)
+```
+
+**✅ Fix:** Use modern DataFrame write API:
+```python
+df.write.format("jdbc") \
+    .option("url", url) \
+    .option("dbtable", "users") \
+    .option("driver", "com.mysql.cj.jdbc.Driver") \
+    .mode("overwrite") \
+    .save()
+```
+
+#### Pattern 12: Not Specifying Driver Class
+
+**❌ Breaks Lineage:**
+```python
+df.write.format("jdbc") \
+    .option("url", "jdbc:mysql://localhost:3306/db") \
+    .option("dbtable", "users") \
+    .save()  # Missing driver specification
+```
+
+**✅ Fix:** Always specify driver:
+```python
+df.write.format("jdbc") \
+    .option("url", "jdbc:mysql://localhost:3306/db") \
+    .option("driver", "com.mysql.cj.jdbc.Driver") \
+    .option("dbtable", "users") \
+    .save()
+```
+
+### Best Practices for Lineage-Friendly Spark Code
+
+1. **Always use JDBC format explicitly:**
+   ```python
+   .format("jdbc")  # Not .jdbc() shortcut
+   ```
+
+2. **Use fully qualified table names:**
+   ```python
+   .option("dbtable", "database.schema.table")
+   ```
+
+3. **Avoid dynamic table names - use static names:**
+   ```python
+   # Good: "sales_current"
+   # Bad: f"sales_{datetime.now()}"
+   ```
+
+4. **Prefer DataFrame API over SQL strings:**
+   ```python
+   df.filter("amount > 100")  # Better than SQL on temp views
+   ```
+
+5. **Always specify database in JDBC URL:**
+   ```python
+   jdbc:mysql://host:3306/database  # Include database
+   ```
+
+6. **Use consistent naming across Spark and OpenMetadata:**
+   - Check table names in OpenMetadata UI
+   - Match exact casing and schema names
+
+7. **Avoid intermediate local collections:**
+   ```python
+   # Don't: df.collect() then manual writes
+   # Do: df.write.format("jdbc")...
+   ```
+
+8. **Test lineage with simple job first:**
+   ```python
+   # Minimal test: read one table, write to another
+   spark.read.jdbc(..., "source").write.jdbc(..., "target")
+   ```
+
 ### Debug Mode
 
 Enable debug logging for detailed troubleshooting:
@@ -1130,6 +1480,7 @@ This will output detailed logs about:
 - API calls to OpenMetadata
 - Table resolution process
 - Error details
+- Which tables/operations are detected
 
 ### Getting Help
 
