@@ -43,7 +43,7 @@ For a user to log in using SSO, you must configure SSO from your identity provid
 
 1. Under the **Manage** menu, click **Provisioning**
 2. Set **Provisioning Mode** to **Automatic**
-3. Set the **SCIM API endpoint URL** to `https://youcompany.getcollate.io/api/v1/scim`
+3. Set the **SCIM API endpoint URL** to `https://yourcompany.getcollate.io/api/v1/scim`
 4. Set **Secret Token** to the Collate SCIM token that you generated in Step 1
 5. Click **Test Connection** and wait for the confirmation message that the credentials are authorized to enable provisioning
 6. Click **Save**
