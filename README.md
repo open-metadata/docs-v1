@@ -363,18 +363,18 @@ Container tag for all the 'codeInfo' tags
 
 It's a tag for which will contain explanation or information about a chuck of code. Use as many tags as many steps you want inside the 'codeInfoContainer' tag.
 
-#### Attributes -
+#### Attributes
 
 1. srNumber (type - Number)
    It is the code info number and the corresponding code block number you want to highlight for the given information.
    
 **Note: srNumber is also a unique id to identify a code block. Make sure that you have srNumber values unique on a single page. That is even if multiple codePreview components are used in a page, the srNumbers should all be unique and should not repeat on a single page.**
 
-### 4. codeBlock -
+### 4. codeBlock
 
 A container tag to enclose all the code chunks you will write for each steps given with 'codeInfo' tag. Make sure to maintain the same order you want 'codeInfo' tags to be associated with it.
 
-#### Attributes - 
+#### Attributes 
 
 1. fileName (type - String)
    This is an optional argument. Pass the name of the file in which the code given inside the `codeBlock` tag is supposed to be.
@@ -747,12 +747,12 @@ A styled, bordered component, with or without icons, to navigate to pages.
 3. description (type - String)
    Some description about the page the tile is referring to. 
 
-3. link (type - String)
+4. link (type - String)
    The link which the tile will redirect to.
 
-4. isExternalLink (type - Boolean)
-   To determine whether the given `href` value refers to an external website page. 
-   Pass `false` if the link refers to a page from the documentation and the `href` has a relative path and `true` if the entire path is provided in `href`.
+5. isExternalLink (type - Boolean)
+   To determine whether the given `link` value refers to an external website page. 
+   Pass `false` if the link refers to a page from the documentation and the `link` has a relative path and `true` if the entire path is provided in `link`.
 
 
 {% tilesContainer %}
