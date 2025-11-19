@@ -923,6 +923,15 @@ site_menu:
   - category: How-to Guides / Guide for Data Users / OpenMetadata Browser Extension
     url: /how-to-guides/guide-for-data-users/browser-ext
 
+  - category: How-to Guides / Query Runner
+    url: /how-to-guides/query-runner
+  - category: How-to Guides / Query Runner / Admin Configuration
+    url: /how-to-guides/query-runner/admin-configuration
+  - category: How-to Guides / Query Runner / User Authentication
+    url: /how-to-guides/query-runner/user-authentication
+  - category: How-to Guides / Query Runner / SQL Studio
+    url: /how-to-guides/query-runner/sql-studio
+
   - category: How-to Guides / Data Discovery
     url: /how-to-guides/data-discovery
   - category: How-to Guides / Data Discovery / How to Discover Assets of Interest
