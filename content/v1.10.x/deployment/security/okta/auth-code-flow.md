@@ -113,23 +113,16 @@ After the applying these steps, you can update the configuration of your deploym
   {% inlineCallout
     color="violet-70"
     icon="celebration"
-    bold="Docker Security"
-    href="/deployment/security/okta/docker" %}
-    Configure OKTA SSO for your Docker Deployment.
+    bold="Confidential"
+    href="/deployment/security/okta/confidential-client" %}
+    Configure OKTA SSO using Confidential Client.
   {% /inlineCallout %}
   {% inlineCallout
     color="violet-70"
     icon="storage"
-    bold="Bare Metal Security"
-    href="/deployment/security/okta/bare-metal" %}
-    Configure OKTA SSO for your Bare Metal Deployment.
-  {% /inlineCallout %}
-  {% inlineCallout
-    color="violet-70"
-    icon="fit_screen"
-    bold="Kubernetes Security"
-    href="/deployment/security/okta/kubernetes" %}
-    Configure OKTA SSO for your Kubernetes Deployment.
+    bold="Public"
+    href="/deployment/security/okta/public-client" %}
+    Configure OKTA SSO using Public Client.
   {% /inlineCallout %}
 {% /inlineCalloutContainer %}
 
