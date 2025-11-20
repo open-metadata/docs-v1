@@ -160,7 +160,7 @@ connection:
 ```
 
 For more information on how to shape the YAML describing the Airflow metadata extraction, you can refer 
-[here](https://docs.getcollate.io/connectors/pipeline/airflow/yaml#1.-define-the-yaml-config#1-define-the-yaml-config).
+[here](/connectors/pipeline/airflow/yaml#1.-define-the-yaml-config).
 
 
 ### Prepare the DAG!
