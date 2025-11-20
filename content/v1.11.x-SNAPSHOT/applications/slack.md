@@ -25,11 +25,10 @@ The AskCollate Slack application brings powerful data collaboration features to 
 
 Setting up the Slack integration involves two main steps:
 
-1. **Create and configure a Slack app** in your Slack workspace with the necessary permissions and credentials
-2. **Configure the integration** in Collate using the credentials from your Slack app
+1. **Create and configure a Slack app** on [api.slack.com/apps](https://api.slack.com/apps) using the app manifest method
+2. **Configure the integration** in your Collate instance (getcollate.io) using the credentials from your Slack app
 
-This guide provides approaches to create your Slack app:
-- **From manifest**: Quick setup using a pre-configured JSON manifest (recommended for faster deployment)
+This guide will walk you through both steps in order.
 
 ## Required Permissions
 
@@ -44,139 +43,107 @@ When you install AskCollate, the app will request the following permissions in y
 
 These permissions enable AskCollate to provide seamless data collaboration features while maintaining security and privacy within your workspace.
 
-## Slack App Configuration
+## Step 1: Create and Configure Your Slack App
 
-To enable Slack integration in Collate:
+**Platform: [api.slack.com/apps](https://api.slack.com/apps)**
 
-1. Navigate to **Settings** → **Applications** → **Add Apps**.
-
-{% image
-src="/images/v1.11/applications/slack1.png"
-alt="Configuration"
-caption="Configuration"
-/%}
-
-2. Search for **Slack** and install the application.
-
-{% image
-src="/images/v1.11/applications/slack2.png"
-alt="Configuration"
-caption="Configuration"
-/%}
-
-### Configuration Fields
-
-Provide the following credentials from your Slack app:
-
-- **Client ID**: Unique identifier for your Slack application (found in Basic Information)
-- **Client Secret**: Secret key used to authenticate your application (found in Basic Information)
-- **Signing Secret**: Used to verify that requests are coming from Slack (found in Basic Information)
-- **Bot Token**: OAuth token for bot operations, starts with `xoxb-` (found in OAuth & Permissions)
-- **User Token**: OAuth token for user-level operations, starts with `xoxp-` (found in OAuth & Permissions)
-
-{% image
-src="/images/v1.11/applications/slack3.png"
-alt="Configuration"
-caption="Configuration"
-/%}
-
-{% note %}
-
-Ensure that both tokens are securely stored and have the required scopes for interaction with your Slack workspace.
-
-{% /note %}
-
----
-
-## Creating Your Slack App
-
-To integrate Slack with Collate, you'll need to create a Slack application and obtain the necessary credentials (Client ID, Client Secret, Signing Secret, Bot Token, and User Token) using the app manifest method.
-
-## Create App From Manifest
-
-Use a pre-configured JSON manifest for faster setup. This method automatically configures most settings, requiring minimal manual configuration.
+In this step, you'll create a Slack app using a pre-configured manifest, install it to your workspace, and obtain the necessary credentials.
 
 ### Create a Slack App
 
 1. Go to the [Slack API: Your Apps](https://api.slack.com/apps) page.
+
+{% image
+src="/images/v1.11/applications/slack-apps-page.png"
+alt="Slack API Apps page"
+caption="Slack API: Your Apps page"
+/%}
+
 2. Click **Create New App**.
 3. Select **From manifest**.
 
 {% image
-src="/images/v1.11/applications/slack11.png"
+src="/images/v1.11/applications/choose-manifest.png"
 alt="Configuration"
 caption="Configuration"
 /%}
 
-4. Choose your **Slack workspace** and click 'Next'.
-5. Use the below json as a reference and paste it in.
+4. Choose your **Slack workspace** and click **Next**.
 
 {% image
-src="/images/v1.11/applications/slack12.png"
+src="/images/v1.11/applications/choose-workspace.png"
+alt="Choose workspace"
+caption="Select your Slack workspace"
+/%}
+
+5. Paste the manifest JSON below (remember to replace `<your-instance>` with your actual Collate instance name).
+
+{% image
+src="/images/v1.11/applications/paste-json.png"
 alt="Configuration"
 caption="Configuration"
 /%}
 
 ```json
 {
-    "display_information": {
-        "name": "AskCollate",
-        "description": "AI-powered data assistant for OpenMetadata",
-        "background_color": "#2e3030",
-        "long_description": "Connect OpenMetadata with Slack!\r\n\r\nCollate unlocks the value of your data with a unified Platform for data discovery, observability and governance.\r\n\r\nWith two of your most essential workspaces connected, you will receive notifications from Collate directly in Slack. Benefit from an improved discovery and collaboration process that enables you to:\r\n\r\n1. *Search Entities*: Quickly search for glossaries, terms, tags, and tables directly within Slack.\r\n2. Notifications: Stay informed with real-time alerts. :bell:\r\n3. Share Assets: Seamlessly share OpenMetadata assets with your team. :link:"
-    },
-    "features": {
-        "bot_user": {
-            "display_name": "AskCollate",
-            "always_online": false
-        }
-    },
-    "oauth_config": {
-        "scopes": {
-            "user": [
-                "channels:read",
-                "users:read",
-                "chat:write"
-            ],
-            "bot": [
-                "app_mentions:read",
-                "channels:read",
-                "chat:write",
-                "files:read",
-                "im:history",
-                "im:read",
-                "users:read",
-                "channels:history",
-                "im:write",
-                "users:read.email",
-                "groups:history"
-            ]
-        }
-    },
-    "settings": {
-        "event_subscriptions": {
-            "request_url": "https://sandbox-beta.open-metadata.org/api/slack/events",
-            "bot_events": [
-                "app_mention",
-                "message.channels",
-                "message.groups",
-                "message.im"
-            ]
-        },
-        "interactivity": {
-            "is_enabled": true,
-            "request_url": "https://sandbox-beta.open-metadata.org/api/slack/events"
-        },
-        "org_deploy_enabled": false,
-        "socket_mode_enabled": false,
-        "token_rotation_enabled": false
+  "display_information": {
+    "name": "AskCollate",
+    "description": "AI-powered data assistant for OpenMetadata",
+    "background_color": "#2e3030",
+    "long_description": "Connect OpenMetadata with Slack!\r\n\r\nCollate unlocks the value of your data with a unified Platform for data discovery, observability and governance.\r\n\r\nWith two of your most essential workspaces connected, you will receive notifications from Collate directly in Slack. Benefit from an improved discovery and collaboration process that enables you to:\r\n\r\n1. *Search Entities*: Quickly search for glossaries, terms, tags, and tables directly within Slack.\r\n2. Notifications: Stay informed with real-time alerts. :bell:\r\n3. Share Assets: Seamlessly share OpenMetadata assets with your team. :link:"
+  },
+  "features": {
+    "bot_user": {
+      "display_name": "AskCollate",
+      "always_online": false
     }
+  },
+  "oauth_config": {
+    "scopes": {
+      "user": [
+        "channels:read",
+        "users:read",
+        "chat:write"
+      ],
+      "bot": [
+        "app_mentions:read",
+        "channels:read",
+        "chat:write",
+        "files:read",
+        "im:history",
+        "im:read",
+        "users:read",
+        "channels:history",
+        "im:write",
+        "users:read.email",
+        "groups:history"
+      ]
+    }
+  },
+  "settings": {
+    "event_subscriptions": {
+      "request_url": "https://<your-instance>.getcollate.io/api/slack/events",
+      "bot_events": [
+        "app_mention",
+        "message.channels",
+        "message.groups",
+        "message.im"
+      ]
+    },
+    "interactivity": {
+      "is_enabled": true,
+      "request_url": "https://<your-instance>.getcollate.io/api/slack/events"
+    },
+    "org_deploy_enabled": false,
+    "socket_mode_enabled": false,
+    "token_rotation_enabled": false
+  }
 }
 ```
 
 {% note %}
 
-- Please update the request url in the above json to your server url.
+Replace `<your-instance>` with your Collate instance name. For example, if your Collate URL is `https://acme.getcollate.io`, use `https://acme.getcollate.io/api/slack/events`.
 
 {% /note %}
 
@@ -200,20 +167,52 @@ caption="Basic Information page"
 ### Install the App to Workspace
 
 1. In the left-hand menu, navigate to **Install App**.
+
+{% image
+src="/images/v1.11/applications/install-app-menu-click.png"
+alt="Navigate to Install App"
+caption="Click Install App in the left sidebar"
+/%}
+
 2. Click **Install to Workspace** to install the app to your Slack workspace.
+
+{% image
+src="/images/v1.11/applications/install-to-workspace.png"
+alt="Install to Workspace button"
+caption="Click Install to Workspace"
+/%}
+
 3. Authorize the permissions requested by the app.
 
-After installation, if you go to **Install App** again you will see the User and Bot Tokens.
+{% image
+src="/images/v1.11/applications/authorize-permissions.png"
+alt="Authorize permissions"
+caption="Review and authorize the requested permissions"
+/%}
+
+After installation, you'll be redirected back to the Install App page where you will see the User and Bot Tokens.
+
+{% image
+src="/images/v1.11/applications/tokens-displayed.png"
+alt="Tokens displayed after installation"
+caption="User and Bot tokens are displayed after successful installation"
+/%}
 
 ### Copy the Credentials and Tokens
 
 1. Copy the following credentials and tokens from your Slack app:
 
-- **Client ID, Client Secret, and Signing Secret**: Available on the Basic Information page
-- **Bot User OAuth Token**: Starts with `xoxb-...` (found on OAuth & Permissions page after installation)
-- **User OAuth Token**: Starts with `xoxp-...` (found on OAuth & Permissions page after installation)
+- **Client ID, Client Secret, and Signing Secret**: Available on the **Basic Information** page
+- **Bot User OAuth Token**: Starts with `xoxb-...` (displayed on the **Install App** page after installation)
+- **User OAuth Token**: Starts with `xoxp-...` (displayed on the **Install App** page after installation)
 
-Store these tokens securely and use them to configure the Slack integration in Collate as described in the [Slack App Configuration](#slack-app-configuration) section above.
+Store these tokens securely - you'll need them in Step 2 to configure the integration in Collate, check image below.
+
+{% image
+src="/images/v1.11/applications/tokens-displayed.png"
+alt="Tokens displayed after installation"
+caption="Update Token Details"
+/%}
 
 {% note %}
 
@@ -223,14 +222,71 @@ Store these tokens securely and use them to configure the Slack integration in C
 
 {% /note %}
 
-### Configure Redirect URLs and Event Subscriptions
+## Step 2: Configure Slack Integration in Collate
 
-1. Navigate to **Event Subscriptions** in the left-hand menu.
-2. If the Request URL shows a verification error, click **Retry** to re-verify the endpoint.
+**Platform: getcollate.io**
+
+Now that you have created your Slack app and obtained the credentials, you'll configure the integration in your Collate instance.
+
+### Add Slack Application
+
+1. Log in to your Collate instance at `https://<your-instance>.getcollate.io`.
+2. Navigate to **Settings** → **Applications** → **Add Apps**.
+
+{% image
+src="/images/v1.11/applications/slack1.png"
+alt="Navigate to Applications"
+caption="Navigate to Settings → Applications → Add Apps"
+/%}
+
+3. Search for **Slack** and install the application.
+
+{% image
+src="/images/v1.11/applications/slack2.png"
+alt="Install Slack Application"
+caption="Search for Slack and click Install"
+/%}
+
+### Configure Credentials
+
+4. Provide the credentials you copied from your Slack app in Step 1:
+
+- **Client ID**: Unique identifier for your Slack application (from Basic Information page)
+- **Client Secret**: Secret key used to authenticate your application (from Basic Information page)
+- **Signing Secret**: Used to verify that requests are coming from Slack (from Basic Information page)
+- **Bot Token**: OAuth token for bot operations, starts with `xoxb-` (from Install App page)
+- **User Token**: OAuth token for user-level operations, starts with `xoxp-` (from Install App page)
+
+{% image
+src="/images/v1.11/applications/provide-credentials.png"
+alt="Enter Slack Credentials"
+caption="Enter the credentials from your Slack app"
+/%}
+
+5. Click **Save** to complete the configuration.
 
 {% note %}
 
-The Event Subscriptions request URL is already configured in the manifest (e.g., `https://sandbox.open-metadata.org/api/slack/events`). If you see a verification error, ensure your server is running and the endpoint is accessible, then click **Retry**.
+Ensure that both tokens are securely stored and have the required scopes for interaction with your Slack workspace.
+
+{% /note %}
+
+---
+
+## Step 3: Verify Event Subscriptions
+
+1. Navigate to **Event Subscriptions** in the left-hand menu.
+2. Verify that the Request URL shows a green checkmark indicating successful verification.
+
+{% image
+src="/images/v1.11/applications/event-subscriptions-verified.png"
+alt="Event Subscriptions Verified"
+caption="Event Subscriptions should show verification success"
+/%}
+
+{% note %}
+
+If the Request URL shows a verification error, contact Collate Support for assistance.
 
 {% /note %}
 
