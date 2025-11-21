@@ -1,7 +1,7 @@
-# 1.10.7 Release 🎉
+# 1.10.8 Release 🎉
 
 {% note noteType="Tip" %}
-**17th November 2025**
+**21st November 2025**
 {% /note %}
 
 {% inlineCalloutContainer %}
@@ -10,25 +10,48 @@ color="violet-70"
 icon="celebration"
 bold="Upgrade OpenMetadata"
 href="/deployment/upgrade" %}
-Learn how to upgrade your OpenMetadata instance to 1.10.7!
+Learn how to upgrade your OpenMetadata instance to 1.10.8!
 {% /inlineCallout %}
 {% /inlineCalloutContainer %}
 
-You can find the GitHub release [here](https://github.com/open-metadata/OpenMetadata/releases/tag/1.10.7-release).
+You can find the GitHub release [here](https://github.com/open-metadata/OpenMetadata/releases/tag/1.10.8-release).
+
+## Fixes
+
+- Resolved APIError object not being subscriptable.
+- Fixed lineage paging and rendering issues in the UI.
+- Corrected app status ordering.
+- Added support for multi-repo Looker integrations.
+- Corrected OIDC server URL display message.
+- Disabled Unity Catalog downstream processing.
+- Closed streamable log streams to prevent resource leakage.
+- Corrected app resource logs ordering and resolved partial SSE log issues.
+- Fixed JSON rule generation for reviewer `fullyQualifiedName`.
+- Corrected tier count behavior for quick filters in the UI.
+- Fixed auto-classification test failures.
+- Resolved issues with hyphens in database, schema, and table names.
+- Corrected data retention logic.
+- Fixed retention handling for test case results and profile data.
+- Corrected public flow introspection behavior.
+- Applied UI fixes for the Domain data product experience.
+- Improved layout for custom property advanced search in the UI.
+- Added missing migration SQL files for versions 1.8.5 and 1.10.2.
+- Corrected imports for a previously cherry-picked commit.
+- Fixed task assignment logic for newly patched reviewers.
+- Ensured metadata fields API returns correct responses for tags and classifications.
+- Removed default values from the entity schema where not required.
+- Fixed search functionality in domain and data product filters.
+- Resolved typing race conditions in the search bar.
+- Corrected case sensitivity issues between dbt models and Snowflake columns.
+- Updated email configuration template default value.
+- Ensured SAML timestamp compatibility with Azure AD validation requirements.
+- Fixed pagination test on the Bot page.
 
 ## Improvements
 
-- Improve Okta public key URL validation to correctly handle both `/oauth2/v1/keys` and `/oauth2/{authServerId}/v1/keys` patterns.
-- TRUNCATE Flowable history tables in both 1.10.5 and 1.10.7 migrations.
-- Deduplicate dbt tags.
-- Add support for classification tags in the dbt `meta` field.
-- Add `consoleEndpointURL` support for S3-compatible services.
+- Updated Presidio recognizers to use the `en_core_web_md` model for better accuracy.
+- Upgraded Axios to version 1.12.0 to resolve security vulnerabilities.
+- Added the Assets API and deprecated inline asset fields for Domain and Data Product.
+- Improved the accuracy and precision of auto-classification.
 
-## Bug Fixes
-
-- Resolve “dbt NoneType has no attribute len” error.
-- Fix UI flickering issue in the classification module.
-- Add pagination Playwright test in a separate file and address code smells.
-- Correct currentPage reset issue across all pages.
-
-**Full Changelog**: [link](https://github.com/open-metadata/OpenMetadata/compare/1.10.6-release...1.10.7-release)
+**Full Changelog**: [link](https://github.com/open-metadata/OpenMetadata/compare/1.10.7-release...1.10.8-release)
