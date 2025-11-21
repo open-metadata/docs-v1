@@ -11,7 +11,7 @@ slug: /main-concepts/metadata-standard/schemas/entity/services/connections/dashb
 ## Properties
 
 - **`type`**: Service Type. Refer to *[#/definitions/qlikSenseType](#definitions/qlikSenseType)*. Default: `"QlikSense"`.
-- **`displayUrl`** *(string, format: uri)*: Qlik Sense Base URL, used for genrating dashboard & chat url.
+- **`displayUrl`** *(string, format: uri)*: Qlik Sense Base URL, used for generating dashboard & chat url.
 - **`hostPort`** *(string, format: uri)*: URL for the Qlik instance.
 - **`certificates`**
   - **One of**

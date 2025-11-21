@@ -10,7 +10,7 @@ slug: /main-concepts/metadata-standard/schemas/metadataingestion/databaseservice
 ## Properties
 
 - **`type`**: Pipeline type. Refer to *#/definitions/autoClassificationConfigType*. Default: `AutoClassification`.
-- **`classificationFilterPattern`**: Regex to only compute metrics for table that matches the given tag, tiers, gloassary pattern. Refer to *../type/filterPattern.json#/definitions/filterPattern*.
+- **`classificationFilterPattern`**: Regex to only compute metrics for table that matches the given tag, tiers, glossary pattern. Refer to *../type/filterPattern.json#/definitions/filterPattern*.
 - **`schemaFilterPattern`**: Regex to only fetch tables or databases that matches the pattern. Refer to *../type/filterPattern.json#/definitions/filterPattern*.
 - **`tableFilterPattern`**: Regex exclude tables or databases that matches the pattern. Refer to *../type/filterPattern.json#/definitions/filterPattern*.
 - **`databaseFilterPattern`**: Regex to only fetch databases that matches the pattern. Refer to *../type/filterPattern.json#/definitions/filterPattern*.

@@ -20,10 +20,10 @@ for the non-managed follow only the steps related to the Airflow server and CLI.
 2. Inside the App Registration, go to `Certificates & Secrets` and create a `Client secret`. Note down the `Value`, it will be our `clientSecret` configuration.
 3. From the App Registration overview page, note down the `Application (client) ID` and the `Directory (tenant) ID`.
 
-#### Managed Identity (recommnded)
+#### Managed Identity (recommended)
 
-1. In your Azure subscription create [Manged Identity](https://learn.microsoft.com/en-us/entra/identity/managed-identities-azure-resources/overview)
-2. Use this created identity - for AKS users this means you need to use [Pod Identity](https://learn.microsoft.com/en-us/azure/aks/use-azure-ad-pod-identity) or [Workload Identity (recommnded)](https://learn.microsoft.com/en-us/azure/aks/workload-identity-overview?tabs=dotnet).
+1. In your Azure subscription create [Managed Identity](https://learn.microsoft.com/en-us/entra/identity/managed-identities-azure-resources/overview)
+2. Use this created identity - for AKS users this means you need to use [Pod Identity](https://learn.microsoft.com/en-us/azure/aks/use-azure-ad-pod-identity) or [Workload Identity (recommended)](https://learn.microsoft.com/en-us/azure/aks/workload-identity-overview?tabs=dotnet).
 
 {% note %}
 
