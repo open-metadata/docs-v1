@@ -9,7 +9,7 @@ collate: true
 
 This guide outlines the steps required to give temporary support access in the Collate platform for the support team.
 
-## Steps to Grant  Access
+## Steps to Grant Access
 
 ### 1. Navigate to the Support Application
 
