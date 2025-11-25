@@ -2,7 +2,7 @@ import { ReactComponent as DeploymentIcon } from "../images/icons/deploymentTile
 import { ReactComponent as KnowledgeBaseIcon } from "../images/icons/knowledge.svg";
 import { ReactComponent as SaasIcon } from "../images/icons/saas.svg";
 
-export const HOME_PAGE_BANNER_VIDEO_ID = "-btuPjjnNEA";
+export const HOME_PAGE_BANNER_VIDEO_ID = "jCXftpMOvS8";
 export const HOME_PAGE_BANNER_INFO = {
   title: "OpenMetadata Documentation",
   description:
