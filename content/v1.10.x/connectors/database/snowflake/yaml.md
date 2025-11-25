@@ -151,6 +151,7 @@ This is a sample config for Snowflake:
 {% codeInfo srNumber=5 %}
 
 **database**: The database of the data source is an optional parameter, if you would like to restrict the metadata reading to a single database. If left blank, OpenMetadata ingestion attempts to scan all the databases.
+**queryTag**: Session query tag used to monitor usage on snowflake. To use a query tag snowflake user should have enough privileges to alter the session.
 
 {% /codeInfo %}
 
@@ -245,19 +246,20 @@ source:
       password: <password>
 ```
 ```yaml {% srNumber=3 %}
-      warehouse: <warehouse>
+      warehouse: <warehouse_name>
 ```
 ```yaml {% srNumber=4 %}
-      account: <account>
+      account: <account.region_name.cloud_service>
 ```
 ```yaml {% srNumber=5 %}
-      # database: <database>
+      database: <database_name>
+      queryTag: openmetadata
 ```
 ```yaml {% srNumber=40 %}
       # accountUsageSchema: SNOWFLAKE.ACCOUNT_USAGE
 ```
 ```yaml {% srNumber=6 %}
-      includeTransientTables: false
+      includeTransientTables: true
 ```
 ```yaml {% srNumber=7 %}
       includeStreams: false
@@ -266,13 +268,13 @@ source:
       clientSessionKeepAlive: false
 ```
 ```yaml {% srNumber=8 %}
-      # privateKey: <privateKey>
+      # privateKey: <privateKey> # only used when password is not given
 ```
 ```yaml {% srNumber=9 %}
-      # snowflakePrivatekeyPassphrase: <passphrase>
+      # snowflakePrivatekeyPassphrase: <passphrase> # only used when password is not given
 ```
 ```yaml {% srNumber=10 %}
-      # role: <role>
+      # role: <role_name>
 ```
 ```yaml {% srNumber=11 %}
       # connectionOptions:
