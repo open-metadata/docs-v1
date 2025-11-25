@@ -885,6 +885,8 @@ site_menu:
     url: /how-to-guides/collate-customer-support/open-ticket
   - category: How-to Guides / Collate Customer Support / How to Manage Users from the Collate Support Portal
     url: /how-to-guides/collate-customer-support/manage-users
+  - category: How-to Guides / Collate Customer Support / How to Grant Temporary Access to Collate Support Team Members
+    url: /how-to-guides/collate-customer-support/grant-access
 
   - category: How-to Guides / Guide for Data Users
     url: /how-to-guides/guide-for-data-users
