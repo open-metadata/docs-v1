@@ -7,7 +7,7 @@ collate: true
 
 # How to Grant Temporary Access to Collate Support Team Members
 
-This guide outlines the steps required to give a temporary support access in the Collate platform for the support team.
+This guide outlines the steps required to give temporary support access in the Collate platform for the support team.
 
 ## Steps to Grant  Access
 
