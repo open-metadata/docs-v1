@@ -46,7 +46,7 @@ You can refer to the following guide to get more details about the backup and re
   {% /inlineCallout %}
 {% /inlineCalloutContainer %}
 
-## Understanding the "Running" State in OpenMetadata
+## Understanding the Running State in OpenMetadata
 
 In OpenMetadata, the **"Running"** state indicates that the OpenMetadata server has received a response from Airflow confirming that a workflow is in progress. However, if Airflow unexpectedly stops or crashes before it can send a failure status update through the **Failure Callback**, OpenMetadata remains unaware of the workflow’s actual state. As a result, the workflow may appear to be stuck in **"Running"** even though it is no longer executing.  
 
