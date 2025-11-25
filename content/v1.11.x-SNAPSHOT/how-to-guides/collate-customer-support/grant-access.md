@@ -1,6 +1,6 @@
 ---
 title: How to Grant Temporary Access to Collate Support Team Members
-description: Give temporary support access to the customer support team members in Collate for support access, including external email setup and SSO domain settings.
+description: Grant temporary support access to the customer support team members in Collate for support access, including external email setup and SSO domain settings.
 slug: /how-to-guides/collate-customer-support/grant-access
 collate: true
 ---
