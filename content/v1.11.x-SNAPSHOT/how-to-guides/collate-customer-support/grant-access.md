@@ -24,7 +24,7 @@ caption="Settings → Applications → Support"
 ### 2. Add the Collate Support Access
 
 - In the **Add Support** section:
-  - Enter the support email: eg `ayush@getcollate.io`
+  - Enter the support email: e.g., `ayush@getcollate.io`
   - Set **Access Role** to `view only` or `Admin`.
   - Set the **Access Duration** to `1 hour`, `2 hour`, `4 hours` etc.
 
