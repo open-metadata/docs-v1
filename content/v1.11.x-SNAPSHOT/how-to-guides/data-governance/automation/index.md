@@ -14,7 +14,7 @@ Collate's **Automation** feature is a powerful tool designed to simplify and str
 
 {% note %}
 
-Automations are handled by the `automatorapplicationbot`. All changes made by the bots are automatically recorded in the version history.
+Automations are handled by the `automatorapplicationbot`. All changes made by the bot are automatically recorded in the version history.
 
 {% image
 src="/images/v1.11/how-to-guides/governance/automatorbot.png"
