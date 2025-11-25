@@ -12,6 +12,18 @@ collate: true
 
 Collate's **Automation** feature is a powerful tool designed to simplify and streamline metadata management tasks. By automating repetitive actions such as assigning owners, domains, or tagging data, Collate helps maintain consistency in metadata across an organization's datasets. These automations reduce manual effort and ensure that metadata is always up-to-date, accurate, and governed according to predefined policies.
 
+{% note %}
+
+Automations are handled by the `automatorapplicationbot`. All changes made by the bots are automatically recorded in the version history.
+
+{% image
+src="/images/v1.11/how-to-guides/governance/automatorbot.png"
+alt="Automator Application Bot"
+caption="Automator Application Bot"
+/%}
+
+{% /note %}
+
 ## Why Automations are Useful
 
 Managing metadata manually can be challenging, particularly in dynamic environments where data constantly evolves. Collate's Automation feature addresses several key pain points:
