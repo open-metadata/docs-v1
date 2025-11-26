@@ -29,16 +29,16 @@ caption="Select a Persona"
 
 {% image
 src="/images/v1.10/how-to-guides/admin-guide/landing-2.png"
-alt="Select Homaepage"
-caption="Select Homaepage"
+alt="Select Homepage"
+caption="Select Homepage"
 /%}
 
 3. Click on Add widget
 
 {% image
 src="/images/v1.10/how-to-guides/admin-guide/landing-5.png"
-alt="Select Homaepage"
-caption="Select Homaepage"
+alt="Select Homepage"
+caption="Select Homepage"
 /%}
 
 
