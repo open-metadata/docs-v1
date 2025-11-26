@@ -10,7 +10,7 @@ OpenMetadata's customizable landing page allows admins to tailor the layout base
 ## How to Customize a Landing Page:
 
 1. **Set Up Personas**:  
-   After defining personas, navigate to **Settings > Preferences > Customize Landing Page**.
+   After defining personas, navigate to **Settings > Persona**.
 
 {% image
 src="/images/v1.10/how-to-guides/admin-guide/landing-1.png"
@@ -18,14 +18,8 @@ alt="Set Up Personas"
 caption="Set Up Personas"
 /%}
 
-{% image
-src="/images/v1.10/how-to-guides/admin-guide/landing-2.png"
-alt="Customize Landing Page"
-caption="Customize Landing Page"
-/%}
-
 2. **Select a Persona**:  
-   Customize a landing page for a specific persona (e.g., data consumer) by adding, removing, or rearranging panels.
+   Customize a landing page for a specific persona (e.g., data steward) and than select homepage to customize it.
 
 {% image
 src="/images/v1.10/how-to-guides/admin-guide/landing-3.png"
@@ -33,8 +27,23 @@ alt="Select a Persona"
 caption="Select a Persona"
 /%}
 
-3. **Pluggable Panels**:  
-   Configure panels based on the needs of each persona by adding widgets as required. Panels can include:
+{% image
+src="/images/v1.10/how-to-guides/admin-guide/landing-2.png"
+alt="Select Homaepage"
+caption="Select Homaepage"
+/%}
+
+3. Click on Add widget
+
+{% image
+src="/images/v1.10/how-to-guides/admin-guide/landing-5.png"
+alt="Select Homaepage"
+caption="Select Homaepage"
+/%}
+
+
+4. **Pluggable Panels**:  
+   Configure panels based on the needs of each persona by adding widgets as required and then click on apply. Panels can include:
    - Activity Feed
    - Key Performance Indicators (KPIs)
    - Recent Announcements
@@ -47,11 +56,11 @@ alt="Pluggable Panels"
 caption="Pluggable Panels"
 /%}
 
-4. **Rearrange and Save**:  
+5. **Rearrange and Save**:  
    Adjust the layout based on user preferences and save the configuration.
 
 {% image
-src="/images/v1.10/how-to-guides/admin-guide/landing-5.png"
+src="/images/v1.10/how-to-guides/admin-guide/landing-6.png"
 alt="Rearrange and Save"
 caption="Rearrange and Save"
 /%}
