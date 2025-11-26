@@ -27,4 +27,9 @@ Explore powerful Collate Applications to automate metadata management, streamlin
     description="Export data quality results and profiling data to Snowflake, BigQuery, or Databricks with support for scheduling, filtering, and custom configs."
     link="/applications/metadata-exporter"
   / %}
+{% tile
+  title="Query Runner"
+  description="Enable SQL Studio to execute SELECT queries directly against configured database services from within Collate with secure authentication and query management."
+  link="/applications/query-runner"
+/ %}
 {% /tilesContainer %}
