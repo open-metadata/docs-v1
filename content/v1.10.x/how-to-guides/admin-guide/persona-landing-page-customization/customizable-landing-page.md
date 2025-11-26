@@ -19,7 +19,7 @@ caption="Set Up Personas"
 /%}
 
 2. **Select a Persona**:  
-   Customize a landing page for a specific persona (e.g., data steward) and than select homepage to customize it.
+   Customize a landing page for a specific persona (e.g., data steward) and then select homepage to customize it.
 
 {% image
 src="/images/v1.10/how-to-guides/admin-guide/landing-3.png"
