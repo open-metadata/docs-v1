@@ -28,6 +28,7 @@ The **Reverse Metadata Application** ensures real-time synchronization of metada
 | Unity Catalog  | ✅ (Support all) | ✅ (Support all)  | ✅ (Database, Schema, Table) | ✅                | [Link](/connectors/database/unity-catalog#reverse-metadata) |
 | Trino  | ✅ (Table, Column) | ❌ | ❌ | ✅                | [Link](/connectors/database/trino#reverse-metadata) |
 | Tableau  | ✅ (Dashboard, Chart) | ✅ (Dashboard, Chart) | ✅ (Dashboard) | ❌                 | [Link](/connectors/dashboard/tableau#reverse-metadata) |
+| Apache Ranger  | ❌   | ✅ (Support all)  | ❌   | ❌                 | [Link](/connectors/security/ranger) |
 
 ## Overview
 
