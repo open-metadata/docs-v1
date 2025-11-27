@@ -20,7 +20,7 @@ slug: /main-concepts/metadata-standard/schemas/entity/applications/configuration
 - **`resource`** *(object)*: Entities selected to run the automation.
   - **`type`** *(array)*: Type of the entity. E.g., 'table', 'chart',...
     - **Items** *(string)*
-  - **`queryFilter`** *(string)*: Query filter to be passed to ES. E.g., `{"query":{"bool":{"must":[{"bool":{"should":[{"term":{"domain.displayName.keyword":"DG Anim"}}]}}]}}}`. This is the same payload as in the Explore page.
+  - **`queryFilter`** *(string)*: Query filter to be passed to ES. E.g., `{"query":{"bool":{"must":[{"bool":{"should":[{"term":{"domains.displayName.keyword":"DG Anim"}}]}}]}}}`. This is the same payload as in the Explore page.
 - **`action`**: Action to take on those entities. E.g., propagate description through lineage, auto tagging, etc.
   - **One of**
     - : Refer to *[automator/addTagsAction.json](#tomator/addTagsAction.json)*.
