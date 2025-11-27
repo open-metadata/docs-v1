@@ -924,6 +924,15 @@ site_menu:
   - category: How-to Guides / Guide for Data Users / OpenMetadata Browser Extension
     url: /how-to-guides/guide-for-data-users/browser-ext
 
+  - category: How-to Guides / SQL Studio
+    url: /how-to-guides/sql-studio
+  - category: How-to Guides / SQL Studio / Admin Configuration
+    url: /how-to-guides/sql-studio/admin-configuration
+  - category: How-to Guides / SQL Studio / User Authentication
+    url: /how-to-guides/sql-studio/user-authentication
+  - category: How-to Guides / SQL Studio / Query Execution
+    url: /how-to-guides/sql-studio/query-execution
+
   - category: How-to Guides / Data Discovery
     url: /how-to-guides/data-discovery
   - category: How-to Guides / Data Discovery / How to Discover Assets of Interest
