@@ -1,7 +1,7 @@
-# 1.10.8 Release 🎉
+# 1.10.9 Release 🎉
 
 {% note noteType="Tip" %}
-**21st November 2025**
+**27th November 2025**
 {% /note %}
 
 {% inlineCalloutContainer %}
@@ -10,48 +10,30 @@ color="violet-70"
 icon="celebration"
 bold="Upgrade OpenMetadata"
 href="/deployment/upgrade" %}
-Learn how to upgrade your OpenMetadata instance to 1.10.8!
+Learn how to upgrade your OpenMetadata instance to 1.10.9!
 {% /inlineCallout %}
 {% /inlineCalloutContainer %}
 
-You can find the GitHub release [here](https://github.com/open-metadata/OpenMetadata/releases/tag/1.10.8-release).
+You can find the GitHub release [here](https://github.com/open-metadata/OpenMetadata/releases/tag/1.10.9-release).
 
 ## Fixes
 
-- Resolved APIError object not being subscriptable.
-- Fixed lineage paging and rendering issues in the UI.
-- Corrected app status ordering.
-- Added support for multi-repo Looker integrations.
-- Corrected OIDC server URL display message.
-- Disabled Unity Catalog downstream processing.
-- Closed streamable log streams to prevent resource leakage.
-- Corrected app resource logs ordering and resolved partial SSE log issues.
-- Fixed JSON rule generation for reviewer `fullyQualifiedName`.
-- Corrected tier count behavior for quick filters in the UI.
-- Fixed auto-classification test failures.
-- Resolved issues with hyphens in database, schema, and table names.
-- Corrected data retention logic.
-- Fixed retention handling for test case results and profile data.
-- Corrected public flow introspection behavior.
-- Applied UI fixes for the Domain data product experience.
-- Improved layout for custom property advanced search in the UI.
-- Added missing migration SQL files for versions 1.8.5 and 1.10.2.
-- Corrected imports for a previously cherry-picked commit.
-- Fixed task assignment logic for newly patched reviewers.
-- Ensured metadata fields API returns correct responses for tags and classifications.
-- Removed default values from the entity schema where not required.
-- Fixed search functionality in domain and data product filters.
-- Resolved typing race conditions in the search bar.
-- Corrected case sensitivity issues between dbt models and Snowflake columns.
-- Updated email configuration template default value.
-- Ensured SAML timestamp compatibility with Azure AD validation requirements.
-- Fixed pagination test on the Bot page.
+- Fixed missing `performUserLogin` import causing failures in `user.spec` test.
+- Fixed Looker local path Git converter.
+- Fixed query voting functionality by including vote counts in the search index.
+- Reverted the earlier patch that added vote counts to the search index for query voting.
+- Added MSSQL SSL support.
+- Verified ingestion behavior with incoming server version.
+- Fixed issues with OpenMetadata Ops bulk deployment via API.
+- Resolved unstructured containers issue in manifest metadata configuration.
+- Fixed description rendering issues on entity pages.
+- Fixed NPE scenarios in `IngestionPipelineRepository` update methods for null fields.
+- Fixed translation for the "delete" keyword.
+- Added hotfix to Docker Ingestion CI to ensure free disk space availability.
+- Fixed failing test case filters in `DataQualityAndProfiler.spec.ts`.
 
 ## Improvements
 
-- Updated Presidio recognizers to use the `en_core_web_md` model for better accuracy.
-- Upgraded Axios to version 1.12.0 to resolve security vulnerabilities.
-- Added the Assets API and deprecated inline asset fields for Domain and Data Product.
-- Improved the accuracy and precision of auto-classification.
+- Added support for custom Git hosts and local repository usage in Looker.
 
-**Full Changelog**: [link](https://github.com/open-metadata/OpenMetadata/compare/1.10.7-release...1.10.8-release)
+**Full Changelog**: [link](https://github.com/open-metadata/OpenMetadata/compare/1.10.8-release...1.10.9-release)
