@@ -107,6 +107,15 @@ For more information on how lineage is extracted from dbt take a look [here](/co
   caption="dbt Lineage"
  /%}
 
+{% note %}
+
+To capture lineage, the `compiled_code` field must be present in the `manifest.json` file.
+- If `compiled_code` is missing, lineage will **not** be captured for that node.
+- To ensure `compiled_code` is populated in your dbt manifest, run the following commands in your dbt project:
+  - `dbt compile`
+  - `dbt docs generate`
+
+{% /note %}
 
 ### 3. dbt Tags
 

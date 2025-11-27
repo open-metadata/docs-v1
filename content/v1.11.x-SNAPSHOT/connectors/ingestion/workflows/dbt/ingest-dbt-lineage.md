@@ -10,6 +10,16 @@ Ingest the lineage information from dbt `manifest.json` file into OpenMetadata.
 
 OpenMetadata extracts the lineage information from the `depends_on` and `compiled_query/compiled_code` keys from the manifest file.
 
+{% note %}
+
+To capture lineage, the `compiled_code` field must be present in the `manifest.json` file.
+- If `compiled_code` is missing, lineage will **not** be captured for that node.
+- To ensure `compiled_code` is populated in your dbt manifest, run the following commands in your dbt project:
+  - `dbt compile`
+  - `dbt docs generate`
+
+{% /note %}
+
 ### 1. Lineage information from dbt "depends_on" key
 Openmetadata fetches the lineage information from the `manifest.json` file. Below is a sample `manifest.json` file node containing lineage information under `node_name->depends_on->nodes`.
 
