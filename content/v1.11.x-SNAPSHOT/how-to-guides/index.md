@@ -34,7 +34,7 @@ Use LLMs and GenAI agents for automation and intelligent data management within 
 {% /collateContent %}
 {% tile
     title="Data Contracts"
-    description="Learn the essentials to set up effective data contracts, fast."
+    description="Formalize agreements that keep data consumers and producers aligned."
     link="/how-to-guides/data-contracts/"
     icon="discovery"
 /%}
