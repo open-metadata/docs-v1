@@ -35,6 +35,5 @@ You can find the GitHub release [here](https://github.com/open-metadata/OpenMeta
 ## Improvements
 
 - Added support for custom Git hosts and local repository usage in Looker.
-- Prepared the release branch for version `1.10.9`.
 
 **Full Changelog**: [link](https://github.com/open-metadata/OpenMetadata/compare/1.10.8-release...1.10.9-release)
