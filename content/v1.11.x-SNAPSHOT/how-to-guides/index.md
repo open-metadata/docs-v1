@@ -24,10 +24,18 @@ Use LLMs and GenAI agents for automation and intelligent data management within 
 {% collateContent %}Collate{% /collateContent %}{% ossContent %}OpenMetadata{% /ossContent %} is a complete package for data teams to break down team silos, share data assets from multiple sources securely, collaborate around reliable data, and build a documentation-first data culture in the organization.
 
 {% tilesContainer %}
+{% collateContent %}
 {% tile
     title="SQL Studio"
     description="Execute SELECT queries directly against your database services from a unified interface with secure authentication."
     link="/how-to-guides/sql-studio"
+    icon="queryrunner"
+/%}
+{% /collateContent %}
+{% tile
+    title="Data Contracts"
+    description="Learn the essentials to set up effective data contracts, fast."
+    link="/how-to-guides/data-contracts/"
     icon="discovery"
 /%}
 {% tile
