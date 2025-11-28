@@ -60,8 +60,8 @@ The policy allows access **only when the user has a matching domain** and denies
 
 {% image
 src="/images/v1.11/roles-policies/policy5.png"
-alt="hasDomain"
-caption="hasDomain"
+alt="Domain-Based Access Control Policy"
+caption="Policy configuration for domain-based access restrictions"
 /%}
 
 ### Use Case 5: Deny all the access if the data asset is tagged with PII.Sensitive and allow only the owners
