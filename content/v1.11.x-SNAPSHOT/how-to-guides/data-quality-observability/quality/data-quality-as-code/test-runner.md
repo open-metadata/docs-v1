@@ -8,6 +8,25 @@ slug: /how-to-guides/data-quality-observability/quality/data-quality-as-code/tes
 
 The `TestRunner` class provides a fluent API for executing data quality tests against tables cataloged in OpenMetadata. It automatically fetches table metadata and service connections, allowing you to run tests with minimal configuration.
 
+## Table of contents
+- [Overview](#overview)
+- [Basic Usage](#basic-usage)
+- [Complete Example](#complete-example)
+- [Running Tests from OpenMetadata's UI](#running-tests-from-openmetadata-ui)
+- [Customizing Test Metadata](#customizing-test-metadata)
+- [Configuring Row Count Computation](#configuring-row-count-computation)
+- [Test Runner Configuration](#test-runner-configuration)
+- [Understanding Test Results](#understanding-test-results)
+- [Integration with ETL Workflows](#integration-with-etl-workflows)
+- [Error Handling](#error-handling)
+- [Best Practices](#best-practices)
+- [Using External Secrets Managers](#using-external-secrets-managers)
+- [Next Steps](#next-steps)
+
+{% note %}
+⚠️ If you're using Collate Cloud to run OpenMetadata, please refer to the section about [External Secrets Managers](#using-external-secrets-managers) 
+{% /note %}
+
 ## Overview
 
 TestRunner enables you to:
@@ -388,6 +407,179 @@ except Exception as e:
 4. **Use appropriate thresholds**: Set realistic min/max values based on data patterns
 
 5. **Combine table and column tests**: Ensure both structural and content quality
+
+## Using External Secrets Managers
+
+### Important Note
+
+If your OpenMetadata instance uses **database-stored credentials** (the default configuration), you do not need to follow this guide. The SDK will automatically retrieve and decrypt credentials.
+
+This guide is only necessary when your organization uses an **external secrets manager** for credential storage.
+
+### Why This is Required
+
+The `TestRunner` API executes data quality tests directly from your Python code (e.g., within your ETL pipelines). To connect to your data sources, it needs to:
+
+1. Retrieve the service connection configuration from OpenMetadata
+2. Decrypt the credentials stored in your secrets manager
+3. Establish a connection to the data source
+4. Execute the test cases
+
+Without proper secrets manager configuration, the SDK cannot decrypt credentials and will fail to connect to your data sources.
+
+### General Setup Steps
+
+1. **Contact your OpenMetadata/Collate administrator** to obtain:
+    - The secrets manager type (AWS, Azure, GCP, etc.)
+    - The secrets manager loader configuration
+    - Required environment variables or configuration files
+    - Any additional setup (IAM roles, service principals, etc.)
+
+2. **Install required dependencies** for your secrets manager provider
+
+3. **Configure environment variables** with access credentials
+
+4. **Initialize the SecretsManagerFactory** before using TestRunner
+
+5. **Configure the SDK** and run your tests
+
+### Example using AWS Secrets Manager
+
+**Required Dependencies:**
+```bash
+pip install "openmetadata-ingestion[aws]>=1.11.0.0"
+```
+
+**Example Configuration:**
+```python
+import os
+
+from metadata.generated.schema.security.secrets.secretsManagerClientLoader import SecretsManagerClientLoader
+from metadata.generated.schema.security.secrets.secretsManagerProvider import SecretsManagerProvider
+from metadata.sdk import configure
+from metadata.sdk.data_quality import TestRunner
+from metadata.utils.secrets.secrets_manager_factory import SecretsManagerFactory
+
+# Set AWS credentials and region
+os.environ["AWS_ACCESS_KEY_ID"] = "your-access-key-id"
+os.environ["AWS_SECRET_ACCESS_KEY"] = "your-secret-access-key"
+os.environ["AWS_DEFAULT_REGION"] = "us-east-1"  # Your AWS region
+
+# Initialize secrets manager (must be done before configure())
+SecretsManagerFactory(
+    secrets_manager_provider=SecretsManagerProvider.managed_aws,
+    secrets_manager_loader=SecretsManagerClientLoader.env,
+)
+
+# Configure OpenMetadata SDK
+configure(
+    host="https://your-openmetadata-instance.com/api",
+    jwt_token="your-jwt-token",
+)
+
+# Use TestRunner as normal
+runner = TestRunner.for_table("MySQL.production.database.my_table")
+results = runner.run()
+```
+
+### Configuration by Provider
+
+#### AWS and AWS Parameters Store
+
+**OpenMetadata's ingestion extras**: `aws` (e.g `pip install 'openmetadata-ingestion[aws]'`)
+
+**SecretsManagerProvider: (one of)**
+- `SecretsManagerProvider.aws`
+- `SecretsManagerProvider.managed_aws`
+- `SecretsManagerProvider.aws_ssm`
+- `SecretsManagerProvider.managed_aws_ssm`
+
+**Environment variables:**
+- `AWS_ACCESS_KEY_ID`
+- `AWS_SECRET_ACCESS_KEY`
+- `AWS_DEFAULT_REGION`
+
+#### Azure Key Vault
+
+**OpenMetadata's ingestion extras**: `azure` (e.g `pip install 'openmetadata-ingestion[azure]'`)
+
+**SecretsManagerProvider: (one of)**
+- `SecretsManagerProvider.azure_kv`
+- `SecretsManagerProvider.managed_azure_kv`
+
+**Environment variables:**
+- `AZURE_CLIENT_ID`
+- `AZURE_CLIENT_SECRET`
+- `AZURE_TENANT_ID`
+- `AZURE_KEY_VAULT_NAME`
+
+#### Google Cloud Secret Manager
+
+**OpenMetadata's ingestion extras**: `gcp` (e.g `pip install 'openmetadata-ingestion[gcp]'`)
+
+**SecretsManagerProvider:** `SecretsManagerProvider.gcp`
+
+**Environment variables:**
+- `GOOGLE_APPLICATION_CREDENTIALS`: path to the file with the credentials json file
+- `GCP_PROJECT_ID`
+
+### Troubleshooting
+
+#### Error: "Cannot decrypt service connection"
+
+**Cause**: Secrets manager not initialized or misconfigured
+
+**Solution**: Ensure `SecretsManagerFactory` is initialized **before** calling `configure()` or creating the `TestRunner`
+
+#### Error: "Access Denied" or "Unauthorized"
+
+**Cause**: Insufficient permissions to access secrets
+
+**Solution**:
+- Verify IAM role/service principal has correct permissions
+- Check credentials are valid and not expired
+- Ensure correct region/vault name is specified
+
+#### Error: "Module not found" for secrets manager
+
+**Cause**: Missing dependencies for your secrets manager
+
+**Solution**: Install required extras:
+```bash
+# For AWS
+pip install "openmetadata-ingestion[aws]"
+
+# For Azure
+pip install "openmetadata-ingestion[azure]"
+
+# For GCP
+pip install "openmetadata-ingestion[gcp]"
+```
+
+#### Tests Fail with Connection Errors
+
+**Cause**: Credentials not properly decrypted or secrets manager misconfigured
+
+**Solution**:
+1. Verify secrets manager provider matches your OpenMetadata backend configuration
+2. Test credential access independently (e.g., using AWS CLI, Azure CLI, gcloud)
+3. Check network connectivity to secrets manager service
+4. Enable debug logging to see detailed error messages:
+
+```python
+import logging
+logging.basicConfig(level=logging.DEBUG)
+```
+
+### Contact Your Administrator
+
+If you're unsure about:
+- Which secrets manager your organization uses
+- Required environment variables or configuration
+- Access credentials or IAM roles
+- Permissions needed
+
+**Contact your OpenMetadata or Collate administrator** for the specific configuration required in your environment.
 
 ## Next Steps
 
