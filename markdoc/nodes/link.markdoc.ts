@@ -37,7 +37,7 @@ export const link = {
       // Only process fragments for internal links
       if (fragment?.length > 1) {
           if (isInternalLink(url)) {
-              fragment = getFormattedId([fragment]);
+              fragment = getFormattedId([fragment.replace(/-+/g, " ")]);
           }
           url += "#" + fragment;
       }
