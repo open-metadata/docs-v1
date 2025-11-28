@@ -52,7 +52,19 @@ alt="Team Only Policy"
 caption="Team Only Policy"
 /%}
 
-### Use Case 4: Deny all the access if the data asset is tagged with PII.Sensitive and allow only the owners
+### Use Case 4: Users Should Only Access Assets in Their Assigned Domain (hasDomain)
+
+To restrict data visibility, users should only access assets that belong to the same domain they are assigned to.
+
+The policy allows access **only when the user has a matching domain** and denies access when **the user has no domain** or the domain check fails.
+
+{% image
+src="/images/v1.10/how-to-guides/roles-policies/policy5.png"
+alt="Domain-Based Access Control Policy"
+caption="Policy configuration for domain-based access restrictions"
+/%}
+
+### Use Case 5: Deny all the access if the data asset is tagged with PII.Sensitive and allow only the owners
 
 Just like the above policy, you can create a rule with complex conditions as shown below
 
