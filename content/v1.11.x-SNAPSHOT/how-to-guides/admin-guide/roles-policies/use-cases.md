@@ -59,7 +59,7 @@ To restrict data visibility, users should only access assets that belong to the 
 The policy allows access **only when the user has a matching domain** and denies access when **the user has no domain** or the domain check fails.
 
 {% image
-src="/images/v1.10/how-to-guides/roles-policies/policy5.png"
+src="/images/v1.11/roles-policies/policy5.png"
 alt="hasDomain"
 caption="hasDomain"
 /%}
