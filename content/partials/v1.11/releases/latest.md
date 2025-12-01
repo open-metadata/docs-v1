@@ -1,7 +1,7 @@
-# 1.10.9 Release 🎉
+# 1.10.10 Release 🎉
 
 {% note noteType="Tip" %}
-**27th November 2025**
+**1st December 2025**
 {% /note %}
 
 {% inlineCalloutContainer %}
@@ -10,30 +10,24 @@ color="violet-70"
 icon="celebration"
 bold="Upgrade OpenMetadata"
 href="/deployment/upgrade" %}
-Learn how to upgrade your OpenMetadata instance to 1.10.9!
+Learn how to upgrade your OpenMetadata instance to 1.10.10!
 {% /inlineCallout %}
 {% /inlineCalloutContainer %}
 
-You can find the GitHub release [here](https://github.com/open-metadata/OpenMetadata/releases/tag/1.10.9-release).
+You can find the GitHub release [here](https://github.com/open-metadata/OpenMetadata/releases/tag/1.10.10-release).
 
 ## Fixes
 
-- Fixed missing `performUserLogin` import causing failures in `user.spec` test.
-- Fixed Looker local path Git converter.
-- Fixed query voting functionality by including vote counts in the search index.
-- Reverted the earlier patch that added vote counts to the search index for query voting.
-- Added MSSQL SSL support.
-- Verified ingestion behavior with incoming server version.
-- Fixed issues with OpenMetadata Ops bulk deployment via API.
-- Resolved unstructured containers issue in manifest metadata configuration.
-- Fixed description rendering issues on entity pages.
-- Fixed NPE scenarios in `IngestionPipelineRepository` update methods for null fields.
-- Fixed translation for the "delete" keyword.
-- Added hotfix to Docker Ingestion CI to ensure free disk space availability.
-- Fixed failing test case filters in `DataQualityAndProfiler.spec.ts`.
+- Fix application description overlapping on Safari.
+- Fix overlapping of data asset header values.
+- Fix custom property failures around date and time formats.
+- Fix 404 error when loading dashboards or other entities that reference deleted glossary terms or tags.
+- Deploy pipelines in OpenMetadataOperations fixes.
+- Fix PowerBI dataset to upstream dataset column lineage.
 
 ## Improvements
 
-- Added support for custom Git hosts and local repository usage in Looker.
+- Cache user policies to improve performance
+- Add missing imports for Ingestion Bot and related utilities in `DashboardResourceTest`
 
-**Full Changelog**: [link](https://github.com/open-metadata/OpenMetadata/compare/1.10.8-release...1.10.9-release)
+**Full Changelog**: [link](https://github.com/open-metadata/OpenMetadata/compare/1.10.9-release...1.10.10-release)
