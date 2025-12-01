@@ -1,7 +1,7 @@
 # 1.10.10 Release 🎉
 
 {% note noteType="Tip" %}
-**01st December 2025**
+**1st December 2025**
 {% /note %}
 
 {% inlineCalloutContainer %}
