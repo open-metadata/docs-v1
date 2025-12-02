@@ -149,7 +149,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
       // If the version value is not of accepted version format, redirect to the latest version page
       // Example use case, in case of path `/releases` (without version) the control will come here
       // with version value as `releases`. In this case redirect user to latest version page of
-      // passed URL, in this case tha will be `/latest/releases`
+      // passed URL, in this case that will be `/latest/releases`
       return {
         redirect: {
           permanent: true,

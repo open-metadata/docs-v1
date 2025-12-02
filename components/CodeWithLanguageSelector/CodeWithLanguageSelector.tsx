@@ -4,7 +4,7 @@ import { useCodeWithLanguageSelectorContext } from "../../context/CodeWithLangua
 import {
   getLanguageIcon,
   getLanguageName,
-} from "../../utils/CodeWithLanugageSelectorUtils";
+} from "../../utils/CodeWithLanguageSelectorUtils";
 import codeStyles from "../common/Code/Code.module.css";
 import styles from "./CodeWithLanguageSelector.module.css";
 

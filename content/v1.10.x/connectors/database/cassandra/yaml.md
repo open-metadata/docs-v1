@@ -73,7 +73,7 @@ This is a sample config for Cassandra:
 
 {% codeInfo srNumber=3 %}
 
-**hostPort**: When using the `cassandra` connecion schema, the hostPort parameter specifies the host and port of the Cassandra. This should be specified as a string in the format `hostname:port`. E.g., `localhost:9042`.
+**hostPort**: When using the `cassandra` connection schema, the hostPort parameter specifies the host and port of the Cassandra. This should be specified as a string in the format `hostname:port`. E.g., `localhost:9042`.
 
 {% /codeInfo %}
 

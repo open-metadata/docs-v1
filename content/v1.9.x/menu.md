@@ -1991,7 +1991,7 @@ site_menu:
   - category: Main Concepts / Metadata Standard / Schemas / Entity / Services / Connections / ServiceConnection
     url: /main-concepts/metadata-standard/schemas/entity/services/connections/serviceconnection
   - category: Main Concepts / Metadata Standard / Schemas / Entity / Services / Connections / Storage / adlsConnection
-    url: /main-concepts/metadata-standard/schemas/entity/services/connections/storage/adlsConnection
+    url: /main-concepts/metadata-standard/schemas/entity/services/connections/storage/adlsconnection
   - category: Main Concepts / Metadata Standard / Schemas / Entity / Services / Connections / Storage / CustomStorageConnection
     url: /main-concepts/metadata-standard/schemas/entity/services/connections/storage/customstorageconnection
   - category: Main Concepts / Metadata Standard / Schemas / Entity / Services / Connections / Storage / GcsConnection

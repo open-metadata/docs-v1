@@ -1,7 +1,7 @@
 ---
 title: Configuring Okta Public Authentication | OpenMetadata SSO Setup Guide
 description: Learn how to configure Okta SSO (Public) authentication in OpenMetadata using OAuth 2.0 and OpenID Connect (OIDC).
-slug: /deployment/security/okta/public
+slug: /deployment/security/okta/public-client
 ---
 
 # Okta SSO Configuration (Public)

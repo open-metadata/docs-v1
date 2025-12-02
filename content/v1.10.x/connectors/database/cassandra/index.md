@@ -48,7 +48,7 @@ To extract metadata using the Cassandra connector, ensure the user in the connec
 #### Connection Details
 
 - **Username**: Username to connect to Cassandra. This user must have the necessary permissions to perform metadata extraction and table queries.
-- **Host Port**: When using the `cassandra` connecion schema, the hostPort parameter specifies the host and port of the Cassandra. This should be specified as a string in the format `hostname:port`. E.g., `localhost:9042`.- **databaseName**: Optional name to give to the database in OpenMetadata. If left blank, we will use default as the database name.
+- **Host Port**: When using the `cassandra` connection schema, the hostPort parameter specifies the host and port of the Cassandra. This should be specified as a string in the format `hostname:port`. E.g., `localhost:9042`.- **databaseName**: Optional name to give to the database in OpenMetadata. If left blank, we will use default as the database name.
 
 **Auth Type**: Following authentication types are supported:
 1. **Basic Authentication**:

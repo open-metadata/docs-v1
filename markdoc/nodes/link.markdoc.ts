@@ -1,6 +1,27 @@
 import {Tag} from "@markdoc/markdoc";
 import {getFormattedId} from "../../utils/CommonUtils";
 
+// List of internal domain hosts that should have their fragments processed
+const INTERNAL_HOSTS = [
+  "localhost",
+  "open-metadata.org",
+  "getcollate.io",
+  "netlify.app"
+];
+
+// Helper function to check if a URL is internal
+const isInternalLink = (url: string): boolean => {
+  try {
+    const hostname = new URL(url).hostname;
+    return INTERNAL_HOSTS.some(host =>
+      hostname === host || hostname.endsWith(`.${host}`)
+    );
+  } catch {
+    // If parsing fails, it's likely a relative URL (internal)
+    return true;
+  }
+};
+
 export const link = {
   render: "CustomAnchorNode",
   attributes: {
@@ -13,8 +34,11 @@ export const link = {
 
       let [url, fragment] = attributes.href.split("#");
 
+      // Only process fragments for internal links
       if (fragment?.length > 1) {
-          fragment = getFormattedId([fragment]);
+          if (isInternalLink(url)) {
+              fragment = getFormattedId([fragment.replace(/-+/g, " ")]);
+          }
           url += "#" + fragment;
       }
 

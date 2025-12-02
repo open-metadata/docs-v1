@@ -781,8 +781,6 @@ site_menu:
     url: /connectors/ingestion/lineage/spark-lineage
   - category: Connectors / Ingestion / Versioning
     url: /connectors/ingestion/versioning
-  - category: Connectors / Ingestion / Auto Tagging
-    url: /connectors/ingestion/auto_tagging
   - category: Connectors / Ingestion / Versioning / Change Feeds
     url: /connectors/ingestion/versioning/change-feeds
   - category: Connectors / Ingestion / Versioning / Change Events
@@ -887,6 +885,8 @@ site_menu:
     url: /how-to-guides/collate-customer-support/open-ticket
   - category: How-to Guides / Collate Customer Support / How to Manage Users from the Collate Support Portal
     url: /how-to-guides/collate-customer-support/manage-users
+  - category: How-to Guides / Collate Customer Support / How to Grant Temporary Access to Collate Support Team Members
+    url: /how-to-guides/collate-customer-support/grant-access
 
   - category: How-to Guides / Guide for Data Users
     url: /how-to-guides/guide-for-data-users
@@ -1843,7 +1843,7 @@ site_menu:
   - category: Main Concepts / Metadata Standard / Schemas / Entity / Services / Connections / ServiceConnection
     url: /main-concepts/metadata-standard/schemas/entity/services/connections/serviceconnection
   - category: Main Concepts / Metadata Standard / Schemas / Entity / Services / Connections / Storage / adlsConnection
-    url: /main-concepts/metadata-standard/schemas/entity/services/connections/storage/adlsConnection
+    url: /main-concepts/metadata-standard/schemas/entity/services/connections/storage/adlsconnection
   - category: Main Concepts / Metadata Standard / Schemas / Entity / Services / Connections / Storage / CustomStorageConnection
     url: /main-concepts/metadata-standard/schemas/entity/services/connections/storage/customstorageconnection
   - category: Main Concepts / Metadata Standard / Schemas / Entity / Services / Connections / Storage / GcsConnection

@@ -49,7 +49,7 @@ By default Basic Authentication will be enabled as authentication mechanism.
     color="violet-70"
     bold="Custom OIDC SSO"
     icon="add_moderator"
-    href="/deployment/security/custom-oidc/docker"%}
+    href="/deployment/security/custom-oidc"%}
     Configure a Custom OIDC SSO to access the UI and APIs
   {%/inlineCallout%}
   {%inlineCallout
@@ -63,7 +63,7 @@ By default Basic Authentication will be enabled as authentication mechanism.
     color="violet-70"
     bold="Okta SSO"
     icon="add_moderator"
-    href="/deployment/security/okta/docker"%}
+    href="/deployment/security/okta"%}
     Configure Okta SSO to access the UI and APIs
   {%/inlineCallout%}
 {%/inlineCalloutContainer%}

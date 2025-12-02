@@ -270,7 +270,7 @@ export const ROADMAP_DATA: RoadmapData = {
         {
           label: "Glossary Terms Relations",
           description:
-            "Users can define relationships and associate realtionship between entities and terms. ",
+            "Users can define relationships and associate relationship between entities and terms. ",
         },
       ],
       release: 1.5,
@@ -333,7 +333,7 @@ export const ROADMAP_DATA: RoadmapData = {
         {
           label: "Data Asset Naming Conventions",
           description:
-            "Define Data Asset naming convetions and use this app to enforce and send a report to teams.",
+            "Define Data Asset naming conventions and use this app to enforce and send a report to teams.",
         },
         {
           label: "Reverse Metadata Applications",
@@ -395,7 +395,7 @@ export const ROADMAP_DATA: RoadmapData = {
         {
           label: "Pipeline Dashboard",
           description:
-            "Pipeline Dashboard - Show all ETL pipelines in an organization and how many succesful/failed/aborted/paused.",
+            "Pipeline Dashboard - Show all ETL pipelines in an organization and how many successful/failed/aborted/paused.",
         },
       ],
       release: 1.7,
@@ -450,7 +450,7 @@ export const ROADMAP_DATA: RoadmapData = {
         {
           label: "Pipeline Dashboard",
           description:
-            "Pipeline Dashboard - Show all ETL pipelines in an organization and how many succesful/failed/aborted/paused.",
+            "Pipeline Dashboard - Show all ETL pipelines in an organization and how many successful/failed/aborted/paused.",
         },
       ],
       release: 1.8,

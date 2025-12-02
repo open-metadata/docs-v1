@@ -114,12 +114,10 @@ site_menu:
     url: /deployment/security/google/confidential-client
   - category: Deployment / Enable Security / Okta SSO
     url: /deployment/security/okta
-  - category: Deployment / Enable Security / Okta SSO / Docker
-    url: /deployment/security/okta/docker
-  - category: Deployment / Enable Security / Okta SSO / Bare Metal
-    url: /deployment/security/okta/bare-metal
-  - category: Deployment / Enable Security / Okta SSO / Kubernetes
-    url: /deployment/security/okta/kubernetes
+  - category: Deployment / Enable Security / Okta SSO / Public
+    url: /deployment/security/okta/public-client
+  - category: Deployment / Enable Security / Okta SSO / Confidential
+    url: /deployment/security/okta/confidential-client
   - category: Deployment / Enable Security / Amazon Cognito SSO
     url: /deployment/security/amazon-cognito
   - category: Deployment / Enable Security / Amazon Cognito SSO / Public
@@ -1183,6 +1181,12 @@ site_menu:
     url: /releases/supported
   - category: Releases / All Releases
     url: /releases/all-releases
+  - category: Releases / All Releases / 1.10.9 Release
+    url: /releases/all-releases/#1.10.9-release
+  - category: Releases / All Releases / 1.10.8 Release
+    url: /releases/all-releases/#1.10.8-release
+  - category: Releases / All Releases / 1.10.7 Release
+    url: /releases/all-releases/#1.10.7-release
   - category: Releases / All Releases / 1.10.6 Release
     url: /releases/all-releases/#1.10.6-release
   - category: Releases / All Releases / 1.10.5 Release
@@ -2026,7 +2030,7 @@ site_menu:
   - category: Main Concepts / Metadata Standard / Schemas / Entity / Services / Connections / ServiceConnection
     url: /main-concepts/metadata-standard/schemas/entity/services/connections/serviceconnection
   - category: Main Concepts / Metadata Standard / Schemas / Entity / Services / Connections / Storage / adlsConnection
-    url: /main-concepts/metadata-standard/schemas/entity/services/connections/storage/adlsConnection
+    url: /main-concepts/metadata-standard/schemas/entity/services/connections/storage/adlsconnection
   - category: Main Concepts / Metadata Standard / Schemas / Entity / Services / Connections / Storage / CustomStorageConnection
     url: /main-concepts/metadata-standard/schemas/entity/services/connections/storage/customstorageconnection
   - category: Main Concepts / Metadata Standard / Schemas / Entity / Services / Connections / Storage / GcsConnection

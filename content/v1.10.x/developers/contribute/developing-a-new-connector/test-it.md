@@ -5,7 +5,7 @@ slug: /developers/contribute/developing-a-new-connector/test-it
 
 # Test It
 
-In order to test your new connector you need to run `make generate` from the project's root in order to generate the propert Python Classes from the JSON Schemas you created and modified.
+In order to test your new connector you need to run `make generate` from the project's root in order to generate the property Python Classes from the JSON Schemas you created and modified.
 
 ## Unit Tests
 
@@ -23,7 +23,7 @@ This could be slow and in order to iterate faster you could just run the tests y
 In order to test the connector using the CLI you first need to have the OpenMetadata stack running locally.
 The easiest way to do is to check how to do it [here](/developers/contribute/build-code-and-run-tests).
 
-With it up and running you can install the ingestion pacakge locally and use the CLI directly:
+With it up and running you can install the ingestion package locally and use the CLI directly:
 
 ```bash
 metadata ingest -c {your_yaml_file}

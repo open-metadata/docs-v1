@@ -26,7 +26,7 @@ slug: /sdk/python/api-reference
 - [`lineage_mixin`](/sdk/python/api-reference/lineage-mixin#module-lineage_mixin): Mixin class containing Lineage specific methods
 - [`mlmodel_mixin`](/sdk/python/api-reference/mlmodel-mixin#module-mlmodel_mixin): Mixin class containing Lineage specific methods
 - [`patch_mixin`](/sdk/python/api-reference/patch-mixin#module-patch_mixin): Mixin class containing PATCH specific methods
-- [`patch_mixin_utils`](/sdk/python/api-reference/patch-mixin_utils#module-patch_mixin_utils): Utilities and a super class containing common utility methods for mixins performing JSON PATCHes
+- [`patch_mixin_utils`](/sdk/python/api-reference/patch-mixin-utils#module-patch_mixin_utils): Utilities and a super class containing common utility methods for mixins performing JSON PATCHes
 - [`pipeline_mixin`](/sdk/python/api-reference/pipeline-mixin#module-pipeline_mixin): Mixin class containing Pipeline specific methods
 - [`query_mixin`](/sdk/python/api-reference/query-mixin#module-query_mixin): Mixin class containing Query specific methods
 - [`role_policy_mixin`](/sdk/python/api-reference/role-policy-mixin#module-role_policy_mixin): Mixin class containing Role and Policy specific methods
@@ -35,7 +35,7 @@ slug: /sdk/python/api-reference
 - [`service_mixin`](/sdk/python/api-reference/service-mixin#module-service_mixin): Helper mixin to handle services
 - [`table_mixin`](/sdk/python/api-reference/table-mixin#module-table_mixin): Mixin class containing Table specific methods
 - [`tests_mixin`](/sdk/python/api-reference/tests-mixin#module-tests_mixin): Mixin class containing Tests specific methods
-- [`topic_mixin`](/sdk/python/api-reference/topic0mixin#module-topic_mixin): Mixin class containing Topic specific methods
+- [`topic_mixin`](/sdk/python/api-reference/topic-mixin#module-topic_mixin): Mixin class containing Topic specific methods
 - [`user_mixin`](/sdk/python/api-reference/user-mixin#module-user_mixin): Mixin class containing User specific methods
 - [`version_mixin`](/sdk/python/api-reference/version-mixin#module-version_mixin): Mixin class containing entity versioning specific methods
 

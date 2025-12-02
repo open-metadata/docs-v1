@@ -2,7 +2,7 @@ import { ReactComponent as DeploymentIcon } from "../images/icons/deploymentTile
 import { ReactComponent as KnowledgeBaseIcon } from "../images/icons/knowledge.svg";
 import { ReactComponent as SaasIcon } from "../images/icons/saas.svg";
 
-export const HOME_PAGE_BANNER_VIDEO_ID = "-btuPjjnNEA";
+export const HOME_PAGE_BANNER_VIDEO_ID = "jCXftpMOvS8";
 export const HOME_PAGE_BANNER_INFO = {
   title: "OpenMetadata Documentation",
   description:
@@ -80,6 +80,12 @@ export const QUICK_LINK_CARDS = [
 
 export const BLOGS_INFO = [
   {
+    title: "OpenMetadata Release 1.10",
+    text: "Impact analysis, data contract improvements, OpenMetadata SDK 2.0, and more",
+    link: "https://blog.open-metadata.org/announcing-openmetadata-1-10-67250f268d3d",
+    image: "/blogs/openmetadata-1.10.0-release.webp",
+  },
+  {
     title: "OpenMetadata Release 1.9.0",
     text: "Data Contracts, Multi-Domain Support, and Enhanced User Experience",
     link: "https://blog.open-metadata.org/announcing-openmetadata-1-9-68b63005bb25",
@@ -90,11 +96,5 @@ export const BLOGS_INFO = [
     text: "Enterprise‑grade data context for AI, contracts for data you can trust, and new Microsoft ecosystem connectors",
     link: "https://blog.open-metadata.org/announcing-openmetadata-1-8-948eb14d41c7",
     image: "/blogs/openmetadata-1.8.0-release.webp",
-  },
-  {
-    title: "OpenMetadata Release 1.7",
-    text: "New innovations like AutoPilot, Persona Customizations, Improved UX, Search Relevancy Settings, Enhanced Lineage Layers, New Connectors, and more",
-    link: "https://blog.open-metadata.org/announcing-openmetadata-1-7-9f9778579704",
-    image: "/blogs/openmetadata-1.7.0-release.webp",
   },
 ];

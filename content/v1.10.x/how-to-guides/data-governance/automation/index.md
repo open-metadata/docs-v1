@@ -6,11 +6,23 @@ collate: true
 
 # Collate Automations
 
-{% youtube videoId="Q0gPpHQWe3w" start="0:00" end="14:52" width="800px" height="450px" /%}
+{% youtube videoId="ug08aLUyTyE" start="0:00" end="14:52" width="800px" height="450px" /%}
 
 ## Overview
 
 Collate's **Automation** feature is a powerful tool designed to simplify and streamline metadata management tasks. By automating repetitive actions such as assigning owners, domains, or tagging data, Collate helps maintain consistency in metadata across an organization's datasets. These automations reduce manual effort and ensure that metadata is always up-to-date, accurate, and governed according to predefined policies.
+
+{% note %}
+
+Automations are handled by the `automatorapplicationbot`. All changes made by the bot are automatically recorded in the version history.
+
+{% image
+src="/images/v1.10/how-to-guides/governance/automatorbot.png"
+alt="Automator Application Bot"
+caption="Automator Application Bot"
+/%}
+
+{% /note %}
 
 ## Why Automations are Useful
 
@@ -264,4 +276,4 @@ Note that this automation, the ML Tagging, will be deprecated in future releases
 - **Propagate Metadata Thoughtfully**: When propagating metadata via lineage, make sure that the source metadata is correct before applying it across multiple datasets.
 - **Start with Controlled Propagation**: For complex and large lineage trees, begin the propagation with a limited propagation depth (e.g., 2-3 levels/depth) and gradually increase as needed to avoid unintended widespread changes.
 - **Understand Path-Aware Depth Behavior**: In complex lineage with multiple parent paths, remember that propagation depth is calculated separately for each path from each root entity. This ensures precise control over which upstream sources contribute metadata to downstream assets.
-- **Set Up Stop Conditions for Critical Data**: Cofigure strategic stop conditions around critical ownership boundaries or sensitive data boundaries (Tags- PII, Confidential) to prevent accidental metadata overwrites.
+- **Set Up Stop Conditions for Critical Data**: Configure strategic stop conditions around critical ownership boundaries or sensitive data boundaries (Tags- PII, Confidential) to prevent accidental metadata overwrites.
