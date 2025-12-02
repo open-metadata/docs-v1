@@ -5,26 +5,13 @@ slug: /how-to-guides/data-governance/workflows/elements/triggers/periodic-batch-
 collate: true
 ---
 
-# Governance Workflows - Periodic Batch Entity Trigger
+# Periodic Batch Trigger
 
-The **Periodic Batch Entity Trigger** enables actions to be triggered on a periodic schedule, processing a batch of entities at a time.
-This type of trigger is useful for automating regular workflows that need to run on a schedule.
+This trigger runs workflows **on demand** or **on a schedule** (not event-driven).
 
-## Configuration
-
-First you need to specify a **Data Asset** on which the Workflow will operate
-
-Then you can define different filters to define more specifically the assets you wish you run through this workflow.
-
-Finally you can define the trigger mechanism:
-
-- **On Demand**: Manually triggered from the UI.
-- **Schedule**: Triggered on a given schedule
-
-Additionally, this trigger allows to optionally define the BatchSize to improve the fetching performance. **This should not be changed unless truly required.**
-
-### Example
-
-As an example we can check the default **Table Certification Workflow**, shipped with Collate.
+- **Data Asset** – Select the relevant data assets.
+- **Data Asset Filter** – Define filters to specify which entities the workflow should act on.
+- **Schedule Type** – Choose between *On Demand* or *Scheduled*.
+- **Batch Size** – Set how many entities to process per iteration (depends on your data size).
 
 {% image src="/images/v1.10/how-to-guides/governance/workflows-periodic-batch-entity-trigger.png" alt="periodic-batch-entity-trigger" /%}

@@ -5,26 +5,13 @@ slug: /how-to-guides/data-governance/workflows/elements/triggers/event-based-ent
 collate: true
 ---
 
-# Governance Workflows - Event Based Entity Trigger
+# Event Based Trigger
 
-The **Event Based Entity Trigger** enables actions to be initiated based on specific events related to an entity.
-These triggers are essential for automating workflows in response to entity state changes, such as when an entity is created or updated.
-The trigger listens for predefined events and can be configured to exclude certain attribute modifications.
+This trigger starts the workflow based on specific entity operations such as **Create**, **Update**, or **Patch**.
 
-## Configuration
+- **Data Asset** – Choose one or multiple data assets to monitor.
+- **Event Type** – Specify which operations will trigger the workflow.
+- **Exclude Fields** – Define fields that should not trigger the workflow (e.g., selecting “Reviewers” prevents triggers when only the reviewers field changes).
+- **Filter Criteria** – Add conditions to exclude entities that match specific filters from triggering the workflow.
 
-First you need to specify a **Data Asset** on which the Workflow will operate
-
-Then, the Trigger can be configured to respond to the following events:
-
-- **Created**: Triggered when a new entity is created.
-- **Updated**: Triggered when an existing entity is updated.
-
-Additionally, this trigger allows fine-tuning by excluding certain events that modify only specific attributes of the entity.
-
-
-### Example
-
-As an example we can check the default **Glossary Approval Workflow**, shipped with Collate.
-
-{% image src="/images/v1.11/how-to-guides/governance/workflows-event-based-entity-trigger.png" alt="event-based-entity-trigger-example" /%}
+{% image src="/images/v1.10/how-to-guides/governance/workflows-event-based-entity-trigger.png" alt="event-based-entity-trigger-example" /%}

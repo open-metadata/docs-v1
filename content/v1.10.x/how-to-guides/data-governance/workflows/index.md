@@ -5,19 +5,16 @@ slug: /how-to-guides/data-governance/workflows
 collate: true
 ---
 
-# Governance Workflows
+# Custom Workflows Collate Documentation
 
-
-Governance Workflows in Collate enable teams to enforce organizational policies, ensure compliance and streamline collaborative processes.
-As a **BETA** feature, Governance Workflows allows users to configure predefined workflows, with future updates planned to enable full creation and management capabilities.
-Your feedback during this phase is invaluable to shape the feature's evolution.
+Governance Workflows in Collate enable teams to enforce organizational policies, maintain compliance, and streamline collaborative processes. They allow users to either define custom workflows from scratch—tailored to their specific governance needs—or modify existing default workflows to better align with organizational requirements.
 
 ## Key Components
 
 {%inlineCalloutContainer%}
  {%inlineCallout
   color="violet-70"
-  bold="Trigger"
+  bold="Default Workflows"
   icon="MdMenuBook"
   href="/how-to-guides/data-governance/workflows/elements/triggers"%}
   Defines what initiates a workflow (e.g., an event or a scheduled action)
@@ -25,7 +22,21 @@ Your feedback during this phase is invaluable to shape the feature's evolution.
  {%inlineCallout
   color="violet-70"
   bold="Nodes"
-  icon="MdMenuBook"
+  icon="Elements"
+  href="/how-to-guides/data-governance/workflows/elements/nodes"%}
+  Represent the building blocks of a workflow. You can configure each node to specify conditions, actions or tasks.
+ {%/inlineCallout%}
+  {%inlineCallout
+  color="violet-70"
+  bold="Creating a New Workflow"
+  icon="Elements"
+  href="/how-to-guides/data-governance/workflows/elements/nodes"%}
+  Represent the building blocks of a workflow. You can configure each node to specify conditions, actions or tasks.
+ {%/inlineCallout%}
+   {%inlineCallout
+  color="violet-70"
+  bold="Examples"
+  icon="Elements"
   href="/how-to-guides/data-governance/workflows/elements/nodes"%}
   Represent the building blocks of a workflow. You can configure each node to specify conditions, actions or tasks.
  {%/inlineCallout%}

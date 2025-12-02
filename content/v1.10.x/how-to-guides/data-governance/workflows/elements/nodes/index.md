@@ -9,33 +9,42 @@ collate: true
 
 You can find below a list of available Nodes that can be used with the Governance Workflows.
 
+{% image src="/images/v1.10/how-to-guides/governance/node.png" alt="Nodes" /%}
+
 {%inlineCalloutContainer%}
  {%inlineCallout
-  color="violet-70"
-  bold="Trigger"
-  icon="MdMenuBook"
-  href="/how-to-guides/data-governance/workflows/elements/nodes/check-entity-attributes"%}
-  Allows to check different attributes on a given entity and branch the workflow depending on the result.
+ color="violet-70"
+ bold="Start Node"
+ icon="MdMenuBook"
+ href="/how-to-guides/data-governance/workflows/elements/nodes/start-node"%}
+  Configure how and when the workflow is triggered (event-based or scheduled).
  {%/inlineCallout%}
  {%inlineCallout
   color="violet-70"
-  bold="Trigger"
+  bold="Check Condition"
   icon="MdMenuBook"
-  href="/how-to-guides/data-governance/workflows/elements/nodes/create-user-task"%}
-  Allows to create a Task for a user to resolve.
+  href="/how-to-guides/data-governance/workflows/elements/nodes/check-condition"%}
+  Evaluate asset conditions and branch the workflow on true/false results.
  {%/inlineCallout%}
  {%inlineCallout
   color="violet-70"
-  bold="Trigger"
+  bold="Set Action"
   icon="MdMenuBook"
-  href="/how-to-guides/data-governance/workflows/elements/nodes/set-asset-certification"%}
-  Allows to set an Asset Certification.
+  href="/how-to-guides/data-governance/workflows/elements/nodes/set-action"%}
+  Update asset fields such as tags, tier, status, or certification.
  {%/inlineCallout%}
  {%inlineCallout
   color="violet-70"
-  bold="Trigger"
+  bold="User Approval Task"
   icon="MdMenuBook"
-  href="/how-to-guides/data-governance/workflows/elements/nodes/set-glossary-term-status"%}
-  Allows to set a Glossary Term Status.
+  href="/how-to-guides/data-governance/workflows/elements/nodes/user-approval-task"%}
+  Send approval tasks to reviewers with approve/reject thresholds.
+ {%/inlineCallout%}
+ {%inlineCallout
+  color="violet-70"
+  bold="Data Completeness Task"
+  icon="MdMenuBook"
+  href="/how-to-guides/data-governance/workflows/elements/nodes/data-completeness-task"%}
+  Measure metadata completeness and drive actions based on coverage.
  {%/inlineCallout%}
 {%/inlineCalloutContainer%}

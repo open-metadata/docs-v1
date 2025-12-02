@@ -33,7 +33,7 @@ Each certification level (**Gold**, **Silver**, **Bronze**) is determined based 
 - Tag classification (e.g., Tier)  
 - Custom properties
 
-{% image src="/images/v1.11/how-to-guides/governance/workflows-table-certification.png" alt="table-certification" /%}
+{% image src="/images/v1.10/how-to-guides/governance/workflows-table-certification.png" alt="table-certification" /%}
 
 ## Trigger Options
 
@@ -42,7 +42,7 @@ Certification workflows can be triggered:
 - **On a scheduled basis** (e.g., daily, weekly)
 - **On-demand** via the user interface
 
-{% image src="/images/v1.11/how-to-guides/governance/workflows-table-certification1.png" alt="table-certification-trigger" /%}
+{% image src="/images/v1.10/how-to-guides/governance/workflows-table-certification1.png" alt="table-certification-trigger" /%}
 
 ## Certification Indicators
 
@@ -51,7 +51,7 @@ Once the workflow is executed:
 - Certified assets are marked with a **badge** next to their name, indicating their certification level.
 - This **visual cue** helps users quickly assess the quality and reliability of the asset.
 
-{% image src="/images/v1.11/how-to-guides/governance/workflows-table-certification2.png" alt="table-certification-indicators" /%}
+{% image src="/images/v1.10/how-to-guides/governance/workflows-table-certification2.png" alt="table-certification-indicators" /%}
 
 ## Examples
 
@@ -62,7 +62,7 @@ Once the workflow is executed:
 | Has description and owner but no Tier tag      | Bronze              |
 | Lacks description, owner, and tier             | Uncertified         |
 
-{% image src="/images/v1.11/how-to-guides/governance/workflows-table-certification3.png" alt="table-certification-asset-description" /%}
+{% image src="/images/v1.10/how-to-guides/governance/workflows-table-certification3.png" alt="table-certification-asset-description" /%}
 
 ## Benefits
 
