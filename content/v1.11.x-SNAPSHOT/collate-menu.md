@@ -559,7 +559,7 @@ site_menu:
     url: /connectors/pipeline/matillion
   - category: Connectors / Pipeline / Matillion / Run Externally
     url: /connectors/pipeline/matillion/yaml
-  - category: Connectors / Pipeline / Troubleshooting
+  - category: Connectors / Pipeline / Matillion / Troubleshooting
     url: /connectors/pipeline/matillion/troubleshooting
   - category: Connectors / Pipeline / Nifi
     url: /connectors/pipeline/nifi
