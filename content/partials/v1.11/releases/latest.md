@@ -1,4 +1,4 @@
-# 1.10.11 Release 🎉
+# 1.10.12 Release 🎉
 
 {% note noteType="Tip" %}
 **2nd December 2025**
@@ -10,25 +10,18 @@ color="violet-70"
 icon="celebration"
 bold="Upgrade OpenMetadata"
 href="/deployment/upgrade" %}
-Learn how to upgrade your OpenMetadata instance to 1.10.11!
+Learn how to upgrade your OpenMetadata instance to 1.10.12!
 {% /inlineCallout %}
 {% /inlineCalloutContainer %}
 
-You can find the GitHub release [here](https://github.com/open-metadata/OpenMetadata/releases/tag/1.10.11-release).
-
-## Improvements
-
-- Improved application performance by caching user policies #24501
+You can find the GitHub release [here](https://github.com/open-metadata/OpenMetadata/releases/tag/1.10.12-release).
 
 ## Fixes
 
-- Fixed 404 error when loading dashboards or other entities that reference deleted glossary terms or tags #24340
-- Resolved custom property failures around date and time formats #24560
-- Fixed overlapping issue in data asset header values #24568
-- Fixed application description overlapping on Safari browser #24576
-- Resolved error when switching from Data Observability to Activity Feed at asset level #24605
-- Removed translations from constant files for better consistency #24570
-- Fixed circular reference issue when importing glossary terms via CSV #24571
-- Minor fixes to deployment pipelines #24575
+- SAP HANA Connector now correctly identifies view names by reading the resourceUri attribute instead of the data source ID
+- Fixed Incident Manager navigation breadcrumbs to display correctly across all user routes
+- Corrected PowerBI Report Page URL generation to fix broken links
+- Updated dashboardDataModel to ensure the correct Source URL is mapped in search results
+- Hidden the "Add Domain" button within the Data Product UI to clean up the interface
 
-**Full Changelog**: [link](https://github.com/open-metadata/OpenMetadata/compare/1.10.10-release...1.10.11-release)
+**Full Changelog**: [link](https://github.com/open-metadata/OpenMetadata/compare/1.10.11-release...1.10.12-release)
