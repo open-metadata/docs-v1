@@ -5,9 +5,9 @@ slug: /how-to-guides/data-governance/workflows/default-workflows/glossary-approv
 collate: true
 ---
 
-# Glossary Approval Workflow
+# Governance Workflows - Glossary Approval Workflow (Default)
 
-The **Glossary Approval Workflow** in Collate helps organizations maintain a high-quality, standardized business glossary by introducing a structured review and approval process for glossary terms.
+The **Glossary Approval Workflow** in Collate helps organizations maintain a high-quality, standardized business glossary by introducing a structured review and approval process for glossary terms.
 
 ## Overview
 
@@ -25,27 +25,17 @@ A business glossary is critical for ensuring consistent terminology across an or
 ### Approval Process:
 
 - Only assigned reviewers can approve or reject terms.
-- Approved terms move to an **Approved** state and become available for wider use.
+- Approved terms move to an **Approved** state and become available for wider use.
 - Rejected terms remain unpublished to preserve glossary integrity.
 
 ### In-App Collaboration
 
 - Reviewers can view and edit term details directly in Collate.
-- Team members can collaborate using **comments** and **@mentions** to discuss terms and provide feedback before approval.
+- Team members can collaborate using **comments** and **@mentions** to discuss terms and provide feedback before approval.
 
 ### Auto-Approval for Glossaries Without Reviewers
 
-- If no reviewer is assigned to a glossary, terms are **approved automatically** upon creation. This can be modified to suit the needs of the organization.
-
-### Auto-Approval for Glossaries where the Updating User is a Reviewer
-
-- If the Glossary Term is edited by a reviewer, then the Glossary Term is Auto Approved without the requirement of any approval.
-
-# Approval and Rejection Threshold for User Tasks
-
-- Flexibility to set the Desired Approval and Rejection Threshold for User Approval Tasks.
-
-{% image src="/images/v1.10/how-to-guides/governance/workflows-glossary-approvalo.png" alt="glossary-approval-process" /%}
+- If no reviewer is assigned to a glossary, terms are **approved automatically** upon creation.
 
 ## Benefits
 
@@ -66,9 +56,5 @@ To activate the approval workflow:
 3. One can check the configuration of the glossary term by clicking on data asset in **Workflow**.
 
 {% image src="/images/v1.10/how-to-guides/governance/workflows-glossary-approval2.png" alt="glossary-approval-workflow" /%}
-
-4. To change any configuration of a node, Click on Edit Workflow and then change the configurations of the node
-
-{% image src="/images/v1.10/how-to-guides/governance/workflows-glossary-approval3.png" alt="glossary-approval-workflow" /%}
 
 Glossary approval is an essential component of your data governance strategy. It ensures that business terms are properly defined, reviewed, and managed, supporting improved data understanding and usage across your organization.

@@ -9,42 +9,33 @@ collate: true
 
 You can find below a list of available Nodes that can be used with the Governance Workflows.
 
-{% image src="/images/v1.10/how-to-guides/governance/node.png" alt="Nodes" /%}
-
 {%inlineCalloutContainer%}
  {%inlineCallout
- color="violet-70"
- bold="Start Node"
- icon="MdMenuBook"
- href="/how-to-guides/data-governance/workflows/elements/nodes/start-node"%}
-  Configure how and when the workflow is triggered (event-based or scheduled).
+  color="violet-70"
+  bold="Trigger"
+  icon="MdMenuBook"
+  href="/how-to-guides/data-governance/workflows/elements/nodes/check-entity-attributes"%}
+  Allows to check different attributes on a given entity and branch the workflow depending on the result.
  {%/inlineCallout%}
  {%inlineCallout
   color="violet-70"
-  bold="Check Condition"
+  bold="Trigger"
   icon="MdMenuBook"
-  href="/how-to-guides/data-governance/workflows/elements/nodes/check-condition"%}
-  Evaluate asset conditions and branch the workflow on true/false results.
+  href="/how-to-guides/data-governance/workflows/elements/nodes/create-user-task"%}
+  Allows to create a Task for a user to resolve.
  {%/inlineCallout%}
  {%inlineCallout
   color="violet-70"
-  bold="Set Action"
+  bold="Trigger"
   icon="MdMenuBook"
-  href="/how-to-guides/data-governance/workflows/elements/nodes/set-action"%}
-  Update asset fields such as tags, tier, status, or certification.
+  href="/how-to-guides/data-governance/workflows/elements/nodes/set-asset-certification"%}
+  Allows to set an Asset Certification.
  {%/inlineCallout%}
  {%inlineCallout
   color="violet-70"
-  bold="User Approval Task"
+  bold="Trigger"
   icon="MdMenuBook"
-  href="/how-to-guides/data-governance/workflows/elements/nodes/user-approval-task"%}
-  Send approval tasks to reviewers with approve/reject thresholds.
- {%/inlineCallout%}
- {%inlineCallout
-  color="violet-70"
-  bold="Data Completeness Task"
-  icon="MdMenuBook"
-  href="/how-to-guides/data-governance/workflows/elements/nodes/data-completeness-task"%}
-  Measure metadata completeness and drive actions based on coverage.
+  href="/how-to-guides/data-governance/workflows/elements/nodes/set-glossary-term-status"%}
+  Allows to set a Glossary Term Status.
  {%/inlineCallout%}
 {%/inlineCalloutContainer%}
