@@ -1162,12 +1162,22 @@ site_menu:
     url: /how-to-guides/data-governance/workflows/elements/nodes/set-asset-certification
   - category: How-to Guides / Data Governance / Workflows / Elements / Nodes / Set Glossary Term Status
     url: /how-to-guides/data-governance/workflows/elements/nodes/set-glossary-term-status
+
+  - category: How-to Guides / Data Governance / Workflows / Examples
+    url: /how-to-guides/data-governance/workflows/examples
+  - category: How-to Guides / Data Governance / Workflows / Examples /  Tag Approval Workflow
+    url: /how-to-guides/data-governance/workflows/examples/tag-approval-workflow
+  - category: How-to Guides / Data Governance / Workflows / Examples / Column Completeness Workflow
+    url: /how-to-guides/data-governance/workflows/examples/column-completeness-workflow
+  - category: How-to Guides / Data Governance / Workflows / Examples / Set Tier to MLModels Workflow
+    url: /how-to-guides/data-governance/workflows/examples/set-tier-to-mlmodels-workflow
+
+  - category: How-to Guides / Data Governance / Workflows / Examples / Creating a New Workflow
+    url: /how-to-guides/data-governance/workflows/creating-a-new-workflow
   - category: How-to Guides / Data Governance / Workflows / How to Edit a Workflow
     url: /how-to-guides/data-governance/workflows/how-to-edit-workflow
   - category: How-to Guides / Data Governance / Metrics
     url: /how-to-guides/data-governance/metrics
-  - category: How-to Guides / Data Governance / Custom Workflows
-    url: /how-to-guides/data-governance/custom-workflows
 
   - category: Enable Security
     url: /security
