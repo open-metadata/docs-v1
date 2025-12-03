@@ -19,7 +19,7 @@ You can find below a list of available Nodes that can be used with the Governanc
  {%/inlineCallout%}
  {%inlineCallout
   color="violet-70"
-  bold="Create User Task"
+  bold="Periodic Batch Entity Trigger"
   icon="MdMenuBook"
   href="/how-to-guides/data-governance/workflows/elements/triggers/periodic-batch-entity-trigger"%}
   Triggers the start of the Workflow based on a scheduled timer.
