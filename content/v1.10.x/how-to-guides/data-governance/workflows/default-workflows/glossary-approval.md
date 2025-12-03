@@ -61,8 +61,6 @@ To activate the approval workflow:
 1. Assign one or more reviewers to the glossary.
 2. Once assigned, any newly added term will initiate the approval process.
 
-{% image src="/images/v1.10/how-to-guides/governance/workflows-glossary-approval1.png" alt="glossary-approval-process" /%}
-
 3. One can check the configuration of the glossary term by clicking on data asset in **Workflow**.
 
 {% image src="/images/v1.10/how-to-guides/governance/workflows-glossary-approval2.png" alt="glossary-approval-workflow" /%}
