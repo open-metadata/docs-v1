@@ -1175,6 +1175,9 @@ site_menu:
   - category: How-to Guides / Data Governance / Workflows / Elements / Nodes / Set Glossary Term Status
     url: /how-to-guides/data-governance/workflows/elements/nodes/set-glossary-term-status
 
+  - category: How-to Guides / Data Governance / Workflows / Creating a New Workflow
+    url: /how-to-guides/data-governance/workflows/creating-a-new-workflow
+
   - category: How-to Guides / Data Governance / Workflows / Examples
     url: /how-to-guides/data-governance/workflows/examples
   - category: How-to Guides / Data Governance / Workflows / Examples /  Tag Approval Workflow
@@ -1184,10 +1187,6 @@ site_menu:
   - category: How-to Guides / Data Governance / Workflows / Examples / Set Tier to MLModels Workflow
     url: /how-to-guides/data-governance/workflows/examples/set-tier-to-mlmodels-workflow
 
-  - category: How-to Guides / Data Governance / Workflows / Creating a New Workflow
-    url: /how-to-guides/data-governance/workflows/creating-a-new-workflow
-  - category: How-to Guides / Data Governance / Workflows / How to Edit a Workflow
-    url: /how-to-guides/data-governance/workflows/how-to-edit-workflow
   - category: How-to Guides / Data Governance / Metrics
     url: /how-to-guides/data-governance/metrics
 
