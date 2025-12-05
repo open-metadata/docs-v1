@@ -33,13 +33,6 @@ Here are the articles in this section:
   {% inlineCallout
     color="violet-70"
     icon="play_arrow"
-    bold="Webhooks"
-    href="/developers/webhooks" %}
-    Presentation on how to setup webhooks within OpenMetadata
-  {% /inlineCallout %}
-  {% inlineCallout
-    color="violet-70"
-    icon="play_arrow"
     bold="Bots"
     href="/developers/bots" %}
     Learn how to setup ingestion bots.

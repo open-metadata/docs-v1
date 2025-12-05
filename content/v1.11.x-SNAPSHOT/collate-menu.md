@@ -861,8 +861,6 @@ site_menu:
     url: /how-to-guides/admin-guide/roles-policies/authorization
   - category: How-to Guides / Admin Guide / Advanced Guide for Roles and Policies / Use Cases - Creating Roles & Policies in OpenMetadata
     url: /how-to-guides/admin-guide/roles-policies/use-cases
-  - category: How-to Guides / Admin Guide / Set up Data Observability Alerts and Notifications
-    url: /how-to-guides/admin-guide/alerts
   - category: How-to Guides / Admin Guide / CLI Ingestion with Basic Auth
     url: /how-to-guides/admin-guide/cli-ingestion-with-basic-auth
   - category: How-to Guides / Admin Guide / How to Add Custom Logo
@@ -1029,8 +1027,6 @@ site_menu:
     url: /how-to-guides/data-quality-observability/observability
   - category: How-to Guides / Data Quality and Observability / Data Observability / Observability Alerts
     url: /how-to-guides/data-quality-observability/observability/alerts
-  - category: How-to Guides / Data Quality and Observability / Data Observability / Webhooks
-    url: /how-to-guides/data-quality-observability/observability/webhooks
   - category: How-to Guides / Data Quality and Observability / Incident Manager
     url: /how-to-guides/data-quality-observability/incident-manager
   - category: How-to Guides / Data Quality and Observability / Incident Manager / How to work with the Incident Manager
