@@ -25,8 +25,8 @@ OpenMetadata ensures the health and performance of your data systems by providin
  {%/inlineCallout%}
  {%inlineCallout
     icon="MdAddAlert"
-    bold="Observability Alerts"
-    href="/how-to-guides/data-quality-observability/observability"%}
+    bold="Alerts & Notifications"
+    href="/how-to-guides/data-quality-observability/alerts-notifications"%}
     Set up observability alerts in OpenMetadata.
  {%/inlineCallout%}
  {%inlineCallout

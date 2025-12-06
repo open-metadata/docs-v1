@@ -1023,10 +1023,22 @@ site_menu:
     url: /how-to-guides/data-quality-observability/profiler/custom-metrics
   - category: How-to Guides / Data Quality and Observability / Data Profiler / External Workflow
     url: /how-to-guides/data-quality-observability/profiler/auto-pii-tagging
-  - category: How-to Guides / Data Quality and Observability / Data Observability
-    url: /how-to-guides/data-quality-observability/observability
-  - category: How-to Guides / Data Quality and Observability / Data Observability / Observability Alerts
-    url: /how-to-guides/data-quality-observability/observability/alerts
+  - category: How-to Guides / Data Quality and Observability / Alerts & Notifications
+    url: /how-to-guides/data-quality-observability/alerts-notifications
+  - category: How-to Guides / Data Quality and Observability / Alerts & Notifications / Data Observability Alerts
+    url: /how-to-guides/data-quality-observability/alerts-notifications/data-observability-alerts
+  - category: How-to Guides / Data Quality and Observability / Alerts & Notifications / System & Governance Notifications
+    url: /how-to-guides/data-quality-observability/alerts-notifications/system-governance-notifications
+  - category: How-to Guides / Data Quality and Observability / Alerts & Notifications / Email Alerts Configuration
+    url: /how-to-guides/data-quality-observability/alerts-notifications/email-alerts-configuration
+  - category: How-to Guides / Data Quality and Observability / Alerts & Notifications / Slack Alerts Configuration
+    url: /how-to-guides/data-quality-observability/alerts-notifications/slack-alerts-configuration
+  - category: How-to Guides / Data Quality and Observability / Alerts & Notifications / Microsoft Teams Alerts Configuration
+    url: /how-to-guides/data-quality-observability/alerts-notifications/microsoft-teams-alerts-configuration
+  - category: How-to Guides / Data Quality and Observability / Alerts & Notifications / Google Chat Alerts Configuration
+    url: /how-to-guides/data-quality-observability/alerts-notifications/google-chat-alerts-configuration
+  - category: How-to Guides / Data Quality and Observability / Alerts & Notifications / Generic Webhook Alerts Configuration
+    url: /how-to-guides/data-quality-observability/alerts-notifications/generic-webhook-alerts-configuration
   - category: How-to Guides / Data Quality and Observability / Incident Manager
     url: /how-to-guides/data-quality-observability/incident-manager
   - category: How-to Guides / Data Quality and Observability / Incident Manager / How to work with the Incident Manager
