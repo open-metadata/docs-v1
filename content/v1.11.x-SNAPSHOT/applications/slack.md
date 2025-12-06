@@ -110,11 +110,8 @@ caption="Configuration"
         "channels:read",
         "chat:write",
         "files:read",
-        "im:history",
-        "im:read",
         "users:read",
         "channels:history",
-        "im:write",
         "users:read.email",
         "groups:history"
       ]
@@ -124,10 +121,8 @@ caption="Configuration"
     "event_subscriptions": {
       "request_url": "https://<your-instance>.getcollate.io/api/slack/events",
       "bot_events": [
-        "app_mention",
-        "message.channels",
-        "message.groups",
-        "message.im"
+        "app_home_opened",
+        "app_mention"
       ]
     },
     "interactivity": {
