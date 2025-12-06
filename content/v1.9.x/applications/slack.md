@@ -215,13 +215,7 @@ caption="Subscribe to bot events"
 
     - app_home_opened – Triggered when a user clicks into your App Home (no additional scope needed).
     - app_mention – Subscribes to messages that mention your app or bot (app_mentions:read scope required).
-    - message.im – Subscribes to messages in direct message channels (im:history scope required).
-    - message.mpim – Subscribes to messages in multi-party direct message channels (mpim:history scope required).
-
-5. (Optional) Under **Subscribe to events on behalf of users**, click **Add Workspace Event** and select:
-
-    - message.im – Subscribes to messages posted in a direct message channel on behalf of users (im:history scope required).
-
+  
 Slack automatically adds the necessary scopes for any subscribed events if not already included.
 
 {% image
