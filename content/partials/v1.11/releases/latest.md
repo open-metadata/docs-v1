@@ -1,7 +1,7 @@
-# 1.10.12 Release 🎉
+# 1.10.14 Release 🎉
 
 {% note noteType="Tip" %}
-**2nd December 2025**
+**8th December 2025**
 {% /note %}
 
 {% inlineCalloutContainer %}
@@ -10,18 +10,31 @@ color="violet-70"
 icon="celebration"
 bold="Upgrade OpenMetadata"
 href="/deployment/upgrade" %}
-Learn how to upgrade your OpenMetadata instance to 1.10.12!
+Learn how to upgrade your OpenMetadata instance to 1.10.14!
 {% /inlineCallout %}
 {% /inlineCalloutContainer %}
 
-You can find the GitHub release [here](https://github.com/open-metadata/OpenMetadata/releases/tag/1.10.12-release).
+You can find the GitHub release [here](https://github.com/open-metadata/OpenMetadata/releases/tag/1.10.14-release).
 
 ## Fixes
 
-- SAP HANA Connector now correctly identifies view names by reading the resourceUri attribute instead of the data source ID
-- Fixed Incident Manager navigation breadcrumbs to display correctly across all user routes
-- Corrected PowerBI Report Page URL generation to fix broken links
-- Updated dashboardDataModel to ensure the correct Source URL is mapped in search results
-- Hidden the "Add Domain" button within the Data Product UI to clean up the interface
+- Fixed week schedule styling.
+- Fixed translation issues in the UI.
+- Removed translation logic from constant files (Part 2).
+- Fixed incorrect indices used for lineage calculations.
+- Fixed mutual tags warning errors in Tables and Dashboard Data Models.
+- Excluded deleted entities from appearing in search results.
+- Displayed persona names instead of IDs in persona selection.
+- Updated service form tests to correctly handle connection modal cancellation and response waiting.
+- Corrected SAP HANA view name extraction by reading it from the resourceUri XML attribute.
+- Formatted row count and decimal values consistently across the profiler and data quality.
+- Corrected the default value of forceSecureSessionCookie.
+- Fixed breadcrumb behavior in Incident Manager across different navigation routes.
 
-**Full Changelog**: [link](https://github.com/open-metadata/OpenMetadata/compare/1.10.11-release...1.10.12-release)
+## Improvements
+
+- Increased test connection timeout to 3 minutes.
+- Replaced direct entity-type usage with keyword-based handling.
+- Added new `/assets/counts` API for asset statistics retrieval.
+
+**Full Changelog**: [link](https://github.com/open-metadata/OpenMetadata/compare/1.10.12-release...1.10.14-release)
