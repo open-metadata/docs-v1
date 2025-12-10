@@ -9,8 +9,8 @@ collate: true
 name="Matillion"
 stage="PROD"
 platform="Collate"
-availableFeatures=["Pipelines", "Lineage"]
-unavailableFeatures=["Owners", "Tags", "Pipeline Status"]
+availableFeatures=["Pipelines", "Pipeline Status", "Lineage"]
+unavailableFeatures=["Owners", "Tags"]
 / %}
 
 
