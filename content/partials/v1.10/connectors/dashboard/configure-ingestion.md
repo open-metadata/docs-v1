@@ -1,4 +1,4 @@
-/connectors/dashboard/configure-ingestion.md{% step srNumber=7 %}
+{% step srNumber=7 %}
 
 {% stepDescription title="7. Configure Metadata Ingestion" %}
 
