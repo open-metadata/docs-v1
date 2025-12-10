@@ -8,7 +8,7 @@ slug: /how-to-guides/data-quality-observability
 
 OpenMetadata offers a simple and easy-to-use solution for quality and observability. With no code tests, observability metrics, incident management, and root cause analysis (Collate feature), you have a unified solution for discovery, governance, and observability.
 
-OpenMetadata ensures the health and performance of your data systems by providing comprehensive data observability features. These features offer insights into the state of test cases, helping to detect, diagnose, and resolve data issues quickly. By monitoring data flows and data quality in real-time, data teams can ensure that data remains reliable and trustworthy. OpenMetadata supports [observability alerts and notifications](/how-to-guides/admin-guide/alerts) to help you maintain the integrity and performance of your data systems.
+OpenMetadata ensures the health and performance of your data systems by providing comprehensive data observability features. These features offer insights into the state of test cases, helping to detect, diagnose, and resolve data issues quickly. By monitoring data flows and data quality in real-time, data teams can ensure that data remains reliable and trustworthy. OpenMetadata supports [observability alerts and notifications](/how-to-guides/data-quality-observability/observability/alerts) to help you maintain the integrity and performance of your data systems.
 
 {%inlineCalloutContainer%}
  {%inlineCallout
@@ -25,8 +25,8 @@ OpenMetadata ensures the health and performance of your data systems by providin
  {%/inlineCallout%}
  {%inlineCallout
     icon="MdAddAlert"
-    bold="Observability Alerts"
-    href="/how-to-guides/data-quality-observability/observability"%}
+    bold="Alerts & Notifications"
+    href="/how-to-guides/data-quality-observability/alerts-notifications"%}
     Set up observability alerts in OpenMetadata.
  {%/inlineCallout%}
  {%inlineCallout
