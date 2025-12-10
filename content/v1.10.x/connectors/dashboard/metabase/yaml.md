@@ -23,6 +23,8 @@ Configure and schedule Metabase metadata and profiler workflows from the OpenMet
 
 ## Requirements
 
+The service account must have view access to all dashboards and charts that need to be ingested. Without view access, the connector cannot retrieve those objects.
+
 **Note:** We have tested Metabase with Versions `0.42.4` and `0.43.4`.
 
 ### Python Requirements
