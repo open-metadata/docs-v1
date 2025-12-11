@@ -40,6 +40,15 @@ action:
   database_name: <databaseName in OM> 
   schema_name: <schemaName in OM>
   table_name: <tableName in OM> 
+  expectation_suite_table_config_map:
+    my_first_suite_name:
+        database_name: <databaseName in OM>
+        schema_name: <schemaName in OM>
+        table_name: <tableName in OM>
+    my_other_suite_name:
+        database_name: <databaseName in OM>
+        schema_name: <schemaName in OM>
+        table_name: <tableName in OM>
 [...]
 ```
 
@@ -51,9 +60,24 @@ In your checkpoint yaml file, you will need to add the above code block in `acti
 - `class_name`: this is the name of the class that will be used to execute the custom action
 - `config_file_path`: this is the path to your `config.yaml` file that holds the configuration of your OpenMetadata server
 - `database_service_name`: [Optional] this is an optional parameter. If not specified and 2 tables have the same name in 2 different OpenMetadata services, the custom action will fail
-- `database_name`: [Optional] only required for `RuntimeDataBatchSpec` execution (e.g. run GX against a dataframe). 
-- `schema_name`: [Optional] only required for `RuntimeDataBatchSpec` execution (e.g. run GX against a dataframe). 
-- `table_name`: [Optional] only required for `RuntimeDataBatchSpec` execution (e.g. run GX against a dataframe). 
+- `database_name`: [Optional] The database name as it appears in OpenMetadata. For table-based validations (`SqlAlchemyDatasourceBatchSpec`), this is inferred from the batch spec. **Required** for query-based or dataframe validations (`RuntimeQueryBatchSpec`, `RuntimeDataBatchSpec`) where the table context must be explicitly specified.
+- `schema_name`: [Optional] The schema name as it appears in OpenMetadata. For table-based validations, this is inferred from the batch spec. **Required** for query-based or dataframe validations. Defaults to *default* if not specified.
+- `table_name`: [Optional] The table name as it appears in OpenMetadata. For table-based validations, this is inferred from the batch spec. **Required** for query-based or dataframe validations where the table cannot be automatically determined.
+- `expectation_suite_table_config_map`: [Optional] A dictionary mapping expectation suite names to their target OpenMetadata tables. Required when running multi-table checkpoints, where different expectation suites should send results to different tables. Each entry specifies the `database_name`, `schema_name` and `table_name` for routing validation results.
+
+
+{% note type="info" %}
+**Multi-Table Checkpoints**
+
+When validating **multiple tables in a single checkpoint**, use the `expectation_suite_table_config_map` parameter to route validation results to the correct OpenMetadata tables. This is necessary because:
+- Each expectation suite may target a different table
+- The checkpoint action needs to know where to send each suite's results
+- Without the mapping, all results would attempt to go to the same default table
+
+**Example scenario:** You have a checkpoint validating both `users` and `orders` tables with separate expectation suites (`users_suite` and `orders_suite`). The `expectation_suite_table_config_map` ensures `users_suite` results go to the `users` table and the `orders_suite` go to the `orders` table.
+
+For single-table checkpoints, this parameter is not needed - the table information is provided directly or inferred from the batch spec.
+{% /note %}
 
 {% image
 src={"/images/v1.11/features/integrations/ge-checkpoint-file.gif"}
@@ -184,6 +208,96 @@ context.add_or_update_checkpoint(checkpoint=checkpoint)
 checkpoint_result = checkpoint.run()
 ```
 
+#### Multi-Table Checkpoint Example
+
+Validate multiple tables in a single checkpoint run:
+
+```python
+import great_expectations as gx
+from great_expectations.checkpoint import Checkpoint
+
+context = gx.get_context()
+conn_string = "postgresql+psycopg2://user:pw@host:port/db"
+
+data_source = context.sources.add_postgres(
+  name="my_datasource",
+  connection_string=conn_string,
+)
+
+# Set up users table validation
+users_asset = data_source.add_table_asset(
+  name="users_asset",
+  table_name="users",
+  schema_name="public",
+)
+users_suite = "users_suite"
+context.add_or_update_expectation_suite(expectation_suite_name=users_suite)
+users_validator = context.get_validator(
+  batch_request=users_asset.build_batch_request(),
+  expectation_suite_name=users_suite,
+)
+users_validator.expect_column_values_to_not_be_null(column="email")
+users_validator.save_expectation_suite(discard_failed_expectations=False)
+
+# Set up orders table validation
+orders_asset = data_source.add_table_asset(
+  name="orders_asset",
+  table_name="orders",
+  schema_name="public",
+)
+orders_suite = "orders_suite"
+context.add_or_update_expectation_suite(expectation_suite_name=orders_suite)
+orders_validator = context.get_validator(
+  batch_request=orders_asset.build_batch_request(),
+  expectation_suite_name=orders_suite,
+)
+orders_validator.expect_column_values_to_be_between(column="amount", min_value=0, max_value=1000000)
+orders_validator.save_expectation_suite(discard_failed_expectations=False)
+
+# Create multi-table checkpoint
+checkpoint = Checkpoint(
+  name="multi_table_checkpoint",
+  run_name_template="%Y%m%d-%H%M%S-multi-table",
+  data_context=context,
+  validations=[
+      {
+          "batch_request": users_asset.build_batch_request(),
+          "expectation_suite_name": users_suite,
+      },
+      {
+          "batch_request": orders_asset.build_batch_request(),
+          "expectation_suite_name": orders_suite,
+      },
+  ],
+  action_list=[
+      {
+          "name": "openmetadata_action",
+          "action": {
+              "module_name": "metadata.great_expectations.action",
+              "class_name": "OpenMetadataValidationAction",
+              "config_file_path": "/path/to/config/",
+              "database_service_name": "my_postgres_service",
+              "expectation_suite_table_config_map": {
+                  "users_suite": {
+                      "database_name": "production",
+                      "schema_name": "public",
+                      "table_name": "users",
+                  },
+                  "orders_suite": {
+                      "database_name": "production",
+                      "schema_name": "public",
+                      "table_name": "orders",
+                  },
+              },
+          }
+      },
+  ],
+)
+
+context.add_or_update_checkpoint(checkpoint=checkpoint)
+checkpoint_result = checkpoint.run()
+```
+
 ### Working with GX 1.x.x?
 In v1.x.x GX introduced significant changes to their SDK. One notable change was the removal of the `great_expectations` CLI. OpenMetadata introduced support for 1.x.x version through its `OpenMetadataValidationAction1xx` class. You will need to first `pip install 'open-metadata[great-expectations-1xx]'. Below is a complete example 
 
@@ -244,6 +358,95 @@ checkpoint = context.checkpoints.add(
     gx.checkpoint.checkpoint.Checkpoint(
         name="checkpoint", validation_definitions=[validation_definition], actions=action_list
     )
+)
+
+checkpoint_result = checkpoint.run()
+```
+
+#### Multi-Table Checkpoint Example
+
+Validate multiple tables in a single checkpoint run:
+
+```python
+import great_expectations as gx
+from metadata.great_expectations.action1xx import OpenMetadataValidationAction1xx
+
+context = gx.get_context()
+conn_string = "postgresql+psycopg2://user:pw@host:port/db"
+
+data_source = context.data_sources.add_postgres(
+  name="my_datasource",
+  connection_string=conn_string,
+)
+
+# Users table setup
+users_asset = data_source.add_table_asset(
+  name="users_asset",
+  table_name="users",
+  schema_name="public",
+)
+users_batch_def = users_asset.add_batch_definition_whole_table("users_batch")
+users_suite = context.suites.add(
+  gx.core.expectation_suite.ExpectationSuite(name="users_suite")
+)
+users_suite.add_expectation(
+  gx.expectations.ExpectColumnValuesToNotBeNull(column="email")
+)
+users_validation = context.validation_definitions.add(
+  gx.core.validation_definition.ValidationDefinition(
+      name="users_validation",
+      data=users_batch_def,
+      suite=users_suite,
+  )
+)
+
+# Orders table setup
+orders_asset = data_source.add_table_asset(
+  name="orders_asset",
+  table_name="orders",
+  schema_name="public",
+)
+orders_batch_def = orders_asset.add_batch_definition_whole_table("orders_batch")
+orders_suite = context.suites.add(
+  gx.core.expectation_suite.ExpectationSuite(name="orders_suite")
+)
+orders_suite.add_expectation(
+  gx.expectations.ExpectColumnValuesToBeBetween(column="amount", min_value=0, max_value=1000000)
+)
+orders_validation = context.validation_definitions.add(
+  gx.core.validation_definition.ValidationDefinition(
+      name="orders_validation",
+      data=orders_batch_def,
+      suite=orders_suite,
+  )
+)
+
+# Create multi-table checkpoint
+action_list = [
+  OpenMetadataValidationAction1xx(
+      database_service_name="my_postgres_service",
+      config_file_path="/path/to/config/",
+      expectation_suite_table_config_map={
+          "users_suite": {
+              "database_name": "production",
+              "schema_name": "public",
+              "table_name": "users",
+          },
+          "orders_suite": {
+              "database_name": "production",
+              "schema_name": "public",
+              "table_name": "orders",
+          },
+      },
+  )
+]
+
+checkpoint = context.checkpoints.add(
+  gx.checkpoint.checkpoint.Checkpoint(
+      name="multi_table_checkpoint",
+      validation_definitions=[users_validation, orders_validation],
+      actions=action_list
+  )
 )
 
 checkpoint_result = checkpoint.run()
