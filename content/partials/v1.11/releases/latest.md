@@ -37,4 +37,4 @@ You can find the GitHub release [here](https://github.com/open-metadata/OpenMeta
 - Replaced direct entity-type usage with keyword-based handling.
 - Added new `/assets/counts` API for asset statistics retrieval.
 
-**Full Changelog**: [link](https://github.com/open-metadata/OpenMetadata/compare/1.10.12-release...1.10.14-release)
+**Full Changelog**: [link](https://github.com/open-metadata/OpenMetadata/compare/1.10.13-release...1.10.14-release)
