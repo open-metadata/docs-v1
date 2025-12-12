@@ -1,7 +1,7 @@
-# 1.10.14 Release 🎉
+# 1.11.1 Release 🎉
 
 {% note noteType="Tip" %}
-**8th December 2025**
+**11th December 2025**
 {% /note %}
 
 {% inlineCalloutContainer %}
@@ -10,31 +10,22 @@ color="violet-70"
 icon="celebration"
 bold="Upgrade OpenMetadata"
 href="/deployment/upgrade" %}
-Learn how to upgrade your OpenMetadata instance to 1.10.14!
+Learn how to upgrade your OpenMetadata instance to 1.11.1!
 {% /inlineCallout %}
 {% /inlineCalloutContainer %}
 
-You can find the GitHub release [here](https://github.com/open-metadata/OpenMetadata/releases/tag/1.10.14-release).
+You can find the GitHub release [here](https://github.com/open-metadata/OpenMetadata/releases/tag/1.11.1-release).
+
+## Highlights
+
+- Wherescape ingestion now captures richer metadata and lineage coverage.
+- Query Runner aligns to the SQL Studio experience with clearer messaging and stability.
+- Auto-classification now leverages `TagProcessor` for more accurate tagging.
+- Vector search services are pre-initialized to keep reindexing stable.
 
 ## Fixes
 
-- Fixed week schedule styling.
-- Fixed translation issues in the UI.
-- Removed translation logic from constant files (Part 2).
-- Fixed incorrect indices used for lineage calculations.
-- Fixed mutual tags warning errors in Tables and Dashboard Data Models.
-- Excluded deleted entities from appearing in search results.
-- Displayed persona names instead of IDs in persona selection.
-- Updated service form tests to correctly handle connection modal cancellation and response waiting.
-- Corrected SAP HANA view name extraction by reading it from the resourceUri XML attribute.
-- Formatted row count and decimal values consistently across the profiler and data quality.
-- Corrected the default value of forceSecureSessionCookie.
-- Fixed breadcrumb behavior in Incident Manager across different navigation routes.
+- Access URLs use hash routing to avoid broken links in shared views.
+- Slack message listener reliability improved to prevent missed notifications.
 
-## Improvements
-
-- Increased test connection timeout to 3 minutes.
-- Replaced direct entity-type usage with keyword-based handling.
-- Added new `/assets/counts` API for asset statistics retrieval.
-
-**Full Changelog**: [link](https://github.com/open-metadata/OpenMetadata/compare/1.10.13-release...1.10.14-release)
+**Full Changelog**: [link](https://github.com/open-metadata/OpenMetadata/compare/1.11.0-release...1.11.1-release)
