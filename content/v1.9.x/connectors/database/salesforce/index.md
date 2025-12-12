@@ -85,7 +85,7 @@ For a complete guide on managing secrets in hybrid setups, see the [Hybrid Inges
   - `test` - For sandbox instances (resolves to `https://test.salesforce.com`)
   
   **For Salesforce My Domain:**
-  Enter only your custom domain prefix without `.salesforce.com` or `.my.salesforce.com`. 
+  Enter your custom domain prefix, including all subdomain components (such as `.my`, `.sandbox.my`, etc.), but without `.salesforce.com`. 
   
   **Examples:**
   - If your My Domain URL is `https://mycompany.my.salesforce.com`, enter: `mycompany.my`
