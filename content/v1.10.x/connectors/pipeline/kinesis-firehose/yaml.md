@@ -22,7 +22,7 @@ Configure and schedule AWS Kinesis Firehose metadata and profiler workflows from
 - [Requirements](#requirements)
 - [Metadata Ingestion](#metadata-ingestion)
 
-{% partial file="/v1.9/connectors/ingestion-modes-tiles.md" variables={yamlPath: "/connectors/pipeline/kinesis-firehose/yaml"} /%}
+{% partial file="/v1.10/connectors/ingestion-modes-tiles.md" variables={yamlPath: "/connectors/pipeline/kinesis-firehose/yaml"} /%}
 
 ## Requirements
 
@@ -35,7 +35,7 @@ To extract metadata from AWS Kinesis Firehose, you need to configure AWS credent
 
 ### Python Requirements
 
-{% partial file="/v1.9/connectors/python-requirements.md" /%}
+{% partial file="/v1.10/connectors/python-requirements.md" /%}
 
 To run the AWS Kinesis Firehose ingestion, you will need to install:
 
@@ -133,11 +133,11 @@ This is a sample config for AWS Kinesis Firehose:
 {% /codeInfo %}
 
 
-{% partial file="/v1.9/connectors/yaml/pipeline/source-config-def.md" /%}
+{% partial file="/v1.10/connectors/yaml/pipeline/source-config-def.md" /%}
 
-{% partial file="/v1.9/connectors/yaml/ingestion-sink-def.md" /%}
+{% partial file="/v1.10/connectors/yaml/ingestion-sink-def.md" /%}
 
-{% partial file="/v1.9/connectors/yaml/workflow-config-def.md" /%}
+{% partial file="/v1.10/connectors/yaml/workflow-config-def.md" /%}
 
 {% /codeInfoContainer %}
 
@@ -190,14 +190,14 @@ source:
         #   - ".*test.*"  # Exclude test delivery streams
 ```
 
-{% partial file="/v1.9/connectors/yaml/pipeline/source-config.md" /%}
+{% partial file="/v1.10/connectors/yaml/pipeline/source-config.md" /%}
 
-{% partial file="/v1.9/connectors/yaml/ingestion-sink.md" /%}
+{% partial file="/v1.10/connectors/yaml/ingestion-sink.md" /%}
 
-{% partial file="/v1.9/connectors/yaml/workflow-config.md" /%}
+{% partial file="/v1.10/connectors/yaml/workflow-config.md" /%}
 
 {% /codeBlock %}
 
 {% /codePreview %}
 
-{% partial file="/v1.9/connectors/yaml/ingestion-cli.md" /%}
+{% partial file="/v1.10/connectors/yaml/ingestion-cli.md" /%}
