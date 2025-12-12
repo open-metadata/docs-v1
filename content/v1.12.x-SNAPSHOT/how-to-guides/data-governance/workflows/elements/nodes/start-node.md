@@ -9,4 +9,4 @@ collate: true
 
 The **Start Node** is mandatory and acts as the entry point for your workflow. It defines how and when the workflow will be triggered.
 
-{% image src="/images/v1.10/how-to-guides/governance/workflows-set-asset-certification.png" alt="set-asset-certification" /%}
+{% image src="/images/v1.12/how-to-guides/governance/workflows-set-asset-certification.png" alt="set-asset-certification" /%}

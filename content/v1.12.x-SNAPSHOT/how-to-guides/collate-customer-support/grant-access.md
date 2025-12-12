@@ -16,7 +16,7 @@ This guide outlines the steps required to give temporary support access in the C
 - Go to **Settings → Applications → Support**
 
 {% image
-src="/images/v1.10/how-to-guides/support/support-1.png"
+src="/images/v1.12/how-to-guides/support/support-1.png"
 alt="Settings → Applications → Support"
 caption="Settings → Applications → Support"
 /%}
@@ -29,7 +29,7 @@ caption="Settings → Applications → Support"
   - Set the **Access Duration** to `1 hour`, `2 hours`, `4 hours` etc.
 
 {% image
-src="/images/v1.10/how-to-guides/support/support-2.png"
+src="/images/v1.12/how-to-guides/support/support-2.png"
 alt="Add the Collate Support Access"
 caption="Add the Collate Support Access"
 /%}
@@ -39,7 +39,7 @@ caption="Add the Collate Support Access"
 - Click the **Grant Access** button.
 
 {% image
-src="/images/v1.10/how-to-guides/support/support-3.png"
+src="/images/v1.12/how-to-guides/support/support-3.png"
 alt="Grant Access"
 caption="Grant Access"
 /%}
@@ -47,7 +47,7 @@ caption="Grant Access"
 - The same access will be provided to the support email. This can be verified in the access logs.
 
 {% image
-src="/images/v1.10/how-to-guides/support/support-4.png"
+src="/images/v1.12/how-to-guides/support/support-4.png"
 alt="Access Logs"
 caption="Access Logs"
 /%}
@@ -55,7 +55,7 @@ caption="Access Logs"
 - In the configuration section, you can select the delivery method as Email, Slack, or both.
 
 {% image
-src="/images/v1.10/how-to-guides/support/support-5.png"
+src="/images/v1.12/how-to-guides/support/support-5.png"
 alt="Configuration"
 caption="Configuration"
 /%}
@@ -65,7 +65,7 @@ caption="Configuration"
 If your organization uses Single Sign-On (SSO), you must **disable the Enforce Principal Domain** to allow access for emails from other domains (e.g., `gmail.com`). Navigate to **Settings → SSO → Configure** to disable the same.
 
 {% image
-src="/images/v1.10/how-to-guides/support/support-6.png"
+src="/images/v1.12/how-to-guides/support/support-6.png"
 alt="Configuration"
 caption="Configuration"
 /%}

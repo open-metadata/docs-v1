@@ -11,7 +11,7 @@ collate: true
 
 Go to **Govern → Workflows → New Workflow**.
 
-{% image src="/images/v1.10/how-to-guides/governance/new1.png" alt="Workflow Creation" /%}
+{% image src="/images/v1.12/how-to-guides/governance/new1.png" alt="Workflow Creation" /%}
 
 ## Step 2: Configure Basic Details
 
@@ -20,7 +20,7 @@ In the next screen, provide:
 - **Name** – This will serve as the unique identifier for your workflow in OpenMetadata tables. *(No spaces allowed.)*
 - **Description** – A short summary describing the purpose of the workflow.
 
-{% image src="/images/v1.10/how-to-guides/governance/new2.png" alt="Configuration" /%}
+{% image src="/images/v1.12/how-to-guides/governance/new2.png" alt="Configuration" /%}
 
 Start combining multiple Nodes and create a workflow.
 
@@ -28,7 +28,7 @@ Start combining multiple Nodes and create a workflow.
 
 To execute an on-demand workflow, click **Run Now** This immediately triggers the workflow based on its configuration.
 
-{% image src="/images/v1.10/how-to-guides/governance/new3.png" alt="Running a Periodic Batch Workflow" /%}
+{% image src="/images/v1.12/how-to-guides/governance/new3.png" alt="Running a Periodic Batch Workflow" /%}
 
 ## Best Practices
 

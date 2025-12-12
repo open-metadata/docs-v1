@@ -9,12 +9,12 @@ collate: true
 
 Purpose: Set Tier, MLModel entity if description is not null
 
-{% image src="/images/v1.10/how-to-guides/governance/mlmodel1.webp" alt="Set Tier to MLModels Workflow" /%}
+{% image src="/images/v1.12/how-to-guides/governance/mlmodel1.webp" alt="Set Tier to MLModels Workflow" /%}
 
 Before Workflow Execution:
 
-{% image src="/images/v1.10/how-to-guides/governance/mlmodel2.webp" alt="Set Tier to MLModels Workflow" /%}
+{% image src="/images/v1.12/how-to-guides/governance/mlmodel2.webp" alt="Set Tier to MLModels Workflow" /%}
 
 After Workflow Execution:
 
-{% image src="/images/v1.10/how-to-guides/governance/mlmodel3.webp" alt="Set Tier to MLModels Workflow" /%}
+{% image src="/images/v1.12/how-to-guides/governance/mlmodel3.webp" alt="Set Tier to MLModels Workflow" /%}
