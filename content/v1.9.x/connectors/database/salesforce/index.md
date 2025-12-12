@@ -78,8 +78,23 @@ For a complete guide on managing secrets in hybrid setups, see the [Hybrid Inges
   {% /note %}
 - **Salesforce Object Name**: Specify the Salesforce Object Name in case you want to ingest a specific object.  If left blank, we will ingest all the Objects.
 - **Salesforce API Version**: Follow the steps mentioned [here](https://help.salesforce.com/s/articleView?id=000386929&type=1) to get the API version. Enter the numerical value in the field, For example `42.0`.
-- **Salesforce Domain**: When connecting to Salesforce, you can specify the domain to use for accessing the platform. The common domains include `login` and `test`, and you can also utilize Salesforce My Domain.
-By default, the domain `login` is used for accessing Salesforce.
+- **Salesforce Domain**: Specify the Salesforce domain (subdomain only) to use for authentication. This field accepts only the domain prefix, not the full URL.
+
+  **Common values:**
+  - `login` (default) - For production instances (resolves to `https://login.salesforce.com`)
+  - `test` - For sandbox instances (resolves to `https://test.salesforce.com`)
+  
+  **For Salesforce My Domain:**
+  Enter only the subdomain prefix of your custom Salesforce domain, including all subdomain components (such as `.my`, `.sandbox.my`, etc.), but do not include `.salesforce.com` or the protocol (`https://`). 
+  
+  **Examples:**
+  - For `https://mycompany.my.salesforce.com`, enter: `mycompany.my`
+  - For `https://mycompany--uat.sandbox.my.salesforce.com`, enter: `mycompany--uat.sandbox.my`
+  - For `https://example-dot-com--uat.sandbox.my.salesforce.com`, enter: `example-dot-com--uat.sandbox.my`
+  
+  {% note %}
+  **Important:** Do **not** enter the full URL or include `.salesforce.com`. Only enter the subdomain prefix as shown in the examples above.
+  {% /note %}
 
 **SSL Configuration**
 
