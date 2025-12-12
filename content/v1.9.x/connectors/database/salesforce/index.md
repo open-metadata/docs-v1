@@ -88,7 +88,7 @@ For a complete guide on managing secrets in hybrid setups, see the [Hybrid Inges
   Enter only your custom domain prefix without `.salesforce.com` or `.my.salesforce.com`. 
   
   **Examples:**
-  - If your My Domain URL is `https://mycompany.my.salesforce.com`, enter: `mycompany`
+  - If your My Domain URL is `https://mycompany.my.salesforce.com`, enter: `mycompany.my`
   - If your sandbox My Domain URL is `https://mycompany--uat.sandbox.my.salesforce.com`, enter: `mycompany--uat.sandbox.my`
   - If your URL is `https://example-dot-com--uat.sandbox.my.salesforce.com`, enter: `example-dot-com--uat.sandbox.my`
   
