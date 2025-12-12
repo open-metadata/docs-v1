@@ -19,8 +19,8 @@ Supported fields include:
 - Certification
 - Glossary Terms
 
-{% image src="/images/v1.10/how-to-guides/governance/set-action1.png" alt="Set Action" /%}
+{% image src="/images/v1.11/how-to-guides/governance/set-action1.png" alt="Set Action" /%}
 
-{% image src="/images/v1.10/how-to-guides/governance/set-action2.png" alt="Set Action" /%}
+{% image src="/images/v1.11/how-to-guides/governance/set-action2.png" alt="Set Action" /%}
 
-{% image src="/images/v1.10/how-to-guides/governance/set-action3.png" alt="Set Action" /%}
+{% image src="/images/v1.11/how-to-guides/governance/set-action3.png" alt="Set Action" /%}

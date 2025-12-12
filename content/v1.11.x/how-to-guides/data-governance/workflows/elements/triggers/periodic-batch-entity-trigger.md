@@ -14,4 +14,4 @@ This trigger runs workflows **on demand** or **on a schedule** (not event-driven
 - **Schedule Type** – Choose between *On Demand* or *Scheduled*.
 - **Batch Size** – Set how many entities to process per iteration (depends on your data size).
 
-{% image src="/images/v1.10/how-to-guides/governance/workflows-periodic-batch-entity-trigger.png" alt="periodic-batch-entity-trigger" /%}
+{% image src="/images/v1.11/how-to-guides/governance/workflows-periodic-batch-entity-trigger.png" alt="periodic-batch-entity-trigger" /%}

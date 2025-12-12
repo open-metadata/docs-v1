@@ -291,4 +291,4 @@ alt="LDAP SSO Configuration" /%}
 | Enforce Principal Domain     | false                                                     |
 | SSL/TLS                      | true                                                      |
 
-{% partial file="/v1.10/deployment/sso-troubleshooting.md" /%}
+{% partial file="/v1.11/deployment/sso-troubleshooting.md" /%}

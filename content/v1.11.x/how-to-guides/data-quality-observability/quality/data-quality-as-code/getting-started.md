@@ -83,7 +83,7 @@ OpenMetadata provides pre-configured bots like the `ingestion-bot`:
 4. Copy the JWT token
 
 {% image
-src="/images/v1.10/deployment/security/enable-jwt/bot-jwt-token.png"
+src="/images/v1.11/deployment/security/enable-jwt/bot-jwt-token.png"
 alt="Obtain Bot JWT Token"
 caption="Obtain Bot JWT Token from OpenMetadata UI"
 /%}

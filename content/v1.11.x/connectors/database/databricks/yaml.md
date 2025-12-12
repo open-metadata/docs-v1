@@ -94,7 +94,7 @@ First login to Azure Databricks and from side bar select SQL Warehouse (In SQL s
 
 
 {% image
-src="/images/v1.10/connectors/databricks/select-sql-warehouse.png"
+src="/images/v1.11/connectors/databricks/select-sql-warehouse.png"
 alt="Select Sql Warehouse"
 caption="Select Sql Warehouse" /%}
 
@@ -103,7 +103,7 @@ Now click on sql Warehouse from the SQL Warehouses list.
 
 
 {% image
-src="/images/v1.10/connectors/databricks/Open-sql-warehouse.png"
+src="/images/v1.11/connectors/databricks/Open-sql-warehouse.png"
 alt="Open Sql Warehouse"
 caption="Open Sql Warehouse" /%}
 
@@ -114,7 +114,7 @@ In this page Server hostname and Port is your `hostPort`, HTTP path is your `htt
 
 
 {% image
-src="/images/v1.10/connectors/databricks/Connection-details.png"
+src="/images/v1.11/connectors/databricks/Connection-details.png"
 alt="Connection details"
 caption="Connection details" /%}
 
@@ -122,7 +122,7 @@ caption="Connection details" /%}
 In Connection details section page click on Create a personal access token.
 
 {% image
-src="/images/v1.10/connectors/databricks/Open-create-token-page.png"
+src="/images/v1.11/connectors/databricks/Open-create-token-page.png"
 alt="Open create token"
 caption="Open create token" /%}
 
@@ -132,7 +132,7 @@ Now In this page you can create new `token`.
 
 
 {% image
-src="/images/v1.10/connectors/databricks/Generate-token.png"
+src="/images/v1.11/connectors/databricks/Generate-token.png"
 alt="Generate token"
 caption="Generate token" /%}
 

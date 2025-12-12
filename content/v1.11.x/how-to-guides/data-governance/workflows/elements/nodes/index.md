@@ -9,7 +9,7 @@ collate: true
 
 You can find below a list of available Nodes that can be used with the Governance Workflows.
 
-{% image src="/images/v1.10/how-to-guides/governance/node.png" alt="Nodes" /%}
+{% image src="/images/v1.11/how-to-guides/governance/node.png" alt="Nodes" /%}
 
 {%inlineCalloutContainer%}
  {%inlineCallout

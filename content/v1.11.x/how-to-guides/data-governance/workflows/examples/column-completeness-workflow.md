@@ -9,9 +9,9 @@ collate: true
 
 A workflow used to evaluate and certify tables based on column description completeness.
 
-{% image src="/images/v1.10/how-to-guides/governance/ccw1.webp" alt="Column Completeness Workflow" /%}
+{% image src="/images/v1.11/how-to-guides/governance/ccw1.webp" alt="Column Completeness Workflow" /%}
 
-{% image src="/images/v1.10/how-to-guides/governance/ccw2.webp" alt="Column Completeness Workflow" /%}
+{% image src="/images/v1.11/how-to-guides/governance/ccw2.webp" alt="Column Completeness Workflow" /%}
 
 Tables in Question:
 
@@ -25,19 +25,19 @@ Users → 3/4 columns have description - 75% → Result: Silver Certification.
 
 ## Before Workflow Execution
 
-{% image src="/images/v1.10/how-to-guides/governance/ccw3.webp" alt="Column Completeness Workflow" /%}
+{% image src="/images/v1.11/how-to-guides/governance/ccw3.webp" alt="Column Completeness Workflow" /%}
 
-{% image src="/images/v1.10/how-to-guides/governance/ccw4.webp" alt="Column Completeness Workflow" /%}
+{% image src="/images/v1.11/how-to-guides/governance/ccw4.webp" alt="Column Completeness Workflow" /%}
 
-{% image src="/images/v1.10/how-to-guides/governance/ccw5.webp" alt="Column Completeness Workflow" /%}
+{% image src="/images/v1.11/how-to-guides/governance/ccw5.webp" alt="Column Completeness Workflow" /%}
 
 
 ## After Workflow Execution
 
-{% image src="/images/v1.10/how-to-guides/governance/ccw6.webp" alt="Column Completeness Workflow" /%}
+{% image src="/images/v1.11/how-to-guides/governance/ccw6.webp" alt="Column Completeness Workflow" /%}
 
-{% image src="/images/v1.10/how-to-guides/governance/ccw7.webp" alt="Column Completeness Workflow" /%}
+{% image src="/images/v1.11/how-to-guides/governance/ccw7.webp" alt="Column Completeness Workflow" /%}
 
-{% image src="/images/v1.10/how-to-guides/governance/ccw8.webp" alt="Column Completeness Workflow" /%}
+{% image src="/images/v1.11/how-to-guides/governance/ccw8.webp" alt="Column Completeness Workflow" /%}
 
-{% image src="/images/v1.10/how-to-guides/governance/ccw9.webp" alt="Column Completeness Workflow" /%}
+{% image src="/images/v1.11/how-to-guides/governance/ccw9.webp" alt="Column Completeness Workflow" /%}

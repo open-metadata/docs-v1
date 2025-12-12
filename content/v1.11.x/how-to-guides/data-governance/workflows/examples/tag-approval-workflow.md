@@ -9,4 +9,4 @@ collate: true
 
 A workflow designed to manage and approve tag changes to assets.
 
-{% image src="/images/v1.10/how-to-guides/governance/tagapp.png" alt="Tag Approval Workflow" /%}
+{% image src="/images/v1.11/how-to-guides/governance/tagapp.png" alt="Tag Approval Workflow" /%}

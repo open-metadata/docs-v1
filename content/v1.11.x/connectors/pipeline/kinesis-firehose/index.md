@@ -22,7 +22,7 @@ Configure and schedule AWS Kinesis Firehose metadata and profiler workflows from
 - [Metadata Ingestion](#metadata-ingestion)
 - [Troubleshooting](/connectors/pipeline/kinesis-firehose/troubleshooting)
 
-{% partial file="/v1.9/connectors/ingestion-modes-tiles.md" variables={yamlPath: "/connectors/pipeline/kinesis-firehose/yaml"} /%}
+{% partial file="/v1.11/connectors/ingestion-modes-tiles.md" variables={yamlPath: "/connectors/pipeline/kinesis-firehose/yaml"} /%}
 
 ## Requirements
 
@@ -37,7 +37,7 @@ To extract metadata from AWS Kinesis Firehose, you need to configure AWS credent
 ## Metadata Ingestion
 
 {% partial
-    file="/v1.9/connectors/metadata-ingestion-ui.md"
+    file="/v1.11/connectors/metadata-ingestion-ui.md"
     variables={
         connector: "AWS Kinesis Firehose",
         selectServicePath: "/images/v1.11/connectors/kinesis-firehose/select-service.png",
@@ -127,11 +127,11 @@ To extract metadata from AWS Kinesis Firehose, you need to configure AWS credent
 
 {% /extraContent %}
 
-{% partial file="/v1.9/connectors/test-connection.md" /%}
+{% partial file="/v1.11/connectors/test-connection.md" /%}
 
-{% partial file="/v1.9/connectors/pipeline/configure-ingestion.md" /%}
+{% partial file="/v1.11/connectors/pipeline/configure-ingestion.md" /%}
 
-{% partial file="/v1.9/connectors/ingestion-schedule-and-deploy.md" /%}
+{% partial file="/v1.11/connectors/ingestion-schedule-and-deploy.md" /%}
 
 {% /stepsContainer %}
 

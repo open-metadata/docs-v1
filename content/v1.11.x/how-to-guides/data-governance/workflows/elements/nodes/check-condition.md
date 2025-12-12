@@ -18,9 +18,9 @@ Examples:
 
 You can define multiple conditions.
 
-{% image src="/images/v1.10/how-to-guides/governance/check1.png" alt="Check Condition Node" /%}
+{% image src="/images/v1.11/how-to-guides/governance/check1.png" alt="Check Condition Node" /%}
 
-{% image src="/images/v1.10/how-to-guides/governance/check2.png" alt="Check Condition Node" /%}
+{% image src="/images/v1.11/how-to-guides/governance/check2.png" alt="Check Condition Node" /%}
 
 Each Check Condition node has two output branches:
 
@@ -29,4 +29,4 @@ Each Check Condition node has two output branches:
     
     Both branches must be connected for a complete workflow path.
 
-{% image src="/images/v1.10/how-to-guides/governance/check3.png" alt="Check Condition Node" /%}
+{% image src="/images/v1.11/how-to-guides/governance/check3.png" alt="Check Condition Node" /%}

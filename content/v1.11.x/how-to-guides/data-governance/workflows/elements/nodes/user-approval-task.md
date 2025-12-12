@@ -15,4 +15,4 @@ Users can either **Approve** or **Reject** the task.
 - Tasks are automatically sent to the corresponding reviewers of the asset.
 - Configure **Approval Threshold** and **Rejection Threshold** to define how many approvals or rejections are needed to finalize the outcome.
 
-{% image src="/images/v1.10/how-to-guides/governance/workflows-create-user-task.png" alt="User Approval Task" /%}
+{% image src="/images/v1.11/how-to-guides/governance/workflows-create-user-task.png" alt="User Approval Task" /%}

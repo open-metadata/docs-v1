@@ -5,4 +5,4 @@ slug: /connectors/pipeline/kinesis-firehose/troubleshooting
 collate: true
 ---
 
-{% partial file="/v1.9/connectors/troubleshooting.md" /%}
+{% partial file="/v1.11/connectors/troubleshooting.md" /%}
