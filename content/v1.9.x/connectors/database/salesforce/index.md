@@ -85,15 +85,15 @@ For a complete guide on managing secrets in hybrid setups, see the [Hybrid Inges
   - `test` - For sandbox instances (resolves to `https://test.salesforce.com`)
   
   **For Salesforce My Domain:**
-  Enter your custom domain prefix, including all subdomain components (such as `.my`, `.sandbox.my`, etc.), but without `.salesforce.com`. 
+  Enter only the subdomain prefix of your custom Salesforce domain, including all subdomain components (such as `.my`, `.sandbox.my`, etc.), but do not include `.salesforce.com` or the protocol (`https://`). 
   
   **Examples:**
-  - If your My Domain URL is `https://mycompany.my.salesforce.com`, enter: `mycompany.my`
-  - If your sandbox My Domain URL is `https://mycompany--uat.sandbox.my.salesforce.com`, enter: `mycompany--uat.sandbox.my`
-  - If your URL is `https://example-dot-com--uat.sandbox.my.salesforce.com`, enter: `example-dot-com--uat.sandbox.my`
+  - For `https://mycompany.my.salesforce.com`, enter: `mycompany.my`
+  - For `https://mycompany--uat.sandbox.my.salesforce.com`, enter: `mycompany--uat.sandbox.my`
+  - For `https://example-dot-com--uat.sandbox.my.salesforce.com`, enter: `example-dot-com--uat.sandbox.my`
   
   {% note %}
-  **Important:** Do NOT enter the full URL or include `.salesforce.com`. Only enter the subdomain prefix as shown in the examples above.
+  **Important:** Do **not** enter the full URL or include `.salesforce.com`. Only enter the subdomain prefix as shown in the examples above.
   {% /note %}
 
 **SSL Configuration**
