@@ -96,5 +96,5 @@ export const BLOGS_INFO = [
     text: "Data Contracts, Multi-Domain Support, and Enhanced User Experience",
     link: "https://blog.open-metadata.org/announcing-openmetadata-1-9-68b63005bb25",
     image: "/blogs/openmetadata-1.9.0-release.webp",
-  }, 
+  },
 ];
