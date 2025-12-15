@@ -80,7 +80,7 @@ export const QUICK_LINK_CARDS = [
 
 export const BLOGS_INFO = [
   {
-    title: "Announcing OpenMetadata Release 1.11.0",
+    title: "OpenMetadata Release 1.11.0",
     text: "Shift Left with Data Quality as Code, Data Quality Dimensionality, and more",
     link: "https://blog.open-metadata.org/announcing-openmetadata-1-11-38e79cfe5e15",
     image: "/blogs/openmetadata-1.11.0-release.webp",
