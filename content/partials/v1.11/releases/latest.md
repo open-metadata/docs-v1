@@ -1,7 +1,7 @@
-# 1.11.1 Release 🎉
+# 1.11.2 Release 🎉
 
 {% note noteType="Tip" %}
-**11th December 2025**
+**12th December 2025**
 {% /note %}
 
 {% inlineCalloutContainer %}
@@ -10,22 +10,14 @@ color="violet-70"
 icon="celebration"
 bold="Upgrade OpenMetadata"
 href="/deployment/upgrade" %}
-Learn how to upgrade your OpenMetadata instance to 1.11.1!
+Learn how to upgrade your OpenMetadata instance to 1.11.2!
 {% /inlineCallout %}
 {% /inlineCalloutContainer %}
 
-You can find the GitHub release [here](https://github.com/open-metadata/OpenMetadata/releases/tag/1.11.1-release).
-
-## Highlights
-
-- Wherescape ingestion now captures richer metadata and lineage coverage.
-- Query Runner aligns to the SQL Studio experience with clearer messaging and stability.
-- Auto-classification now leverages `TagProcessor` for more accurate tagging.
-- Vector search services are pre-initialized to keep reindexing stable.
+You can find the GitHub release [here](https://github.com/open-metadata/OpenMetadata/releases/tag/1.11.2-release).
 
 ## Fixes
 
-- Access URLs use hash routing to avoid broken links in shared views.
-- Slack message listener reliability improved to prevent missed notifications.
+- Fix General tags recognizers migration
 
-**Full Changelog**: [link](https://github.com/open-metadata/OpenMetadata/compare/1.11.0-release...1.11.1-release)
+**Full Changelog**: [link](https://github.com/open-metadata/OpenMetadata/compare/1.11.1-release...1.11.2-release)
