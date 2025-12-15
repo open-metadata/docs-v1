@@ -39,7 +39,7 @@ A business glossary is critical for ensuring consistent terminology across an or
 
 ### Auto-Approval for Glossaries where the Updating User is a Reviewer
 
-- If the Glossary Term is edited by a reviewer, then the Glossary Term is Auto Approved without the requirement of any approval.
+- If the Glossary Term is edited by a reviewer, then the Glossary Term is Auto Approved without the requirement of any approval. This can be modified to suit the needs of the organization.
 
 # Approval and Rejection Threshold for User Tasks
 

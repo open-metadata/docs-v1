@@ -55,12 +55,12 @@ Once the workflow is executed:
 
 ## Examples
 
-| Asset Description                               | Certification Level |
-|------------------------------------------------|---------------------|
-| Has description, owner, and Tier 1 tag         | Gold                |
-| Has description, owner, and Tier 2 tag         | Silver              |
-| Has description and owner but no Tier tag      | Bronze              |
-| Lacks description, owner, and tier             | Uncertified         |
+| Asset Description                         | Certification Level |
+|-------------------------------------------|---------------------|
+| Has description, owner, and Tier 1 tag    | Gold                |
+| Has description, owner, and Tier 2 tag    | Silver              |
+| Has description and owner but no Tier tag | Bronze              |
+| Lacks description, owner, and tier        | Uncertified         |
 
 {% image src="/images/v1.10/how-to-guides/governance/workflows-table-certification3.png" alt="table-certification-asset-description" /%}
 

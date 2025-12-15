@@ -14,4 +14,4 @@ This trigger starts the workflow based on specific entity operations such as **C
 - **Exclude Fields** – Define fields that should not trigger the workflow (e.g., selecting “Reviewers” prevents triggers when only the reviewers field changes).
 - **Filter Criteria** – Add conditions to exclude entities that match specific filters from triggering the workflow.
 
-{% image src="/images/v1.12/how-to-guides/governance/workflows-event-based-entity-trigger.png" alt="event-based-entity-trigger-example" /%}
+{% image src="/images/v1.10/how-to-guides/governance/workflows-event-based-entity-trigger.png" alt="event-based-entity-trigger-example" /%}

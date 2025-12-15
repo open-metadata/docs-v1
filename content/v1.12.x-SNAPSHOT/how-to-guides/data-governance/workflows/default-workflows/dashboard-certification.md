@@ -53,20 +53,23 @@ Determine whether the dashboard is **Tier 1** or **Tier 2**.
 | **Bronze**          | Dashboard has an owner and a description but no Tier 1/2 classification  |
 | **None**            | Dashboard lacks either an owner or a description                         |
 
-{% image src="/images/v1.12/how-to-guides/governance/workflows-table-certification.png" alt="dashboard-certification" /%}
+{% image src="/images/v1.10/how-to-guides/governance/workflows-table-certification.png" alt="dashboard-certification" /%}
 
 ## Trigger Options
 
 Certification workflows can be triggered:
 
-- You can apply the workflow to a specific data asset by configuring it through the **Configuration** tab.
+- You can apply the workflow to a specific data asset by configuring it through the **Start Node Configuration** tab.
 
-{% image src="/images/v1.12/how-to-guides/governance/workflows-table-certification3.png" alt="dashboard-certification-workflow /%}
+{% image src="/images/v1.10/how-to-guides/governance/dashboard-asset-selection.png" alt="dashboard-certification-workflow" /%}
 
 - On a **scheduled basis** (e.g., daily, weekly)
+
+{% image src="/images/v1.10/how-to-guides/governance/dashboard-schedule.png" alt="dashboard-certification-trigger" /%}
+
 - **On-demand** via the user interface
 
-{% image src="/images/v1.12/how-to-guides/governance/workflows-table-certification1.png" alt="dashboard-certification-trigger" /%}
+{% image src="/images/v1.10/how-to-guides/governance/workflows-table-certification1.png" alt="dashboard-certification-trigger" /%}
 
 # Benefits
 

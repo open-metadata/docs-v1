@@ -16,29 +16,29 @@ Governance Workflows in Collate enable teams to enforce organizational policies,
   color="violet-70"
   bold="Default Workflows"
   icon="MdMenuBook"
-  href="/how-to-guides/data-governance/workflows/elements/triggers"%}
-  Defines what initiates a workflow (e.g., an event or a scheduled action)
+  href="/how-to-guides/data-governance/workflows/default-workflows"%}
+  Pre-built governance workflows that can be used as-is or customized for your organization
  {%/inlineCallout%}
  {%inlineCallout
   color="violet-70"
-  bold="Nodes"
+  bold="Workflow Elements"
   icon="Elements"
-  href="/how-to-guides/data-governance/workflows/elements/nodes"%}
-  Represent the building blocks of a workflow. You can configure each node to specify conditions, actions or tasks.
+  href="/how-to-guides/data-governance/workflows/elements"%}
+  Building blocks of workflows including triggers, nodes, conditions, and actions
  {%/inlineCallout%}
   {%inlineCallout
   color="violet-70"
   bold="Creating a New Workflow"
-  icon="Elements"
-  href="/how-to-guides/data-governance/workflows/elements/nodes"%}
-  Represent the building blocks of a workflow. You can configure each node to specify conditions, actions or tasks.
+  icon="MdAdd"
+  href="/how-to-guides/data-governance/workflows/creating-a-new-workflow"%}
+  Step-by-step guide to build custom governance workflows from scratch
  {%/inlineCallout%}
    {%inlineCallout
   color="violet-70"
   bold="Examples"
-  icon="Elements"
-  href="/how-to-guides/data-governance/workflows/elements/nodes"%}
-  Represent the building blocks of a workflow. You can configure each node to specify conditions, actions or tasks.
+  icon="MdCode"
+  href="/how-to-guides/data-governance/workflows/examples"%}
+  Sample workflow configurations for common governance scenarios and use cases
  {%/inlineCallout%}
 {%/inlineCalloutContainer%}
 
@@ -70,7 +70,6 @@ Governance Workflows in Collate enable teams to enforce organizational policies,
 
 ## How to get Started
 
-1. Explore **Default Workflows** within your Collate deployment to understand their structure and functionality.
-2. Adjust configurations for the **Nodes** within these workflows to match your governance needs.
-3. Contact our support team with any feedback, questions or suggestions!
-4. Stay tuned for future updates that will introduce workflow creation and management capabilities.
+- Explore **Default Workflows** within your Collate deployment to understand their structure and functionality. Adjust configurations for the **Nodes** within these workflows to match your governance needs.
+- **Creating a new workflow?** → Start with [Create a New Workflow](/how-to-guides/data-governance/workflows/creating-a-new-workflow)
+- **Need some examples?** → Learn [Workflow Examples](/how-to-guides/data-governance/workflows/examples)
