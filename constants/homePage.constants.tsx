@@ -2,7 +2,7 @@ import { ReactComponent as DeploymentIcon } from "../images/icons/deploymentTile
 import { ReactComponent as KnowledgeBaseIcon } from "../images/icons/knowledge.svg";
 import { ReactComponent as SaasIcon } from "../images/icons/saas.svg";
 
-export const HOME_PAGE_BANNER_VIDEO_ID = "jCXftpMOvS8";
+export const HOME_PAGE_BANNER_VIDEO_ID = "kNNzuTnV8EM";
 export const HOME_PAGE_BANNER_INFO = {
   title: "OpenMetadata Documentation",
   description:
@@ -80,6 +80,12 @@ export const QUICK_LINK_CARDS = [
 
 export const BLOGS_INFO = [
   {
+    title: "Announcing OpenMetadata Release 1.11.0",
+    text: "Shift Left with Data Quality as Code, Data Quality Dimensionality, and more",
+    link: "https://blog.open-metadata.org/announcing-openmetadata-1-11-38e79cfe5e15",
+    image: "/blogs/openmetadata-1.11.0-release.webp",
+  },
+  {
     title: "OpenMetadata Release 1.10",
     text: "Impact analysis, data contract improvements, OpenMetadata SDK 2.0, and more",
     link: "https://blog.open-metadata.org/announcing-openmetadata-1-10-67250f268d3d",
@@ -90,11 +96,5 @@ export const BLOGS_INFO = [
     text: "Data Contracts, Multi-Domain Support, and Enhanced User Experience",
     link: "https://blog.open-metadata.org/announcing-openmetadata-1-9-68b63005bb25",
     image: "/blogs/openmetadata-1.9.0-release.webp",
-  },
-  {
-    title: "Announcing OpenMetadata Release 1.8.0",
-    text: "Enterprise‑grade data context for AI, contracts for data you can trust, and new Microsoft ecosystem connectors",
-    link: "https://blog.open-metadata.org/announcing-openmetadata-1-8-948eb14d41c7",
-    image: "/blogs/openmetadata-1.8.0-release.webp",
-  },
+  }, 
 ];
