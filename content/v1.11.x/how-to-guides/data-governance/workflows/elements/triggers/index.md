@@ -5,9 +5,9 @@ slug: /how-to-guides/data-governance/workflows/elements/triggers
 collate: true
 ---
 
-# Governance Workflows - Nodes
+# Governance Workflows - Triggers
 
-You can find below a list of available Nodes that can be used with the Governance Workflows.
+You can find below a list of available Triggers that can be used to initiate Governance Workflows.
 
 {%inlineCalloutContainer%}
  {%inlineCallout

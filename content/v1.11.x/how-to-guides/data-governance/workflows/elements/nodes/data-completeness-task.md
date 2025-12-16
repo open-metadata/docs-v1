@@ -14,4 +14,4 @@ Example:
 - Check whether all columns in a table include descriptions.
 - Based on the percentage of completeness, assign bands and apply certifications accordingly.
 
-{% image src="/images/v1.11/how-to-guides/governance/datacomp.png" alt="Data Completeness Task" /%}
+{% image src="/images/v1.10/how-to-guides/governance/datacomp.png" alt="Data Completeness Task" /%}

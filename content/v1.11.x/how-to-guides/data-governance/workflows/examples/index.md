@@ -19,16 +19,22 @@ Use these sample workflows as starting points to automate common governance acti
  {%/inlineCallout%}
  {%inlineCallout
   color="violet-70"
-  bold="Column Completeness Workflow"
+  bold="Table Documentation Tiering Workflow"
   icon="MdMenuBook"
-  href="/how-to-guides/data-governance/workflows/examples/column-completeness-workflow"%}
+  href="/how-to-guides/data-governance/workflows/examples/table-documentation-tiering-workflow"%}
   Evaluate column description coverage and branch actions based on completeness.
  {%/inlineCallout%}
  {%inlineCallout
   color="violet-70"
-  bold="Set Tier to ML Models Workflow"
+  bold="Set Tags to ML Models Workflow"
   icon="MdMenuBook"
-  href="/how-to-guides/data-governance/workflows/examples/set-tier-to-mlmodels-workflow"%}
-  Auto-assign tiers to ML models when key metadata like descriptions is present.
+  href="/how-to-guides/data-governance/workflows/examples/set-tags-to-mlmodels-workflow"%}
+  Auto-assign Tags to ML models when key metadata like descriptions is present.
  {%/inlineCallout%}
 {%/inlineCalloutContainer%}
+
+---
+
+## New to Workflows?
+
+Get started by learning how to create your first workflow: [Creating a New Workflow](/how-to-guides/data-governance/workflows/creating-a-new-workflow)

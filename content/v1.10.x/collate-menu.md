@@ -1154,14 +1154,16 @@ site_menu:
     url: /how-to-guides/data-governance/workflows/elements/triggers/periodic-batch-entity-trigger
   - category: How-to Guides / Data Governance / Workflows / Elements / Nodes
     url: /how-to-guides/data-governance/workflows/elements/nodes
-  - category: How-to Guides / Data Governance / Workflows / Elements / Nodes / Check Entity Attributes
-    url: /how-to-guides/data-governance/workflows/elements/nodes/check-entity-attributes
-  - category: How-to Guides / Data Governance / Workflows / Elements / Nodes / Create User Task
-    url: /how-to-guides/data-governance/workflows/elements/nodes/create-user-task
-  - category: How-to Guides / Data Governance / Workflows / Elements / Nodes / Set Asset Certification
-    url: /how-to-guides/data-governance/workflows/elements/nodes/set-asset-certification
-  - category: How-to Guides / Data Governance / Workflows / Elements / Nodes / Set Glossary Term Status
-    url: /how-to-guides/data-governance/workflows/elements/nodes/set-glossary-term-status
+  - category: How-to Guides / Data Governance / Workflows / Elements / Nodes / Start Node
+    url: /how-to-guides/data-governance/workflows/elements/nodes/start-node
+  - category: How-to Guides / Data Governance / Workflows / Elements / Nodes / Check Condition
+    url: /how-to-guides/data-governance/workflows/elements/nodes/check-condition
+  - category: How-to Guides / Data Governance / Workflows / Elements / Nodes / Set Action
+    url: /how-to-guides/data-governance/workflows/elements/nodes/set-action
+  - category: How-to Guides / Data Governance / Workflows / Elements / Nodes / User Approval Task
+    url: /how-to-guides/data-governance/workflows/elements/nodes/user-approval-task
+  - category: How-to Guides / Data Governance / Workflows / Elements / Nodes / Data Completeness Task
+    url: /how-to-guides/data-governance/workflows/elements/nodes/data-completeness-task
 
   - category: How-to Guides / Data Governance / Workflows / Creating a New Workflow
     url: /how-to-guides/data-governance/workflows/creating-a-new-workflow
@@ -1170,10 +1172,10 @@ site_menu:
     url: /how-to-guides/data-governance/workflows/examples
   - category: How-to Guides / Data Governance / Workflows / Examples /  Tag Approval Workflow
     url: /how-to-guides/data-governance/workflows/examples/tag-approval-workflow
-  - category: How-to Guides / Data Governance / Workflows / Examples / Column Completeness Workflow
-    url: /how-to-guides/data-governance/workflows/examples/column-completeness-workflow
-  - category: How-to Guides / Data Governance / Workflows / Examples / Set Tier to MLModels Workflow
-    url: /how-to-guides/data-governance/workflows/examples/set-tier-to-mlmodels-workflow
+  - category: How-to Guides / Data Governance / Workflows / Examples / Table Documentation Tiering Workflow
+    url: /how-to-guides/data-governance/workflows/examples/table-documentation-tiering-workflow
+  - category: How-to Guides / Data Governance / Workflows / Examples / Set Tags to MLModels Workflow
+    url: /how-to-guides/data-governance/workflows/examples/set-tags-to-mlmodels-workflow
 
 
   - category: How-to Guides / Data Governance / Metrics
