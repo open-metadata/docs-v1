@@ -88,6 +88,7 @@ docker run --rm -i mysql/mysql-server:latest \
   -u <user> \
   -p<password> \
   -h <mysql_host> \
+  -P 3306 \
   <database> < "$BACKUP_FILE"
 ```
 
