@@ -1,7 +1,7 @@
-# 1.11.2 Release 🎉
+# 1.11.3 Release 🎉
 
 {% note noteType="Tip" %}
-**12th December 2025**
+**17th December 2025**
 {% /note %}
 
 {% inlineCalloutContainer %}
@@ -10,14 +10,28 @@ color="violet-70"
 icon="celebration"
 bold="Upgrade OpenMetadata"
 href="/deployment/upgrade" %}
-Learn how to upgrade your OpenMetadata instance to 1.11.2!
+Learn how to upgrade your OpenMetadata instance to 1.11.3!
 {% /inlineCallout %}
 {% /inlineCalloutContainer %}
 
-You can find the GitHub release [here](https://github.com/open-metadata/OpenMetadata/releases/tag/1.11.2-release).
+You can find the GitHub release [here](https://github.com/open-metadata/OpenMetadata/releases/tag/1.11.3-release).
+
+## Improvements
+
+- Added support for multiple tables in Great Expectations checkpoints, including mappings for `add_pandas` and `add_query_asset` actions.  
+- Improved the asset tab UI based on user feedback.  
+- Introduced the **Collate Credits** system for credit-based billing and usage limit management.
 
 ## Fixes
 
-- Fix General tags recognizers migration
+- Fixed an issue where the alerts UI did not display the return code after modifying Advanced Configurations.  
+- Fixed the backend to allow listing test case results without data quality dimensions.  
+- Fixed the tab renaming functionality on the Domain page in Persona customization.  
+- Fixed a UI overflow issue for long certificate file names in the service form.  
+- Fixed an issue where deleted glossaries still appeared in the list by implementing optimistic deletion with rollback.  
+- Fixed mention recipient processing and corrected the `entityLink` format for Task and Announcement entities.  
+- Fixed incorrect `updatedBy` reference tracking for newly created nodes in workflows. *(Collate)*  
+- Fixed inaccurate token count tracking in the Token Usage serializer. *(Collate)*  
+- Fixed app usage calculation using `BigDecimal` precision and updated the UI to display credits. *(Collate)*
 
-**Full Changelog**: [link](https://github.com/open-metadata/OpenMetadata/compare/1.11.1-release...1.11.2-release)
+**Full Changelog**: [link](https://github.com/open-metadata/OpenMetadata/compare/1.11.2-release...1.11.3-release)
