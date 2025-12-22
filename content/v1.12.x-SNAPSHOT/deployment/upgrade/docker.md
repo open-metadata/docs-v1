@@ -65,3 +65,5 @@ both the `dags` folder and the files inside `dags/` should have `airflow root` p
 ```
 chown -R airflow:root /opt/airflow/dag_generated_config
 ```
+
+{% partial file="/v1.12/deployment/upgrade/postgresql-troubleshoot.md" /%}

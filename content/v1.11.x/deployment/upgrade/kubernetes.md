@@ -195,3 +195,5 @@ As a result of the above fixes, anyone who is on OpenMetadata Dependencies Helm 
 4. Install the latest version of [OpenMetadata Dependencies Helm Chart](/deployment/kubernetes)
 5. Restore the Database using Metadata Restore CLI as mentioned [here](/deployment/backup-restore-metadata)
 6. Next, Proceed with upgrade for OpenMetadata Helm Chart as mentioned [here](#step-4-upgrade-openmetadata)
+
+{% partial file="/v1.11/deployment/upgrade/postgresql-troubleshoot.md" /%}
