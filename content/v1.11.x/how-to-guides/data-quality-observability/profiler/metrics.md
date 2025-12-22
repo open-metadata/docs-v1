@@ -166,7 +166,11 @@ OpenMetadata will look at the past 24-hours to fetch the operations that were pe
 For snowflake system, the system will parse the DDL query and attempt to match `database`, `schema`, and `table` name to entities in OpenMetadata. If the DDL query does not include all 3 elements we will not be able to ingest this metric.
 
 ### Redshift
-OpenMetadata uses `stl_insert`, `stl_delete`, `svv_table_info`, and `stl_querytext` to fetch DML operations as well as the number of rows affected by these operations. You need to make sure the user running the profiler workflow has access to these views and tables.
+OpenMetadata uses below to fetch DML operations as well as the number of rows affected by these operations.
+- `STL_INSERT`, `STL_DELETE`, `SVV_TABLE_INFO`, and `STL_QUERYTEXT` in Provisioned Cluster
+- `SYS_QUERY_DETAIL` in Serverless instance
+
+You need to make sure the user running the profiler workflow has access to these views and tables.
 
 OpenMetadata will look at the previous day to fetch the operations that were performed against a table.
 

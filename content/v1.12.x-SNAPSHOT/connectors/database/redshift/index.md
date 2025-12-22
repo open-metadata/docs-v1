@@ -55,10 +55,15 @@ GRANT USAGE ON SCHEMA "<schema_name>" TO <ingestion_user>;
 {% /note %}
 
 ### Profiler & Data Quality
-Executing the profiler workflow or data quality tests, will require the user to have `SELECT` permission on the tables/schemas where the profiler/tests will be executed. More information on the profiler workflow setup can be found [here](/how-to-guides/data-quality-observability/profiler/workflow) and data quality tests [here](/how-to-guides/data-quality-observability/quality).
+Executing the profiler workflow or data quality tests, will require the user to have `SELECT` permission on the tables/schemas where the profiler/tests will be executed. The user should also be allowed to view information in `svv_table_info` for all objects in the database. More information on the profiler workflow setup can be found [here](/how-to-guides/data-quality-observability/profiler/workflow) and data quality tests [here](/how-to-guides/data-quality-observability/quality).
+
+Information on **System Metrics** profiling can be found [here](/how-to-guides/data-quality-observability/profiler/metrics#redshift).
 
 ### Usage & Lineage
-For the usage and lineage workflow, the user will need `SELECT` privilege on `STL_QUERY` table. You can find more information on the usage workflow [here](/connectors/ingestion/workflows/usage) and the lineage workflow [here](/connectors/ingestion/workflows/lineage).
+For the usage and lineage workflow, the user will need `SELECT` privilege on:
+- `STL_QUERY`, `STL_QUERYTEXT`, `STL_SCAN` and `SVL_STORED_PROC_CALL` for Provisioned cluster
+- `SYS_QUERY_HISTORY`, `SYS_QUERY_TEXT`, `SYS_QUERY_DETAIL` and `SYS_PROCEDURE_CALL` for Serverless instance.
+You can find more information on the usage workflow [here](/connectors/ingestion/workflows/usage) and the lineage workflow [here](/connectors/ingestion/workflows/lineage).
 
 ## Metadata Ingestion
 
