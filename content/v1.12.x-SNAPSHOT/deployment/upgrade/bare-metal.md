@@ -91,3 +91,5 @@ binaries. You may restart the server by running the following command.
 ```
 
 {% partial file="/v1.12/deployment/upgrade/post-upgrade-steps.md" /%}
+
+{% partial file="/v1.12/deployment/upgrade/postgresql-troubleshoot.md" /%}
