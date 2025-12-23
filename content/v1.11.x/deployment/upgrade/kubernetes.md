@@ -18,6 +18,118 @@ We also assume that your helm chart release names are `openmetadata` and `openme
 
 {% partial file="/v1.11/deployment/upgrade/upgrade-prerequisites.md" /%}
 
+# Breaking Changes
+
+## Helm Chart Refactor (v1.11.0)
+
+OpenMetadata v1.11.0 includes a major refactor of the Helm charts as part of [PR #430](https://github.com/open-metadata/openmetadata-helm-charts/pull/430). This introduces several breaking changes that require manual intervention for existing deployments.
+
+### Airflow Chart Migration
+
+The Helm chart has migrated from the community `airflow-helm/airflow` v8.9.0 chart to the official Apache `airflow` v1.18.0 chart. This results in:
+
+1. **Complete Values Restructure**: The Airflow configuration in `values.yaml` has been entirely reorganized to match the Apache Airflow Helm chart structure.
+2. **Service Endpoint Changes**: Airflow services have been renamed (e.g., `web` service is now `api-server`).
+3. **Chart Dependency Changes**: The underlying chart dependency has changed completely.
+
+### Required Migration Steps
+
+If you are upgrading from a previous version with `openmetadata-dependencies` deployed, follow these steps:
+
+1. **Backup your Airflow data** - Ensure you have backups of your Airflow database and any custom configurations.
+2. **Uninstall the existing `openmetadata-dependencies` release**:
+   ```bash
+   helm uninstall openmetadata-dependencies
+   ```
+3. **Update Helm dependencies**:
+   ```bash
+   helm repo update open-metadata
+   ```
+4. **Install the new chart version** - Follow the installation steps in [Step 3](#step-3-upgrade-openmetadata-dependencies).
+5. **Update OpenMetadata configuration** - Update any service endpoint references in your OpenMetadata configuration (see below).
+
+### Configuration Changes
+
+#### Service Endpoints
+
+Update any Airflow service endpoint references from:
+```yaml
+http://openmetadata-dependencies-web:8080
+```
+
+To:
+```yaml
+http://openmetadata-dependencies-api-server:8080
+```
+
+In your OpenMetadata values file, update the `pipelineServiceClientConfig.apiEndpoint`:
+
+```yaml
+openmetadata:
+  config:
+    pipelineServiceClientConfig:
+      apiEndpoint: http://openmetadata-dependencies-api-server:8080
+```
+
+#### Executor Configuration
+
+The default executor is now `KubernetesExecutor` (recommended for production). If you need to use `LocalExecutor` for development:
+
+```yaml
+openmetadata-dependencies:
+  airflow:
+    executor: LocalExecutor
+    workers:
+      replicas: 0
+```
+
+#### Webserver Secret Key
+
+A static `webserverSecretKey` is now **required** to prevent JWT authentication failures between Airflow components (scheduler, api-server, and workers).
+
+Generate a secure key and add it to your values:
+
+```bash
+openssl rand -hex 32
+```
+
+```yaml
+openmetadata-dependencies:
+  airflow:
+    webserverSecretKey: "your-generated-secret-key"
+```
+
+#### Database Connection Structure
+
+Database connections have migrated from an embedded format to the Apache chart structure with separate fields:
+
+```yaml
+openmetadata-dependencies:
+  airflow:
+    data:
+      metadataConnection:
+        user: airflow
+        password: airflow
+        protocol: mysql
+        host: mysql
+        port: 3306
+        db: airflow
+```
+
+#### MySQL Compatibility
+
+If using MySQL as the Airflow metadata database, the chart includes a compatibility workaround for MySQL syntax issues:
+
+```yaml
+openmetadata-dependencies:
+  airflow:
+    extraEnv:
+      - name: _PIP_ADDITIONAL_REQUIREMENTS
+        value: "apache-airflow-providers-fab==2.4.4"
+```
+
+This is automatically included in the default values to resolve `CREATE INDEX IF NOT EXISTS` syntax compatibility.
+
 # Upgrade Process
 
 ## Step 1: Get an overview of what has changed in Helm Values
