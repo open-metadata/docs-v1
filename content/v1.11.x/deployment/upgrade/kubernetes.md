@@ -212,6 +212,24 @@ You can learn more about how the migration process works [here](/deployment/upgr
 
 # Troubleshooting
 
+### Helm Upgrade failed for Airflow 3 Upgrade
+
+```
+W1223 18:27:15.171627   37790 warnings.go:70] spec.SessionAffinity is ignored for headless services
+Error: UPGRADE FAILED: cannot patch "openmetadata-dependencies-dags" with kind PersistentVolumeClaim: PersistentVolumeClaim "openmetadata-dependencies-dags" is invalid: spec: Forbidden: spec is immutable after creation except resources.requests and volumeAttributesClassName for bound claims
+@@ -1,6 +1,6 @@
+ {
+  "AccessModes": [
+-  "ReadWriteMany"
++  "ReadWriteOnce"
+  ],
+  "Selector": null,
+  "Resources": {
+ && cannot patch "openmetadata-dependencies-scheduler" with kind Deployment: Deployment.apps "openmetadata-dependencies-scheduler" is invalid: spec.selector: Invalid value: {"matchLabels":{"component":"scheduler","release":"openmetadata-dependencies","tier":"airflow"}}: field is immutable
+ ```
+
+ If you see a similar issue as above when migrating OpenMetadata Helm Chart to latest 1.11.X Release, this is because Kubernetes does not allow updating Persistent volume claim fields. You need to uninstall openmtadata-dependencies helm chart as mentioned in the above steps [here (point 2)](#required-migration-steps). Uninstalling the openmetadata-dependencies helm chart will remove the PVCs and upon re-install of helm chart with latest 1.11.X Release, the chart will recreate the PVCs required. You will need to perform Post upgrade steps to redeploy pipelines to add the previous pipelines to Airflow as DAGs.
+
 ### Helm Upgrade fails with additional property airflow not allowed
 
 With Release 1.0.0, if you see your helm charts failing to deploy with the below issue -
