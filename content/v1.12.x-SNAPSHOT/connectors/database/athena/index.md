@@ -121,7 +121,7 @@ Below is the minimum IAM policy for OpenMetadata to ingest Athena metadata:
 #### Replace these placeholders
   - <<AWS_REGION>>: Your AWS region (e.g., us-east-1)
   - <<ACCOUNT_ID>>: Your AWS account ID
-  - <<WORKGROUP_NAME>>: Athena workgroup name (use primary if using default)
+  - <<WORKGROUP_NAME>>: Athena workgroup name (use `primary` if using default)
   - <<CATALOG_NAME>>: Data catalog name (use `awsdatacatalog` for default Glue catalog)
   - <<DATABASE_NAME>>: Glue database names you want to ingest.
     -  Use `*` for all databases
