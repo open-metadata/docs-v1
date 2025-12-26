@@ -118,7 +118,7 @@ Below is the minimum IAM policy for OpenMetadata to ingest Athena metadata:
 }
 ```
 
-Replace these placeholders:
+#### Replace these placeholders
   - <<AWS_REGION>>: Your AWS region (e.g., us-east-1)
   - <<ACCOUNT_ID>>: Your AWS account ID
   - <<WORKGROUP_NAME>>: Athena workgroup name (use primary if using default)
