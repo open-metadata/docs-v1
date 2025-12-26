@@ -42,103 +42,160 @@ permissions policy includes all of the actions listed in [AWS managed policy: AW
 
 {% /note %}
 
-This policy groups the following permissions:
+The Athena connector requires an IAM role or user with permissions to:
 
-- `athena` – Allows the principal to run queries on Athena resources.
-- `glue` – Allows principals access to AWS Glue databases, tables, and partitions. This is required so that the principal can use the AWS Glue Data Catalog with Athena. Resources of each table and database needs to be added as resource for each database user wants to ingest.
-- `lakeformation` – Allows principals to request temporary credentials to access data in a data lake location that is registered with Lake Formation and allows access to the LF-tags linked to databases, tables and columns.
+- `Athena` – Execute queries and retrieve metadata.
+- `Glue` – Access the Glue Data Catalog (databases, tables, partitions).
+- `S3` - Read source data and write query results.
 
-And is defined as:
+Below is the minimum IAM policy for OpenMetadata to ingest Athena metadata:
 
 ```json
 {
     "Version": "2012-10-17",
     "Statement": [
-        {
-            "Action": [
-                "athena:ListTableMetadata",
-                "athena:ListDatabases",
-                "athena:GetTableMetadata",
-                "athena:ListQueryExecutions",
-                "athena:StartQueryExecution",
-                "athena:GetQueryExecution",
-                "athena:GetQueryResults",
-                "athena:BatchGetQueryExecution"
-            ],
-            "Effect": "Allow",
-            "Resource": [
-                "arn:aws:athena:<<AWS_REGION>>:<<ACCOUNT_ID>>:workgroup/<<WORKGROUP_NAME>>",
-                "arn:aws:athena:<<AWS_REGION>>:<<ACCOUNT_ID>>:datacatalog/<<DATA_CATALOG_NAME>>"
-            ]
-        },
-        {
-            "Action": [
-                "glue:GetTables",
-                "glue:GetTable",
-                "glue:GetDatabases",
-                "glue:GetPartitions"
-            ],
-            "Effect": "Allow",
-            "Resource": [
-                "arn:aws:glue:<AWS_REGION>:<ACCOUNT_ID>:table/<<DATABASE_NAME>>/*",
-                "arn:aws:glue:<AWS_REGION>:<ACCOUNT_ID>:database/<<DATABASE_NAME>>",
-                "arn:aws:glue:<AWS_REGION>:<ACCOUNT_ID>:catalog"
-            ]
-        },
-        {
-            "Action": [
-                "s3:ListBucket",
-                "s3:GetObject",
-                "s3:GetBucketLocation",
-                "s3:PutObject"
-            ],
-            "Effect": "Allow",
-            "Resource": [
-                "arn:aws:s3:::<<ATHENA_S3_BUCKET>>/*"
-            ]
-        },
-        {
-            "Effect": "Allow",
-            "Action": [
-              "lakeformation:GetResourceLFTags"
-            ],
-            "Resource": [
-                "arn:aws:athena:<<AWS_REGION>>:<<ACCOUNT_ID>>:datacatalog/<<DATA_CATALOG_NAME>>/database/<<DATABASE_NAME>>"
-                "arn:aws:athena:<<AWS_REGION>>:<<ACCOUNT_ID>>:datacatalog/<<DATA_CATALOG_NAME>>/database/<<DATABASE_NAME>>/table/<<TABLE_NAME>>"
-                "arn:aws:athena:<<AWS_REGION>>:<<ACCOUNT_ID>>:datacatalog/<<DATA_CATALOG_NAME>>/database/<<DATABASE_NAME>>/table/<<TABLE_NAME>>/column/<<COLUMN_NAME>>"
-            ]
-        },
-        {
-            "Action": [
-                "lambda:InvokeFunction"
-            ],
-            "Effect": "Allow",
-            "Resource": [
-                "arn:aws:lambda:<<AWS_REGION>>:<<ACCOUNT_ID>>:function:<<CONNECTOR_NAME>>"
-            ]
-        },
-        {
-            "Effect": "Allow",
-            "Action": [
-                "kms:Decrypt",
-                "kms:DescribeKey"
-            ],
-            "Resource": [
-                "arn:aws:kms:<<AWS_REGION>>:<<ACCOUNT_ID>>:key/<<KMS_KEY_ID>>"
-            ]
-        }
+      {
+        "Effect": "Allow",
+        "Action": [
+          "athena:StartQueryExecution",
+          "athena:GetQueryExecution",
+          "athena:GetQueryResults",
+          "athena:BatchGetQueryExecution"
+        ],
+        "Resource": "arn:aws:athena:<<AWS_REGION>>:<<ACCOUNT_ID>>:workgroup/<<WORKGROUP_NAME>>"
+      },
+      {
+        "Effect": "Allow",
+        "Action": [
+          "athena:ListDatabases",
+          "athena:ListTableMetadata",
+          "athena:GetTableMetadata"
+        ],
+        "Resource": "arn:aws:athena:<<AWS_REGION>>:<<ACCOUNT_ID>>:datacatalog/<<CATALOG_NAME>>"
+      },
+      {
+        "Effect": "Allow",
+        "Action": [
+          "athena:ListWorkGroups",
+          "athena:ListQueryExecutions"
+        ],
+        "Resource": "*"
+      },
+      {
+        "Effect": "Allow",
+        "Action": [
+          "glue:GetDatabases",
+          "glue:GetTable",
+          "glue:GetTables",
+          "glue:GetPartitions"
+        ],
+        "Resource": [
+          "arn:aws:glue:<<AWS_REGION>>:<<ACCOUNT_ID>>:catalog",
+          "arn:aws:glue:<<AWS_REGION>>:<<ACCOUNT_ID>>:database/<<DATABASE_NAME>>",
+          "arn:aws:glue:<<AWS_REGION>>:<<ACCOUNT_ID>>:table/<<DATABASE_NAME>>/*"
+        ]
+      },
+      {
+        "Effect": "Allow",
+        "Action": [
+          "s3:GetObject",
+          "s3:PutObject"
+        ],
+        "Resource": "arn:aws:s3:::<<S3_BUCKET_NAME>>/*"
+      },
+      {
+        "Effect": "Allow",
+        "Action": [
+          "s3:ListBucket",
+          "s3:GetBucketLocation"
+        ],
+        "Resource": "arn:aws:s3:::<<S3_BUCKET_NAME>>"
+      }
     ]
 }
 ```
 
-### LF-Tags
-Athena connector ingests and creates LF-tags in OpenMetadata with LF-tag key mapped to OpenMetadata's classification and the values mapped to tag labels. To ingest LF-tags provide the appropriate permissions as to the resources as mentioned above and enable the `includeTags` toggle in the ingestion config.
+#### Replace these placeholders
+  - <<AWS_REGION>>: Your AWS region (e.g., us-east-1)
+  - <<ACCOUNT_ID>>: Your AWS account ID
+  - <<WORKGROUP_NAME>>: Athena workgroup name (use `primary` if using default)
+  - <<CATALOG_NAME>>: Data catalog name (use `awsdatacatalog` for default Glue catalog)
+  - <<DATABASE_NAME>>: Glue database names you want to ingest.
+    -  Use `*` for all databases
+    - For specific databases, add multiple Resource entries:
+      ```
+      "arn:aws:glue:<<AWS_REGION>>:<<ACCOUNT_ID>>:database/sales",
+      "arn:aws:glue:<<AWS_REGION>>:<<ACCOUNT_ID>>:database/marketing",
+      "arn:aws:glue:<<AWS_REGION>>:<<ACCOUNT_ID>>:table/sales/*",
+      "arn:aws:glue:<<AWS_REGION>>:<<ACCOUNT_ID>>:table/marketing/*"
+      ```
+  - <<S3_BUCKET_NAME>>: S3 bucket for Athena query results
 
 {% note %}
-
-If you have external services other than glue and facing permission issues, add the permissions to the list above.
-
+**Data Catalog Case Sensitivity**: While AWS Console displays the default catalog as `AwsDataCatalog`, use lowercase `awsdatacatalog` in the IAM policy to match the connector's default. Data Catalog names are case-insensitive in Athena, but IAM Policy resources are not.
 {% /note %}
+
+### Lake Formation Tags (Optional)
+
+**Skip this section if you don't use AWS Lake Formation for data governance.**
+
+If your tables/columns have Lake Formation tags (LF-Tags), add this permission to ingest them as classifications in OpenMetadata:
+
+```json
+  {
+    "Effect": "Allow",
+    "Action": "lakeformation:GetResourceLFTags",
+    "Resource": [
+      "arn:aws:glue:<<AWS_REGION>>:<<ACCOUNT_ID>>:database/<<DATABASE_NAME>>",
+      "arn:aws:glue:<<AWS_REGION>>:<<ACCOUNT_ID>>:table/<<DATABASE_NAME>>/*",
+      "arn:aws:glue:<<AWS_REGION>>:<<ACCOUNT_ID>>:column/<<DATABASE_NAME>>/*/<<COLUMN_NAME>>"
+    ]
+  }
+```
+
+Then enable `Include Tags` in the OpenMetadata ingestion configuration.
+
+#### How to check if you use LF-Tags:
+1. Go to AWS Lake Formation console
+2. Navigate to Permissions -> LF-Tags and Permissions
+3. If you see tags defined, you're using LF-Tags
+
+### Federated Query / UDFs (Optional)
+
+**Skip this section if you only query Glue Catalog tables.**
+
+If you use [federated queries](https://docs.aws.amazon.com/athena/latest/ug/federated-queries.html) (Query external sources like DynamoDB) or User-Defined Functions (UDFs), add:
+
+```json
+  {
+    "Effect": "Allow",
+    "Action": "lambda:InvokeFunction",
+    "Resource": "arn:aws:lambda:<<AWS_REGION>>:<<ACCOUNT_ID>>:function:<<LAMBDA_FUNCTION_NAME>>"
+  }
+```
+
+### KMS Encryption (Optional)
+
+**Skip this section if your S3 data uses Amazon S3-managed encryption (SSE-S3) or is unencrypted.**
+
+If your S3 data or Athena query results are encrypted with AWS KMS keys (SSE-KMS), add:
+
+```json
+  {
+    "Effect": "Allow",
+    "Action": [
+      "kms:Decrypt",
+      "kms:DescribeKey",
+      "kms:GenerateDataKey"
+    ],
+    "Resource": "arn:aws:kms:<<AWS_REGION>>:<<ACCOUNT_ID>>:key/<<KMS_KEY_ID>>"
+  }
+```
+
+#### How to check if you use KMS encryption:
+1. Go to your S3 Bucket -> Properties -> Default Encryption
+  - If it shows `AWS KMS Key`, you need KMS permissions
+  - If it shows `Amazon S3-managed keys (SSE-S3)`, you don't need KMS permissions
 
 
 You can find further information on the Athena connector in the [docs](/connectors/database/athena).
@@ -239,6 +296,7 @@ source:
 ```yaml {% srNumber=12 %}
       # connectionArguments:
         # key: value
+        # catalog_name: MyCatalog  -- If you are using a custom catalog with a different name
 ```
 
 {% partial file="/v1.12/connectors/yaml/database/source-config.md" /%}
