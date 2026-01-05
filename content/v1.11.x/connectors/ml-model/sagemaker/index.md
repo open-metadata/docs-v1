@@ -27,6 +27,8 @@ Configure and schedule Sagemaker metadata and profiler workflows from the OpenMe
 OpenMetadata retrieves information about models and tags associated with the models in the AWS account.
 The user must have the following policy set to ingest the metadata from Sagemaker.
 
+SageMaker also supports metadata ingestion of SageMaker Unified Studio models. This requires the additional permission `sagemaker:ListModelPackageGroups`. For more information, visit the [SageMaker Unified Studio documentation](https://aws.amazon.com/sagemaker/unified-studio).
+
 ```json
 {
     "Version": "2012-10-17",
@@ -37,7 +39,8 @@ The user must have the following policy set to ingest the metadata from Sagemake
             "Action": [
                 "sagemaker:ListModels",
                 "sagemaker:DescribeModel",
-                "sagemaker:ListTags"
+                "sagemaker:ListTags",
+                "sagemaker:ListModelPackageGroups"
             ],
             "Resource": "*"
         }
