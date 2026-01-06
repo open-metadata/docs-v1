@@ -93,7 +93,7 @@ export default function TopNav({ versionsList, logo }: Readonly<TopNavProps>) {
             href={getUrl({ url: "/", docVersion: router.query.version as string ?? "latest", enableVersion })}
             aria-label="omd-icon"
           >
-            {isUndefined(logo) ? <OMDIcon /> : logo}
+            {isUndefined(logo) ? <OMDIcon width={126} /> : logo}
           </ParamLink>
           {!isEmpty(versionsList) && (
             <SelectDropdown
