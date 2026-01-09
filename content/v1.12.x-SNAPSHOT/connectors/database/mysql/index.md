@@ -8,8 +8,8 @@ slug: /connectors/database/mysql
 name="MySQL"
 stage="PROD"
 platform="OpenMetadata"
-availableFeatures=["Metadata", "Data Profiler", "Data Quality", "dbt", "View Lineage", "View Column-level Lineage", "Query Usage", "Sample Data", "Reverse Metadata (Collate Only)", "Auto-Classification"]
-unavailableFeatures=["Owners", "Tags", "Stored Procedures"]
+availableFeatures=["Metadata", "Data Profiler", "Data Quality", "dbt", "View Lineage", "View Column-level Lineage", "Query Usage", "Sample Data", "Reverse Metadata (Collate Only)", "Auto-Classification", "Stored Procedures"]
+unavailableFeatures=["Owners", "Tags"]
 / %}
 
 In this section, we provide guides and references to use the MySQL connector.
