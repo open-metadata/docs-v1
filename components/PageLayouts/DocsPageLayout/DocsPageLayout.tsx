@@ -16,8 +16,10 @@ import { useNavBarCollapsedContext } from "../../../context/NavBarCollapseContex
 import { useRouteChangingContext } from "../../../context/RouteChangingContext";
 import { components } from "../../../lib/markdoc";
 import { checkIsHowToGuidesPaths } from "../../../utils/PathUtils";
+import { getScarfPixelId } from "../../../utils/ScarfPixelUtils";
 import Breadcrumb from "../../Breadcrumb/Breadcrumb";
 import CategoriesNav from "../../CategoriesNav/CategoriesNav";
+import ScarfPixel from "../../ScarfPixel/ScarfPixel";
 import SideNav from "../../SideNav/SideNav";
 import SkeletonLoader from "../../common/SkeletonLoader/SkeletonLoader";
 
@@ -81,12 +83,16 @@ function DocsPageLayout({
     [router.asPath]
   );
 
+  // Get the appropriate Scarf pixel ID based on the current route
+  const scarfPixelId = useMemo(() => getScarfPixelId(slug), [slug]);
+
   useEffect(() => {
     scrollToElementWithOffsetMargin();
   });
 
   return (
     <div className="flex flex-col">
+      {scarfPixelId && <ScarfPixel pixelId={scarfPixelId} />}
       <div className="nav-bar-container">
         {navbar}
         <CategoriesNav menu={menuItems} />
