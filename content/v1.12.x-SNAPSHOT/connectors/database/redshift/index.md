@@ -47,7 +47,7 @@ GRANT SELECT ON TABLE svv_table_info to test_user;
 ```
 
 {% note %}
-Ensure that the ingestion user has **USAGE** privileges on the schema containing the views. If additional access is needed, run the following command:  
+Ensure that the ingestion user has **USAGE** privileges on the schema containing the views. If additional access is needed, run the following command:
 
 ```sql
 GRANT USAGE ON SCHEMA "<schema_name>" TO <ingestion_user>;
@@ -55,21 +55,26 @@ GRANT USAGE ON SCHEMA "<schema_name>" TO <ingestion_user>;
 {% /note %}
 
 ### Profiler & Data Quality
-Executing the profiler workflow or data quality tests, will require the user to have `SELECT` permission on the tables/schemas where the profiler/tests will be executed. More information on the profiler workflow setup can be found [here](/how-to-guides/data-quality-observability/profiler/workflow) and data quality tests [here](/how-to-guides/data-quality-observability/quality).
+Executing the profiler workflow or data quality tests, will require the user to have `SELECT` permission on the tables/schemas where the profiler/tests will be executed. The user should also be allowed to view information in `SVV_TABLE_INFO` for all objects in the database. More information on the profiler workflow setup can be found [here](/how-to-guides/data-quality-observability/profiler/workflow) and data quality tests [here](/how-to-guides/data-quality-observability/quality).
+
+Information on **System Metrics** profiling can be found [here](/how-to-guides/data-quality-observability/profiler/metrics#redshift).
 
 ### Usage & Lineage
-For the usage and lineage workflow, the user will need `SELECT` privilege on `STL_QUERY` table. You can find more information on the usage workflow [here](/connectors/ingestion/workflows/usage) and the lineage workflow [here](/connectors/ingestion/workflows/lineage).
+For the usage and lineage workflow, the user will need `SELECT` privilege on:
+- `SVV_TABLE_INFO`, `STL_QUERY`, `STL_QUERYTEXT`, `STL_SCAN` and `SVL_STORED_PROC_CALL` for Provisioned cluster
+- `SYS_QUERY_HISTORY`, `SYS_QUERY_TEXT`, `SYS_QUERY_DETAIL` and `SYS_PROCEDURE_CALL` for Serverless instance.
+You can find more information on the usage workflow [here](/connectors/ingestion/workflows/usage) and the lineage workflow [here](/connectors/ingestion/workflows/lineage).
 
 ## Metadata Ingestion
 
-{% partial 
-  file="/v1.12/connectors/metadata-ingestion-ui.md" 
+{% partial
+  file="/v1.12/connectors/metadata-ingestion-ui.md"
   variables={
-    connector: "Redshift", 
+    connector: "Redshift",
     selectServicePath: "/images/v1.12/connectors/redshift/select-service.png",
     addNewServicePath: "/images/v1.12/connectors/redshift/add-new-service.png",
     serviceConnectionPath: "/images/v1.12/connectors/redshift/service-connection.png",
-} 
+}
 /%}
 
 It is recommended to exclude the schema "information_schema" from the metadata ingestion as it contains system tables and views.
@@ -81,7 +86,7 @@ It is recommended to exclude the schema "information_schema" from the metadata i
 
 {% collateContent %}
 
-{% note %} 
+{% note %}
 
 When using a **Hybrid Ingestion Runner**, any sensitive credential fields—such as passwords, API keys, or private keys—must reference secrets using the following format:
 
