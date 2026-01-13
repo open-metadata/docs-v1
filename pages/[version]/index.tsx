@@ -4,6 +4,7 @@ import CategoriesNav from "../../components/CategoriesNav/CategoriesNav";
 import ConnectorsInfo from "../../components/ConnectorsInfo/ConnectorsInfo";
 import Footer from "../../components/Footer/Footer";
 import NewsEntry from "../../components/NewsEntry/NewsEntry";
+import ScarfPixel from "../../components/ScarfPixel/ScarfPixel";
 import { SelectOption } from "../../components/SelectDropdown/SelectDropdown";
 import TopNav from "../../components/TopNav/TopNav";
 import Card from "../../components/common/Card/Card";
@@ -24,6 +25,7 @@ import { useNavBarCollapsedContext } from "../../context/NavBarCollapseContext";
 import { useRouteChangingContext } from "../../context/RouteChangingContext";
 import { SkeletonWidth } from "../../enums/SkeletonLoder.enum";
 import { getVersionsList } from "../../lib/api";
+import { SCARF_PIXEL_IDS } from "../../utils/ScarfPixelUtils";
 import { getMajorVersionMatch } from "../../utils/SlugUtils";
 
 interface Props {
@@ -43,6 +45,7 @@ export default function Index({ versionsList }: Readonly<Props>) {
 
   return (
     <>
+      <ScarfPixel pixelId={SCARF_PIXEL_IDS.HOMEPAGE} />
       <div className="nav-bar-container">
         <TopNav versionsList={versionsList} />
         <CategoriesNav menu={menuItems} />
