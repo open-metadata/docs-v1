@@ -15,7 +15,7 @@ OpenMetadata being a full stack project, we use the following for development:
 - [JQ](https://jqlang.github.io/jq/) - `brew install jq` (osx)  `apt-get install jq` (Ubuntu)
 - [Maven 3.5.x or higher](https://maven.apache.org/install.html) - (with Java JDK 11)
 - [Python 3.9 to 3.11](https://www.python.org/downloads/)
-- [Node 18.x](https://nodejs.org/en/download/)
+- [Node 22.x](https://nodejs.org/en/download/)
 - [Yarn ^1.22.0](https://classic.yarnpkg.com/lang/en/docs/install/)
 - [Rpm (Optional, only to run RPM profile with maven)](https://macappstore.org/rpm/)
 
@@ -77,7 +77,7 @@ This program built for i386-apple-darwin11.3.0
 Python 3.10.17
 
 > node --version
-v20.19.2
+v22.0.0
 
 > yarn --version
 1.22.22
