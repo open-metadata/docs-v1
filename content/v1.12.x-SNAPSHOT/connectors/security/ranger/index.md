@@ -81,6 +81,62 @@ The Apache Ranger connector is designed specifically for **reverse metadata inge
 - **Source-Ranger Communication**: You are responsible for configuring the communication between Apache Ranger and your actual data sources. OpenMetadata only handles the metadata synchronization to Ranger
 - **Bidirectional Sync**: This is currently a one-way sync from OpenMetadata to Ranger
 
+### Tag Synchronization Details
+
+Understanding how tag synchronization works between OpenMetadata and Apache Ranger is crucial for proper implementation.
+
+#### What Gets Created During Reverse Metadata Ingestion
+
+During reverse metadata ingestion, OpenMetadata creates **only the mapping** between:
+- **Ranger Resources**: The specific entity (database, schema, table, or column)
+- **Tags**: The tag name and tag value
+
+**Important:** We do **not** create or depend on tag policies during the reverse metadata workflow. The policy creation is **not mandatory** for the workflow to function. Policies can be created in Ranger after the reverse metadata workflow completes.
+
+#### Policy Management
+
+The actual application of tag-based policies—such as access control, data masking, or row-level filtering—is handled **entirely by Apache Ranger**. OpenMetadata's role is limited to:
+1. Syncing tag metadata from OpenMetadata to actual data sources
+2. Creating tag-to-resource mappings in Ranger
+3. Keeping these mappings synchronized as tags change in OpenMetadata
+
+#### Supported Tag Levels
+
+We provide comprehensive tag support at multiple levels:
+- **Database level**: Tags applied to entire databases
+- **Schema level**: Tags applied to schemas
+- **Table level**: Tags applied to tables
+- **Column level**: Tags applied to individual columns
+
+This multi-level support allows you to implement fine-grained governance policies based on your organization's requirements.
+
+#### Tag Naming Convention
+
+OpenMetadata uses a clear and consistent tag naming convention when syncing to Ranger. Tags are formatted as:
+
+```
+classification.tag
+```
+
+**Example:**
+- A tag named `Sensitive` under the `PII` classification in OpenMetadata
+- Will be synced to Ranger as: `PII.Sensitive`
+
+This naming convention ensures clarity and prevents naming conflicts in Ranger.
+
+{% image
+src="/images/v1.12/connectors/ranger/tag-naming-example.png"
+alt="Tag Naming Convention Example"
+caption="Example showing PII.Sensitive tag in OpenMetadata and Ranger"
+/%}
+
+#### Complete Workflow Example
+
+1. **In OpenMetadata**: You apply the tag `PII.Sensitive` to a column `customer_email` in table `users`
+2. **Reverse Metadata Sync**: OpenMetadata creates a mapping in Ranger linking the resource `database.schema.users.customer_email` to tag `PII.Sensitive`
+3. **In Apache Ranger**: You create a policy that applies masking to all resources tagged with `PII.Sensitive`
+4. **Result**: The policy automatically applies to `customer_email` and any other resources tagged as `PII.Sensitive`
+
 ## Metadata Ingestion
 
 {% partial 
