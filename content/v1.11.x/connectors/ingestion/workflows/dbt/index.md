@@ -208,8 +208,6 @@ Custom property values can be assigned to tables from dbt to enrich metadata wit
 
 Please refer [here](/connectors/ingestion/workflows/dbt/ingest-dbt-custom-properties) for adding dbt custom properties
 
-
-
 ## Troubleshooting
 
 For any issues please refer to the troubleshooting documentation [here](/connectors/ingestion/workflows/dbt/dbt-troubleshooting)
