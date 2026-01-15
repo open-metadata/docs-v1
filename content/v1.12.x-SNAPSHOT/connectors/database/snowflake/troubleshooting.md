@@ -27,3 +27,25 @@ This indicates that the Snowflake user account used for the connection has been 
    ```sql
    ALTER USER <username> SET DISABLED = FALSE;
     ```
+
+## Connection Timeout During Test Connection or Ingestion
+
+If Snowflake is accessible from your ingestion environment but you still encounter connection timeout errors like the following:
+
+```
+WARNING {snowflake.connector.vendored.urllib3.connectionpool:connectionpool:868} - Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ReadTimeoutError("HTTPSConnectionPool(host='xxxxx.snowflakecomputing.com', port=443): Read timed out. (read timeout=60)")': /queries/xxxx-xxxx-xxxx-xxxx-xxxx/result?request_guid=xxxx-xxxx-xxxx-xxxx-xxxx
+```
+
+This is most likely due to the size of the Snowflake warehouse being too small to handle the metadata extraction queries within the timeout period.
+
+### Resolution
+
+We recommend using at least a **Medium (M)** sized Snowflake warehouse for OpenMetadata ingestion. Smaller warehouse sizes may not have enough compute resources to execute metadata queries before the connection times out.
+
+To resize your warehouse, run the following SQL command:
+
+```sql
+ALTER WAREHOUSE <warehouse_name> SET WAREHOUSE_SIZE = 'MEDIUM';
+```
+
+Alternatively, you can resize the warehouse through the Snowflake UI by navigating to **Admin > Warehouses** and modifying the warehouse size.
