@@ -1,7 +1,7 @@
-# 1.11.4 Release 🎉
+# 1.11.5 Release 🎉
 
 {% note noteType="Tip" %}
-**24th December 2025**
+**14th January 2025**
 {% /note %}
 
 {% inlineCalloutContainer %}
@@ -10,65 +10,124 @@ color="violet-70"
 icon="celebration"
 bold="Upgrade OpenMetadata"
 href="/deployment/upgrade" %}
-Learn how to upgrade your OpenMetadata instance to 1.11.4!
+Learn how to upgrade your OpenMetadata instance to 1.11.5!
 {% /inlineCallout %}
 {% /inlineCalloutContainer %}
 
-You can find the GitHub release [here](https://github.com/open-metadata/OpenMetadata/releases/tag/1.11.4-release).
+You can find the GitHub release [here](https://github.com/open-metadata/OpenMetadata/releases/tag/1.11.5-release).
 
 ## Improvements
 
-- Add AI Health Settings (CAIP-199). *(Collate)*
-- Monthly Rate Limits for Credit Usage. *(Collate)*
-- Add POV option to deployment enum in limits config. *(Collate)*
-- Force recomputation of vector index if needed (AI #197). *(Collate)*
-- Add component for Knowledge Center in AskCollate. *(Collate)*
-- Keep completed workflows for 4 weeks in Argo. *(Collate)*
-- RDF enablement on Collate. *(Collate)*
-- Add minimum height to Dimension tables in UI. *(Collate)*
-- Display no dimension and stats in Data Quality. *(Collate)*
-- Added SQLGlot parser support for improved query parsing [#24729](https://github.com/open-metadata/OpenMetadata/pull/24729)
-- Added support for bulk edit on nested glossary terms [#24873](https://github.com/open-metadata/OpenMetadata/pull/24873)
-- Added lineage section in overview tab in right panel [#24768](https://github.com/open-metadata/OpenMetadata/pull/24768)
-- Improved lineage node column pagination [#24462](https://github.com/open-metadata/OpenMetadata/pull/24462)
-- Added page size dropdown option to MUI table pagination [#24784](https://github.com/open-metadata/OpenMetadata/pull/24784)
-- Enhanced dbt functionality with new features [#24788](https://github.com/open-metadata/OpenMetadata/pull/24788)
-- Added username and preferred_username support [#24952](https://github.com/open-metadata/OpenMetadata/pull/24952)
-- Improved system repository health with extra validations [#24846](https://github.com/open-metadata/OpenMetadata/pull/24846)
-- Streamable ingestion logs to log versions [#24891](https://github.com/open-metadata/OpenMetadata/pull/24891)
-- Upgraded MCP SDK to 0.14.0 for protocol 2025-06-18 support [#24850](https://github.com/open-metadata/OpenMetadata/pull/24850)
-- Refactored field type and operators for enum custom properties [#24906](https://github.com/open-metadata/OpenMetadata/pull/24906)
-- Refactored and improved glossary term operations [#24804](https://github.com/open-metadata/OpenMetadata/pull/24804)
-- Removed redundant updateMetadata from Workflow Set Action [#24907](https://github.com/open-metadata/OpenMetadata/pull/24907)
-- Modified logic to use parameterized queries for security [#24902](https://github.com/open-metadata/OpenMetadata/pull/24902)
-- Improved test connection speed using has_table_privilege for partition details [#24956](https://github.com/open-metadata/OpenMetadata/pull/24956)
-- Allowed listing test case results with no dimensions [#24750](https://github.com/open-metadata/OpenMetadata/pull/24750)
+- Added lineage query parser type configuration
+- Added Pipeline Obs averageRunTime metric
+- Added batching for Trino lineage and usage SQL query retrieval
+- Added dataflow metadata support in PowerBI
+- Added support for custom pg_stat_statements view in Postgres lineage ingestion
+- Added stored procedures and functions support to MySQL connector
+- Added support for renaming Data Products with Playwright test coverage
+- Added persona customization support for Data Products
+- Added GlossaryTermDomainWidget to handle domain selection logic in UI
+- Added depth mode for improved navigation
+- Added Stored Procedure object support in lineage editor
+- Added validation for jwtPrincipalClaimsMapping to enforce username and email keys only
+- Added report description in PowerBI metadata
+- Added tagging explanation feature
+- Added Snowflake dynamic table system metrics support
+- Added Mulesoft connection configuration
+- Added fallback to Okta renew strategy
+- Added extraHeaders support to Java client
+- Added mf4 file format support in Datalake connector
+- Added Tabs component support with Storybook integration
+- Added SASL_PLAINTEXT support for OpenLineage Kafka broker
+- Added opt-in SSO auto-redirect on sign-in page
+- Added entity names display in browser tab titles
+- Added Arabic language support with comprehensive translations
+- Added missing Arabic translations for audit logs, certification, and UI elements
+- Added Google Tag Manager integration for sandbox
+- Added restriction for duplicate glossary term creation in dotted glossaries
+- Added subdomains support in DomainDetails component for data products
+- Added optimized propagation flag for improved performance
+- Added Playwright test coverage for test cases
+- Added prefix matching support in domain search
+- Added Redshift Serverless support
+- Added Doris view lineage ingestion support
+- Added domain and custom properties ingestion functionality via dbt agent
+- Performance improvement for APIs by caching User Context
+- Upgraded Playwright from 1.51.1 to 1.57.0
 
 ## Fixes
 
-- Fix runner test connection. *(Collate)*
-- Fix Health page checking CAIP with ingestion-bot and AskCollate displayName migration. *(Collate)*
-- Fix Metapilot cleanup in UI. *(Collate)*
-- Fix: Add column lineage support for Matillion pipeline. *(Collate)*
-- Fix: Tag and glossary term in the automator action config not shown in the edit form. *(Collate)*
-- Fix: Multiple 'No dimension' card being displayed in UI. *(Collate)*
-- Fix: Updated scim mapping creation migration to support default charset. *(Collate)*
-- Fixed clusterAlias issue with /getPlatformLineage API [#24951](https://github.com/open-metadata/OpenMetadata/pull/24951)
-- Fixed index creation on start and later reverted [#24960](https://github.com/open-metadata/OpenMetadata/pull/24960)
-- Fixed security vulnerabilities [#24945](https://github.com/open-metadata/OpenMetadata/pull/24945)
-- Fixed dbt attribute errors [#24943](https://github.com/open-metadata/OpenMetadata/pull/24943)
-- Fixed low cardinality support for ClickHouse [#24921](https://github.com/open-metadata/OpenMetadata/pull/24921)
-- Fixed match function for ClickHouse [#24923](https://github.com/open-metadata/OpenMetadata/pull/24923)
-- Fixed DBT override lineage configuration [#24827](https://github.com/open-metadata/OpenMetadata/pull/24827)
-- Secured DefaultTemplateProvider against template injection [#24854](https://github.com/open-metadata/OpenMetadata/pull/24854)
-- Fixed data files for Qlik connector [#24887](https://github.com/open-metadata/OpenMetadata/pull/24887)
-- Fixed glossary term /search API [#24913](https://github.com/open-metadata/OpenMetadata/pull/24913)
-- Fixed glossary term search relevance scoring [#24838](https://github.com/open-metadata/OpenMetadata/pull/24838)
-- Fixed time conversion issue for table freshness [#24900](https://github.com/open-metadata/OpenMetadata/pull/24900)
-- Fixed usage entity already exists error [#24882](https://github.com/open-metadata/OpenMetadata/pull/24882)
-- Fixed infinite loader issue in lineage section [#24896](https://github.com/open-metadata/OpenMetadata/pull/24896)
-- Fixed disabled default certifications still visible on assets [#24826](https://github.com/open-metadata/OpenMetadata/pull/24826)
-- Fixed entity type not being sent inside the EntityReference object [#24836](https://github.com/open-metadata/OpenMetadata/pull/24836)
-- Fixed SDK issue with deserializing 'setterless' property 'dataProducts' [#24857](https://github.com/open-metadata/OpenMetadata/pull/24857)
+- Fixed data product specs
+- Fixed platform lineage spec by using fewer nodes to prevent screen freeze
+- Fixed service details pagination issue
+- Fixed team spec and glossary duplicate spec
+- Fixed encoding issue related to test case name search in incident manager
+- Fixed flaky DataConsumer spec
+- Fixed CSS styling for upstream expand
+- Fixed AWS Region requirement for advanced connection config
+- Fixed DB2 Connector TLS support
+- Fixed domain details rename functionality
+- Fixed Datalake CSV parsing issue
+- Fixed ServiceEntityPermissions test flakiness
+- Fixed Redshift table size unit display
+- Fixed service details page pagination issue
+- Fixed styles for Data Observability and Quality tabs
+- Fixed self-referencing lineage loops in Fivetran source
+- Fixed error handling in ingestion pipelines
+- Fixed pandas global import issue
+- Fixed incident manager Playwright test
+- Fixed Java checkstyle violations
+- Fixed UnityCatalog lineage debug logging
+- Fixed column ordering for top databases
+- Fixed parquet file reading
+- Fixed logic to show leftSideBarItems
+- Fixed impact analysis search for column level
+- Fixed PowerBI project filters exclude case
+- Fixed scrollbar visibility for horizontal scroll
+- Fixed encoding of data-products for URL formatting
+- Fixed SSO SAML Playwright test
+- Fixed role hierarchy to get inherited roles and teams
+- Fixed secrets deletion to only occur on hard delete
+- Fixed MCP server SDK support upgrade
+- Fixed SAML authority URL deprecation and UI visibility
+- Fixed data product domain configuration
+- Fixed lineage edges disappearing when column is selected
+- Fixed test suite alerts status handling
+- Fixed MySQL data_diff URL to include database
+- Fixed special characters handling in passwords for TableDiff URL parsing
+- Fixed Pinot Multi Stage with Percentile and Length function
+- Fixed Tableau ingestion owner retrieval for users without email
+- Fixed CockroachDB ingestion for tables with hidden shard columns
+- Fixed Playwright test flakiness
+- Fixed domain display name references in configuration files
+- Fixed security vulnerability by bumping org.mozilla:rhino
+- Fixed SAML authorityUrl removal from MCP Config
+- Fixed dropdown auto-open behavior in edit popovers for improved UX
+- Fixed SAP HANA renamed columns/attributes handling in lineage creation
+- Fixed SAML redirection URL logic
+- Fixed sample data profiling by adding cachetools library
+- Fixed sample data profiling issues
+- Fixed hover color and selected color customization
+- Fixed missing i18n translations for UI components
+- Fixed SCIM token expiry to unlimited
+- Fixed invalid task issue in Airflow
+- Fixed search bar visibility when no results in AssetsTabs
+- Fixed client-side navigation by replacing MUI Link with react-router-dom Link
+- Fixed S3 storage ingestion to filter _SUCCESS files
+- Fixed spec by passing the test ID
+- Fixed data product empty list page
+- Fixed Snowflake transient tables ingestion
+- Fixed tab component to use global font size
+- Fixed Databricks parser with expression resolving 
+- Fixed node path handling in lineage
+- Fixed security vulnerabilities by bumping qs & @tiptap/extension-link packages
+- Fixed Snowflake tag ingestion 
+- Fixed logout to clear all stale state and tokens
+- Fixed minor UI styling in schema tab
+- Fixed entity updates in lineage sidebar and custom properties tab visibility
+- Fixed malformed URL generation in QueryBuilder
+- Fixed right panel flakiness
+- Fixed NiFi 2.x compatibility by removing GET /access call
+- Fixed invalid 'domains' field error when filtering Domain entities in Glossary Term
 
-**Full Changelog**: [link](https://github.com/open-metadata/OpenMetadata/compare/1.11.3-release...1.11.4-release)
+**Full Changelog**: [link](https://github.com/open-metadata/OpenMetadata/compare/1.11.4-release...1.11.5-release)
