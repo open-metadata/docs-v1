@@ -8,8 +8,8 @@ slug: /connectors/pipeline/dagster
 name="Dagster"
 stage="PROD"
 platform="OpenMetadata"
-availableFeatures=["Pipelines", "Pipeline Status", "Tags", "Usage"]
-unavailableFeatures=["Owners", "Lineage"]
+availableFeatures=["Pipelines", "Pipeline Status", "Tags", "Usage", "Lineage"]
+unavailableFeatures=["Owners"]
 / %}
 
 
@@ -23,6 +23,9 @@ Configure and schedule Dagster metadata and profiler workflows from the OpenMeta
     - [Service Name](#service-name)
     - [Connection Details](#connection-details)
     - [Metadata Ingestion Options](#metadata-ingestion-options)
+- [Lineage](#lineage)
+  - [Extracting Lineage](#extracting-lineage)
+  - [Best Practices for Lineage](#best-practices-for-lineage)
 - [Troubleshooting](/connectors/pipeline/dagster/troubleshooting)
   - [Workflow Deployment Error](#workflow-deployment-error)
 
@@ -89,3 +92,200 @@ For a complete guide on managing secrets in hybrid setups, see the [Hybrid Inges
 {% partial file="/v1.12/connectors/ingestion-schedule-and-deploy.md" /%}
 
 {% /stepsContainer %}
+
+## Lineage
+
+OpenMetadata extracts **asset-based lineage** from Dagster. When your Dagster assets have dependencies on other assets, OpenMetadata creates lineage edges between the corresponding tables in your data catalog.
+
+```
+[Source Table] --> [Dagster Pipeline] --> [Target Table]
+```
+
+### Prerequisites for Lineage Extraction
+
+For OpenMetadata to extract lineage from your Dagster instance, you need:
+
+1. **Software-Defined Assets** - Your Dagster pipelines must use [Software-Defined Assets](https://docs.dagster.io/concepts/assets/software-defined-assets) (not legacy ops/solids without assets)
+2. **Asset Dependencies** - Assets must declare their upstream dependencies using the `deps` parameter
+3. **Matching Tables in OpenMetadata** - The tables referenced by your assets must already exist in OpenMetadata (ingested from your database services)
+
+### Extracting Lineage
+
+#### Lineage Will Be Extracted When:
+
+**1. Assets Use Database-Style Naming (Recommended)**
+
+If your asset keys follow the `database.schema.table` naming pattern, lineage extraction works automatically:
+
+```python
+from dagster import asset
+
+@asset(key=["my_database", "my_schema", "customers"])
+def customers():
+    # Reads from source and writes to my_database.my_schema.customers
+    ...
+
+@asset(
+    key=["my_database", "my_schema", "customer_orders"],
+    deps=[customers]  # Declares dependency on customers asset
+)
+def customer_orders():
+    # This creates lineage: customers -> customer_orders
+    ...
+```
+
+**Supported key formats:**
+
+| Asset Key | Interpretation |
+|-----------|----------------|
+| `["database", "schema", "table"]` | Full path - best for lineage |
+| `["schema", "table"]` | Schema and table only |
+| `["table"]` | Table name only |
+
+**2. Assets Include Table Metadata in Materializations**
+
+If your assets don't use database-style keys, you can still get lineage by including table metadata when materializing:
+
+```python
+from dagster import asset, MaterializeResult, MetadataValue
+
+@asset(key=["raw_customers"])  # Custom naming
+def raw_customers():
+    # Your transformation logic
+    return MaterializeResult(
+        metadata={
+            "database": MetadataValue.text("analytics_db"),
+            "schema": MetadataValue.text("raw"),
+            "table": MetadataValue.text("customers"),
+        }
+    )
+```
+
+**Recognized metadata labels:**
+- Database: `database`, `db`, `database_name`
+- Schema: `schema`, `schema_name`
+- Table: `table`, `table_name`
+
+**3. Assets Are Associated with Jobs**
+
+Assets must be part of a Dagster job for lineage to be associated with that pipeline:
+
+```python
+from dagster import asset, define_asset_job, Definitions
+
+@asset
+def my_asset():
+    ...
+
+# Assets must be included in a job
+my_job = define_asset_job("my_pipeline", selection=[my_asset])
+
+defs = Definitions(
+    assets=[my_asset],
+    jobs=[my_job],
+)
+```
+
+#### Lineage Will NOT Be Extracted When:
+
+**1. Using Legacy Ops/Solids Without Assets**
+
+```python
+# This won't produce lineage
+@op
+def my_op():
+    ...
+```
+
+**2. Assets Without Dependencies Declared**
+
+```python
+# No lineage - dependency not declared
+@asset
+def target_table():
+    df = read_from_source_table()  # Implicit dependency
+    ...
+
+# Lineage works - dependency declared
+@asset(deps=["source_table"])
+def target_table():
+    df = read_from_source_table()
+    ...
+```
+
+**3. Assets Not Part of Any Job**
+
+Assets that exist but aren't included in any job won't appear in pipeline lineage.
+
+**4. Tables Don't Exist in OpenMetadata**
+
+The source and target tables must be ingested into OpenMetadata from your database service. Run database metadata ingestion before pipeline ingestion.
+
+**5. Asset Keys Don't Match Table Names**
+
+```python
+# Won't match if table in database is "user_data"
+@asset(key=["users"])
+def users():
+    ...
+```
+
+### Specifying Database Services for Lineage
+
+To help OpenMetadata find the correct tables, specify which database services to search in the ingestion configuration:
+
+```yaml
+sourceConfig:
+  config:
+    type: PipelineMetadata
+    lineageInformation:
+      dbServiceNames:
+        - my_postgres
+        - my_snowflake
+```
+
+If not specified, OpenMetadata searches all database services (which may be slower or produce incorrect matches if table names are duplicated across services).
+
+### Best Practices for Lineage
+
+1. **Use 3-Part Asset Keys**
+   ```python
+   @asset(key=["database", "schema", "table"])
+   ```
+
+2. **Always Declare Dependencies Explicitly**
+   ```python
+   @asset(deps=["upstream_asset"])
+   def downstream_asset():
+       ...
+   ```
+
+3. **Include Assets in Jobs**
+   ```python
+   my_job = define_asset_job("pipeline_name", selection="*")
+   ```
+
+4. **Add Metadata for Custom Naming**
+   ```python
+   return MaterializeResult(
+       metadata={
+           "database": MetadataValue.text("db_name"),
+           "schema": MetadataValue.text("schema_name"),
+           "table": MetadataValue.text("table_name"),
+       }
+   )
+   ```
+
+5. **Ingest Database Metadata First**
+   - Run your database service ingestion before Dagster ingestion
+   - Ensure tables exist in OpenMetadata before extracting pipeline lineage
+
+### Troubleshooting Lineage
+
+| Issue | Solution |
+|-------|----------|
+| No lineage appears | Check that assets have explicit `deps` declared |
+| Tables not found | Ensure database metadata is ingested first |
+| Wrong tables matched | Specify `dbServiceNames` in configuration |
+| Assets missing from pipeline | Ensure assets are included in a job definition |
+| Partial lineage | Check that both source and target tables exist in OpenMetadata |

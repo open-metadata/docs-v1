@@ -8,8 +8,8 @@ slug: /connectors/pipeline/dagster/yaml
 name="Dagster"
 stage="PROD"
 platform="OpenMetadata"
-availableFeatures=["Pipelines", "Pipeline Status", "Tags", "Usage"]
-unavailableFeatures=["Owners", "Lineage"]
+availableFeatures=["Pipelines", "Pipeline Status", "Tags", "Usage", "Lineage"]
+unavailableFeatures=["Owners"]
 / %}
 
 
@@ -75,6 +75,21 @@ This is a sample config for Dagster:
 **timeout** : Connection Time Limit Between OM and Dagster Graphql API in second
 {% /codeInfo %}
 
+#### Source Configuration - Lineage
+
+{% codeInfo srNumber=4 %}
+
+**lineageInformation**: Configure lineage extraction settings.
+
+- **dbServiceNames**: List of database service names to search for tables when creating lineage. If not specified, OpenMetadata searches all database services. Specifying services improves performance and accuracy.
+
+For lineage to work, ensure:
+- Your Dagster assets use [Software-Defined Assets](https://docs.dagster.io/concepts/assets/software-defined-assets)
+- Asset dependencies are declared explicitly using `deps`
+- Tables exist in OpenMetadata (run database ingestion first)
+- Asset keys match table names (use `["database", "schema", "table"]` format)
+
+{% /codeInfo %}
 
 {% partial file="/v1.12/connectors/yaml/pipeline/source-config-def.md" /%}
 
@@ -103,6 +118,16 @@ source:
 ```
 ```yaml {% srNumber=3 %}
         # timeout: 1000
+```
+```yaml {% srNumber=4 %}
+  sourceConfig:
+    config:
+      type: PipelineMetadata
+      # Specify database services to search for lineage tables
+      lineageInformation:
+        dbServiceNames:
+          - my_postgres
+          - my_snowflake
 ```
 
 {% partial file="/v1.12/connectors/yaml/pipeline/source-config.md" /%}
