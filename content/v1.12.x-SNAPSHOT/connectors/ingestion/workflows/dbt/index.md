@@ -49,6 +49,8 @@ Configure the auto dbt ingestion for dbt-core.
 | dbt Descriptions            | {% icon iconName="check" /%}              |
 | dbt Tests                   | {% icon iconName="check" /%}              |
 | dbt Exposures               | {% icon iconName="check" /%}              |
+| dbt Domains                 | {% icon iconName="check" /%}              |
+| dbt Custom Properties       | {% icon iconName="check" /%}              |
 | Supported dbt Core Versions | `v1.2` `v1.3` `v1.5` `v1.5` `v1.6` `v1.7` `v1.8` `v1.9`|
 
 {% /multiTablesWrapper %}
@@ -191,6 +193,20 @@ Please refer [here](/connectors/ingestion/workflows/dbt/ingest-dbt-glossary) for
   alt="dbt-glossary"
   caption="dbt Glossary"
  /%}
+
+
+### 9. dbt Domains
+
+Domains from dbt models can be assigned to tables for better data organization and governance
+
+Please refer [here](/connectors/ingestion/workflows/dbt/ingest-dbt-domain) for adding dbt domains
+
+
+### 10. dbt Custom Properties
+
+Custom property values can be assigned to tables from dbt to enrich metadata with organization-specific attributes
+
+Please refer [here](/connectors/ingestion/workflows/dbt/ingest-dbt-custom-properties) for adding dbt custom properties
 
 
 ## Troubleshooting
