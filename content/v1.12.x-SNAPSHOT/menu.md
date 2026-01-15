@@ -846,6 +846,10 @@ site_menu:
     url: /connectors/ingestion/workflows/dbt/ingest-dbt-tier
   - category: Connectors / Ingestion / Workflows / dbt / Ingest dbt Glossary
     url: /connectors/ingestion/workflows/dbt/ingest-dbt-glossary
+  - category: Connectors / Ingestion / Workflows / dbt / Ingest dbt Domain
+    url: /connectors/ingestion/workflows/dbt/ingest-dbt-domain
+  - category: Connectors / Ingestion / Workflows / dbt / Ingest dbt Custom Properties
+    url: /connectors/ingestion/workflows/dbt/ingest-dbt-custom-properties
   - category: Connectors / Ingestion / Workflows / dbt / Ingest dbt Lineage
     url: /connectors/ingestion/workflows/dbt/ingest-dbt-lineage
   - category: Connectors / Ingestion / Workflows / dbt / Setup Multiple dbt Projects
