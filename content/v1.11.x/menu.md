@@ -895,6 +895,8 @@ site_menu:
     url: /how-to-guides/mcp/claude
   - category: How-to Guides / MCP / Getting Started with Goose Desktop
     url: /how-to-guides/mcp/goose
+  - category: How-to Guides / MCP / Getting Started with Cursor
+    url: /how-to-guides/mcp/cursor
 
   - category: How-to Guides / Admin Guide
     url: /how-to-guides/admin-guide
