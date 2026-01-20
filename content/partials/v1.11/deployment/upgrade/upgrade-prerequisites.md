@@ -139,6 +139,51 @@ For more details, see the Apache Airflow issues:
 
 #### Resolution
 
+**Option 1: Delete and Recreate the Airflow Database (Strongly Recommended)**
+
+The simplest and most reliable solution is to delete the existing Airflow database and let OpenMetadata recreate it fresh during startup. The Airflow database only stores workflow execution history and metadata—it does not contain any of your OpenMetadata configurations, connections, or ingestion pipeline definitions.
+
+{% note noteType="Tip" %}
+This is the recommended approach because it avoids all migration complexities and ensures a clean state. Your ingestion pipelines and their configurations are stored in the OpenMetadata database, not in Airflow's database.
+{% /note %}
+
+```bash
+# Connect to your MySQL instance and drop the Airflow database
+docker exec -i openmetadata_mysql mysql -u USERNAME -pPASSWORD -e "DROP DATABASE IF EXISTS airflow_db;"
+```
+
+Then recreate the database with the proper character set and grant privileges:
+
+```sql
+CREATE DATABASE airflow_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+GRANT ALL PRIVILEGES ON airflow_db.* TO 'airflow_user'@'%' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
+```
+
+Execute this via command line:
+
+```bash
+# Recreate the Airflow database
+docker exec -i openmetadata_mysql mysql -u USERNAME -pPASSWORD -e "CREATE DATABASE airflow_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci; GRANT ALL PRIVILEGES ON airflow_db.* TO 'airflow_user'@'%' WITH GRANT OPTION; FLUSH PRIVILEGES;"
+
+# Restart the ingestion container to run migrations on the fresh database
+docker restart openmetadata_ingestion
+```
+
+{% note noteType="Warning" %}
+Replace `USERNAME` and `PASSWORD` with your MySQL root credentials, and `airflow_user` with your actual Airflow database user if different. For Docker Quickstart deployments, the default root credentials are `root` / `password`.
+{% /note %}
+
+{% note noteType="Important" %}
+After the ingestion container restarts successfully, you must **redeploy all your ingestion pipelines** from the OpenMetadata UI. This registers the DAGs in the fresh Airflow database.
+{% /note %}
+
+---
+
+**Option 2: Manual Migration Fix (If You Cannot Delete the Database)**
+
+If you have specific requirements to preserve the Airflow execution history and cannot delete the database, follow the manual steps below.
+
 **Step 1: Enable MySQL Configuration**
 
 First, enable `log_bin_trust_function_creators` in your MySQL instance to allow Airflow to create the necessary stored function:
@@ -161,9 +206,9 @@ SET GLOBAL log_bin_trust_function_creators = 1;
 
 After enabling the MySQL configuration, choose one of the following options based on your situation:
 
-**Option 1: Clean Airflow Metadata (Recommended for Fresh Start)**
+**Option 2a: Truncate Task Instance Table**
 
-If you want to avoid conflicting migration changes and start with a clean Airflow metadata database, you can truncate the `task_instance` table. This approach removes all task execution history but preserves your DAGs and connections.
+If you want to avoid conflicting migration changes, you can truncate the `task_instance` table. This approach removes all task execution history but preserves your DAGs and connections.
 
 {% note noteType="Warning" %}
 This will delete all historical task execution data. Only use this if you're okay with losing task run history.
@@ -190,7 +235,7 @@ docker exec -i openmetadata_mysql mysql -u USERNAME -pPASSWORD -e "USE airflow_d
 docker restart openmetadata_ingestion
 ```
 
-**Option 2: Fix Stuck Migrations (If Migration Already Failed)**
+**Option 2b: Fix Stuck Migrations (If Migration Already Failed)**
 
 If your migration is already stuck midway (the `task_instance` table was partially modified), you need to reset the migration state before restarting. Save the following SQL script as `fix_airflow_migration.sql`:
 
