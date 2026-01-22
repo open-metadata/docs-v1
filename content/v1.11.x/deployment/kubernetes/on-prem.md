@@ -275,7 +275,7 @@ Instead, database credentials must be provided via a **single Kubernetes Secret*
 
 ```yaml
 data:
-metadataSecretName: your-connection-string-secret
+  metadataSecretName: your-connection-string-secret
 ```
 
 This change applies **only to the dependency `values.yml` configuration** and aligns with the database configuration approach used by the **Airflow Helm chart**.
