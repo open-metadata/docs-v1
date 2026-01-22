@@ -39,7 +39,7 @@ Validate pandas DataFrames before loading them to destinations:
 ```python
 import pandas as pd
 
-from metadata.sdk.data_quality.dataframes import DataFrameValidator
+from metadata.sdk.data_quality.dataframes.dataframe_validator import DataFrameValidator
 from metadata.sdk.data_quality import ColumnValuesToBeNotNull
 
 df = pd.read_csv('path/to/data.csv')
