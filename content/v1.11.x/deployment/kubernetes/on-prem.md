@@ -267,6 +267,19 @@ helm install openmetadata open-metadata/openmetadata
 Again, this uses the values defined [here](https://github.com/open-metadata/openmetadata-helm-charts/blob/main/charts/openmetadata/values.yaml).
 Use the `--values` flag to point to your own YAML configuration if needed.
 
+## Troubleshooting
+
+Starting with **OpenMetadata v1.11.4**, the dependency Helm chart no longer supports passing database passwords using individual Kubernetes secret keys (for example, `passwordSecret` and `passwordSecretKey`).
+
+Instead, database credentials must be provided via a **single Kubernetes Secret** referenced using `metadataSecretName`. This secret must contain the **full database connection string**, including the password.
+
+```yaml
+data:
+metadataSecretName: your-connection-string-secret
+```
+
+This change applies **only to the dependency `values.yml` configuration** and aligns with the database configuration approach used by the **Airflow Helm chart**.
+
 # FAQs
 
 {% partial file="/v1.11/deployment/faqs.md" /%}
