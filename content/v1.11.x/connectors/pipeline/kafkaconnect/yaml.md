@@ -130,3 +130,23 @@ source:
 {% /codePreview %}
 
 {% partial file="/v1.11/connectors/yaml/ingestion-cli.md" /%}
+
+## Debezium CDC Support
+
+The KafkaConnect connector provides **full support for Debezium CDC connectors** with intelligent column extraction and accurate lineage tracking.
+
+### What We Provide
+
+When you ingest Debezium connectors, OpenMetadata automatically:
+
+1. **Detects CDC Envelope Structures** - Identifies Debezium's CDC format with `op`, `before`, and `after` fields
+2. **Extracts Real Table Columns** - Parses actual database columns from the CDC payload instead of CDC envelope metadata
+3. **Creates Accurate Column-Level Lineage** - Maps lineage from source database tables → Kafka topics → target systems
+
+### Recognized Configuration Parameters
+
+OpenMetadata recognizes the following Debezium configuration parameters for intelligent CDC detection:
+
+- `database.server.name` - Server identifier (Debezium V1)
+- `topic.prefix` - Topic prefix (Debezium V2)
+- `table.include.list` - Tables to capture (e.g., `mydb.customers,mydb.orders`)

@@ -20,13 +20,13 @@ Configure and schedule KafkaConnect metadata and profiler workflows from the Ope
 - [Requirements](#requirements)
 - [Metadata Ingestion](#metadata-ingestion)
 
-{% partial file="/v1.12/connectors/external-ingestion-deployment.md" /%}
+{% partial file="/v1.11/connectors/external-ingestion-deployment.md" /%}
 
 ## Requirements
 
 ### Python Requirements
 
-{% partial file="/v1.12/connectors/python-requirements.md" /%}
+{% partial file="/v1.11/connectors/python-requirements.md" /%}
 
 To run the KafkaConnect ingestion, you will need to install:
 
@@ -83,11 +83,11 @@ This is a sample config for KafkaConnect:
 **messagingServiceName**: Name of the Kafka Messaging Service associated with this KafkaConnect Pipeline Service. e.g. local_kafka.
 {% /codeInfo %}
 
-{% partial file="/v1.12/connectors/yaml/pipeline/source-config-def.md" /%}
+{% partial file="/v1.11/connectors/yaml/pipeline/source-config-def.md" /%}
 
-{% partial file="/v1.12/connectors/yaml/ingestion-sink-def.md" /%}
+{% partial file="/v1.11/connectors/yaml/ingestion-sink-def.md" /%}
 
-{% partial file="/v1.12/connectors/yaml/workflow-config-def.md" /%}
+{% partial file="/v1.11/connectors/yaml/workflow-config-def.md" /%}
 
 {% /codeInfoContainer %}
 
@@ -119,14 +119,34 @@ source:
         # messagingServiceName: local_kafka
 ```
 
-{% partial file="/v1.12/connectors/yaml/pipeline/source-config.md" /%}
+{% partial file="/v1.11/connectors/yaml/pipeline/source-config.md" /%}
 
-{% partial file="/v1.12/connectors/yaml/ingestion-sink.md" /%}
+{% partial file="/v1.11/connectors/yaml/ingestion-sink.md" /%}
 
-{% partial file="/v1.12/connectors/yaml/workflow-config.md" /%}
+{% partial file="/v1.11/connectors/yaml/workflow-config.md" /%}
 
 {% /codeBlock %}
 
 {% /codePreview %}
 
-{% partial file="/v1.12/connectors/yaml/ingestion-cli.md" /%}
+{% partial file="/v1.11/connectors/yaml/ingestion-cli.md" /%}
+
+## Debezium CDC Support
+
+The KafkaConnect connector provides **full support for Debezium CDC connectors** with intelligent column extraction and accurate lineage tracking.
+
+### What We Provide
+
+When you ingest Debezium connectors, OpenMetadata automatically:
+
+1. **Detects CDC Envelope Structures** - Identifies Debezium's CDC format with `op`, `before`, and `after` fields
+2. **Extracts Real Table Columns** - Parses actual database columns from the CDC payload instead of CDC envelope metadata
+3. **Creates Accurate Column-Level Lineage** - Maps lineage from source database tables → Kafka topics → target systems
+
+### Recognized Configuration Parameters
+
+OpenMetadata recognizes the following Debezium configuration parameters for intelligent CDC detection:
+
+- `database.server.name` - Server identifier (Debezium V1)
+- `topic.prefix` - Topic prefix (Debezium V2)
+- `table.include.list` - Tables to capture (e.g., `mydb.customers,mydb.orders`)
