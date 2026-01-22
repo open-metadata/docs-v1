@@ -1,7 +1,7 @@
-# 1.11.5 Release 🎉
+# 1.11.6 Release 🎉
 
 {% note noteType="Tip" %}
-**14th January 2025**
+**21st January 2025**
 {% /note %}
 
 {% inlineCalloutContainer %}
@@ -10,124 +10,50 @@ color="violet-70"
 icon="celebration"
 bold="Upgrade OpenMetadata"
 href="/deployment/upgrade" %}
-Learn how to upgrade your OpenMetadata instance to 1.11.5!
+Learn how to upgrade your OpenMetadata instance to 1.11.6!
 {% /inlineCallout %}
 {% /inlineCalloutContainer %}
 
-You can find the GitHub release [here](https://github.com/open-metadata/OpenMetadata/releases/tag/1.11.5-release).
+You can find the GitHub release [here](https://github.com/open-metadata/OpenMetadata/releases/tag/1.11.6-release).
 
 ## Improvements
 
-- Added lineage query parser type configuration
-- Added Pipeline Obs averageRunTime metric
-- Added batching for Trino lineage and usage SQL query retrieval
-- Added dataflow metadata support in PowerBI
-- Added support for custom pg_stat_statements view in Postgres lineage ingestion
-- Added stored procedures and functions support to MySQL connector
-- Added support for renaming Data Products with Playwright test coverage
-- Added persona customization support for Data Products
-- Added GlossaryTermDomainWidget to handle domain selection logic in UI
-- Added depth mode for improved navigation
-- Added Stored Procedure object support in lineage editor
-- Added validation for jwtPrincipalClaimsMapping to enforce username and email keys only
-- Added report description in PowerBI metadata
-- Added tagging explanation feature
-- Added Snowflake dynamic table system metrics support
-- Added Mulesoft connection configuration
-- Added fallback to Okta renew strategy
-- Added extraHeaders support to Java client
-- Added mf4 file format support in Datalake connector
-- Added Tabs component support with Storybook integration
-- Added SASL_PLAINTEXT support for OpenLineage Kafka broker
-- Added opt-in SSO auto-redirect on sign-in page
-- Added entity names display in browser tab titles
-- Added Arabic language support with comprehensive translations
-- Added missing Arabic translations for audit logs, certification, and UI elements
-- Added Google Tag Manager integration for sandbox
-- Added restriction for duplicate glossary term creation in dotted glossaries
-- Added subdomains support in DomainDetails component for data products
-- Added optimized propagation flag for improved performance
-- Added Playwright test coverage for test cases
-- Added prefix matching support in domain search
-- Added Redshift Serverless support
-- Added Doris view lineage ingestion support
-- Added domain and custom properties ingestion functionality via dbt agent
-- Performance improvement for APIs by caching User Context
-- Upgraded Playwright from 1.51.1 to 1.57.0
+- Added impersonatedBy support in MCP tools
+- Added exponential backoff retry for index deletion during snapshot operations
+- Added Entity Popover Card for Impact Analysis tab
+- Added metadata versioning for bulk import
+- Added support for Snowflake stages
+- Added failed rows sample table to test case notifications
+- Added task.description field to Task entity mapping
+- Added start time, end time, and runtime duration to pipeline task execution views
+- Added Dagster Lineage support
+- Added API endpoint filter pattern support
+- Added JWT/SAML team claim mapping for automatic team assignment during SSO login
+- Added support for testing access to specific containers in Azure Blob Client
+- Updated timezone display with date and time
+- Migrated image links from imgur to own CDN
+- Improved lineage visualization by graying out hanging nodes edges
 
 ## Fixes
 
-- Fixed data product specs
-- Fixed platform lineage spec by using fewer nodes to prevent screen freeze
-- Fixed service details pagination issue
-- Fixed team spec and glossary duplicate spec
-- Fixed encoding issue related to test case name search in incident manager
-- Fixed flaky DataConsumer spec
-- Fixed CSS styling for upstream expand
-- Fixed AWS Region requirement for advanced connection config
-- Fixed DB2 Connector TLS support
-- Fixed domain details rename functionality
-- Fixed Datalake CSV parsing issue
-- Fixed ServiceEntityPermissions test flakiness
-- Fixed Redshift table size unit display
-- Fixed service details page pagination issue
-- Fixed styles for Data Observability and Quality tabs
-- Fixed self-referencing lineage loops in Fivetran source
-- Fixed error handling in ingestion pipelines
-- Fixed pandas global import issue
-- Fixed incident manager Playwright test
-- Fixed Java checkstyle violations
-- Fixed UnityCatalog lineage debug logging
-- Fixed column ordering for top databases
-- Fixed parquet file reading
-- Fixed logic to show leftSideBarItems
-- Fixed impact analysis search for column level
-- Fixed PowerBI project filters exclude case
-- Fixed scrollbar visibility for horizontal scroll
-- Fixed encoding of data-products for URL formatting
-- Fixed SSO SAML Playwright test
-- Fixed role hierarchy to get inherited roles and teams
-- Fixed secrets deletion to only occur on hard delete
-- Fixed MCP server SDK support upgrade
-- Fixed SAML authority URL deprecation and UI visibility
-- Fixed data product domain configuration
-- Fixed lineage edges disappearing when column is selected
-- Fixed test suite alerts status handling
-- Fixed MySQL data_diff URL to include database
-- Fixed special characters handling in passwords for TableDiff URL parsing
-- Fixed Pinot Multi Stage with Percentile and Length function
-- Fixed Tableau ingestion owner retrieval for users without email
-- Fixed CockroachDB ingestion for tables with hidden shard columns
-- Fixed Playwright test flakiness
-- Fixed domain display name references in configuration files
-- Fixed security vulnerability by bumping org.mozilla:rhino
-- Fixed SAML authorityUrl removal from MCP Config
-- Fixed dropdown auto-open behavior in edit popovers for improved UX
-- Fixed SAP HANA renamed columns/attributes handling in lineage creation
-- Fixed SAML redirection URL logic
-- Fixed sample data profiling by adding cachetools library
-- Fixed sample data profiling issues
-- Fixed hover color and selected color customization
-- Fixed missing i18n translations for UI components
-- Fixed SCIM token expiry to unlimited
-- Fixed invalid task issue in Airflow
-- Fixed search bar visibility when no results in AssetsTabs
-- Fixed client-side navigation by replacing MUI Link with react-router-dom Link
-- Fixed S3 storage ingestion to filter _SUCCESS files
-- Fixed spec by passing the test ID
-- Fixed data product empty list page
-- Fixed Snowflake transient tables ingestion
-- Fixed tab component to use global font size
-- Fixed Databricks parser with expression resolving 
-- Fixed node path handling in lineage
-- Fixed security vulnerabilities by bumping qs & @tiptap/extension-link packages
-- Fixed Snowflake tag ingestion 
-- Fixed logout to clear all stale state and tokens
-- Fixed minor UI styling in schema tab
-- Fixed entity updates in lineage sidebar and custom properties tab visibility
-- Fixed malformed URL generation in QueryBuilder
-- Fixed right panel flakiness
-- Fixed NiFi 2.x compatibility by removing GET /access call
-- Fixed invalid 'domains' field error when filtering Domain entities in Glossary Term
+- Fixed entity rules enforcement for data assets sections
+- Fixed StackOverflowError from circular team hierarchy dependencies
+- Fixed overrideLineage config removal from database service metadata pipeline
+- Fixed deleted users filtering from ownership relationships in GET operations
+- Fixed text overlapping in Users table columns
+- Fixed user creation via UI when SSO authentication is enabled
+- Fixed domain rename issues
+- Fixed REST connector default tag missing for endpoints
+- Fixed Chinese character encoding issue
+- Fixed data contract status in List API
+- Fixed Secrets Manager empty string sanitization
+- Fixed Oracle view definitions retrieval
+- Fixed MCP SDK to resolve Cursor 'form' field deserialization issue
+- Fixed uniform delta table ingestion in Databricks
+- Fixed circular reference detection in team imports
+- Fixed Pipeline Service Client health job cleanup in favor of on-demand checks
+- Fixed react-router-dom to address XSS and redirect vulnerabilities
+- Fixed MCP tool responses and parameter naming for better LLM integration
+- Fixed import failure for database service names containing dots
 
-**Full Changelog**: [link](https://github.com/open-metadata/OpenMetadata/compare/1.11.4-release...1.11.5-release)
+**Full Changelog**: [link](https://github.com/open-metadata/OpenMetadata/compare/1.11.5-release...1.11.6-release)
