@@ -92,13 +92,26 @@ For a complete guide on managing secrets in hybrid setups, see the [Hybrid Inges
 
 {% /stepsContainer %}
 
-## Displaying Lineage Information
-Steps to retrieve and display the lineage information for a Kafka Connect service.
-1. Ingest Kafka Messaging Service Metadata: Identify the Kafka messaging service associated with the Kafka Connect service .Ensure all connected topics are comprehensively ingested.
-2. Ingest Source and Sink Database/Storage System Metadata: Identify both the source and sink database or storage systems used by the Kafka Connect service. Ingest metadata for these database or storage systems
-3. Ingest Kafka Connect Service Metadata: Finally, Ingest your Kafka Connect service.
+## Debezium CDC Support
 
-By successfully completing these steps, the lineage information for the service will be displayed.
+The KafkaConnect connector provides **full support for Debezium CDC connectors** with intelligent column extraction and accurate lineage tracking.
+
+### What We Provide
+
+When you ingest Debezium connectors, OpenMetadata automatically:
+
+1. **Detects CDC Envelope Structures** - Identifies Debezium's CDC format with `op`, `before`, and `after` fields
+2. **Extracts Real Table Columns** - Parses actual database columns from the CDC payload instead of CDC envelope metadata
+3. **Creates Accurate Column-Level Lineage** - Maps lineage from source database tables → Kafka topics → target systems
+
+### Recognized Configuration Parameters
+
+OpenMetadata recognizes the following Debezium configuration parameters for intelligent CDC detection:
+
+- `database.server.name` - Server identifier (Debezium V1)
+- `topic.prefix` - Topic prefix (Debezium V2)
+- `table.include.list` - Tables to capture (e.g., `mydb.customers,mydb.orders`)
+
 
 {% image
   src="/images/v1.11/connectors/kafkaconnect/lineage.webp"
@@ -114,6 +127,8 @@ Currently, the following source and sink connectors for Kafka Connect are suppor
 * [Amazon S3](/connectors/storage/s3)
 
 For these connectors, lineage information can be obtained provided they are configured with a source or sink and the corresponding metadata ingestion is enabled.
+
+**Note:** All supported database connectors listed above work seamlessly with **Debezium CDC connectors** for enhanced column-level lineage tracking. When using Debezium, OpenMetadata automatically detects the CDC envelope structure and extracts actual table columns for accurate lineage mapping.
 
 ### Missing Lineage
 If lineage information is not displayed for a Kafka Connect service, follow these steps to diagnose the issue.
