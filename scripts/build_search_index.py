@@ -54,7 +54,8 @@ def get_page_content(content: str) -> str:
     Get and clean the page content. We want to get rid of
     HTML tags and markdown formatting
     """
-    return CONTENT_REGEX.sub("", content, 0).replace("\n", "").replace("#", "")
+    cleaned = CONTENT_REGEX.sub("", content, 0).replace("\n", "").replace("#", "")
+    return cleaned[:8000]  # Truncate to stay under Algolia 10KB limit
 
 
 def get_algolia_doc_from_file(file: Path) -> Optional[AlgoliaDoc]:

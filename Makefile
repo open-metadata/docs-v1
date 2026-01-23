@@ -16,10 +16,10 @@ export:
 
 .PHONY: search
 search:
-	python -m venv search-venv; \
+	python3 -m venv search-venv; \
 		. search-venv/bin/activate; \
 		pip install -r scripts/requirements.txt; \
-		python scripts/build_search_index.py; \
+		python3 scripts/build_search_index.py; \
 		rm -rf search-venv;
 
 .PHONY: docker-build
