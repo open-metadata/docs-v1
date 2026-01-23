@@ -56,6 +56,6 @@ Our minimum specs recommendation for Apache Airflow is
 ### Software Requirements
 
 OpenMetadata currently supports -
-- Airflow version 2.10.5
+- Airflow version 2.10.5 till 3.X
 
 Learn more about how to deploy and manage the ingestion workflows [here](/deployment/ingestion).
