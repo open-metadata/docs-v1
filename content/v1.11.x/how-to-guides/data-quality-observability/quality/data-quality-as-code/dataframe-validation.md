@@ -24,7 +24,7 @@ DataFrame validation is ideal for:
 
 ```python
 from metadata.sdk import configure
-from metadata.sdk.data_quality.dataframes import DataFrameValidator
+from metadata.sdk.data_quality.dataframes.dataframe_validator import DataFrameValidator
 
 # Configure SDK
 configure(
@@ -91,7 +91,7 @@ Here's a complete example of validating transformed data in an ETL pipeline:
 import pandas as pd
 from sqlalchemy import create_engine
 from metadata.sdk import configure
-from metadata.sdk.data_quality.dataframes import DataFrameValidator
+from metadata.sdk.data_quality.dataframes.dataframe_validator import DataFrameValidator
 from metadata.sdk.data_quality import (
     ColumnValuesToBeNotNull,
     ColumnValuesToBeUnique,
@@ -148,7 +148,7 @@ result.publish("Postgres.warehouse.public.customers")
 Instead of defining tests in code, load tests that are configured in OpenMetadata:
 
 ```python
-from metadata.sdk.data_quality.dataframes import DataFrameValidator
+from metadata.sdk.data_quality.dataframes.dataframe_validator import DataFrameValidator
 
 # Create validator
 validator = DataFrameValidator()
@@ -179,7 +179,7 @@ For large datasets that don't fit in memory, validate data in chunks:
 
 ```python
 import pandas as pd
-from metadata.sdk.data_quality.dataframes import DataFrameValidator, ValidationResult
+from metadata.sdk.data_quality.dataframes.dataframe_validator import DataFrameValidator, ValidationResult
 
 validator = DataFrameValidator()
 validator.add_openmetadata_table_tests("Postgres.warehouse.staging.transactions")
@@ -212,7 +212,7 @@ final_result.publish("Postgres.warehouse.staging.transactions")
 The `run()` method provides a cleaner approach with automatic chunk handling:
 
 ```python
-from metadata.sdk.data_quality.dataframes import DataFrameValidator
+from metadata.sdk.data_quality.dataframes.dataframe_validator import DataFrameValidator
 import pandas as pd
 from sqlalchemy import create_engine, Table, MetaData, insert, delete
 
@@ -258,7 +258,7 @@ result.publish("Postgres.warehouse.staging.orders")
 Use a context manager to ensure atomic transactions:
 
 ```python
-from metadata.sdk.data_quality.dataframes import DataFrameValidator
+from metadata.sdk.data_quality.dataframes.dataframe_validator import DataFrameValidator
 import pandas as pd
 from sqlalchemy import create_engine, MetaData, Table, insert
 
@@ -485,7 +485,7 @@ if result.success:
 Handle validation errors appropriately:
 
 ```python
-from metadata.sdk.data_quality.dataframes import DataFrameValidator
+from metadata.sdk.data_quality.dataframes.dataframe_validator import DataFrameValidator
 
 try:
     validator = DataFrameValidator()
