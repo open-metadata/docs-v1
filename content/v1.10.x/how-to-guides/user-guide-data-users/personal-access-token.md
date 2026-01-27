@@ -64,7 +64,7 @@ caption="Set token expiration"
 6. **Copy your token**
    - After generation, the personal access token is displayed.
    - You can revoke a token at any time by selecting `Revoke Token`.
-   - Copy and securely store the token, as you may not be able to view it again later.
+   - Copy and securely store the token, as you will not be able to view it again later.
 
 {% image
 src="/images/v1.10/how-to-guides/user-guide-for-data-stewards/access-token5.png"
