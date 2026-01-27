@@ -192,14 +192,16 @@ For example if you want to add a condition to filter out queries executed by met
 
 To fetch the query history log from redshift we execute the following query
 
+### Redshift Provisioned Cluster
 ```
 SELECT *
-      FROM pg_catalog.stl_query
+    FROM pg_catalog.stl_query
 WHERE userid > 1
-    
+
     AND {**your filter condition**}
 
     -- Filter out all automated & cursor queries
+    AND label NOT IN ('maintenance', 'metrics', 'health')
     AND querytxt NOT LIKE '/* {{"app": "OpenMetadata", %%}} */%%'
     AND querytxt NOT LIKE '/* {{"app": "dbt", %%}} */%%'
     AND aborted = 0
@@ -208,6 +210,25 @@ WHERE userid > 1
     LIMIT {result_limit}
 ```
 
-You can refer to [this redshift documentation](https://docs.aws.amazon.com/redshift/latest/dg/r_STL_QUERY.html) to find out more about the stl_query table.
+You can refer to [this redshift documentation](https://docs.aws.amazon.com/redshift/latest/dg/r_STL_QUERY.html) to find out more about the `STL_QUERY` table.
+
+### Redshift Serverless
+```
+SELECT *
+    FROM SYS_QUERY_HISTORY
+WHERE user_id > 1
+
+    AND {**your filter condition**}
+
+    -- Filter out all automated & cursor queries
+    AND LOWER(query_label) NOT IN ('maintenance', 'metrics', 'health')
+    AND query_text NOT LIKE '/* {{"app": "OpenMetadata", %%}} */%%'
+    AND query_text NOT LIKE '/* {{"app": "dbt", %%}} */%%'
+    AND LOWER(status) = 'success'
+    AND start_time >= '{start_time}'
+    AND start_time < '{end_time}'
+```
+
+You can refer to [this redshift documentation](https://docs.aws.amazon.com/redshift/latest/dg/SYS_QUERY_HISTORY.html) to find out more about the `SYS_QUERY_HISTORY` view.
 
 For example if you want to add a condition to filter out queries executed by metabase client, i.e. the queries staring with `-- metabase %` then you can put the condition as `query NOT LIKE '--metabase %'`.
