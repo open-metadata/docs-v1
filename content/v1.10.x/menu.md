@@ -951,6 +951,8 @@ site_menu:
     url: /how-to-guides/guide-for-data-users/follow-data-asset
   - category: How-to Guides / Guide for Data Users / How to Add Tags
     url: /how-to-guides/guide-for-data-users/tags
+  - category: How-to Guides / Guide for Data Users / How to Create a Personal Access Token
+    url: /how-to-guides/guide-for-data-users/personal-access-token
   - category: How-to Guides / Guide for Data Users / How to Request for Tags
     url: /how-to-guides/guide-for-data-users/request-tags
   - category: How-to Guides / Guide for Data Users / How to Add Glossary Terms
