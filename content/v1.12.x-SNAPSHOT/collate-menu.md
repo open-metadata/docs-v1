@@ -1068,6 +1068,9 @@ site_menu:
   - category: How-to Guides / Data Quality and Observability / Anomaly Detection / Steps to Set Up Anomaly Detection
     url: /how-to-guides/data-quality-observability/anomaly-detection/setting-up
 
+  - category: How-to Guides / Data Quality and Observability / Data Quality / Rules Library
+    url: /how-to-guides/data-quality-observability/quality/rules-library
+
   - category: How-to Guides / Data Lineage
     url: /how-to-guides/data-lineage
   - category: How-to Guides / Data Lineage / How to Deploy a Lineage Workflow
