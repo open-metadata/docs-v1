@@ -6,7 +6,7 @@ slug: /how-to-guides/data-quality-observability/quality/rules-library
 
 # Rules Library
 
-The **Rules Library** allows administrators to create custom, reusable data quality test definitions using SQL queries. Similar to dbt generic tests, you can define SQL-based validation rules with dynamic parameters that are resolved at runtime. This provides a flexible way to implement organization-specific data quality checks without writing custom code.
+The **Rules Library** allows administrators to create custom, reusable data quality test definitions using SQL queries. You can define SQL-based validation rules with dynamic parameters that are resolved at runtime. This provides a flexible way to implement organization-specific data quality checks without writing custom code.
 
 ## Key Features
 
