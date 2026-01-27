@@ -49,7 +49,12 @@ Fill in the following fields:
 | **Entity Type** | Whether the test applies to `TABLE` or `COLUMN` | Yes |
 | **SQL Expression** | The SQL query that defines the validation logic | Yes |
 | **Supported Data Sources** | The database services where this test can run | Yes |
+| **Test Platforms** | The platforms that can execute this test (e.g., OpenMetadata, dbt, Soda) | Yes |
 | **Parameters** | User-defined arguments for the SQL expression | No |
+
+{% note %}
+**Important:** If you want the test to run natively within OpenMetadata, the **Test Platforms** field must include `OpenMetadata`. Tests configured with other platforms (e.g., dbt, Soda, GreatExpectations) are intended for tracking results from external test frameworks and will not be executed by OpenMetadata's data quality engine.
+{% /note %}
 
 ### Step 3: Write the SQL Expression
 
