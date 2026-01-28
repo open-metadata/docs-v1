@@ -25,7 +25,7 @@ You can find the GitHub release [here](https://github.com/open-metadata/OpenMeta
 - Optimized BigQuery ingestion performance
 - Added support for maxResultSize in QueryRunnerRequest schema
 - Enhanced AsyncService with retry support, exponential backoff, and timeout handling
-- Added proper filters for domain assets 
+- Added proper filters for domain assets
 - Updated collate-data-diff dependency version
 
 ## Fixes
