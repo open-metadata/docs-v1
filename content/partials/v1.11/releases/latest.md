@@ -18,7 +18,7 @@ You can find the GitHub release [here](https://github.com/open-metadata/OpenMeta
 
 ## Improvements
 
-- Improved execution time tracking with more detailed
+- Improved execution time tracking with more detailed per-task metrics and logging
 - Added timeout handling for temp table lineage graph node processing
 - Enhanced Event Based Workflows to show relevant exclude fields
 - Improved Kafka Connect storage lineage handling and related enhancements
