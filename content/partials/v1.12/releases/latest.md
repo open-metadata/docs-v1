@@ -32,7 +32,7 @@ You can find the GitHub release [here](https://github.com/open-metadata/OpenMeta
 
 - Fixed unique count metric errors for BigQuery with cardinality updates
 - Fixed UI tab remount issue
-- Fixed Unapproved Terms should not be linked during bulk import  
+- Fixed Unapproved Terms should not be linked during bulk import
 - Fixed handling of Snowflake tags without values by skipping tag creation
 - Fixed DB SM does not strip secret prefix
 - Fixed count import issues in profiler interface
