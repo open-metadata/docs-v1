@@ -28,7 +28,9 @@ Configure and schedule DB2 metadata and profiler workflows from the OpenMetadata
 
 To create a new Db2 user please follow the guidelines mentioned [here](https://www.ibm.com/docs/ko/samfess/8.2.0?topic=schema-creating-users-manually)
 
-Db2 user must have the below permissions to ingest the metadata:
+The user must have the below permissions to ingest the metadata.
+
+### DB2 for LUW (Linux, UNIX, Windows)
 
 - `SELECT` privilege on `SYSCAT.SCHEMATA` to fetch the metadata of schemas.
 ```sql
@@ -46,6 +48,55 @@ GRANT SELECT ON SYSCAT.TABLES TO USER_NAME;
 ```sql
 -- Grant SELECT on tables for view metadata
 GRANT SELECT ON SYSCAT.VIEWS TO USER_NAME;
+```
+
+### DB2 for z/OS
+
+DB2 for z/OS uses `SYSIBM.*` catalog tables instead of `SYSCAT.*`. The connector auto-detects the platform and uses the appropriate catalog tables. The following permissions are required:
+
+- `SELECT` privilege on `SYSIBM.SYSTABLES` to fetch schemas, table names, and table comments.
+```sql
+GRANT SELECT ON SYSIBM.SYSTABLES TO USER_NAME;
+```
+
+- `SELECT` privilege on `SYSIBM.SYSCOLUMNS` to fetch column metadata for tables.
+```sql
+GRANT SELECT ON SYSIBM.SYSCOLUMNS TO USER_NAME;
+```
+
+- `SELECT` privilege on `SYSIBM.SYSVIEWS` to fetch view names and definitions.
+```sql
+GRANT SELECT ON SYSIBM.SYSVIEWS TO USER_NAME;
+```
+
+- `SELECT` privilege on `SYSIBM.SYSINDEXES` to fetch index and primary key information.
+```sql
+GRANT SELECT ON SYSIBM.SYSINDEXES TO USER_NAME;
+```
+
+- `SELECT` privilege on `SYSIBM.SYSTABCONST` to fetch table constraints (primary keys, unique constraints).
+```sql
+GRANT SELECT ON SYSIBM.SYSTABCONST TO USER_NAME;
+```
+
+- `SELECT` privilege on `SYSIBM.SYSKEYCOLUSE` to fetch key column usage for constraints.
+```sql
+GRANT SELECT ON SYSIBM.SYSKEYCOLUSE TO USER_NAME;
+```
+
+- `SELECT` privilege on `SYSIBM.SYSFOREIGNKEYS` to fetch foreign key column details.
+```sql
+GRANT SELECT ON SYSIBM.SYSFOREIGNKEYS TO USER_NAME;
+```
+
+- `SELECT` privilege on `SYSIBM.SYSRELS` to fetch foreign key relationships between tables.
+```sql
+GRANT SELECT ON SYSIBM.SYSRELS TO USER_NAME;
+```
+
+- `SELECT` privilege on `SYSIBM.SYSSEQUENCES` to fetch sequence metadata.
+```sql
+GRANT SELECT ON SYSIBM.SYSSEQUENCES TO USER_NAME;
 ```
 
 ### Profiler & Data Quality
