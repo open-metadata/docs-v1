@@ -9,7 +9,7 @@ slug: /connectors/pipeline/airflow/gcp-composer
 
 This approach has been last tested against:
 - Composer version 2.15.2
-- Airflow version 2.10.5
+- Airflow version 3.1.5
 
 There are 2 main approaches we can follow here to extract metadata from GCS. Both of them involve creating a DAG
 directly in your Composer instance, but the requirements and the steps to follow are going to be slightly different.
