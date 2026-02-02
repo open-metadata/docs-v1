@@ -67,7 +67,7 @@ If you are using AWS OpenSearch Service, OpenMetadata Supports AWS OpenSearch Se
 OpenMetadata performs metadata ingestion using the Ingestion Framework. Learn more about how to deploy and manage
 the ingestion workflows [here](/deployment/ingestion).
 
-OpenMetadata versions have specific Airflow compatibility requirements to ensure seamless metadata ingestion. OpenMetadata 1.5 supports Airflow 2.9, 1.6.4 supports Airflow 2.9.3, and 1.6.5 supports Airflow 2.10.5. Ensure that your Airflow version aligns with your OpenMetadata deployment to maintain stability and functionality.
+OpenMetadata versions have specific Airflow compatibility requirements to ensure seamless metadata ingestion. OpenMetadata 1.5 supports Airflow 2.9, 1.6.4 supports Airflow 2.9.3, 1.6.5 supports Airflow 2.10.5 and from 1.11.x we support 3.1.5. Ensure that your Airflow version aligns with your OpenMetadata deployment to maintain stability and functionality.
 
 ## Minimum Sizing Requirements
 
