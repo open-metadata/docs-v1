@@ -98,7 +98,7 @@ cron-deploy-pipelines   0/5 * * * *   <none>     True      0        <none>      
 2.	Create a Job from a CronJob
 Create a one-time job from an existing CronJob using the following command:
 ```bash
-kubectl create job --from=cronjob/cron-reindex <job_name>
+kubectl create job --from=cronjob/cron-deploy-pipelines <job_name>
 ```
 {% note %} 
 Replace `<job_name>` with the actual name of the job.
