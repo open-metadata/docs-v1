@@ -142,3 +142,33 @@ caption="Generate token" /%}
 #### Permission Errors
 - Ensure proper GRANT statements have been executed for your authentication method
 
+## Missing Tables or Lineage in Databricks (Unity Catalog) Ingestion
+
+### Symptoms
+
+-   Some schemas or tables that match the configured filter are not
+    visible after ingestion.
+-   Lineage is missing or incomplete for expected tables.
+-   Schemas are visible, but no tables appear under them.
+
+### Common Causes
+
+-   The Personal Access Token (PAT) used by the Metadata Agent lacks
+    required Unity Catalog permissions.
+-   The user can list catalogs or schemas but does not have SELECT
+    access on tables.
+-   Required access to `system.query.history` is missing, preventing
+    lineage generation.
+
+### What to Check
+
+-   Ensure the PAT user has:
+    -   Permission to use the target catalog.
+    -   Permission to use the target schemas.
+    -   SELECT permission on all tables that should be ingested.
+    -   Access to the `system.query` schema and `system.query.history`
+        for lineage.
+-   Confirm that metadata ingestion has completed successfully after
+    permission changes.
+-   Remember that lineage is generated only between ingested entities;
+    if a table is not ingested, its lineage connections will not appear.
