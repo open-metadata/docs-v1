@@ -31,7 +31,7 @@ You can find the GitHub release [here](https://github.com/open-metadata/OpenMeta
 - Fixed testsuite result summary
 - Fixed okta renewal
 - Fixed Ingest Schema & View Definition For Unity Catalog
-- Fixed DB2 connection TLS certificate connection fix
+- Fixed DB2 TLS certificate connection issue
 - Fixed Snowflake View DDL Fallback To Preserve Exact Case Identifiers
 - Skip and warn when autoclassification values are too long
 - Deploy pipeline before DB update to prevent inconsistent state
