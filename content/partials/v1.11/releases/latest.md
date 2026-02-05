@@ -25,7 +25,7 @@ You can find the GitHub release [here](https://github.com/open-metadata/OpenMeta
 
 ## Fixes
 
-- Fixed PowerBI .pbit parser fails on multiline DAX expressions
+- Fixed PowerBI .pbit parser failing on multiline DAX expressions
 - Fixed tag search in mUI Tag Suggestion
 - Fixed app stuck on refresh call for basic
 - Fixed testsuite result summary
