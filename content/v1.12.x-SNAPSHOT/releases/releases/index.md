@@ -15,6 +15,8 @@ version.
 
 {% partial file="/v1.12/releases/latest.md" /%}
 
+{% partial file="/v1.12/releases/1.11.7.md" /%}
+
 {% partial file="/v1.12/releases/1.11.6.md" /%}
 
 {% partial file="/v1.12/releases/1.11.5.md" /%}
