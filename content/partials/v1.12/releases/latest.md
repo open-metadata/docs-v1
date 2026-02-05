@@ -1,7 +1,7 @@
-# 1.11.7 Release 🎉
+# 1.11.8 Release 🎉
 
 {% note noteType="Tip" %}
-**28th January 2026**
+**4th February 2026**
 {% /note %}
 
 {% inlineCalloutContainer %}
@@ -10,41 +10,31 @@ color="violet-70"
 icon="celebration"
 bold="Upgrade OpenMetadata"
 href="/deployment/upgrade" %}
-Learn how to upgrade your OpenMetadata instance to 1.11.7!
+Learn how to upgrade your OpenMetadata instance to 1.11.8!
 {% /inlineCallout %}
 {% /inlineCalloutContainer %}
 
-You can find the GitHub release [here](https://github.com/open-metadata/OpenMetadata/releases/tag/1.11.7-release).
+You can find the GitHub release [here](https://github.com/open-metadata/OpenMetadata/releases/tag/1.11.8-release).
 
 ## Improvements
 
-- Improved execution time tracking with more detailed metrics and logging
-- Added timeout handling for temp table lineage graph node processing
-- Enhanced Event Based Workflows to show relevant exclude fields
-- Improved Kafka Connect storage lineage handling and related enhancements
-- Optimized BigQuery ingestion performance
-- Added support for maxResultSize in QueryRunnerRequest schema
-- Enhanced AsyncService with retry support, exponential backoff, and timeout handling
-- Added proper filters for domain assets
-- Updated collate-data-diff dependency version
+- Added BigQuery lineage support for PowerBI .pbit files
+- Added sobjectNames field for multi-object selection in Salesforce connector
+- Added PBI rdl report lineage
+- Included API result properties descriptions from OpenAPI schemas
 
 ## Fixes
 
-- Fixed unique count metric errors for BigQuery with cardinality updates
-- Fixed UI tab remount issue
-- Fixed Unapproved Terms should not be linked during bulk import
-- Fixed handling of Snowflake tags without values by skipping tag creation
-- Fixed DB SM does not strip secret prefix
-- Fixed count import issues in profiler interface
-- Fixed UI issue where removing custom properties did not update the UI
-- Fixed pipeline status ingestion issues with special characters
-- Fixed Tableau db_service_entity being None
-- Fixed advanced search issues related to custom properties
-- Fixed CSV export issues by properly escaping quoted fields containing commas
-- Fixed classification page loading issues
-- Fixed JSONLogic query builder suffix handling
-- Fixed incorrect private key and passphrase fetching logic
-- Added logging to TestCaseResultRepository
-- Fixed UI plugin loading based on navigationItems configuration
+- Fixed PowerBI .pbit parser failure on multiline DAX expressions
+- Fixed tag search in mUI Tag Suggestion
+- Fixed app stuck on refresh call for basic
+- Fixed testsuite result summary
+- Fixed okta renewal
+- Fixed Ingest Schema & View Definition For Unity Catalog
+- Fixed DB2 TLS certificate connection issue
+- Fixed Snowflake View DDL Fallback To Preserve Exact Case Identifiers
+- Skip and warn when autoclassification values are too long
+- Deploy pipeline before DB update to prevent inconsistent state
+- Clean OpenMetadataWorkflowConfig in IngestionPipeline
 
-**Full Changelog**: [link](https://github.com/open-metadata/OpenMetadata/compare/1.11.6-release...1.11.7-release)
+**Full Changelog**: [link](https://github.com/open-metadata/OpenMetadata/compare/1.11.7-release...1.11.8-release)
