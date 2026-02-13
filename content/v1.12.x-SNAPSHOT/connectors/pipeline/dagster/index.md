@@ -82,7 +82,7 @@ For a complete guide on managing secrets in hybrid setups, see the [Hybrid Inges
   - Click on the "Create a New API Key" button.
   - Give your API key a name and click on the "Create API Key" button.
   - Copy the generated API key to your clipboard and paste it in the field.
-- **Strip Asset Key Prefix Length**: Number of leading segments to remove from asset key paths before resolving to tables. Dagster asset keys are path-like identifiers (e.g., `["project", "environment", "schema", "table"]`). OpenMetadata matches these to tables using `database.schema.table` or `schema.table` format. If your asset keys include additional prefix segments (project, environment, etc.), use this setting to strip them. For example, setting value to `2` on asset key `["project", "env", "schema", "table"]` results in `schema.table`. Default: `0` (no stripping).
+- **Strip Asset Key Prefix Length**: Number of leading segments to remove from asset key paths before resolving to tables. Dagster asset keys are path-like identifiers (e.g., `["project", "environment", "schema", "table"]`). OpenMetadata matches these to tables using `database.schema.table` or `schema.table` format. If your asset keys include additional prefix segments (project, environment, etc.), use this setting to strip them. For example, setting value to `2` on asset key `["project", "env", "schema", "table"]` results in `schema.table`. Default: `0` (no stripping). See [detailed examples](#lineage) in the Lineage section below.
 
 {% /extraContent %}
 
