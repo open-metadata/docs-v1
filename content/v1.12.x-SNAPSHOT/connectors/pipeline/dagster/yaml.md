@@ -75,9 +75,26 @@ This is a sample config for Dagster:
 **timeout** : Connection Time Limit Between OM and Dagster Graphql API in second
 {% /codeInfo %}
 
+{% codeInfo srNumber=4 %}
+
+**stripAssetKeyPrefixLength**: Number of leading segments to remove from asset key paths before resolving to tables.
+
+Dagster asset keys are path-like identifiers represented as arrays of strings (e.g., `["project", "environment", "schema", "table"]`). When OpenMetadata ingests Dagster pipelines, it tries to match these asset keys to table entities using the standard format: `database.schema.table` or `schema.table`.
+
+If your Dagster asset keys include additional prefix segments beyond the database/schema/table hierarchy, use this setting to strip those prefixes. For example:
+- Asset key: `["project", "environment", "schema", "table"]`
+- Set value to `2` to strip `project` and `environment`
+- Result: `schema.table` (matches OpenMetadata table entities)
+
+Common use cases include stripping project/workspace identifiers, environment names (dev/staging/prod), or storage bucket/container prefixes.
+
+Default value is `0` (no stripping).
+
+{% /codeInfo %}
+
 #### Source Configuration - Lineage
 
-{% codeInfo srNumber=4 %}
+{% codeInfo srNumber=5 %}
 
 **lineageInformation**: Configure lineage extraction settings.
 
@@ -120,6 +137,9 @@ source:
         # timeout: 1000
 ```
 ```yaml {% srNumber=4 %}
+        # stripAssetKeyPrefixLength: 0
+```
+```yaml {% srNumber=5 %}
   sourceConfig:
     config:
       type: PipelineMetadata

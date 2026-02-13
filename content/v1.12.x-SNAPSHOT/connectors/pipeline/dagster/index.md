@@ -82,6 +82,11 @@ For a complete guide on managing secrets in hybrid setups, see the [Hybrid Inges
   - Click on the "Create a New API Key" button.
   - Give your API key a name and click on the "Create API Key" button.
   - Copy the generated API key to your clipboard and paste it in the field.
+- **Strip Asset Key Prefix Length**: Number of leading segments to remove from asset key paths before resolving to tables. Dagster asset keys are path-like identifiers (e.g., `["project", "environment", "schema", "table"]`). 
+OpenMetadata matches these to tables using `database.schema.table` or `schema.table` format. 
+If your asset keys include additional prefix segments (project, environment, etc.), use this setting to strip them. 
+For example, setting value to `2` on asset key `["project", "env", "schema", "table"]` results in `schema.table`. 
+Default: `0` (no stripping). See [detailed examples](#lineage) in the Lineage section below.
 
 {% /extraContent %}
 
@@ -141,6 +146,53 @@ def customer_orders():
 | `["database", "schema", "table"]` | Full path - best for lineage |
 | `["schema", "table"]` | Schema and table only |
 | `["table"]` | Table name only |
+
+**Using stripAssetKeyPrefixLength for Asset Keys with Prefixes**
+
+If your asset keys include additional prefix segments (e.g., project name, environment), use the `stripAssetKeyPrefixLength` configuration to remove them before matching to tables:
+
+**Example 1: Stripping Environment Prefix**
+
+```python
+# Your Dagster asset keys include environment prefix
+@asset(key=["prod", "analytics_db", "public", "customers"])
+def customers():
+    ...
+
+@asset(
+    key=["prod", "analytics_db", "public", "orders"],
+    deps=[customers]
+)
+def orders():
+    ...
+```
+
+**Configuration:**
+```yaml
+sourceConfig:
+  config:
+    stripAssetKeyPrefixLength: 1  # Remove the first segment ("prod")
+```
+
+**Result:** Asset keys become `["analytics_db", "public", "customers"]` and `["analytics_db", "public", "orders"]`, which match the table format `database.schema.table`.
+
+**Example 2: Stripping Multiple Prefixes**
+
+```python
+# Asset keys with project and environment prefixes
+@asset(key=["my_project", "staging", "warehouse", "raw", "users"])
+def users():
+    ...
+```
+
+**Configuration:**
+```yaml
+sourceConfig:
+  config:
+    stripAssetKeyPrefixLength: 2  # Remove first two segments ("my_project", "staging")
+```
+
+**Result:** Asset key becomes `["warehouse", "raw", "users"]`, matching `warehouse.raw.users` in OpenMetadata.
 
 **2. Assets Include Table Metadata in Materializations**
 
