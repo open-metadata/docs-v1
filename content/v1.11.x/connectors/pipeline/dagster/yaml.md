@@ -77,7 +77,7 @@ This is a sample config for Dagster:
 
 {% codeInfo srNumber=4 %}
 
-**stripAssetKeyPrefix**: Number of leading segments to remove from asset key paths before resolving to tables.
+**stripAssetKeyPrefixLength**: Number of leading segments to remove from asset key paths before resolving to tables.
 
 Dagster asset keys are path-like identifiers represented as arrays of strings (e.g., `["project", "environment", "schema", "table"]`). When OpenMetadata ingests Dagster pipelines, it tries to match these asset keys to table entities using the standard format: `database.schema.table` or `schema.table`.
 
@@ -137,7 +137,7 @@ source:
         # timeout: 1000
 ```
 ```yaml {% srNumber=4 %}
-        # stripAssetKeyPrefix: 0
+        # stripAssetKeyPrefixLength: 0
 ```
 ```yaml {% srNumber=5 %}
   sourceConfig:

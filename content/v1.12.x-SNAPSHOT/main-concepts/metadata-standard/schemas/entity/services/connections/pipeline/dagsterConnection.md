@@ -13,7 +13,7 @@ slug: /main-concepts/metadata-standard/schemas/entity/services/connections/pipel
 - **`host`** *(string)*: URL to the Dagster instance.
 - **`token`** *(string)*: To Connect to Dagster Cloud.
 - **`timeout`** *(integer)*: Connection Time Limit Between OM and Dagster Graphql API in second. Default: `1000`.
-- **`stripAssetKeyPrefix`** *(integer)*: Number of leading segments to remove from asset key paths before resolving to tables. Dagster asset keys are path-like identifiers (e.g., `["project", "environment", "schema", "table"]`). Use this setting to strip prefix segments beyond the database/schema/table hierarchy. Default: `0`.
+- **`stripAssetKeyPrefixLength`** *(integer)*: Number of leading segments to remove from asset key paths before resolving to tables. Dagster asset keys are path-like identifiers (e.g., `["project", "environment", "schema", "table"]`). Use this setting to strip prefix segments beyond the database/schema/table hierarchy. Default: `0`.
 - **`pipelineFilterPattern`**: Regex exclude pipelines. Refer to *../../../../type/filterPattern.json#/definitions/filterPattern*.
 - **`supportsMetadataExtraction`**: Refer to *../connectionBasicType.json#/definitions/supportsMetadataExtraction*.
 ## Definitions
